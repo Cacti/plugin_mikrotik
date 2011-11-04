@@ -656,8 +656,8 @@ function mikrotik_users() {
 				echo "<td style='white-space:nowrap;' align='left' title='" . $row["ip"] . "' width='100'>" . (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", title_trim($row["ip"], 40)):title_trim($row["ip"],40)) . "</td>";
 				echo "<td style='white-space:nowrap;' align='left' title='" . $row["mac"] . "' width='100'>" . (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", title_trim($row["mac"], 40)):title_trim($row["mac"],40)) . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_format_uptime($days, $hours, $minutes) . "</td>";
-				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["curBytesIn"]*8/read_config_option("mikrotik_users_freq"), "b/s") . "</td>";
-				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["curBytesOut"]*8/read_config_option("mikrotik_users_freq"), "b/s") . "</td>";
+				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["curBytesIn"]*8, "b/s") . "</td>";
+				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["curBytesOut"]*8, "b/s") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["avgBytesIn"]*8, "b/s") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["avgBytesOut"]*8, "b/s") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["bytesIn"]*8, "b") . "</td>";
@@ -983,6 +983,7 @@ function mikrotik_devices() {
 			$graph_aproc = mikrotik_get_graph_template_url(read_config_option("mikrotik_gt_processes"), $row["host_id"], ($row["host_status"] < 2 ? "N/A":$row["processes"]), false);
 			$graph_disk  = mikrotik_get_graph_template_url(read_config_option("mikrotik_gt_disk"), $row["host_id"], ($row["host_status"] < 2 ? "N/A":round($row["diskUsed"],2)), false);
 			$graph_mem   = mikrotik_get_graph_template_url(read_config_option("mikrotik_gt_memory"), $row["host_id"], ($row["host_status"] < 2 ? "N/A":round($row["memUsed"],2)), false);
+			$graph_upt   = mikrotik_get_graph_template_url(read_config_option("mikrotik_gt_uptime"), $row["host_id"], ($row["host_status"] < 2 ? "N/A":mikrotik_format_uptime($days, $hours, $minutes)), false);
 
 
 			if (api_plugin_user_realm_auth('host.php')) {
@@ -994,7 +995,7 @@ function mikrotik_devices() {
 			echo "</td>";
 			echo "<td style='white-space:nowrap;' align='left' width='200'><strong>" . $row["description"] . "</strong> [" . $host_url . "]" . "</td>";
 			echo "<td style='white-space:nowrap;' align='right'>" . get_colored_device_status(($row["disabled"] == "on" ? true : false), $row["host_status"]) . "</td>";
-			echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_format_uptime($days, $hours, $minutes) . "</td>";
+			echo "<td style='white-space:nowrap;' align='right'>" . $graph_upt . "</td>";
 			echo "<td style='white-space:nowrap;' align='right'>" . $graph_users . "</td>";
 			echo "<td style='white-space:nowrap;' align='right'>" . ($row["host_status"] < 2 ? "N/A":$graph_cpup) . "</td>";
 			echo "<td style='white-space:nowrap;' align='right'>" . ($row["host_status"] < 2 ? "N/A":$graph_cpu) . "</td>";
@@ -1135,8 +1136,10 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 		}else{
 			return "<img src='$nograph' title='No Graphs Found' align='absmiddle' border='0'>";
 		}
-	}else{
+	}elseif ($image) {
 		return "<img src='$nograph' title='Please Select Data Query First from Console->Settings->Host Mib First' align='absmiddle' border='0'>";
+	}else{
+		return $title;
 	}
 }
 
@@ -1153,13 +1156,8 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = "", $ima
 	if (!empty($data_query)) {
 		$sql    = "SELECT DISTINCT gl.id
 			FROM graph_local AS gl
-			INNER JOIN snmp_query_graph AS sqg ON gl.graph_template_id=sqg.graph_template_id
-			INNER JOIN graph_templates_item AS gti ON gl.id=gti.local_graph_id
-			INNER JOIN data_template_rrd AS dtr ON gti.task_item_id=dtr.id
-			INNER JOIN data_template_data AS dtd ON dtd.local_data_id=dtr.local_data_id
-			INNER JOIN data_input_data AS did ON did.data_template_data_id=dtd.id
-			WHERE sqg.snmp_query_id=$data_query " .
-			($index!='' ? " AND did.value IN ('$index')":"") .
+			WHERE gl.snmp_query_id=$data_query " .
+			($index!='' ? " AND gl.snmp_index IN ('$index')":"") .
 			($host_id!="" ? " AND gl.host_id=$host_id":"") .
 			($hstr!="" ? " AND gl.host_id IN $hstr":"");
 
@@ -1181,8 +1179,10 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = "", $ima
 		}else{
 			return "<img src='$nograph' title='No Graphs Found' align='absmiddle' border='0'>";
 		}
-	}else{
+	}elseif ($image) {
 		return "<img src='$nograph' title='Please Select Data Query First from Console->Settings->Host Mib First' align='absmiddle' border='0'>";
+	}else{
+		return $title;
 	}
 }
 

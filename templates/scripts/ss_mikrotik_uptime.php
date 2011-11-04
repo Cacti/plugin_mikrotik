@@ -12,7 +12,7 @@ if (!isset($called_by_script_server)) {
 }
 
 function ss_mikrotik_uptime($hostid = "") {
-	$cpu = db_fetch_cell("SELECT uptime/86400
+	$cpu = db_fetch_cell("SELECT uptime/86400/100
 		FROM plugin_mikrotik_system
 		WHERE host_id=$hostid");
 

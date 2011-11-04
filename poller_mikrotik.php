@@ -126,7 +126,7 @@ exit(0);
 function runCollector($start, $lastrun, $frequency) {
 	global $forcerun;
 
-	if ((empty($lastrun) || ($start - $lastrun) > $frequency) && $frequency > 0 || $forcerun) {
+	if ((empty($lastrun) || ($start - $lastrun) > ($frequency - 55)) && $frequency > 0 || $forcerun) {
 		return true;
 	}else{
 		return false;
@@ -415,29 +415,33 @@ function process_hosts() {
 		SET users=0, cpuPercent=0, processes=0, memUsed=0, diskUsed=0, uptime=0, sysUptime=0
 		WHERE host_status IN (0,1)");
 
-	/* for users that are active, increment data */
-	db_execute("UPDATE plugin_mikrotik_users
-		SET curBytesIn=IF(prevBytesIn>0 AND bytesIn>prevBytesIn,(bytesIn-prevBytesIn),0),
-		curBytesOut=IF(prevBytesIn>0 AND bytesOut>prevBytesOut,(bytesOut-prevBytesOut),0),
-		curPacketsIn=IF(prevPacketsIn>0 AND packetsIn>prevPacketsIn,(packetsIn-prevPacketsIn),0),
-		curPacketsOut=IF(prevPacketsOut>0 AND packetsOut>prevPacketsOut,(packetsOut-prevPacketsOut),0)
-		WHERE present=1");
+	if (runCollector($start, $users_lastrun, $users_freq)) {
+		$freq = read_config_option("mikrotik_users_freq");
 
-	/* for users that are active, store previous data */
-	db_execute("UPDATE plugin_mikrotik_users
-		SET prevBytesIn=bytesIn,
-		prevBytesOut=bytesOut,
-		prevPacketsIn=packetsIn,
-		prevPacketsOut=packetsOut
-		WHERE present=1");
+		/* for users that are active, increment data */
+		db_execute("UPDATE plugin_mikrotik_users
+			SET curBytesIn=IF(prevBytesIn>0 AND bytesIn>prevBytesIn,(bytesIn-prevBytesIn)/$freq,0),
+			curBytesOut=IF(prevBytesIn>0 AND bytesOut>prevBytesOut,(bytesOut-prevBytesOut)/$freq,0),
+			curPacketsIn=IF(prevPacketsIn>0 AND packetsIn>prevPacketsIn,(packetsIn-prevPacketsIn)/$freq,0),
+			curPacketsOut=IF(prevPacketsOut>0 AND packetsOut>prevPacketsOut,(packetsOut-prevPacketsOut)/$freq,0)
+			WHERE present=1");
 
-	/* for users that are inactive, clear information */
-	db_execute("UPDATE plugin_mikrotik_users
-		SET bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, 
-		curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0, 
-		prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, 
-		connectTime=0
-		WHERE present=0");
+		/* for users that are active, store previous data */
+		db_execute("UPDATE plugin_mikrotik_users
+			SET prevBytesIn=bytesIn,
+			prevBytesOut=bytesOut,
+			prevPacketsIn=packetsIn,
+			prevPacketsOut=packetsOut
+			WHERE present=1");
+
+		/* for users that are inactive, clear information */
+		db_execute("UPDATE plugin_mikrotik_users
+			SET bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, 
+			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0, 
+			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, 
+			connectTime=0
+			WHERE present=0");
+	}
 
 	/* take time and log performance data */
 	list($micro,$seconds) = explode(" ", microtime());

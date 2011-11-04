@@ -33,6 +33,7 @@ function plugin_mikrotik_install () {
 	api_plugin_register_hook('mikrotik', 'top_graph_header_tabs', 'mikrotik_show_tab',              'setup.php');
 
 	api_plugin_register_realm('mikrotik', 'mikrotik.php', 'Plugin -> MikroTik Viewer', 1);
+	api_plugin_register_realm('mikrotik', 'mikrotik_users.php', 'Plugin -> MikroTik Admin', 1);
 
 	mikrotik_setup_table ();
 }
@@ -180,7 +181,7 @@ function mikrotik_setup_table () {
 		KEY `present` (`present`),
 		KEY `index` (`index`))
 		ENGINE=MyISAM
-		COMMENT='Table of MicroTik User Usage';");
+		COMMENT='Table of MikroTik User Usage';");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_trees` (
 		`host_id` int(10) unsigned NOT NULL,
@@ -200,7 +201,7 @@ function mikrotik_setup_table () {
 		KEY `present` (`present`),
 		KEY `index` (`index`))
 		ENGINE=MyISAM
-		COMMENT='Table of MicroTik Trees';");
+		COMMENT='Table of MikroTik Trees';");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_processor` (
 		`host_id` int(10) unsigned NOT NULL,
@@ -226,7 +227,7 @@ function mikrotik_version () {
 	return array(
 		'name' 		=> 'mikrotik',
 		'version' 	=> '1.0',
-		'longname'	=> 'MicroTik Switch Tool',
+		'longname'	=> 'MikroTik Switch Tool',
 		'author'	=> 'The Cacti Group',
 		'homepage'	=> 'http://www.cacti.net',
 		'email'		=> '',
@@ -247,18 +248,18 @@ function mikrotik_config_settings () {
 	$tabs['mikrotik'] = 'MikroTik';
 	$settings['mikrotik'] = array(
 		"mikrotik_header" => array(
-			"friendly_name" => "MicroTik General Settings",
+			"friendly_name" => "MikroTik General Settings",
 			"method" => "spacer",
 			),
 		"mikrotik_enabled" => array(
-			"friendly_name" => "MicroTik Poller Enabled",
-			"description" => "Check this box, if you want MicroTik polling to be enabled.  Otherwise, the poller will not function.",
+			"friendly_name" => "MikroTik Poller Enabled",
+			"description" => "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function.",
 			"method" => "checkbox",
 			"default" => ""
 			),
 		"mikrotik_autodiscovery" => array(
 			"friendly_name" => "Automatically Discover Cacti Devices",
-			"description" => "Do you wish to automatically scan for and add devices which support the MicroTik MIB from the Cacti host table?",
+			"description" => "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?",
 			"method" => "checkbox",
 			"default" => "on"
 			),
@@ -290,8 +291,8 @@ function mikrotik_config_settings () {
 		//	"method" => "spacer",
 		//	),
 		//"mikrotik_summary_host_template" => array(
-		//	"friendly_name" => "MicroTik Summary Device Template",
-		//	"description" => "Select the Host Template associated with the MicroTik
+		//	"friendly_name" => "MikroTik Summary Device Template",
+		//	"description" => "Select the Host Template associated with the MikroTik
 		//	summary device.  This device will contain graphs for summary metrics.",
 		//	"method" => "drop_sql",
 		//	"default" => "",
@@ -303,8 +304,8 @@ function mikrotik_config_settings () {
 			"method" => "spacer",
 			),
 		//"mikrotik_dq_trees" => array(
-		//	"friendly_name" => "MicroTik Trees Data Query",
-		//	"description" => "Select the Data Query associated with the MicroTik Tree aggregation.  This will be
+		//	"friendly_name" => "MikroTik Trees Data Query",
+		//	"description" => "Select the Data Query associated with the MikroTik Tree aggregation.  This will be
 		//	used for action icon placement.",
 		//	"method" => "drop_sql",
 		//	"default" => "",
@@ -312,8 +313,8 @@ function mikrotik_config_settings () {
 		//	"sql" => "SELECT id, name FROM snmp_query ORDER BY name",
 		//	),
 		"mikrotik_dq_users" => array(
-			"friendly_name" => "MicroTik Users Data Query",
-			"description" => "Select the Data Query associated with the MicroTik User aggregation.  This will be
+			"friendly_name" => "MikroTik Users Data Query",
+			"description" => "Select the Data Query associated with the MikroTik User aggregation.  This will be
 			used for action icon placement.",
 			"method" => "drop_sql",
 			"default" => "",
@@ -321,8 +322,8 @@ function mikrotik_config_settings () {
 			"sql" => "SELECT id, name FROM snmp_query ORDER BY name",
 			),
 		//"mikrotik_dq_cpu" => array(
-		//	"friendly_name" => "MicroTik CPU Usage Data Query",
-		//	"description" => "Select the Data Query associated with the MicroTik CPU Utilization.  This will be
+		//	"friendly_name" => "MikroTik CPU Usage Data Query",
+		//	"description" => "Select the Data Query associated with the MikroTik CPU Utilization.  This will be
 		//	used for action icon placement.",
 		//	"method" => "drop_sql",
 		//	"default" => "",
@@ -460,7 +461,7 @@ function mikrotik_config_settings () {
 				ORDER BY name",
 			),
 		"mikrotik_autodiscovery_header" => array(
-			"friendly_name" => "MicroTik Auto Discovery Frequency",
+			"friendly_name" => "MikroTik Auto Discovery Frequency",
 			"method" => "spacer",
 			),
 		"mikrotik_autodiscovery_freq" => array(
@@ -490,7 +491,7 @@ function mikrotik_config_settings () {
 				2880 => "2 Days")
 			),
 		"mikrotik_frequencies" => array(
-			"friendly_name" => "MicroTik Table Collection Frequencies",
+			"friendly_name" => "MikroTik Table Collection Frequencies",
 			"method" => "spacer",
 			),
 		"mikrotik_storage_freq" => array(
@@ -527,6 +528,8 @@ function mikrotik_config_settings () {
 function mikrotik_config_arrays() {
 	global $menu, $messages, $mikrotik_frequencies;
 	global $mikrotikSystem, $mikrotikTrees, $mikrotikUsers, $mikrotikProcessor, $mikrotikStorage;
+
+	$menu['Management']['plugins/mikrotik/mikrotik_users.php'] = 'Mikrotik Users';
 
 	$mikrotik_frequencies = array(
 		-1    => "Disabled",
@@ -615,6 +618,10 @@ function mikrotik_draw_navigation_text ($nav) {
 	$nav["mikrotik.php:users"]   = array("title" => "MikroTik Users", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
 	$nav["mikrotik.php:storage"] = array("title" => "MikroTik Storage", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
 	$nav["mikrotik.php:graphs"]  = array("title" => "MikroTik Graphs", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
+
+	$nav["mikrotik_users.php:"]  = array("title" => "MikroTik Users", "mapping" => "index.php:", "url" => "mikrotik_user.php", "level" => "1");
+	$nav["mikrotik_users.php:edit"] = array("title" => "(Edit)", "mapping" => "index.php:,mikrotik_users.php:", "url" => "", "level" => "2");
+	$nav["mikrotik_users.php:actions"] = array("title" => "Actions", "mapping" => "index.php:,mikrotik_users.php:", "url" => "", "level" => "2");
 
 	return $nav;
 }
