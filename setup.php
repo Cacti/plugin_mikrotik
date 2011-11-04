@@ -613,7 +613,8 @@ function mikrotik_config_arrays() {
 }
 
 function mikrotik_draw_navigation_text ($nav) {
-	$nav["mikrotik.php:"]        = array("title" => "MikroTik Details", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
+	$nav["mikrotik.php:"]        = array("title" => "MikroTik Devices", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
+	$nav["mikrotik.php:devices"] = array("title" => "MikroTik Devices", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
 	$nav["mikrotik.php:trees"]   = array("title" => "MikroTik Trees", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
 	$nav["mikrotik.php:users"]   = array("title" => "MikroTik Users", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
 	$nav["mikrotik.php:storage"] = array("title" => "MikroTik Storage", "mapping" => "", "url" => "mikrotik.php", "level" => "0");
