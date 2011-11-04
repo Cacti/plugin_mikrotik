@@ -5,6 +5,7 @@
     Home Site ...... http://www.cacti.net
     Program ........ MikroTik Monitoring Plugin
     Version ........ 1.0
+    Requires ....... Cacti 0.8.7i+, PIA 3.1
     Purpose ........ Collect MikroTik Information for Reporting
 
 *******************************************************************************/
