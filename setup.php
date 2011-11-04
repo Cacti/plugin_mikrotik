@@ -631,9 +631,9 @@ function mikrotik_show_tab() {
 
 	if (api_user_realm_auth('mikrotik.php')) {
 		if (substr_count($_SERVER["REQUEST_URI"], "mikrotik.php")) {
-			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik_down.gif" alt="mikrotik" align="absmiddle" border="0"></a>';
+			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik_down.gif" alt="MikroTik" align="absmiddle" border="0"></a>';
 		}else{
-			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik.gif" alt="mikrotik" align="absmiddle" border="0"></a>';
+			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik.gif" alt="MikroTik" align="absmiddle" border="0"></a>';
 		}
 	}
 }
