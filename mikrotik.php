@@ -209,7 +209,7 @@ function mikrotik_trees() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' name='action' value='history'>
+			<input type='hidden' name='action' value='trees'>
 			</form>
 		</td>
 	</tr>
@@ -514,7 +514,7 @@ function mikrotik_users() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' name='action' value='running'>
+			<input type='hidden' name='action' value='users'>
 			</form>
 		</td>
 	</tr>
