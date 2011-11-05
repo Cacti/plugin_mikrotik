@@ -660,8 +660,8 @@ function mikrotik_users() {
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["curBytesOut"]*8, "b/s") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["avgBytesIn"]*8, "b/s") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["avgBytesOut"]*8, "b/s") . "</td>";
-				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["bytesIn"]*8, "b") . "</td>";
-				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["bytesOut"]*8, "b") . "</td>";
+				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["bytesIn"], "B") . "</td>";
+				echo "<td style='white-space:nowrap;' align='right'>" . mikrotik_memory($row["bytesOut"], "B") . "</td>";
 				echo "<td style='white-space:nowrap;' align='right'>" . $row["last_seen"] . "</td>";
 			}else{
 				echo "<td style='white-space:nowrap;' align='left'>N/A</td>";

@@ -12,7 +12,7 @@ if (!isset($called_by_script_server)) {
 }
 
 function ss_mikrotik_mem($hostid = "") {
-	$disk = db_fetch_row("SELECT memSize, memUsed*memSize AS memUsed
+	$disk = db_fetch_row("SELECT memSize, memUsed*memSize/100 AS memUsed
 		FROM plugin_mikrotik_system");
 
 	if ($disk['memSize'] == '') {

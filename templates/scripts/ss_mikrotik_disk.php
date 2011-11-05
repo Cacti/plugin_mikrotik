@@ -12,7 +12,7 @@ if (!isset($called_by_script_server)) {
 }
 
 function ss_mikrotik_disk($hostid = "") {
-	$disk = db_fetch_row("SELECT diskSize, diskUsed*diskSize AS diskUsed
+	$disk = db_fetch_row("SELECT diskSize, diskUsed*diskSize/100 AS diskUsed
 		FROM plugin_mikrotik_system");
 
 	if ($disk['diskSize'] == '') {
