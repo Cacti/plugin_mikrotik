@@ -501,7 +501,7 @@ function mikrotik_users() {
 						<input type='text' size='40' name='filter' value='<?php print get_request_var_request("filter");?>'>
 					</td>
 					<td nowrap>
-						<input type='checkbox' id='active' name='active'  onChange='applyFilter(document.users)' <?php print (get_request_var_request("active") == 'true' ? "checked":"");?>>
+						<input type='checkbox' id='active' name='active'  onChange='applyFilter(document.users)' <?php print (get_request_var_request("active") == 'true' || get_request_var_request("active") == 'on' ? "checked":"");?>>
 					</td>
 					<td nowrap>
 						<label for='active'>Active Users</label>
@@ -537,7 +537,7 @@ function mikrotik_users() {
 		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " host.id=" . $_REQUEST["device"];
 	}
 
-	if ($_REQUEST["active"] == "true") {
+	if ($_REQUEST["active"] == "true" || $_REQUEST["active"] == "on") {
 		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " present=1";
 	}
 
