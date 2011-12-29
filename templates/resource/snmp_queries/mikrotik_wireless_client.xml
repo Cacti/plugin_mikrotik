@@ -1,0 +1,97 @@
+<interface>
+	<name>Get Mikrotik RouterOS Wireless Statitics</name>
+	<description>Queries a host for a list of monitorable interfaces</description>
+	<oid_index>.1.3.6.1.2.1.2.2.1.1</oid_index>
+	<oid_num_indexes>.1.3.6.1.2.1.2.1.0</oid_num_indexes>
+	<index_order>ifIndex</index_order>
+	<index_order_type>numeric</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+	
+	<fields>
+		<ifIndex>
+			<name>Index</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.2.2.1.1</oid>
+		</ifIndex>
+		<ifOperStatus>
+			<name>Status</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.2.2.1.8</oid>
+		</ifOperStatus>
+		<ifDescr>
+			<name>Description</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.2.2.1.2</oid>
+		</ifDescr>
+		<ifName>
+			<name>Name (IF-MIB)</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.31.1.1.1.1</oid>
+		</ifName>
+		<ifType>
+			<name>Type</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.2.2.1.3</oid>
+		</ifType>
+		<ifHwAddr>
+			<name>Hardware Address</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.2.1.2.2.1.6</oid>
+		</ifHwAddr>
+		<ifSsid>
+			<name>SSID</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.5</oid>
+		</ifSsid>
+		<ifFreqV>
+			<name>Frequency</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.7</oid>
+		</ifFreqV>
+		
+		<ifInRate>
+			<name>Data Rate In</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.3</oid>
+		</ifInRate>
+		<ifOutRate>
+			<name>Data Rate Out</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.2</oid>
+		</ifOutRate>
+		<ifFreq>
+			<name>Frequency</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.7</oid>
+		</ifFreq>
+		<ifInSignal>
+			<name>Signal In</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.1.1.1.4</oid>
+		</ifInSignal>
+	</fields>
+</interface>

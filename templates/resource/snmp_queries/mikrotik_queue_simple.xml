@@ -1,0 +1,80 @@
+<query>
+	<name>Get Mikrotik RouterOS Simple Queues</name>
+	<description>Queries a host for a list of Simple Queues</description>
+	<oid_index>.1.3.6.1.4.1.14988.1.1.2.1.1.2</oid_index>
+	<index_order>qsName</index_order>
+	
+	<fields>
+		<qsName>
+			<name>Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.2</oid>
+		</qsName>
+		<qsTargetIp>
+			<name>Target Ip</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.3</oid>
+		</qsTargetIp>
+		<qsTargetMask>
+			<name>Target Mask</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.4</oid>
+		</qsTargetMask>
+		<qsDstIp>	
+			<name>Destination Ip</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.5</oid>
+		</qsDstIp>
+		<qsDstMask>
+			<name>Destination Mask</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.6</oid>
+		</qsDstMask>
+		<qsInterface>
+			<name>Interface</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.7</oid>
+		</qsInterface>
+		
+		<qsInOctets>
+			<name>Bytes In</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.8</oid>
+		</qsInOctets>
+		<qsOutOctets>
+			<name>Bytes Out</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.9</oid>
+		</qsOutOctets>
+		<qsInPackets>
+			<name>Packets In</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.10</oid>
+		</qsInPackets>
+		<qsOutPackets>
+			<name>Packets Out</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.14988.1.1.2.1.1.11</oid>
+		</qsOutPackets>
+	</fields>
+</query>
