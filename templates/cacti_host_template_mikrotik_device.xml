@@ -6234,7 +6234,6 @@
 		<timespan>33053184</timespan>
 		<cf_items>1|3</cf_items>
 	</hash_150021e36f3adb9f152adfa5dc50fd2b23337e>
-	Invalid round robin archive.
 	<hash_060021e9c43831e54eca8069317a2ce8c6f751>
 		<name>Normal</name>
 		<gprint_text>%8.2lf %s</gprint_text>
