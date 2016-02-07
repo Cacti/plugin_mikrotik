@@ -2,8 +2,8 @@
 
 $no_http_headers = true;
 
-/* display ALL errors */
-error_reporting(E_ALL);
+/* display no errors */
+error_reporting(0);
 
 if (!isset($called_by_script_server)) {
 	include(dirname(__FILE__) . "/../include/global.php");
@@ -11,15 +11,10 @@ if (!isset($called_by_script_server)) {
 	print call_user_func_array("ss_mikrotik_users", $_SERVER["argv"]);
 }
 
-function ss_mikrotik_users($hostid = "", $summary = "no") {
-	if ($hostid == "" || $summary == "yes") {
-		$users = db_fetch_cell("SELECT SUM(users)
-			FROM plugin_mikrotik_system");
-	}else{
-		$users = db_fetch_cell("SELECT users
-			FROM plugin_mikrotik_system
-			WHERE host_id=$hostid");
-	}
+function ss_mikrotik_users($hostid = "") {
+	$users = db_fetch_cell("SELECT users
+		FROM plugin_mikrotik_system
+		WHERE host_id=$hostid");
 
 	if ($users == '') $users = 'U';
 

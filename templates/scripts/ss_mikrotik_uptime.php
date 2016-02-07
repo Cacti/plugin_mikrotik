@@ -2,8 +2,8 @@
 
 $no_http_headers = true;
 
-/* display ALL errors */
-error_reporting(E_ALL);
+/* display no errors */
+error_reporting(0);
 
 if (!isset($called_by_script_server)) {
 	include(dirname(__FILE__) . "/../include/global.php");

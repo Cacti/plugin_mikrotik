@@ -23,6 +23,8 @@
  +-------------------------------------------------------------------------+
 */
 
+$no_http_headers = true;
+
 chdir(dirname(__FILE__));
 chdir('../..');
 include('./include/global.php');
@@ -36,8 +38,8 @@ array_shift($parms);
 
 global $debug, $start, $seed, $forcerun;
 
-$debug    = FALSE;
-$forcerun = FALSE;
+$debug    = false;
+$forcerun = false;
 $start    = time();
 
 foreach($parms as $parameter) {
@@ -46,11 +48,11 @@ foreach($parms as $parameter) {
 	switch ($arg) {
 	case '-d':
 	case '--debug':
-		$debug = TRUE;
+		$debug = true;
 		break;
 	case '-f':
 	case '--force':
-		$forcerun = TRUE;
+		$forcerun = true;
 		break;
 	case '-v':
 	case '--help':
@@ -75,9 +77,9 @@ if (read_config_option('mikrotik_enabled') == '' || db_fetch_cell("SELECT status
 $last_run  = read_config_option('mikrotik_automation_lastrun');
 $frequency = read_config_option('mikrotik_automation_frequency') * 60;
 debug("Last Run Was '" . date('Y-m-d H:i:s', $last_run) . "', Frequency is '" . ($frequency/60) . "' Minutes");
-if ($frequency == 0 && !$forcerun) {
+if ($frequency == 0) {
 	echo "NOTE:  Graph Automation is Disabled\n";
-}elseif (($frequency > 0 && ($start - $last_run) > $frequency) || $forcerun) {
+}elseif (($frequency > 0 && ($start - $last_run) > $frequency) || ($frequency > 0 && $forcerun)) {
 	list($micro,$seconds) = explode(' ', microtime());
 	$start = $seconds + $micro;
 	echo "NOTE:  Starting Automation Process\n";
@@ -92,7 +94,7 @@ if ($frequency == 0 && !$forcerun) {
         db_execute("REPLACE INTO settings (name,value) VALUES ('stats_mikrotik_graphs', '" . $cacti_stats . "')");
 
         /* log to the logfile */
-        cacti_log('MIKROTIK GRAPH STATS: ' . $cacti_stats , TRUE, 'SYSTEM');
+        cacti_log('MIKROTIK GRAPH STATS: ' . $cacti_stats , true, 'SYSTEM');
 }else{
 	echo "NOTE:  Its Not Time to Run Automation\n";
 }
@@ -102,53 +104,43 @@ exit(0);
 function add_graphs() {
 	global $config;
 
-	/* check for summary changes first */
-	$host_template = read_config_option('mikrotik_summary_host_template');
-	$host_type_dq  = read_config_option('mikrotik_dq_host_type');
-	if (!empty($host_template)) {
-		/* check to see if the template exists */
-		debug('Host Template Set');
-
-		if (db_fetch_cell("SELECT count(*) FROM host_template WHERE id=$host_template")) {
-			debug('Host Template Exists');
-
-			$host_id = db_fetch_cell("SELECT id FROM host WHERE host_template_id=$host_template");
-			if (empty($host_id)) {
-				debug('MikroTik Summary Device Not Found, Adding');
-			}else{
-				debug("Host Exists Hostname is '" . db_fetch_cell("SELECT description FROM host WHERE id=$host_id"). "'");
-			}
-
-
-			add_summary_graphs($host_id, $host_template);
-		}else{
-			cacti_log('WARNING: Unable to find MikroTik Summary Host Template', true, 'MIKROTIK');
-		}
-	}else{
-		cacti_log('NOTE: MikroTik Summary Host Template Not Specified', true, 'MIKROTIK');
-	}
+//	/* check for summary changes first */
+//	$host_template = read_config_option('mikrotik_summary_host_template');
+//	$host_type_dq  = read_config_option('mikrotik_dq_host_type');
+//	if (!empty($host_template)) {
+//		/* check to see if the template exists */
+//		debug('Host Template Set');
+//
+//		if (db_fetch_cell("SELECT count(*) FROM host_template WHERE id=$host_template")) {
+//			debug('Host Template Exists');
+//
+//			$host_id = db_fetch_cell("SELECT id FROM host WHERE host_template_id=$host_template");
+//			if (empty($host_id)) {
+//				debug('MikroTik Summary Device Not Found, Adding');
+//			}else{
+//				debug("Host Exists Hostname is '" . db_fetch_cell("SELECT description FROM host WHERE id=$host_id"). "'");
+//			}
+//
+//
+//			add_summary_graphs($host_id, $host_template);
+//		}else{
+//			cacti_log('WARNING: Unable to find MikroTik Summary Host Template', true, 'MIKROTIK');
+//		}
+//	}else{
+//		cacti_log('NOTE: MikroTik Summary Host Template Not Specified', true, 'MIKROTIK');
+//	}
 
 	add_host_based_graphs();
 }
 
 function add_host_based_graphs() {
-	global $config;
+	global $config, $device_hashes, $device_query_hashes, $device_health_hashes;
 
 	debug('Adding Host Based Graphs');
 
 	/* check for host level graphs next data queries */
 	$host_cpu_dq   = read_config_option('mikrotik_dq_host_cpu');
 	$host_users_dq = mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe');
-
-	$host_users_gt = mikrotik_template_by_hash('99e37ff13139f586d257ba9a637d7340');
-	$host_procs_gt = mikrotik_template_by_hash('e797d967db24fd86341a8aa8c60fa9e0');
-	$host_disk_gt  = mikrotik_template_by_hash('0ece13b90785aa04d1f554a093685948');
-	$host_mem_gt   = mikrotik_template_by_hash('4396ae857c4f9bc5ed1f26b5361e42d9');
-	$host_cpu_gt   = mikrotik_template_by_hash('7df474393f58bae8e8d6b85f10efad71');
-	$host_arp_gt   = mikrotik_template_by_hash('32bd34d525944127063c2d94e2e8f1de');
-	$host_rts_gt   = mikrotik_template_by_hash('8856e3943ecc70e5da835072f584d5a0');
-	$host_ppp_gt   = mikrotik_template_by_hash('47ced1c199d83e8dd79c6ba594c4e3be');
-	$host_upt_gt   = mikrotik_template_by_hash('7d8dc3050621a2cb937cac3895bc5d5b');
 
 	$hosts = db_fetch_assoc("SELECT host_id, host.description FROM plugin_mikrotik_system
 		INNER JOIN host
@@ -157,78 +149,39 @@ function add_host_based_graphs() {
 
 	if (sizeof($hosts)) {
 		foreach($hosts as $h) {
-			debug("Processing Host '" . $h['description'] . '[' . $h['host_id'] . "]'");
-			if ($host_users_gt) {
-				debug('Processing Users');
-				mikrotik_gt_graph($h['host_id'], $host_users_gt);
-			}else{
-				debug('Users Graph Template Not Set');
-			}
-			
-			if ($host_users_gt) {
-				debug('Processing Processes');
-				mikrotik_gt_graph($h['host_id'], $host_procs_gt);
-			}else{
-				debug('Processes Graph Template Not Set');
+			foreach($device_hashes as $hash) {
+				$template = mikrotik_template_by_hash($hash);
+				if (!empty($template)) {
+					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', array($hash)));
+					mikrotik_gt_graph($h['host_id'], $template);
+				}
 			}
 
-			if ($host_disk_gt) {
-				debug('Processing Disk');
-				mikrotik_gt_graph($h['host_id'], $host_disk_gt);
-			}else{
-				debug('Disk Graph Template Not Set');
+			foreach($device_query_hashes as $hash) {
+				$query = mikrotik_data_query_by_hash($hash);
+				if (!empty($query)) {
+					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM snmp_query WHERE hash = ?', array($hash)));
+					if ($hash == '7dd90372956af1dc8ec7b859a678f227') {
+						$exclusion = read_config_option('mikrotik_user_exclusion');
+						add_host_dq_graphs($h['host_id'], $query, 'userName', $exclusion, false);
+					}else{
+						add_host_dq_graphs($h['host_id'], $query);
+					}
+				}
 			}
 
-			if ($host_mem_gt) {
-				debug('Processing Memory');
-				mikrotik_gt_graph($h['host_id'], $host_mem_gt);
-			}else{
-				debug('Memory Graph Template Not Set');
-			}
-
-			if ($host_cpu_gt) {
-				debug('Processing CPU');
-				mikrotik_gt_graph($h['host_id'], $host_cpu_gt);
-			}else{
-				debug('CPU Graph Template Not Set');
-			}
-
-			if ($host_arp_gt) {
-				debug('Processing ARP');
-				mikrotik_gt_graph($h['host_id'], $host_arp_gt);
-			}else{
-				debug('ARP Graph Template Not Set');
-			}
-
-			if ($host_rts_gt) {
-				debug('Processing Routes');
-				mikrotik_gt_graph($h['host_id'], $host_rts_gt);
-			}else{
-				debug('Routes Graph Template Not Set');
-			}
-
-			if ($host_ppp_gt) {
-				debug('Processing PPP Active');
-				mikrotik_gt_graph($h['host_id'], $host_ppp_gt);
-			}else{
-				debug('PPP Active Graph Template Not Set');
-			}
-
-			if ($host_upt_gt) {
-				debug('Processing Uptime');
-				mikrotik_gt_graph($h['host_id'], $host_upt_gt);
-			}else{
-				debug('Uptime Graph Template Not Set');
-			}
-
-			debug('Processing Users');
-			if ($host_users_dq) {
-				add_host_dq_graphs($h['host_id'], $host_users_dq);
-			}
-
-			debug('Processing CPU');
-			if ($host_cpu_dq) {
-				add_host_dq_graphs($h['host_id'], $host_cpu_dq);
+			$health = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_system_health WHERE host_id = ?', array($h['host_id']));
+			debug('Processing Health');
+			if (sizeof($health)) {
+				foreach($device_health_hashes as $column => $hash) {
+					if (!empty($health[$column])) {
+						$template = mikrotik_template_by_hash($hash);
+						if (!empty($template)) {
+							debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', array($hash)));
+							mikrotik_gt_graph($h['host_id'], $template);
+						}
+					}
+				}
 			}
 		}
 	}else{
@@ -236,7 +189,7 @@ function add_host_based_graphs() {
 	}
 }
 
-function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = TRUE) {
+function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = true) {
 	global $config;
 
 	/* add entry if it does not exist */
@@ -282,7 +235,7 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 		AND graph_template_id=$graph_template_id");
 
 	if (!$exists) {
-		echo "NOTE: Adding Graph: '$name' for Host: " . $host_id;
+		echo "NOTE: Adding Graph: '$name' for Host: " . $host_id . "\n";
 	
 		$command = "$php_bin -q $base/cli/add_graphs.php" .
 			" --graph-template-id=$graph_template_id" .
@@ -356,9 +309,7 @@ function add_summary_graphs($host_id, $host_template) {
 	}
 }
 
-function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type_id, 
-	$field = '', $regex = '', $include = TRUE) {
-
+function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type_id, $field = '', $regex = '', $include = true) {
 	global $config, $php_bin, $path_grid;
 
 	$php_bin = read_config_option('path_php_binary');
@@ -380,14 +331,14 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 		foreach($items as $item) {
 			$field_value = $item['field_value'];
 			$index       = $item['snmp_index'];
-	
+
 			if ($regex == '') {
 				/* add graph below */
-			}else if ((($include == TRUE) && (ereg($regex, $field_value))) ||
-				(($include != TRUE) && (!ereg($regex, $field_value)))) {
+			}else if ((($include == false) && (!preg_match("/$regex/", $field_value))) ||
+				(($include == true) && (preg_match("/$regex/", $field_value)))) {
 				/* add graph below */
 			}else{
-				echo "NOTE: Bypassig item due to Regex rule: '" . $field_value . "' for Host: " . $host_id . "\n";
+				echo "NOTE: Bypassig item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
 				continue;
 			}
 	

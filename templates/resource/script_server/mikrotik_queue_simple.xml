@@ -1,0 +1,69 @@
+<query>
+	<name>Get Mikrotik Simple Queue</name>
+	<description>Queries a list of Simple Queues that are on a Mikrotik Router</description>
+	<script_path>|path_cacti|/plugins/mikrotik/templates/scripts/ss_mikrotik_queue_simple.php</script_path>
+	<script_function>ss_mikrotik_queue_simple</script_function>
+	<script_server>php</script_server>
+	<arg_prepend>|host_id|</arg_prepend>
+	<arg_index>index</arg_index>
+	<arg_query>query</arg_query>
+	<arg_get>get</arg_get>
+	<arg_num_indexes>num_indexes</arg_num_indexes>
+	<output_delimeter>!</output_delimeter>
+	<index_order>sqName</index_order>
+	<index_order_type>alphabetic</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+	
+	<fields>
+		<qsName>
+			<name>Simple Queue Name</name>
+			<direction>input</direction>
+			<query_name>sqName</query_name>
+		</qsName>
+		<qsTargetIp>
+			<name>Target Ip</name>
+			<direction>input</direction>
+			<query_name>qsTargetIp</query_name>
+		</qsTargetIp>
+		<qsTargetMask>
+			<name>Target Mask</name>
+			<direction>input</direction>
+			<query_name>qsTargetMask</query_name>
+		</qsTargetMask>
+		<qsDstIp>
+			<name>Destination Ip</name>
+			<direction>input</direction>
+			<query_name>qsDstIp</query_name>
+		</qsDstIp>
+		<qsDstMask>
+			<name>Destination Mask</name>
+			<direction>input</direction>
+			<query_name>qsDstMask</query_name>
+		</qsDstMask>
+		<qsInterface>
+			<name>Interface</name>
+			<direction>input</direction>
+			<query_name>qsInterface</query_name>
+		</qsInterface>
+		<qsInOctets>
+			<name>Bytes In</name>
+			<direction>output</direction>
+			<query_name>qsInOctets</query_name>
+		</qsInOctets>
+		<qsOutOctets>
+			<name>Bytes Out</name>
+			<direction>output</direction>
+			<query_name>qsOutOctets</query_name>
+		</qsOutOctets>
+		<qsInPackets>
+			<name>Packets In</name>
+			<direction>output</direction>
+			<query_name>qsInPackets</query_name>
+		</qsInPackets>
+		<qsOutPackets>
+			<name>Packets Out</name>
+			<direction>output</direction>
+			<query_name>qsOutPackets</query_name>
+		</qsOutPackets>
+	</fields>
+</query>

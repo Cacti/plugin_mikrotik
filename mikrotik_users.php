@@ -110,7 +110,7 @@ function form_actions() {
 			db_execute("DELETE FROM plugin_mikrotik_users WHERE name IN ('" . implode("','", $devices_to_act_on) . "')");
 		}
 
-		header('Location: mikrotik_users.php&header=false');
+		header('Location: mikrotik_users.php?header=false');
 
 		exit;
 	}
@@ -140,7 +140,7 @@ function form_actions() {
 		if ($_POST['drp_action'] == '1') { /* delete */
 			print "	<tr>
 					<td class='textArea'>
-						<p>When you click \"Continue\" the following Users(s) and their Graph(s) will be deleted.</p>
+						<p>Click 'Continue' to Delete the following Users(s) and their Graph(s).</p>
 						<ul>" . $user_list . "</ul>";
 						print "</td></tr>
 					</td>
@@ -173,6 +173,7 @@ function mikrotik_user() {
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var_request('page'));
 	input_validate_input_number(get_request_var_request('rows'));
+	input_validate_input_number(get_request_var_request('status'));
 	/* ==================================================== */
 
 	/* clean up search string */
@@ -194,33 +195,45 @@ function mikrotik_user() {
 	if (isset($_REQUEST['clear'])) {
 		kill_session_var('sess_mtu_current_page');
 		kill_session_var('sess_mtu_filter');
-		kill_session_var('sess_mtu_rows');
+		kill_session_var('sess_mtu_status');
+		kill_session_var('sess_default_rows');
 		kill_session_var('sess_mtu_sort_column');
 		kill_session_var('sess_mtu_sort_direction');
 
 		unset($_REQUEST['page']);
 		unset($_REQUEST['filter']);
+		unset($_REQUEST['status']);
 		unset($_REQUEST['rows']);
 		unset($_REQUEST['sort_column']);
 		unset($_REQUEST['sort_direction']);
+	}else{
+		$changed = 0;
+		$changed += check_changed('filter', 'sess_mtu_filter');
+		$changed += check_changed('status', 'sess_mtu_status');
+		$changed += check_changed('rows', 'sess_default_rows');
+		if ($changed) {
+			$_REQUEST['page'] = 1;
+		}
 	}
 
 	/* remember these search fields in session vars so we don't have to keep passing them around */
 	load_current_session_value('page', 'sess_mtu_current_page', '1');
 	load_current_session_value('filter', 'sess_mtu_filter', '');
-	load_current_session_value('rows', 'sess_mtu_rows', read_config_option('num_rows_device'));
+	load_current_session_value('status', 'sess_mtu_status', '-1');
+	load_current_session_value('rows', 'sess_default_rows', read_config_option('num_rows_table'));
 	load_current_session_value('sort_column', 'sess_mtu_sort_column', 'name');
 	load_current_session_value('sort_direction', 'sess_mtu_sort_direction', 'ASC');
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST['rows'] == -1) {
-		$_REQUEST['rows'] = read_config_option('num_rows_device');
+		$_REQUEST['rows'] = read_config_option('num_rows_table');
 	}
 
 	?>
 	<script type='text/javascript'>
 	function applyFilter(objForm) {
 		strURL  = 'mikrotik_users.php?filter=' + $('#filter').val();
+		strURL += '&status=' + $('#status').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&header=false';
 		loadPageNoHeader(strURL);
@@ -231,6 +244,13 @@ function mikrotik_user() {
 		strURL += '&header=false';
 		loadPageNoHeader(strURL);
 	}
+
+	$(function() {
+		$('#users').submit(function(event) {
+			event.preventDefault();
+			applyFilter();
+		});
+	});
 	</script>
 	<?php
 
@@ -239,7 +259,7 @@ function mikrotik_user() {
 	?>
 	<tr class='even'>
 		<td>
-		<form name='users' action='mikrotik_users.php'>
+		<form id='users' action='mikrotik_users.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -264,6 +284,15 @@ function mikrotik_user() {
 						</select>
 					</td>
 					<td>
+						Status
+					</td>
+					<td>
+						<select id='status' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var_request('status') == '-1') {?> selected<?php }?>>All</option>
+							<option value='1'<?php if (get_request_var_request('status') == '1') {?> selected<?php }?>>Active</option>
+							<option value='2'<?php if (get_request_var_request('status') == '2') {?> selected<?php }?>>Inactive</option>
+						</select>
+					<td>
 						<input type='button' value='Go' title='Set/Refresh Filters' onClick='applyFilter()'>
 					</td>
 					<td>
@@ -284,6 +313,12 @@ function mikrotik_user() {
 		$sql_where = "WHERE (name LIKE '%%" . get_request_var_request('filter') . "%%') AND name!=''";
 	}else{
 		$sql_where = "WHERE name!=''";
+	}
+
+	if (get_request_var_request('status') == 1) {
+		$sql_where .= ' AND present=1';
+	}elseif (get_request_var_request('status') == 2) {
+		$sql_where .= ' AND present=0';
 	}
 
 	/* print checkbox form for validation */

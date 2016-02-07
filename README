@@ -28,12 +28,18 @@
 
 ----[ Installation
 
-    Install just like any other plugin, just throw it in the plugin directory,
-    and Install and Enabled from the Plugin Management Interface.
+    Install just like any other plugin, just throw it in the plugin directory.
+    Then, Install and Enable it from the Plugin Management Interface.
 
-    Once this is done, you have to instruct the plugin as to how it will determine
-    which hosts to poll.
+    You must also import the Device Template located in the 'templates' directory.
+    You do NOT need to move any files from within the 'templates' directory.
+
+    IMPORTANT: You MUST install the MIKROTIK-MIB.txt into /usr/share/snmp/mibs
     
+    Once this is done, you have to set some settings in Console -> Settings -> Mikrotik.
+    One of those settings is to enable data collection, graph automation, and 
+    collection frequencies.
+
 ----[ Possible Bugs?
    
     If you figure out this problem, see the Cacti forums!

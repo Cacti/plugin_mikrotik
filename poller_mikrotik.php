@@ -23,13 +23,12 @@
  +-------------------------------------------------------------------------+
 */
 
+$no_http_headers = true;
+
 chdir(dirname(__FILE__));
 chdir('../..');
 include('./include/global.php');
 include_once('./lib/poller.php');
-if (!function_exists('cacti_escapeshellcmd')) {
-	include_once('./plugins/mikrotik/snmp_functions.php');
-}
 include_once('./plugins/mikrotik/snmp.php');
 include_once('./lib/ping.php');
 ini_set('memory_limit', '256M');
@@ -126,9 +125,11 @@ exit(0);
 function runCollector($start, $lastrun, $frequency) {
 	global $forcerun;
 
-	if (empty($lastrun)) {
+	if ($frequency == -1) {
+		return false;
+	}elseif (empty($lastrun)) {
 		return true;
-	}elseif (($start - $lastrun > ($frequency - 55)) && $frequency > 0) {
+	}elseif ($start - $lastrun > ($frequency - 55)) {
 		return true;
 	}elseif ($forcerun) {
 		return true;
@@ -286,12 +287,13 @@ function process_hosts() {
 	// Update the last runtimes
 	// All time/dates will be stored in timestamps;
 	// Get Collector Lastrun Information
-	$storage_lastrun     = read_config_option('mikrotik_storage_lastrun');
-	$trees_lastrun       = read_config_option('mikrotik_trees_lastrun');
-	$users_lastrun       = read_config_option('mikrotik_users_lastrun');
-	$queues_lastrun      = read_config_option('mikrotik_queues_lastrun');
-	$interfaces_lastrun  = read_config_option('mikrotik_interfaces_lastrun');
-	$processor_lastrun   = read_config_option('mikrotik_processor_lastrun');
+	$storage_lastrun      = read_config_option('mikrotik_storage_lastrun');
+	$trees_lastrun        = read_config_option('mikrotik_trees_lastrun');
+	$users_lastrun        = read_config_option('mikrotik_users_lastrun');
+	$queues_lastrun       = read_config_option('mikrotik_queues_lastrun');
+	$interfaces_lastrun   = read_config_option('mikrotik_interfaces_lastrun');
+	$processor_lastrun    = read_config_option('mikrotik_processor_lastrun');
+	$wireless_reg_lastrun = read_config_option('mikrotik_wirelsess_reg_lastrun');
 
 	// Get Collection Frequencies (in seconds)
 	$storage_freq        = read_config_option('mikrotik_device_freq');
@@ -300,6 +302,7 @@ function process_hosts() {
 	$users_freq          = read_config_option('mikrotik_users_freq');
 	$queues_freq         = read_config_option('mikrotik_queues_freq');
 	$interfaces_freq     = read_config_option('mikrotik_interfaces_freq');
+	$wireless_reg_freq   = read_config_option('mikrotik_wireless_reg_freq');
 
 	/* set the collector statistics */
 	if (runCollector($start, $storage_lastrun, $storage_freq)) {
@@ -356,6 +359,34 @@ function process_hosts() {
 			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0, 
 			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, 
 			connectTime=0
+			WHERE present=0');
+	}
+
+	if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
+		db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_reg_lastrun', '$start')");
+
+		/* for users that are active, increment data */
+		db_execute("UPDATE plugin_mikrotik_wireless_registrations
+			SET curTxBytes=IF(prevTxBytes>0 AND TxBytes>prevTxBytes,(TxBytes-prevTxBytes)/$wireless_reg_freq,0),
+			curRxBytes=IF(prevRxBytes>0 AND RxBytes>prevRxBytes,(RxBytes-prevRxBytes)/$wireless_reg_freq,0),
+			curTxPackets=IF(prevTxPackets>0 AND TxPackets>prevTxPackets,(TxPackets-prevTxPackets)/$wireless_reg_freq,0),
+			curRxPackets=IF(prevRxPackets>0 AND RxPackets>prevRxPackets,(RxPackets-prevRxPackets)/$wireless_reg_freq,0)
+			WHERE present=1");
+
+		/* for users that are active, store previous data */
+		db_execute('UPDATE plugin_mikrotik_wireless_registrations
+			SET prevTxBytes=TxBytes,
+			prevRxBytes=RxBytes,
+			prevTxPackets=TxPackets,
+			prevRxPackets=RxPackets
+			WHERE present=1');
+
+		/* for users that are inactive, clear information */
+		db_execute('UPDATE plugin_mikrotik_wireless_registrations
+			SET TxBytes=0, TxPackets=0, RxBytes=0, RxPackets=0,
+			curTxBytes=0, curTxPackets=0, curRxBytes=0, curRxPackets=0,
+			prevTxBytes=0, prevTxPackets=0, prevRxBytes=0, prevRxPackets=0,
+			Uptime=0
 			WHERE present=0');
 	}
 
@@ -541,17 +572,70 @@ function process_hosts() {
 		SET users=0, cpuPercent=0, processes=0, memUsed=0, diskUsed=0, uptime=0, sysUptime=0
 		WHERE host_status IN (0,1)');
 
+	// Clear tables when disabled
+	if ($storage_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_storage");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_storage WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	if ($processor_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_processor");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_processor WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	if ($trees_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_trees");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_trees WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	if ($users_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_users");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_users WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	if ($queues_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_queues");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_queues WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	if ($interfaces_freq == -1) {
+		db_execute("TRUNCATE plugin_mikrotik_interfaces");
+	}else{
+		db_execute("DELETE FROM plugin_mikrotik_interfaces WHERE host_id NOT IN (SELECT id FROM host)");
+	}
+
+	/* prune old tables of orphan hosts */
+	db_execute("DELETE FROM plugin_mikrotik_system WHERE host_id NOT IN (SELECT id FROM host)");
+	db_execute("DELETE FROM plugin_mikrotik_system_health WHERE host_id NOT IN (SELECT id FROM host)");
+
 	/* take time and log performance data */
 	list($micro,$seconds) = explode(' ', microtime());
 	$end = $seconds + $micro;
 
+	$interfaces = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_interfaces WHERE present=1");
+	$queues     = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_queues WHERE present=1");
+	$users      = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_users WHERE present=1");
+	$trees      = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_trees WHERE present=1");
+	$waps       = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_wireless_aps WHERE present=1");
+	$wreg       = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_wireless_registrations WHERE present=1");
+
 	$cacti_stats = sprintf(
-		'time:%01.4f ' .
-		'processes:%s ' .
-		'hosts:%s',
+		'Time:%01.4f Processes:%s Hosts:%s Interfaces:%s Queues:%s Users:%s Trees:%s Waps:%s Wreg:%s',
 		round($end-$start,2),
 		$concurrent_processes,
-		sizeof($hosts));
+		sizeof($hosts),
+		$interfaces, 
+		$queues, 
+		$users, 
+		$trees, 
+		$waps, 
+		$wreg
+	);
 
 	/* log to the database */
 	db_execute("REPLACE INTO settings (name,value) VALUES ('stats_mikrotik', '" . $cacti_stats . "')");
@@ -591,12 +675,14 @@ function checkHost($host_id) {
 
 	// All time/dates will be stored in timestamps;
 	// Get Collector Lastrun Information
-	$storage_lastrun    = read_config_option('mikrotik_storage_lastrun');
-	$trees_lastrun      = read_config_option('mikrotik_trees_lastrun');
-	$users_lastrun      = read_config_option('mikrotik_users_lastrun');
-	$queues_lastrun     = read_config_option('mikrotik_queues_lastrun');
-	$interfaces_lastrun = read_config_option('mikrotik_interfaces_lastrun');
-	$processor_lastrun  = read_config_option('mikrotik_processor_lastrun');
+	$storage_lastrun      = read_config_option('mikrotik_storage_lastrun');
+	$trees_lastrun        = read_config_option('mikrotik_trees_lastrun');
+	$users_lastrun        = read_config_option('mikrotik_users_lastrun');
+	$queues_lastrun       = read_config_option('mikrotik_queues_lastrun');
+	$interfaces_lastrun   = read_config_option('mikrotik_interfaces_lastrun');
+	$processor_lastrun    = read_config_option('mikrotik_processor_lastrun');
+	$wireless_aps_lastrun = read_config_option('mikrotik_wirelsess_aps_lastrun');
+	$wireless_reg_lastrun = read_config_option('mikrotik_wirelsess_reg_lastrun');
 
 	// Get Collection Frequencies (in seconds)
 	$storage_freq       = read_config_option('mikrotik_storage_freq');
@@ -605,6 +691,8 @@ function checkHost($host_id) {
 	$queues_freq        = read_config_option('mikrotik_queues_freq');
 	$interfaces_freq    = read_config_option('mikrotik_interfaces_freq');
 	$processor_freq     = read_config_option('mikrotik_processor_freq');
+	$wireless_aps_freq  = read_config_option('mikrotik_wireless_aps_freq');
+	$wireless_reg_freq  = read_config_option('mikrotik_wireless_reg_freq');
 
 	/* remove the key process and insert the set a process lock */
 	if (!empty($key)) {
@@ -615,13 +703,21 @@ function checkHost($host_id) {
 	/* obtain host information */
 	$host = db_fetch_row("SELECT * FROM host WHERE id=$host_id");
 
-	// Run the collectors
-	collect_system($host);
-	if (runCollector($start, $trees_lastrun, $trees_freq)) {
-		collect_trees($host);
+	if (function_exists('snmp_read_mib')) {
+		debug('Function snmp_read_mib() EXISTS!');
+		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/MIKROTIK-MIB.txt');
+	}else{
+		putenv('MIBS=all');
 	}
+
+	collect_system($host);
+
 	if (runCollector($start, $users_lastrun, $users_freq)) {
 		collect_users($host);
+	}
+
+	if (runCollector($start, $trees_lastrun, $trees_freq)) {
+		collect_trees($host);
 	}
 	if (runCollector($start, $queues_lastrun, $queues_freq)) {
 		collect_queues($host);
@@ -635,15 +731,26 @@ function checkHost($host_id) {
 	if (runCollector($start, $storage_lastrun, $storage_freq)) {
 		collect_storage($host);
 	}
+	if (runCollector($start, $wireless_aps_lastrun, $wireless_aps_freq)) {
+		collect_wireless_aps($host);
+	}
+	if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
+		collect_wireless_reg($host);
+	}
+
+	if (!function_exists('snmp_read_mib')) {
+		putenv('MIBS=');
+	}
 
 	/* remove the process lock */
 	db_execute('DELETE FROM plugin_mikrotik_processes WHERE pid=' . getmypid());
 }
 
 function collect_system(&$host) {
-	global $mikrotikSystem;
+	global $mikrotikSystem, $config;
 
 	if (sizeof($host)) {
+		// Collect system mib information first
 		debug("Polling System from '" . $host['description'] . '[' . $host['hostname'] . "]'");
 		$hostMib   = cacti_snmp_walk($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.25.1', $host['snmp_version'],
 			$host['snmp_username'], $host['snmp_password'],
@@ -656,23 +763,6 @@ function collect_system(&$host) {
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
 			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
-
-		$tikInfoOIDs = array(
-			'softwareId'      => '.1.3.6.1.4.1.14988.1.1.4.1.0',
-			'licVersion'      => '.1.3.6.1.4.1.14988.1.1.4.4.0',
-			'firmwareVersion' => '.1.3.6.1.4.1.14988.1.1.7.4.0',
-			'serialNumber'    => '.1.3.6.1.4.1.14988.1.1.7.3.0'
-		);
-
-		foreach($tikInfoOIDs as $key => $oid) {
-			$tikInfoData[$key] = cacti_snmp_get($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
-				$host['snmp_username'], $host['snmp_password'],
-				$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
-				$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-				read_config_option('snmp_retries'), SNMP_VALUE_LIBRARY, SNMP_WEBUI);
-
-			db_execute("UPDATE plugin_mikrotik_system SET $key=" . db_qstr($tikInfoData[$key]) . " WHERE host_id=" . $host['id']);
-		}
 
 		$hostMib = array_merge($hostMib, $systemMib);
 
@@ -701,6 +791,79 @@ function collect_system(&$host) {
 		if (strlen($set_string)) {
 			db_execute("UPDATE plugin_mikrotik_system SET $set_string WHERE host_id=" . $host['id']);
 		}
+
+		/* system mibs */
+		$tikInfoOIDs = array(
+			'softwareId'      => '.1.3.6.1.4.1.14988.1.1.4.1.0',
+			'licVersion'      => '.1.3.6.1.4.1.14988.1.1.4.4.0',
+			'firmwareVersion' => '.1.3.6.1.4.1.14988.1.1.7.4.0',
+			'serialNumber'    => '.1.3.6.1.4.1.14988.1.1.7.3.0'
+		);
+
+		foreach($tikInfoOIDs as $key => $oid) {
+			$tikInfoData[$key] = cacti_snmp_get($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
+				$host['snmp_username'], $host['snmp_password'],
+				$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
+				$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
+				read_config_option('snmp_retries'), SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+
+			db_execute("UPDATE plugin_mikrotik_system SET $key=" . db_qstr($tikInfoData[$key]) . " WHERE host_id=" . $host['id']);
+		}
+
+		/* health oids */
+		$tikHealthOIDs = array(
+			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
+			'HlThreeDotThreeVoltage'   => '.1.3.6.1.4.1.14988.1.1.3.2.0',
+			'HlFiveVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.3.0',
+			'HlTwelveVoltage'          => '.1.3.6.1.4.1.14988.1.1.3.4.0',
+			'HlSensorTemperature'      => '.1.3.6.1.4.1.14988.1.1.3.5.0',
+			'HlCpuTemperature'         => '.1.3.6.1.4.1.14988.1.1.3.6.0',
+			'HlBoardTemperature'       => '.1.3.6.1.4.1.14988.1.1.3.7.0',
+			'HlVoltage'                => '.1.3.6.1.4.1.14988.1.1.3.8.0',
+			'HlActiveFan'              => '.1.3.6.1.4.1.14988.1.1.3.9.0',
+			'HlTemperature'            => '.1.3.6.1.4.1.14988.1.1.3.10.0',
+			'HlProcessorTemperature'   => '.1.3.6.1.4.1.14988.1.1.3.11.0',
+			'HlPower'                  => '.1.3.6.1.4.1.14988.1.1.3.12.0',
+			'HlCurrent'                => '.1.3.6.1.4.1.14988.1.1.3.13.0',
+			'HlProcessorFrequency'     => '.1.3.6.1.4.1.14988.1.1.3.14.0',
+			'HlPowerSupplyState'       => '.1.3.6.1.4.1.14988.1.1.3.15.0',
+			'HlBackupPowerSupplyState' => '.1.3.6.1.4.1.14988.1.1.3.16.0',
+			'HlFanSpeed1'              => '.1.3.6.1.4.1.14988.1.1.3.17.0',
+			'HlFanSpeed2'              => '.1.3.6.1.4.1.14988.1.1.3.18.0'
+		);
+
+		$healthMibs = cacti_snmp_walk($host['hostname'], $host['snmp_community'], '.1.3.6.1.4.1.14988.1.1.3', $host['snmp_version'],
+			$host['snmp_username'], $host['snmp_password'],
+			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
+			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+
+		$set_string = '';
+
+		// Locate the values names
+		if (sizeof($healthMibs)) {
+		foreach($healthMibs as $mib) {
+			/* do some cleanup */
+			if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
+			if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
+
+			$key = array_search($mib['oid'], $tikHealthOIDs);
+
+			if ($key == 'date') {
+				$mib['value'] = mikrotik_dateParse($mib['value']);
+			}
+
+			if (!empty($key)) {
+				$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . (is_numeric($mib['value']) ? $mib['value']:db_qstr(trim($mib['value'], ' "')));
+			}
+		}
+		}
+
+		/* Update the values */
+		if (strlen($set_string)) {
+			db_execute("INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (" . $host['id'] . ")");
+			db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
+		}
 	}
 }
 
@@ -721,20 +884,39 @@ function mikrotik_dateParse($value) {
 	return $value;
 }
 
-function mikrotik_splitBaseIndex($oid) {
-	$splitIndex = array();
-	$oid        = strrev($oid);
-	$pos        = strpos($oid, '.');
-	if ($pos !== false) {
-		$index = strrev(substr($oid, 0, $pos));
-		$base  = strrev(substr($oid, $pos+1));
-		return array($base, $index);
+function mikrotik_macParse($value) {
+	if (is_hexadecimal($value)) {
+		return $value;
 	}else{
-		return $splitIndex;
+		$newval = '';
+		for ($i = 0; $i < strlen($value); $i++) {
+			$newval .= (strlen($newval) ? ":":"") . bin2hex($value[$i]);
+		}
+		return ($newval);
 	}
 }
 
-function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) {
+function mikrotik_splitBaseIndex($oid, $depth = 1) {
+	$oid        = strrev($oid);
+	$parts      = explode('.', $oid);
+	$index      = '';
+
+	for ($i = 0; $i < $depth; $i++) {
+		$index .= ($i > 0 ? '.':'') . $parts[$i];
+		unset($parts[$i]);
+	}
+
+	$base  = strrev(implode('.', $parts));
+	$index = strrev($index);
+
+	if ($index != '') {
+		return array($base, $index);
+	}else{
+		return array();
+	}
+}
+
+function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, $depth = 1) {
 	global $cnn_id;
 	static $types;
 
@@ -745,11 +927,14 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 		db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id']);
 
 		debug("Polling $name from '" . $host['description'] . '[' . $host['hostname'] . "]'");
-		$hostMib   = array();
+		$treeMib   = array();
+		$goodVals  = array();
 		foreach($tree AS $mname => $oid) {
 			if ($name == 'processor') {
 				$retrieval = SNMP_VALUE_PLAIN;
 			}elseif ($mname == 'mac') {
+				$retrieval = SNMP_VALUE_LIBRARY;
+			}elseif ($mname == 'apBSSID') {
 				$retrieval = SNMP_VALUE_LIBRARY;
 			}elseif ($mname == 'date') {
 				$retrieval = SNMP_VALUE_LIBRARY;
@@ -765,12 +950,20 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 				$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
 				read_config_option('snmp_retries'), $host['max_oids'], $retrieval, SNMP_WEBUI);
 
-			if (($mname == 'index' || $mname == 'name') && !sizeof($walk)) {
+			if (sizeof($walk)) {
+				$goodVals[$mname] = true;
+			}else{
+				$goodVals[$mname] = false;
+			}
+
+			if (($mname == 'index' || $mname == 'name' || $mname == 'apSSID' || $mname == 'Strength') && !sizeof($walk)) {
 				debug('No Index Information for OID: ' . $oid . ' on ' . $host['description'] . ' returning');
 				return;
 			}
 
-			$hostMib = array_merge($hostMib, $walk);
+			if ($goodVals[$mname]) {
+				$treeMib = array_merge($treeMib, $walk);
+			}
 
 			debug('Polled: ' . $host['description'] . ', OID: ' . $oid . ', Size: ' . sizeof($walk));
 		}
@@ -781,10 +974,12 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 		$sql_prefix = "INSERT INTO $table";
 
 		if (sizeof($tree)) {
-		foreach($tree as $bname => $oid) {
-			if ($bname != 'baseOID' && $bname != 'index') {
-				$values     .= (strlen($values) ? '`, `':'`') . $bname;
-				$sql_suffix .= (!strlen($sql_suffix) ? ' ON DUPLICATE KEY UPDATE `index`=VALUES(`index`), `':', `') . $bname . '`=VALUES(`' . $bname . '`)';
+		foreach($tree as $mname => $oid) {
+			if ($mname != 'baseOID' && $mname != 'index') {
+				if ($goodVals[$mname] == true) {
+					$values     .= (strlen($values) ? '`, `':'`') . $mname;
+					$sql_suffix .= (!strlen($sql_suffix) ? ' ON DUPLICATE KEY UPDATE `index`=VALUES(`index`), `':', `') . $mname . '`=VALUES(`' . $mname . '`)';
+				}
 			}
 		}
 		}
@@ -796,22 +991,31 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 		$prevIndex    = '';
 		$new_array    = array();
 
-		if (sizeof($hostMib)) {
-		foreach($hostMib as $mib) {
+		if (sizeof($treeMib)) {
+		foreach($treeMib as $mib) {
 			/* do some cleanup */
 			if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . $mib['oid'];
 			if (substr($mib['value'], 0, 4) == 'OID:') {
 				$mib['value'] = trim(str_replace('OID:', '', $mib['value']));
 			}
 
-			$splitIndex = mikrotik_splitBaseIndex($mib['oid']);
+			$splitIndex = mikrotik_splitBaseIndex($mib['oid'], $depth);
 
 			if (sizeof($splitIndex)) {
-				$index = $splitIndex[1];
+				if ($name == 'wireless_registrations') {
+					$parts = explode('.', $splitIndex[1]);
+					$index = '';
+					for ($i = 0; $i < 6; $i++) {
+						$index .= ($i>0 ? ':':'') . strtoupper(substr('0' . dechex($parts[$i]), -2));
+					}
+				}else{
+					$index = $splitIndex[1];
+				}
+
 				$oid   = $splitIndex[0];
 				$key   = array_search($oid, $tree);
 
-				if (!empty($key)) {
+				if (!empty($key) && $goodVals[$key] == true) {
 					if ($key == 'type') {
 						if ($mib['value'] == '.1.3.6.1.2.1.25.2.1.1') {
 							$new_array[$index][$key] = 11;
@@ -819,16 +1023,18 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 							$new_array[$index][$key] = 14;
 						}
 					}elseif ($key == 'name') {
-						$new_array[$index][$key] = strtoupper($mib['value']);
+						$new_array[$index][$key] = str_replace('<', '', str_replace('>', '', strtoupper($mib['value'])));
 					}elseif ($key == 'date') {
 						$new_array[$index][$key] = mikrotik_dateParse($mib['value']);
+					}elseif ($key == 'mac') {
+						$new_array[$index][$key] = mikrotik_macParse($mib['value']);
 					}elseif ($key != 'index') {
 						$new_array[$index][$key] = $mib['value'];
 					}
-				}
 
-				if (!empty($key) && $key != 'index') {
-					debug("Key:'" . $key . "', Orig:'" . $mib['oid'] . "', Val:'" . $new_array[$index][$key] . "', Index:'" . $index . "', Base:'" . $oid . "'");
+					if (!empty($key) && $key != 'index') {
+						debug("Key:'" . $key . "', Orig:'" . $mib['oid'] . "', Val:'" . $new_array[$index][$key] . "', Index:'" . $index . "', Base:'" . $oid . "'");
+					}
 				}
 			}else{
 				echo "WARNING: Error parsing OID value\n";
@@ -841,12 +1047,14 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false) 
 		$count      = 0;
 		if (sizeof($new_array)) {
 			foreach($new_array as $index => $item) {
-				$sql_insert .= (strlen($sql_insert) ? '), (':'(') . $host['id'] . ', ' . $index . ', ' . ($preserve ? 'NOW(), ':'');
+				$sql_insert .= (strlen($sql_insert) ? '), (':'(') . $host['id'] . ", '" . $index . "', " . ($preserve ? 'NOW(), ':'');
 				$i = 0;
 				foreach($tree as $mname => $oid) {
 					if ($mname != 'baseOID' && $mname != 'index') {
-						$sql_insert .= ($i >  0 ? ', ':'') . (isset($item[$mname]) && strlen(strlen($item[$mname])) ? db_qstr($item[$mname]):"''");
-						$i++;
+						if ($goodVals[$mname] == true) {
+							$sql_insert .= ($i >  0 ? ', ':'') . (isset($item[$mname]) && strlen(strlen($item[$mname])) ? db_qstr($item[$mname]):"''");
+							$i++;
+						}
 					}
 				}
 			}
@@ -894,6 +1102,16 @@ function collect_processor(&$host) {
 function collect_storage(&$host) {
 	global $mikrotikStorage;
 	collectHostIndexedOid($host, $mikrotikStorage, 'plugin_mikrotik_storage', 'storage');
+}
+
+function collect_wireless_aps(&$host) {
+	global $mikrotikWirelessAps;
+	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', true);
+}
+
+function collect_wireless_reg(&$host) {
+	global $mikrotikWirelessRegistrations;
+	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
 }
 
 function display_help() {
