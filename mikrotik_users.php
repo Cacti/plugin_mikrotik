@@ -28,16 +28,13 @@ include_once('./lib/api_data_source.php');
 include_once('./lib/api_graph.php');
 include_once('./lib/api_device.php');
 
-define('MAX_DISPLAY_PAGES', 21);
-
 $user_actions = array(
 	1 => 'Delete',
 );
 
-/* set default action */
-if (!isset($_REQUEST['action'])) { $_REQUEST['action'] = ''; }
+set_default_action('');
 
-switch ($_REQUEST['action']) {
+switch (get_request_var('action')) {
 case 'actions':
 	form_actions();
 
@@ -57,15 +54,15 @@ function form_actions() {
 	global $colors, $user_actions, $fields_user_edit;
 
 	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var_post('drp_action'));
+	get_filter_request_var('drp_action');
 	/* ==================================================== */
 
 	/* if we are to save this form, instead of display it */
-	if (isset($_POST['selected_items'])) {
-		$selected_items = unserialize(stripslashes($_POST['selected_items']));
+	if (isset_request_var('selected_items')) {
+		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
 
-		if ($_POST['drp_action'] == '1') { /* delete */
-			if (!isset($_POST['delete_type'])) { $_POST['delete_type'] = 2; }
+		if (get_request_var('drp_action') == '1') { /* delete */
+			if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
 
 			$data_sources_to_act_on = array();
 			$graphs_to_act_on       = array();
@@ -132,12 +129,12 @@ function form_actions() {
 
 	top_header();
 
-	html_start_box('<strong>' . $user_actions{$_POST['drp_action']} . '</strong>', '60%', '', '3', 'center', '');
+	html_start_box('<strong>' . $user_actions{get_request_var('drp_action')} . '</strong>', '60%', '', '3', 'center', '');
 
 	print "<form action='mikrotik_users.php' autocomplete='off' method='post'>\n";
 
 	if (isset($user_array) && sizeof($user_array)) {
-		if ($_POST['drp_action'] == '1') { /* delete */
+		if (get_request_var('drp_action') == '1') { /* delete */
 			print "	<tr>
 					<td class='textArea'>
 						<p>Click 'Continue' to Delete the following Users(s) and their Graph(s).</p>
@@ -157,7 +154,7 @@ function form_actions() {
 		<td colspan='2' align='right' bgcolor='#eaeaea'>
 			<input type='hidden' name='action' value='actions'>
 			<input type='hidden' name='selected_items' value='" . (isset($user_array) ? serialize($user_array) : '') . "'>
-			<input type='hidden' name='drp_action' value='" . $_POST["drp_action"] . "'>
+			<input type='hidden' name='drp_action' value='" . get_request_var("drp_action") . "'>
 			$save_html
 		</td>
 	</tr>\n";
@@ -170,63 +167,46 @@ function form_actions() {
 function mikrotik_user() {
 	global $user_actions, $item_rows;
 
-	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var_request('page'));
-	input_validate_input_number(get_request_var_request('rows'));
-	input_validate_input_number(get_request_var_request('status'));
-	/* ==================================================== */
+    /* ================= input validation and session storage ================= */
+    $filters = array(
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => read_config_option('num_rows_table')
+			),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+			),
+		'status' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1',
+			),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'name',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
+			)
+	);
 
-	/* clean up search string */
-	if (isset($_REQUEST['filter'])) {
-		$_REQUEST['filter'] = sanitize_search_string(get_request_var('filter'));
-	}
-
-	/* clean up sort_column */
-	if (isset($_REQUEST['sort_column'])) {
-		$_REQUEST['sort_column'] = sanitize_search_string(get_request_var('sort_column'));
-	}
-
-	/* clean up search string */
-	if (isset($_REQUEST['sort_direction'])) {
-		$_REQUEST['sort_direction'] = sanitize_search_string(get_request_var('sort_direction'));
-	}
-
-	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST['clear'])) {
-		kill_session_var('sess_mtu_current_page');
-		kill_session_var('sess_mtu_filter');
-		kill_session_var('sess_mtu_status');
-		kill_session_var('sess_default_rows');
-		kill_session_var('sess_mtu_sort_column');
-		kill_session_var('sess_mtu_sort_direction');
-
-		unset($_REQUEST['page']);
-		unset($_REQUEST['filter']);
-		unset($_REQUEST['status']);
-		unset($_REQUEST['rows']);
-		unset($_REQUEST['sort_column']);
-		unset($_REQUEST['sort_direction']);
-	}else{
-		$changed = 0;
-		$changed += check_changed('filter', 'sess_mtu_filter');
-		$changed += check_changed('status', 'sess_mtu_status');
-		$changed += check_changed('rows', 'sess_default_rows');
-		if ($changed) {
-			$_REQUEST['page'] = 1;
-		}
-	}
-
-	/* remember these search fields in session vars so we don't have to keep passing them around */
-	load_current_session_value('page', 'sess_mtu_current_page', '1');
-	load_current_session_value('filter', 'sess_mtu_filter', '');
-	load_current_session_value('status', 'sess_mtu_status', '-1');
-	load_current_session_value('rows', 'sess_default_rows', read_config_option('num_rows_table'));
-	load_current_session_value('sort_column', 'sess_mtu_sort_column', 'name');
-	load_current_session_value('sort_direction', 'sess_mtu_sort_direction', 'ASC');
+	validate_store_request_vars($filters, 'sess_mtue');
+    /* ================= input validation and session storage ================= */
 
 	/* if the number of rows is -1, set it to the default */
-	if ($_REQUEST['rows'] == -1) {
-		$_REQUEST['rows'] = read_config_option('num_rows_table');
+	if (get_request_var('rows') == -1) {
+		$rows = set_request_var('rows');
 	}
 
 	?>
@@ -266,18 +246,18 @@ function mikrotik_user() {
 						Search
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var_request('filter'));?>'>
+						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
 					</td>
 					<td>
 						Users
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var_request('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
 							<?php
 							if (sizeof($item_rows) > 0) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var_request('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
 							}
 							?>
@@ -288,9 +268,9 @@ function mikrotik_user() {
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var_request('status') == '-1') {?> selected<?php }?>>All</option>
-							<option value='1'<?php if (get_request_var_request('status') == '1') {?> selected<?php }?>>Active</option>
-							<option value='2'<?php if (get_request_var_request('status') == '2') {?> selected<?php }?>>Inactive</option>
+							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>>All</option>
+							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>>Active</option>
+							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>>Inactive</option>
 						</select>
 					<td>
 						<input type='button' value='Go' title='Set/Refresh Filters' onClick='applyFilter()'>
@@ -309,15 +289,15 @@ function mikrotik_user() {
 	html_end_box();
 
 	/* form the 'where' clause for our main sql query */
-	if (strlen(get_request_var_request('filter'))) {
-		$sql_where = "WHERE (name LIKE '%%" . get_request_var_request('filter') . "%%') AND name!=''";
+	if (strlen(get_request_var('filter'))) {
+		$sql_where = "WHERE (name LIKE '%%" . get_request_var('filter') . "%%') AND name!=''";
 	}else{
 		$sql_where = "WHERE name!=''";
 	}
 
-	if (get_request_var_request('status') == 1) {
+	if (get_request_var('status') == 1) {
 		$sql_where .= ' AND present=1';
-	}elseif (get_request_var_request('status') == 2) {
+	}elseif (get_request_var('status') == 2) {
 		$sql_where .= ' AND present=0';
 	}
 
@@ -331,18 +311,18 @@ function mikrotik_user() {
 		FROM plugin_mikrotik_users
 		$sql_where");
 
-	$sortby = get_request_var_request('sort_column');
+	$sortby = get_request_var('sort_column');
 
 	$sql_query = "SELECT name, domain, MAX(last_seen) AS last_seen, MAX(present) AS present
 		FROM plugin_mikrotik_users
 		$sql_where
 		GROUP BY name, domain
-		ORDER BY " . $sortby . ' ' . get_request_var_request('sort_direction') . '
-		LIMIT ' . (get_request_var_request('rows')*(get_request_var_request('page')-1)) . ',' . get_request_var_request('rows');
+		ORDER BY " . $sortby . ' ' . get_request_var('sort_direction') . '
+		LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$users = db_fetch_assoc($sql_query);
 
-	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var_request('filter'), MAX_DISPLAY_PAGES, get_request_var_request('page'), get_request_var_request('rows'), $total_rows, 5, 'Users', 'page', 'main');
+	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, 'Users', 'page', 'main');
 
 	print $nav;
 
@@ -352,13 +332,13 @@ function mikrotik_user() {
 		'last_seen' => array('Last Seen', 'ASC'),
 		'present' => array('Active', 'ASC'));
 
-	html_header_sort_checkbox($display_text, get_request_var_request('sort_column'), get_request_var_request('sort_direction'), false);
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$i = 0;
 	if (sizeof($users) > 0) {
 		foreach ($users as $user) {
 			form_alternate_row_color($colors['alternate'], $colors['light'], $i, 'line' . $user['name']); $i++;
-			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars('user.php?action=edit&id=' . $user['id']) . "'>" . (strlen(get_request_var_request('filter')) ? eregi_replace('(' . preg_quote(get_request_var_request('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</a>', $user['name'], 250);
+			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars('user.php?action=edit&id=' . $user['id']) . "'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</a>', $user['name'], 250);
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
 			form_selectable_cell($user['last_seen'], $user['name']);
 			form_selectable_cell(($user['present'] == 0 ? '<b><i>Inactive</i></b>':'<b><i>Active</i></b>'), $user['name']);
