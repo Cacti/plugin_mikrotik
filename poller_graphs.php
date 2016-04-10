@@ -342,13 +342,12 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 			if ($regex == '') {
 				/* add graph below */
 			}else if ($include == false && preg_match("/$regex/", $field_value)) {
-				echo "NOTE: Bypassig item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
+				echo "NOTE: Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
 				continue;
 			}else if ($include == true && preg_match("/$regex/", $field_value)) {
-				/* add graph below */
+				/* add graph below, we should never be here */
 			}else{
-				echo "NOTE: Bypassig item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
-				continue;
+				echo "NOTE: Not Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
 			}
 	
 			/* check to see if the graph exists or not */
