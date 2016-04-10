@@ -31,6 +31,8 @@ include('./include/global.php');
 include_once('./lib/poller.php');
 include_once('./plugins/mikrotik/snmp.php');
 include_once('./lib/ping.php');
+include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
+
 ini_set('memory_limit', '256M');
 
 /* process calling arguments */
@@ -165,6 +167,8 @@ function autoDiscoverHosts() {
 		AND disabled!='on'
 		AND status!=1");
 
+	$template_id = db_fetch_cell('SELECT id FROM host_template WHERE hash="d364e2b9570f166ab33c8df8bd503887"');
+
 	debug("Starting AutoDiscovery for '" . sizeof($hosts) . "' Hosts");
 
 	/* set a process lock */
@@ -172,8 +176,11 @@ function autoDiscoverHosts() {
 
 	if (sizeof($hosts)) {
 	foreach($hosts as $host) {
-		debug("AutoDiscovery Check for Host '" . $host['description'] . '[' . $host['hostname'] . "]'");
+		debug("AutoDiscovery Check for Host '" . $host['description'] . ' [' . $host['hostname'] . "]'");
 		if (strpos($host['snmp_sysDescr'], 'RouterOS') !== false) {
+			debug("Host '" . $host['description'] . '[' . $host['hostname'] . "]' Supports MikroTik Resources");
+			db_execute('INSERT INTO plugin_mikrotik_system (host_id) VALUES (' . $host['id'] . ') ON DUPLICATE KEY UPDATE host_id=VALUES(host_id)');
+		}else if ($host['host_template_id'] == $template_id) {
 			debug("Host '" . $host['description'] . '[' . $host['hostname'] . "]' Supports MikroTik Resources");
 			db_execute('INSERT INTO plugin_mikrotik_system (host_id) VALUES (' . $host['id'] . ') ON DUPLICATE KEY UPDATE host_id=VALUES(host_id)');
 		}
@@ -714,6 +721,7 @@ function checkHost($host_id) {
 
 	if (runCollector($start, $users_lastrun, $users_freq)) {
 		collect_users($host);
+		collect_users_api($host);
 	}
 
 	if (runCollector($start, $trees_lastrun, $trees_freq)) {
@@ -1082,6 +1090,26 @@ function collect_trees(&$host) {
 function collect_users(&$host) {
 	global $mikrotikUsers;
 	collectHostIndexedOid($host, $mikrotikUsers, 'plugin_mikrotik_users', 'users', true);
+}
+
+function collect_users_api(&$host) {
+	$api = new RouterosAPI();
+	$api->debug = false;
+
+	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
+
+	if (sizeof($creds)) {
+		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
+			$api->write('/ppp/active/getall');
+
+			$read  = $api->read(false);
+			$array = $api->parseResponse($read);
+
+			print_r($array);
+
+			$api->disconnect();
+		}
+	}
 }
 
 function collect_queues(&$host) {
