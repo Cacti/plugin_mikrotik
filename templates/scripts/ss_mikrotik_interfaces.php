@@ -48,7 +48,11 @@ function ss_mikrotik_interfaces_getvalue($host_id, $index, $column) {
 		WHERE name IN ('$index', '$index2')
 		AND host_id='$host_id'");
 
-	return $value;
+	if ($value === false) {
+		return '0';
+	}else{
+		return $value;
+	}
 }
 
 function ss_mikrotik_interfaces_getnames($host_id) {

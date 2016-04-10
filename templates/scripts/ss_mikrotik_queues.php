@@ -73,7 +73,11 @@ function ss_mikrotik_queues_getvalue($host_id, $index, $column) {
 		WHERE name IN ('$index', '$index2')
 		AND host_id='$host_id'");
 
-	return $value;
+	if ($value === false) {
+		return '0';
+	}else{
+		return $value;
+	}
 }
 
 function ss_mikrotik_queues_getnames($host_id) {
