@@ -31,6 +31,9 @@ function plugin_mikrotik_install () {
 	api_plugin_register_hook('mikrotik', 'poller_bottom',         'mikrotik_poller_bottom',         'setup.php');
 	api_plugin_register_hook('mikrotik', 'top_header_tabs',       'mikrotik_show_tab',              'setup.php');
 	api_plugin_register_hook('mikrotik', 'top_graph_header_tabs', 'mikrotik_show_tab',              'setup.php');
+	api_plugin_register_hook('mikrotik', 'host_edit_top',         'mikrotik_host_top',              'setup.php');
+	api_plugin_register_hook('mikrotik', 'host_save',             'mikrotik_host_save',             'setup.php');
+	api_plugin_register_hook('mikrotik', 'host_delete',           'mikrotik_host_delete',           'setup.php');
 
 	api_plugin_register_realm('mikrotik', 'mikrotik.php', 'Plugin -> MikroTik Viewer', 1);
 	api_plugin_register_realm('mikrotik', 'mikrotik_users.php', 'Plugin -> MikroTik Admin', 1);
@@ -97,6 +100,7 @@ function mikrotik_check_upgrade () {
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN licVersion varchar(20) NOT NULL default '' AFTER firmwareVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN softwareID varchar(20) NOT NULL default '' AFTER licVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN serialNumber varchar(20) NOT NULL default '' AFTER softwareID");
+		db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT NULL AFTER `index`");
 
 		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='mikrotik'");
 		db_execute('UPDATE plugin_config SET ' .
@@ -460,6 +464,7 @@ function mikrotik_setup_table () {
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_users` (
 		`host_id` int(10) unsigned NOT NULL,
 		`index` int(10) unsigned NOT NULL,
+		`userType` int(10) unsigned DEFAULT NULL,
 		`serverID` int(10) unsigned DEFAULT NULL, 
 		`name` varchar(32) NOT NULL DEFAULT '',
 		`domain` varchar(32) NOT NULL DEFAULT '',
@@ -542,6 +547,13 @@ function mikrotik_setup_table () {
 		ENGINE=MEMORY
 		COMMENT='Running collector processes';");
 
+	db_execute(" CREATE TABLE `plugin_mikrotik_credentials` (
+		`host_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+		`user` varchar(20) DEFAULT '',
+		`password` varchar(40) DEFAULT '',
+		PRIMARY KEY (`host_id`)) 
+		ENGINE=MyISAM 
+		COMMENT='Stores Mikrotik API Credentials'");
 }
 
 function mikrotik_version () {
@@ -1127,8 +1139,94 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
 	if (sizeof($graphs)) {
 		return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><img src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs.gif' alt='' title='View Graphs'></a>";
 	}else{
-		return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='No Graphs Found'>";
+		return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='Graphs Skipped by Rule, or Not Created'>";
 	}
+}
+
+function mikrotik_host_top() {
+	global $fields_host_edit;
+
+	$id = get_filter_request_var('id');
+
+	$template_id = db_fetch_cell('SELECT id FROM host_template WHERE hash="d364e2b9570f166ab33c8df8bd503887"');
+
+	$is_tik = db_fetch_row_prepared('SELECT pmc.*, host.hostname
+		FROM host 
+		LEFT JOIN plugin_mikrotik_credentials AS pmc 
+		ON host.id=pmc.host_id 
+		WHERE host_template_id = ? AND host.id = ?', array($template_id, $id));
+
+	if (sizeof($is_tik)) {
+		$fields_host_edit += array(
+			'mikrotik_head' => array(
+				'method' => 'spacer',
+				'collapsible' => 'true',
+				'friendly_name' => __('MikroTik Credentials')
+			),
+			'mikrotik_user' => array(
+				'method' => 'textbox',
+				'friendly_name' => __('Read Only User'),
+				'description' => __('Provide a read only username for the MikroTik.'),
+				'value' => $is_tik['user'],
+				'max_length' => '40',
+				'size' => '20'
+			),
+			'mikrotik_password' => array(
+				'method' => 'textbox',
+				'friendly_name' => __('Password'),
+				'description' => __('Provide the read only username password for this MikroTik.'),
+				'value' => $is_tik['password'],
+				'max_length' => '40',
+				'size' => '30',
+			)
+		);
+
+		if ($is_tik['user'] != '') {
+			include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
+
+			$api = new RouterosAPI();
+
+			$api->debug = false;
+
+			if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
+				$api->disconnect();
+
+				$fields_host_edit += array(
+					'mikrotik_result' => array(
+						'method' => 'other',
+						'friendly_name' => __('Connection Result'),
+						'description' => __('Ok if Cacti can connect to the Mikrotik over its API port.'),
+						'value' => 'Connected Successfully'
+					)
+				);
+			}else{
+				$fields_host_edit += array(
+					'mikrotik_result' => array(
+						'method' => 'other',
+						'friendly_name' => __('Connection Result'),
+						'description' => __('Ok if Cacti can connect to the Mikrotik over its API port.'),
+						'value' => 'Connection Failed'
+					)
+				);
+			}
+		}
+	}
+}
+
+function mikrotik_host_save($data) {
+	$id = $data['host_id'];
+
+	if (isset_request_var('mikrotik_user')) {
+		db_execute_prepared('REPLACE INTO plugin_mikrotik_credentials (host_id, user, password) VALUES (?,?,?)', array($id, get_nfilter_request_var('mikrotik_user'), get_nfilter_request_var('mikrotik_password')));
+	}
+
+	return $data;
+}
+
+function mikrotik_host_delete($data) {
+	db_execute('DELETE * FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
+
+	return $data;
 }
 
 ?>
