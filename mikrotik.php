@@ -456,6 +456,8 @@ function mikrotik_interfaces() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_queues() {
@@ -751,6 +753,8 @@ function mikrotik_queues() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_trees() {
@@ -974,6 +978,8 @@ function mikrotik_trees() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_wireless_aps() {
@@ -1207,6 +1213,8 @@ function mikrotik_wireless_aps() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_get_runtime($time) {
@@ -1500,13 +1508,15 @@ function mikrotik_users() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_devices() {
 	global $config, $colors, $item_rows;
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+	/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -1812,9 +1822,9 @@ function mikrotik_devices() {
 			echo "<td style='text-align:right;'>"  . ($row['host_status'] < 2 ? 'N/A':$graph_cpu) . '</td>';
 			echo "<td style='text-align:right;'>"  . $graph_aproc . '</td>';
 			echo "<td style='text-align:right;'>"  . mikrotik_memory($row['memSize']) . '</td>';
-			echo "<td style='text-align:right;'>"  . $graph_mem . ' %</td>';
+			echo "<td style='text-align:right;'>"  . ($graph_mem == '-' ? '-':$graph_mem . ' %') . '</td>';
 			echo "<td style='text-align:right;'>"  . mikrotik_memory($row['diskSize']) . '</td>';
-			echo "<td style='text-align:right;'>"  . $graph_disk . ' %</td>';
+			echo "<td style='text-align:right;'>"  . ($graph_disk == '-' ? '-':$graph_disk . ' %') . '</td>';
 
 			form_end_row();
 		}
@@ -1825,6 +1835,8 @@ function mikrotik_devices() {
 	}
 
 	html_end_box();
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 function mikrotik_format_uptime($d, $h, $m) {
@@ -1913,7 +1925,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 				return "<a href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='View Graphs'>$title</a>";
 			}
 		}else{
-			return "<img src='$nograph' title='No Graphs Found' align='absmiddle' border='0'>";
+			return "-";
 		}
 	}elseif ($image) {
 		return "<img src='$nograph' title='Please Select Data Query First from Console -> Settings -> Host Mib First' align='absmiddle' border='0'>";
@@ -1956,7 +1968,7 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='View Graphs'>$title</a>";
 			}
 		}else{
-			return "<img src='$nograph' title='No Graphs Found' align='absmiddle' border='0'>";
+			return "<img src='$nograph' title='Graphs Skipped or Not Created Yet' align='absmiddle' border='0'>";
 		}
 	}elseif ($image) {
 		return "<img src='$nograph' title='Please Select Data Query First from Console->Settings->Host Mib First' align='absmiddle' border='0'>";
