@@ -77,14 +77,18 @@ if (read_config_option('mikrotik_enabled') == '' || db_fetch_cell("SELECT status
 $last_run  = read_config_option('mikrotik_automation_lastrun');
 $frequency = read_config_option('mikrotik_automation_frequency') * 60;
 debug("Last Run Was '" . date('Y-m-d H:i:s', $last_run) . "', Frequency is '" . ($frequency/60) . "' Minutes");
+
 if ($frequency == 0) {
 	echo "NOTE:  Graph Automation is Disabled\n";
 }elseif (($frequency > 0 && ($start - $last_run) > $frequency) || ($frequency > 0 && $forcerun)) {
 	list($micro,$seconds) = explode(' ', microtime());
 	$start = $seconds + $micro;
+
 	echo "NOTE:  Starting Automation Process\n";
 	db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_automation_lastrun', '$start')");
+
 	add_graphs();
+
 	list($micro,$seconds) = explode(' ', microtime());
 	$end = $seconds + $micro;
 
@@ -142,13 +146,16 @@ function add_host_based_graphs() {
 	$host_cpu_dq   = read_config_option('mikrotik_dq_host_cpu');
 	$host_users_dq = mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe');
 
-	$hosts = db_fetch_assoc("SELECT host_id, host.description FROM plugin_mikrotik_system
+	$hosts = db_fetch_assoc("SELECT host_id, host.description, host.hostname 
+		FROM plugin_mikrotik_system
 		INNER JOIN host
 		ON host.id=plugin_mikrotik_system.host_id
-		WHERE host_status=3 AND host.disabled=''");
+		WHERE host_status IN(0,3) AND host.disabled=''");
 
 	if (sizeof($hosts)) {
 		foreach($hosts as $h) {
+			debug('Processing Host: ' . $h['description'] . ' [' . $h['hostname'] . ']');
+
 			foreach($device_hashes as $hash) {
 				$template = mikrotik_template_by_hash($hash);
 				if (!empty($template)) {
@@ -334,8 +341,10 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 
 			if ($regex == '') {
 				/* add graph below */
-			}else if ((($include == false) && (!preg_match("/$regex/", $field_value))) ||
-				(($include == true) && (preg_match("/$regex/", $field_value)))) {
+			}else if ($include == false && preg_match("/$regex/", $field_value)) {
+				echo "NOTE: Bypassig item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
+				continue;
+			}else if ($include == true && preg_match("/$regex/", $field_value)) {
 				/* add graph below */
 			}else{
 				echo "NOTE: Bypassig item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
