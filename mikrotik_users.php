@@ -172,7 +172,12 @@ function mikrotik_user() {
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
-			'default' => read_config_option('num_rows_table')
+			'default' => '-1'
+			),
+		'type' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
 			),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
@@ -205,8 +210,10 @@ function mikrotik_user() {
     /* ================= input validation and session storage ================= */
 
 	/* if the number of rows is -1, set it to the default */
-	if (get_request_var('rows') == -1) {
+	if (get_request_var('rows') != -1) {
 		$rows = set_request_var('rows');
+	}else{
+		$rows = read_config_option('num_rows_table');
 	}
 
 	?>
@@ -214,6 +221,7 @@ function mikrotik_user() {
 	function applyFilter(objForm) {
 		strURL  = 'mikrotik_users.php?filter=' + $('#filter').val();
 		strURL += '&status=' + $('#status').val();
+		strURL += '&type=' + $('#type').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&header=false';
 		loadPageNoHeader(strURL);
@@ -247,6 +255,16 @@ function mikrotik_user() {
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
+					</td>
+					<td>
+						Type
+					</td>
+					<td>
+						<select id='type' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>>All</option>
+							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>>Hotspot</option>
+							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>>PPPoe</option>
+						</select>
 					</td>
 					<td>
 						Users
@@ -301,8 +319,13 @@ function mikrotik_user() {
 		$sql_where .= ' AND present=0';
 	}
 
-	/* print checkbox form for validation */
-	print "<form name='chk' method='post' action='mikrotik_users.php'>\n";
+	if (get_request_var('type') == '0') {
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=0';
+	}elseif (get_request_var('type') == '1') {
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=1';
+	}
+
+	form_start('mikrotik_user.php', 'chk');
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
@@ -313,7 +336,7 @@ function mikrotik_user() {
 
 	$sortby = get_request_var('sort_column');
 
-	$sql_query = "SELECT name, domain, MAX(last_seen) AS last_seen, MAX(present) AS present
+	$sql_query = "SELECT name, domain, userType, MAX(last_seen) AS last_seen, MAX(present) AS present
 		FROM plugin_mikrotik_users
 		$sql_where
 		GROUP BY name, domain
@@ -322,14 +345,15 @@ function mikrotik_user() {
 
 	$users = db_fetch_assoc($sql_query);
 
-	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, 'Users', 'page', 'main');
+	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, 'Users', 'page', 'main');
 
 	print $nav;
 
 	$display_text = array(
 		'name' => array('User Name', 'ASC'),
 		'domain' => array('Domain', 'ASC'),
-		'last_seen' => array('Last Seen', 'ASC'),
+		'type' => array('Type', 'ASC'),
+		'last_seen' => array('Last Seen', 'DESC'),
 		'present' => array('Active', 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -338,8 +362,9 @@ function mikrotik_user() {
 	if (sizeof($users) > 0) {
 		foreach ($users as $user) {
 			form_alternate_row_color($colors['alternate'], $colors['light'], $i, 'line' . $user['name']); $i++;
-			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars('user.php?action=edit&id=' . $user['id']) . "'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</a>', $user['name'], 250);
+			form_selectable_cell("<span class='noLinkEditMain'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</span>', $user['name'], 250);
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
+			form_selectable_cell(($user['userType'] == '0' ? 'Hotspot':'PPPoe'), $user['name']);
 			form_selectable_cell($user['last_seen'], $user['name']);
 			form_selectable_cell(($user['present'] == 0 ? '<b><i>Inactive</i></b>':'<b><i>Active</i></b>'), $user['name']);
 			form_checkbox_cell($user['name'], $user['name']);
@@ -355,7 +380,7 @@ function mikrotik_user() {
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($user_actions);
 
-	print "</form>\n";
+	form_end();
 }
 
 ?>

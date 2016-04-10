@@ -722,6 +722,12 @@ function checkHost($host_id) {
 	if (runCollector($start, $users_lastrun, $users_freq)) {
 		collect_users($host);
 		collect_users_api($host);
+
+		// Remove old records
+		db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE (userType=1 OR name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '") AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
+
+		// Remove PPPOE Users
+		db_execute_prepared('DELETE FROM plugin_mikrotik_queues WHERE name LIKE "PPPOE-%" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
 	}
 
 	if (runCollector($start, $trees_lastrun, $trees_freq)) {
@@ -925,7 +931,6 @@ function mikrotik_splitBaseIndex($oid, $depth = 1) {
 }
 
 function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, $depth = 1) {
-	global $cnn_id;
 	static $types;
 
 	debug("Beginning Processing for '" . $host['description'] . '[' . $host['hostname'] . "]', Table '$name'");
@@ -1093,8 +1098,29 @@ function collect_users(&$host) {
 }
 
 function collect_users_api(&$host) {
-	$api = new RouterosAPI();
+	$rows = array();
+
+	$api  = new RouterosAPI();
 	$api->debug = false;
+
+	$rekey_array = array(
+		'host_id', 'name', 'index', 'userType', 'serverID', 'domain', 
+		'bytesIn', 'bytesOut', 'packetsIn', 'packetsOut',
+        'curBytesIn', 'curBytesOut', 'curPacketsIn', 'curPacketsOut', 
+		'prevBytesIn', 'prevBytesOut', 'prevPacketsIn', 'prevPacketsOut', 
+		'present', 'last_seen'
+	);
+
+	// Put the queues into an array
+	$users = array_rekey(db_fetch_assoc_prepared("SELECT 
+		host_id, '0' AS `index`, '1' AS userType, '0' AS serverID, SUBSTRING(name, 7) AS name, '' AS domain,
+		BytesIn AS bytesIn, BytesOut AS bytesOut, PacketsIn as packetsIn, PacketsOut AS packetsOut,
+		curBytesIn, curBytesOut, curPacketsIn, curPacketsOut, 
+		prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut, present, last_seen
+		FROM plugin_mikrotik_queues 
+		WHERE host_id = ? 
+		AND name LIKE 'PPPOE-%'", array($host['id'])),
+		'name', $rekey_array);
 
 	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
 
@@ -1105,11 +1131,121 @@ function collect_users_api(&$host) {
 			$read  = $api->read(false);
 			$array = $api->parseResponse($read);
 
-			print_r($array);
+			$sql   = array();
+
+			if (sizeof($array)) {
+				foreach($array as $row) {
+					$name = strtoupper($row['name']);
+					if (isset($users[$name])) {
+						$user = $users[$name];
+
+						$user['mac']           = $row['caller-id'];
+						$user['ip']            = $row['address'];
+						$user['connectTime']   = uptimeToSeconds($row['uptime']);
+						$user['host_id']       = $host['id'];
+						$user['radius']        = ($row['radius'] == 'true' ? 1:0);
+						$user['limitBytesIn']  = $row['limit-bytes-in'];
+						$user['limitBytesOut'] = $row['limit-bytes-out'];
+						$user['userType']      = 1;
+
+						$sql[] = '(' . 
+							$user['host_id']            . ',' . 
+							$user['index']              . ',' . 
+							$user['userType']           . ',' . 
+							$user['serverID']           . ',' . 
+							db_qstr($user['name'])      . ',' . 
+							db_qstr($user['domain'])    . ',' . 
+							db_qstr($user['mac'])       . ',' . 
+							db_qstr($user['ip'])        . ',' . 
+							$user['connectTime']        . ',' .
+							$user['bytesIn']            . ',' .
+							$user['bytesOut']           . ',' .
+							$user['packetsIn']          . ',' .
+							$user['packetsOut']         . ',' .
+							$user['curBytesIn']         . ',' .
+							$user['curBytesOut']        . ',' .
+							$user['curPacketsIn']       . ',' .
+							$user['curPacketsOut']      . ',' .
+							$user['prevBytesIn']        . ',' .
+							$user['prevBytesOut']       . ',' .
+							$user['prevPacketsIn']      . ',' .
+							$user['prevPacketsOut']     . ',' .
+							$user['limitBytesIn']       . ',' .
+							$user['limitBytesOut']      . ',' .
+							$user['radius']             . ',' .
+							$user['present']            . ',' .
+							db_qstr($user['last_seen']) . ')';
+					}else{
+						db_execute('UPDATE IGNORE plugin_mikrotik_users SET
+							bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0,
+							curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
+							prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prePacketsOut=0, present=0
+							WHERE host_id = ? AND name = ? AND userType = 1', array($host['id'], $name));
+					}
+				}
+
+				if (sizeof($sql)) {
+					db_execute('INSERT INTO plugin_mikrotik_users 
+						(host_id, `index`, userType, serverID, name, domain, mac, ip, connectTime, 
+						bytesIn, bytesOut, packetsIn, packetsOut, 
+						curBytesIn, curBytesOut, curPacketsIn, curPacketsOut, 
+						prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut, 
+						limitBytesIn, limitBytesOut, radius, present, last_seen) 
+						VALUES ' . implode(', ', $sql) . '
+						ON DUPLICATE KEY UPDATE connectTime=VALUES(connectTime), 
+						bytesIn=VALUES(bytesIn), bytesOut=VALUES(bytesOut), 
+						packetsIn=VALUES(packetsIn), packetsOut=VALUES(packetsOut), 
+						curBytesIn=VALUES(curBytesIn), curBytesOut=VALUES(curBytesOut),
+						curPacketsIn=VALUES(curPacketsIn), curPacketsOut=VALUES(curPacketsOut),
+						prevBytesIn=VALUES(prevBytesIn), prevBytesOut=VALUES(prevBytesOut),
+						prevPacketsIn=VALUES(prevPacketsIn), prevPacketsOut=VALUES(prevPacketsOut),
+						limitBytesIn=VALUES(limitBytesIn), limitBytesOut=VALUES(limitBytesOut),
+						radius=VALUES(radius), present=VALUES(present), last_seen=VALUES(last_seen)');
+				}
+			}
 
 			$api->disconnect();
 		}
 	}
+}
+
+function uptimeToSeconds($value) {
+	$uptime = 0;
+
+	// remove days first
+	$parts = explode('d', $value);
+	if (sizeof($parts) == 2) {
+		$uptime += $parts[0] * 86400;
+		$value   = $parts[1];
+	}else{
+		$value   = $parts[0];
+	}
+
+	// remove hours
+	$parts = explode('h', $value);
+	if (sizeof($parts) == 2) {
+		$uptime += $parts[0] * 3600;
+		$value   = $parts[1];
+	}else{
+		$value   = $parts[0];
+	}
+
+	// remove minutes
+	$parts = explode('m', $value);
+	if (sizeof($parts) == 2) {
+		$uptime += $parts[0] * 60;
+		$value   = $parts[1];
+	}else{
+		$value   = $parts[0];
+	}
+
+	// remove seconds
+	$parts = explode('s', $value);
+	if (sizeof($parts) == 2) {
+		$uptime += $parts[0];
+	}
+
+	return $uptime;
 }
 
 function collect_queues(&$host) {

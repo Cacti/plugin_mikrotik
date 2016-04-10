@@ -100,14 +100,15 @@ function mikrotik_check_upgrade () {
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN licVersion varchar(20) NOT NULL default '' AFTER firmwareVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN softwareID varchar(20) NOT NULL default '' AFTER licVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN serialNumber varchar(20) NOT NULL default '' AFTER softwareID");
-		db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT NULL AFTER `index`");
+		db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT '0' AFTER `index`");
+		db_execute("ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)");
 
 		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='mikrotik'");
 		db_execute('UPDATE plugin_config SET ' .
-			"version='" . $version['version'] . "', " .
-			"name='" . $version['longname'] . "', " .
-			"author='" . $version['author'] . "', " .
-			"webpage='" . $version['url'] . "' " .
+			"version='" . $version['version']  . "', " .
+			"name='"    . $version['longname'] . "', " .
+			"author='"  . $version['author']   . "', " .
+			"webpage='" . $version['url']      . "' " .
 			"WHERE directory='" . $version['name'] . "' ");
 	}
 }
@@ -464,7 +465,7 @@ function mikrotik_setup_table () {
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_users` (
 		`host_id` int(10) unsigned NOT NULL,
 		`index` int(10) unsigned NOT NULL,
-		`userType` int(10) unsigned DEFAULT NULL,
+		`userType` int(10) unsigned DEFAULT '0',
 		`serverID` int(10) unsigned DEFAULT NULL, 
 		`name` varchar(32) NOT NULL DEFAULT '',
 		`domain` varchar(32) NOT NULL DEFAULT '',
@@ -494,7 +495,7 @@ function mikrotik_setup_table () {
 		`blockedByAdvert` int(10) unsigned DEFAULT '0',
 		`last_seen` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		`present` tinyint(3) unsigned NOT NULL DEFAULT '1',
-		PRIMARY KEY (`host_id`,`name`,`serverID`),
+		PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`),
 		KEY `host_id` (`host_id`),
 		KEY `name` (`name`),
 		KEY `ip` (`ip`),
@@ -656,6 +657,13 @@ function mikrotik_config_settings () {
 			'default' => '(^T-$)',
 			'size' => '40',
 			'max_length' => '40',
+			),
+		'mikrotik_user_exclusion_ttl' => array(
+			'friendly_name' => 'Exclude Users Time to Live',
+			'description' => 'How long should an excluded users data be preserved after they have disconnected.',
+			'method' => 'drop_array',
+			'default' => '3600',
+			'array' => array('1800' => '30 Minutes', '3600' => '1 Hour', '7200' => '2 Hours', '14400' => '4 Hours', '86400' => '1 Day'),
 			),
 		'mikrotik_frequencies' => array(
 			'friendly_name' => 'MikroTik Device Collection Frequencies',
