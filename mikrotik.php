@@ -1429,6 +1429,7 @@ function mikrotik_users() {
 	}
 
 	$sql = "SELECT hrswr.*, h.hostname, h.description, h.disabled, 
+		bytesIn, bytesOut, curBytesIn, curBytesOut,
 		bytesIn/connectTime AS avgBytesIn, 
 		bytesOut/connectTime AS avgBytesOut
 		FROM plugin_mikrotik_users AS hrswr
