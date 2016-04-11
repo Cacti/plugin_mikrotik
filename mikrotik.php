@@ -166,7 +166,7 @@ function mikrotik_tabs() {
             print "<li><a class='pic" . (($tab_short_name == $current_tab) ? ' selected' : '') .  "' href='" . $config['url_path'] .
 				'plugins/mikrotik/mikrotik.php?' .
 				'action=' . $tab_short_name .
-				(isset_request_var('host_id') ? '&host_id=' . get_request_var('host_id'):'') .
+				(isset_request_var('host_id') ? '&host_id=' . get_filter_request_var('host_id'):'') .
 				"'>$tabs[$tab_short_name]</a></li>\n";
 		}
 	}
@@ -252,7 +252,7 @@ function mikrotik_interfaces() {
 	</script>
 	<?php
 
-	html_start_box('<strong>Interace Stats</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('Interace Stats', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -437,7 +437,7 @@ function mikrotik_interfaces() {
 			}
 			
 			echo "<td style='width:60px;'>$graphs</td>";
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
 			echo "<td style='text-align:right;'>" . mikrotik_memory($row[$pref . 'RxBytes']) . '</td>';
 			echo "<td style='text-align:right;'>" . mikrotik_memory($row[$pref . 'TxBytes']) . '</td>';
@@ -539,7 +539,7 @@ function mikrotik_queues() {
 	</script>
 	<?php
 
-	html_start_box('<strong>Queue Status</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('Queue Status', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -730,7 +730,7 @@ function mikrotik_queues() {
 			$dstAM  = $row['dstAddr'] . ($dstNet != 32 ? '/' . $dstNet:'');
 			
 			echo "<td style='width:60px;'>$graphs</td>";
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $srcAM):$srcAM) . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $dstAM):$dstAM) . '</td>';
@@ -822,7 +822,7 @@ function mikrotik_trees() {
 	</script>
 	<?php
 
-	html_start_box('<strong>Queue Tree Status</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('Queue Tree Status', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -960,7 +960,7 @@ function mikrotik_trees() {
 			}
 			
 			echo "<td style='width:60px;'>$graphs</td>";
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $row['flow']):$row['flow']) . '</td>';
 			echo "<td style='text-align:right;'>" . mikrotik_memory($row['curBytes']) . '</td>';
@@ -1047,7 +1047,7 @@ function mikrotik_wireless_aps() {
 	</script>
 	<?php
 
-	html_start_box('<strong>Wireless Aps Status</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('Wireless Aps Status', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1191,7 +1191,7 @@ function mikrotik_wireless_aps() {
 			}
 			
 			echo "<td style='width:60px;'></td>";
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $row['apSSID']):$row['apSSID']) . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $row['apBSSID']):$row['apBSSID']) . '</td>';
 			echo "<td style='text-align:right;'>" . mikrotik_memory($row['apTxRate'], 'b/s') . '</td>';
@@ -1315,7 +1315,7 @@ function mikrotik_users() {
 	</script>
 	<?php
 
-	html_start_box('<strong>User Statistics</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('User Statistics', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1495,7 +1495,7 @@ function mikrotik_users() {
 			}
 
 			echo "<td style='width:60px;'>$graphs</td>";
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
 			echo "<td style='text-align:left;'>" . ($row['userType'] == 0 ? 'Hotspot':'PPPoe') . '</td>';
 			if ($row['present'] == 1) {
@@ -1600,7 +1600,7 @@ function mikrotik_devices() {
 	</script>
 	<?php
 
-	html_start_box('<strong>Device Filter</strong>', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('Device Filter', '100%', $colors['header'], '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1833,7 +1833,7 @@ function mikrotik_devices() {
 			}
 
 			echo '</td>';
-			echo "<td style='text-align:left;white-space:nowrap;'><strong>" . $host_url . '</strong></td>';
+			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>"   . $row['snmp_sysDescr'] . '</td>';
 			echo "<td style='text-align:center;'>" . get_colored_device_status(($row['disabled'] == 'on' ? true : false), $row['host_status']) . '</td>';
 			echo "<td style='text-align:right;'>"  . $row['firmwareVersion'] . '</td>';
@@ -2023,7 +2023,7 @@ function mikrotik_view_graphs() {
 	html_graph_validate_preview_request_vars();
 
 	/* include graph view filter selector */
-	html_start_box('<strong>Graph Preview Filters</strong>' . (isset_request_var('style') && strlen(get_request_var('style')) ? ' [ Custom Graph List Applied - Filtering from List ]':''), '100%', '', '3', 'center', '');
+	html_start_box('Graph Preview Filters' . (isset_request_var('style') && strlen(get_request_var('style')) ? ' [ Custom Graph List Applied - Filtering from List ]':''), '100%', '', '3', 'center', '');
 
 	html_graph_preview_filter('mikrotik.php', 'graphs', 'ht.hash IN ("' . implode('","', $host_template_hashes) . '")', 'gt.hash IN ("' . implode('","', $graph_template_hashes) . '")');
 
