@@ -1099,7 +1099,7 @@ function mikrotik_draw_navigation_text($nav) {
 	$nav['mikrotik.php:storage']       = array('title' => 'Storage', 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1');
 	$nav['mikrotik.php:graphs']        = array('title' => 'Graphs', 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1');
 	$nav['mikrotik.php:wireless_aps']  = array('title' => 'Wireless Aps', 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1');
-	$nav['mikrotik_users.php:']        = array('title' => 'MikroTik Users', 'mapping' => 'index.php:', 'url' => 'mikrotik_user.php', 'level' => '1');
+	$nav['mikrotik_users.php:']        = array('title' => 'MikroTik Users', 'mapping' => 'index.php:', 'url' => 'mikrotik_users.php', 'level' => '1');
 	$nav['mikrotik_users.php:edit']    = array('title' => '(Edit)', 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2');
 	$nav['mikrotik_users.php:actions'] = array('title' => 'Actions', 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2');
 
