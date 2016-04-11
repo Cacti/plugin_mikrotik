@@ -366,7 +366,7 @@ function process_hosts() {
 			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0, 
 			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, 
 			connectTime=0
-			WHERE present=0');
+			WHERE present=0 AND userType=0');
 	}
 
 	if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
@@ -937,7 +937,11 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 
 	if (sizeof($host)) {
 		/* mark for deletion */
-		db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id']);
+		if ($name == 'users') {
+			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id'] . ' AND userType=0');
+		}else{
+			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id']);
+		}
 
 		debug("Polling $name from '" . $host['description'] . '[' . $host['hostname'] . "]'");
 		$treeMib   = array();
