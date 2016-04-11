@@ -325,7 +325,7 @@ function mikrotik_user() {
 		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=1';
 	}
 
-	form_start('mikrotik_user.php', 'chk');
+	form_start('mikrotik_users.php', 'chk');
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
@@ -358,10 +358,9 @@ function mikrotik_user() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	$i = 0;
 	if (sizeof($users) > 0) {
 		foreach ($users as $user) {
-			form_alternate_row_color($colors['alternate'], $colors['light'], $i, 'line' . $user['name']); $i++;
+			form_alternate_row('line' . $user['name'], true);
 			form_selectable_cell("<span class='noLinkEditMain'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</span>', $user['name'], 250);
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
 			form_selectable_cell(($user['userType'] == '0' ? 'Hotspot':'PPPoe'), $user['name']);
