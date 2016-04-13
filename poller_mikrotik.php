@@ -1154,7 +1154,7 @@ function collect_pppoe_users_api(&$host) {
 						$user['limitBytesIn']  = $row['limit-bytes-in'];
 						$user['limitBytesOut'] = $row['limit-bytes-out'];
 						$user['userType']      = 1;
-
+					
 						$sql[] = '(' . 
 							$user['host_id']            . ',' . 
 							$user['index']              . ',' . 
@@ -1182,13 +1182,6 @@ function collect_pppoe_users_api(&$host) {
 							$user['radius']             . ',' .
 							$user['present']            . ',' .
 							db_qstr($user['last_seen']) . ')';
-					}else{
-						db_execute('UPDATE IGNORE plugin_mikrotik_users SET
-							bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0,
-							curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
-							prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prePacketsOut=0, present=0
-							WHERE host_id = ? AND name = ? AND userType = 1', array($host['id'], $name));
-						cacti_log('Purging Router User Record for Name ' . $name);
 					}
 				}
 
@@ -1211,6 +1204,22 @@ function collect_pppoe_users_api(&$host) {
 						radius=VALUES(radius), present=VALUES(present), last_seen=VALUES(last_seen)');
 				}
 			}
+
+			$idle_users = db_fetch_assoc_prepared('SELECT name 
+				FROM plugin_mikrotik_users 
+				WHERE last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?) 
+				AND present=1 
+				AND host_id = ?', 
+				array(read_config_option('mikrotik_queues_freq'), $host['id']));
+
+			db_execute_prepared('UPDATE IGNORE plugin_mikrotik_users SET
+				bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, connectTime=0,
+				curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
+				prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, present=0
+				WHERE host_id = ? 
+				AND userType = 1 
+				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)', 
+				array($host['id'], read_config_option('mikrotik_queues_freq')));
 
 			$api->disconnect();
 		}else{
