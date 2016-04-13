@@ -452,7 +452,7 @@ function process_hosts() {
 			curQueuesIn=IF(prevQueuesIn>0 AND queuesIn>prevQueuesIn,(queuesIn-prevQueuesIn)/$queues_freq,0),
 			curQueuesOut=IF(prevQueuesOut>0 AND queuesOut>prevQueuesOut,(queuesOut-prevQueuesOut)/$queues_freq,0),
 			curDroppedIn=IF(prevDroppedIn>0 AND droppedIn>prevDroppedIn,(droppedIn-prevDroppedIn)/$queues_freq,0),
-			curDroppedOut=IF(prevDroppedOut>0 AND droppedIn>prevDroppedOut,(droppedOut-prevDroppedOut)/$queues_freq,0)
+			curDroppedOut=IF(prevDroppedOut>0 AND droppedOut>prevDroppedOut,(droppedOut-prevDroppedOut)/$queues_freq,0)
 			WHERE present=1");
 
 		/* for users that are active, store previous data */
@@ -721,13 +721,9 @@ function checkHost($host_id) {
 
 	if (runCollector($start, $users_lastrun, $users_freq)) {
 		collect_users($host);
-		collect_users_api($host);
 
 		// Remove old records
-		db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE (userType=1 OR name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '") AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
-
-		// Remove PPPOE Users
-		db_execute_prepared('DELETE FROM plugin_mikrotik_queues WHERE name LIKE "PPPOE-%" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
+		db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE userType=0 AND name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
 	}
 
 	if (runCollector($start, $trees_lastrun, $trees_freq)) {
@@ -735,6 +731,7 @@ function checkHost($host_id) {
 	}
 	if (runCollector($start, $queues_lastrun, $queues_freq)) {
 		collect_queues($host);
+		collect_pppoe_users_api($host);
 	}
 	if (runCollector($start, $interfaces_lastrun, $interfaces_freq)) {
 		collect_interfaces($host);
@@ -1101,7 +1098,7 @@ function collect_users(&$host) {
 	collectHostIndexedOid($host, $mikrotikUsers, 'plugin_mikrotik_users', 'users', true);
 }
 
-function collect_users_api(&$host) {
+function collect_pppoe_users_api(&$host) {
 	$rows = array();
 
 	$api  = new RouterosAPI();
@@ -1128,6 +1125,8 @@ function collect_users_api(&$host) {
 
 	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
 
+	$start = microtime(true);
+
 	if (sizeof($creds)) {
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$api->write('/ppp/active/getall');
@@ -1135,7 +1134,11 @@ function collect_users_api(&$host) {
 			$read  = $api->read(false);
 			$array = $api->parseResponse($read);
 
+			$end = microtime(true);
+
 			$sql   = array();
+
+			cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' PPPoe Users in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
 
 			if (sizeof($array)) {
 				foreach($array as $row) {
@@ -1185,6 +1188,7 @@ function collect_users_api(&$host) {
 							curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
 							prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prePacketsOut=0, present=0
 							WHERE host_id = ? AND name = ? AND userType = 1', array($host['id'], $name));
+						cacti_log('Purging Router User Record for Name ' . $name);
 					}
 				}
 
@@ -1209,6 +1213,8 @@ function collect_users_api(&$host) {
 			}
 
 			$api->disconnect();
+		}else{
+			cacti_log('ERROR:RouterOS @ ' . $host['description'] . ' Timed Out');
 		}
 	}
 }

@@ -695,7 +695,7 @@ function mikrotik_config_settings () {
 			'method' => 'spacer',
 			),
 		'mikrotik_queues_freq' => array(
-			'friendly_name' => 'Simple Queue Frequency',
+			'friendly_name' => 'Simple Queue/PPPoe Frequency',
 			'description' => 'How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature.',
 			'method' => 'drop_array',
 			'default' => '300',
