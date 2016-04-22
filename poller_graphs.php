@@ -181,7 +181,7 @@ function add_host_based_graphs() {
 			debug('Processing Health');
 			if (sizeof($health)) {
 				foreach($device_health_hashes as $column => $hash) {
-					if (!empty($health[$column])) {
+					if (!empty($health[$column]) && $health[$column] != 'NULL') {
 						$template = mikrotik_template_by_hash($hash);
 						if (!empty($template)) {
 							debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', array($hash)));
