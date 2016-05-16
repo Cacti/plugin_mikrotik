@@ -1162,7 +1162,7 @@ function mikrotik_host_top() {
 		FROM host 
 		LEFT JOIN plugin_mikrotik_credentials AS pmc 
 		ON host.id=pmc.host_id 
-		WHERE host_template_id = ? AND host.id = ?', array($template_id, $id));
+		WHERE (host_template_id = ? OR host.snmp_sysDescr LIKE "%RouterOS%") AND host.id = ?', array($template_id, $id));
 
 	if (sizeof($is_tik)) {
 		$fields_host_edit += array(
