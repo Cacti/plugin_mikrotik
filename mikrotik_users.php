@@ -325,10 +325,6 @@ function mikrotik_user() {
 		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=1';
 	}
 
-	form_start('mikrotik_users.php', 'chk');
-
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$total_rows = db_fetch_cell("SELECT 
 		COUNT(DISTINCT name)
 		FROM plugin_mikrotik_users
@@ -347,7 +343,11 @@ function mikrotik_user() {
 
 	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, 'Users', 'page', 'main');
 
+	form_start('mikrotik_users.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
 		'name' => array('User Name', 'ASC'),
@@ -358,7 +358,7 @@ function mikrotik_user() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	if (sizeof($users) > 0) {
+	if (sizeof($users)) {
 		foreach ($users as $user) {
 			form_alternate_row('line' . $user['name'], true);
 			form_selectable_cell("<span class='noLinkEditMain'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</span>', $user['name'], 250);
@@ -369,12 +369,14 @@ function mikrotik_user() {
 			form_checkbox_cell($user['name'], $user['name']);
 			form_end_row();
 		}
-
-		print $nav;
 	}else{
 		print '<tr><td><em>No Users Found</em></td></tr>';
 	}
 	html_end_box(false);
+
+	if (sizeof($users)) {
+		print $nav;
+	}
 
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($user_actions);
