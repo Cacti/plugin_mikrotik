@@ -29,7 +29,7 @@ include_once('./lib/api_graph.php');
 include_once('./lib/api_device.php');
 
 $user_actions = array(
-	1 => 'Delete',
+	1 => __('Delete'),
 );
 
 set_default_action('');
@@ -137,17 +137,17 @@ function form_actions() {
 		if (get_request_var('drp_action') == '1') { /* delete */
 			print "	<tr>
 					<td class='textArea'>
-						<p>Click 'Continue' to Delete the following Users(s) and their Graph(s).</p>
+						<p>" . __('Click \'Continue\' to Delete the following Users(s) and their Graph(s).') . "</p>
 						<ul>" . $user_list . "</ul>";
 						print "</td></tr>
 					</td>
 				</tr>\n
 				";
-			$save_html = "<input type='button' value='Cancel' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='Continue' title='Delete Device(s)'>";
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
 		}
 	}else{
-		print "<tr><td><span class='textError'>You must select at least one User.</span></td></tr>\n";
-		$save_html = "<input type='button' value='Return' onClick='cactiReturnTo()'>";
+		print "<tr><td><span class='textError'>" . __('You must select at least one User.') . "</span></td></tr>\n";
+		$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
 	}
 
 	print "<tr class='saveRow'>
@@ -242,7 +242,7 @@ function mikrotik_user() {
 	</script>
 	<?php
 
-	html_start_box('<strong>MikroTik Users</strong>', '100%', '', '3', 'center', '');
+	html_start_box(__('MikroTik Users'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even'>
@@ -251,27 +251,27 @@ function mikrotik_user() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						Search
+						<?php print __('Search');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
 					</td>
 					<td>
-						Type
+						<?php print __('Type');?>
 					</td>
 					<td>
 						<select id='type' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>>All</option>
-							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>>Hotspot</option>
-							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>>PPPoe</option>
+							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot');?></option>
+							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe');?></option>
 						</select>
 					</td>
 					<td>
-						Users
+						<?php print __('Users');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows) > 0) {
 								foreach ($item_rows as $key => $value) {
@@ -282,19 +282,19 @@ function mikrotik_user() {
 						</select>
 					</td>
 					<td>
-						Status
+						<?php print __('Status');?>
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>>All</option>
-							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>>Active</option>
-							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>>Inactive</option>
+							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Active');?></option>
+							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Inactive');?></option>
 						</select>
 					<td>
-						<input type='button' value='Go' title='Set/Refresh Filters' onClick='applyFilter()'>
+						<input type='button' value='<?php print __('Go');?>' title='<?php print __('Set/Refresh Filters');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input type='button' name='clear_x' value='Clear' title='Clear Filters' onClick='clearFilter()'>
+						<input type='button' name='clear_x' value='<?php print __('Clear');?>' title='<?php print __('Clear Filters');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
@@ -341,7 +341,7 @@ function mikrotik_user() {
 
 	$users = db_fetch_assoc($sql_query);
 
-	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, 'Users', 'page', 'main');
+	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, __('Users'), 'page', 'main');
 
 	form_start('mikrotik_users.php', 'chk');
 
@@ -350,11 +350,11 @@ function mikrotik_user() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'name' => array('User Name', 'ASC'),
-		'domain' => array('Domain', 'ASC'),
-		'type' => array('Type', 'ASC'),
-		'last_seen' => array('Last Seen', 'DESC'),
-		'present' => array('Active', 'ASC'));
+		'name'      => array(__('User Name'), 'ASC'),
+		'domain'    => array(__('Domain'), 'ASC'),
+		'type'      => array(__('Type'), 'ASC'),
+		'last_seen' => array(__('Last Seen'), 'DESC'),
+		'present'   => array(__('Active'), 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -365,13 +365,14 @@ function mikrotik_user() {
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
 			form_selectable_cell(($user['userType'] == '0' ? 'Hotspot':'PPPoe'), $user['name']);
 			form_selectable_cell($user['last_seen'], $user['name']);
-			form_selectable_cell(($user['present'] == 0 ? '<b><i>Inactive</i></b>':'<b><i>Active</i></b>'), $user['name']);
+			form_selectable_cell(($user['present'] == 0 ? '<b><i>' . __('Inactive') . '</i></b>':'<b><i>' . __('Active') . '</i></b>'), $user['name']);
 			form_checkbox_cell($user['name'], $user['name']);
 			form_end_row();
 		}
 	}else{
-		print '<tr><td><em>No Users Found</em></td></tr>';
+		print '<tr><td><em>' . __('No Users Found') . '</em></td></tr>';
 	}
+
 	html_end_box(false);
 
 	if (sizeof($users)) {
