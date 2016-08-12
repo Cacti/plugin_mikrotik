@@ -54,6 +54,7 @@ function plugin_mikrotik_uninstall () {
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_wireless_registrations`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_processes`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_processor`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_credentials`');
 }
 
 function plugin_mikrotik_check_config () {
@@ -244,9 +245,9 @@ function mikrotik_setup_table () {
 		COMMENT='Stores the Storage Information';");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_interfaces` (
-		`host_id` int(10) unsigned NOT NULL,
+		`host_id` int(10) unsigned NOT NULL DEFAULT '0',
 		`index` int(10) unsigned NOT NULL,
-		`name` varchar(40) DEFAULT NULL,
+		`name` varchar(40) NOT NULL DEFAULT '',
 		`RxBytes` bigint(20) unsigned DEFAULT '0',
 		`RxPackets` bigint(20) unsigned DEFAULT '0',
 		`RxTooShort` bigint(20) unsigned DEFAULT '0',
@@ -463,10 +464,10 @@ function mikrotik_setup_table () {
 		COMMENT='Table of MikroTik Queue Usage';");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_users` (
-		`host_id` int(10) unsigned NOT NULL,
+		`host_id` int(10) unsigned NOT NULL DEFAULT '0',
 		`index` int(10) unsigned NOT NULL,
-		`userType` int(10) unsigned DEFAULT '0',
-		`serverID` int(10) unsigned DEFAULT NULL, 
+		`userType` int(10) unsigned NOT NULL DEFAULT '0',
+		`serverID` int(10) unsigned NOT NULL DEFAULT '0', 
 		`name` varchar(32) NOT NULL DEFAULT '',
 		`domain` varchar(32) NOT NULL DEFAULT '',
 		`ip` varchar(40) NOT NULL DEFAULT '',
@@ -548,7 +549,7 @@ function mikrotik_setup_table () {
 		ENGINE=MEMORY
 		COMMENT='Running collector processes';");
 
-	db_execute(" CREATE TABLE `plugin_mikrotik_credentials` (
+	db_execute(" CREATE TABLE IF NOT EXISTS `plugin_mikrotik_credentials` (
 		`host_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
 		`user` varchar(20) DEFAULT '',
 		`password` varchar(40) DEFAULT '',
