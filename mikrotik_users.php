@@ -361,7 +361,7 @@ function mikrotik_user() {
 	if (sizeof($users)) {
 		foreach ($users as $user) {
 			form_alternate_row('line' . $user['name'], true);
-			form_selectable_cell("<span class='noLinkEditMain'>" . (strlen(get_request_var('filter')) ? eregi_replace('(' . preg_quote(get_request_var('filter')) . ')', "<span class='filteredValue'>\\1</span>", htmlspecialchars($user['name'])) : htmlspecialchars($user['name'])) . '</span>', $user['name'], 250);
+			form_selectable_cell("<span class='noLinkEditMain'>" . filter_value($user['name'], get_request_var('filter')) . '</span>', $user['name'], 250);
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
 			form_selectable_cell(($user['userType'] == '0' ? 'Hotspot':'PPPoe'), $user['name']);
 			form_selectable_cell($user['last_seen'], $user['name']);
