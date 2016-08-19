@@ -71,9 +71,8 @@ function cacti_snmp_get($hostname, $community, $oid, $version, $username, $passw
 		snmp_set_valueretrieval($method);
 		snmp_set_enum_print(true);
 
-		if (function_exists('snmp_set_oid_output_format')) {
-			snmp_set_oid_output_format(SNMP_OID_OUTPUT_NUMERIC);
-		}
+		/* force php to return numeric oid's */
+		cacti_oid_numeric_format();
 
 		$track_errors = ini_get('track_errors');
 		if ($track_errors != '1') ini_set('track_errors', 1);
@@ -198,9 +197,8 @@ function cacti_snmp_getnext($hostname, $community, $oid, $version, $username, $p
 		snmp_set_valueretrieval($method);
 		snmp_set_enum_print(true);
 
-		if (function_exists('snmp_set_oid_output_format')) {
-			snmp_set_oid_output_format(SNMP_OID_OUTPUT_NUMERIC);
-		}
+		/* force php to return numeric oid's */
+		cacti_oid_numeric_format();
 
 		$track_errors = ini_get('track_errors');
 		if ($track_errors != '1') ini_set('track_errors', 1);
@@ -295,7 +293,7 @@ function cacti_snmp_getnext($hostname, $community, $oid, $version, $username, $p
 function cacti_snmp_walk($hostname, $community, $oid, $version, $username, $password, $auth_proto, $priv_pass, $priv_proto, $context, $port = 161, $timeout = 500, $retries = 0, $max_oids = 10, $method = SNMP_VALUE_LIBRARY, $environ = SNMP_POLLER) {
 	global $config, $banned_snmp_strings, $php_errormsg;
 
-	$snmp_oid_included = false;
+	$snmp_oid_included = true;
 	$snmp_auth         = '';
 	$snmp_array        = array();
 	$temp_array        = array();
@@ -323,21 +321,14 @@ function cacti_snmp_walk($hostname, $community, $oid, $version, $username, $pass
 		/* make sure snmp* is verbose so we can see what types of data
 		we are getting back */
 
-		/* force php to return numeric oid's */
-		if (function_exists('snmp_set_oid_numeric_print')) {
-			snmp_set_oid_numeric_print(TRUE);
-			$snmp_oid_included = true;
-		}
-
 		snmp_set_quick_print(0);
 
 		/* set the output format to numeric */
 		snmp_set_valueretrieval($method);
 		snmp_set_enum_print(true);
 
-		if (function_exists('snmp_set_oid_output_format')) {
-			snmp_set_oid_output_format(SNMP_OID_OUTPUT_NUMERIC);
-		}
+		/* force php to return numeric oid's */
+		cacti_oid_numeric_format();
 
 		$track_errors = ini_get('track_errors');
 		if ($track_errors != '1') ini_set('track_errors', 1);
