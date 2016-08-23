@@ -1147,6 +1147,7 @@ function collect_pppoe_users_api(&$host) {
 
 			if (sizeof($array)) {
 				foreach($array as $row) {
+					if (!isset($row['name'])) continue;
 					$name = strtoupper($row['name']);
 					if (isset($users[$name])) {
 						$user = $users[$name];
