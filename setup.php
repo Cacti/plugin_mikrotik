@@ -1245,5 +1245,3 @@ function mikrotik_host_delete($data) {
 
 	return $data;
 }
-
-?>
