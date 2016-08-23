@@ -50,53 +50,55 @@ $start          = '';
 $seed           = '';
 $key            = '';
 
-foreach($parms as $parameter) {
-	if (strpos($parameter, '=')) {
-		@list($arg, $value) = @explode('=', $parameter);
-	} else {
-		$arg = $parameter;
-		$value = '';
-	}
+if (sizeof($parms)) {
+	foreach($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
+		}
 
-	switch ($arg) {
-	case '-d':
-	case '--debug':
-		$debug = TRUE;
-		break;
-	case '--host-id':
-		$host_id = $value;
-		break;
-	case '--seed':
-		$seed = $value;
-		break;
-	case '--key':
-		$key = $value;
-		break;
-	case '-f':
-	case '--force':
-		$forcerun = TRUE;
-		break;
-	case '-fd':
-	case '--force-discovery':
-		$forcediscovery = TRUE;
-		break;
-	case '-M':
-		$mainrun = TRUE;
-		break;
-	case '-s':
-	case '--start':
-		$start = $value;
-		break;
-	case '-v':
-	case '--help':
-	case '-V':
-	case '--version':
-		display_help();
-		exit;
-	default:
-		print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
-		display_help();
-		exit;
+		switch ($arg) {
+			case '-d':
+			case '--debug':
+				$debug = TRUE;
+				break;
+			case '--host-id':
+				$host_id = $value;
+				break;
+			case '--seed':
+				$seed = $value;
+				break;
+			case '--key':
+				$key = $value;
+				break;
+			case '-f':
+			case '--force':
+				$forcerun = TRUE;
+				break;
+			case '-fd':
+			case '--force-discovery':
+				$forcediscovery = TRUE;
+				break;
+			case '-M':
+				$mainrun = TRUE;
+				break;
+			case '-s':
+			case '--start':
+				$start = $value;
+				break;
+			case '-v':
+			case '--help':
+			case '-V':
+			case '--version':
+				display_help();
+				exit;
+			default:
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
+				display_help();
+				exit;
+		}
 	}
 }
 
