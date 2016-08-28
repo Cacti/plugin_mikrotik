@@ -130,10 +130,9 @@ function ss_mikrotik_qusers_getinfo($hostid, $info_requested) {
 	}
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]['qry_index']] = addslashes($arr[$i]['qry_value']);
+                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;
 }
 
-?>

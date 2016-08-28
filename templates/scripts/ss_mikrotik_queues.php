@@ -6,28 +6,28 @@ $no_http_headers = true;
 error_reporting(0);
 
 if (!isset($called_by_script_server)) {
-	include(dirname(__FILE__) . "/../../../../include/global.php");
-	array_shift($_SERVER["argv"]);
-	print call_user_func_array("ss_mikrotik_queues", $_SERVER["argv"]);
+	include(dirname(__FILE__) . '/../../../../include/global.php');
+	array_shift($_SERVER['argv']);
+	print call_user_func_array('ss_mikrotik_queues', $_SERVER['argv']);
 }
 
-function ss_mikrotik_queues($host_id, $cmd = "index", $arg1 = "", $arg2 = "") {
-	if ($cmd == "index") {
+function ss_mikrotik_queues($host_id, $cmd = 'index', $arg1 = '', $arg2 = '') {
+	if ($cmd == 'index') {
 		$return_arr = ss_mikrotik_queues_getnames($host_id, $arg1);
 
 		for ($i=0;($i<sizeof($return_arr));$i++) {
 			print $return_arr[$i] . "\n";
 		}
-	}elseif ($cmd == "query") {
+	}elseif ($cmd == 'query') {
 		$arr_index = ss_mikrotik_queues_getnames($host_id, $arg1);
 		$arr = ss_mikrotik_queues_getinfo($host_id, $arg1, $arg2);
 
 		for ($i=0;($i<sizeof($arr_index));$i++) {
 			if (isset($arr[$arr_index[$i]])) {
-				print $arr_index[$i] . "!" . $arr[$arr_index[$i]] . "\n";
+				print $arr_index[$i] . '!' . $arr[$arr_index[$i]] . "\n";
 			}
 		}
-	}elseif ($cmd == "get") {
+	}elseif ($cmd == 'get') {
 		$arg = $arg1;
 		$index = $arg2;
 
@@ -39,28 +39,28 @@ function ss_mikrotik_queues_getvalue($host_id, $index, $column) {
 	$return_arr = array();
 
 	switch ($column) {
-	case "qsInOctets":
+	case 'qsInOctets':
 		$column = 'curBytesIn';
 		break;
-	case "qsOutOctets":
+	case 'qsOutOctets':
 		$column = 'curBytesOut';
 		break;
-	case "qsInPackets":
+	case 'qsInPackets':
 		$column = 'curPacketsIn';
 		break;
-	case "qsOutPackets":
+	case 'qsOutPackets':
 		$column = 'curPacketsOut';
 		break;
-	case "qsInQueued":
+	case 'qsInQueued':
 		$column = 'curQueuesIn';
 		break;
-	case "qsOutQueued":
+	case 'qsOutQueued':
 		$column = 'curQueuesOut';
 		break;
-	case "qsInDropped":
+	case 'qsInDropped':
 		$column = 'curDroppedIn';
 		break;
-	case "qsOutDropped":
+	case 'qsOutDropped':
 		$column = 'curDroppedOut';
 		break;
 	}
@@ -89,7 +89,7 @@ function ss_mikrotik_queues_getnames($host_id) {
 		ORDER BY name");
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-		$return_arr[$i] = $arr[$i]["name"];
+		$return_arr[$i] = $arr[$i]['name'];
 	}
 
 	return $return_arr;
@@ -100,7 +100,7 @@ function ss_mikrotik_queues_getinfo($host_id, $info_requested) {
 
 	switch($info_requested) {
 	case 'qsName':
-		$column = "name";
+		$column = 'name';
 		break;
 	case 'qsInterface':
 		$column = 'iFace';
@@ -127,11 +127,9 @@ function ss_mikrotik_queues_getinfo($host_id, $info_requested) {
 		ORDER BY name");
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]["qry_index"]] = addslashes($arr[$i]["qry_value"]);
+                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;
 }
-
-?>
 

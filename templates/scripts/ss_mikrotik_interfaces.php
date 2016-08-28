@@ -87,11 +87,9 @@ function ss_mikrotik_interfaces_getinfo($host_id, $info_requested) {
 		ORDER BY name");
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]['qry_index']] = addslashes($arr[$i]['qry_value']);
+                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;
 }
-
-?>
 
