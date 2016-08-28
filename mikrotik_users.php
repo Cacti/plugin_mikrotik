@@ -210,8 +210,8 @@ function mikrotik_user() {
     /* ================= input validation and session storage ================= */
 
 	/* if the number of rows is -1, set it to the default */
-	if (get_request_var('rows') != -1) {
-		$rows = set_request_var('rows');
+	if (get_request_var('rows') != '-1') {
+		$rows = get_request_var('rows');
 	}else{
 		$rows = read_config_option('num_rows_table');
 	}
