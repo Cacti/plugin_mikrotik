@@ -356,23 +356,25 @@ function cacti_snmp_walk($hostname, $community, $oid, $version, $username, $pass
 
 		/* check for bad entries */
 		if (is_array($temp_array) && sizeof($temp_array)) {
-		foreach($temp_array as $key => $value) {
-			foreach($banned_snmp_strings as $item) {
-				if(strstr($value, $item) != '') {
-					unset($temp_array[$key]);
-					continue 2;
+			foreach($temp_array as $key => $value) {
+				foreach($banned_snmp_strings as $item) {
+					if(strstr($value, $item) != '') {
+						unset($temp_array[$key]);
+						continue 2;
+					}
 				}
 			}
 		}
-		}
 
 		$o = 0;
-		for (@reset($temp_array); $i = @key($temp_array); next($temp_array)) {
-			if ($temp_array[$i] != 'NULL') {
-				$snmp_array[$o]['oid'] = preg_replace('/^\./', '', $i);
-				$snmp_array[$o]['value'] = format_snmp_string($temp_array[$i], $snmp_oid_included);
+		if (is_array($temp_array) && sizeof($temp_array)) {
+			for (@reset($temp_array); $i = @key($temp_array); next($temp_array)) {
+				if ($temp_array[$i] != 'NULL') {
+					$snmp_array[$o]['oid'] = preg_replace('/^\./', '', $i);
+					$snmp_array[$o]['value'] = format_snmp_string($temp_array[$i], $snmp_oid_included);
+				}
+				$o++;
 			}
-			$o++;
 		}
 	}else{
 		/* ucd/net snmp want the timeout in seconds */
@@ -430,20 +432,21 @@ function cacti_snmp_walk($hostname, $community, $oid, $version, $username, $pass
 
 		/* check for bad entries */
 		if (is_array($temp_array) && sizeof($temp_array)) {
-		foreach($temp_array as $key => $value) {
-			foreach($banned_snmp_strings as $item) {
-				if(strstr($value, $item) != '') {
-					unset($temp_array[$key]);
-					continue 2;
+			foreach($temp_array as $key => $value) {
+				foreach($banned_snmp_strings as $item) {
+					if(strstr($value, $item) != '') {
+						unset($temp_array[$key]);
+						continue 2;
+					}
 				}
 			}
 		}
-		}
-
-		for ($i=0; $i < count($temp_array); $i++) {
-			if ($temp_array[$i] != 'NULL') {
-				$snmp_array[$i]['oid']   = trim(preg_replace('/(.*) =.*/', "\\1", $temp_array[$i]));
-				$snmp_array[$i]['value'] = format_snmp_string($temp_array[$i], true);
+		if (is_array($temp_array) && sizeof($temp_array)) {
+			for ($i=0; $i < count($temp_array); $i++) {
+				if ($temp_array[$i] != 'NULL') {
+					$snmp_array[$i]['oid']   = trim(preg_replace('/(.*) =.*/', "\\1", $temp_array[$i]));
+					$snmp_array[$i]['value'] = format_snmp_string($temp_array[$i], true);
+				}
 			}
 		}
 	}
