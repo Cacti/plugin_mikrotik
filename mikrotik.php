@@ -2101,7 +2101,7 @@ function mikrotik_view_graphs() {
 
 	// Graph Template Id sql_where
 	if (get_request_var('graph_template_id') > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' gl.graph_template_id=' . get_request_var('graph_template_id');
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' gl.graph_template_id IN(' . get_request_var('graph_template_id') . ')';
 	}else{
 		$graph_template_ids = mikrotik_graph_templates_from_hashes($graph_template_hashes);
 		if (sizeof($graph_template_ids)) {
