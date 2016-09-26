@@ -70,7 +70,9 @@ function plugin_mikrotik_upgrade () {
 }
 
 function plugin_mikrotik_version () {
-	return mikrotik_version();
+	global $config;
+	$info = parse_ini_file($config['base_path'] . '/plugins/mikrotik/INFO', true);
+	return $info['info'];
 }
 
 function mikrotik_check_upgrade () {
@@ -84,7 +86,7 @@ function mikrotik_check_upgrade () {
 		return;
 	}
 
-	$version = mikrotik_version ();
+	$version = plugin_mikrotik_version ();
 	$current = $version['version'];
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='mikrotik'");
 	if ($current != $old) {
@@ -556,18 +558,6 @@ function mikrotik_setup_table () {
 		PRIMARY KEY (`host_id`)) 
 		ENGINE=MyISAM 
 		COMMENT='Stores Mikrotik API Credentials'");
-}
-
-function mikrotik_version () {
-	return array(
-		'name' 		=> 'mikrotik',
-		'version' 	=> '1.0',
-		'longname'	=> 'MikroTik Switch Tool',
-		'author'	=> 'The Cacti Group',
-		'homepage'	=> 'http://www.cacti.net',
-		'email'		=> '',
-		'url'		=> ''
-	);
 }
 
 function mikrotik_poller_bottom() {

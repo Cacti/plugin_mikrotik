@@ -1,0 +1,8 @@
+[info]
+name = mikrotik
+version = 1.0
+longname = MikroTik Switch Tool
+author = The Cacti Group
+email = 
+homepage = http://www.cacti.net
+compat = 1.0.0
