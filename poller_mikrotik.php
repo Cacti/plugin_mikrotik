@@ -307,10 +307,10 @@ function process_hosts() {
 	$queues_lastrun       = read_config_option('mikrotik_queues_lastrun');
 	$interfaces_lastrun   = read_config_option('mikrotik_interfaces_lastrun');
 	$processor_lastrun    = read_config_option('mikrotik_processor_lastrun');
-	$wireless_reg_lastrun = read_config_option('mikrotik_wirelsess_reg_lastrun');
+	$wireless_reg_lastrun = read_config_option('mikrotik_wireless_reg_lastrun');
 
 	// Get Collection Frequencies (in seconds)
-	$storage_freq        = read_config_option('mikrotik_device_freq');
+	$storage_freq        = read_config_option('mikrotik_storage_freq');
 	$processor_freq      = read_config_option('mikrotik_processor_freq');
 	$trees_freq          = read_config_option('mikrotik_trees_freq');
 	$users_freq          = read_config_option('mikrotik_users_freq');
