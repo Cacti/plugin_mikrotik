@@ -1054,7 +1054,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 					}
 
 					if (!empty($key) && $key != 'index') {
-						debug("Key:'" . $key . "', Orig:'" . $mib['oid'] . "', Val:'" . $new_array[$index][$key] . "', Index:'" . $index . "', Base:'" . $oid . "'");
+						debug("Key:'" . $key . "', Orig:'" . $mib['oid'] . "', Val:'" . (isset($new_array[$index]) ? $new_array[$index][$key] : '(Index not defined)') . "', Index:'" . $index . "', Base:'" . $oid . "'");
 					}
 				}
 			}else{
