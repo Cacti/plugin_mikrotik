@@ -1846,7 +1846,7 @@ function mikrotik_devices() {
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>"   . $row['snmp_sysDescr'] . '</td>';
 			echo "<td style='text-align:center;'>" . get_colored_device_status(($row['disabled'] == 'on' ? true : false), $row['host_status']) . '</td>';
-			echo "<td style='text-align:right;'>"  . $row['firmwareVersion'] . '</td>';
+			echo "<td style='text-align:right;'>"  . ($row['firmwareVersionLatest'] != $row['firmwareVersion'] && $row['firmwareVersionLatest'] != '' ? '* ' : '') . $row['firmwareVersion'] . '</td>';
 			echo "<td style='text-align:right;'>"  . $row['licVersion'] . '</td>';
 			echo "<td style='text-align:right;'>"  . $graph_upt . '</td>';
 			echo "<td style='text-align:right;'>"  . (!empty($row['trees']) ? $row['trees']:'-') . '</td>';

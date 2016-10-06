@@ -100,6 +100,7 @@ function mikrotik_check_upgrade () {
 		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curPackets BIGINT UNSIGNED default null AFTER curBytes");
 		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curHCBytes BIGINT UNSIGNED default null AFTER curPackets");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersion varchar(20) NOT NULL default '' AFTER sysLocation");
+		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersionLatest varchar(20) NOT NULL default '' AFTER firmwareVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN licVersion varchar(20) NOT NULL default '' AFTER firmwareVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN softwareID varchar(20) NOT NULL default '' AFTER licVersion");
 		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN serialNumber varchar(20) NOT NULL default '' AFTER softwareID");
@@ -222,6 +223,7 @@ function mikrotik_setup_table () {
 		`sysContact` varchar(128) NOT NULL default '',
 		`sysLocation` varchar(255) NOT NULL default '',
 		`firmwareVersion` varchar(20) NOT NULL default '',
+		`firmwareVersionLatest` varchar(20) NOT NULL default '',
 		`licVersion` varchar(20) NOT NULL default '',
 		`softwareID` varchar(20) NOT NULL default '',
 		`serialNumber` varchar(20) NOT NULL default '',

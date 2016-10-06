@@ -812,10 +812,11 @@ function collect_system(&$host) {
 
 		/* system mibs */
 		$tikInfoOIDs = array(
-			'softwareId'      => '.1.3.6.1.4.1.14988.1.1.4.1.0',
-			'licVersion'      => '.1.3.6.1.4.1.14988.1.1.4.4.0',
-			'firmwareVersion' => '.1.3.6.1.4.1.14988.1.1.7.4.0',
-			'serialNumber'    => '.1.3.6.1.4.1.14988.1.1.7.3.0'
+			'softwareId'            => '.1.3.6.1.4.1.14988.1.1.4.1.0',
+			'licVersion'            => '.1.3.6.1.4.1.14988.1.1.4.4.0',
+			'firmwareVersion'       => '.1.3.6.1.4.1.14988.1.1.7.4.0',
+			'firmwareVersionLatest' => '.1.3.6.1.4.1.14988.1.1.7.7.0',
+			'serialNumber'          => '.1.3.6.1.4.1.14988.1.1.7.3.0'
 		);
 
 		foreach($tikInfoOIDs as $key => $oid) {
