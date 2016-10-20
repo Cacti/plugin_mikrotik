@@ -1307,7 +1307,9 @@ function collect_wireless_reg(&$host) {
 }
 
 function display_help() {
-	$version = mikrotik_version();
+	global $config;
+	include_once($config['base_path'] . '/plugins/mikrotik/setup.php');
+	$version = plugin_mikrotik_version();
 	echo "MikroTik Poller Process Version " . $version['version'] . ", Copyright 2004-2015 - The Cacti Group\n\n";
 	echo "The main MikroTik poller process script for Cacti.\n\n";
 	echo "usage: \n";
