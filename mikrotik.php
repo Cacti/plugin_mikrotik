@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2004-2015 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1713,7 +1713,7 @@ function mikrotik_devices() {
 			h.hostname LIKE '%" . get_request_var('filter') . "%'";
 	}
 
-	$sql = "SELECT hrs.*, h.hostname, h.description, h.disabled, h.snmp_sysDescr, trees.trees, queues.queues, aps.aps
+	$sql = "SELECT hrs.*, h.hostname, h.description, h.disabled, trees.trees, queues.queues, aps.aps
 		FROM plugin_mikrotik_system AS hrs
 		INNER JOIN host AS h 
 		ON h.id=hrs.host_id
@@ -1746,7 +1746,7 @@ function mikrotik_devices() {
 	$display_text = array(
 		'nosort'          => array('display' => __('Actions'),       'sort' => 'ASC',  'align' => 'left'),
 		'description'     => array('display' => __('Name'),          'sort' => 'ASC',  'align' => 'left'),
-		'snmp_sysDescr'   => array('display' => __('Description'),   'sort' => 'ASC',  'align' => 'left'),
+		'sysDescr'        => array('display' => __('Description'),   'sort' => 'ASC',  'align' => 'left'),
 		'host_status'     => array('display' => __('Status'),        'sort' => 'DESC', 'align' => 'center'),
 		'firmwareVersion' => array('display' => __('FW Ver'),        'sort' => 'DESC', 'align' => 'right'),
 		'licVersion'      => array('display' => __('Lic Ver'),       'sort' => 'DESC', 'align' => 'right'),
@@ -1844,7 +1844,7 @@ function mikrotik_devices() {
 
 			echo '</td>';
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
-			echo "<td style='text-align:left;'>"   . $row['snmp_sysDescr'] . '</td>';
+			echo "<td style='text-align:left;'>"   . $row['sysDescr'] . '</td>';
 			echo "<td style='text-align:center;'>" . get_colored_device_status(($row['disabled'] == 'on' ? true : false), $row['host_status']) . '</td>';
 			echo "<td style='text-align:right;'>"  . ($row['firmwareVersionLatest'] != $row['firmwareVersion'] && $row['firmwareVersionLatest'] != '' ? '* ' : '') . $row['firmwareVersion'] . '</td>';
 			echo "<td style='text-align:right;'>"  . $row['licVersion'] . '</td>';
