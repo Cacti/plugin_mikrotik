@@ -2,7 +2,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2015 The Cacti Group                                 |
+ | Copyright (C) 2004-2017 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -34,10 +34,6 @@ include_once('./lib/ping.php');
 include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
 
 ini_set('memory_limit', '256M');
-
-if ($config['poller_id'] > 1) {
-	exit;
-}
 
 /* process calling arguments */
 $parms = $_SERVER['argv'];
@@ -238,20 +234,6 @@ function process_hosts() {
 		exit(0);
 	}
 
-	$types = array('storage', 'trees', 'users', 'queues', 'interfaces', 'wireless_aps', 'wireless_reg');
-	$run = false;
-	foreach ($types as $t) {
-		$lastrun = read_config_option('mikrotik_' . $t . '_lastrun');
-		$freq = read_config_option('mikrotik_' . $t . '_freq');
-		if (runCollector($start, $lastrun, $freq)) {
-			$run = true;
-		}
-	}
-	if (!$run) {
-		print "No collectors scheduled for this run, exiting\n";
-		exit;
-	}
-
 	/* The hosts to scan will
 	 *  1) Not be disabled,
 	 *  2) Be linked to the host table
@@ -395,7 +377,7 @@ function process_hosts() {
 	}
 
 	if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
-		db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_wireless_reg_lastrun', '$start')");
+		db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_reg_lastrun', '$start')");
 
 		/* for users that are active, increment data */
 		db_execute("UPDATE plugin_mikrotik_wireless_registrations
@@ -713,8 +695,8 @@ function checkHost($host_id) {
 	$queues_lastrun       = read_config_option('mikrotik_queues_lastrun');
 	$interfaces_lastrun   = read_config_option('mikrotik_interfaces_lastrun');
 	$processor_lastrun    = read_config_option('mikrotik_processor_lastrun');
-	$wireless_aps_lastrun = read_config_option('mikrotik_wireless_aps_lastrun');
-	$wireless_reg_lastrun = read_config_option('mikrotik_wireless_reg_lastrun');
+	$wireless_aps_lastrun = read_config_option('mikrotik_wirelsess_aps_lastrun');
+	$wireless_reg_lastrun = read_config_option('mikrotik_wirelsess_reg_lastrun');
 
 	// Get Collection Frequencies (in seconds)
 	$storage_freq       = read_config_option('mikrotik_storage_freq');
