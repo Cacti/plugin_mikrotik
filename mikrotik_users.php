@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2015 The Cacti Group                                 |
+ | Copyright (C) 2004-2017 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -59,52 +59,50 @@ function form_actions() {
 
 	/* if we are to save this form, instead of display it */
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
-		if (get_request_var('drp_action') == '1') { /* delete */
-			if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
+		if ($selected_items != false) {
+			if (get_request_var('drp_action') == '1') { /* delete */
+				if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
 
-			$data_sources_to_act_on = array();
-			$graphs_to_act_on       = array();
-			$devices_to_act_on      = array();
+				$data_sources_to_act_on = array();
+				$graphs_to_act_on       = array();
+				$devices_to_act_on      = array();
 
-			for ($i=0; $i<count($selected_items); $i++) {
-				/* ================= input validation ================= */
-				$selected_items[$i] = sanitize_search_string($selected_items[$i]);
-				/* ==================================================== */
+				for ($i=0; $i<count($selected_items); $i++) {
+					$data_sources = db_fetch_assoc('SELECT
+						data_local.id AS local_data_id
+						FROM data_local
+						WHERE ' . array_to_sql_or($selected_items, 'data_local.snmp_index') . "
+						AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
 
-				$data_sources = db_fetch_assoc('SELECT
-					data_local.id AS local_data_id
-					FROM data_local
-					WHERE ' . array_to_sql_or($selected_items, 'data_local.snmp_index') . "
-					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
+					if (sizeof($data_sources)) {
+					foreach ($data_sources as $data_source) {
+						$data_sources_to_act_on[] = $data_source['local_data_id'];
+					}
+					}
 
-				if (sizeof($data_sources) > 0) {
-				foreach ($data_sources as $data_source) {
-					$data_sources_to_act_on[] = $data_source['local_data_id'];
+					$graphs = db_fetch_assoc('SELECT
+						graph_local.id AS local_graph_id
+						FROM graph_local
+						WHERE ' . array_to_sql_or($selected_items, 'graph_local.snmp_index') . "
+						AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
+
+					if (sizeof($graphs)) {
+					foreach ($graphs as $graph) {
+						$graphs_to_act_on[] = $graph['local_graph_id'];
+					}
+					}
+
+					$devices_to_act_on[] = $selected_items[$i];
 				}
-				}
 
-				$graphs = db_fetch_assoc('SELECT
-					graph_local.id AS local_graph_id
-					FROM graph_local
-					WHERE ' . array_to_sql_or($selected_items, 'graph_local.snmp_index') . "
-					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
+				api_data_source_remove_multi($data_sources_to_act_on);
 
-				if (sizeof($graphs) > 0) {
-				foreach ($graphs as $graph) {
-					$graphs_to_act_on[] = $graph['local_graph_id'];
-				}
-				}
+				api_graph_remove_multi($graphs_to_act_on);
 
-				$devices_to_act_on[] = $selected_items[$i];
+				db_execute("DELETE FROM plugin_mikrotik_users WHERE name IN ('" . implode("','", $devices_to_act_on) . "')");
 			}
-
-			api_data_source_remove_multi($data_sources_to_act_on);
-
-			api_graph_remove_multi($graphs_to_act_on);
-
-			db_execute("DELETE FROM plugin_mikrotik_users WHERE name IN ('" . implode("','", $devices_to_act_on) . "')");
 		}
 
 		header('Location: mikrotik_users.php?header=false');
