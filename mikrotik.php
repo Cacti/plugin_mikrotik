@@ -252,7 +252,7 @@ function mikrotik_interfaces() {
 	</script>
 	<?php
 
-	html_start_box(__('Interace Stats'), '100%', '', '3', 'center', '');
+	html_start_box(__('Interface Stats'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1963,7 +1963,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 			return "-";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console -> Settings -> Host Mib First') . "' align='absmiddle' border='0'>";
+		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console -> Settings -> Host MIB First') . "' align='absmiddle' border='0'>";
 	}else{
 		return $title;
 	}
@@ -2006,7 +2006,7 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 			return "<img src='$nograph' title='" . __('Graphs Skipped or Not Created Yet') . "' align='absmiddle' border='0'>";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console->Settings->Host Mib First') . "' align='absmiddle' border='0'>";
+		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console->Settings->Host MIB First') . "' align='absmiddle' border='0'>";
 	}else{
 		return $title;
 	}

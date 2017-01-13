@@ -147,7 +147,7 @@ function mikrotik_setup_table () {
 		`HlFanSpeed2` varchar(20) DEFAULT NULL,
 		PRIMARY KEY (`host_id`)) 
 		ENGINE=MyISAM 
-		COMMENT='Stores Mikrotik Health Counters'");
+		COMMENT='Stores MikroTik Health Counters'");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_wireless_registrations` (
 		`host_id` int(10) unsigned NOT NULL,
@@ -181,7 +181,7 @@ function mikrotik_setup_table () {
 		`present` tinyint(3) unsigned NOT NULL DEFAULT '1',
 		PRIMARY KEY (`host_id`,`index`)) 
 		ENGINE=MyISAM 
-		COMMENT='Table of Mikrotik Wireless Registrations'");
+		COMMENT='Table of MikroTik Wireless Registrations'");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_wireless_aps` (
 		`host_id` int(10) unsigned NOT NULL,
@@ -230,7 +230,7 @@ function mikrotik_setup_table () {
 		PRIMARY KEY  (`host_id`),
 		INDEX `host_status` (`host_status`))
 		ENGINE=MyISAM
-		COMMENT='Contains all Hosts that support MikroTik';");
+		COMMENT='Contains all Devices that support MikroTik';");
 
 	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_storage` (
 		`host_id` int(10) unsigned NOT NULL,
@@ -559,7 +559,7 @@ function mikrotik_setup_table () {
 		`password` varchar(40) DEFAULT '',
 		PRIMARY KEY (`host_id`)) 
 		ENGINE=MyISAM 
-		COMMENT='Stores Mikrotik API Credentials'");
+		COMMENT='Stores MikroTik API Credentials'");
 }
 
 function mikrotik_poller_bottom() {
@@ -626,7 +626,7 @@ function mikrotik_config_settings () {
 			'array' => $mikrotik_frequencies
 			),
 		'mikrotik_automation_header' => array(
-			'friendly_name' => __('Host Graph Automation'),
+			'friendly_name' => __('Device Graph Automation'),
 			'method' => 'spacer',
 			),
 		'mikrotik_automation_frequency' => array(
@@ -655,7 +655,7 @@ function mikrotik_config_settings () {
 			),
 		'mikrotik_user_exclusion_ttl' => array(
 			'friendly_name' => __('Exclude Users Time to Live'),
-			'description' => __('How long should an excluded users data be preserved after they have disconnected.'),
+			'description' => __('How long should an excluded user\'s data be preserved after they have disconnected.'),
 			'method' => 'drop_array',
 			'default' => '3600',
 			'array' => array(
@@ -753,7 +753,7 @@ function mikrotik_config_arrays() {
 	global $wireless_station_hashes, $wirless_reg_hashes, $interface_hashes;
 	global $device_hashes, $device_health_hashes, $graph_template_hashes, $device_query_hashes;
 
-	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('Mikrotik Users');
+	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users');
 
 	$queue_hashes = array(
 		'2873cd299a639cbdc19320c7c59b76e0',
@@ -1204,7 +1204,7 @@ function mikrotik_host_top() {
 					'mikrotik_result' => array(
 						'method' => 'other',
 						'friendly_name' => __('Connection Result'),
-						'description' => __('Ok if Cacti can connect to the Mikrotik over its API port.'),
+						'description' => __('Ok if Cacti can connect to the MikroTik over its API port.'),
 						'value' => 'Connected Successfully'
 					)
 				);
@@ -1213,7 +1213,7 @@ function mikrotik_host_top() {
 					'mikrotik_result' => array(
 						'method' => 'other',
 						'friendly_name' => __('Connection Result'),
-						'description' => __('Ok if Cacti can connect to the Mikrotik over its API port.'),
+						'description' => __('Ok if Cacti can connect to the MikroTik over its API port.'),
 						'value' => 'Connection Failed'
 					)
 				);
