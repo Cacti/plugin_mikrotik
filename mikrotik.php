@@ -1781,6 +1781,7 @@ function mikrotik_devices() {
 	$nographs   = $config['url_path'] . 'plugins/mikrotik/images/view_graphs_disabled.gif';
 
 	$hcpudq  = read_config_option('mikrotik_dq_host_cpu');
+	$licVersionLatest  = read_config_option('mikrotik_latestversion', true);
 
 	if (sizeof($rows)) {
 		foreach ($rows as $row) {
@@ -1847,7 +1848,7 @@ function mikrotik_devices() {
 			echo "<td style='text-align:left;'>"   . $row['sysDescr'] . '</td>';
 			echo "<td style='text-align:center;'>" . get_colored_device_status(($row['disabled'] == 'on' ? true : false), $row['host_status']) . '</td>';
 			echo "<td style='text-align:right;'>"  . ($row['firmwareVersionLatest'] != $row['firmwareVersion'] && $row['firmwareVersionLatest'] != '' ? '* ' : '') . $row['firmwareVersion'] . '</td>';
-			echo "<td style='text-align:right;'>"  . $row['licVersion'] . '</td>';
+			echo "<td style='text-align:right;'>"  . ($licVersionLatest > $row['licVersion'] && $licVersionLatest != '' ? '* ' : '') . $row['licVersion'] . '</td>';
 			echo "<td style='text-align:right;'>"  . $graph_upt . '</td>';
 			echo "<td style='text-align:right;'>"  . (!empty($row['trees']) ? $row['trees']:'-') . '</td>';
 			echo "<td style='text-align:right;'>"  . $graph_users . '</td>';
