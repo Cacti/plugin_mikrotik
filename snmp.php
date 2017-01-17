@@ -518,7 +518,7 @@ function format_snmp_string($string, $snmp_oid_included) {
 		$string = preg_replace('/Hex: ?/i', '', $string);
 		$string = preg_replace('/Hex- ?/i', '', $string);
 
-		$string_array = split(' ', $string);
+		$string_array = explode(' ', $string);
 
 		/* loop through each string character and make ascii */
 		$string = '';
