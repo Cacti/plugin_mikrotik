@@ -1,6 +1,6 @@
 # mikrotik
 
-This plugin provides support for the MikroTik RouterOS available from microtik.com and other router and switch harware suppliers.  It is not a replacement for MikroTiks GUI interface, but provides nice Cacti Graphs for multiple MikroTik features including, but not limited to:
+This plugin provides support for the MikroTik RouterOS available from [MikroTik](https://microtik.com) and other router and switch harware suppliers.  It is not a replacement for MikroTiks GUI interface, but provides nice Cacti Graphs for multiple MikroTik features including, but not limited to:
 
 * Automatic Discovery of Cacti Devices that are MikroTik's
 * Enhanced Traffic Graphs
@@ -11,7 +11,7 @@ This plugin provides support for the MikroTik RouterOS available from microtik.c
 
 ##Installation
 
-Just like an Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'mikrotik', and then from Cacti's Plugin Management interface, Install and Enable the pluign.
+Just like any other Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'mikrotik', and then from Cacti's Plugin Management interface, Install and Enable the pluign.
 
 With this version of mikrotik, we are also including a Device Template Cacti Package that includes everything you need to create all the included Cacti Graphs for this device type.  To import that package, you must use the Cacti 'import_package.php' CLI script.  The MikroTik package is included in the 'templates' sub-directory of the MikroTik plugin.
     
