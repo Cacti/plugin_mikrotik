@@ -93,9 +93,13 @@ if (sizeof($parms)) {
 				$start = $value;
 				break;
 			case '-v':
-			case '--help':
 			case '-V':
 			case '--version':
+				display_version();
+				exit;
+			case '--help':
+			case '-H':
+			case '-h':
 				display_help();
 				exit;
 			default:
@@ -1343,12 +1347,20 @@ function collect_wireless_reg(&$host) {
 	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
 }
 
-function display_help() {
+function display_version() {
 	global $config;
-	include_once($config['base_path'] . '/plugins/mikrotik/setup.php');
-	$version = plugin_mikrotik_version();
-	echo "MikroTik Poller Process Version " . $version['version'] . ", Copyright 2004-2015 - The Cacti Group\n\n";
-	echo "The main MikroTik poller process script for Cacti.\n\n";
+	if (!function_exists('plugin_mikrotik_version')) {
+		include_once($config['base_path'] . '/plugins/mikrotik/setup.php');
+	}
+
+	$info = plugin_mikrotik_version();
+	echo "MikroTik Poller Process, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+}
+
+function display_help() {
+	display_version();
+
+	echo "\nThe main MikroTik poller process script for Cacti.\n\n";
 	echo "usage: \n";
 	echo "master process: poller_mikrotik.php [-M] [-f] [-fd] [-d]\n";
 	echo "child  process: poller_mikrotik.php --host-id=N [--seed=N] [-f] [-d]\n\n";

@@ -46,18 +46,22 @@ foreach($parms as $parameter) {
 	@list($arg, $value) = @explode('=', $parameter);
 
 	switch ($arg) {
-	case '-d':
 	case '--debug':
+	case '-d':
 		$debug = true;
 		break;
-	case '-f':
 	case '--force':
+	case '-f':
 		$forcerun = true;
 		break;
-	case '-v':
-	case '--help':
-	case '-V':
 	case '--version':
+	case '-V':
+	case '-v':
+		display_version();
+		exit;
+	case '--help':
+	case '-H':
+	case '-h':
 		display_help();
 		exit;
 	default:
@@ -379,10 +383,20 @@ function debug($message) {
 	}
 }
 
-function display_help() {
-	$version = mikrotik_version();
+function display_version() {
+	global $config;
 
-	echo "MikroTik Graph Automator Version " . $version['version'] . ", Copyright 2004-2015 - The Cacti Group\n\n";
-	echo "The MikroTik process that creates graphs for Cacti.\n\n";
+	if (!function_exists('plugin_mikrotik_version')) {
+		include_once($config['base_path'] . '/plugins/mikrotik/setup.php');
+	}
+
+	$info = plugin_mikrotik_version();
+	echo "MikroTik Graph Automator, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+}
+
+function display_help() {
+	display_version();
+
+	echo "\nThe MikroTik process that creates graphs for Cacti.\n\n";
 	echo "usage: poller_graphs.php [-f] [-d]\n";
 }
