@@ -11,7 +11,7 @@ This plugin provides support for the MikroTik RouterOS available from [MikroTik]
 
 ##Installation
 
-Just like any other Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'mikrotik', and then from Cacti's Plugin Management interface, Install and Enable the pluign.
+Just like any other Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'mikrotik', and then from Cacti's Plugin Management interface, Install and Enable the plugin.
 
 With this version of mikrotik, we are also including a Device Template Cacti Package that includes everything you need to create all the included Cacti Graphs for this device type.  To import that package, you must use the Cacti 'import_package.php' CLI script.  The MikroTik package is included in the 'templates' sub-directory of the MikroTik plugin.
     
