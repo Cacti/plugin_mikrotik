@@ -330,14 +330,15 @@ function mikrotik_user() {
 		FROM plugin_mikrotik_users
 		$sql_where");
 
-	$sortby = get_request_var('sort_column');
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
 	$sql_query = "SELECT name, domain, userType, MAX(last_seen) AS last_seen, MAX(present) AS present
 		FROM plugin_mikrotik_users
 		$sql_where
 		GROUP BY name, domain
-		ORDER BY " . $sortby . ' ' . get_request_var('sort_direction') . '
-		LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+		$sql_order
+		$sql_limit";
 
 	$users = db_fetch_assoc($sql_query);
 

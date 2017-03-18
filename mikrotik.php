@@ -336,7 +336,6 @@ function mikrotik_interfaces() {
 		$num_rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
 	$sql_where = "WHERE mti.name!=''";
 
 	if (get_request_var('device') != '-1') {
@@ -381,6 +380,13 @@ function mikrotik_interfaces() {
 		}
 	}
 
+	$sql_order = get_order_string();
+	if ($apply_limits) {
+		$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
+	}else{
+		$sql_limit = '';
+	}
+
 	$sql = "SELECT mti.*, h.hostname, h.description, h.disabled, 
 		(${pref}RxTooShort+${pref}RxTooLong+${pref}RxFCFSError+${pref}RxAlignError+${pref}RxFragment+${pref}RxOverflow+${pref}RxUnknownOp+${pref}RxLengthError+${pref}RxCodeError+${pref}RxCarrierError+${pref}RxJabber+${pref}RxDrop) AS RxErrors, 
 		(${pref}TxTooShort+${pref}TxTooLong+${pref}TxUnderrun+${pref}TxCollision+${pref}TxExCollision+${pref}TxMultCollision+${pref}TxSingCollision+${pref}TxLateCollision+${pref}TxDrop+${pref}TxJabber+${pref}TxFCFSError) AS TxErrors
@@ -390,9 +396,8 @@ function mikrotik_interfaces() {
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
 		$sql_where
-		ORDER BY " . $sort_column . " " . get_request_var("sort_direction") . " " . $limit;
-
-	//echo $sql;
+		$sql_order
+		$sql_limit";
 
 	$rows       = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
@@ -403,7 +408,7 @@ function mikrotik_interfaces() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 14, __('Interfaces'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Interfaces'), 'page', 'main');
 
 	print $nav;
 
@@ -620,12 +625,11 @@ function mikrotik_queues() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
 	$sql_where = "WHERE mtq.name!=''";
 
 	$sort_column = get_request_var('sort_column');
@@ -670,6 +674,13 @@ function mikrotik_queues() {
 			h.hostname LIKE '%" . get_request_var('filter') . "%')";
 	}
 
+	$sql_order = get_order_string();
+	if ($apply_limits) {
+		$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
+	}else{
+		$sql_limit = '';
+	}
+
 	$sql = "SELECT mtq.*, h.hostname, h.description, h.disabled
 		FROM plugin_mikrotik_queues AS mtq
 		INNER JOIN host AS h
@@ -677,7 +688,8 @@ function mikrotik_queues() {
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
 		$sql_where
-		ORDER BY " . $sort_column . " " . get_request_var("sort_direction") . " " . $limit;
+		$sql_order
+		$sql_limit";
 
 	//echo $sql;
 
