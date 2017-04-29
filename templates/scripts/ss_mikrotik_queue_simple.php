@@ -5,7 +5,7 @@ $no_http_headers = true;
 include_once(dirname(__FILE__) . '/../lib/functions.php');
 
 if (!isset($called_by_script_server)) {
-	include(dirname(__FILE__) . '/../include/global.php');
+	include(dirname(__FILE__) . '/../../../../include/global.php');
 	array_shift($_SERVER['argv']);
 	print call_user_func_array('ss_mikrotik_queue_simple', $_SERVER['argv']);
 }
@@ -66,11 +66,12 @@ function ss_mikrotik_queue_simple_getvalue($host_id, $index, $column) {
 
 	$index2 = str_replace('_', ' ', $index);
 
-	$value = db_fetch_cell("SELECT
+	$value = db_fetch_cell_prepared("SELECT
 		$column AS value
 		FROM plugin_mikrotik_queues
 		WHERE name IN ('$index', '$index2')
-		AND host_id='$host_id'");
+		AND host_id = ?", 
+		array($host_id));
 
 	return $value;
 }
@@ -78,10 +79,11 @@ function ss_mikrotik_queue_simple_getvalue($host_id, $index, $column) {
 function ss_mikrotik_queue_simple_getnames($host_id) {
 	$return_arr = array();
 
-	$arr = db_fetch_assoc("SELECT REPLACE(name, ' ', '_') AS name
+	$arr = db_fetch_assoc_prepared("SELECT REPLACE(name, ' ', '_') AS name
 		FROM plugin_mikrotik_queues
-		WHERE host_id='$host_id'
-		ORDER BY name");
+		WHERE host_id = ?
+		ORDER BY name", 
+		array($host_id));
 
 	for ($i=0;($i<sizeof($arr));$i++) {
 		$return_arr[$i] = $arr[$i]['name'];
@@ -114,15 +116,16 @@ function ss_mikrotik_queue_simple_getinfo($host_id, $info_requested) {
 		break;
 	}
 
-	$arr = db_fetch_assoc("SELECT
+	$arr = db_fetch_assoc_prepared("SELECT
 		REPLACE(name, ' ', '_') AS qry_index,
 		$column AS qry_value
 		FROM plugin_mikrotik_queues
-		WHERE host_id='$host_id'
-		ORDER BY name");
+		WHERE host_id = ?
+		ORDER BY name", 
+		array($host_id));
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
+		$return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;

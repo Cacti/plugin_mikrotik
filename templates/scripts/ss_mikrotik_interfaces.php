@@ -42,11 +42,12 @@ function ss_mikrotik_interfaces_getvalue($host_id, $index, $column) {
 
 	$index2 = str_replace('_', ' ', $index);
 
-	$value = db_fetch_cell("SELECT
+	$value = db_fetch_cell_prepared("SELECT
 		$column AS value
 		FROM plugin_mikrotik_interfaces
 		WHERE name IN ('$index', '$index2')
-		AND host_id='$host_id'");
+		AND host_id = ?", 
+		array($host_id));
 
 	if ($value === false) {
 		return '0';
@@ -58,10 +59,11 @@ function ss_mikrotik_interfaces_getvalue($host_id, $index, $column) {
 function ss_mikrotik_interfaces_getnames($host_id) {
 	$return_arr = array();
 
-	$arr = db_fetch_assoc("SELECT REPLACE(name, ' ', '_') AS name
+	$arr = db_fetch_assoc_prepared("SELECT REPLACE(name, ' ', '_') AS name
 		FROM plugin_mikrotik_interfaces
-		WHERE host_id='$host_id'
-		ORDER BY name");
+		WHERE host_id = ?
+		ORDER BY name", 
+		array($host_id));
 
 	for ($i=0;($i<sizeof($arr));$i++) {
 		$return_arr[$i] = $arr[$i]['name'];
@@ -79,15 +81,16 @@ function ss_mikrotik_interfaces_getinfo($host_id, $info_requested) {
 		break;
 	}
 
-	$arr = db_fetch_assoc("SELECT
+	$arr = db_fetch_assoc_prepared("SELECT
 		REPLACE(name, ' ', '_') AS qry_index,
 		$column AS qry_value
 		FROM plugin_mikrotik_interfaces
-		WHERE host_id='$host_id'
-		ORDER BY name");
+		WHERE host_id = ?
+		ORDER BY name", 
+		array($host_id));
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
+		$return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;

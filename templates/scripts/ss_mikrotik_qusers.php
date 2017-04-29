@@ -14,15 +14,15 @@ if (!isset($called_by_script_server)) {
 	print call_user_func_array('ss_mikrotik_qusers', $_SERVER['argv']);
 }
 
-function ss_mikrotik_qusers($hostid, $cmd = 'index', $arg1 = '', $arg2 = '') {
+function ss_mikrotik_qusers($host_id, $cmd = 'index', $arg1 = '', $arg2 = '') {
 	if ($cmd == 'index') {
-		$return_arr = ss_mikrotik_qusers_getnames($hostid, $arg1);
+		$return_arr = ss_mikrotik_qusers_getnames($host_id, $arg1);
 		for ($i=0;($i<sizeof($return_arr));$i++) {
 			print $return_arr[$i] . "\n";
 		}
 	}elseif ($cmd == 'query') {
-		$arr_index = ss_mikrotik_qusers_getnames($hostid, $arg1);
-		$arr = ss_mikrotik_qusers_getinfo($hostid, $arg1, $arg2);
+		$arr_index = ss_mikrotik_qusers_getnames($host_id, $arg1);
+		$arr = ss_mikrotik_qusers_getinfo($host_id, $arg1, $arg2);
 
 		for ($i=0;($i<sizeof($arr_index));$i++) {
 			if (isset($arr[$arr_index[$i]])) {
@@ -32,24 +32,23 @@ function ss_mikrotik_qusers($hostid, $cmd = 'index', $arg1 = '', $arg2 = '') {
 	}elseif ($cmd == 'get') {
 		$arg = $arg1;
 		$index = $arg2;
-		return ss_mikrotik_qusers_getvalue($hostid, $index, $arg);
+		return ss_mikrotik_qusers_getvalue($host_id, $index, $arg);
 	}
 }
 
-function ss_mikrotik_qusers_getvalue($hostid, $index, $column) {
-	global $config;
-
+function ss_mikrotik_qusers_getvalue($host_id, $index, $column) {
 	switch ($column) {
 	case 'curBytesIn':
 	case 'curBytesOut':
 	case 'curPacketsIn':
 	case 'curPacketsOut':
 	case 'connectTime':
-		$value = db_fetch_cell("SELECT
+		$value = db_fetch_cell_prepared("SELECT
 			$column AS value
 			FROM plugin_mikrotik_users
-			WHERE (name='$index'
-			AND host_id='$hostid')");
+			WHERE name = ?
+			AND host_id = ?", 
+			array($index, $host_id));
 
 		break;
 	case 'avgBytesIn':
@@ -58,22 +57,24 @@ function ss_mikrotik_qusers_getvalue($hostid, $index, $column) {
 	case 'avgPacketsOut':
 		$column = str_replace('avgB', 'b', $column);
 		$column = str_replace('avgP', 'p', $column);
-		$value = db_fetch_cell("SELECT
+		$value = db_fetch_cell_prepared("SELECT
 			IF(connectTime>0,($column/connectTime),0) AS value
 			FROM plugin_mikrotik_users
-			WHERE (name='$index'
-			AND host_id='$hostid')");
+			WHERE name = ?
+			AND host_id = ?", 
+			array($index, $host_id));
 
 		break;
 	case 'bytesIn':
 	case 'bytesOut':
 	case 'packetsIn':
 	case 'packetsOut':
-		$value = db_fetch_cell("SELECT
+		$value = db_fetch_cell_prepared("SELECT
 			$column AS value
 			FROM plugin_mikrotik_users
-			WHERE (name='$index'
-			AND host_id='$hostid')");
+			WHERE name = ?
+			AND host_id = ?", 
+			array($index, $host_id));
 
 		break;
 	}
@@ -85,13 +86,15 @@ function ss_mikrotik_qusers_getvalue($hostid, $index, $column) {
 	}
 }
 
-function ss_mikrotik_qusers_getnames($hostid) {
+function ss_mikrotik_qusers_getnames($host_id) {
 	$return_arr = array();
 
-	$arr = db_fetch_assoc("SELECT DISTINCT name
+	$arr = db_fetch_assoc_prepared("SELECT DISTINCT name
 		FROM plugin_mikrotik_users
-		WHERE host_id='" . $hostid . "' AND name!=''
-		ORDER BY name");
+		WHERE host_id = ? 
+		AND name!=''
+		ORDER BY name", 
+		array($host_id));
 
 	for ($i=0;($i<sizeof($arr));$i++) {
 		$return_arr[$i] = $arr[$i]['name'];
@@ -100,37 +103,45 @@ function ss_mikrotik_qusers_getnames($hostid) {
 	return $return_arr;
 }
 
-function ss_mikrotik_qusers_getinfo($hostid, $info_requested) {
+function ss_mikrotik_qusers_getinfo($host_id, $info_requested) {
 	$return_arr = array();
 
 	if ($info_requested == 'name') {
-		$arr = db_fetch_assoc("SELECT name AS qry_index,
+		$arr = db_fetch_assoc_prepared("SELECT name AS qry_index,
 			name AS qry_value
 			FROM plugin_mikrotik_users
-			WHERE host_id ='$hostid' AND name!=''
-			ORDER BY name");
+			WHERE host_id = ?
+			AND name!=''
+			ORDER BY name", 
+			array($host_id));
 	}elseif ($info_requested == 'domain') {
-		$arr = db_fetch_assoc("SELECT name AS qry_index,
+		$arr = db_fetch_assoc_prepared("SELECT name AS qry_index,
 			domain AS qry_value
 			FROM plugin_mikrotik_users
-			WHERE host_id ='$hostid' AND name!=''
-			ORDER BY name");
+			WHERE host_id = ? 
+			AND name!=''
+			ORDER BY name", 
+			array($host_id));
 	}elseif ($info_requested == 'ip') {
-		$arr = db_fetch_assoc("SELECT name AS qry_index,
+		$arr = db_fetch_assoc_prepared("SELECT name AS qry_index,
 			ip AS qry_value
 			FROM plugin_mikrotik_users
-			WHERE host_id ='$hostid' AND name!=''
-			ORDER BY name");
+			WHERE host_id = ? 
+			AND name!=''
+			ORDER BY name", 
+			array($host_id));
 	}elseif ($info_requested == 'mac') {
-		$arr = db_fetch_assoc("SELECT name AS qry_index,
+		$arr = db_fetch_assoc_prepared("SELECT name AS qry_index,
 			mac AS qry_value
 			FROM plugin_mikrotik_users
-			WHERE host_id ='$hostid' AND name!=''
-			ORDER BY name");
+			WHERE host_id = ? 
+			AND name!=''
+			ORDER BY name", 
+			array($host_id));
 	}
 
 	for ($i=0;($i<sizeof($arr));$i++) {
-                $return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
+		$return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 
 	return $return_arr;
