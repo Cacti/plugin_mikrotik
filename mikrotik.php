@@ -331,9 +331,9 @@ function mikrotik_interfaces() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
 	$sql_where = "WHERE mti.name!=''";
@@ -381,11 +381,7 @@ function mikrotik_interfaces() {
 	}
 
 	$sql_order = get_order_string();
-	if ($apply_limits) {
-		$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
-	}else{
-		$sql_limit = '';
-	}
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
 	$sql = "SELECT mti.*, h.hostname, h.description, h.disabled, 
 		(${pref}RxTooShort+${pref}RxTooLong+${pref}RxFCFSError+${pref}RxAlignError+${pref}RxFragment+${pref}RxOverflow+${pref}RxUnknownOp+${pref}RxLengthError+${pref}RxCodeError+${pref}RxCarrierError+${pref}RxJabber+${pref}RxDrop) AS RxErrors, 
@@ -702,7 +698,7 @@ function mikrotik_queues() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 14, __('Queues'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Queues'), 'page', 'main');
 
 	print $nav;
 
@@ -905,12 +901,12 @@ function mikrotik_trees() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
+	$limit     = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_where = "WHERE hrswls.name!=''";
 
 	if (get_request_var('device') != '-1') {
@@ -943,7 +939,7 @@ function mikrotik_trees() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=trees', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 9, __('Trees'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=trees', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 9, __('Trees'), 'page', 'main');
 
 	print $nav;
 
@@ -1132,12 +1128,12 @@ function mikrotik_wireless_aps() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
+	$limit     = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_where = '';
 
 	if (get_request_var('device') != '-1') {
@@ -1172,7 +1168,7 @@ function mikrotik_wireless_aps() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=wireless_aps', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 13, __('Wireless Aps'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=wireless_aps', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 13, __('Wireless Aps'), 'page', 'main');
 
 	print $nav;
 
@@ -1418,12 +1414,12 @@ function mikrotik_users() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
+	$limit     = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_where = "WHERE hrswr.name!=''";
 
 	if (get_request_var('device') != '-1') {
@@ -1706,12 +1702,12 @@ function mikrotik_devices() {
 	html_end_box();
 
 	if (get_request_var('rows') == '-1') {
-		$num_rows = read_config_option('num_rows_table');
+		$rows = read_config_option('num_rows_table');
 	}else{
-		$num_rows = get_request_var('rows');
+		$rows = get_request_var('rows');
 	}
 
-	$limit     = ' LIMIT ' . ($num_rows*(get_request_var('page')-1)) . ',' . $num_rows;
+	$limit     = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_where = '';
 
 	if (get_request_var('status') != '-1') {
@@ -1749,7 +1745,7 @@ function mikrotik_devices() {
 		$sql_join
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=devices', MAX_DISPLAY_PAGES, get_request_var('page'), $num_rows, $total_rows, 16, __('Devices'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=devices', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 16, __('Devices'), 'page', 'main');
 
 	print $nav;
 
