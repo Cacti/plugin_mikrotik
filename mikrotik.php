@@ -1398,10 +1398,10 @@ function mikrotik_users() {
 						<label for='active'><?php print __('Active Users');?></label>
 					</td>
 					<td>
-						<input type='button' onClick='applyFilter()' value='<?php print __('Go');?>' border='0'>
+						<input type='button' onClick='applyFilter()' value='<?php print __('Go');?>' id='refresh'>
 					</td>
 					<td>
-						<input type='button' onClick='clearFilter()' value='<?php print __('Clear');?>' name='clear' border='0'>
+						<input type='button' onClick='clearFilter()' value='<?php print __('Clear');?>' id='clear'>
 					</td>
 				</tr>
 			</table>
@@ -1804,37 +1804,37 @@ function mikrotik_devices() {
 			form_alternate_row();
 
 			echo "<td style='white-space:nowrap;min-width:115px;text-align:left;'>";
-			//echo "<a style='padding:1px;' href='" . htmlspecialchars("$url?action=dashboard&reset=1&device=" . $row["host_id"]) . "'><img src='$dashboard' title='View Dashboard' align='absmiddle' border='0'></a>";
+			//echo "<a style='padding:1px;' href='" . htmlspecialchars("$url?action=dashboard&reset=1&device=" . $row["host_id"]) . "'><img src='$dashboard' title='View Dashboard'></a>";
 			if ($row['users'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><img src='$users' title='" . __('View Users') . "' align='absmiddle' border='0' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><img src='$users' title='" . __('View Users') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_users_freq') != '-1') {
 				echo "<img style='border:0px;padding:3px;' src='$usersn' title='" . __('No Users Found') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['queues'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><img src='$queues' title='" . __('View Simple Queue') . "' align='absmiddle' border='0' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><img src='$queues' title='" . __('View Simple Queue') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_queues_freq') != '-1') {
 				echo "<img style='border:0px;padding:3px;' src='$queuesn' title='" . __('No Simple Queues Found') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['trees'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><img src='$trees' title='" . __('View Queue Trees') . "' align='absmiddle' border='0' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><img src='$trees' title='" . __('View Queue Trees') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_trees_freq') != '-1') {
 				echo "<img style='border:0px;padding:3px;' src='$treesn' title='" . __('No Queue Trees Found') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['aps'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><img src='$aps' title='" . __('View Wireless Aps') . "' align='absmiddle' border='0' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><img src='$aps' title='" . __('View Wireless Aps') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_wireless_aps_freq') != '-1') {
 				echo "<img style='border:0px;padding:3px;' src='$apsn' title='" . __('No Wireless Aps Found') . "' align='absmiddle' alt=''>";
 			}
 
-			echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><img src='$interfaces' title='" . __('View Interfaces') . "' align='absmiddle' border='0' alt=''></a>";
+			echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><img src='$interfaces' title='" . __('View Interfaces') . "' alt=''></a>";
 
 			if ($found) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><img  src='$graphs' title='" . __('View Graphs') . "' align='absmiddle' border='0' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><img  src='$graphs' title='" . __('View Graphs') . "' alt=''></a>";
 			}else{
-				echo "<img src='$nographs' title='" . __('No Graphs Defined') . "' align='absmiddle' border='0'>";
+				echo "<img src='$nographs' title='" . __('No Graphs Defined') . "'>";
 			}
 
 			$graph_cpu   = mikrotik_get_graph_url($hcpudq, $row['host_id'], '', $row['numCpus'], false);
@@ -1964,7 +1964,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 
 		if (sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img border='0' src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img src='" . $graph . "'></a>";
 			}else{
 				return "<a href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'>$title</a>";
 			}
@@ -1972,7 +1972,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 			return "-";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console -> Settings -> Host MIB First') . "' align='absmiddle' border='0'>";
+		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console -> Settings -> Host MIB First') . "'>";
 	}else{
 		return $title;
 	}
@@ -2007,15 +2007,15 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 
 		if (sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img border='0' align='absmiddle' src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img src='" . $graph . "'></a>";
 			}else{
 				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'>$title</a>";
 			}
 		}else{
-			return "<img src='$nograph' title='" . __('Graphs Skipped or Not Created Yet') . "' align='absmiddle' border='0'>";
+			return "<img src='$nograph' title='" . __('Graphs Skipped or Not Created Yet') . "'>";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console->Settings->Host MIB First') . "' align='absmiddle' border='0'>";
+		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console->Settings->Host MIB First') . "'>";
 	}else{
 		return $title;
 	}

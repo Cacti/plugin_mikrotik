@@ -82,7 +82,7 @@ function mikrotik_check_upgrade () {
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('plugins.php', 'mikrotik.php');
-	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
+	if (!in_array(get_current_page(), $files)) {
 		return;
 	}
 
@@ -1112,9 +1112,9 @@ function mikrotik_show_tab() {
 
 	if (api_user_realm_auth('mikrotik.php')) {
 		if (substr_count($_SERVER['REQUEST_URI'], 'mikrotik.php')) {
-			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik_down.gif" alt="' . __('MikroTik') . '" border="0"></a>';
+			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik_down.gif" alt="' . __('MikroTik') . '"></a>';
 		}else{
-			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik.gif" alt="' . __('MikroTik') . '" border="0"></a>';
+			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik.gif" alt="' . __('MikroTik') . '"></a>';
 		}
 	}
 }
