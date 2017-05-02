@@ -671,11 +671,7 @@ function mikrotik_queues() {
 	}
 
 	$sql_order = get_order_string();
-	if ($apply_limits) {
-		$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
-	}else{
-		$sql_limit = '';
-	}
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
 	$sql = "SELECT mtq.*, h.hostname, h.description, h.disabled
 		FROM plugin_mikrotik_queues AS mtq
