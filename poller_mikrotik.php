@@ -765,40 +765,44 @@ function checkHost($host_id) {
 		putenv('MIBS=all');
 	}
 
-	collect_system($host);
+	$system_up = collect_system($host);
 
-	if (runCollector($start, $users_lastrun, $users_freq)) {
-		collect_users($host);
+	if (!$system_up) {
+		cacti_log('MikroTik System: ' . $host['id'] . ' Is down and will not be interrogated');
+	}else{
+		if (runCollector($start, $users_lastrun, $users_freq)) {
+			collect_users($host);
 
-		// Remove old records
-		db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE userType=0 AND name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
-	}
+			// Remove old records
+			db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE userType=0 AND name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
+		}
 
-	if (runCollector($start, $trees_lastrun, $trees_freq)) {
-		collect_trees($host);
-	}
-	if (runCollector($start, $queues_lastrun, $queues_freq)) {
-		collect_queues($host);
-		collect_pppoe_users_api($host);
-	}
-	if (runCollector($start, $interfaces_lastrun, $interfaces_freq)) {
-		collect_interfaces($host);
-	}
-	if (runCollector($start, $processor_lastrun, $processor_freq)) {
-		collect_processor($host);
-	}
-	if (runCollector($start, $storage_lastrun, $storage_freq)) {
-		collect_storage($host);
-	}
-	if (runCollector($start, $wireless_aps_lastrun, $wireless_aps_freq)) {
-		collect_wireless_aps($host);
-	}
-	if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
-		collect_wireless_reg($host);
-	}
-
-	if (!function_exists('snmp_read_mib')) {
-		putenv('MIBS=');
+		if (runCollector($start, $trees_lastrun, $trees_freq)) {
+			collect_trees($host);
+		}
+		if (runCollector($start, $queues_lastrun, $queues_freq)) {
+			collect_queues($host);
+			collect_pppoe_users_api($host);
+		}
+		if (runCollector($start, $interfaces_lastrun, $interfaces_freq)) {
+			collect_interfaces($host);
+		}
+		if (runCollector($start, $processor_lastrun, $processor_freq)) {
+			collect_processor($host);
+		}
+		if (runCollector($start, $storage_lastrun, $storage_freq)) {
+			collect_storage($host);
+		}
+		if (runCollector($start, $wireless_aps_lastrun, $wireless_aps_freq)) {
+			collect_wireless_aps($host);
+		}
+		if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
+			collect_wireless_reg($host);
+		}
+	
+		if (!function_exists('snmp_read_mib')) {
+			putenv('MIBS=');
+		}
 	}
 
 	/* remove the process lock */
@@ -816,6 +820,10 @@ function collect_system(&$host) {
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
 			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+
+		if ($hostMib == false) {
+			return false; 
+		}
 
 		$systemMib = cacti_snmp_walk($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.1', $host['snmp_version'],
 			$host['snmp_username'], $host['snmp_password'],
