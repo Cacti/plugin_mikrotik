@@ -147,10 +147,10 @@ function getLatestVersion() {
 		if ($latest) {
 			$latest = explode(' ', $latest);
 			if (isset($latest[1])) {
-				$latest = $latest[0];
+				$latest_version = $latest[0];
 				$latest_date = $latest[1];
 				if ($latest > 0) {
-					set_config_option('mikrotik_latestversion', $latest);
+					set_config_option('mikrotik_latestversion', $latest_version);
 					set_config_option('mikrotik_latestversion_date', $latest_date);
 				}
 			}

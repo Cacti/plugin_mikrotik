@@ -1615,10 +1615,10 @@ function mikrotik_devices() {
 	<?php
 
 	$mikrotik_version_date = read_config_option('mikrotik_latestversion_date');
-	if (empty($mikrotik_version_date)) {
+	if (empty($mikrotik_version_date) || intval($mikrotik_version_date) == 0) {
 		$header = __('Device Filter (Latest MikroTik Version is: %s)', read_config_option('mikrotik_latestversion'));
 	}else{
-		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', $mikrotik_version_date));
+		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', intval($mikrotik_version_date)));
 	}
 
 	html_start_box($header, '100%', '', '3', 'center', '');
