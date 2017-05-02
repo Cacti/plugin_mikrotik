@@ -933,7 +933,9 @@ function collect_system(&$host) {
 			db_execute("INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (" . $host['id'] . ")");
 			db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
 		}
+		return true;
 	}
+	return false;
 }
 
 function mikrotik_dateParse($value) {
