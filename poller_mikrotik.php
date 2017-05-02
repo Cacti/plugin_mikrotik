@@ -142,14 +142,16 @@ exit(0);
 
 function getLatestVersion() {
 	$t = intval(read_config_option('mikrotik_latestversioncheck'));
-	if ($t == 0 || time() - $t > 86400) {
+	if ($t == 0 || time() - $t > 3600) {
 		$latest = file_get_contents('http://upgrade.mikrotik.com/routeros/LATEST.6');
 		if ($latest) {
 			$latest = explode(' ', $latest);
 			if (isset($latest[1])) {
 				$latest = $latest[0];
+				$latest_date = $latest[1];
 				if ($latest > 0) {
 					set_config_option('mikrotik_latestversion', $latest);
+					set_config_option('mikrotik_latestversion_date', $latest_date);
 				}
 			}
 		}

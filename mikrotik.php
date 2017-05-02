@@ -1614,7 +1614,14 @@ function mikrotik_devices() {
 	</script>
 	<?php
 
-	html_start_box(__('Device Filter'), '100%', '', '3', 'center', '');
+	$mikrotik_version_date = read_config_option('mikrotik_latestversion_date');
+	if (empty($mikrotik_version_date)) {
+		$header = __('Device Filter (Latest MikroTik Version is: %s)', read_config_option('mikrotik_latestversion'));
+	}else{
+		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', $mikrotik_version_date));
+	}
+
+	html_start_box($header, '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
