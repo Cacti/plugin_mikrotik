@@ -1190,7 +1190,7 @@ function mikrotik_wireless_aps() {
 		'last_seen'         => array('display' => __('Last Seen'),    'sort' => 'ASC',  'align' => 'right')
 	);
 
-	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=trees');
+	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=wireless_aps');
 
 	if (sizeof($rows)) {
 		foreach ($rows as $row) {

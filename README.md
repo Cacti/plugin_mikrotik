@@ -26,11 +26,12 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 ##ChangeLog
 
 --- 2.0 ---
-* Support for Cacti 1.0
-* Lot's of new features
+* issue#10: SQL Error when sorting from the Wireless Aps page
+* feature: Support for Cacti 1.0
+* feature: Lot's of new features
 
 --- 1.01 ---
-* bug#0002318 - Invalid round robin archive
+* bug#0002318: Invalid round robin archive
 
 --- 1.0 ---
 * Initial release
