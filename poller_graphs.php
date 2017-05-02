@@ -43,12 +43,12 @@ $forcerun = false;
 $start    = time();
 
 foreach($parms as $parameter) {
-		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
-		} else {
-			$arg = $parameter;
-			$value = '';
-		}
+	if (strpos($parameter, '=')) {
+		list($arg, $value) = explode('=', $parameter);
+	} else {
+		$arg = $parameter;
+		$value = '';
+	}
 	switch ($arg) {
 	case '--debug':
 	case '-d':
