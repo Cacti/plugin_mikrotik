@@ -395,7 +395,7 @@ function mikrotik_interfaces() {
 		$sql_order
 		$sql_limit";
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_interfaces AS mti
 		INNER JOIN host AS h
@@ -425,8 +425,8 @@ function mikrotik_interfaces() {
 
 	html_header_sort($display_text, $sort_column, get_request_var('sort_direction'), false, 'mikrotik.php?action=interfaces');
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			form_alternate_row();
 
 			$graphs = mikrotik_graphs_url_by_template_hashs($interface_hashes, $row['host_id'], $row['name']);
@@ -456,7 +456,7 @@ function mikrotik_interfaces() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 
@@ -685,7 +685,7 @@ function mikrotik_queues() {
 
 	//echo $sql;
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_queues AS mtq
 		INNER JOIN host AS h
@@ -719,8 +719,8 @@ function mikrotik_queues() {
 
 	html_header_sort($display_text, $sort_column, get_request_var('sort_direction'), false, 'mikrotik.php?action=queues');
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			form_alternate_row();
 
 			$graphs = mikrotik_graphs_url_by_template_hashs($queue_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
@@ -758,7 +758,7 @@ function mikrotik_queues() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 
@@ -926,7 +926,7 @@ function mikrotik_trees() {
 
 	//echo $sql;
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_trees AS hrswls
 		INNER JOIN host AS h
@@ -955,8 +955,8 @@ function mikrotik_trees() {
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=trees');
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			form_alternate_row();
 
 			$graphs = mikrotik_graphs_url_by_template_hashs($tree_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
@@ -985,7 +985,7 @@ function mikrotik_trees() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 
@@ -1155,7 +1155,7 @@ function mikrotik_wireless_aps() {
 
 	//echo $sql;
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_wireless_aps AS hraps
 		INNER JOIN host AS h
@@ -1188,8 +1188,8 @@ function mikrotik_wireless_aps() {
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=wireless_aps');
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			form_alternate_row();
 
 			$graphs = mikrotik_graphs_url_by_template_hashs($wireless_station_hashes, $row['host_id'], str_replace(' ', '%', $row['apSSID']));
@@ -1222,7 +1222,7 @@ function mikrotik_wireless_aps() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 
@@ -1452,7 +1452,7 @@ function mikrotik_users() {
 
 	//echo $sql;
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_users AS hrswr
 		INNER JOIN host AS h
@@ -1486,8 +1486,8 @@ function mikrotik_users() {
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), 'false', 'mikrotik.php?action=users');
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			if ($row['present'] == 1) {
 				$days      = intval($row['connectTime'] / (60*60*24));
 				$remainder = $row['connectTime'] % (60*60*24);
@@ -1542,7 +1542,7 @@ function mikrotik_users() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 
@@ -1740,7 +1740,7 @@ function mikrotik_devices() {
 
 	//echo $sql;
 
-	$rows       = db_fetch_assoc($sql);
+	$data_rows  = db_fetch_assoc($sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_system AS hrs
 		INNER JOIN host AS h
@@ -1794,8 +1794,8 @@ function mikrotik_devices() {
 	$hcpudq  = read_config_option('mikrotik_dq_host_cpu');
 	$licVersionLatest  = read_config_option('mikrotik_latestversion', true);
 
-	if (sizeof($rows)) {
-		foreach ($rows as $row) {
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
 			$days      = intval($row['uptime'] / (60*60*24*100));
 			$remainder = $row['uptime'] % (60*60*24*100);
 			$hours     = intval($remainder / (60*60*100));
@@ -1879,7 +1879,7 @@ function mikrotik_devices() {
 
 	html_end_box();
 
-	if (sizeof($rows)) {
+	if (sizeof($data_rows)) {
 		print $nav;
 	}
 

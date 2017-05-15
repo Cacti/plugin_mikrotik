@@ -27,6 +27,7 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 
 --- 2.0 ---
 * issue#10: SQL Error when sorting from the Wireless Aps page
+* issue#12: All pages lack navigation
 * feature: Support for Cacti 1.0
 * feature: Lot's of new features
 
