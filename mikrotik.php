@@ -1621,6 +1621,8 @@ function mikrotik_devices() {
 		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', intval($mikrotik_version_date)));
 	}
 
+	$header .= "&nbsp;<a class='hyperLink' href='https://mikrotik.com/download/changelogs' target='_blank'>" . __('ChangeLog') . '</a>';
+
 	html_start_box($header, '100%', '', '3', 'center', '');
 
 	?>
