@@ -9,7 +9,7 @@ This plugin provides support for the MikroTik RouterOS available from [MikroTik]
 * Graphs of MikroTik enviornmentals such as temperature and voltage
 * Viewing of Devices and summary statistics, Users, Queue Trees, Access Points, HotSpots, Interfaces, and Wireless Station information
 
-##Installation
+## Installation
 
 Just like any other Cacti plugin, untar the package to the Cacti plugins directory, rename the directory to 'mikrotik', and then from Cacti's Plugin Management interface, Install and Enable the plugin.
 
@@ -23,7 +23,7 @@ MikroTik's 'auto-discovery' feature will look for Cacti devices that are MikroTi
    
 Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
-##ChangeLog
+## ChangeLog
 
 --- 2.0 ---
 * issue#10: SQL Error when sorting from the Wireless Aps page
