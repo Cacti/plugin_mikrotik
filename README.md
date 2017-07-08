@@ -30,6 +30,7 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 * issue#12: All pages lack navigation
 * feature: Support for Cacti 1.0
 * feature: Lot's of new features
+* feature: Update text domain for i18n
 
 --- 1.01 ---
 * bug#0002318: Invalid round robin archive

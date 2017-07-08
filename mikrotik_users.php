@@ -29,7 +29,7 @@ include_once('./lib/api_graph.php');
 include_once('./lib/api_device.php');
 
 $user_actions = array(
-	1 => __('Delete'),
+	1 => __('Delete', 'mikrotik'),
 );
 
 set_default_action('');
@@ -79,10 +79,10 @@ function form_actions() {
 					WHERE ' . array_to_sql_or($selected_items, 'data_local.snmp_index') . "
 					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
 
-				if (sizeof($data_sources) > 0) {
-				foreach ($data_sources as $data_source) {
-					$data_sources_to_act_on[] = $data_source['local_data_id'];
-				}
+				if (sizeof($data_sources)) {
+					foreach ($data_sources as $data_source) {
+						$data_sources_to_act_on[] = $data_source['local_data_id'];
+					}
 				}
 
 				$graphs = db_fetch_assoc('SELECT
@@ -91,10 +91,10 @@ function form_actions() {
 					WHERE ' . array_to_sql_or($selected_items, 'graph_local.snmp_index') . "
 					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
 
-				if (sizeof($graphs) > 0) {
-				foreach ($graphs as $graph) {
-					$graphs_to_act_on[] = $graph['local_graph_id'];
-				}
+				if (sizeof($graphs)) {
+					foreach ($graphs as $graph) {
+						$graphs_to_act_on[] = $graph['local_graph_id'];
+					}
 				}
 
 				$devices_to_act_on[] = $selected_items[$i];
@@ -137,17 +137,17 @@ function form_actions() {
 		if (get_request_var('drp_action') == '1') { /* delete */
 			print "	<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Delete the following Users(s) and their Graph(s).') . "</p>
+						<p>" . __('Click \'Continue\' to Delete the following Users(s) and their Graph(s).', 'mikrotik') . "</p>
 						<ul>" . $user_list . "</ul>";
 						print "</td></tr>
 					</td>
 				</tr>\n
 				";
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Device(s)') . "'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'mikrotik') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'mikrotik') . "' title='" . __esc('Delete Device(s)', 'mikrotik') . "'>";
 		}
 	}else{
-		print "<tr><td><span class='textError'>" . __('You must select at least one User.') . "</span></td></tr>\n";
-		$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
+		print "<tr><td><span class='textError'>" . __('You must select at least one User.', 'mikrotik') . "</span></td></tr>\n";
+		$save_html = "<input type='button' value='" . __esc('Return', 'mikrotik') . "' onClick='cactiReturnTo()'>";
 	}
 
 	print "<tr class='saveRow'>
@@ -242,7 +242,7 @@ function mikrotik_user() {
 	</script>
 	<?php
 
-	html_start_box(__('MikroTik Users'), '100%', '', '3', 'center', '');
+	html_start_box(__('MikroTik Users', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even'>
@@ -251,29 +251,29 @@ function mikrotik_user() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
 					</td>
 					<td>
-						<?php print __('Type');?>
+						<?php print __('Type', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='type' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
-							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot');?></option>
-							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe');?></option>
+							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
+							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot', 'mikrotik');?></option>
+							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe', 'mikrotik');?></option>
 						</select>
 					</td>
 					<td>
-						<?php print __('Users');?>
+						<?php print __('Users', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -282,23 +282,22 @@ function mikrotik_user() {
 						</select>
 					</td>
 					<td>
-						<?php print __('Status');?>
+						<?php print __('Status', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
-							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Active');?></option>
-							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Inactive');?></option>
+							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
+							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Active', 'mikrotik');?></option>
+							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Inactive', 'mikrotik');?></option>
 						</select>
 					<td>
-						<input type='button' value='<?php print __('Go');?>' title='<?php print __('Set/Refresh Filters');?>' onClick='applyFilter()'>
-					</td>
-					<td>
-						<input type='button' name='clear_x' value='<?php print __('Clear');?>' title='<?php print __('Clear Filters');?>' onClick='clearFilter()'>
+						<span>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik');?>' title='<?php print __esc('Set/Refresh Filters', 'mikrotik');?>' onClick='applyFilter()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik');?>' title='<?php print __esc('Clear Filters', 'mikrotik');?>' onClick='clearFilter()'>
+						<span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' name='page' value='1'>
 		</form>
 		</td>
 	</tr>
@@ -325,7 +324,7 @@ function mikrotik_user() {
 		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=1';
 	}
 
-	$total_rows = db_fetch_cell("SELECT 
+	$total_rows = db_fetch_cell("SELECT
 		COUNT(DISTINCT name)
 		FROM plugin_mikrotik_users
 		$sql_where");
@@ -342,7 +341,7 @@ function mikrotik_user() {
 
 	$users = db_fetch_assoc($sql_query);
 
-	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, __('Users'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik_users.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 6, __('Users', 'mikrotik'), 'page', 'main');
 
 	form_start('mikrotik_users.php', 'chk');
 
@@ -351,11 +350,11 @@ function mikrotik_user() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'name'      => array(__('User Name'), 'ASC'),
-		'domain'    => array(__('Domain'), 'ASC'),
-		'type'      => array(__('Type'), 'ASC'),
-		'last_seen' => array(__('Last Seen'), 'DESC'),
-		'present'   => array(__('Active'), 'ASC'));
+		'name'      => array(__('User Name', 'mikrotik'), 'ASC'),
+		'domain'    => array(__('Domain', 'mikrotik'), 'ASC'),
+		'type'      => array(__('Type', 'mikrotik'), 'ASC'),
+		'last_seen' => array(__('Last Seen', 'mikrotik'), 'DESC'),
+		'present'   => array(__('Active', 'mikrotik'), 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -366,12 +365,12 @@ function mikrotik_user() {
 			form_selectable_cell(($user['domain'] != '' ? $user['domain']:'Not Set'), $user['name']);
 			form_selectable_cell(($user['userType'] == '0' ? 'Hotspot':'PPPoe'), $user['name']);
 			form_selectable_cell($user['last_seen'], $user['name']);
-			form_selectable_cell(($user['present'] == 0 ? '<b><i>' . __('Inactive') . '</i></b>':'<b><i>' . __('Active') . '</i></b>'), $user['name']);
+			form_selectable_cell(($user['present'] == 0 ? '<b><i>' . __('Inactive', 'mikrotik') . '</i></b>':'<b><i>' . __('Active', 'mikrotik') . '</i></b>'), $user['name']);
 			form_checkbox_cell($user['name'], $user['name']);
 			form_end_row();
 		}
 	}else{
-		print '<tr><td><em>' . __('No Users Found') . '</em></td></tr>';
+		print '<tr><td><em>' . __('No Users Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
@@ -385,6 +384,4 @@ function mikrotik_user() {
 
 	form_end();
 }
-
-?>
 

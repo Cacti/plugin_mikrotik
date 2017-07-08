@@ -35,12 +35,12 @@ if (isset_request_var('action') && get_request_var('action') == 'ajax_hosts') {
 general_header();
 
 $mikrotik_hrDeviceStatus = array(
-	0 => __('Present'),
-	1 => __('Unknown'),
-	2 => __('Running'),
-	3 => __('Warning'),
-	4 => __('Testing'),
-	5 => __('Down')
+	0 => __('Present', 'mikrotik'),
+	1 => __('Unknown', 'mikrotik'),
+	2 => __('Running', 'mikrotik'),
+	3 => __('Warning', 'mikrotik'),
+	4 => __('Testing', 'mikrotik'),
+	5 => __('Down', 'mikrotik')
 );
 
 mikrotik_tabs();
@@ -124,37 +124,37 @@ function mikrotik_tabs() {
 	global $config;
 
 	/* present a tabbed interface */
-	$tabs['devices'] = __('Devices');
+	$tabs['devices'] = __('Devices', 'mikrotik');
 
 	if (mikrotik_users_exist()) {
-		$tabs['users'] = __('Users');
+		$tabs['users'] = __('Users', 'mikrotik');
 	}
 
 	if (mikrotik_queues_exist()) {
-		$tabs['queues'] = __('Queues');
+		$tabs['queues'] = __('Queues', 'mikrotik');
 	}
 
 	if (mikrotik_queue_trees_exist()) {
-		$tabs['trees'] = __('Queue Trees');
+		$tabs['trees'] = __('Queue Trees', 'mikrotik');
 	}
 
 	if (mikrotik_interfaces_exist()) {
-		$tabs['interfaces'] = __('Interfaces');
+		$tabs['interfaces'] = __('Interfaces', 'mikrotik');
 	}
 
 	if (mikrotik_wireless_aps_exist()) {
-		$tabs['wireless_aps'] = __('Wireless Aps');
+		$tabs['wireless_aps'] = __('Wireless Aps', 'mikrotik');
 	}
 
 	if (mikrotik_hotspots_exist()) {
-		$tabs['hotspots'] = __('Hot Spots');
+		$tabs['hotspots'] = __('Hot Spots', 'mikrotik');
 	}
 
 	if (mikrotik_wroutes_exist()) {
-		$tabs['wireless'] = __('Wireless Routes');
+		$tabs['wireless'] = __('Wireless Routes', 'mikrotik');
 	}
 
-	$tabs['graphs'] = __('Graphs');
+	$tabs['graphs'] = __('Graphs', 'mikrotik');
 
 	/* set the default tab */
 	$current_tab = get_request_var('action');
@@ -252,7 +252,7 @@ function mikrotik_interfaces() {
 	</script>
 	<?php
 
-	html_start_box(__('Interface Stats'), '100%', '', '3', 'center', '');
+	html_start_box(__('Interface Stats', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -261,17 +261,17 @@ function mikrotik_interfaces() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Device');?>
+						<?php print __('Device', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='device' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
 								FROM plugin_mikrotik_system AS hrs
@@ -280,49 +280,47 @@ function mikrotik_interfaces() {
 								ORDER BY description');
 
 							if (sizeof($hosts)) {
-							foreach($hosts AS $h) {
-								echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
-							}
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Interfaces');?>
+						<?php print __('Interfaces', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<label for='active'><?php print __('Active');?></label>
+						<span>
+							<input id='active' type='checkbox' <?php print (get_request_var('active') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
+							<label for='active'><?php print __('Active', 'mikrotik');?></label>
+						</span>
+					<td>
+						<span>
+							<input id='sincereset' type='checkbox' <?php print (get_request_var('sincereset') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
+							<label for='sincereset'><?php print __('Since Reset', 'mikrotik');?></label>
+						</span>
 					</td>
 					<td>
-						<input id='active' type='checkbox' <?php print (get_request_var('active') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
-					</td>
-					<td>
-						<label for='sincereset'><?php print __('Since Reset');?></label>
-					</td>
-					<td>
-						<input id='sincereset' type='checkbox' <?php print (get_request_var('sincereset') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
-					</td>
-					<td>
-						<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' type='button' onClick='clearFilter()' value='<?php print __('Clear');?>'>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 		</form>
 		</td>
 	</tr>
@@ -383,8 +381,8 @@ function mikrotik_interfaces() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
-	$sql = "SELECT mti.*, h.hostname, h.description, h.disabled, 
-		(${pref}RxTooShort+${pref}RxTooLong+${pref}RxFCFSError+${pref}RxAlignError+${pref}RxFragment+${pref}RxOverflow+${pref}RxUnknownOp+${pref}RxLengthError+${pref}RxCodeError+${pref}RxCarrierError+${pref}RxJabber+${pref}RxDrop) AS RxErrors, 
+	$sql = "SELECT mti.*, h.hostname, h.description, h.disabled,
+		(${pref}RxTooShort+${pref}RxTooLong+${pref}RxFCFSError+${pref}RxAlignError+${pref}RxFragment+${pref}RxOverflow+${pref}RxUnknownOp+${pref}RxLengthError+${pref}RxCodeError+${pref}RxCarrierError+${pref}RxJabber+${pref}RxDrop) AS RxErrors,
 		(${pref}TxTooShort+${pref}TxTooLong+${pref}TxUnderrun+${pref}TxCollision+${pref}TxExCollision+${pref}TxMultCollision+${pref}TxSingCollision+${pref}TxLateCollision+${pref}TxDrop+${pref}TxJabber+${pref}TxFCFSError) AS TxErrors
 		FROM plugin_mikrotik_interfaces AS mti
 		INNER JOIN host AS h
@@ -404,23 +402,23 @@ function mikrotik_interfaces() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Interfaces'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Interfaces', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'            => array('display' => __('Actions'),    'sort' => '',     'align' => 'left'),
-		'description'       => array('display' => __('Hostname'),   'sort' => 'ASC',  'align' => 'left'),
-		'name'              => array('display' => __('Name'),       'sort' => 'DESC', 'align' => 'left'),
-		$pref . 'RxBytes'   => array('display' => __('Rx Bytes'),   'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'TxBytes'   => array('display' => __('Tx Bytes'),   'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'RxPackets' => array('display' => __('Rx Packets'), 'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'TxPackets' => array('display' => __('Tx Packets'), 'sort' => 'DESC', 'align' => 'right'),
-		'RxErrors'          => array('display' => __('Rx Errors'),  'sort' => 'DESC', 'align' => 'right'),
-		'TxErrors'          => array('display' => __('Tx Errors'),  'sort' => 'DESC', 'align' => 'right'),
-		'last_seen'         => array('display' => __('Last Seen'),  'sort' => 'ASC',  'align' => 'right')
+		'nosort'            => array('display' => __('Actions', 'mikrotik'),    'sort' => '',     'align' => 'left'),
+		'description'       => array('display' => __('Hostname', 'mikrotik'),   'sort' => 'ASC',  'align' => 'left'),
+		'name'              => array('display' => __('Name', 'mikrotik'),       'sort' => 'DESC', 'align' => 'left'),
+		$pref . 'RxBytes'   => array('display' => __('Rx Bytes', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'TxBytes'   => array('display' => __('Tx Bytes', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'RxPackets' => array('display' => __('Rx Packets', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'TxPackets' => array('display' => __('Tx Packets', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		'RxErrors'          => array('display' => __('Rx Errors', 'mikrotik'),  'sort' => 'DESC', 'align' => 'right'),
+		'TxErrors'          => array('display' => __('Tx Errors', 'mikrotik'),  'sort' => 'DESC', 'align' => 'right'),
+		'last_seen'         => array('display' => __('Last Seen', 'mikrotik'),  'sort' => 'ASC',  'align' => 'right')
 	);
 
 	html_header_sort($display_text, $sort_column, get_request_var('sort_direction'), false, 'mikrotik.php?action=interfaces');
@@ -436,7 +434,7 @@ function mikrotik_interfaces() {
 			}else{
 				$host_url    = $row['hostname'];
 			}
-			
+
 			echo "<td style='width:60px;'>$graphs</td>";
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
@@ -451,7 +449,7 @@ function mikrotik_interfaces() {
 			form_end_row();
 		}
 	}else{
-		print '<tr><td colspan="5"><em>' . __('No Interfaces Found') . '</em></td></tr>';
+		print '<tr><td colspan="5"><em>' . __('No Interfaces Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();
@@ -542,7 +540,7 @@ function mikrotik_queues() {
 	</script>
 	<?php
 
-	html_start_box(__('Queue Status'), '100%', '', '3', 'center', '');
+	html_start_box(__('Queue Status', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -551,17 +549,17 @@ function mikrotik_queues() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Device');?>
+						<?php print __('Device', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='device' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
 								FROM plugin_mikrotik_system AS hrs
@@ -570,49 +568,48 @@ function mikrotik_queues() {
 								ORDER BY description');
 
 							if (sizeof($hosts)) {
-							foreach($hosts AS $h) {
-								echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
-							}
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Queues');?>
+						<?php print __('Queues', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<label for='active'><?php print __('Active');?></label>
+						<span>
+							<input id='active' type='checkbox' <?php print (get_request_var('active') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
+							<label for='active'><?php print __('Active', 'mikrotik');?></label>
+						</span>
 					</td>
 					<td>
-						<input id='active' type='checkbox' <?php print (get_request_var('active') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
+						<span>
+							<input id='sincereset' type='checkbox' <?php print (get_request_var('sincereset') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
+							<label for='sincereset'><?php print __('Since Reset', 'mikrotik');?></label>
+						</span>
 					</td>
 					<td>
-						<label for='sincereset'><?php print __('Since Reset');?></label>
-					</td>
-					<td>
-						<input id='sincereset' type='checkbox' <?php print (get_request_var('sincereset') == 'true' ? 'checked':'');?> onClick='applyFilter()'>
-					</td>
-					<td>
-						<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' type='button' onClick='clearFilter()' value='<?php print __('Clear');?>'>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 		</form>
 		</td>
 	</tr>
@@ -694,27 +691,27 @@ function mikrotik_queues() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Queues'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Queues', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'             => array('display' => __('Actions'),       'sort' => '',     'align' => 'left'),
-		'description'        => array('display' => __('Hostname'),      'sort' => 'ASC',  'align' => 'left'),
-		'name'               => array('display' => __('Name'),          'sort' => 'DESC', 'align' => 'left'),
-		'srcAddr'            => array('display' => __('Src Addr/Mask'), 'sort' => 'DESC', 'align' => 'left'),
-		'dstAddr'            => array('display' => __('Dst Addr/Mask'), 'sort' => 'DESC', 'align' => 'left'),
-		$pref . 'BytesIn'    => array('display' => __('Bytes In'),       'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'BytesOut'   => array('display' => __('Bytes Out'),      'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'PacketsIn'  => array('display' => __('Pkts In'),        'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'PacketsOut' => array('display' => __('Pkts Out'),       'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'QueuesIn'   => array('display' => __('Qs In'),          'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'QueuesOut'  => array('display' => __('Qs Out'),         'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'DroppedIn'  => array('display' => __('Drps In'),        'sort' => 'DESC', 'align' => 'right'),
-		$pref . 'DroppedOut' => array('display' => __('Drps Out'),       'sort' => 'DESC', 'align' => 'right'),
-		'last_seen'          => array('display' => __('Last Seen'),     'sort' => 'ASC',  'align' => 'right')
+		'nosort'             => array('display' => __('Actions', 'mikrotik'),       'sort' => '',     'align' => 'left'),
+		'description'        => array('display' => __('Hostname', 'mikrotik'),      'sort' => 'ASC',  'align' => 'left'),
+		'name'               => array('display' => __('Name', 'mikrotik'),          'sort' => 'DESC', 'align' => 'left'),
+		'srcAddr'            => array('display' => __('Src Addr/Mask', 'mikrotik'), 'sort' => 'DESC', 'align' => 'left'),
+		'dstAddr'            => array('display' => __('Dst Addr/Mask', 'mikrotik'), 'sort' => 'DESC', 'align' => 'left'),
+		$pref . 'BytesIn'    => array('display' => __('Bytes In', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'BytesOut'   => array('display' => __('Bytes Out', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'PacketsIn'  => array('display' => __('Pkts In', 'mikrotik'),        'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'PacketsOut' => array('display' => __('Pkts Out', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'QueuesIn'   => array('display' => __('Qs In', 'mikrotik'),          'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'QueuesOut'  => array('display' => __('Qs Out', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'DroppedIn'  => array('display' => __('Drps In', 'mikrotik'),        'sort' => 'DESC', 'align' => 'right'),
+		$pref . 'DroppedOut' => array('display' => __('Drps Out', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		'last_seen'          => array('display' => __('Last Seen', 'mikrotik'),     'sort' => 'ASC',  'align' => 'right')
 	);
 
 	html_header_sort($display_text, $sort_column, get_request_var('sort_direction'), false, 'mikrotik.php?action=queues');
@@ -734,7 +731,7 @@ function mikrotik_queues() {
 			$dstNet = mikrotik_get_network($row['dstMask']);
 			$srcAM  = $row['srcAddr'] . ($srcNet != 32 ? '/' . $srcNet:'');
 			$dstAM  = $row['dstAddr'] . ($dstNet != 32 ? '/' . $dstNet:'');
-			
+
 			echo "<td style='width:60px;'>$graphs</td>";
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
@@ -753,7 +750,7 @@ function mikrotik_queues() {
 			form_end_row();
 		}
 	}else{
-		print '<tr><td colspan="5"><em>' . __('No Simple Queues Found') . '</em></td></tr>';
+		print '<tr><td colspan="5"><em>' . __('No Simple Queues Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();
@@ -830,7 +827,7 @@ function mikrotik_trees() {
 	</script>
 	<?php
 
-	html_start_box(__('Queue Tree Status'), '100%', '', '3', 'center', '');
+	html_start_box(__('Queue Tree Status', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -839,17 +836,17 @@ function mikrotik_trees() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Device');?>
+						<?php print __('Device', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='device' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
 								FROM plugin_mikrotik_system AS hrs
@@ -858,37 +855,36 @@ function mikrotik_trees() {
 								ORDER BY description');
 
 							if (sizeof($hosts)) {
-							foreach($hosts AS $h) {
-								echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
-							}
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Trees');?>
+						<?php print __('Trees', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' type='button' onClick='clearFilter()' value='<?php print __('Clear');?>'>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 		</form>
 		</td>
 	</tr>
@@ -935,22 +931,22 @@ function mikrotik_trees() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=trees', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 9, __('Trees'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=trees', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 9, __('Trees', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'      => array('display' => __('Actions'),       'sort' => '',     'align' => 'left'),
-		'description' => array('display' => __('Hostname'),      'sort' => 'ASC',  'align' => 'left'),
-		'name'        => array('display' => __('Name'),          'sort' => 'DESC', 'align' => 'left'),
-		'flow'        => array('display' => __('Flow'),          'sort' => 'DESC', 'align' => 'left'),
-		'curBytes'    => array('display' => __('Cur Bytes'),     'sort' => 'DESC', 'align' => 'right'),
-		'curPackets'  => array('display' => __('Cur Packets'),   'sort' => 'DESC', 'align' => 'right'),
-		'bytes'       => array('display' => __('Total Bytes'),   'sort' => 'DESC', 'align' => 'right'),
-		'packets'     => array('display' => __('Total Packets'), 'sort' => 'DESC', 'align' => 'right'),
-		'last_seen'   => array('display' => __('Last Seen'),     'sort' => 'ASC',  'align' => 'right')
+		'nosort'      => array('display' => __('Actions', 'mikrotik'),       'sort' => '',     'align' => 'left'),
+		'description' => array('display' => __('Hostname', 'mikrotik'),      'sort' => 'ASC',  'align' => 'left'),
+		'name'        => array('display' => __('Name', 'mikrotik'),          'sort' => 'DESC', 'align' => 'left'),
+		'flow'        => array('display' => __('Flow', 'mikrotik'),          'sort' => 'DESC', 'align' => 'left'),
+		'curBytes'    => array('display' => __('Cur Bytes', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
+		'curPackets'  => array('display' => __('Cur Packets', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'),
+		'bytes'       => array('display' => __('Total Bytes', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'),
+		'packets'     => array('display' => __('Total Packets', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		'last_seen'   => array('display' => __('Last Seen', 'mikrotik'),     'sort' => 'ASC',  'align' => 'right')
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=trees');
@@ -966,7 +962,7 @@ function mikrotik_trees() {
 			}else{
 				$host_url    = $row['hostname'];
 			}
-			
+
 			echo "<td style='width:60px;'>$graphs</td>";
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", htmlspecialchars($row['name'])):htmlspecialchars($row['name'])) . '</td>';
@@ -980,7 +976,7 @@ function mikrotik_trees() {
 			form_end_row();
 		}
 	}else{
-		print '<tr><td colspan="5"><em>' . __('No Queue Trees Found') . '</em></td></tr>';
+		print '<tr><td colspan="5"><em>' . __('No Queue Trees Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();
@@ -1057,7 +1053,7 @@ function mikrotik_wireless_aps() {
 	</script>
 	<?php
 
-	html_start_box(__('Wireless Aps Status'), '100%', '', '3', 'center', '');
+	html_start_box(__('Wireless Aps Status', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1066,17 +1062,17 @@ function mikrotik_wireless_aps() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Device');?>
+						<?php print __('Device', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='device' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
 								FROM plugin_mikrotik_system AS hrs
@@ -1085,37 +1081,36 @@ function mikrotik_wireless_aps() {
 								ORDER BY description');
 
 							if (sizeof($hosts)) {
-							foreach($hosts AS $h) {
-								echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
-							}
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Aps');?>
+						<?php print __('Aps', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' type='button' onClick='clearFilter()' value='<?php print __('Clear');?>'>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 		</form>
 		</td>
 	</tr>
@@ -1164,26 +1159,26 @@ function mikrotik_wireless_aps() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=wireless_aps', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 13, __('Wireless Aps'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=wireless_aps', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 13, __('Wireless Aps', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'            => array('display' => __('Actions'),      'sort' => '',     'align' => 'left'),
-		'description'       => array('display' => __('Hostname'),     'sort' => 'ASC',  'align' => 'left'),
-		'apSSID'            => array('display' => __('SSID'),         'sort' => 'ASC',  'align' => 'left'),
-		'apBSSID'           => array('display' => __('BSSID'),        'sort' => 'ASC',  'align' => 'left'),
-		'apTxRate'          => array('display' => __('Tx Rate'),      'sort' => 'DESC', 'align' => 'right'),
-		'apRxRate'          => array('display' => __('Rx Rate'),      'sort' => 'DESC', 'align' => 'right'),
-		'apClientCount'     => array('display' => __('Clients'),      'sort' => 'DESC', 'align' => 'right'),
-		'apAuthClientCount' => array('display' => __('Auth Clients'), 'sort' => 'DESC', 'align' => 'right'),
-		'apFreq'            => array('display' => __('Frequency'),    'sort' => 'DESC', 'align' => 'right'),
-		'apBand'            => array('display' => __('Band'),         'sort' => 'ASC',  'align' => 'right'),
-		'apNoiseFloor'      => array('display' => __('Noise Floor'),  'sort' => 'ASC',  'align' => 'right'),
-		'apOverallTxCCQ'    => array('display' => __('Tx CQQ'),       'sort' => 'ASC',  'align' => 'right'),
-		'last_seen'         => array('display' => __('Last Seen'),    'sort' => 'ASC',  'align' => 'right')
+		'nosort'            => array('display' => __('Actions', 'mikrotik'),      'sort' => '',     'align' => 'left'),
+		'description'       => array('display' => __('Hostname', 'mikrotik'),     'sort' => 'ASC',  'align' => 'left'),
+		'apSSID'            => array('display' => __('SSID', 'mikrotik'),         'sort' => 'ASC',  'align' => 'left'),
+		'apBSSID'           => array('display' => __('BSSID', 'mikrotik'),        'sort' => 'ASC',  'align' => 'left'),
+		'apTxRate'          => array('display' => __('Tx Rate', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'apRxRate'          => array('display' => __('Rx Rate', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'apClientCount'     => array('display' => __('Clients', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'apAuthClientCount' => array('display' => __('Auth Clients', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		'apFreq'            => array('display' => __('Frequency', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'),
+		'apBand'            => array('display' => __('Band', 'mikrotik'),         'sort' => 'ASC',  'align' => 'right'),
+		'apNoiseFloor'      => array('display' => __('Noise Floor', 'mikrotik'),  'sort' => 'ASC',  'align' => 'right'),
+		'apOverallTxCCQ'    => array('display' => __('Tx CQQ', 'mikrotik'),       'sort' => 'ASC',  'align' => 'right'),
+		'last_seen'         => array('display' => __('Last Seen', 'mikrotik'),    'sort' => 'ASC',  'align' => 'right')
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=wireless_aps');
@@ -1199,7 +1194,7 @@ function mikrotik_wireless_aps() {
 			}else{
 				$host_url    = $row['hostname'];
 			}
-			
+
 			echo "<td style='width:60px;'></td>";
 			echo "<td style='text-align:left;white-space:nowrap;'>" . $host_url . '</td>';
 			echo "<td style='text-align:left;'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>", $row['apSSID']):$row['apSSID']) . '</td>';
@@ -1327,7 +1322,7 @@ function mikrotik_users() {
 	</script>
 	<?php
 
-	html_start_box(__('User Statistics'), '100%', '', '3', 'center', '');
+	html_start_box(__('User Statistics', 'mikrotik'), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even noprint'>
@@ -1336,17 +1331,17 @@ function mikrotik_users() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
 					</td>
 					<td>
-						<?php print __('Device');?>
+						<?php print __('Device', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='device' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT host.id, host.description
 								FROM plugin_mikrotik_system AS hrs
@@ -1355,53 +1350,52 @@ function mikrotik_users() {
 								ORDER BY description');
 
 							if (sizeof($hosts)) {
-							foreach($hosts AS $h) {
-								echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
-							}
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Type');?>
+						<?php print __('Type', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='type' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
-							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot');?></option>
-							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe');?></option>
+							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
+							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot', 'mikrotik');?></option>
+							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe', 'mikrotik');?></option>
 						</select>
 					</td>
 					<td>
-						<?php print __('Devices');?>
+						<?php print __('Devices', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var("rows") == $key ? "selected":"") . ">" . $name . "</option>";
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var("rows") == $key ? "selected":"") . ">" . $name . "</option>";
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<input type='checkbox' id='active' onChange='applyFilter()' <?php print (get_request_var('active') == 'true' || get_request_var('active') == 'on' ? 'checked':'');?>>
+						<span>
+							<input type='checkbox' id='active' onChange='applyFilter()' <?php print (get_request_var('active') == 'true' || get_request_var('active') == 'on' ? 'checked':'');?>>
+							<label for='active'><?php print __('Active Users', 'mikrotik');?></label>
+						</span>
 					</td>
 					<td>
-						<label for='active'><?php print __('Active Users');?></label>
-					</td>
-					<td>
-						<input type='button' onClick='applyFilter()' value='<?php print __('Go');?>' id='refresh'>
-					</td>
-					<td>
-						<input type='button' onClick='clearFilter()' value='<?php print __('Clear');?>' id='clear'>
+						<span>
+							<input type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>' id='refresh'>
+							<input type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>' id='clear'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 			</form>
 		</td>
 	</tr>
@@ -1438,9 +1432,9 @@ function mikrotik_users() {
 			h.hostname LIKE '%" . get_request_var('filter') . "%')";
 	}
 
-	$sql = "SELECT hrswr.*, h.hostname, h.description, h.disabled, 
+	$sql = "SELECT hrswr.*, h.hostname, h.description, h.disabled,
 		bytesIn, bytesOut, curBytesIn, curBytesOut,
-		bytesIn/connectTime AS avgBytesIn, 
+		bytesIn/connectTime AS avgBytesIn,
 		bytesOut/connectTime AS avgBytesOut
 		FROM plugin_mikrotik_users AS hrswr
 		INNER JOIN host AS h
@@ -1461,27 +1455,27 @@ function mikrotik_users() {
 		ON hrs.host_id=h.id
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=users', MAX_DISPLAY_PAGES, get_request_var('page'), get_request_var('rows'), $total_rows, 14, __('Users'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=users', MAX_DISPLAY_PAGES, get_request_var('page'), get_request_var('rows'), $total_rows, 14, __('Users', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'       => array('display' => __('Actions'),      'sort' => '',     'align' => 'left'),
-		'description'  => array('display' => __('Hostname'),     'sort' => 'ASC',  'align' => 'left'),
-		'name'         => array('display' => __('User'),         'sort' => 'DESC', 'align' => 'left'),
-		'userType'     => array('display' => __('Type'),         'sort' => 'ASC',  'align' => 'left'),
-		'ip'           => array('display' => __('IP Address'),   'sort' => 'ASC',  'align' => 'left'),
-		'mac'          => array('display' => __('MAC'),          'sort' => 'DESC', 'align' => 'left'),
-		'connectTime'  => array('display' => __('Connect Time'), 'sort' => 'DESC', 'align' => 'right'),
-		'curBytesIn'   => array('display' => __('Cur In'),       'sort' => 'DESC', 'align' => 'right'),
-		'curBytesOut'  => array('display' => __('Cur Out'),      'sort' => 'DESC', 'align' => 'right'),
-		'avgBytesIn'   => array('display' => __('Avg In'),       'sort' => 'DESC', 'align' => 'right'),
-		'avgBytesOut'  => array('display' => __('Avg Out'),      'sort' => 'DESC', 'align' => 'right'),
-		'bytesIn'      => array('display' => __('Total In'),     'sort' => 'DESC', 'align' => 'right'),
-		'bytesOut'     => array('display' => __('Total Out'),    'sort' => 'DESC', 'align' => 'right'),
-		'last_seen'    => array('display' => __('Last Seen'),    'sort' => 'ASC',  'align' => 'right')
+		'nosort'       => array('display' => __('Actions', 'mikrotik'),      'sort' => '',     'align' => 'left'),
+		'description'  => array('display' => __('Hostname', 'mikrotik'),     'sort' => 'ASC',  'align' => 'left'),
+		'name'         => array('display' => __('User', 'mikrotik'),         'sort' => 'DESC', 'align' => 'left'),
+		'userType'     => array('display' => __('Type', 'mikrotik'),         'sort' => 'ASC',  'align' => 'left'),
+		'ip'           => array('display' => __('IP Address', 'mikrotik'),   'sort' => 'ASC',  'align' => 'left'),
+		'mac'          => array('display' => __('MAC', 'mikrotik'),          'sort' => 'DESC', 'align' => 'left'),
+		'connectTime'  => array('display' => __('Connect Time', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		'curBytesIn'   => array('display' => __('Cur In', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		'curBytesOut'  => array('display' => __('Cur Out', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'avgBytesIn'   => array('display' => __('Avg In', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		'avgBytesOut'  => array('display' => __('Avg Out', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'bytesIn'      => array('display' => __('Total In', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
+		'bytesOut'     => array('display' => __('Total Out', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'),
+		'last_seen'    => array('display' => __('Last Seen', 'mikrotik'),    'sort' => 'ASC',  'align' => 'right')
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), 'false', 'mikrotik.php?action=users');
@@ -1537,7 +1531,7 @@ function mikrotik_users() {
 			form_end_row();
 		}
 	}else{
-		print '<tr><td colspan="5"><em>' . __('No Users Found') . '</em></td></tr>';
+		print '<tr><td colspan="5"><em>' . __('No Users Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();
@@ -1616,12 +1610,12 @@ function mikrotik_devices() {
 
 	$mikrotik_version_date = read_config_option('mikrotik_latestversion_date');
 	if (empty($mikrotik_version_date) || intval($mikrotik_version_date) == 0) {
-		$header = __('Device Filter (Latest MikroTik Version is: %s)', read_config_option('mikrotik_latestversion'));
+		$header = __('Device Filter (Latest MikroTik Version is: %s)', read_config_option('mikrotik_latestversion'), 'mikrotik');
 	}else{
-		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', intval($mikrotik_version_date)));
+		$header = __('Device Filter (Latest MikroTik Version is: %s, Released: %s)', read_config_option('mikrotik_latestversion'), date('Y-m-d H:i:s', intval($mikrotik_version_date)), 'mikrotik');
 	}
 
-	$header .= "&nbsp;<a class='hyperLink' href='https://mikrotik.com/download/changelogs' target='_blank'>" . __('ChangeLog') . '</a>';
+	$header .= "&nbsp;<a class='hyperLink' href='https://mikrotik.com/download/changelogs' target='_blank'>" . __('ChangeLog', 'mikrotik', 'mikrotik') . '</a>';
 
 	html_start_box($header, '100%', '', '3', 'center', '');
 
@@ -1632,73 +1626,74 @@ function mikrotik_devices() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
 						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Status');?>
+						<?php print __('Status', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
 							<?php
 							$statuses = db_fetch_assoc('SELECT DISTINCT status
 								FROM host
 								INNER JOIN plugin_mikrotik_system
 								ON host.id=plugin_mikrotik_system.host_id');
+
 							$statuses = array_merge($statuses, array('-2' => array('status' => '-2')));
 
 							if (sizeof($statuses)) {
-							foreach($statuses AS $s) {
-								switch($s['status']) {
+								foreach($statuses AS $s) {
+									switch($s['status']) {
 									case '0':
-										$status = __('Unknown');
+										$status = __('Unknown', 'mikrotik');
 										break;
 									case '1':
-										$status = __('Down');
+										$status = __('Down', 'mikrotik');
 										break;
 									case '2':
-										$status = __('Recovering');
+										$status = __('Recovering', 'mikrotik');
 										break;
 									case '3':
-										$status = __('Up');
+										$status = __('Up', 'mikrotik');
 										break;
 									case '-2':
-										$status = __('Disabled');
+										$status = __('Disabled', 'mikrotik');
 										break;
+									}
+
+									echo "<option value='" . $s['status'] . "' " . (get_request_var('status') == $s['status'] ? 'selected':'') . '>' . $status . '</option>';
 								}
-								echo "<option value='" . $s['status'] . "' " . (get_request_var('status') == $s['status'] ? 'selected':'') . '>' . $status . '</option>';
-							}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Devices');?>
+						<?php print __('Devices', 'mikrotik');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach($item_rows AS $key => $name) {
-								echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
-							}
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' type='button' onClick='clearFilter()' value='<?php print __('Clear');?>'>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' name='page' value='<?php print get_request_var('page');?>'>
 			</form>
 		</td>
 	</tr>
@@ -1728,7 +1723,7 @@ function mikrotik_devices() {
 
 	$sql = "SELECT hrs.*, h.hostname, h.description, h.disabled, trees.trees, queues.queues, aps.aps
 		FROM plugin_mikrotik_system AS hrs
-		INNER JOIN host AS h 
+		INNER JOIN host AS h
 		ON h.id=hrs.host_id
 		LEFT JOIN (SELECT host_id AS hid, count(*) AS trees FROM plugin_mikrotik_trees GROUP BY host_id) AS trees
 		ON trees.hid=hrs.host_id
@@ -1750,29 +1745,29 @@ function mikrotik_devices() {
 		$sql_join
 		$sql_where");
 
-	$nav = html_nav_bar('mikrotik.php?action=devices', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 16, __('Devices'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=devices', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 16, __('Devices', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'nosort'          => array('display' => __('Actions'),       'sort' => 'ASC',  'align' => 'left'),
-		'description'     => array('display' => __('Name'),          'sort' => 'ASC',  'align' => 'left'),
-		'sysDescr'        => array('display' => __('Description'),   'sort' => 'ASC',  'align' => 'left'),
-		'host_status'     => array('display' => __('Status'),        'sort' => 'DESC', 'align' => 'center'),
-		'firmwareVersion' => array('display' => __('FW Ver'),        'sort' => 'DESC', 'align' => 'right'),
-		'licVersion'      => array('display' => __('Lic Ver'),       'sort' => 'DESC', 'align' => 'right'),
-		'uptime'          => array('display' => __('Uptime(d:h:m)'), 'sort' => 'DESC', 'align' => 'right'),
-		'trees'           => array('display' => __('Trees'),         'sort' => 'DESC', 'align' => 'right'),
-		'users'           => array('display' => __('Users'),         'sort' => 'DESC', 'align' => 'right'),
-		'cpuPercent'      => array('display' => __('CPU %'),         'sort' => 'DESC', 'align' => 'right'),
-		'numCpus'         => array('display' => __('CPUs'),          'sort' => 'DESC', 'align' => 'right'),
-		'processes'       => array('display' => __('Processes'),     'sort' => 'DESC', 'align' => 'right'),
-		'memSize'         => array('display' => __('Total Mem'),     'sort' => 'DESC', 'align' => 'right'),
-		'memUsed'         => array('display' => __('Used Mem'),      'sort' => 'DESC', 'align' => 'right'),
-		'diskSize'        => array('display' => __('Total Disk'),    'sort' => 'DESC', 'align' => 'right'),
-		'diskUsed'        => array('display' => __('Used Disk'),     'sort' => 'DESC', 'align' => 'right')
+		'nosort'          => array('display' => __('Actions', 'mikrotik'),       'sort' => 'ASC',  'align' => 'left'),
+		'description'     => array('display' => __('Name', 'mikrotik'),          'sort' => 'ASC',  'align' => 'left'),
+		'sysDescr'        => array('display' => __('Description', 'mikrotik'),   'sort' => 'ASC',  'align' => 'left'),
+		'host_status'     => array('display' => __('Status', 'mikrotik'),        'sort' => 'DESC', 'align' => 'center'),
+		'firmwareVersion' => array('display' => __('FW Ver', 'mikrotik'),        'sort' => 'DESC', 'align' => 'right'),
+		'licVersion'      => array('display' => __('Lic Ver', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		'uptime'          => array('display' => __('Uptime(d:h:m)', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
+		'trees'           => array('display' => __('Trees', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
+		'users'           => array('display' => __('Users', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
+		'cpuPercent'      => array('display' => __('CPU %', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
+		'numCpus'         => array('display' => __('CPUs', 'mikrotik'),          'sort' => 'DESC', 'align' => 'right'),
+		'processes'       => array('display' => __('Processes', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
+		'memSize'         => array('display' => __('Total Mem', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
+		'memUsed'         => array('display' => __('Used Mem', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'diskSize'        => array('display' => __('Total Disk', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'),
+		'diskUsed'        => array('display' => __('Used Disk', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right')
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), 'false', 'mikrotik.php?action=devices');
@@ -1811,35 +1806,35 @@ function mikrotik_devices() {
 			echo "<td style='white-space:nowrap;min-width:115px;text-align:left;'>";
 			//echo "<a style='padding:1px;' href='" . htmlspecialchars("$url?action=dashboard&reset=1&device=" . $row["host_id"]) . "'><img src='$dashboard' title='View Dashboard'></a>";
 			if ($row['users'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><img src='$users' title='" . __('View Users') . "' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><img src='$users' title='" . __esc('View Users', 'mikrotik') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_users_freq') != '-1') {
-				echo "<img style='border:0px;padding:3px;' src='$usersn' title='" . __('No Users Found') . "' align='absmiddle' alt=''>";
+				echo "<img style='border:0px;padding:3px;' src='$usersn' title='" . __esc('No Users Found', 'mikrotik') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['queues'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><img src='$queues' title='" . __('View Simple Queue') . "' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><img src='$queues' title='" . __esc('View Simple Queue', 'mikrotik') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_queues_freq') != '-1') {
-				echo "<img style='border:0px;padding:3px;' src='$queuesn' title='" . __('No Simple Queues Found') . "' align='absmiddle' alt=''>";
+				echo "<img style='border:0px;padding:3px;' src='$queuesn' title='" . __esc('No Simple Queues Found', 'mikrotik') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['trees'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><img src='$trees' title='" . __('View Queue Trees') . "' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><img src='$trees' title='" . __esc('View Queue Trees', 'mikrotik') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_trees_freq') != '-1') {
-				echo "<img style='border:0px;padding:3px;' src='$treesn' title='" . __('No Queue Trees Found') . "' align='absmiddle' alt=''>";
+				echo "<img style='border:0px;padding:3px;' src='$treesn' title='" . __esc('No Queue Trees Found', 'mikrotik') . "' align='absmiddle' alt=''>";
 			}
 
 			if ($row['aps'] > 0) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><img src='$aps' title='" . __('View Wireless Aps') . "' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><img src='$aps' title='" . __esc('View Wireless Aps', 'mikrotik') . "' alt=''></a>";
 			}elseif (read_config_option('mikrotik_wireless_aps_freq') != '-1') {
-				echo "<img style='border:0px;padding:3px;' src='$apsn' title='" . __('No Wireless Aps Found') . "' align='absmiddle' alt=''>";
+				echo "<img style='border:0px;padding:3px;' src='$apsn' title='" . __esc('No Wireless Aps Found', 'mikrotik') . "' align='absmiddle' alt=''>";
 			}
 
-			echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><img src='$interfaces' title='" . __('View Interfaces') . "' alt=''></a>";
+			echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><img src='$interfaces' title='" . __esc('View Interfaces', 'mikrotik') . "' alt=''></a>";
 
 			if ($found) {
-				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><img  src='$graphs' title='" . __('View Graphs') . "' alt=''></a>";
+				echo "<a class='hyperLink' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><img  src='$graphs' title='" . __esc('View Graphs', 'mikrotik') . "' alt=''></a>";
 			}else{
-				echo "<img src='$nographs' title='" . __('No Graphs Defined') . "'>";
+				echo "<img src='$nographs' title='" . __esc('No Graphs Defined', 'mikrotik') . "'>";
 			}
 
 			$graph_cpu   = mikrotik_get_graph_url($hcpudq, $row['host_id'], '', $row['numCpus'], false);
@@ -1876,7 +1871,7 @@ function mikrotik_devices() {
 			form_end_row();
 		}
 	}else{
-		print '<tr><td colspan="5"><em>' . __('No Devices Found') . '</em></td></tr>';
+		print '<tr><td colspan="5"><em>' . __('No Devices Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();
@@ -1969,15 +1964,15 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 
 		if (sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><img src='" . $graph . "'></a>";
 			}else{
-				return "<a href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'>$title</a>";
+				return "<a href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
 			}
 		}else{
 			return "-";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console -> Settings -> Host MIB First') . "'>";
+		return "<img src='$nograph' title='" . __esc('Please Select Data Query First from Console -> Settings -> Host MIB First', 'mikrotik') . "'>";
 	}else{
 		return $title;
 	}
@@ -2012,31 +2007,31 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 
 		if (sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'><img src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><img src='" . $graph . "'></a>";
 			}else{
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __('View Graphs') . "'>$title</a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
 			}
 		}else{
-			return "<img src='$nograph' title='" . __('Graphs Skipped or Not Created Yet') . "'>";
+			return "<img src='$nograph' title='" . __esc('Graphs skipped or not created yet', 'mikrotik') . "'>";
 		}
 	}elseif ($image) {
-		return "<img src='$nograph' title='" . __('Please Select Data Query First from Console->Settings->Host MIB First') . "'>";
+		return "<img src='$nograph' title='" . __esc('Please select Data Query first from Console->Settings->Host MIB First', 'mikrotik') . "'>";
 	}else{
 		return $title;
 	}
 }
 
 function mikrotik_graph_templates_from_hashes($hashes) {
-	return array_rekey(db_fetch_assoc('SELECT id 
-		FROM graph_templates 
+	return array_rekey(db_fetch_assoc('SELECT id
+		FROM graph_templates
 		WHERE hash IN ("' . implode('","', $hashes) . '")'), 'id', 'id');
 }
 
 function mikrotik_host_ids_from_hashes($hashes) {
-	return array_rekey(db_fetch_assoc('SELECT h.id 
-		FROM host AS h 
-		INNER JOIN host_template AS ht 
-		ON h.host_template_id=ht.id 
+	return array_rekey(db_fetch_assoc('SELECT h.id
+		FROM host AS h
+		INNER JOIN host_template AS ht
+		ON h.host_template_id=ht.id
 		WHERE hash IN ("' . implode('","', $hashes) . '")'), 'id', 'id');
 }
 
@@ -2049,7 +2044,7 @@ function mikrotik_view_graphs() {
 	html_graph_validate_preview_request_vars();
 
 	/* include graph view filter selector */
-	html_start_box(__('Graph Preview Filters') . (isset_request_var('style') && strlen(get_request_var('style')) ? ' [ ' . __('Custom Graph List Applied - Filtering from List') . ' ]':''), '100%', '', '3', 'center', '');
+	html_start_box(__('Graph Preview Filters', 'mikrotik') . (isset_request_var('style') && strlen(get_request_var('style')) ? ' [ ' . __('Custom Graph List Applied - Filtering from List', 'mikrotik') . ' ]':''), '100%', '', '3', 'center', '');
 
 	html_graph_preview_filter('mikrotik.php', 'graphs', 'ht.hash IN ("' . implode('","', $host_template_hashes) . '")', 'gt.hash IN ("' . implode('","', $graph_template_hashes) . '")');
 
@@ -2125,10 +2120,10 @@ function mikrotik_view_graphs() {
 		}
 	}
 
-	$limit      = (get_request_var('graphs')*(get_request_var('page')-1)) . ',' . get_request_var('graphs');
-	$order      = 'gtg.title_cache';
+	$limit  = (get_request_var('graphs')*(get_request_var('page')-1)) . ',' . get_request_var('graphs');
+	$order  = 'gtg.title_cache';
 
-	$graphs     = get_allowed_graphs($sql_where, $order, $limit, $total_graphs);	
+	$graphs = get_allowed_graphs($sql_where, $order, $limit, $total_graphs);
 
 	/* do some fancy navigation url construction so we don't have to try and rebuild the url string */
 	if (preg_match('/page=[0-9]+/',basename($_SERVER['QUERY_STRING']))) {
@@ -2139,7 +2134,7 @@ function mikrotik_view_graphs() {
 
 	$nav_url = preg_replace('/((\?|&)host_id=[0-9]+|(\?|&)filter=[a-zA-Z0-9]*)/', '', $nav_url);
 
-	$nav = html_nav_bar($nav_url, MAX_DISPLAY_PAGES, get_request_var('page'), get_request_var('graphs'), $total_graphs, get_request_var('columns'), __('Graphs'), 'page', 'main');
+	$nav = html_nav_bar($nav_url, MAX_DISPLAY_PAGES, get_request_var('page'), get_request_var('graphs'), $total_graphs, get_request_var('columns'), __('Graphs', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
@@ -2159,3 +2154,4 @@ function mikrotik_view_graphs() {
 
 	bottom_footer();
 }
+
