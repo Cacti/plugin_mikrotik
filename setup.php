@@ -22,7 +22,7 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_mikrotik_install () {
+function plugin_mikrotik_install() {
 	# graph setup all arrays needed for automation
 	api_plugin_register_hook('mikrotik', 'config_arrays',         'mikrotik_config_arrays',         'setup.php');
 	api_plugin_register_hook('mikrotik', 'config_form',           'mikrotik_config_form',           'setup.php');
@@ -38,10 +38,10 @@ function plugin_mikrotik_install () {
 	api_plugin_register_realm('mikrotik', 'mikrotik.php', __('Plugin -> MikroTik Viewer', 'mikrotik'), 1);
 	api_plugin_register_realm('mikrotik', 'mikrotik_users.php', __('Plugin -> MikroTik Admin', 'mikrotik'), 1);
 
-	mikrotik_setup_table ();
+	mikrotik_setup_table();
 }
 
-function plugin_mikrotik_uninstall () {
+function plugin_mikrotik_uninstall() {
 	// Do any extra Uninstall stuff here
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system_health`');
@@ -57,28 +57,37 @@ function plugin_mikrotik_uninstall () {
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_credentials`');
 }
 
-function plugin_mikrotik_check_config () {
+function plugin_mikrotik_check_config() {
 	// Here we will check to ensure everything is configured
-	mikrotik_check_upgrade ();
+	mikrotik_check_upgrade();
 	return true;
 }
 
-function plugin_mikrotik_upgrade () {
+function plugin_mikrotik_upgrade() {
 	// Here we will upgrade to the newest version
-	mikrotik_check_upgrade ();
+	mikrotik_check_upgrade();
 	return true;
 }
 
-function plugin_mikrotik_version () {
+function plugin_mikrotik_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/mikrotik/INFO', true);
 	return $info['info'];
 }
 
-function mikrotik_check_upgrade () {
+function mikrotik_check_upgrade() {
 	global $config, $database_default;
+
+	global $host_template_hashes, $queue_hashes, $tree_hashes, $user_hashes;
+	global $wireless_station_hashes, $wirless_reg_hashes, $interface_hashes;
+	global $device_hashes, $device_health_hashes, $graph_template_hashes, $device_query_hashes;
+
 	include_once($config['library_path'] . '/database.php');
 	include_once($config['library_path'] . '/functions.php');
+	include_once($config['library_path'] . '/api_graph.php');
+	include_once($config['library_path'] . '/api_tree.php');
+	include_once($config['library_path'] . '/api_data_source.php');
+	include_once($config['library_path'] . '/api_aggregate.php');
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('plugins.php', 'mikrotik.php');
@@ -86,7 +95,7 @@ function mikrotik_check_upgrade () {
 		return;
 	}
 
-	$version = plugin_mikrotik_version ();
+	$version = plugin_mikrotik_version();
 	$current = $version['version'];
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='mikrotik'");
 	if ($current != $old) {
@@ -94,26 +103,188 @@ function mikrotik_check_upgrade () {
 			api_plugin_enable_hooks('mikrotik');
 		}
 
-		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN prevPackets BIGINT UNSIGNED default NULL AFTER prevBytes");
-		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN prevHCBytes BIGINT UNSIGNED default NULL AFTER prevPackets");
-		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curBytes BIGINT UNSIGNED default null AFTER HCBytes");
-		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curPackets BIGINT UNSIGNED default null AFTER curBytes");
-		db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curHCBytes BIGINT UNSIGNED default null AFTER curPackets");
-		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersion varchar(20) NOT NULL default '' AFTER sysLocation");
-		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersionLatest varchar(20) NOT NULL default '' AFTER firmwareVersion");
-		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN licVersion varchar(20) NOT NULL default '' AFTER firmwareVersion");
-		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN softwareID varchar(20) NOT NULL default '' AFTER licVersion");
-		db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN serialNumber varchar(20) NOT NULL default '' AFTER softwareID");
-		db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT '0' AFTER `index`");
-		db_execute("ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)");
+		if (!db_column_exists('plugin_mikrotik_trees', 'prevPackets')) {
+			db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN prevPackets BIGINT UNSIGNED default NULL AFTER prevBytes");
+			db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN prevHCBytes BIGINT UNSIGNED default NULL AFTER prevPackets");
+			db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curBytes BIGINT UNSIGNED default null AFTER HCBytes");
+			db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curPackets BIGINT UNSIGNED default null AFTER curBytes");
+			db_execute("ALTER TABLE plugin_mikrotik_trees ADD COLUMN curHCBytes BIGINT UNSIGNED default null AFTER curPackets");
+		}
 
-		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='mikrotik'");
-		db_execute('UPDATE plugin_config SET ' .
-			"version='" . $version['version']  . "', " .
-			"name='"    . $version['longname'] . "', " .
-			"author='"  . $version['author']   . "', " .
-			"webpage='" . $version['url']      . "' " .
-			"WHERE directory='" . $version['name'] . "' ");
+		if (!db_column_exists('plugin_mikrotik_system', 'firmwareVersion')) {
+			db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersion varchar(20) NOT NULL default '' AFTER sysLocation");
+			db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN firmwareVersionLatest varchar(20) NOT NULL default '' AFTER firmwareVersion");
+			db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN licVersion varchar(20) NOT NULL default '' AFTER firmwareVersion");
+			db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN softwareID varchar(20) NOT NULL default '' AFTER licVersion");
+			db_execute("ALTER TABLE plugin_mikrotik_system ADD COLUMN serialNumber varchar(20) NOT NULL default '' AFTER softwareID");
+		}
+
+		if (!db_column_exists('plugin_mikrotik_users', 'userType')) {
+			db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT '0' AFTER `index`");
+			db_execute("ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)");
+		}
+
+		// Remove incorrect graphs
+		foreach($wireless_station_hashes as $hash) {
+			$graph_template_id = db_fetch_cell_prepared('SELECT id
+				FROM graph_templates
+				WHERE hash = ?',
+				array($hash));
+
+			$snmp_query_ids[] = db_fetch_cell_prepared('SELECT sqg.snmp_query_id
+				FROM snmp_query_graph AS sqg
+				INNER JOIN graph_templates AS gt
+				ON sqg.graph_template_id=gt.id
+				WHERE gt.hash = ?', array($hash));
+
+			if (!empty($graph_template_id)) {
+				mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id);
+			}
+
+			// Remove graph templates
+			db_execute_prepared('DELETE FROM graph_templates
+				WHERE id = ?',
+				array($graph_template_id));
+
+			$graph_template_input = db_fetch_assoc('SELECT id
+				FROM graph_template_input
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			if (sizeof($graph_template_input)) {
+				foreach ($graph_template_input as $item) {
+					db_execute_prepared('DELETE FROM graph_template_input_defs
+						WHERE graph_template_input_id = ?', array($item['id']));
+				}
+			}
+
+			db_execute_prepared('DELETE FROM graph_template_input
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM graph_templates_graph
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM graph_templates_item
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM host_template_graph
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+		}
+
+		if (!empty($snmp_query_ids)) {
+			foreach($snmp_query_ids as $snmp_query_id) {
+				db_execute_prepared('DELETE FROM host_template_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
+				db_execute_prepared('DELETE FROM host_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
+				db_execute_prepared('DELETE FROM snmp_query_graph WHERE snmp_query_id = ?', array($snmp_query_id));
+			}
+		}
+
+		$data_template_hashes = array(
+			'2e88a62f3d3bd3756ab48a9613e86439',
+			'852ab786ca385b1bd87d1308d7e3ae75',
+			'2828f43f6d8e477ee5616da510ccc314',
+			'ca928def30203cc6d7daed75d826f91c'
+		);
+
+		foreach($data_template_hashes as $hash) {
+			$data_template_id = db_fetch_cell_prepared('SELECT id
+				FROM data_template
+				WHERE hash = ?',
+				array($hash));
+
+			if (!empty($data_template_id)) {
+				db_execute_prepared('DELETE FROM data_template_data
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_template_rrd
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM snmp_query_graph_rrd
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM snmp_query_graph_rrd_sv
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_template
+					WHERE id = ?' , array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_local
+					WHERE data_template_id = ?' , array($data_template_id));
+			}
+		}
+
+		db_execute_prepared('UPDATE plugin_config
+			SET version = ?, name = ?, author = ?, webpage = ?
+			WHERE directory = ?',
+			array(
+				$version['version'],
+				$version['longname'],
+				$version['author'],
+				$version['url'],
+				$version['name']
+			)
+		);
+	}
+}
+
+function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
+	$graphs = array_rekey(
+		db_fetch_assoc_prepared('SELECT id
+			FROM graph_local
+			WHERE graph_template_id = ?',
+			array($graph_template_id)),
+		'id', 'id'
+	);
+
+	if (sizeof($graphs)) {
+		$all_data_sources = array_rekey(db_fetch_assoc('SELECT DISTINCT dtd.local_data_id
+			FROM data_template_data AS dtd
+			INNER JOIN data_template_rrd AS dtr
+			ON dtd.local_data_id=dtr.local_data_id
+			INNER JOIN graph_templates_item AS gti
+			ON dtr.id=gti.task_item_id
+			WHERE ' . array_to_sql_or($graphs, 'gti.local_graph_id') . '
+			AND dtd.local_data_id > 0'), 'local_data_id', 'local_data_id');
+
+		$data_sources = array_rekey(db_fetch_assoc('SELECT dtd.local_data_id,
+			COUNT(DISTINCT gti.local_graph_id) AS graphs
+			FROM data_template_data AS dtd
+			INNER JOIN data_template_rrd AS dtr
+			ON dtd.local_data_id=dtr.local_data_id
+			INNER JOIN graph_templates_item AS gti
+			ON dtr.id=gti.task_item_id
+			WHERE dtd.local_data_id > 0
+			GROUP BY dtd.local_data_id
+			HAVING graphs = 1
+			AND ' . array_to_sql_or($all_data_sources, 'local_data_id')), 'local_data_id', 'local_data_id');
+
+		if (sizeof($data_sources)) {
+			api_data_source_remove_multi($data_sources);
+			api_plugin_hook_function('data_source_remove', $data_sources);
+		}
+
+		api_graph_remove_multi($graphs);
+		api_plugin_hook_function('graphs_remove', $graphs);
+
+		/* Remove orphaned data sources */
+		$data_sources = array_rekey(db_fetch_assoc('SELECT DISTINCT dtd.local_data_id
+			FROM data_template_data AS dtd
+			INNER JOIN data_template_rrd AS dtr
+			ON dtd.local_data_id=dtr.local_data_id
+			LEFT JOIN graph_templates_item AS gti
+			ON dtr.id=gti.task_item_id
+			WHERE ' . array_to_sql_or($all_data_sources, 'dtd.local_data_id') . '
+			AND gti.local_graph_id IS NULL
+			AND dtd.local_data_id > 0'), 'local_data_id', 'local_data_id');
+
+		if (sizeof($data_sources)) {
+			api_data_source_remove_multi($data_sources);
+			api_plugin_hook_function('data_source_remove', $data_sources);
+		}
 	}
 }
 
@@ -121,7 +292,7 @@ function mikrotik_check_dependencies() {
 	return true;
 }
 
-function mikrotik_setup_table () {
+function mikrotik_setup_table() {
 	global $config, $database_default;
 	include_once($config['library_path'] . '/database.php');
 
@@ -569,7 +740,7 @@ function mikrotik_poller_bottom() {
 	exec_background(read_config_option('path_php_binary'), ' -q ' . $config['base_path'] . '/plugins/mikrotik/poller_mikrotik.php -M');
 }
 
-function mikrotik_config_settings () {
+function mikrotik_config_settings() {
 	global $tabs, $settings, $mikrotik_frequencies, $item_rows;
 
 	$tabs['mikrotik'] = __('MikroTik', 'mikrotik');
@@ -1088,6 +1259,8 @@ function mikrotik_config_arrays() {
 	if (isset($_SESSION['mikrotik_message']) && $_SESSION['mikrotik_message'] != '') {
 		$messages['mikrotik_message'] = array('message' => $_SESSION['mikrotik_message'], 'type' => 'info');
 	}
+
+	mikrotik_check_upgrade();
 }
 
 function mikrotik_draw_navigation_text($nav) {

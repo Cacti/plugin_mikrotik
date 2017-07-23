@@ -2,7 +2,7 @@
 	<name>Get Mikrotik Wireless Registrations</name>
 	<description>Queries a list of Wireless Registrations that are on a Mikrotik Router</description>
 	<script_path>|path_cacti|/plugins/mikrotik/templates/scripts/ss_mikrotik_wireless_reg.php</script_path>
-	<script_function>ss_mikrotik_wirelesss_reg</script_function>
+	<script_function>ss_mikrotik_wireless_reg</script_function>
 	<script_server>php</script_server>
 	<arg_prepend>|host_id|</arg_prepend>
 	<arg_index>index</arg_index>
@@ -18,13 +18,8 @@
 		<macAddress>
 			<name>Client Mac Address</name>
 			<direction>input</direction>
-			<query_name>maxAddress</query_name>
+			<query_name>macAddress</query_name>
 		</macAddress>
-		<RouterOSVersion>
-			<name>Router OS Version</name>
-			<direction>input</direction>
-			<query_name>RouterOSVersion</query_name>
-		</RouterOSVersion>
 		<SignalToNoise>
 			<name>Signal to Noise Ratio</name>
 			<direction>output</direction>
