@@ -1113,7 +1113,7 @@ function mikrotik_show_tab() {
 	if (api_user_realm_auth('mikrotik.php')) {
 		if (substr_count($_SERVER['REQUEST_URI'], 'mikrotik.php')) {
 			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik_down.gif" alt="' . __('MikroTik', 'mikrotik') . '"></a>';
-		}else{
+		} else {
 			print '<a href="' . $config['url_path'] . 'plugins/mikrotik/mikrotik.php"><img src="' . $config['url_path'] . 'plugins/mikrotik/images/tab_mikrotik.gif" alt="' . __('MikroTik', 'mikrotik') . '"></a>';
 		}
 	}
@@ -1139,15 +1139,19 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
 		$sql_where .= " AND gl.snmp_index LIKE '%$search%'";
 	}
 
-	$graphs = array_rekey(db_fetch_assoc("SELECT gl.id
-		FROM graph_local AS gl
-		INNER JOIN graph_templates AS gt
-		ON gl.graph_template_id=gt.id
-		WHERE gt.hash IN ('" . implode("','", $hashes) . "') $sql_where"), 'id', 'id');
+	if (sizeof($hashes)) {
+		$graphs = array_rekey(db_fetch_assoc("SELECT gl.id
+			FROM graph_local AS gl
+			INNER JOIN graph_templates AS gt
+			ON gl.graph_template_id=gt.id
+			WHERE gt.hash IN ('" . implode("','", $hashes) . "') $sql_where"), 'id', 'id');
 
-	if (sizeof($graphs)) {
-		return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><img src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'mikrotik') . "'></a>";
-	}else{
+		if (sizeof($graphs)) {
+			return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><img src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'mikrotik') . "'></a>";
+		} else {
+			return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'>";
+		}
+	} else {
 		return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'>";
 	}
 }
@@ -1208,7 +1212,7 @@ function mikrotik_host_top() {
 						'value' => 'Connected Successfully'
 					)
 				);
-			}else{
+			} else {
 				$fields_host_edit += array(
 					'mikrotik_result' => array(
 						'method' => 'other',

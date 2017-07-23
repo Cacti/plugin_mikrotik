@@ -29,7 +29,7 @@ chdir(dirname(__FILE__));
 chdir('../..');
 include('./include/global.php');
 include_once('./lib/poller.php');
-include_once('./plugins/mikrotik/snmp.php');
+include_once('./lib/snmp.php');
 include_once('./lib/ping.php');
 include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
 
@@ -281,7 +281,7 @@ function process_hosts() {
 	 *  2) Be linked to the host table
 	 *  3) Be up and operational
 	 */
-	$hosts = db_fetch_assoc("SELECT hm.host_id, h.description, h.hostname 
+	$hosts = db_fetch_assoc("SELECT hm.host_id, h.description, h.hostname
 		FROM plugin_mikrotik_system AS hm
 		INNER JOIN host AS h
 		ON h.id=hm.host_id
@@ -289,7 +289,7 @@ function process_hosts() {
 		AND h.status!=1");
 
 	/* Remove entries from  down and disabled hosts */
-	db_execute("DELETE FROM plugin_mikrotik_processor 
+	db_execute("DELETE FROM plugin_mikrotik_processor
 		WHERE host_id IN(SELECT id FROM host AS h WHERE disabled='on' OR h.status=1)");
 
 	$concurrent_processes = read_config_option('mikrotik_concurrent_processes');
@@ -384,8 +384,8 @@ function process_hosts() {
 
 		/* for users that are inactive, clear information */
 		db_execute('UPDATE plugin_mikrotik_trees
-			SET bytes=0, packets=0, HCBytes=0, 
-			curBytes=0, curPackets=0, curHCBytes=0, 
+			SET bytes=0, packets=0, HCBytes=0,
+			curBytes=0, curPackets=0, curHCBytes=0,
 			prevBytes=0, prevPackets=0, prevHCBytes=0
 			WHERE present=0');
 	}
@@ -411,9 +411,9 @@ function process_hosts() {
 
 		/* for users that are inactive, clear information */
 		db_execute('UPDATE plugin_mikrotik_users
-			SET bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, 
-			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0, 
-			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, 
+			SET bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0,
+			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
+			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0,
 			connectTime=0
 			WHERE present=0 AND userType=0');
 	}
@@ -685,11 +685,11 @@ function process_hosts() {
 		round($end-$start,2),
 		$concurrent_processes,
 		sizeof($hosts),
-		$interfaces, 
-		$queues, 
-		$users, 
-		$trees, 
-		$waps, 
+		$interfaces,
+		$queues,
+		$users,
+		$trees,
+		$waps,
 		$wreg
 	);
 
@@ -800,7 +800,7 @@ function checkHost($host_id) {
 		if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
 			collect_wireless_reg($host);
 		}
-	
+
 		if (!function_exists('snmp_read_mib')) {
 			putenv('MIBS=');
 		}
@@ -820,17 +820,17 @@ function collect_system(&$host) {
 			$host['snmp_username'], $host['snmp_password'],
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
 
 		if ($hostMib == false) {
-			return false; 
+			return false;
 		}
 
 		$systemMib = cacti_snmp_walk($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.1', $host['snmp_version'],
 			$host['snmp_username'], $host['snmp_password'],
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
 
 		$hostMib = array_merge($hostMib, $systemMib);
 
@@ -874,7 +874,7 @@ function collect_system(&$host) {
 				$host['snmp_username'], $host['snmp_password'],
 				$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 				$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-				read_config_option('snmp_retries'), SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+				read_config_option('snmp_retries'), SNMP_WEBUI, $host['snmp_engine_id']);
 
 			db_execute("UPDATE plugin_mikrotik_system SET $key=" . db_qstr($tikInfoData[$key]) . " WHERE host_id=" . $host['id']);
 		}
@@ -905,7 +905,7 @@ function collect_system(&$host) {
 			$host['snmp_username'], $host['snmp_password'],
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-			read_config_option('snmp_retries'), $host['max_oids'], SNMP_VALUE_LIBRARY, SNMP_WEBUI);
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
 
 		$set_string = '';
 
@@ -1005,15 +1005,15 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 		$goodVals  = array();
 		foreach($tree AS $mname => $oid) {
 			if ($name == 'processor') {
-				$retrieval = SNMP_VALUE_PLAIN;
+				// collect
 			}elseif ($mname == 'mac') {
-				$retrieval = SNMP_VALUE_LIBRARY;
+				// collect
 			}elseif ($mname == 'apBSSID') {
-				$retrieval = SNMP_VALUE_LIBRARY;
+				// collect
 			}elseif ($mname == 'date') {
-				$retrieval = SNMP_VALUE_LIBRARY;
+				// collect
 			}elseif ($mname != 'baseOID') {
-				$retrieval = SNMP_VALUE_PLAIN;
+				// collect
 			}else{
 				continue;
 			}
@@ -1022,7 +1022,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 				$host['snmp_username'], $host['snmp_password'],
 				$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 				$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
-				read_config_option('snmp_retries'), $host['max_oids'], $retrieval, SNMP_WEBUI);
+				read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
 
 			if (sizeof($walk)) {
 				$goodVals[$mname] = true;
@@ -1145,6 +1145,13 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 		if (strlen($sql_insert)) {
 			db_execute($sql_prefix . $sql_insert . $sql_suffix);
 		}
+
+		if (!$preserve) {
+			db_execute_prepared("DELETE FROM $table
+				WHERE host_id = ?
+				AND present = 0",
+				array($host['id']));
+		}
 	}
 }
 
@@ -1165,21 +1172,21 @@ function collect_pppoe_users_api(&$host) {
 	$api->debug = false;
 
 	$rekey_array = array(
-		'host_id', 'name', 'index', 'userType', 'serverID', 'domain', 
+		'host_id', 'name', 'index', 'userType', 'serverID', 'domain',
 		'bytesIn', 'bytesOut', 'packetsIn', 'packetsOut',
-        'curBytesIn', 'curBytesOut', 'curPacketsIn', 'curPacketsOut', 
-		'prevBytesIn', 'prevBytesOut', 'prevPacketsIn', 'prevPacketsOut', 
+        'curBytesIn', 'curBytesOut', 'curPacketsIn', 'curPacketsOut',
+		'prevBytesIn', 'prevBytesOut', 'prevPacketsIn', 'prevPacketsOut',
 		'present', 'last_seen'
 	);
 
 	// Put the queues into an array
-	$users = array_rekey(db_fetch_assoc_prepared("SELECT 
+	$users = array_rekey(db_fetch_assoc_prepared("SELECT
 		host_id, '0' AS `index`, '1' AS userType, '0' AS serverID, SUBSTRING(name, 7) AS name, '' AS domain,
 		BytesIn AS bytesIn, BytesOut AS bytesOut, PacketsIn as packetsIn, PacketsOut AS packetsOut,
-		curBytesIn, curBytesOut, curPacketsIn, curPacketsOut, 
+		curBytesIn, curBytesOut, curPacketsIn, curPacketsOut,
 		prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut, present, last_seen
-		FROM plugin_mikrotik_queues 
-		WHERE host_id = ? 
+		FROM plugin_mikrotik_queues
+		WHERE host_id = ?
 		AND name LIKE 'PPPOE-%'", array($host['id'])),
 		'name', $rekey_array);
 
@@ -1215,16 +1222,16 @@ function collect_pppoe_users_api(&$host) {
 						$user['limitBytesIn']  = $row['limit-bytes-in'];
 						$user['limitBytesOut'] = $row['limit-bytes-out'];
 						$user['userType']      = 1;
-					
-						$sql[] = '(' . 
-							$user['host_id']            . ',' . 
-							$user['index']              . ',' . 
-							$user['userType']           . ',' . 
-							$user['serverID']           . ',' . 
-							db_qstr($user['name'])      . ',' . 
-							db_qstr($user['domain'])    . ',' . 
-							db_qstr($user['mac'])       . ',' . 
-							db_qstr($user['ip'])        . ',' . 
+
+						$sql[] = '(' .
+							$user['host_id']            . ',' .
+							$user['index']              . ',' .
+							$user['userType']           . ',' .
+							$user['serverID']           . ',' .
+							db_qstr($user['name'])      . ',' .
+							db_qstr($user['domain'])    . ',' .
+							db_qstr($user['mac'])       . ',' .
+							db_qstr($user['ip'])        . ',' .
 							$user['connectTime']        . ',' .
 							$user['bytesIn']            . ',' .
 							$user['bytesOut']           . ',' .
@@ -1247,16 +1254,16 @@ function collect_pppoe_users_api(&$host) {
 				}
 
 				if (sizeof($sql)) {
-					db_execute('INSERT INTO plugin_mikrotik_users 
-						(host_id, `index`, userType, serverID, name, domain, mac, ip, connectTime, 
-						bytesIn, bytesOut, packetsIn, packetsOut, 
-						curBytesIn, curBytesOut, curPacketsIn, curPacketsOut, 
-						prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut, 
-						limitBytesIn, limitBytesOut, radius, present, last_seen) 
+					db_execute('INSERT INTO plugin_mikrotik_users
+						(host_id, `index`, userType, serverID, name, domain, mac, ip, connectTime,
+						bytesIn, bytesOut, packetsIn, packetsOut,
+						curBytesIn, curBytesOut, curPacketsIn, curPacketsOut,
+						prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut,
+						limitBytesIn, limitBytesOut, radius, present, last_seen)
 						VALUES ' . implode(', ', $sql) . '
-						ON DUPLICATE KEY UPDATE connectTime=VALUES(connectTime), 
-						bytesIn=VALUES(bytesIn), bytesOut=VALUES(bytesOut), 
-						packetsIn=VALUES(packetsIn), packetsOut=VALUES(packetsOut), 
+						ON DUPLICATE KEY UPDATE connectTime=VALUES(connectTime),
+						bytesIn=VALUES(bytesIn), bytesOut=VALUES(bytesOut),
+						packetsIn=VALUES(packetsIn), packetsOut=VALUES(packetsOut),
 						curBytesIn=VALUES(curBytesIn), curBytesOut=VALUES(curBytesOut),
 						curPacketsIn=VALUES(curPacketsIn), curPacketsOut=VALUES(curPacketsOut),
 						prevBytesIn=VALUES(prevBytesIn), prevBytesOut=VALUES(prevBytesOut),
@@ -1266,20 +1273,20 @@ function collect_pppoe_users_api(&$host) {
 				}
 			}
 
-			$idle_users = db_fetch_assoc_prepared('SELECT name 
-				FROM plugin_mikrotik_users 
-				WHERE last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?) 
-				AND present=1 
-				AND host_id = ?', 
+			$idle_users = db_fetch_assoc_prepared('SELECT name
+				FROM plugin_mikrotik_users
+				WHERE last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)
+				AND present=1
+				AND host_id = ?',
 				array(read_config_option('mikrotik_queues_freq'), $host['id']));
 
 			db_execute_prepared('UPDATE IGNORE plugin_mikrotik_users SET
 				bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, connectTime=0,
 				curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
 				prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, present=0
-				WHERE host_id = ? 
-				AND userType = 1 
-				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)', 
+				WHERE host_id = ?
+				AND userType = 1
+				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
 				array($host['id'], read_config_option('mikrotik_queues_freq')));
 
 			$api->disconnect();
@@ -1350,7 +1357,7 @@ function collect_storage(&$host) {
 
 function collect_wireless_aps(&$host) {
 	global $mikrotikWirelessAps;
-	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', true);
+	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', false);
 }
 
 function collect_wireless_reg(&$host) {

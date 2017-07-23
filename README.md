@@ -25,6 +25,13 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 
 ## ChangeLog
 
+--- 2.1 ---
+* issue: Resolve issues when you attempt to sort on reserved word
+* issue: Properly remove aged Wireless AP interfaces
+* issue: Remove dependency on custom snmp.php module
+* feature: Add wireless registrations table view to show all registrations
+* feature: Roll out Cacti sort API to support multiple column sort
+
 --- 2.0 ---
 * issue#10: SQL Error when sorting from the Wireless Aps page
 * issue#12: All pages lack navigation
