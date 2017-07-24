@@ -594,12 +594,12 @@ function process_hosts() {
 	db_execute('INSERT INTO plugin_mikrotik_system
 		(host_id, memSize, memUsed, diskSize, diskUsed)
 		SELECT host_id,
-		SUM(CASE WHEN type=11 THEN size * allocationUnits ELSE 0 END) AS memSize,
-		SUM(CASE WHEN type=11 THEN (used / size) * 100 ELSE 0 END) AS memUsed,
-		SUM(CASE WHEN type=14 THEN size * allocationUnits ELSE 0 END) AS diskSize,
-		SUM(CASE WHEN type=14 THEN (used / size) * 100 ELSE 0 END) AS diskUsed
+		SUM(CASE WHEN description="main memory" THEN size * allocationUnits ELSE 0 END) AS memSize,
+		SUM(CASE WHEN description="main memory" THEN (used / size) * 100 ELSE 0 END) AS memUsed,
+		SUM(CASE WHEN description="system disk" THEN size * allocationUnits ELSE 0 END) AS diskSize,
+		SUM(CASE WHEN description="system disk" THEN (used / size) * 100 ELSE 0 END) AS diskUsed
 		FROM plugin_mikrotik_storage
-		WHERE type IN(11,14)
+		WHERE description IN("main memory", "system disk")
 		GROUP BY host_id
 		ON DUPLICATE KEY UPDATE
 			memSize=VALUES(memSize),
@@ -757,7 +757,7 @@ function checkHost($host_id) {
 	db_execute("REPLACE INTO plugin_mikrotik_processes (pid, taskid) VALUES (" . getmypid() . ", $seed)");
 
 	/* obtain host information */
-	$host = db_fetch_row("SELECT * FROM host WHERE id=$host_id");
+	$host = db_fetch_row_prepared("SELECT * FROM host WHERE id = ?", array($host_id));
 
 	if (function_exists('snmp_read_mib')) {
 		debug('Function snmp_read_mib() EXISTS!');
