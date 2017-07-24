@@ -1985,7 +1985,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 			if ($image) {
 				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><img src='" . $graph . "'></a>";
 			}else{
-				return "<a href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
 			}
 		}else{
 			return "-";
