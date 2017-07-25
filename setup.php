@@ -229,7 +229,7 @@ function mikrotik_check_upgrade() {
 				$version['version'],
 				$version['longname'],
 				$version['author'],
-				$version['url'],
+				$version['homepage'],
 				$version['name']
 			)
 		);
