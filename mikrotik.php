@@ -58,6 +58,9 @@ case 'queues':
 case 'interfaces':
 	mikrotik_interfaces();
 	break;
+case 'dhcp':
+	mikrotik_dhcp();
+	break;
 case 'wireless_aps':
 	mikrotik_wireless_aps();
 	break;
@@ -72,14 +75,6 @@ case 'graphs':
 	break;
 }
 bottom_footer();
-
-function mikrotik_check_changed($request, $session) {
-	if ((isset_request_var($request)) && (isset($_SESSION[$session]))) {
-		if (get_request_var($request) != $_SESSION[$session]) {
-			return true;
-		}
-	}
-}
 
 function mikrotik_get_network($mask) {
 	$octets = explode('.', $mask);
@@ -109,6 +104,10 @@ function mikrotik_queue_trees_exist() {
 
 function mikrotik_interfaces_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_interfaces");
+}
+
+function mikrotik_dhcp_exist() {
+	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_dhcp");
 }
 
 function mikrotik_wireless_aps_exist() {
@@ -147,6 +146,10 @@ function mikrotik_tabs() {
 
 	if (mikrotik_interfaces_exist()) {
 		$tabs['interfaces'] = __('Interfaces', 'mikrotik');
+	}
+
+	if (mikrotik_dhcp_exist()) {
+		$tabs['dhcp'] = __('DHCP', 'mikrotik');
 	}
 
 	if (mikrotik_wireless_aps_exist()) {
@@ -1976,9 +1979,9 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 
 		$graph_add = '';
 		if (sizeof($graphs)) {
-		foreach($graphs as $graph) {
-			$graph_add .= (strlen($graph_add) ? ',':'') . $graph['id'];
-		}
+			foreach($graphs as $graph) {
+				$graph_add .= (strlen($graph_add) ? ',':'') . $graph['id'];
+			}
 		}
 
 		if (sizeof($graphs)) {
@@ -2019,9 +2022,9 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 
 		$graph_add = "";
 		if (sizeof($graphs)) {
-		foreach($graphs as $g) {
-			$graph_add .= (strlen($graph_add) ? ",":"") . $g["id"];
-		}
+			foreach($graphs as $g) {
+				$graph_add .= (strlen($graph_add) ? ",":"") . $g["id"];
+			}
 		}
 
 		if (sizeof($graphs)) {
@@ -2462,6 +2465,231 @@ function mikrotik_wireless_regs() {
 		}
 	}else{
 		print '<tr><td colspan="5"><em>' . __('No Wireless Registrations Found', 'mikrotik') . '</em></td></tr>';
+	}
+
+	html_end_box();
+
+	if (sizeof($data_rows)) {
+		print $nav;
+	}
+
+	echo '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+}
+
+function mikrotik_dhcp() {
+	global $config, $item_rows, $tree_hashes;
+
+    /* ================= input validation and session storage ================= */
+    $filters = array(
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => read_config_option('num_rows_table')
+			),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+			),
+		'device' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1',
+			),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'hostname',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
+			)
+	);
+
+	validate_store_request_vars($filters, 'sess_mtdh');
+	/* ================= input validation ================= */
+
+	?>
+	<script type='text/javascript'>
+	function applyFilter() {
+		strURL  = '?action=dhcp';
+		strURL += '&filter='   + $('#filter').val();
+		strURL += '&rows='     + $('#rows').val();
+		strURL += '&device='   + $('#device').val();
+		strURL += '&header=false';
+		loadPageNoHeader(strURL);
+	}
+
+	function clearFilter() {
+		strURL  = '?action=dhcp&clear=&header=false';
+		loadPageNoHeader(strURL);
+	}
+
+	$(function() {
+		$('#form_dhcp').submit(function(event) {
+			event.preventDefault();
+			applyFilter();
+		});
+	});
+	</script>
+	<?php
+
+	html_start_box(__('DHCP Registrations', 'mikrotik'), '100%', '', '3', 'center', '');
+
+	?>
+	<tr class='even noprint'>
+		<td>
+		<form id='form_dhcp' action='mikrotik.php?action=dhcp'>
+			<table class='filterTable'>
+				<tr>
+					<td>
+						<?php print __('Search', 'mikrotik');?>
+					</td>
+					<td>
+						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+					</td>
+					<td>
+						<?php print __('Device', 'mikrotik');?>
+					</td>
+					<td>
+						<select id='device' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik');?></option>
+							<?php
+							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
+								FROM plugin_mikrotik_system AS hrs
+								INNER JOIN host AS h
+								ON hrs.host_id=h.id
+								ORDER BY description');
+
+							if (sizeof($hosts)) {
+								foreach($hosts AS $h) {
+									echo "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected':'') . '>' . $h['description'] . '</option>';
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Entries', 'mikrotik');?>
+					</td>
+					<td>
+						<select id='rows' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
+							<?php
+							if (sizeof($item_rows)) {
+								foreach($item_rows AS $key => $name) {
+									echo "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected':'') . '>' . $name . '</option>';
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<span>
+							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik');?>'>
+							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik');?>'>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</form>
+		</td>
+	</tr>
+	<?php
+
+	html_end_box();
+
+	if (get_request_var('rows') == '-1') {
+		$rows = read_config_option('num_rows_table');
+	}else{
+		$rows = get_request_var('rows');
+	}
+
+	$sql_where = "";
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+
+	if (get_request_var('device') != '-1') {
+		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . ' h.id=' . get_request_var('device');
+	}
+
+	if (get_request_var('filter') != '') {
+		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
+			dhcp.hostname LIKE '%" . get_request_var('filter') . "%')";
+	}
+
+	$sql = "SELECT dhcp.*, h.description
+		FROM plugin_mikrotik_dhcp AS dhcp
+		INNER JOIN host AS h
+		ON h.id=dhcp.host_id
+		INNER JOIN plugin_mikrotik_system AS hrs
+		ON hrs.host_id=h.id
+		$sql_where
+		$sql_order
+		$sql_limit";
+
+	//echo $sql;
+
+	$data_rows  = db_fetch_assoc($sql);
+	$total_rows = db_fetch_cell("SELECT COUNT(*)
+		FROM plugin_mikrotik_dhcp AS dhcp
+		INNER JOIN host AS h
+		ON h.id=dhcp.host_id
+		INNER JOIN plugin_mikrotik_system AS hrs
+		ON hrs.host_id=h.id
+		$sql_where");
+
+	$display_text = array(
+		'description'   => array('display' => __('Hostname', 'mikrotik'),      'sort' => 'ASC',  'align' => 'left'),
+		'dhcp.hostname' => array('display' => __('Client Name', 'mikrotik'),   'sort' => 'DESC', 'align' => 'left'),
+		'address'       => array('display' => __('IP Address', 'mikrotik'),    'sort' => 'DESC', 'align' => 'left'),
+		'status'        => array('display' => __('Status', 'mikrotik'),        'sort' => 'ASC',  'align' => 'left'),
+		'mac_address'   => array('display' => __('MAC Address', 'mikrotik'),   'sort' => 'DESC', 'align' => 'left'),
+		'expires_after' => array('display' => __('Expires in', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'),
+		'last_seen'     => array('display' => __('Last Seen', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
+		'dynamic'       => array('display' => __('Type', 'mikrotik'),          'sort' => 'DESC', 'align' => 'right'),
+		'blocked'       => array('display' => __('Blocked', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
+		'disabled'      => array('display' => __('Disabled', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
+		'last_updated'  => array('display' => __('Last Updated', 'mikrotik'),     'sort' => 'ASC',  'align' => 'right')
+	);
+
+	$nav = html_nav_bar('mikrotik.php?action=dhcp', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($display_text), __('Entries', 'mikrotik'), 'page', 'main');
+
+	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
+
+	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'mikrotik.php?action=dhcp');
+
+	if (sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
+			form_alternate_row();
+
+			echo "<td class='left nowrap'>" . $row['description'] . '</td>';
+			echo "<td class='left'>"  . ($row['hostname'] != '' ? filter_value($row['hostname'], get_request_var('filter')):__('Unknown', 'mikrotik')) . '</td>';
+			echo "<td class='left'>"  . filter_value($row['address'], get_request_var('filter')) . '</td>';
+			echo "<td class='left'>"  . ($row['dynamic'] ? $row['status']:__('N/A', 'mikrotik')) .  '</td>';
+			echo "<td class='right'>"  . filter_value($row['mac_address'], get_request_var('filter')) . '</td>';
+
+			echo "<td class='right'>" . ($row['dynamic'] ? __('%s Seconds', $row['expires_after']):__('N/A', 'mikrotik'))  . '</td>';
+			echo "<td class='right'>" . ($row['dynamic'] ? __('%s Seconds', $row['last_seen']):__('N/A', 'mikrotik'))  . '</td>';
+
+			echo "<td class='right'>" . ($row['dynamic'] ? __('Dynamic', 'mikrotik'):__('Static', 'mikrotik')) . '</td>';
+			echo "<td class='right'>" . ($row['blocked'] ? 'true':'false') . '</td>';
+			echo "<td class='right'>" . ($row['disabled'] ? 'true':'false') . '</td>';
+			echo "<td class='right'>" . $row['last_updated'] . '</td>';
+
+			form_end_row();
+		}
+	}else{
+		print '<tr><td colspan="' . sizeof($display_text) . '"><em>' . __('No DHCP Entries Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box();

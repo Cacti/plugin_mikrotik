@@ -775,7 +775,13 @@ function checkHost($host_id) {
 			collect_users($host);
 
 			// Remove old records
-			db_execute_prepared('DELETE FROM plugin_mikrotik_users WHERE userType=0 AND name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '" AND present = 0 AND host_id = ? AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')', array($host['id']));
+			db_execute_prepared('DELETE FROM plugin_mikrotik_users
+				WHERE userType=0
+				AND name RLIKE "' . read_config_option('mikrotik_user_exclusion') . '"
+				AND present = 0
+				AND host_id = ?
+				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')',
+				array($host['id']));
 		}
 
 		if (runCollector($start, $trees_lastrun, $trees_freq)) {
@@ -787,6 +793,7 @@ function checkHost($host_id) {
 		}
 		if (runCollector($start, $interfaces_lastrun, $interfaces_freq)) {
 			collect_interfaces($host);
+			collect_dhcp_details($host);
 		}
 		if (runCollector($start, $processor_lastrun, $processor_freq)) {
 			collect_processor($host);
@@ -1163,6 +1170,131 @@ function collect_trees(&$host) {
 function collect_users(&$host) {
 	global $mikrotikUsers;
 	collectHostIndexedOid($host, $mikrotikUsers, 'plugin_mikrotik_users', 'users', true);
+}
+
+function collect_dhcp_details(&$host) {
+	$rows = array();
+
+	$api  = new RouterosAPI();
+	$api->debug = false;
+
+	$rekey_array = array(
+		'host_id', 'address', 'mac_address', 'client_id', 'address_lists',
+		'server', 'dhcp_option', 'status', 'expires_after',
+        'last_seen', 'active_address', 'active_mac_address', 'active_client_id',
+		'active_server', 'hostname', 'radius', 'dynamic', 'blocked',
+		'disabled', 'present', 'last_updated'
+	);
+
+	// Put the queues into an array
+	$entries = array_rekey(
+		db_fetch_assoc_prepared('SELECT *
+			FROM plugin_mikrotik_dhcp
+			WHERE host_id = ?',
+			array($host['id'])),
+		'mac_address', $rekey_array);
+
+	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
+
+	$start = microtime(true);
+
+	if (sizeof($creds)) {
+		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
+			$api->write('/ip/dhcp-server/lease/print');
+
+			$read  = $api->read(false);
+			$array = $api->parseResponse($read);
+
+			$end = microtime(true);
+
+			$sql = array();
+
+			cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
+
+			if (sizeof($array)) {
+				foreach($array as $row) {
+					$mac_address = $row['mac-address'];
+					if (isset($entries[$mac_address])) {
+						$dhcp = $entries[$mac_address];
+					}
+
+	$rekey_array = array(
+		'host_id', 'address', 'mac_address', 'client_id', 'address_lists',
+		'server', 'dhcp_option', 'status', 'expires_after',
+        'last_seen', 'active_address', 'active_mac_address', 'active_client_id',
+		'active_server', 'hostname', 'radius', 'dynamic', 'blocked',
+		'disabled', 'present', 'last_updated'
+	);
+					$dhcp['host_id']            = $host['id'];
+					$dhcp['address']            = $row['address'];
+					$dhcp['mac_address']        = $row['mac-address'];
+					$dhcp['client_id']          = isset($row['client-id']) ? $row['client-id']:'';
+					$dhcp['address_lists']      = $row['address-lists'];
+					$dhcp['server']             = $row['server'];
+					$dhcp['dhcp_option']        = $row['dhcp-option'];
+					$dhcp['status']             = $row['status'];
+					$dhcp['expires_after']      = isset($row['expires-after']) ? uptimeToSeconds($row['expires-after']):0;
+					$dhcp['last_seen']          = uptimeToSeconds($row['last-seen']);
+					$dhcp['active_address']     = isset($row['active_address']) ? $row['active-address']:'';
+					$dhcp['active_mac_address'] = isset($row['active-mac-address']) ? $row['active-mac-address']:'';
+					$dhcp['active_client_id']   = isset($row['active-client-id']) ? $row['active-client-id']:'';
+					$dhcp['active_server']      = isset($row['active-server']) ? $row['active-server']:'';
+					$dhcp['hostname']           = isset($row['host-name']) ? $row['host-name']:'';
+					$dhcp['radius']             = ($row['radius'] == 'true' ? 1:0);
+					$dhcp['dynamic']            = ($row['dynamic'] == 'true' ? 1:0);
+					$dhcp['blocked']            = ($row['blocked'] == 'true' ? 1:0);
+					$dhcp['disabled']           = ($row['disabled'] == 'true' ? 1:0);
+
+					$sql[] = '(' .
+						$dhcp['host_id']                     . ',' .
+						db_qstr($dhcp['address'])            . ',' .
+						db_qstr($dhcp['mac_address'])        . ',' .
+						db_qstr($dhcp['client_id'])          . ',' .
+						db_qstr($dhcp['address_lists'])      . ',' .
+						db_qstr($dhcp['server'])             . ',' .
+						db_qstr($dhcp['dhcp_option'])        . ',' .
+						db_qstr($dhcp['status'])             . ',' .
+						$dhcp['expires_after']               . ',' .
+						$dhcp['last_seen']                   . ',' .
+						db_qstr($dhcp['active_address'])     . ',' .
+						db_qstr($dhcp['active_mac_address']) . ',' .
+						db_qstr($dhcp['active_client_id'])   . ',' .
+						db_qstr($dhcp['active_server'])      . ',' .
+						db_qstr($dhcp['hostname'])           . ',' .
+						$dhcp['radius']          . ',' .
+						$dhcp['dynamic']         . ',' .
+						$dhcp['blocked']         . ',' .
+						$dhcp['disabled']        . ',' .
+						'1'                      . ',' .
+						'NOW()'                  . ')';
+				}
+			}
+
+			if (sizeof($sql)) {
+				db_execute('INSERT INTO plugin_mikrotik_dhcp
+					(`' . implode('`,`', $rekey_array) . '`)
+					VALUES ' . implode(', ', $sql) . '
+					ON DUPLICATE KEY UPDATE address=VALUES(address),
+					mac_address=VALUES(mac_address), client_id=VALUES(client_id),
+					address_lists=VALUES(address_lists), dhcp_option=VALUES(dhcp_option),
+					status=VALUES(status), expires_after=VALUES(expires_after),
+					last_seen=VALUES(last_seen), active_address=VALUES(active_address),
+					active_mac_address=VALUES(active_mac_address), active_client_id=VALUES(active_client_id),
+					hostname=VALUES(hostname), radius=VALUES(radius),
+					dynamic=VALUES(dynamic), blocked=VALUES(blocked),
+					disabled=VALUES(disabled), present=VALUES(present), last_updated=VALUES(last_updated)');
+			}
+
+//			db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
+//				WHERE present=0
+//				AND host_id = ?',
+//				array($host['id']));
+
+			$api->disconnect();
+		}else{
+			cacti_log('ERROR:RouterOS @ ' . $host['description'] . ' Timed Out');
+		}
+	}
 }
 
 function collect_pppoe_users_api(&$host) {

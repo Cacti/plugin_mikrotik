@@ -55,6 +55,7 @@ function plugin_mikrotik_uninstall() {
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_processes`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_processor`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_credentials`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_dhcp`');
 }
 
 function plugin_mikrotik_check_config() {
@@ -122,6 +123,10 @@ function mikrotik_check_upgrade() {
 		if (!db_column_exists('plugin_mikrotik_users', 'userType')) {
 			db_execute("ALTER TABLE plugin_mikrotik_users ADD COLUMN userType int unsigned DEFAULT '0' AFTER `index`");
 			db_execute("ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)");
+		}
+
+		if (!db_table_exists('plugin_mikrotik_dhcp')) {
+			mikrotik_setup_table();
 		}
 
 		// Remove incorrect graphs
@@ -681,7 +686,7 @@ function mikrotik_setup_table() {
 		ENGINE=InnoDB
 		COMMENT='Table of MikroTik User Usage';");
 
-	db_execute("CREATE TABLE `plugin_mikrotik_trees` (
+	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_trees` (
 		`host_id` int(10) unsigned NOT NULL,
 		`index` int(10) unsigned NOT NULL,
 		`name` varchar(32) NOT NULL,
@@ -724,13 +729,42 @@ function mikrotik_setup_table() {
 		ENGINE=MEMORY
 		COMMENT='Running collector processes';");
 
-	db_execute(" CREATE TABLE IF NOT EXISTS `plugin_mikrotik_credentials` (
+	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_credentials` (
 		`host_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
 		`user` varchar(20) DEFAULT '',
 		`password` varchar(40) DEFAULT '',
 		PRIMARY KEY (`host_id`))
 		ENGINE=InnoDB
 		COMMENT='Stores MikroTik API Credentials'");
+
+	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_dhcp` (
+		`host_id` int(10) unsigned NOT NULL,
+		`address` varchar(20) NOT NULL,
+		`mac_address` varchar(20) NOT NULL,
+		`client_id` varchar(64) NOT NULL,
+		`address_lists` varchar(128) DEFAULT '',
+		`server` varchar(20) DEFAULT '',
+		`dhcp_option` varchar(128) DEFAULT '',
+		`status` varchar(20) DEFAULT '',
+		`expires_after` int(10) unsigned DEFAULT '0',
+		`last_seen` int unsigned DEFAULT '0',
+		`active_address` varchar(20) DEFAULT '',
+		`active_mac_address` varchar(20) DEFAULT '',
+		`active_client_id` varchar(64) DEFAULT '',
+		`active_server` varchar(20) DEFAULT '',
+		`hostname` varchar(64) DEFAULT '',
+		`radius` int(10) unsigned DEFAULT '0',
+		`dynamic` int(10) unsigned DEFAULT '0',
+		`blocked` int(10) unsigned DEFAULT '0',
+		`disabled` int(10) unsigned DEFAULT '0',
+		`present` tinyint(3) unsigned NOT NULL DEFAULT '1',
+		`last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (`host_id`,`mac_address`),
+		KEY `address` (`address`),
+		KEY `status` (`status`),
+		KEY `present` (`present`))
+		ENGINE=InnoDB
+		COMMENT='Table of MikroTik DHCP Lease Information obtained from the API'");
 }
 
 function mikrotik_poller_bottom() {

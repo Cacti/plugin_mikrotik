@@ -25,6 +25,9 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 
 ## ChangeLog
 
+--- 2.2 ---
+* feature: Add DHCP table to view DHCP registrations
+
 --- 2.1 ---
 * issue: Resolve issues when you attempt to sort on reserved word
 * issue: Properly remove aged Wireless AP interfaces
