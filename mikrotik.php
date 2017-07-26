@@ -2503,7 +2503,7 @@ function mikrotik_dhcp() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'hostname',
+			'default' => 'dhcp.hostname',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
@@ -2648,16 +2648,16 @@ function mikrotik_dhcp() {
 
 	$display_text = array(
 		'description'   => array('display' => __('Hostname', 'mikrotik'),      'sort' => 'ASC',  'align' => 'left'),
-		'dhcp.hostname' => array('display' => __('Client Name', 'mikrotik'),   'sort' => 'DESC', 'align' => 'left'),
-		'address'       => array('display' => __('IP Address', 'mikrotik'),    'sort' => 'DESC', 'align' => 'left'),
+		'dhcp.hostname' => array('display' => __('Client Name', 'mikrotik'),   'sort' => 'ASC',  'align' => 'left'),
+		'address'       => array('display' => __('IP Address', 'mikrotik'),    'sort' => 'ASC',  'align' => 'left'),
 		'status'        => array('display' => __('Status', 'mikrotik'),        'sort' => 'ASC',  'align' => 'left'),
-		'mac_address'   => array('display' => __('MAC Address', 'mikrotik'),   'sort' => 'DESC', 'align' => 'left'),
+		'mac_address'   => array('display' => __('MAC Address', 'mikrotik'),   'sort' => 'ASC',  'align' => 'right'),
 		'expires_after' => array('display' => __('Expires in', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'),
 		'last_seen'     => array('display' => __('Last Seen', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
 		'dynamic'       => array('display' => __('Type', 'mikrotik'),          'sort' => 'DESC', 'align' => 'right'),
 		'blocked'       => array('display' => __('Blocked', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
 		'disabled'      => array('display' => __('Disabled', 'mikrotik'),      'sort' => 'DESC', 'align' => 'right'),
-		'last_updated'  => array('display' => __('Last Updated', 'mikrotik'),     'sort' => 'ASC',  'align' => 'right')
+		'last_updated'  => array('display' => __('Last Updated', 'mikrotik'),  'sort' => 'ASC',  'align' => 'right')
 	);
 
 	$nav = html_nav_bar('mikrotik.php?action=dhcp', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($display_text), __('Entries', 'mikrotik'), 'page', 'main');
