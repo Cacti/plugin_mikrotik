@@ -114,14 +114,6 @@ function mikrotik_wireless_aps_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_wireless_aps");
 }
 
-function mikrotik_hotspots_exist() {
-	return false;
-}
-
-function mikrotik_wroutes_exist() {
-	return false;
-}
-
 function mikrotik_wregs_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_wireless_registrations");
 }
@@ -156,16 +148,8 @@ function mikrotik_tabs() {
 		$tabs['wireless_aps'] = __('Wireless Aps', 'mikrotik');
 	}
 
-	if (mikrotik_hotspots_exist()) {
-		$tabs['hotspots'] = __('Hot Spots', 'mikrotik');
-	}
-
 	if (mikrotik_wregs_exist()) {
 		$tabs['wireless_regs'] = __('Wireless Registrations', 'mikrotik');
-	}
-
-	if (mikrotik_wroutes_exist()) {
-		$tabs['wireless'] = __('Wireless Routes', 'mikrotik');
 	}
 
 	$tabs['graphs'] = __('Graphs', 'mikrotik');
