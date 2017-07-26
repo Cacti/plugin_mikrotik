@@ -765,6 +765,14 @@ function mikrotik_setup_table() {
 		KEY `present` (`present`))
 		ENGINE=InnoDB
 		COMMENT='Table of MikroTik DHCP Lease Information obtained from the API'");
+
+	db_execute("CREATE TABLE IF NOT EXISTS plugin_microtik_mac2hostname (
+		`mac_address` varchar(20) default '',
+		`hostname` varchar(64) default '',
+		`last_updated` timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+		PRIMARY KEY (`mac_address`, `hostname`))
+		ENGINE=InnoDB
+		COMMENT='Holds mappings from MAC Addres to Hostname'");
 }
 
 function mikrotik_poller_bottom() {

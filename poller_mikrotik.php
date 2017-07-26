@@ -1208,6 +1208,7 @@ function collect_dhcp_details(&$host) {
 			$end = microtime(true);
 
 			$sql = array();
+			$sql2 = array();
 
 			cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
 
@@ -1218,13 +1219,12 @@ function collect_dhcp_details(&$host) {
 						$dhcp = $entries[$mac_address];
 					}
 
-	$rekey_array = array(
-		'host_id', 'address', 'mac_address', 'client_id', 'address_lists',
-		'server', 'dhcp_option', 'status', 'expires_after',
-        'last_seen', 'active_address', 'active_mac_address', 'active_client_id',
-		'active_server', 'hostname', 'radius', 'dynamic', 'blocked',
-		'disabled', 'present', 'last_updated'
-	);
+					if (isset($row['mac-address']) && isset($row['host-name'])) {
+						if ($row['mac-address'] != '' && $row['host-name'] != '') {
+							$sql2[] = '(' . db_qstr($row['mac-address']) . ', ' . db_qstr($row['host-name']) . ')';
+						}
+					}
+
 					$dhcp['host_id']            = $host['id'];
 					$dhcp['address']            = $row['address'];
 					$dhcp['mac_address']        = $row['mac-address'];
@@ -1285,10 +1285,16 @@ function collect_dhcp_details(&$host) {
 					disabled=VALUES(disabled), present=VALUES(present), last_updated=VALUES(last_updated)');
 			}
 
-//			db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
-//				WHERE present=0
-//				AND host_id = ?',
-//				array($host['id']));
+			if (sizeof($sql2)) {
+				db_execute('REPLACE INTO plugin_mikrotik_mac2hostname
+					(mac_address, hostname)
+					VALUES ' . implode(', ', $sql2));
+			}
+
+			db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
+				WHERE present=0
+				AND host_id = ?',
+				array($host['id']));
 
 			$api->disconnect();
 		}else{

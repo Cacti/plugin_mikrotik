@@ -2388,12 +2388,14 @@ function mikrotik_wireless_regs() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
-	$sql = "SELECT mtwr.*, h.hostname, h.description, h.disabled
+	$sql = "SELECT mtwr.*, h.hostname, dhcp.hostname AS client_name, h.description, h.disabled
 		FROM plugin_mikrotik_wireless_registrations AS mtwr
 		INNER JOIN host AS h
 		ON h.id=mtwr.host_id
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
+		LEFT JOIN plugin_mikrotik_mac2hostname AS dhcp
+		ON dhcp.mac_address=mtwr.index
 		$sql_where
 		$sql_order
 		$sql_limit";
@@ -2405,11 +2407,14 @@ function mikrotik_wireless_regs() {
 		ON h.id=mtwr.host_id
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
+		LEFT JOIN plugin_mikrotik_mac2hostname AS dhcp
+		ON dhcp.mac_address=mtwr.index
 		$sql_where");
 
 	$display_text = array(
 		'nosort'            => array('display' => __('Actions', 'mikrotik'),         'sort' => '',     'align' => 'left'),
 		'description'       => array('display' => __('Device', 'mikrotik'),          'sort' => 'ASC',  'align' => 'left'),
+		'client_name'       => array('display' => __('Client Name', 'mikrotik'),     'sort' => 'ASC',  'align' => 'left'),
 		'index'             => array('display' => __('MAC Address', 'mikrotik'),     'sort' => 'ASC',  'align' => 'left'),
 		$pref . 'RxBytes'   => array('display' => __('Rx Bytes', 'mikrotik'),        'sort' => 'DESC', 'align' => 'right'),
 		$pref . 'TxBytes'   => array('display' => __('Tx Bytes', 'mikrotik'),        'sort' => 'DESC', 'align' => 'right'),
@@ -2450,6 +2455,7 @@ function mikrotik_wireless_regs() {
 
 			echo "<td class='nowrap'>$graphs</td>";
 			echo "<td class='left nowrap'>" . $host_url . '</td>';
+			echo "<td class='left nowrap'>" . filter_value($row['client_name'], get_request_var('filter')) . '</td>';
 			echo "<td class='left nowrap'>" . filter_value($row['index'], get_request_var('filter')) . '</td>';
 			echo "<td class='right'>" . mikrotik_memory($row[$pref . 'RxBytes']) . '</td>';
 			echo "<td class='right'>" . mikrotik_memory($row[$pref . 'TxBytes']) . '</td>';
