@@ -151,7 +151,7 @@ function mikrotik_check_upgrade() {
 				WHERE id = ?',
 				array($graph_template_id));
 
-			$graph_template_input = db_fetch_assoc('SELECT id
+			$graph_template_input = db_fetch_assoc_prepared('SELECT id
 				FROM graph_template_input
 				WHERE graph_template_id = ?',
 				array($graph_template_id));
