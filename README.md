@@ -27,6 +27,7 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 
 --- 2.2 ---
 * feature: Add DHCP table to view DHCP registrations
+* issue: Undefined offset when attempting to connect to Mikrotik
 
 --- 2.1 ---
 * issue: Resolve issues when you attempt to sort on reserved word
