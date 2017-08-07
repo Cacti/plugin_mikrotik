@@ -79,16 +79,26 @@ function plugin_mikrotik_version() {
 function mikrotik_check_upgrade() {
 	global $config, $database_default;
 
+	global $host_template_hashes, $queue_hashes, $tree_hashes, $user_hashes;
+	global $wireless_station_hashes, $wirless_reg_hashes, $interface_hashes;
+	global $device_hashes, $device_health_hashes, $graph_template_hashes, $device_query_hashes;
+
+	include_once($config['library_path'] . '/database.php');
+	include_once($config['library_path'] . '/functions.php');
+	include_once($config['library_path'] . '/api_graph.php');
+	include_once($config['library_path'] . '/api_tree.php');
+	include_once($config['library_path'] . '/api_data_source.php');
+	include_once($config['library_path'] . '/api_aggregate.php');
+
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('plugins.php', 'mikrotik.php');
 	if (!in_array(get_current_page(), $files)) {
 		return;
 	}
 
-	$info    = plugin_mikrotik_version();
-	$current = $info['version'];
+	$version = plugin_mikrotik_version();
+	$current = $version['version'];
 	$old     = db_fetch_cell("SELECT version FROM plugin_config WHERE directory='mikrotik'");
-
 	if ($current != $old) {
 		if (api_plugin_is_enabled('mikrotik')) {
 			api_plugin_enable_hooks('mikrotik');
@@ -119,15 +129,108 @@ function mikrotik_check_upgrade() {
 			mikrotik_setup_table();
 		}
 
+		// Remove incorrect graphs
+		foreach($wireless_station_hashes as $hash) {
+			$graph_template_id = db_fetch_cell_prepared('SELECT id
+				FROM graph_templates
+				WHERE hash = ?',
+				array($hash));
+
+			$snmp_query_ids[] = db_fetch_cell_prepared('SELECT sqg.snmp_query_id
+				FROM snmp_query_graph AS sqg
+				INNER JOIN graph_templates AS gt
+				ON sqg.graph_template_id=gt.id
+				WHERE gt.hash = ?', array($hash));
+
+			if (!empty($graph_template_id)) {
+				mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id);
+			}
+
+			// Remove graph templates
+			db_execute_prepared('DELETE FROM graph_templates
+				WHERE id = ?',
+				array($graph_template_id));
+
+			$graph_template_input = db_fetch_assoc('SELECT id
+				FROM graph_template_input
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			if (sizeof($graph_template_input)) {
+				foreach ($graph_template_input as $item) {
+					db_execute_prepared('DELETE FROM graph_template_input_defs
+						WHERE graph_template_input_id = ?', array($item['id']));
+				}
+			}
+
+			db_execute_prepared('DELETE FROM graph_template_input
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM graph_templates_graph
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM graph_templates_item
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+
+			db_execute_prepared('DELETE FROM host_template_graph
+				WHERE graph_template_id = ?',
+				array($graph_template_id));
+		}
+
+		if (!empty($snmp_query_ids)) {
+			foreach($snmp_query_ids as $snmp_query_id) {
+				db_execute_prepared('DELETE FROM host_template_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
+				db_execute_prepared('DELETE FROM host_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
+				db_execute_prepared('DELETE FROM snmp_query_graph WHERE snmp_query_id = ?', array($snmp_query_id));
+			}
+		}
+
+		$data_template_hashes = array(
+			'2e88a62f3d3bd3756ab48a9613e86439',
+			'852ab786ca385b1bd87d1308d7e3ae75',
+			'2828f43f6d8e477ee5616da510ccc314',
+			'ca928def30203cc6d7daed75d826f91c'
+		);
+
+		foreach($data_template_hashes as $hash) {
+			$data_template_id = db_fetch_cell_prepared('SELECT id
+				FROM data_template
+				WHERE hash = ?',
+				array($hash));
+
+			if (!empty($data_template_id)) {
+				db_execute_prepared('DELETE FROM data_template_data
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_template_rrd
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM snmp_query_graph_rrd
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM snmp_query_graph_rrd_sv
+					WHERE data_template_id = ?', array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_template
+					WHERE id = ?' , array($data_template_id));
+
+				db_execute_prepared('DELETE FROM data_local
+					WHERE data_template_id = ?' , array($data_template_id));
+			}
+		}
+
 		db_execute_prepared('UPDATE plugin_config
 			SET version = ?, name = ?, author = ?, webpage = ?
 			WHERE directory = ?',
 			array(
-				$info['version'],
-				$info['longname'],
-				$info['author'],
-				$info['homepage'],
-				$info['name']
+				$version['version'],
+				$version['longname'],
+				$version['author'],
+				$version['homepage'],
+				$version['name']
 			)
 		);
 	}
@@ -884,6 +987,13 @@ function mikrotik_config_arrays() {
 		'75a943d675f2d3e72353df4aa822c535',
 		'0e5cd325b4956aaf11fc8e7d813a5e02',
 		'a3b1e1488352975428edfb9dcbb29208'
+	);
+
+	$wireless_station_hashes = array(
+		'0e88ad681dda36417a537c2e06a2add3',
+		'8cea2d49a035d5424ff28b9856d78053',
+		'0a0e496b94667220dce953cb374cee7c',
+		'98ee665dc39e0404a272c87cc4efea2e'
 	);
 
 	$wireless_reg_hashes = array(
