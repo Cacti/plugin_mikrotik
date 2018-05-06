@@ -29,6 +29,7 @@ chdir(dirname(__FILE__));
 chdir('../..');
 include('./include/global.php');
 include_once('./lib/poller.php');
+include_once('./lib/utility.php');
 include_once('./lib/data_query.php');
 include_once('./lib/api_graph.php');
 include_once('./lib/api_tree.php');
