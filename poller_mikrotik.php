@@ -215,7 +215,7 @@ function autoDiscoverHosts() {
 		if (strpos($host['snmp_sysDescr'], 'RouterOS') !== false) {
 			debug("Host '" . $host['description'] . '[' . $host['hostname'] . "]' Supports MikroTik Resources");
 			db_execute('INSERT INTO plugin_mikrotik_system (host_id) VALUES (' . $host['id'] . ') ON DUPLICATE KEY UPDATE host_id=VALUES(host_id)');
-		}else if ($host['host_template_id'] == $template_id) {
+		}else if ($template_id > 0 && $host['host_template_id'] == $template_id) {
 			debug("Host '" . $host['description'] . '[' . $host['hostname'] . "]' Supports MikroTik Resources");
 			db_execute('INSERT INTO plugin_mikrotik_system (host_id) VALUES (' . $host['id'] . ') ON DUPLICATE KEY UPDATE host_id=VALUES(host_id)');
 		}
