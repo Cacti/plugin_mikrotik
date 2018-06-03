@@ -878,7 +878,7 @@ function collect_system(&$host) {
 						$i++;
 					}
 
-					$mib['value'] = $uptime;
+					$mib['value'] = $uptime * 100;
 				}
 
 				if (!empty($key)) {
