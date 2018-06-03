@@ -943,21 +943,38 @@ function collect_system(&$host) {
 
 		// Locate the values names
 		if (sizeof($healthMibs)) {
-		foreach($healthMibs as $mib) {
-			/* do some cleanup */
-			if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
-			if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
+			foreach($healthMibs as $mib) {
+				/* do some cleanup */
+				if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
+				if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
 
-			$key = array_search($mib['oid'], $tikHealthOIDs);
+				$key = array_search($mib['oid'], $tikHealthOIDs);
 
-			if ($key == 'date') {
-				$mib['value'] = mikrotik_dateParse($mib['value']);
+				if ($key == 'date') {
+					$mib['value'] = mikrotik_dateParse($mib['value']);
+				} else {
+					switch($key) {
+						case 'HlTemperature':
+						case 'HlCoreVoltage':
+						case 'HlThreeDotThreeVoltage':
+						case 'HlFiveVoltage':
+						case 'HlTwelveVoltage':
+						case 'HlSensorTemperature':
+						case 'HlCpuTemperature':
+						case 'HlBoardTemperature':
+						case 'HlVoltage':
+						case 'HlTemperature':
+						case 'HlProcessorTemperature':
+						case 'HlPower':
+						case 'HlCurrent':
+							$mib['value'] /= 10;
+					}
+				}
+
+				if (!empty($key)) {
+					$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . (is_numeric($mib['value']) ? $mib['value']:db_qstr(trim($mib['value'], ' "')));
+				}
 			}
-
-			if (!empty($key)) {
-				$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . (is_numeric($mib['value']) ? $mib['value']:db_qstr(trim($mib['value'], ' "')));
-			}
-		}
 		}
 
 		/* Update the values */
@@ -965,8 +982,10 @@ function collect_system(&$host) {
 			db_execute("INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (" . $host['id'] . ")");
 			db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
 		}
+
 		return true;
 	}
+
 	return false;
 }
 

@@ -27,6 +27,7 @@ Bug and feature enhancements for the mikrotik plugin are handled in GitHub.  If 
 
 --- 2.2 ---
 * feature: Add DHCP table to view DHCP registrations
+* issue#23: The health values are showed without dot
 * issue: Undefined offset when attempting to connect to Mikrotik
 * issue: MikroTik Uptime not reporting correctly
 
