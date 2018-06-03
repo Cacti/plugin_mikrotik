@@ -845,26 +845,51 @@ function collect_system(&$host) {
 
 		// Locate the values names
 		if (sizeof($hostMib)) {
-		foreach($hostMib as $mib) {
-			/* do some cleanup */
-			if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
-			if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
+			foreach($hostMib as $mib) {
+				/* do some cleanup */
+				if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
+				if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
 
-			$key = array_search($mib['oid'], $mikrotikSystem);
+				$key = array_search($mib['oid'], $mikrotikSystem);
 
-			if ($key == 'date') {
-				$mib['value'] = mikrotik_dateParse($mib['value']);
+				if ($key == 'date') {
+					$mib['value'] = mikrotik_dateParse($mib['value']);
+				} elseif ($key == 'uptime' && strpos($mib['value'], ':')) {
+					$parts  = explode(':', $mib['value']);
+					$uptime = 0;
+					$i = 0;
+
+					foreach($parts as $part) {
+						switch($i) {
+							case 0:
+								$uptime += $part * 86400;
+								break;
+							case 1:
+								$uptime += $part * 3600;
+								break;
+							case 2:
+								$uptime += $part * 60;
+								break;
+							default:
+								$uptime += $part;
+								break;
+						}
+
+						$i++;
+					}
+
+					$mib['value'] = $uptime;
+				}
+
+				if (!empty($key)) {
+					$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . db_qstr(trim($mib['value'], ' "'));
+				}
 			}
-
-			if (!empty($key)) {
-				$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . db_qstr(trim($mib['value'], ' "'));
-			}
-		}
 		}
 
 		/* Update the values */
 		if (strlen($set_string)) {
-			db_execute("UPDATE plugin_mikrotik_system SET $set_string WHERE host_id=" . $host['id']);
+			db_execute_prepared("UPDATE plugin_mikrotik_system SET $set_string WHERE host_id = ?", array($host['id']));
 		}
 
 		/* system mibs */
