@@ -1256,7 +1256,7 @@ function collect_dhcp_details(&$host) {
 
 			cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
 
-			if (sizeof($array)) {
+			if (sizeof($array) && !array_key_exists('!trap', $array)) {
 				foreach($array as $row) {
 					$mac_address = $row['mac-address'];
 					if (isset($entries[$mac_address])) {
