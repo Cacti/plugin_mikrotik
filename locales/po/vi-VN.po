@@ -5,759 +5,946 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-08 12:30-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: vi-VN\n"
+"PO-Revision-Date: 2019-03-17 11:40-0400\n"
+"Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../mikrotik.php:38
+#, fuzzy
 msgid "Present"
-msgstr ""
+msgstr "Giới thiệu"
 
 #: ../mikrotik.php:39 ../mikrotik.php:1652
+#, fuzzy
 msgid "Unknown"
-msgstr ""
+msgstr "Không xác định"
 
 #: ../mikrotik.php:40
+#, fuzzy
 msgid "Running"
-msgstr ""
+msgstr "Đang chạy"
 
 #: ../mikrotik.php:41
+#, fuzzy
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh báo"
 
 #: ../mikrotik.php:42
+#, fuzzy
 msgid "Testing"
-msgstr ""
+msgstr "Thử nghiệm"
 
 #: ../mikrotik.php:43 ../mikrotik.php:1655
+#, fuzzy
 msgid "Down"
-msgstr ""
+msgstr "Xuống"
 
 #: ../mikrotik.php:127 ../mikrotik.php:1371 ../mikrotik.php:1675
 #: ../mikrotik.php:1748 ../setup.php:1095
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "Thiết bị"
 
 #: ../mikrotik.php:130 ../mikrotik.php:1458 ../mikrotik.php:1763
 #: ../mikrotik_users.php:270 ../mikrotik_users.php:345 ../setup.php:1098
+#, fuzzy
 msgid "Users"
-msgstr ""
+msgstr "Người dùng"
 
 #: ../mikrotik.php:134 ../mikrotik.php:579 ../mikrotik.php:694
+#, fuzzy
 msgid "Queues"
-msgstr ""
+msgstr "Hàng đợi"
 
 #: ../mikrotik.php:138
+#, fuzzy
 msgid "Queue Trees"
-msgstr ""
+msgstr "Cây xếp hàng"
 
 #: ../mikrotik.php:142 ../mikrotik.php:291 ../mikrotik.php:405
 #: ../setup.php:1099
+#, fuzzy
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
 
 #: ../mikrotik.php:146 ../mikrotik.php:1162 ../setup.php:1102
+#, fuzzy
 msgid "Wireless Aps"
-msgstr ""
+msgstr "Aps không dây"
 
 #: ../mikrotik.php:150
+#, fuzzy
 msgid "Hot Spots"
-msgstr ""
+msgstr "Điểm nóng"
 
 #: ../mikrotik.php:154
+#, fuzzy
 msgid "Wireless Routes"
-msgstr ""
+msgstr "Tuyến không dây"
 
 #: ../mikrotik.php:157 ../mikrotik.php:2137 ../setup.php:1101
+#, fuzzy
 msgid "Graphs"
-msgstr ""
+msgstr "Đồ thị"
 
 #: ../mikrotik.php:255
+#, fuzzy
 msgid "Interface Stats"
-msgstr ""
+msgstr "Chỉ số giao diện"
 
 #: ../mikrotik.php:264 ../mikrotik.php:552 ../mikrotik.php:839
 #: ../mikrotik.php:1065 ../mikrotik.php:1334 ../mikrotik.php:1629
 #: ../mikrotik_users.php:254
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: ../mikrotik.php:270 ../mikrotik.php:558 ../mikrotik.php:845
 #: ../mikrotik.php:1071 ../mikrotik.php:1340
+#, fuzzy
 msgid "Device"
-msgstr ""
+msgstr "Thiết bị"
 
 #: ../mikrotik.php:274 ../mikrotik.php:562 ../mikrotik.php:849
 #: ../mikrotik.php:1075 ../mikrotik.php:1344 ../mikrotik.php:1365
 #: ../mikrotik.php:1639 ../mikrotik_users.php:264 ../mikrotik_users.php:289
+#, fuzzy
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 #: ../mikrotik.php:295 ../mikrotik.php:583 ../mikrotik.php:870
 #: ../mikrotik.php:1096 ../mikrotik.php:1375 ../mikrotik.php:1679
 #: ../mikrotik_users.php:274
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: ../mikrotik.php:308 ../mikrotik.php:596 ../mikrotik_users.php:290
 #: ../mikrotik_users.php:358 ../mikrotik_users.php:369
+#, fuzzy
 msgid "Active"
-msgstr ""
+msgstr "Kích hoạt"
 
 #: ../mikrotik.php:313 ../mikrotik.php:602
+#, fuzzy
 msgid "Since Reset"
-msgstr ""
+msgstr "Kể từ khi thiết lập lại"
 
 #: ../mikrotik.php:412 ../mikrotik.php:701 ../mikrotik.php:941
 #: ../mikrotik.php:1169 ../mikrotik.php:1465 ../mikrotik.php:1755
 #: ../setup.php:1105
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Hành động"
 
 #: ../mikrotik.php:413 ../mikrotik.php:702 ../mikrotik.php:942
 #: ../mikrotik.php:1170 ../mikrotik.php:1466
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "Tên máy chủ"
 
 #: ../mikrotik.php:414 ../mikrotik.php:703 ../mikrotik.php:943
 #: ../mikrotik.php:1756
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: ../mikrotik.php:415
+#, fuzzy
 msgid "Rx Bytes"
-msgstr ""
+msgstr "Byte Rx"
 
 #: ../mikrotik.php:416
+#, fuzzy
 msgid "Tx Bytes"
-msgstr ""
+msgstr "Tx byte"
 
 #: ../mikrotik.php:417
+#, fuzzy
 msgid "Rx Packets"
-msgstr ""
+msgstr "Gói Rx"
 
 #: ../mikrotik.php:418
+#, fuzzy
 msgid "Tx Packets"
-msgstr ""
+msgstr "Gói Tx"
 
 #: ../mikrotik.php:419
+#, fuzzy
 msgid "Rx Errors"
-msgstr ""
+msgstr "Lỗi Rx"
 
 #: ../mikrotik.php:420
+#, fuzzy
 msgid "Tx Errors"
-msgstr ""
+msgstr "Lỗi Tx"
 
 #: ../mikrotik.php:421 ../mikrotik.php:714 ../mikrotik.php:949
 #: ../mikrotik.php:1181 ../mikrotik.php:1478 ../mikrotik_users.php:357
+#, fuzzy
 msgid "Last Seen"
-msgstr ""
+msgstr "Truy cập lần cuối"
 
 #: ../mikrotik.php:452
+#, fuzzy
 msgid "No Interfaces Found"
-msgstr ""
+msgstr "Không tìm thấy giao diện"
 
 #: ../mikrotik.php:543
+#, fuzzy
 msgid "Queue Status"
-msgstr ""
+msgstr "Tình trạng xếp hàng"
 
 #: ../mikrotik.php:704
+#, fuzzy
 msgid "Src Addr/Mask"
-msgstr ""
+msgstr "Bổ sung Src / Mặt nạ"
 
 #: ../mikrotik.php:705
+#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr ""
+msgstr "Dst Addr / Mặt nạ"
 
 #: ../mikrotik.php:706
+#, fuzzy
 msgid "Bytes In"
-msgstr ""
+msgstr "Byte trong"
 
 #: ../mikrotik.php:707
+#, fuzzy
 msgid "Bytes Out"
-msgstr ""
+msgstr "Byte Out"
 
 #: ../mikrotik.php:708
+#, fuzzy
 msgid "Pkts In"
-msgstr ""
+msgstr "Trong"
 
 #: ../mikrotik.php:709
+#, fuzzy
 msgid "Pkts Out"
-msgstr ""
+msgstr "Ra ngoài"
 
 #: ../mikrotik.php:710
+#, fuzzy
 msgid "Qs In"
-msgstr ""
+msgstr "Qs trong"
 
 #: ../mikrotik.php:711
+#, fuzzy
 msgid "Qs Out"
-msgstr ""
+msgstr "Qs ra"
 
 #: ../mikrotik.php:712
+#, fuzzy
 msgid "Drps In"
-msgstr ""
+msgstr "Tiến sĩ"
 
 #: ../mikrotik.php:713
+#, fuzzy
 msgid "Drps Out"
-msgstr ""
+msgstr "Drps Out"
 
 #: ../mikrotik.php:753
+#, fuzzy
 msgid "No Simple Queues Found"
-msgstr ""
+msgstr "Không tìm thấy hàng đợi đơn giản"
 
 #: ../mikrotik.php:830
+#, fuzzy
 msgid "Queue Tree Status"
-msgstr ""
+msgstr "Trạng thái cây xếp hàng"
 
 #: ../mikrotik.php:866 ../mikrotik.php:934 ../mikrotik.php:1762
 #: ../setup.php:1096
+#, fuzzy
 msgid "Trees"
-msgstr ""
+msgstr "Cây"
 
 #: ../mikrotik.php:944
+#, fuzzy
 msgid "Flow"
-msgstr ""
+msgstr "lưu lượng"
 
 #: ../mikrotik.php:945
+#, fuzzy
 msgid "Cur Bytes"
-msgstr ""
+msgstr "Cur Byte"
 
 #: ../mikrotik.php:946
+#, fuzzy
 msgid "Cur Packets"
-msgstr ""
+msgstr "Gói Cur"
 
 #: ../mikrotik.php:947
+#, fuzzy
 msgid "Total Bytes"
-msgstr ""
+msgstr "Tổng số byte"
 
 #: ../mikrotik.php:948
+#, fuzzy
 msgid "Total Packets"
-msgstr ""
+msgstr "Tổng số gói"
 
 #: ../mikrotik.php:979
+#, fuzzy
 msgid "No Queue Trees Found"
-msgstr ""
+msgstr "Không tìm thấy cây xếp hàng"
 
 #: ../mikrotik.php:1056
+#, fuzzy
 msgid "Wireless Aps Status"
-msgstr ""
+msgstr "Trạng thái Aps không dây"
 
 #: ../mikrotik.php:1092
+#, fuzzy
 msgid "Aps"
-msgstr ""
+msgstr "Vượn"
 
 #: ../mikrotik.php:1171
+#, fuzzy
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 #: ../mikrotik.php:1172
+#, fuzzy
 msgid "BSSID"
-msgstr ""
+msgstr "BSSID"
 
 #: ../mikrotik.php:1173
+#, fuzzy
 msgid "Tx Rate"
-msgstr ""
+msgstr "Tỷ lệ Tx"
 
 #: ../mikrotik.php:1174
+#, fuzzy
 msgid "Rx Rate"
-msgstr ""
+msgstr "Tỷ lệ Rx"
 
 #: ../mikrotik.php:1175
+#, fuzzy
 msgid "Clients"
-msgstr ""
+msgstr "Khách hàng"
 
 #: ../mikrotik.php:1176
+#, fuzzy
 msgid "Auth Clients"
-msgstr ""
+msgstr "Auth Khách hàng"
 
 #: ../mikrotik.php:1177
+#, fuzzy
 msgid "Frequency"
-msgstr ""
+msgstr "Tần số"
 
 #: ../mikrotik.php:1178
+#, fuzzy
 msgid "Band"
-msgstr ""
+msgstr "Ban nhạc"
 
 #: ../mikrotik.php:1179
+#, fuzzy
 msgid "Noise Floor"
-msgstr ""
+msgstr "Tầng tiếng ồn"
 
 #: ../mikrotik.php:1180
+#, fuzzy
 msgid "Tx CQQ"
-msgstr ""
+msgstr "Tx CQQ"
 
 #: ../mikrotik.php:1325
+#, fuzzy
 msgid "User Statistics"
-msgstr ""
+msgstr "Thống kê người dùng"
 
 #: ../mikrotik.php:1361 ../mikrotik.php:1468 ../mikrotik_users.php:260
 #: ../mikrotik_users.php:356
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Loại"
 
 #: ../mikrotik.php:1366 ../mikrotik_users.php:265
+#, fuzzy
 msgid "Hotspot"
-msgstr ""
+msgstr "Thông tin Hót"
 
 #: ../mikrotik.php:1367 ../mikrotik_users.php:266
+#, fuzzy
 msgid "PPPoe"
-msgstr ""
+msgstr "PPPoe"
 
 #: ../mikrotik.php:1388
+#, fuzzy
 msgid "Active Users"
-msgstr ""
+msgstr "Người dùng hoạt động"
 
 #: ../mikrotik.php:1467
+#, fuzzy
 msgid "User"
-msgstr ""
+msgstr "Người dùng"
 
 #: ../mikrotik.php:1469
+#, fuzzy
 msgid "IP Address"
-msgstr ""
+msgstr "Địa chỉ IP"
 
 #: ../mikrotik.php:1470
+#, fuzzy
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 #: ../mikrotik.php:1471
+#, fuzzy
 msgid "Connect Time"
-msgstr ""
+msgstr "Kết nối thời gian"
 
 #: ../mikrotik.php:1472
+#, fuzzy
 msgid "Cur In"
-msgstr ""
+msgstr "Cur In"
 
 #: ../mikrotik.php:1473
+#, fuzzy
 msgid "Cur Out"
-msgstr ""
+msgstr "Cur Out"
 
 #: ../mikrotik.php:1474
+#, fuzzy
 msgid "Avg In"
-msgstr ""
+msgstr "Trung bình"
 
 #: ../mikrotik.php:1475
+#, fuzzy
 msgid "Avg Out"
-msgstr ""
+msgstr "Trung bình"
 
 #: ../mikrotik.php:1476
+#, fuzzy
 msgid "Total In"
-msgstr ""
+msgstr "Tổng"
 
 #: ../mikrotik.php:1477
+#, fuzzy
 msgid "Total Out"
-msgstr ""
+msgstr "Tổng cộng ra"
 
 #: ../mikrotik.php:1534 ../mikrotik_users.php:374
+#, fuzzy
 msgid "No Users Found"
-msgstr ""
+msgstr "Không tìm thấy người dùng"
 
 #: ../mikrotik.php:1613
-#, php-format
+#, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr ""
+msgstr "Bộ lọc thiết bị (Phiên bản MikroTik mới nhất là: %s)"
 
 #: ../mikrotik.php:1615
-#, php-format
+#, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr ""
+msgstr "Bộ lọc thiết bị (Phiên bản MikroTik mới nhất là: %s, Đã phát hành: %s)"
 
 #: ../mikrotik.php:1618
+#, fuzzy
 msgid "ChangeLog"
-msgstr ""
+msgstr "ChangeLog"
 
 #: ../mikrotik.php:1635 ../mikrotik.php:1758 ../mikrotik_users.php:285
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Trạng thái"
 
 #: ../mikrotik.php:1658
+#, fuzzy
 msgid "Recovering"
-msgstr ""
+msgstr "Phục hồi"
 
 #: ../mikrotik.php:1661
+#, fuzzy
 msgid "Up"
-msgstr ""
+msgstr "Lên trên"
 
 #: ../mikrotik.php:1664 ../setup.php:905
+#, fuzzy
 msgid "Disabled"
-msgstr ""
+msgstr "Vô hiệu hóa"
 
 #: ../mikrotik.php:1757
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: ../mikrotik.php:1759
+#, fuzzy
 msgid "FW Ver"
-msgstr ""
+msgstr "FW Ver"
 
 #: ../mikrotik.php:1760
+#, fuzzy
 msgid "Lic Ver"
-msgstr ""
+msgstr "Giấy phép"
 
 #: ../mikrotik.php:1761
+#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr ""
+msgstr "Thời gian hoạt động (d: h: m)"
 
 #: ../mikrotik.php:1764
+#, fuzzy
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 #: ../mikrotik.php:1765
+#, fuzzy
 msgid "CPUs"
-msgstr ""
+msgstr "CPU"
 
 #: ../mikrotik.php:1766
+#, fuzzy
 msgid "Processes"
-msgstr ""
+msgstr "Quy trình"
 
 #: ../mikrotik.php:1767
+#, fuzzy
 msgid "Total Mem"
-msgstr ""
+msgstr "Tổng số Mem"
 
 #: ../mikrotik.php:1768
+#, fuzzy
 msgid "Used Mem"
-msgstr ""
+msgstr "Mem đã qua sử dụng"
 
 #: ../mikrotik.php:1769
+#, fuzzy
 msgid "Total Disk"
-msgstr ""
+msgstr "Tổng số đĩa"
 
 #: ../mikrotik.php:1770
+#, fuzzy
 msgid "Used Disk"
-msgstr ""
+msgstr "Đĩa đã sử dụng"
 
 #: ../mikrotik.php:1874
+#, fuzzy
 msgid "No Devices Found"
-msgstr ""
+msgstr "Không tìm thấy thiết bị nào"
 
 #: ../mikrotik.php:2047
+#, fuzzy
 msgid "Graph Preview Filters"
-msgstr ""
+msgstr "Bộ lọc xem trước đồ thị"
 
 #: ../mikrotik.php:2047
+#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr ""
+msgstr "Danh sách đồ thị tùy chỉnh được áp dụng - Lọc từ danh sách"
 
 #: ../mikrotik_users.php:32
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: ../mikrotik_users.php:140
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr ""
+msgstr "Nhấp vào 'Tiếp tục' để xóa (các) Người dùng sau và Biểu đồ của họ."
 
 #: ../mikrotik_users.php:149
+#, fuzzy
 msgid "You must select at least one User."
-msgstr ""
+msgstr "Bạn phải chọn ít nhất một Người dùng."
 
 #: ../mikrotik_users.php:245 ../setup.php:756 ../setup.php:1103
+#, fuzzy
 msgid "MikroTik Users"
-msgstr ""
+msgstr "Người dùng MikroTik"
 
 #: ../mikrotik_users.php:291 ../mikrotik_users.php:369
+#, fuzzy
 msgid "Inactive"
-msgstr ""
+msgstr "Không hoạt động"
 
 #: ../mikrotik_users.php:354
+#, fuzzy
 msgid "User Name"
-msgstr ""
+msgstr "Tên người dùng"
 
 #: ../mikrotik_users.php:355
+#, fuzzy
 msgid "Domain"
-msgstr ""
+msgstr "Tên miền"
 
 #: ../setup.php:38
+#, fuzzy
 msgid "Plugin -> MikroTik Viewer"
-msgstr ""
+msgstr "Plugin -> Trình xem MikroTik"
 
 #: ../setup.php:39
+#, fuzzy
 msgid "Plugin -> MikroTik Admin"
-msgstr ""
+msgstr "Plugin -> Quản trị viên MikroTik"
 
 #: ../setup.php:575 ../setup.php:1094 ../setup.php:1115 ../setup.php:1117
+#, fuzzy
 msgid "MikroTik"
-msgstr ""
+msgstr "MikroTik"
 
 #: ../setup.php:578
+#, fuzzy
 msgid "MikroTik General Settings"
-msgstr ""
+msgstr "Cài đặt chung MikroTik"
 
 #: ../setup.php:582
+#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr ""
+msgstr "Xe đẩy MikroTik đã bật"
 
 #: ../setup.php:583
+#, fuzzy
 msgid ""
 "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the "
 "poller will not function."
 msgstr ""
+"Chọn hộp này, nếu bạn muốn bỏ phiếu MikroTik. Nếu không, pug sẽ không hoạt "
+"động."
 
 #: ../setup.php:588
+#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr ""
+msgstr "Tự động khám phá các thiết bị Cacti"
 
 #: ../setup.php:589
+#, fuzzy
 msgid ""
 "Do you wish to automatically scan for and add devices which support the "
 "MikroTik MIB from the Cacti host table?"
 msgstr ""
+"Bạn có muốn tự động quét và thêm các thiết bị hỗ trợ MikroTik MIB từ bảng "
+"máy chủ Cacti không?"
 
 #: ../setup.php:594
+#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr ""
+msgstr "Tự động thanh lọc thiết bị"
 
 #: ../setup.php:595
+#, fuzzy
 msgid ""
 "Do you wish to automatically purge devices that are removed from the Cacti "
 "system?"
 msgstr ""
+"Bạn có muốn tự động lọc các thiết bị đã bị xóa khỏi hệ thống Cacti không?"
 
 #: ../setup.php:600
+#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr ""
+msgstr "Bộ sưu tập đồng thời tối đa"
 
 #: ../setup.php:601
+#, fuzzy
 msgid ""
 "What is the maximum number of concurrent collector process that you want to "
 "run at one time?"
 msgstr ""
+"Số lượng quá trình thu thập đồng thời tối đa mà bạn muốn chạy cùng một lúc "
+"là bao nhiêu?"
 
 #: ../setup.php:605
-#, php-format
+#, fuzzy, php-format
 msgid "%d Process"
-msgstr ""
+msgstr "Quá trình% d"
 
 #: ../setup.php:606 ../setup.php:607 ../setup.php:608 ../setup.php:609
 #: ../setup.php:610 ../setup.php:611 ../setup.php:612 ../setup.php:613
 #: ../setup.php:614
-#, php-format
+#, fuzzy, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "% d Quá trình"
 
 #: ../setup.php:618
+#, fuzzy
 msgid "MikroTik Auto Discovery Frequency"
-msgstr ""
+msgstr "Tần số khám phá tự động MikroTik"
 
 #: ../setup.php:622
+#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr ""
+msgstr "Tần số khám phá tự động"
 
 #: ../setup.php:623
+#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr ""
+msgstr "Bạn có thường xuyên muốn tìm kiếm Thiết bị Cacti mới không?"
 
 #: ../setup.php:629
+#, fuzzy
 msgid "Device Graph Automation"
-msgstr ""
+msgstr "Tự động hóa đồ thị thiết bị"
 
 #: ../setup.php:633
+#, fuzzy
 msgid "Automatically Add New Graphs"
-msgstr ""
+msgstr "Tự động thêm đồ thị mới"
 
 #: ../setup.php:634
+#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr ""
+msgstr "Tần suất bạn muốn kiểm tra các đối tượng mới vào biểu đồ?"
 
 #: ../setup.php:638
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "Không bao giờ"
 
 #: ../setup.php:639 ../setup.php:640 ../setup.php:641 ../setup.php:662
 #: ../setup.php:907 ../setup.php:908 ../setup.php:909
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d phút"
 
 #: ../setup.php:642 ../setup.php:663 ../setup.php:910
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hour"
-msgstr ""
+msgstr "% d giờ"
 
 #: ../setup.php:643 ../setup.php:664 ../setup.php:665 ../setup.php:911
 #: ../setup.php:912 ../setup.php:913
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hours"
-msgstr ""
+msgstr "% d giờ"
 
 #: ../setup.php:644 ../setup.php:666 ../setup.php:914
-#, php-format
+#, fuzzy, php-format
 msgid "%d Day"
-msgstr ""
+msgstr "% d ngày"
 
 #: ../setup.php:645
-#, php-format
+#, fuzzy, php-format
 msgid "%d Days"
-msgstr ""
+msgstr "% d ngày"
 
 #: ../setup.php:649
+#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr ""
+msgstr "Loại trừ người dùng RegEx"
 
 #: ../setup.php:650
+#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
 msgstr ""
+"Tên người dùng phù hợp với biểu thức chính này sẽ không được vẽ biểu đồ tự "
+"động"
 
 #: ../setup.php:657
+#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr ""
+msgstr "Loại trừ người dùng Thời gian để sống"
 
 #: ../setup.php:658
+#, fuzzy
 msgid ""
 "How long should an excluded user's data be preserved after they have "
 "disconnected."
 msgstr ""
+"Dữ liệu người dùng bị loại trừ sẽ được lưu giữ trong bao lâu sau khi họ ngắt "
+"kết nối."
 
 #: ../setup.php:670
+#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr ""
+msgstr "Bộ sưu tập thiết bị MikroTik"
 
 #: ../setup.php:674
+#, fuzzy
 msgid "Storage Frequency"
-msgstr ""
+msgstr "Tần số lưu trữ"
 
 #: ../setup.php:675
+#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr ""
+msgstr "Bạn có thường xuyên muốn quét Thống kê lưu trữ không?"
 
 #: ../setup.php:681
+#, fuzzy
 msgid "Processor Frequency"
-msgstr ""
+msgstr "Tần số bộ xử lý"
 
 #: ../setup.php:682
+#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr ""
+msgstr "Tần suất bạn muốn quét Thống kê bộ xử lý thiết bị?"
 
 #: ../setup.php:688
+#, fuzzy
 msgid "Interfaces Frequency"
-msgstr ""
+msgstr "Tần số giao diện"
 
 #: ../setup.php:689
+#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr ""
+msgstr "Bạn có thường xuyên muốn quét Giao diện không?"
 
 #: ../setup.php:695
+#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr ""
+msgstr "MikroTik Hàng đợi / Bộ sưu tập cây thường xuyên"
 
 #: ../setup.php:699
+#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr ""
+msgstr "Tần số hàng đợi / PPPoe đơn giản"
 
 #: ../setup.php:700
+#, fuzzy
 msgid ""
 "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</"
 "b> to remove this feature."
 msgstr ""
+"Bạn có thường xuyên muốn quét Thống kê hàng đợi đơn giản không? Chọn <b>Vô "
+"hiệu hóa</b> để loại bỏ tính năng này."
 
 #: ../setup.php:706
+#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr ""
+msgstr "Cây xếp hàng tần số"
 
 #: ../setup.php:707
+#, fuzzy
 msgid ""
 "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to "
 "remove this feature."
 msgstr ""
+"Bạn có thường xuyên muốn quét Cây xếp hàng không? Chọn <b>Vô hiệu hóa</b> để "
+"loại bỏ tính năng này."
 
 #: ../setup.php:713
+#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr ""
+msgstr "Bộ sưu tập không dây MikroTik"
 
 #: ../setup.php:717
+#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr ""
+msgstr "Tần số người dùng HotSpot không dây"
 
 #: ../setup.php:718
+#, fuzzy
 msgid ""
 "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</"
 "b> to remove this feature."
 msgstr ""
+"Tần suất bạn muốn quét Thống kê người dùng không dây? Chọn <b>Vô hiệu hóa</"
+"b> để loại bỏ tính năng này."
 
 #: ../setup.php:724
+#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr ""
+msgstr "Tần số điểm truy cập không dây"
 
 #: ../setup.php:725
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Access Points?  Select "
 "<b>Disabled</b> to remove this feature."
 msgstr ""
+"Tần suất bạn muốn quét Điểm truy cập không dây? Chọn <b>Vô hiệu hóa</b> để "
+"loại bỏ tính năng này."
 
 #: ../setup.php:731
+#, fuzzy
 msgid "Wireless Registrations Frequency"
-msgstr ""
+msgstr "Tần số đăng ký không dây"
 
 #: ../setup.php:732
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Registrations?  Select "
 "<b>Disabled</b> to remove this feature."
 msgstr ""
+"Tần suất bạn muốn quét Đăng ký không dây? Chọn <b>Vô hiệu hóa</b> để loại bỏ "
+"tính năng này."
 
 #: ../setup.php:738
+#, fuzzy
 msgid "Wireless Stations Frequency"
-msgstr ""
+msgstr "Tần số trạm không dây"
 
 #: ../setup.php:739
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> "
 "to remove this feature."
 msgstr ""
+"Tần suất bạn muốn quét các Trạm không dây? Chọn <b>Vô hiệu hóa</b> để loại "
+"bỏ tính năng này."
 
 #: ../setup.php:756
+#, fuzzy
 msgid "Management"
-msgstr ""
+msgstr "Sự quản lý"
 
 #: ../setup.php:906
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minute"
-msgstr ""
+msgstr "%d phút"
 
 #: ../setup.php:1097
+#, fuzzy
 msgid "Simple Queues"
-msgstr ""
+msgstr "Hàng đợi đơn giản"
 
 #: ../setup.php:1100
+#, fuzzy
 msgid "Storage"
-msgstr ""
+msgstr "Lưu trữ"
 
 #: ../setup.php:1104
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(Sửa)"
 
 #: ../setup.php:1173
+#, fuzzy
 msgid "MikroTik Credentials"
-msgstr ""
+msgstr "Thông tin xác thực MikroTik"
 
 #: ../setup.php:1177
+#, fuzzy
 msgid "Read Only User"
-msgstr ""
+msgstr "Người dùng chỉ đọc"
 
 #: ../setup.php:1178
+#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr ""
+msgstr "Cung cấp tên người dùng chỉ đọc cho MikroTik."
 
 #: ../setup.php:1185
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
 #: ../setup.php:1186
+#, fuzzy
 msgid "Provide the read only username password for this MikroTik."
-msgstr ""
+msgstr "Cung cấp mật khẩu tên người dùng chỉ đọc cho MikroTik này."
 
 #: ../setup.php:1206 ../setup.php:1215
+#, fuzzy
 msgid "Connection Result"
-msgstr ""
+msgstr "Kết quả kết nối"
 
 #: ../setup.php:1207 ../setup.php:1216
+#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr ""
+msgstr "Ok nếu Cacti có thể kết nối với MikroTik qua cổng API của nó."
 
 #: ../setup.php:1217
+#, fuzzy
 msgid "Connection Failed"
-msgstr ""
+msgstr "Kết nối thất bại"

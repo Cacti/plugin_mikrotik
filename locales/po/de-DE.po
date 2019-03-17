@@ -5,759 +5,950 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-08 12:30-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: de-DE\n"
+"PO-Revision-Date: 2019-03-17 11:15-0400\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../mikrotik.php:38
+#, fuzzy
 msgid "Present"
-msgstr ""
+msgstr "Anwesend"
 
 #: ../mikrotik.php:39 ../mikrotik.php:1652
+#, fuzzy
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 #: ../mikrotik.php:40
+#, fuzzy
 msgid "Running"
-msgstr ""
+msgstr "Läuft"
 
 #: ../mikrotik.php:41
+#, fuzzy
 msgid "Warning"
-msgstr ""
+msgstr "Warnung"
 
 #: ../mikrotik.php:42
+#, fuzzy
 msgid "Testing"
-msgstr ""
+msgstr "Testen"
 
 #: ../mikrotik.php:43 ../mikrotik.php:1655
+#, fuzzy
 msgid "Down"
-msgstr ""
+msgstr "Runter"
 
 #: ../mikrotik.php:127 ../mikrotik.php:1371 ../mikrotik.php:1675
 #: ../mikrotik.php:1748 ../setup.php:1095
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "Zielsysteme"
 
 #: ../mikrotik.php:130 ../mikrotik.php:1458 ../mikrotik.php:1763
 #: ../mikrotik_users.php:270 ../mikrotik_users.php:345 ../setup.php:1098
+#, fuzzy
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #: ../mikrotik.php:134 ../mikrotik.php:579 ../mikrotik.php:694
+#, fuzzy
 msgid "Queues"
-msgstr ""
+msgstr "Warteschleifen"
 
 #: ../mikrotik.php:138
+#, fuzzy
 msgid "Queue Trees"
-msgstr ""
+msgstr "Warteschlangenbäume"
 
 #: ../mikrotik.php:142 ../mikrotik.php:291 ../mikrotik.php:405
 #: ../setup.php:1099
+#, fuzzy
 msgid "Interfaces"
-msgstr ""
+msgstr "Schnittstellen"
 
 #: ../mikrotik.php:146 ../mikrotik.php:1162 ../setup.php:1102
+#, fuzzy
 msgid "Wireless Aps"
-msgstr ""
+msgstr "Kabellose Aps"
 
 #: ../mikrotik.php:150
+#, fuzzy
 msgid "Hot Spots"
-msgstr ""
+msgstr "Hot Spots"
 
 #: ../mikrotik.php:154
+#, fuzzy
 msgid "Wireless Routes"
-msgstr ""
+msgstr "Drahtlose Routen"
 
 #: ../mikrotik.php:157 ../mikrotik.php:2137 ../setup.php:1101
+#, fuzzy
 msgid "Graphs"
-msgstr ""
+msgstr "Diagramme"
 
 #: ../mikrotik.php:255
+#, fuzzy
 msgid "Interface Stats"
-msgstr ""
+msgstr "Interface-Statistiken"
 
 #: ../mikrotik.php:264 ../mikrotik.php:552 ../mikrotik.php:839
 #: ../mikrotik.php:1065 ../mikrotik.php:1334 ../mikrotik.php:1629
 #: ../mikrotik_users.php:254
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: ../mikrotik.php:270 ../mikrotik.php:558 ../mikrotik.php:845
 #: ../mikrotik.php:1071 ../mikrotik.php:1340
+#, fuzzy
 msgid "Device"
-msgstr ""
+msgstr "Zielsysteme"
 
 #: ../mikrotik.php:274 ../mikrotik.php:562 ../mikrotik.php:849
 #: ../mikrotik.php:1075 ../mikrotik.php:1344 ../mikrotik.php:1365
 #: ../mikrotik.php:1639 ../mikrotik_users.php:264 ../mikrotik_users.php:289
+#, fuzzy
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: ../mikrotik.php:295 ../mikrotik.php:583 ../mikrotik.php:870
 #: ../mikrotik.php:1096 ../mikrotik.php:1375 ../mikrotik.php:1679
 #: ../mikrotik_users.php:274
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Voreinstellung"
 
 #: ../mikrotik.php:308 ../mikrotik.php:596 ../mikrotik_users.php:290
 #: ../mikrotik_users.php:358 ../mikrotik_users.php:369
+#, fuzzy
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #: ../mikrotik.php:313 ../mikrotik.php:602
+#, fuzzy
 msgid "Since Reset"
-msgstr ""
+msgstr "Seit Reset"
 
 #: ../mikrotik.php:412 ../mikrotik.php:701 ../mikrotik.php:941
 #: ../mikrotik.php:1169 ../mikrotik.php:1465 ../mikrotik.php:1755
 #: ../setup.php:1105
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #: ../mikrotik.php:413 ../mikrotik.php:702 ../mikrotik.php:942
 #: ../mikrotik.php:1170 ../mikrotik.php:1466
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "Zielsystemname"
 
 #: ../mikrotik.php:414 ../mikrotik.php:703 ../mikrotik.php:943
 #: ../mikrotik.php:1756
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: ../mikrotik.php:415
+#, fuzzy
 msgid "Rx Bytes"
-msgstr ""
+msgstr "Rx Bytes"
 
 #: ../mikrotik.php:416
+#, fuzzy
 msgid "Tx Bytes"
-msgstr ""
+msgstr "Tx Bytes"
 
 #: ../mikrotik.php:417
+#, fuzzy
 msgid "Rx Packets"
-msgstr ""
+msgstr "Rx Pakete"
 
 #: ../mikrotik.php:418
+#, fuzzy
 msgid "Tx Packets"
-msgstr ""
+msgstr "Tx-Pakete"
 
 #: ../mikrotik.php:419
+#, fuzzy
 msgid "Rx Errors"
-msgstr ""
+msgstr "Rx-Fehler"
 
 #: ../mikrotik.php:420
+#, fuzzy
 msgid "Tx Errors"
-msgstr ""
+msgstr "Tx-Fehler"
 
 #: ../mikrotik.php:421 ../mikrotik.php:714 ../mikrotik.php:949
 #: ../mikrotik.php:1181 ../mikrotik.php:1478 ../mikrotik_users.php:357
+#, fuzzy
 msgid "Last Seen"
-msgstr ""
+msgstr "Zuletzt gesehen"
 
 #: ../mikrotik.php:452
+#, fuzzy
 msgid "No Interfaces Found"
-msgstr ""
+msgstr "Keine Interfaces gefunden"
 
 #: ../mikrotik.php:543
+#, fuzzy
 msgid "Queue Status"
-msgstr ""
+msgstr "Warteschlangenstatus"
 
 #: ../mikrotik.php:704
+#, fuzzy
 msgid "Src Addr/Mask"
-msgstr ""
+msgstr "Src Adresse/Maske"
 
 #: ../mikrotik.php:705
+#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr ""
+msgstr "Dst Adresse/Maske"
 
 #: ../mikrotik.php:706
+#, fuzzy
 msgid "Bytes In"
-msgstr ""
+msgstr "%d Byte"
 
 #: ../mikrotik.php:707
+#, fuzzy
 msgid "Bytes Out"
-msgstr ""
+msgstr "Bytes Out"
 
 #: ../mikrotik.php:708
+#, fuzzy
 msgid "Pkts In"
-msgstr ""
+msgstr "Pkts In"
 
 #: ../mikrotik.php:709
+#, fuzzy
 msgid "Pkts Out"
-msgstr ""
+msgstr "Pkts Out"
 
 #: ../mikrotik.php:710
+#, fuzzy
 msgid "Qs In"
-msgstr ""
+msgstr "Qs In"
 
 #: ../mikrotik.php:711
+#, fuzzy
 msgid "Qs Out"
-msgstr ""
+msgstr "Qs Out"
 
 #: ../mikrotik.php:712
+#, fuzzy
 msgid "Drps In"
-msgstr ""
+msgstr "Drps In"
 
 #: ../mikrotik.php:713
+#, fuzzy
 msgid "Drps Out"
-msgstr ""
+msgstr "Drps Out"
 
 #: ../mikrotik.php:753
+#, fuzzy
 msgid "No Simple Queues Found"
-msgstr ""
+msgstr "Keine einfachen Warteschlangen gefunden"
 
 #: ../mikrotik.php:830
+#, fuzzy
 msgid "Queue Tree Status"
-msgstr ""
+msgstr "Status des Warteschlangenbaums"
 
 #: ../mikrotik.php:866 ../mikrotik.php:934 ../mikrotik.php:1762
 #: ../setup.php:1096
+#, fuzzy
 msgid "Trees"
-msgstr ""
+msgstr "Diagramm-Bäume"
 
 #: ../mikrotik.php:944
+#, fuzzy
 msgid "Flow"
-msgstr ""
+msgstr "Flow"
 
 #: ../mikrotik.php:945
+#, fuzzy
 msgid "Cur Bytes"
-msgstr ""
+msgstr "Cur Bytes"
 
 #: ../mikrotik.php:946
+#, fuzzy
 msgid "Cur Packets"
-msgstr ""
+msgstr "Cur-Pakete"
 
 #: ../mikrotik.php:947
+#, fuzzy
 msgid "Total Bytes"
-msgstr ""
+msgstr "Gesamtzahl der Bytes"
 
 #: ../mikrotik.php:948
+#, fuzzy
 msgid "Total Packets"
-msgstr ""
+msgstr "Gesamtpakete"
 
 #: ../mikrotik.php:979
+#, fuzzy
 msgid "No Queue Trees Found"
-msgstr ""
+msgstr "Keine Warteschlangenbäume gefunden"
 
 #: ../mikrotik.php:1056
+#, fuzzy
 msgid "Wireless Aps Status"
-msgstr ""
+msgstr "Kabelloser Aps-Status"
 
 #: ../mikrotik.php:1092
+#, fuzzy
 msgid "Aps"
-msgstr ""
+msgstr "Aps"
 
 #: ../mikrotik.php:1171
+#, fuzzy
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 #: ../mikrotik.php:1172
+#, fuzzy
 msgid "BSSID"
-msgstr ""
+msgstr "BSSID"
 
 #: ../mikrotik.php:1173
+#, fuzzy
 msgid "Tx Rate"
-msgstr ""
+msgstr "Senderate"
 
 #: ../mikrotik.php:1174
+#, fuzzy
 msgid "Rx Rate"
-msgstr ""
+msgstr "Rx Rate"
 
 #: ../mikrotik.php:1175
+#, fuzzy
 msgid "Clients"
-msgstr ""
+msgstr "Kunden"
 
 #: ../mikrotik.php:1176
+#, fuzzy
 msgid "Auth Clients"
-msgstr ""
+msgstr "Auth Clients"
 
 #: ../mikrotik.php:1177
+#, fuzzy
 msgid "Frequency"
-msgstr ""
+msgstr "Häufigkeit"
 
 #: ../mikrotik.php:1178
+#, fuzzy
 msgid "Band"
-msgstr ""
+msgstr "Band"
 
 #: ../mikrotik.php:1179
+#, fuzzy
 msgid "Noise Floor"
-msgstr ""
+msgstr "Geräuschboden"
 
 #: ../mikrotik.php:1180
+#, fuzzy
 msgid "Tx CQQ"
-msgstr ""
+msgstr "Tx CQQQQ"
 
 #: ../mikrotik.php:1325
+#, fuzzy
 msgid "User Statistics"
-msgstr ""
+msgstr "Benutzerstatistiken"
 
 #: ../mikrotik.php:1361 ../mikrotik.php:1468 ../mikrotik_users.php:260
 #: ../mikrotik_users.php:356
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: ../mikrotik.php:1366 ../mikrotik_users.php:265
+#, fuzzy
 msgid "Hotspot"
-msgstr ""
+msgstr "Hotspot"
 
 #: ../mikrotik.php:1367 ../mikrotik_users.php:266
+#, fuzzy
 msgid "PPPoe"
-msgstr ""
+msgstr "PPPoe"
 
 #: ../mikrotik.php:1388
+#, fuzzy
 msgid "Active Users"
-msgstr ""
+msgstr "Aktive Benutzer"
 
 #: ../mikrotik.php:1467
+#, fuzzy
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #: ../mikrotik.php:1469
+#, fuzzy
 msgid "IP Address"
-msgstr ""
+msgstr "IP Adresse"
 
 #: ../mikrotik.php:1470
+#, fuzzy
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 #: ../mikrotik.php:1471
+#, fuzzy
 msgid "Connect Time"
-msgstr ""
+msgstr "Verbindungszeit"
 
 #: ../mikrotik.php:1472
+#, fuzzy
 msgid "Cur In"
-msgstr ""
+msgstr "Akt. Zeile"
 
 #: ../mikrotik.php:1473
+#, fuzzy
 msgid "Cur Out"
-msgstr ""
+msgstr "Auslauf"
 
 #: ../mikrotik.php:1474
+#, fuzzy
 msgid "Avg In"
-msgstr ""
+msgstr "Avg In"
 
 #: ../mikrotik.php:1475
+#, fuzzy
 msgid "Avg Out"
-msgstr ""
+msgstr "Avg Out"
 
 #: ../mikrotik.php:1476
+#, fuzzy
 msgid "Total In"
-msgstr ""
+msgstr "Gesamt"
 
 #: ../mikrotik.php:1477
+#, fuzzy
 msgid "Total Out"
-msgstr ""
+msgstr "Total Out"
 
 #: ../mikrotik.php:1534 ../mikrotik_users.php:374
+#, fuzzy
 msgid "No Users Found"
-msgstr ""
+msgstr "Keine Nutzer gefunden"
 
 #: ../mikrotik.php:1613
-#, php-format
+#, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr ""
+msgstr "Gerätefilter (Aktuelle MikroTik-Version ist: %s)"
 
 #: ../mikrotik.php:1615
-#, php-format
+#, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr ""
+msgstr "Gerätefilter (Aktuelle MikroTik-Version ist: %s, freigegeben: %s)"
 
 #: ../mikrotik.php:1618
+#, fuzzy
 msgid "ChangeLog"
-msgstr ""
+msgstr "ChangeLog"
 
 #: ../mikrotik.php:1635 ../mikrotik.php:1758 ../mikrotik_users.php:285
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: ../mikrotik.php:1658
+#, fuzzy
 msgid "Recovering"
-msgstr ""
+msgstr "Wiederherstellend"
 
 #: ../mikrotik.php:1661
+#, fuzzy
 msgid "Up"
-msgstr ""
+msgstr "Hoch"
 
 #: ../mikrotik.php:1664 ../setup.php:905
+#, fuzzy
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: ../mikrotik.php:1757
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: ../mikrotik.php:1759
+#, fuzzy
 msgid "FW Ver"
-msgstr ""
+msgstr "FW Ver"
 
 #: ../mikrotik.php:1760
+#, fuzzy
 msgid "Lic Ver"
-msgstr ""
+msgstr "Lic Ver"
 
 #: ../mikrotik.php:1761
+#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr ""
+msgstr "Betriebszeit(d:h:m)"
 
 #: ../mikrotik.php:1764
+#, fuzzy
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 #: ../mikrotik.php:1765
+#, fuzzy
 msgid "CPUs"
-msgstr ""
+msgstr "CPUs"
 
 #: ../mikrotik.php:1766
+#, fuzzy
 msgid "Processes"
-msgstr ""
+msgstr "Prozesse"
 
 #: ../mikrotik.php:1767
+#, fuzzy
 msgid "Total Mem"
-msgstr ""
+msgstr "Gesamtmemory"
 
 #: ../mikrotik.php:1768
+#, fuzzy
 msgid "Used Mem"
-msgstr ""
+msgstr "Verwendete Mem"
 
 #: ../mikrotik.php:1769
+#, fuzzy
 msgid "Total Disk"
-msgstr ""
+msgstr "Gesamte Festplatte"
 
 #: ../mikrotik.php:1770
+#, fuzzy
 msgid "Used Disk"
-msgstr ""
+msgstr "Verwendete Festplatte"
 
 #: ../mikrotik.php:1874
+#, fuzzy
 msgid "No Devices Found"
-msgstr ""
+msgstr "Keine Geräte gefunden"
 
 #: ../mikrotik.php:2047
+#, fuzzy
 msgid "Graph Preview Filters"
-msgstr ""
+msgstr "Diagramm-Vorschau-Filter"
 
 #: ../mikrotik.php:2047
+#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr ""
+msgstr "Angewandte Liste benutzerdefinierter Grafiken - Filtern aus der Liste"
 
 #: ../mikrotik_users.php:32
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: ../mikrotik_users.php:140
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die folgenden Benutzer und ihre Grafiken zu "
+"löschen."
 
 #: ../mikrotik_users.php:149
+#, fuzzy
 msgid "You must select at least one User."
-msgstr ""
+msgstr "Sie müssen mindestens einen Benutzer auswählen."
 
 #: ../mikrotik_users.php:245 ../setup.php:756 ../setup.php:1103
+#, fuzzy
 msgid "MikroTik Users"
-msgstr ""
+msgstr "MikroTik Benutzer"
 
 #: ../mikrotik_users.php:291 ../mikrotik_users.php:369
+#, fuzzy
 msgid "Inactive"
-msgstr ""
+msgstr "Inaktiv"
 
 #: ../mikrotik_users.php:354
+#, fuzzy
 msgid "User Name"
-msgstr ""
+msgstr "Benutzername"
 
 #: ../mikrotik_users.php:355
+#, fuzzy
 msgid "Domain"
-msgstr ""
+msgstr "Domain"
 
 #: ../setup.php:38
+#, fuzzy
 msgid "Plugin -> MikroTik Viewer"
-msgstr ""
+msgstr "Plugin -> MikroTik Betrachter"
 
 #: ../setup.php:39
+#, fuzzy
 msgid "Plugin -> MikroTik Admin"
-msgstr ""
+msgstr "Plugin -> MikroTik Admin"
 
 #: ../setup.php:575 ../setup.php:1094 ../setup.php:1115 ../setup.php:1117
+#, fuzzy
 msgid "MikroTik"
-msgstr ""
+msgstr "MikroTik"
 
 #: ../setup.php:578
+#, fuzzy
 msgid "MikroTik General Settings"
-msgstr ""
+msgstr "MikroTik Allgemeine Einstellungen"
 
 #: ../setup.php:582
+#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr ""
+msgstr "MikroTik Poller aktiviert"
 
 #: ../setup.php:583
+#, fuzzy
 msgid ""
 "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the "
 "poller will not function."
 msgstr ""
+"Aktivieren Sie dieses Kontrollkästchen, wenn Sie möchten, dass MikroTik "
+"Polling aktiviert ist.  Andernfalls funktioniert der Poller nicht."
 
 #: ../setup.php:588
+#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr ""
+msgstr "Automatische Erkennung von Kakteengeräten"
 
 #: ../setup.php:589
+#, fuzzy
 msgid ""
 "Do you wish to automatically scan for and add devices which support the "
 "MikroTik MIB from the Cacti host table?"
 msgstr ""
+"Möchten Sie automatisch nach Geräten suchen und hinzufügen, die die MikroTik "
+"MIB unterstützen, aus der Cacti-Host-Tabelle?"
 
 #: ../setup.php:594
+#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr ""
+msgstr "Geräte automatisch bereinigen"
 
 #: ../setup.php:595
+#, fuzzy
 msgid ""
 "Do you wish to automatically purge devices that are removed from the Cacti "
 "system?"
 msgstr ""
+"Möchten Sie Geräte, die aus dem Cacti-System entfernt wurden, automatisch "
+"bereinigen?"
 
 #: ../setup.php:600
+#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr ""
+msgstr "Maximale Anzahl gleichzeitiger Kollektoren"
 
 #: ../setup.php:601
+#, fuzzy
 msgid ""
 "What is the maximum number of concurrent collector process that you want to "
 "run at one time?"
 msgstr ""
+"Wie hoch ist die maximale Anzahl von gleichzeitigen Kollektorprozessen, die "
+"Sie gleichzeitig ausführen möchten?"
 
 #: ../setup.php:605
-#, php-format
+#, fuzzy, php-format
 msgid "%d Process"
-msgstr ""
+msgstr "%d Prozess"
 
 #: ../setup.php:606 ../setup.php:607 ../setup.php:608 ../setup.php:609
 #: ../setup.php:610 ../setup.php:611 ../setup.php:612 ../setup.php:613
 #: ../setup.php:614
-#, php-format
+#, fuzzy, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d Prozesse"
 
 #: ../setup.php:618
+#, fuzzy
 msgid "MikroTik Auto Discovery Frequency"
-msgstr ""
+msgstr "MikroTik Automatische Erkennungsfrequenz"
 
 #: ../setup.php:622
+#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr ""
+msgstr "Automatische Erkennungshäufigkeit"
 
 #: ../setup.php:623
+#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr ""
+msgstr "Wie oft möchten Sie nach neuen Kakteenprodukten suchen?"
 
 #: ../setup.php:629
+#, fuzzy
 msgid "Device Graph Automation"
-msgstr ""
+msgstr "Automatisierung von Gerätediagrammen"
 
 #: ../setup.php:633
+#, fuzzy
 msgid "Automatically Add New Graphs"
-msgstr ""
+msgstr "Neue Grafiken automatisch hinzufügen"
 
 #: ../setup.php:634
+#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr ""
+msgstr "Wie oft möchten Sie nach neuen Objekten für die Darstellung suchen?"
 
 #: ../setup.php:638
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "Niemals"
 
 #: ../setup.php:639 ../setup.php:640 ../setup.php:641 ../setup.php:662
 #: ../setup.php:907 ../setup.php:908 ../setup.php:909
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d Minuten"
 
 #: ../setup.php:642 ../setup.php:663 ../setup.php:910
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hour"
-msgstr ""
+msgstr "%d Stunde"
 
 #: ../setup.php:643 ../setup.php:664 ../setup.php:665 ../setup.php:911
 #: ../setup.php:912 ../setup.php:913
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hours"
-msgstr ""
+msgstr "%d Stunden"
 
 #: ../setup.php:644 ../setup.php:666 ../setup.php:914
-#, php-format
+#, fuzzy, php-format
 msgid "%d Day"
-msgstr ""
+msgstr "%d Tag"
 
 #: ../setup.php:645
-#, php-format
+#, fuzzy, php-format
 msgid "%d Days"
-msgstr ""
+msgstr "%d Tage"
 
 #: ../setup.php:649
+#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr ""
+msgstr "Benutzer ausschließen RegEx"
 
 #: ../setup.php:650
+#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
 msgstr ""
+"Benutzernamen, die diesem Regex entsprechen, werden nicht automatisch "
+"grafisch dargestellt."
 
 #: ../setup.php:657
+#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr ""
+msgstr "Benutzer vom Leben ausschließen"
 
 #: ../setup.php:658
+#, fuzzy
 msgid ""
 "How long should an excluded user's data be preserved after they have "
 "disconnected."
 msgstr ""
+"Wie lange sollten die Daten eines ausgeschlossenen Benutzers aufbewahrt "
+"werden, nachdem er die Verbindung getrennt hat."
 
 #: ../setup.php:670
+#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr ""
+msgstr "MikroTik Geräteerfassung Frequenzen"
 
 #: ../setup.php:674
+#, fuzzy
 msgid "Storage Frequency"
-msgstr ""
+msgstr "Speicherfrequenz"
 
 #: ../setup.php:675
+#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr ""
+msgstr "Wie oft möchten Sie Speicherstatistiken scannen?"
 
 #: ../setup.php:681
+#, fuzzy
 msgid "Processor Frequency"
-msgstr ""
+msgstr "Prozessor-Frequenz"
 
 #: ../setup.php:682
+#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr ""
+msgstr "Wie oft möchten Sie die Device Processor Statistics scannen?"
 
 #: ../setup.php:688
+#, fuzzy
 msgid "Interfaces Frequency"
-msgstr ""
+msgstr "Schnittstellen Frequenz"
 
 #: ../setup.php:689
+#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr ""
+msgstr "Wie oft möchten Sie die Interfaces scannen?"
 
 #: ../setup.php:695
+#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr ""
+msgstr "MikroTik Warteschlangen-/Baumsammelfrequenzen"
 
 #: ../setup.php:699
+#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr ""
+msgstr "Einfache Warteschlange/PPPoe Frequenz"
 
 #: ../setup.php:700
+#, fuzzy
 msgid ""
 "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</"
 "b> to remove this feature."
 msgstr ""
+"Wie oft möchten Sie einfache Warteschlangenstatistiken scannen?  Wählen Sie "
+"<b>Deaktiviert</b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:706
+#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr ""
+msgstr "Häufigkeit der Warteschlangenbäume"
 
 #: ../setup.php:707
+#, fuzzy
 msgid ""
 "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to "
 "remove this feature."
 msgstr ""
+"Wie oft möchten Sie die Warteschlangenbäume scannen?  Wählen Sie "
+"<b>Deaktiviert</b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:713
+#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr ""
+msgstr "MikroTik Wireless Collection Frequenzen"
 
 #: ../setup.php:717
+#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr ""
+msgstr "Wireless HotSpot Benutzer Frequenz"
 
 #: ../setup.php:718
+#, fuzzy
 msgid ""
 "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</"
 "b> to remove this feature."
 msgstr ""
+"Wie oft möchten Sie die Wireless-Benutzerstatistik scannen?  Wählen Sie "
+"<b>Deaktiviert</b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:724
+#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr ""
+msgstr "Frequenz des drahtlosen Zugangspunktes"
 
 #: ../setup.php:725
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Access Points?  Select "
 "<b>Disabled</b> to remove this feature."
 msgstr ""
+"Wie oft möchten Sie die Wireless Access Points scannen?  Wählen Sie "
+"<b>Deaktiviert</b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:731
+#, fuzzy
 msgid "Wireless Registrations Frequency"
-msgstr ""
+msgstr "Drahtlose Registrierungen Frequenz"
 
 #: ../setup.php:732
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Registrations?  Select "
 "<b>Disabled</b> to remove this feature."
 msgstr ""
+"Wie oft möchten Sie die Wireless Registrierungen scannen?  Wählen Sie "
+"<b>Deaktiviert</b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:738
+#, fuzzy
 msgid "Wireless Stations Frequency"
-msgstr ""
+msgstr "Funkstellen Frequenz"
 
 #: ../setup.php:739
+#, fuzzy
 msgid ""
 "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> "
 "to remove this feature."
 msgstr ""
+"Wie oft möchten Sie die Funkstationen scannen?  Wählen Sie <b>Deaktiviert</"
+"b>, um diese Funktion zu entfernen."
 
 #: ../setup.php:756
+#, fuzzy
 msgid "Management"
-msgstr ""
+msgstr "Verwaltung"
 
 #: ../setup.php:906
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minute"
-msgstr ""
+msgstr "%d Minute"
 
 #: ../setup.php:1097
+#, fuzzy
 msgid "Simple Queues"
-msgstr ""
+msgstr "Einfache Warteschlangen"
 
 #: ../setup.php:1100
+#, fuzzy
 msgid "Storage"
-msgstr ""
+msgstr "Speicherung"
 
 #: ../setup.php:1104
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(Verändern)"
 
 #: ../setup.php:1173
+#, fuzzy
 msgid "MikroTik Credentials"
-msgstr ""
+msgstr "MikroTik Zugangsdaten"
 
 #: ../setup.php:1177
+#, fuzzy
 msgid "Read Only User"
-msgstr ""
+msgstr "Nur-Lese-Benutzer"
 
 #: ../setup.php:1178
+#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr ""
+msgstr "Geben Sie einen schreibgeschützten Benutzernamen für die MikroTik an."
 
 #: ../setup.php:1185
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Kennwort"
 
 #: ../setup.php:1186
+#, fuzzy
 msgid "Provide the read only username password for this MikroTik."
-msgstr ""
+msgstr "Geben Sie das Passwort für den Benutzernamen für diese MikroTik an."
 
 #: ../setup.php:1206 ../setup.php:1215
+#, fuzzy
 msgid "Connection Result"
-msgstr ""
+msgstr "Verbindungsergebnis"
 
 #: ../setup.php:1207 ../setup.php:1216
+#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr ""
+"Ok, wenn Cacti sich über seinen API-Port mit dem MikroTik verbinden kann."
 
 #: ../setup.php:1217
+#, fuzzy
 msgid "Connection Failed"
-msgstr ""
+msgstr "Verbindung fehlgeschlagen"
