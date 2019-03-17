@@ -1,0 +1,763 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-08 12:30-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr-FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../mikrotik.php:38
+msgid "Present"
+msgstr ""
+
+#: ../mikrotik.php:39 ../mikrotik.php:1652
+msgid "Unknown"
+msgstr ""
+
+#: ../mikrotik.php:40
+msgid "Running"
+msgstr ""
+
+#: ../mikrotik.php:41
+msgid "Warning"
+msgstr ""
+
+#: ../mikrotik.php:42
+msgid "Testing"
+msgstr ""
+
+#: ../mikrotik.php:43 ../mikrotik.php:1655
+msgid "Down"
+msgstr ""
+
+#: ../mikrotik.php:127 ../mikrotik.php:1371 ../mikrotik.php:1675
+#: ../mikrotik.php:1748 ../setup.php:1095
+msgid "Devices"
+msgstr ""
+
+#: ../mikrotik.php:130 ../mikrotik.php:1458 ../mikrotik.php:1763
+#: ../mikrotik_users.php:270 ../mikrotik_users.php:345 ../setup.php:1098
+msgid "Users"
+msgstr ""
+
+#: ../mikrotik.php:134 ../mikrotik.php:579 ../mikrotik.php:694
+msgid "Queues"
+msgstr ""
+
+#: ../mikrotik.php:138
+msgid "Queue Trees"
+msgstr ""
+
+#: ../mikrotik.php:142 ../mikrotik.php:291 ../mikrotik.php:405
+#: ../setup.php:1099
+msgid "Interfaces"
+msgstr ""
+
+#: ../mikrotik.php:146 ../mikrotik.php:1162 ../setup.php:1102
+msgid "Wireless Aps"
+msgstr ""
+
+#: ../mikrotik.php:150
+msgid "Hot Spots"
+msgstr ""
+
+#: ../mikrotik.php:154
+msgid "Wireless Routes"
+msgstr ""
+
+#: ../mikrotik.php:157 ../mikrotik.php:2137 ../setup.php:1101
+msgid "Graphs"
+msgstr ""
+
+#: ../mikrotik.php:255
+msgid "Interface Stats"
+msgstr ""
+
+#: ../mikrotik.php:264 ../mikrotik.php:552 ../mikrotik.php:839
+#: ../mikrotik.php:1065 ../mikrotik.php:1334 ../mikrotik.php:1629
+#: ../mikrotik_users.php:254
+msgid "Search"
+msgstr ""
+
+#: ../mikrotik.php:270 ../mikrotik.php:558 ../mikrotik.php:845
+#: ../mikrotik.php:1071 ../mikrotik.php:1340
+msgid "Device"
+msgstr ""
+
+#: ../mikrotik.php:274 ../mikrotik.php:562 ../mikrotik.php:849
+#: ../mikrotik.php:1075 ../mikrotik.php:1344 ../mikrotik.php:1365
+#: ../mikrotik.php:1639 ../mikrotik_users.php:264 ../mikrotik_users.php:289
+msgid "All"
+msgstr ""
+
+#: ../mikrotik.php:295 ../mikrotik.php:583 ../mikrotik.php:870
+#: ../mikrotik.php:1096 ../mikrotik.php:1375 ../mikrotik.php:1679
+#: ../mikrotik_users.php:274
+msgid "Default"
+msgstr ""
+
+#: ../mikrotik.php:308 ../mikrotik.php:596 ../mikrotik_users.php:290
+#: ../mikrotik_users.php:358 ../mikrotik_users.php:369
+msgid "Active"
+msgstr ""
+
+#: ../mikrotik.php:313 ../mikrotik.php:602
+msgid "Since Reset"
+msgstr ""
+
+#: ../mikrotik.php:412 ../mikrotik.php:701 ../mikrotik.php:941
+#: ../mikrotik.php:1169 ../mikrotik.php:1465 ../mikrotik.php:1755
+#: ../setup.php:1105
+msgid "Actions"
+msgstr ""
+
+#: ../mikrotik.php:413 ../mikrotik.php:702 ../mikrotik.php:942
+#: ../mikrotik.php:1170 ../mikrotik.php:1466
+msgid "Hostname"
+msgstr ""
+
+#: ../mikrotik.php:414 ../mikrotik.php:703 ../mikrotik.php:943
+#: ../mikrotik.php:1756
+msgid "Name"
+msgstr ""
+
+#: ../mikrotik.php:415
+msgid "Rx Bytes"
+msgstr ""
+
+#: ../mikrotik.php:416
+msgid "Tx Bytes"
+msgstr ""
+
+#: ../mikrotik.php:417
+msgid "Rx Packets"
+msgstr ""
+
+#: ../mikrotik.php:418
+msgid "Tx Packets"
+msgstr ""
+
+#: ../mikrotik.php:419
+msgid "Rx Errors"
+msgstr ""
+
+#: ../mikrotik.php:420
+msgid "Tx Errors"
+msgstr ""
+
+#: ../mikrotik.php:421 ../mikrotik.php:714 ../mikrotik.php:949
+#: ../mikrotik.php:1181 ../mikrotik.php:1478 ../mikrotik_users.php:357
+msgid "Last Seen"
+msgstr ""
+
+#: ../mikrotik.php:452
+msgid "No Interfaces Found"
+msgstr ""
+
+#: ../mikrotik.php:543
+msgid "Queue Status"
+msgstr ""
+
+#: ../mikrotik.php:704
+msgid "Src Addr/Mask"
+msgstr ""
+
+#: ../mikrotik.php:705
+msgid "Dst Addr/Mask"
+msgstr ""
+
+#: ../mikrotik.php:706
+msgid "Bytes In"
+msgstr ""
+
+#: ../mikrotik.php:707
+msgid "Bytes Out"
+msgstr ""
+
+#: ../mikrotik.php:708
+msgid "Pkts In"
+msgstr ""
+
+#: ../mikrotik.php:709
+msgid "Pkts Out"
+msgstr ""
+
+#: ../mikrotik.php:710
+msgid "Qs In"
+msgstr ""
+
+#: ../mikrotik.php:711
+msgid "Qs Out"
+msgstr ""
+
+#: ../mikrotik.php:712
+msgid "Drps In"
+msgstr ""
+
+#: ../mikrotik.php:713
+msgid "Drps Out"
+msgstr ""
+
+#: ../mikrotik.php:753
+msgid "No Simple Queues Found"
+msgstr ""
+
+#: ../mikrotik.php:830
+msgid "Queue Tree Status"
+msgstr ""
+
+#: ../mikrotik.php:866 ../mikrotik.php:934 ../mikrotik.php:1762
+#: ../setup.php:1096
+msgid "Trees"
+msgstr ""
+
+#: ../mikrotik.php:944
+msgid "Flow"
+msgstr ""
+
+#: ../mikrotik.php:945
+msgid "Cur Bytes"
+msgstr ""
+
+#: ../mikrotik.php:946
+msgid "Cur Packets"
+msgstr ""
+
+#: ../mikrotik.php:947
+msgid "Total Bytes"
+msgstr ""
+
+#: ../mikrotik.php:948
+msgid "Total Packets"
+msgstr ""
+
+#: ../mikrotik.php:979
+msgid "No Queue Trees Found"
+msgstr ""
+
+#: ../mikrotik.php:1056
+msgid "Wireless Aps Status"
+msgstr ""
+
+#: ../mikrotik.php:1092
+msgid "Aps"
+msgstr ""
+
+#: ../mikrotik.php:1171
+msgid "SSID"
+msgstr ""
+
+#: ../mikrotik.php:1172
+msgid "BSSID"
+msgstr ""
+
+#: ../mikrotik.php:1173
+msgid "Tx Rate"
+msgstr ""
+
+#: ../mikrotik.php:1174
+msgid "Rx Rate"
+msgstr ""
+
+#: ../mikrotik.php:1175
+msgid "Clients"
+msgstr ""
+
+#: ../mikrotik.php:1176
+msgid "Auth Clients"
+msgstr ""
+
+#: ../mikrotik.php:1177
+msgid "Frequency"
+msgstr ""
+
+#: ../mikrotik.php:1178
+msgid "Band"
+msgstr ""
+
+#: ../mikrotik.php:1179
+msgid "Noise Floor"
+msgstr ""
+
+#: ../mikrotik.php:1180
+msgid "Tx CQQ"
+msgstr ""
+
+#: ../mikrotik.php:1325
+msgid "User Statistics"
+msgstr ""
+
+#: ../mikrotik.php:1361 ../mikrotik.php:1468 ../mikrotik_users.php:260
+#: ../mikrotik_users.php:356
+msgid "Type"
+msgstr ""
+
+#: ../mikrotik.php:1366 ../mikrotik_users.php:265
+msgid "Hotspot"
+msgstr ""
+
+#: ../mikrotik.php:1367 ../mikrotik_users.php:266
+msgid "PPPoe"
+msgstr ""
+
+#: ../mikrotik.php:1388
+msgid "Active Users"
+msgstr ""
+
+#: ../mikrotik.php:1467
+msgid "User"
+msgstr ""
+
+#: ../mikrotik.php:1469
+msgid "IP Address"
+msgstr ""
+
+#: ../mikrotik.php:1470
+msgid "MAC"
+msgstr ""
+
+#: ../mikrotik.php:1471
+msgid "Connect Time"
+msgstr ""
+
+#: ../mikrotik.php:1472
+msgid "Cur In"
+msgstr ""
+
+#: ../mikrotik.php:1473
+msgid "Cur Out"
+msgstr ""
+
+#: ../mikrotik.php:1474
+msgid "Avg In"
+msgstr ""
+
+#: ../mikrotik.php:1475
+msgid "Avg Out"
+msgstr ""
+
+#: ../mikrotik.php:1476
+msgid "Total In"
+msgstr ""
+
+#: ../mikrotik.php:1477
+msgid "Total Out"
+msgstr ""
+
+#: ../mikrotik.php:1534 ../mikrotik_users.php:374
+msgid "No Users Found"
+msgstr ""
+
+#: ../mikrotik.php:1613
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr ""
+
+#: ../mikrotik.php:1615
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr ""
+
+#: ../mikrotik.php:1618
+msgid "ChangeLog"
+msgstr ""
+
+#: ../mikrotik.php:1635 ../mikrotik.php:1758 ../mikrotik_users.php:285
+msgid "Status"
+msgstr ""
+
+#: ../mikrotik.php:1658
+msgid "Recovering"
+msgstr ""
+
+#: ../mikrotik.php:1661
+msgid "Up"
+msgstr ""
+
+#: ../mikrotik.php:1664 ../setup.php:905
+msgid "Disabled"
+msgstr ""
+
+#: ../mikrotik.php:1757
+msgid "Description"
+msgstr ""
+
+#: ../mikrotik.php:1759
+msgid "FW Ver"
+msgstr ""
+
+#: ../mikrotik.php:1760
+msgid "Lic Ver"
+msgstr ""
+
+#: ../mikrotik.php:1761
+msgid "Uptime(d:h:m)"
+msgstr ""
+
+#: ../mikrotik.php:1764
+msgid "CPU %"
+msgstr ""
+
+#: ../mikrotik.php:1765
+msgid "CPUs"
+msgstr ""
+
+#: ../mikrotik.php:1766
+msgid "Processes"
+msgstr ""
+
+#: ../mikrotik.php:1767
+msgid "Total Mem"
+msgstr ""
+
+#: ../mikrotik.php:1768
+msgid "Used Mem"
+msgstr ""
+
+#: ../mikrotik.php:1769
+msgid "Total Disk"
+msgstr ""
+
+#: ../mikrotik.php:1770
+msgid "Used Disk"
+msgstr ""
+
+#: ../mikrotik.php:1874
+msgid "No Devices Found"
+msgstr ""
+
+#: ../mikrotik.php:2047
+msgid "Graph Preview Filters"
+msgstr ""
+
+#: ../mikrotik.php:2047
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr ""
+
+#: ../mikrotik_users.php:32
+msgid "Delete"
+msgstr ""
+
+#: ../mikrotik_users.php:140
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr ""
+
+#: ../mikrotik_users.php:149
+msgid "You must select at least one User."
+msgstr ""
+
+#: ../mikrotik_users.php:245 ../setup.php:756 ../setup.php:1103
+msgid "MikroTik Users"
+msgstr ""
+
+#: ../mikrotik_users.php:291 ../mikrotik_users.php:369
+msgid "Inactive"
+msgstr ""
+
+#: ../mikrotik_users.php:354
+msgid "User Name"
+msgstr ""
+
+#: ../mikrotik_users.php:355
+msgid "Domain"
+msgstr ""
+
+#: ../setup.php:38
+msgid "Plugin -> MikroTik Viewer"
+msgstr ""
+
+#: ../setup.php:39
+msgid "Plugin -> MikroTik Admin"
+msgstr ""
+
+#: ../setup.php:575 ../setup.php:1094 ../setup.php:1115 ../setup.php:1117
+msgid "MikroTik"
+msgstr ""
+
+#: ../setup.php:578
+msgid "MikroTik General Settings"
+msgstr ""
+
+#: ../setup.php:582
+msgid "MikroTik Poller Enabled"
+msgstr ""
+
+#: ../setup.php:583
+msgid ""
+"Check this box, if you want MikroTik polling to be enabled.  Otherwise, the "
+"poller will not function."
+msgstr ""
+
+#: ../setup.php:588
+msgid "Automatically Discover Cacti Devices"
+msgstr ""
+
+#: ../setup.php:589
+msgid ""
+"Do you wish to automatically scan for and add devices which support the "
+"MikroTik MIB from the Cacti host table?"
+msgstr ""
+
+#: ../setup.php:594
+msgid "Automatically Purge Devices"
+msgstr ""
+
+#: ../setup.php:595
+msgid ""
+"Do you wish to automatically purge devices that are removed from the Cacti "
+"system?"
+msgstr ""
+
+#: ../setup.php:600
+msgid "Maximum Concurrent Collectors"
+msgstr ""
+
+#: ../setup.php:601
+msgid ""
+"What is the maximum number of concurrent collector process that you want to "
+"run at one time?"
+msgstr ""
+
+#: ../setup.php:605
+#, php-format
+msgid "%d Process"
+msgstr ""
+
+#: ../setup.php:606 ../setup.php:607 ../setup.php:608 ../setup.php:609
+#: ../setup.php:610 ../setup.php:611 ../setup.php:612 ../setup.php:613
+#: ../setup.php:614
+#, php-format
+msgid "%d Processes"
+msgstr ""
+
+#: ../setup.php:618
+msgid "MikroTik Auto Discovery Frequency"
+msgstr ""
+
+#: ../setup.php:622
+msgid "Auto Discovery Frequency"
+msgstr ""
+
+#: ../setup.php:623
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr ""
+
+#: ../setup.php:629
+msgid "Device Graph Automation"
+msgstr ""
+
+#: ../setup.php:633
+msgid "Automatically Add New Graphs"
+msgstr ""
+
+#: ../setup.php:634
+msgid "How often do you want to check for new objects to graph?"
+msgstr ""
+
+#: ../setup.php:638
+msgid "Never"
+msgstr ""
+
+#: ../setup.php:639 ../setup.php:640 ../setup.php:641 ../setup.php:662
+#: ../setup.php:907 ../setup.php:908 ../setup.php:909
+#, php-format
+msgid "%d Minutes"
+msgstr ""
+
+#: ../setup.php:642 ../setup.php:663 ../setup.php:910
+#, php-format
+msgid "%d Hour"
+msgstr ""
+
+#: ../setup.php:643 ../setup.php:664 ../setup.php:665 ../setup.php:911
+#: ../setup.php:912 ../setup.php:913
+#, php-format
+msgid "%d Hours"
+msgstr ""
+
+#: ../setup.php:644 ../setup.php:666 ../setup.php:914
+#, php-format
+msgid "%d Day"
+msgstr ""
+
+#: ../setup.php:645
+#, php-format
+msgid "%d Days"
+msgstr ""
+
+#: ../setup.php:649
+msgid "Exclude Users RegEx"
+msgstr ""
+
+#: ../setup.php:650
+msgid "User names that match this regex will not be graphed automatically"
+msgstr ""
+
+#: ../setup.php:657
+msgid "Exclude Users Time to Live"
+msgstr ""
+
+#: ../setup.php:658
+msgid ""
+"How long should an excluded user's data be preserved after they have "
+"disconnected."
+msgstr ""
+
+#: ../setup.php:670
+msgid "MikroTik Device Collection Frequencies"
+msgstr ""
+
+#: ../setup.php:674
+msgid "Storage Frequency"
+msgstr ""
+
+#: ../setup.php:675
+msgid "How often do you want to scan Storage Statistics?"
+msgstr ""
+
+#: ../setup.php:681
+msgid "Processor Frequency"
+msgstr ""
+
+#: ../setup.php:682
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr ""
+
+#: ../setup.php:688
+msgid "Interfaces Frequency"
+msgstr ""
+
+#: ../setup.php:689
+msgid "How often do you want to scan the Interfaces?"
+msgstr ""
+
+#: ../setup.php:695
+msgid "MikroTik Queue/Tree Collection Frequencies"
+msgstr ""
+
+#: ../setup.php:699
+msgid "Simple Queue/PPPoe Frequency"
+msgstr ""
+
+#: ../setup.php:700
+msgid ""
+"How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</"
+"b> to remove this feature."
+msgstr ""
+
+#: ../setup.php:706
+msgid "Queue Trees Frequency"
+msgstr ""
+
+#: ../setup.php:707
+msgid ""
+"How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to "
+"remove this feature."
+msgstr ""
+
+#: ../setup.php:713
+msgid "MikroTik Wireless Collection Frequencies"
+msgstr ""
+
+#: ../setup.php:717
+msgid "Wireless HotSpot Users Frequency"
+msgstr ""
+
+#: ../setup.php:718
+msgid ""
+"How often do you want to scan Wireless User Statistics?  Select <b>Disabled</"
+"b> to remove this feature."
+msgstr ""
+
+#: ../setup.php:724
+msgid "Wireless Access Point Frequency"
+msgstr ""
+
+#: ../setup.php:725
+msgid ""
+"How often do you want to scan the Wireless Access Points?  Select "
+"<b>Disabled</b> to remove this feature."
+msgstr ""
+
+#: ../setup.php:731
+msgid "Wireless Registrations Frequency"
+msgstr ""
+
+#: ../setup.php:732
+msgid ""
+"How often do you want to scan the Wireless Registrations?  Select "
+"<b>Disabled</b> to remove this feature."
+msgstr ""
+
+#: ../setup.php:738
+msgid "Wireless Stations Frequency"
+msgstr ""
+
+#: ../setup.php:739
+msgid ""
+"How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> "
+"to remove this feature."
+msgstr ""
+
+#: ../setup.php:756
+msgid "Management"
+msgstr ""
+
+#: ../setup.php:906
+#, php-format
+msgid "%d Minute"
+msgstr ""
+
+#: ../setup.php:1097
+msgid "Simple Queues"
+msgstr ""
+
+#: ../setup.php:1100
+msgid "Storage"
+msgstr ""
+
+#: ../setup.php:1104
+msgid "(edit)"
+msgstr ""
+
+#: ../setup.php:1173
+msgid "MikroTik Credentials"
+msgstr ""
+
+#: ../setup.php:1177
+msgid "Read Only User"
+msgstr ""
+
+#: ../setup.php:1178
+msgid "Provide a read only username for the MikroTik."
+msgstr ""
+
+#: ../setup.php:1185
+msgid "Password"
+msgstr ""
+
+#: ../setup.php:1186
+msgid "Provide the read only username password for this MikroTik."
+msgstr ""
+
+#: ../setup.php:1206 ../setup.php:1215
+msgid "Connection Result"
+msgstr ""
+
+#: ../setup.php:1207 ../setup.php:1216
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr ""
+
+#: ../setup.php:1217
+msgid "Connection Failed"
+msgstr ""
