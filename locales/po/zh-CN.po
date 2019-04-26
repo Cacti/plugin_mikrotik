@@ -6,16 +6,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mikrotik on cacti 1.1.34\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-17 11:40-0400\n"
-"Last-Translator: \n"
-"Language-Team: sfqas <sfqas@163.com>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2019-04-26 03:12+0000\n"
+"Last-Translator: whsir <wh@whsir.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
+"cacti/mikrotik/zh-CN/>\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: mikrotik.php:38
 msgid "Present"
@@ -64,8 +66,9 @@ msgid "Interfaces"
 msgstr "接口"
 
 #: mikrotik.php:144
+#, fuzzy
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 #: mikrotik.php:148 mikrotik.php:1180 setup.php:1207
 msgid "Wireless Aps"
@@ -74,7 +77,7 @@ msgstr "无线Ap"
 #: mikrotik.php:152
 #, fuzzy
 msgid "Wireless Registrations"
-msgstr "无线注册频率"
+msgstr "无线注册"
 
 #: mikrotik.php:155 mikrotik.php:2143 setup.php:1206
 msgid "Graphs"
@@ -87,6 +90,7 @@ msgstr "接口统计"
 #: mikrotik.php:262 mikrotik.php:550 mikrotik.php:837 mikrotik.php:1065
 #: mikrotik.php:1336 mikrotik.php:1633 mikrotik.php:2252 mikrotik.php:2543
 #: mikrotik_users.php:255
+#, fuzzy
 msgid "Search"
 msgstr "搜索"
 
@@ -119,14 +123,16 @@ msgstr "自重置"
 #: mikrotik.php:316 mikrotik.php:605 mikrotik.php:880 mikrotik.php:1108
 #: mikrotik.php:1395 mikrotik.php:1695 mikrotik.php:2306 mikrotik.php:2586
 #: mikrotik_users.php:296
+#, fuzzy
 msgid "Go"
-msgstr ""
+msgstr "Go"
 
 #: mikrotik.php:317 mikrotik.php:606 mikrotik.php:881 mikrotik.php:1109
 #: mikrotik.php:1396 mikrotik.php:1696 mikrotik.php:2307 mikrotik.php:2587
 #: mikrotik_users.php:297
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: mikrotik.php:404 mikrotik.php:693 mikrotik.php:935 mikrotik.php:1165
 #: mikrotik.php:1463 mikrotik.php:1755 mikrotik.php:2399 setup.php:1210
@@ -367,8 +373,9 @@ msgstr "总出"
 #: mikrotik.php:1523 mikrotik.php:1525 mikrotik.php:1526 mikrotik.php:1527
 #: mikrotik.php:1528 mikrotik.php:1529 mikrotik.php:1530 mikrotik.php:1531
 #: mikrotik.php:2668 mikrotik.php:2671 mikrotik.php:2672
+#, fuzzy
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: mikrotik.php:1538 mikrotik.php:1817 mikrotik_users.php:374
 msgid "No Users Found"
@@ -451,59 +458,63 @@ msgstr "使用的磁盘"
 #: mikrotik.php:1815
 #, fuzzy
 msgid "View Users"
-msgstr "活跃用户"
+msgstr "查看用户"
 
 #: mikrotik.php:1821
 #, fuzzy
 msgid "View Simple Queue"
-msgstr "简单的队列"
+msgstr "查看简单队列"
 
 #: mikrotik.php:1827
 #, fuzzy
 msgid "View Queue Trees"
-msgstr "队列树"
+msgstr "查看队列树"
 
 #: mikrotik.php:1833
 #, fuzzy
 msgid "View Wireless Aps"
-msgstr "无线Ap"
+msgstr "查看无线Aps"
 
 #: mikrotik.php:1835
 #, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "无线Ap"
+msgstr "找不到无线Aps"
 
 #: mikrotik.php:1838
 #, fuzzy
 msgid "View Interfaces"
-msgstr "接口"
+msgstr "查看接口"
 
 #: mikrotik.php:1841 mikrotik.php:1973 mikrotik.php:1975 mikrotik.php:2016
 #: mikrotik.php:2018 setup.php:1255
 #, fuzzy
 msgid "View Graphs"
-msgstr "图表"
+msgstr "查看图形"
 
 #: mikrotik.php:1843
+#, fuzzy
 msgid "No Graphs Defined"
-msgstr ""
+msgstr "没有定义的图形"
 
 #: mikrotik.php:1880
 msgid "No Devices Found"
 msgstr "未找到设备"
 
 #: mikrotik.php:1981
+#, fuzzy
 msgid ""
 "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr ""
+msgstr "请从控制台 - &gt;设置 - &gt;主机MIB中选择数据查询"
 
 #: mikrotik.php:2021
+#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr ""
+msgstr "图形已跳过或未创建"
 
 #: mikrotik.php:2024
+#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr ""
+msgstr "请先从控制台-&gt; 设置-&gt; 主机 MIB First选择Data Query"
 
 #: mikrotik.php:2053
 msgid "Custom Graph List Applied - Filtering from List"
@@ -516,16 +527,16 @@ msgstr "图预览过滤器"
 #: mikrotik.php:2243
 #, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "无线注册频率"
+msgstr "无线注册统计"
 
 #: mikrotik.php:2279 mikrotik.php:2414
 msgid "Registrations"
-msgstr ""
+msgstr "注册"
 
 #: mikrotik.php:2401 mikrotik.php:2641
 #, fuzzy
 msgid "Client Name"
-msgstr "客户端"
+msgstr "客户姓名"
 
 #: mikrotik.php:2402 mikrotik.php:2644
 #, fuzzy
@@ -534,58 +545,60 @@ msgstr "IP地址"
 
 #: mikrotik.php:2410
 msgid "Signal to Noise"
-msgstr ""
+msgstr "信噪比"
 
 #: mikrotik.php:2435
 #, fuzzy
 msgid "Edit Device"
-msgstr "设备"
+msgstr "编辑设备"
 
 #: mikrotik.php:2457
 #, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "无线注册频率"
+msgstr "未找到无线注册"
 
 #: mikrotik.php:2534
 msgid "DHCP Registrations"
-msgstr ""
+msgstr "DHCP注册"
 
 #: mikrotik.php:2570 mikrotik.php:2653
 msgid "Entries"
-msgstr ""
+msgstr "条目"
 
 #: mikrotik.php:2645
 msgid "Expires in"
-msgstr ""
+msgstr "到期日"
 
 #: mikrotik.php:2648
 msgid "Blocked"
-msgstr ""
+msgstr "阻止"
 
 #: mikrotik.php:2650
 msgid "Last Updated"
-msgstr ""
+msgstr "最后更新"
 
 #: mikrotik.php:2671 mikrotik.php:2672
-#, php-format
+#, fuzzy, php-format
 msgid "%s Seconds"
-msgstr ""
+msgstr "%s 秒"
 
 #: mikrotik.php:2674
+#, fuzzy
 msgid "Dynamic"
-msgstr ""
+msgstr "动态的"
 
 #: mikrotik.php:2674
 #, fuzzy
 msgid "Static"
-msgstr "状态"
+msgstr "静态"
 
 #: mikrotik.php:2682
 #, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "未找到设备"
+msgstr "找不到DHCP"
 
 #: mikrotik_users.php:33
+#, fuzzy
 msgid "Delete"
 msgstr "删除"
 
@@ -594,17 +607,18 @@ msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "点击“继续”删除下列用户及其图表。"
 
 #: mikrotik_users.php:147
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: mikrotik_users.php:147
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: mikrotik_users.php:147
 #, fuzzy
 msgid "Delete Device(s)"
-msgstr "设备"
+msgstr "删除设备"
 
 #: mikrotik_users.php:150
 msgid "You must select at least one User."
@@ -612,7 +626,7 @@ msgstr "您必须至少选择一个用户。"
 
 #: mikrotik_users.php:151
 msgid "Return"
-msgstr ""
+msgstr "返回"
 
 #: mikrotik_users.php:246 setup.php:866 setup.php:1208
 msgid "MikroTik Users"
@@ -623,12 +637,14 @@ msgid "Inactive"
 msgstr "待用"
 
 #: mikrotik_users.php:296
+#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "设置/刷新过滤器"
 
 #: mikrotik_users.php:297
+#, fuzzy
 msgid "Clear Filters"
-msgstr ""
+msgstr "清除过滤"
 
 #: mikrotik_users.php:354
 msgid "User Name"
@@ -896,8 +912,9 @@ msgid "(edit)"
 msgstr "（编辑）"
 
 #: setup.php:1257 setup.php:1260
+#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr ""
+msgstr "按规则跳过或未创建的图形"
 
 #: setup.php:1282
 msgid "MikroTik Credentials"
