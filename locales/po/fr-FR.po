@@ -6,16 +6,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-17 11:19-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2019-05-29 15:13+0000\n"
+"Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
+"Language-Team: French <http://translate.cacti.net/projects/cacti/mikrotik/"
+"fr-FR/>\n"
+"Language: fr-FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: mikrotik.php:38
 #, fuzzy
@@ -89,7 +91,6 @@ msgid "Wireless Registrations"
 msgstr "Enregistrements sans fil Fréquence"
 
 #: mikrotik.php:155 mikrotik.php:2143 setup.php:1206
-#, fuzzy
 msgid "Graphs"
 msgstr "Graphiques"
 
@@ -101,7 +102,6 @@ msgstr "Statistiques d'interface"
 #: mikrotik.php:262 mikrotik.php:550 mikrotik.php:837 mikrotik.php:1065
 #: mikrotik.php:1336 mikrotik.php:1633 mikrotik.php:2252 mikrotik.php:2543
 #: mikrotik_users.php:255
-#, fuzzy
 msgid "Search"
 msgstr "Rechercher"
 
@@ -121,7 +121,6 @@ msgstr "Tout"
 #: mikrotik.php:293 mikrotik.php:581 mikrotik.php:868 mikrotik.php:1096
 #: mikrotik.php:1377 mikrotik.php:1683 mikrotik.php:2283 mikrotik.php:2574
 #: mikrotik_users.php:275
-#, fuzzy
 msgid "Default"
 msgstr "Défaut"
 
@@ -687,7 +686,6 @@ msgid "No DHCP Entries Found"
 msgstr "Aucun appareil trouvé"
 
 #: mikrotik_users.php:33
-#, fuzzy
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -700,11 +698,11 @@ msgstr ""
 
 #: mikrotik_users.php:147
 msgid "Cancel"
-msgstr ""
+msgstr "Abandonner"
 
 #: mikrotik_users.php:147
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: mikrotik_users.php:147
 #, fuzzy
@@ -718,7 +716,7 @@ msgstr "Vous devez sélectionner au moins un utilisateur."
 
 #: mikrotik_users.php:151
 msgid "Return"
-msgstr ""
+msgstr "Retour"
 
 #: mikrotik_users.php:246 setup.php:866 setup.php:1208
 #, fuzzy
@@ -731,8 +729,9 @@ msgid "Inactive"
 msgstr "Inactif"
 
 #: mikrotik_users.php:296
+#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "Définir/Rafraîchir les filtres"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
