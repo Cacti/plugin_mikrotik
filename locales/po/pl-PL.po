@@ -6,16 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-17 11:30-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: pl_PL\n"
+"PO-Revision-Date: 2019-07-13 04:14+0000\n"
+"Last-Translator: Jaroslaw Kłopotek <jkl@interduo.pl>\n"
+"Language-Team: Polish <http://translate.cacti.net/projects/cacti/mikrotik/"
+"pl-PL/>\n"
+"Language: pl-PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: mikrotik.php:38
 #, fuzzy
@@ -23,7 +26,6 @@ msgid "Present"
 msgstr "Obecny"
 
 #: mikrotik.php:39 mikrotik.php:1656 mikrotik.php:2666
-#, fuzzy
 msgid "Unknown"
 msgstr "Nieznany"
 
@@ -33,7 +35,6 @@ msgid "Running"
 msgstr "Pracuje"
 
 #: mikrotik.php:41
-#, fuzzy
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
@@ -49,7 +50,6 @@ msgstr "W dół"
 
 #: mikrotik.php:125 mikrotik.php:1373 mikrotik.php:1679 mikrotik.php:1773
 #: setup.php:1200
-#, fuzzy
 msgid "Devices"
 msgstr "Urządzenia"
 
@@ -101,7 +101,6 @@ msgstr "Statystyki interfejsów"
 #: mikrotik.php:262 mikrotik.php:550 mikrotik.php:837 mikrotik.php:1065
 #: mikrotik.php:1336 mikrotik.php:1633 mikrotik.php:2252 mikrotik.php:2543
 #: mikrotik_users.php:255
-#, fuzzy
 msgid "Search"
 msgstr "Szukaj"
 
@@ -156,9 +155,8 @@ msgstr "Akcje"
 
 #: mikrotik.php:405 mikrotik.php:694 mikrotik.php:936 mikrotik.php:1166
 #: mikrotik.php:1464 mikrotik.php:2640
-#, fuzzy
 msgid "Hostname"
-msgstr "Serwer"
+msgstr "Nazwa hosta"
 
 #: mikrotik.php:406 mikrotik.php:695 mikrotik.php:937 mikrotik.php:1756
 #, fuzzy
@@ -446,7 +444,7 @@ msgstr "Ogółem Na zewnątrz"
 #: mikrotik.php:1528 mikrotik.php:1529 mikrotik.php:1530 mikrotik.php:1531
 #: mikrotik.php:2668 mikrotik.php:2671 mikrotik.php:2672
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 #: mikrotik.php:1538 mikrotik.php:1817 mikrotik_users.php:374
 #, fuzzy
@@ -469,7 +467,6 @@ msgid "ChangeLog"
 msgstr "ChangeLog"
 
 #: mikrotik.php:1639 mikrotik.php:1758 mikrotik.php:2643 mikrotik_users.php:286
-#, fuzzy
 msgid "Status"
 msgstr "Status"
 
@@ -484,12 +481,10 @@ msgid "Up"
 msgstr "Do góry"
 
 #: mikrotik.php:1668 mikrotik.php:2649 setup.php:1008
-#, fuzzy
 msgid "Disabled"
 msgstr "Wyłączone"
 
 #: mikrotik.php:1757
-#, fuzzy
 msgid "Description"
 msgstr "Opis"
 
@@ -684,7 +679,6 @@ msgid "No DHCP Entries Found"
 msgstr "Nie znaleziono urządzeń"
 
 #: mikrotik_users.php:33
-#, fuzzy
 msgid "Delete"
 msgstr "Usuń"
 
@@ -696,7 +690,7 @@ msgstr ""
 
 #: mikrotik_users.php:147
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: mikrotik_users.php:147
 msgid "Continue"
@@ -862,7 +856,6 @@ msgid "How often do you want to check for new objects to graph?"
 msgstr "Jak często chcesz sprawdzać, czy na wykresie nie ma nowych obiektów?"
 
 #: setup.php:748
-#, fuzzy
 msgid "Never"
 msgstr "Nigdy"
 
