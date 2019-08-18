@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: mikrotik on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-07-16 13:15+0000\n"
+"PO-Revision-Date: 2019-07-26 13:15+0000\n"
 "Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
 "cacti/mikrotik/zh-CN/>\n"
@@ -484,12 +484,10 @@ msgstr "查看接口"
 
 #: mikrotik.php:1841 mikrotik.php:1973 mikrotik.php:1975 mikrotik.php:2016
 #: mikrotik.php:2018 setup.php:1255
-#, fuzzy
 msgid "View Graphs"
 msgstr "查看图形"
 
 #: mikrotik.php:1843
-#, fuzzy
 msgid "No Graphs Defined"
 msgstr "没有定义的图形"
 
@@ -594,7 +592,6 @@ msgid "No DHCP Entries Found"
 msgstr "找不到DHCP"
 
 #: mikrotik_users.php:33
-#, fuzzy
 msgid "Delete"
 msgstr "删除"
 
