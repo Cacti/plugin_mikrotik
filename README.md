@@ -53,6 +53,8 @@ in GitHub.
 
 * issue#31: Handle case where 'dhcp' package is not installed
 
+* feature: PHP 7.2 compatibility
+
 --- 2.2 ---
 
 * feature: Add DHCP table to view DHCP registrations
