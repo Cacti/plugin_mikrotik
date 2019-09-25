@@ -889,6 +889,8 @@ function collect_system(&$host) {
 			db_execute("UPDATE plugin_mikrotik_system SET $key=" . db_qstr($tikInfoData[$key]) . " WHERE host_id=" . $host['id']);
 		}
 
+		putenv('MIBS=All');
+
 		/* health oids */
 		$tikHealthOIDs = array(
 			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
