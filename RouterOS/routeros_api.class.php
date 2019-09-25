@@ -101,7 +101,19 @@ class RouterosAPI
             $this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
             if ($this->socket) {
                 socket_set_timeout($this->socket, $this->timeout);
-                $this->write('/login');
+
+                // Try new post-v6.43 API first
+                $this->write('/login', false);
+                $this->write('=name=' . $login, false);
+                $this->write('=password=' . $password);
+                $RESPONSE = $this->read(false);
+                if (isset($RESPONSE[0]) && $RESPONSE[0] == '!done') {
+                    $this->connected = true;
+                    break;
+                }
+
+                // Try legacy pre-v6.43 API next
+              	$this->write('/login');
                 $RESPONSE = $this->read(false);
                 if (isset($RESPONSE[0]) && $RESPONSE[0] == '!done') {
                     $MATCHES = array();

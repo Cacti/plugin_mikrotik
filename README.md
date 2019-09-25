@@ -49,6 +49,10 @@ in GitHub.
 
 ## ChangeLog
 
+--- develop ---
+
+* issue#35: Login Failure for RouterOS Login method post-v6.43
+
 --- 2.3 ---
 
 * issue#31: Handle case where 'dhcp' package is not installed
