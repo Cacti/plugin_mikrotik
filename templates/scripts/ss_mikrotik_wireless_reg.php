@@ -1,19 +1,32 @@
 <?php
-
-/* do NOT run this script through a web browser */
-if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
-	die('<br><strong>This script is only meant to run at the command line.</strong>');
-}
-
-global $config;
-
-$no_http_headers = true;
+/*
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2019 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
+*/
 
 /* display No errors */
 error_reporting(0);
 
 if (!isset($called_by_script_server)) {
-	include(dirname(__FILE__) . '/../../../../include/global.php');
+	include(dirname(__FILE__) . '/../../../../include/cli_check.php');
 	array_shift($_SERVER['argv']);
 	print call_user_func_array('ss_mikrotik_wireless_reg', $_SERVER['argv']);
 }
@@ -44,7 +57,7 @@ function ss_mikrotik_wireless_reg($host_id, $cmd, $object = '', $index = '') {
 				ORDER BY macAddress',
 				array($host_id));
 
-			if (sizeof($return_arr)) {
+			if (cacti_sizeof($return_arr)) {
 				foreach($return_arr as $index) {
 					print $index['macAddress'] . '!' . $index['macAddress'] . "\n";
 				}

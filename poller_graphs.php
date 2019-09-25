@@ -2,7 +2,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2004-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -83,7 +83,7 @@ foreach($parms as $parameter) {
 
 /* Do not process if not enabled */
 if (read_config_option('mikrotik_enabled') == '' || db_fetch_cell("SELECT status FROM plugin_config WHERE directory='mikrotik'") != 1) {
-	echo "WARNING: The MiktroTik Collection is Down!  Exiting\n";
+	print "WARNING: The MiktroTik Collection is Down!  Exiting\n";
 	exit(0);
 }
 
@@ -93,12 +93,12 @@ $frequency = read_config_option('mikrotik_automation_frequency') * 60;
 debug("Last Run Was '" . date('Y-m-d H:i:s', $last_run) . "', Frequency is '" . ($frequency/60) . "' Minutes");
 
 if ($frequency == 0) {
-	echo "NOTE:  Graph Automation is Disabled\n";
-}elseif (($frequency > 0 && ($start - $last_run) > $frequency) || ($frequency > 0 && $forcerun)) {
+	print "NOTE:  Graph Automation is Disabled\n";
+} elseif (($frequency > 0 && ($start - $last_run) > $frequency) || ($frequency > 0 && $forcerun)) {
 	list($micro,$seconds) = explode(' ', microtime());
 	$start = $seconds + $micro;
 
-	echo "NOTE:  Starting Automation Process\n";
+	print "NOTE:  Starting Automation Process\n";
 	db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_automation_lastrun', '$start')");
 
 	debug('Removing invalid stations graphs');
@@ -117,8 +117,8 @@ if ($frequency == 0) {
 
 	/* log to the logfile */
 	cacti_log('MIKROTIK GRAPH STATS: ' . $cacti_stats , true, 'SYSTEM');
-}else{
-	echo "NOTE:  Its Not Time to Run Automation\n";
+} else {
+	print "NOTE:  Its Not Time to Run Automation\n";
 }
 
 exit(0);
@@ -139,16 +139,16 @@ function add_graphs() {
 //			$host_id = db_fetch_cell("SELECT id FROM host WHERE host_template_id=$host_template");
 //			if (empty($host_id)) {
 //				debug('MikroTik Summary Device Not Found, Adding');
-//			}else{
+//			} else {
 //				debug("Host Exists Hostname is '" . db_fetch_cell("SELECT description FROM host WHERE id=$host_id"). "'");
 //			}
 //
 //
 //			add_summary_graphs($host_id, $host_template);
-//		}else{
+//		} else {
 //			cacti_log('WARNING: Unable to find MikroTik Summary Host Template', true, 'MIKROTIK');
 //		}
-//	}else{
+//	} else {
 //		cacti_log('NOTE: MikroTik Summary Host Template Not Specified', true, 'MIKROTIK');
 //	}
 
@@ -170,7 +170,7 @@ function add_host_based_graphs() {
 		ON host.id=plugin_mikrotik_system.host_id
 		WHERE host_status IN(0,3) AND host.disabled=''");
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		foreach($hosts as $h) {
 			debug('Processing Host: ' . $h['description'] . ' [' . $h['hostname'] . ']');
 
@@ -189,7 +189,7 @@ function add_host_based_graphs() {
 					if ($hash == '7dd90372956af1dc8ec7b859a678f227') {
 						$exclusion = read_config_option('mikrotik_user_exclusion');
 						add_host_dq_graphs($h['host_id'], $query, 'userName', $exclusion, false);
-					}else{
+					} else {
 						add_host_dq_graphs($h['host_id'], $query);
 					}
 				}
@@ -197,7 +197,7 @@ function add_host_based_graphs() {
 
 			$health = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_system_health WHERE host_id = ?', array($h['host_id']));
 			debug('Processing Health');
-			if (sizeof($health)) {
+			if (cacti_sizeof($health)) {
 				foreach($device_health_hashes as $column => $hash) {
 					if (!empty($health[$column]) && $health[$column] != 'NULL') {
 						$template = mikrotik_template_by_hash($hash);
@@ -209,7 +209,7 @@ function add_host_based_graphs() {
 				}
 			}
 		}
-	}else{
+	} else {
 		debug('No Hosts Found');
 	}
 }
@@ -232,7 +232,7 @@ function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = 
 		WHERE snmp_query_id=' . $dq);
 
 	debug('Adding Graphs');
-	if (sizeof($graph_templates)) {
+	if (cacti_sizeof($graph_templates)) {
 	foreach($graph_templates as $gt) {
 		mikrotik_dq_graphs($host_id, $dq, $gt['graph_template_id'], $gt['id'], $field, $regex, $include);
 	}
@@ -260,14 +260,14 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 		AND graph_template_id=$graph_template_id");
 
 	if (!$exists) {
-		echo "NOTE: Adding Graph: '$name' for Host: " . $host_id . "\n";
+		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . "\n";
 
 		$command = "$php_bin -q $base/cli/add_graphs.php" .
 			" --graph-template-id=$graph_template_id" .
 			" --graph-type=cg" .
 			" --host-id=" . $host_id;
 
-		echo str_replace("\n", " ", passthru($command)) . "\n";
+		print str_replace("\n", " ", passthru($command)) . "\n";
 	}
 }
 
@@ -282,7 +282,7 @@ function add_summary_graphs($host_id, $host_template) {
 		/* add the host */
 		debug('Adding Host');
 		$result = exec("$php_bin -q $base/cli/add_device.php --description='Summary Device' --ip=summary --template=$host_template --version=0 --avail=none", $return_code);
-	}else{
+	} else {
 		debug('Reindexing Host');
 		$result = exec("$php_bin -q $base/cli/poller_reindex_hosts.php -id=$host_id -qid=All", $return_code);
 	}
@@ -293,13 +293,13 @@ function add_summary_graphs($host_id, $host_template) {
 		FROM host_snmp_query
 		WHERE host_id=$host_id");
 
-	if (sizeof($data_queries)) {
+	if (cacti_sizeof($data_queries)) {
 	foreach($data_queries as $dq) {
 		$graph_templates = db_fetch_assoc("SELECT *
 			FROM snmp_query_graph
 			WHERE snmp_query_id=" . $dq['snmp_query_id']);
 
-		if (sizeof($graph_templates)) {
+		if (cacti_sizeof($graph_templates)) {
 		foreach($graph_templates as $gt) {
 			mikrotik_dq_graphs($host_id, $dq['snmp_query_id'], $gt['graph_template_id'], $gt['id']);
 		}
@@ -312,7 +312,7 @@ function add_summary_graphs($host_id, $host_template) {
 		FROM host_graph
 		WHERE host_id=$host_id");
 
-	if (sizeof($graph_templates)) {
+	if (cacti_sizeof($graph_templates)) {
 	foreach($graph_templates as $gt) {
 		/* see if the graph exists already */
 		$exists = db_fetch_cell("SELECT count(*)
@@ -321,14 +321,14 @@ function add_summary_graphs($host_id, $host_template) {
 			AND graph_template_id=" . $gt["graph_template_id"]);
 
 		if (!$exists) {
-			echo "NOTE: Adding item: '$field_value' for Host: " . $host_id;
+			print "NOTE: Adding item: '$field_value' for Host: " . $host_id;
 
 			$command = "$php_bin -q $base/cli/add_graphs.php" .
 				" --graph-template-id=" . $gt["graph_template_id"] .
 				" --graph-type=cg" .
 				" --host-id=" . $host_id;
 
-			echo str_replace("\n", " ", passthru($command)) . "\n";
+			print str_replace("\n", " ", passthru($command)) . "\n";
 		}
 	}
 	}
@@ -352,20 +352,20 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 		AND host_id=$host_id
 		AND snmp_query_id=$query_id");
 
-	if (sizeof($items)) {
+	if (cacti_sizeof($items)) {
 		foreach($items as $item) {
 			$field_value = $item['field_value'];
 			$index       = $item['snmp_index'];
 
 			if ($regex == '') {
 				/* add graph below */
-			}else if ($include == false && preg_match("/$regex/", $field_value)) {
-				echo "NOTE: Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
+			} else if ($include == false && preg_match("/$regex/", $field_value)) {
+				print "NOTE: Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
 				continue;
-			}else if ($include == true && preg_match("/$regex/", $field_value)) {
+			} else if ($include == true && preg_match("/$regex/", $field_value)) {
 				/* add graph below, we should never be here */
-			}else{
-				echo "NOTE: Not Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
+			} else {
+				print "NOTE: Not Bypassing item due to Regex rule: '$regex', Field Value: '" . $field_value . "' for Host: '" . $host_id . "'\n";
 			}
 
 			/* check to see if the graph exists or not */
@@ -383,7 +383,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 					" --snmp-query-id=$query_id --snmp-field=$field" .
 					" --snmp-value=" . cacti_escapeshellarg($field_value);
 
-				echo "NOTE: Adding item: '$field_value' " . str_replace("\n", " ", passthru($command)) . "\n";
+				print "NOTE: Adding item: '$field_value' " . str_replace("\n", " ", passthru($command)) . "\n";
 			}
 		}
 	}
@@ -423,7 +423,7 @@ function remove_invalid_station_graphs() {
 				WHERE graph_template_id = ?',
 				array($graph_template_id));
 
-			if (sizeof($graph_template_input)) {
+			if (cacti_sizeof($graph_template_input)) {
 				foreach ($graph_template_input as $item) {
 					db_execute_prepared('DELETE FROM graph_template_input_defs
 						WHERE graph_template_input_id = ?', array($item['id']));
@@ -495,7 +495,7 @@ function debug($message) {
 	global $debug;
 
 	if ($debug) {
-		echo 'DEBUG: ' . trim($message) . "\n";
+		print 'DEBUG: ' . trim($message) . "\n";
 	}
 }
 
@@ -507,12 +507,12 @@ function display_version() {
 	}
 
 	$info = plugin_mikrotik_version();
-	echo "MikroTik Graph Automator, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+	print "MikroTik Graph Automator, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
 }
 
 function display_help() {
 	display_version();
 
-	echo "\nThe MikroTik process that creates graphs for Cacti.\n\n";
-	echo "usage: poller_graphs.php [-f] [-d]\n";
+	print "\nThe MikroTik process that creates graphs for Cacti.\n\n";
+	print "usage: poller_graphs.php [-f] [-d]\n";
 }

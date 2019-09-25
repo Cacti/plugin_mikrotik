@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2004-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -142,7 +142,7 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 		'id', 'id'
 	);
 
-	if (sizeof($graphs)) {
+	if (cacti_sizeof($graphs)) {
 		$all_data_sources = array_rekey(db_fetch_assoc('SELECT DISTINCT dtd.local_data_id
 			FROM data_template_data AS dtd
 			INNER JOIN data_template_rrd AS dtr
@@ -164,7 +164,7 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 			HAVING graphs = 1
 			AND ' . array_to_sql_or($all_data_sources, 'local_data_id')), 'local_data_id', 'local_data_id');
 
-		if (sizeof($data_sources)) {
+		if (cacti_sizeof($data_sources)) {
 			api_data_source_remove_multi($data_sources);
 			api_plugin_hook_function('data_source_remove', $data_sources);
 		}
@@ -183,7 +183,7 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 			AND gti.local_graph_id IS NULL
 			AND dtd.local_data_id > 0'), 'local_data_id', 'local_data_id');
 
-		if (sizeof($data_sources)) {
+		if (cacti_sizeof($data_sources)) {
 			api_data_source_remove_multi($data_sources);
 			api_plugin_hook_function('data_source_remove', $data_sources);
 		}
@@ -1244,14 +1244,14 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
 		$sql_where .= " AND gl.snmp_index LIKE '%$search%'";
 	}
 
-	if (sizeof($hashes)) {
+	if (cacti_sizeof($hashes)) {
 		$graphs = array_rekey(db_fetch_assoc("SELECT gl.id
 			FROM graph_local AS gl
 			INNER JOIN graph_templates AS gt
 			ON gl.graph_template_id=gt.id
 			WHERE gt.hash IN ('" . implode("','", $hashes) . "') $sql_where"), 'id', 'id');
 
-		if (sizeof($graphs)) {
+		if (cacti_sizeof($graphs)) {
 			return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><img src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'mikrotik') . "'></a>";
 		} else {
 			return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'>";
@@ -1274,7 +1274,7 @@ function mikrotik_host_top() {
 		ON host.id=pmc.host_id
 		WHERE host_template_id = ? AND host.id = ?', array($template_id, $id));
 
-	if (sizeof($is_tik)) {
+	if (cacti_sizeof($is_tik)) {
 		$fields_host_edit += array(
 			'mikrotik_head' => array(
 				'method' => 'spacer',

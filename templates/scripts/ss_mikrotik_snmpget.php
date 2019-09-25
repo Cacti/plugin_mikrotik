@@ -1,18 +1,36 @@
 <?php
-
-$no_http_headers = true;
+/*
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2019 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
+*/
 
 /* display no errors */
 error_reporting(0);
 
-include_once(dirname(__FILE__) . '/../../../../lib/snmp.php');
-
 if (!isset($called_by_script_server)) {
-	include(dirname(__FILE__) . '/../../../../include/global.php');
-	include_once(dirname(__FILE__) . '/../../../../lib/snmp.php');
+	include(dirname(__FILE__) . '/../../../../include/cli_check.php');
 	array_shift($_SERVER['argv']);
 	print call_user_func_array('ss_mikrotik_snmpget', $_SERVER['argv']);
 }
+include_once(dirname(__FILE__) . '/../../../../lib/snmp.php');
 
 function ss_mikrotik_snmpget($host_id = '', $oid = '') {
 	global $config;
@@ -25,7 +43,7 @@ function ss_mikrotik_snmpget($host_id = '', $oid = '') {
 			WHERE id = ?',
 			array($host_id));
 
-		if (sizeof($host)) {
+		if (cacti_sizeof($host)) {
 			$get = cacti_snmp_get($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
 				$host['snmp_username'], $host['snmp_password'],
 				$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],

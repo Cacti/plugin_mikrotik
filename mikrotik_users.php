@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2004-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -80,7 +80,7 @@ function form_actions() {
 					WHERE ' . array_to_sql_or($selected_items, 'data_local.snmp_index') . "
 					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
 
-				if (sizeof($data_sources)) {
+				if (cacti_sizeof($data_sources)) {
 					foreach ($data_sources as $data_source) {
 						$data_sources_to_act_on[] = $data_source['local_data_id'];
 					}
@@ -92,7 +92,7 @@ function form_actions() {
 					WHERE ' . array_to_sql_or($selected_items, 'graph_local.snmp_index') . "
 					AND snmp_query_id='" . mikrotik_data_query_by_hash('ce63249e6cc3d52bc69659a3f32194fe') . "'");
 
-				if (sizeof($graphs)) {
+				if (cacti_sizeof($graphs)) {
 					foreach ($graphs as $graph) {
 						$graphs_to_act_on[] = $graph['local_graph_id'];
 					}
@@ -117,7 +117,7 @@ function form_actions() {
 	$user_list = '';
 
 	/* loop through each of the user templates selected on the previous page and get more info about them */
-	foreach ($_POST as $var => $val) {
+	while (list($var,$val) = each($_POST)) {
 		if (preg_match('/^chk_([A-Z0-9]+)$/', $var, $matches)) {
 			/* ================= input validation ================= */
 			$matches[1] = sanitize_search_string($matches[1]);
@@ -146,7 +146,7 @@ function form_actions() {
 				";
 			$save_html = "<input type='button' value='" . __esc('Cancel', 'mikrotik') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'mikrotik') . "' title='" . __esc('Delete Device(s)', 'mikrotik') . "'>";
 		}
-	}else{
+	} else {
 		print "<tr><td><span class='textError'>" . __('You must select at least one User.', 'mikrotik') . "</span></td></tr>\n";
 		$save_html = "<input type='button' value='" . __esc('Return', 'mikrotik') . "' onClick='cactiReturnTo()'>";
 	}
@@ -213,7 +213,7 @@ function mikrotik_user() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') != '-1') {
 		$rows = get_request_var('rows');
-	}else{
+	} else {
 		$rows = read_config_option('num_rows_table');
 	}
 
@@ -274,7 +274,7 @@ function mikrotik_user() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -309,19 +309,19 @@ function mikrotik_user() {
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('filter'))) {
 		$sql_where = "WHERE (name LIKE '%%" . get_request_var('filter') . "%%') AND name!=''";
-	}else{
+	} else {
 		$sql_where = "WHERE name!=''";
 	}
 
 	if (get_request_var('status') == 1) {
 		$sql_where .= ' AND present=1';
-	}elseif (get_request_var('status') == 2) {
+	} elseif (get_request_var('status') == 2) {
 		$sql_where .= ' AND present=0';
 	}
 
 	if (get_request_var('type') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=0';
-	}elseif (get_request_var('type') == '1') {
+	} elseif (get_request_var('type') == '1') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' userType=1';
 	}
 
@@ -359,7 +359,7 @@ function mikrotik_user() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	if (sizeof($users)) {
+	if (cacti_sizeof($users)) {
 		foreach ($users as $user) {
 			form_alternate_row('line' . $user['name'], true);
 			form_selectable_cell("<span class='noLinkEditMain'>" . filter_value($user['name'], get_request_var('filter')) . '</span>', $user['name'], 250);
@@ -370,13 +370,13 @@ function mikrotik_user() {
 			form_checkbox_cell($user['name'], $user['name']);
 			form_end_row();
 		}
-	}else{
+	} else {
 		print '<tr><td><em>' . __('No Users Found', 'mikrotik') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
 
-	if (sizeof($users)) {
+	if (cacti_sizeof($users)) {
 		print $nav;
 	}
 
