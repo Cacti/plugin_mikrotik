@@ -680,7 +680,7 @@ function mikrotik_poller_bottom() {
 }
 
 function mikrotik_config_settings() {
-	global $tabs, $settings, $mikrotik_frequencies, $item_rows;
+	global $tabs, $settings, $mikrotik_frequencies, $mikrotik_retention, $item_rows;
 
 	$tabs['mikrotik'] = __('MikroTik', 'mikrotik');
 	$settings['mikrotik'] = array(
@@ -725,7 +725,7 @@ function mikrotik_config_settings() {
 				)
 			),
 		'mikrotik_autodiscovery_header' => array(
-			'friendly_name' => __('MikroTik Auto Discovery Frequency', 'mikrotik'),
+			'friendly_name' => __('Auto Discovery Settings', 'mikrotik'),
 			'method' => 'spacer',
 			),
 		'mikrotik_autodiscovery_freq' => array(
@@ -734,6 +734,17 @@ function mikrotik_config_settings() {
 			'method' => 'drop_array',
 			'default' => '300',
 			'array' => $mikrotik_frequencies
+			),
+		'mikrotik_dhcp_header' => array(
+			'friendly_name' => __('DHCP Settings', 'mikrotik'),
+			'method' => 'spacer',
+			),
+		'mikrotik_dhcp_retention' => array(
+			'friendly_name' => __('DHCP Renetion', 'mikrotik'),
+			'description' => __('How long would you like to retain DHCP IP registration history?', 'mikrotik'),
+			'method' => 'drop_array',
+			'default' => '300',
+			'array' => $mikrotik_retention
 			),
 		'mikrotik_automation_header' => array(
 			'friendly_name' => __('Device Graph Automation', 'mikrotik'),
@@ -855,7 +866,7 @@ function mikrotik_config_settings() {
 }
 
 function mikrotik_config_arrays() {
-	global $menu, $messages, $mikrotik_frequencies;
+	global $menu, $messages, $mikrotik_frequencies, $mikrotik_retention;
 	global $mikrotikSystem, $mikrotikTrees, $mikrotikQueueSimpleEntry, $mikrotikUsers;
 	global $mikrotikProcessor, $mikrotikStorage, $mikrotikInterfaces, $mikrotikWirelessAps;
 	global $mikrotikWirelessRegistrations;
@@ -1017,18 +1028,31 @@ function mikrotik_config_arrays() {
 		86400 => __('%d Day', 1, 'mikrotik')
 	);
 
+	$mikrotik_retention = array(
+		-1       => __('Indefinite', 'mikrotik'),
+		86400    => __('%d Day',    1, 'mikrotik'),
+		172800   => __('%d Days',   2, 'mikrotik'),
+		259200   => __('%d Days',   3, 'mikrotik'),
+		604800   => __('%d Week',   1, 'mikrotik'),
+		1209600  => __('%d Weeks',  2, 'mikrotik'),
+		2419200  => __('%d Weeks',  4, 'mikrotik'),
+		5184000  => __('%d Months', 2, 'mikrotik'),
+		15552000 => __('%d Months', 6, 'mikrotik'),
+		31536000 => __('%d Year',   1, 'mikrotik')
+	);
+
 	$mikrotikSystem = array(
-		'baseOID'        => '.1.3.6.1.2.1.25.1.',
-		'uptime'         => '.1.3.6.1.2.1.25.1.1.0',
-		'date'           => '.1.3.6.1.2.1.25.1.2.0',
-		'processes'      => '.1.3.6.1.2.1.1.7.0',
-		'memory'         => '.1.3.6.1.2.1.25.2.2.0',
-		'sysDescr'       => '.1.3.6.1.2.1.1.1.0',
-		'sysObjectID'    => '.1.3.6.1.2.1.1.2.0',
-		'sysUptime'      => '.1.3.6.1.2.1.1.3.0',
-		'sysContact'     => '.1.3.6.1.2.1.1.4.0',
-		'sysName'        => '.1.3.6.1.2.1.1.5.0',
-		'sysLocation'    => '.1.3.6.1.2.1.1.6.0'
+		'baseOID'     => '.1.3.6.1.2.1.25.1.',
+		'uptime'      => '.1.3.6.1.2.1.25.1.1.0',
+		'date'        => '.1.3.6.1.2.1.25.1.2.0',
+		'processes'   => '.1.3.6.1.2.1.1.7.0',
+		'memory'      => '.1.3.6.1.2.1.25.2.2.0',
+		'sysDescr'    => '.1.3.6.1.2.1.1.1.0',
+		'sysObjectID' => '.1.3.6.1.2.1.1.2.0',
+		'sysUptime'   => '.1.3.6.1.2.1.1.3.0',
+		'sysContact'  => '.1.3.6.1.2.1.1.4.0',
+		'sysName'     => '.1.3.6.1.2.1.1.5.0',
+		'sysLocation' => '.1.3.6.1.2.1.1.6.0'
 	);
 
 	$mikrotikStorage = array(
@@ -1075,20 +1099,20 @@ function mikrotik_config_arrays() {
 	);
 
 	$mikrotikQueueSimpleEntry = array(
-		'name'        => '.1.3.6.1.4.1.14988.1.1.2.1.1.2',
-		'srcAddr'     => '.1.3.6.1.4.1.14988.1.1.2.1.1.3',
-		'srcMask'     => '.1.3.6.1.4.1.14988.1.1.2.1.1.4',
-		'dstAddr'     => '.1.3.6.1.4.1.14988.1.1.2.1.1.5',
-		'dstMask'     => '.1.3.6.1.4.1.14988.1.1.2.1.1.6',
-		'iFace'       => '.1.3.6.1.4.1.14988.1.1.2.1.1.7',
-		'BytesIn'     => '.1.3.6.1.4.1.14988.1.1.2.1.1.8',
-		'BytesOut'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.9',
-		'PacketsIn'   => '.1.3.6.1.4.1.14988.1.1.2.1.1.10',
-		'Packetsout'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.11',
-		'QueuesIn'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.12',
-		'QueuesOut'   => '.1.3.6.1.4.1.14988.1.1.2.1.1.13',
-		'DroppedIn'   => '.1.3.6.1.4.1.14988.1.1.2.1.1.14',
-		'DroppedOut'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.15',
+		'name'       => '.1.3.6.1.4.1.14988.1.1.2.1.1.2',
+		'srcAddr'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.3',
+		'srcMask'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.4',
+		'dstAddr'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.5',
+		'dstMask'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.6',
+		'iFace'      => '.1.3.6.1.4.1.14988.1.1.2.1.1.7',
+		'BytesIn'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.8',
+		'BytesOut'   => '.1.3.6.1.4.1.14988.1.1.2.1.1.9',
+		'PacketsIn'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.10',
+		'Packetsout' => '.1.3.6.1.4.1.14988.1.1.2.1.1.11',
+		'QueuesIn'   => '.1.3.6.1.4.1.14988.1.1.2.1.1.12',
+		'QueuesOut'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.13',
+		'DroppedIn'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.14',
+		'DroppedOut' => '.1.3.6.1.4.1.14988.1.1.2.1.1.15',
 	);
 
 	$mikrotikWirelessAps = array(
@@ -1105,24 +1129,24 @@ function mikrotik_config_arrays() {
 	);
 
 	$mikrotikWirelessRegistrations = array(
-		'index'             => '.1.3.6.1.4.1.14988.1.1.1.2.1.1',
-		'Strength'          => '.1.3.6.1.4.1.14988.1.1.1.2.1.3',
-		'TxBytes'           => '.1.3.6.1.4.1.14988.1.1.1.2.1.4',
-		'RxBytes'           => '.1.3.6.1.4.1.14988.1.1.1.2.1.5',
-		'TxPackets'         => '.1.3.6.1.4.1.14988.1.1.1.2.1.6',
-		'RxPackets'         => '.1.3.6.1.4.1.14988.1.1.1.2.1.7',
-		'TxRate'            => '.1.3.6.1.4.1.14988.1.1.1.2.1.8',
-		'RxRate'            => '.1.3.6.1.4.1.14988.1.1.1.2.1.9',
-		'RouterOSVersion'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.10',
-		'Uptime'            => '.1.3.6.1.4.1.14988.1.1.1.2.1.11',
-		'SignalToNoise'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.12',
-		'TxStrengthCh0'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.13',
-		'RxStrengthCh0'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.14',
-		'TxStrengthCh1'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.15',
-		'RxStrengthChl'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.16',
-		'TxStrengthCh2'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.17',
-		'RxStrengthCh2'     => '.1.3.6.1.4.1.14988.1.1.1.2.1.18',
-		'TxStrength'        => '.1.3.6.1.4.1.14988.1.1.1.2.1.19',
+		'index'           => '.1.3.6.1.4.1.14988.1.1.1.2.1.1',
+		'Strength'        => '.1.3.6.1.4.1.14988.1.1.1.2.1.3',
+		'TxBytes'         => '.1.3.6.1.4.1.14988.1.1.1.2.1.4',
+		'RxBytes'         => '.1.3.6.1.4.1.14988.1.1.1.2.1.5',
+		'TxPackets'       => '.1.3.6.1.4.1.14988.1.1.1.2.1.6',
+		'RxPackets'       => '.1.3.6.1.4.1.14988.1.1.1.2.1.7',
+		'TxRate'          => '.1.3.6.1.4.1.14988.1.1.1.2.1.8',
+		'RxRate'          => '.1.3.6.1.4.1.14988.1.1.1.2.1.9',
+		'RouterOSVersion' => '.1.3.6.1.4.1.14988.1.1.1.2.1.10',
+		'Uptime'          => '.1.3.6.1.4.1.14988.1.1.1.2.1.11',
+		'SignalToNoise'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.12',
+		'TxStrengthCh0'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.13',
+		'RxStrengthCh0'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.14',
+		'TxStrengthCh1'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.15',
+		'RxStrengthChl'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.16',
+		'TxStrengthCh2'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.17',
+		'RxStrengthCh2'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.18',
+		'TxStrength'      => '.1.3.6.1.4.1.14988.1.1.1.2.1.19',
 	);
 
 	$mikrotikInterfaces = array(

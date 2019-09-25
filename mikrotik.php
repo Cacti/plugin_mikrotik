@@ -428,9 +428,9 @@ function mikrotik_interfaces() {
 			$graphs = mikrotik_graphs_url_by_template_hashs($interface_hashes, $row['host_id'], $row['name']);
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url    = $row['hostname'];
+				$host_url    = $row['description'];
 			}
 
 			print "<td class='nowrap'>$graphs</td>";
@@ -721,9 +721,9 @@ function mikrotik_queues() {
 			$graphs = mikrotik_graphs_url_by_template_hashs($queue_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url    = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url    = $row['hostname'];
+				$host_url    = $row['description'];
 			}
 			$srcNet = mikrotik_get_network($row['srcMask']);
 			$dstNet = mikrotik_get_network($row['dstMask']);
@@ -958,9 +958,9 @@ function mikrotik_trees() {
 			$graphs = mikrotik_graphs_url_by_template_hashs($tree_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url    = $row['hostname'];
+				$host_url = $row['description'];
 			}
 
 			print "<td class='nowrap'>$graphs</td>";
@@ -1192,9 +1192,9 @@ function mikrotik_wireless_aps() {
 			$graphs = mikrotik_graphs_url_by_template_hashs($wireless_station_hashes, $row['host_id'], str_replace(' ', '%', $row['apSSID']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url    = $row['hostname'];
+				$host_url = $row['description'];
 			}
 
 			print "<td class='nowrap'></td>";
@@ -1499,9 +1499,9 @@ function mikrotik_users() {
 			$graphs = mikrotik_graphs_url_by_template_hashs($user_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url = $row['hostname'];
+				$host_url = $row['description'];
 			}
 
 			print "<td class='nowrap'>$graphs</td>";
@@ -2422,20 +2422,24 @@ function mikrotik_wireless_regs() {
 
 	if (cacti_sizeof($data_rows)) {
 		foreach ($data_rows as $row) {
-			$days      = intval($row['Uptime'] / (60*60*24*100));
-			$remainder = $row['Uptime'] % (60*60*24*100);
-			$hours     = intval($remainder / (60*60*100));
-			$remainder = $remainder % (60*60*100);
-			$minutes   = intval($remainder / (60*100));
+			if (strpos($row['Uptime'], ':') !== false) {
+				list($days, $hours, $minutes, $seconds) = explode(':', $row['Uptime']);
+			} else {
+				$days      = intval($row['Uptime'] / (60*60*24*100));
+				$remainder = $row['Uptime'] % (60*60*24*100);
+				$hours     = intval($remainder / (60*60*100));
+				$remainder = $remainder % (60*60*100);
+				$minutes   = intval($remainder / (60*100));
+			}
 
 			form_alternate_row();
 
 			$graphs = mikrotik_graphs_url_by_template_hashs($wreg_hashes, $row['host_id'], $row['index']);
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='" . __esc('Edit Device') . "'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
 			} else {
-				$host_url    = $row['hostname'];
+				$host_url = $row['description'];
 			}
 
 			print "<td class='nowrap'>$graphs</td>";
@@ -2603,7 +2607,7 @@ function mikrotik_dhcp() {
 		$rows = get_request_var('rows');
 	}
 
-	$sql_where = "";
+	$sql_where = '';
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
@@ -2629,6 +2633,7 @@ function mikrotik_dhcp() {
 	//print $sql;
 
 	$data_rows  = db_fetch_assoc($sql);
+
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM plugin_mikrotik_dhcp AS dhcp
 		INNER JOIN host AS h
@@ -2666,11 +2671,11 @@ function mikrotik_dhcp() {
 			print "<td class='left nowrap'>" . $row['description'] . '</td>';
 			print "<td class='left'>"  . ($row['hostname'] != '' ? filter_value($row['hostname'], get_request_var('filter')):__('Unknown', 'mikrotik')) . '</td>';
 			print "<td class='left'>"  . filter_value($row['address'], get_request_var('filter')) . '</td>';
-			print "<td class='left'>"  . ($row['dynamic'] ? $row['status']:__('N/A', 'mikrotik')) .  '</td>';
+			print "<td class='left'>"  . ($row['status'] ? $row['status']:__('N/A', 'mikrotik')) .  '</td>';
 			print "<td class='right'>"  . filter_value($row['mac_address'], get_request_var('filter')) . '</td>';
 
-			print "<td class='right'>" . ($row['dynamic'] ? __('%s Seconds', $row['expires_after']):__('N/A', 'mikrotik'))  . '</td>';
-			print "<td class='right'>" . ($row['dynamic'] ? __('%s Seconds', $row['last_seen']):__('N/A', 'mikrotik'))  . '</td>';
+			print "<td class='right'>" . ($row['expires_after'] ? __('%s Seconds', $row['expires_after']):__('N/A', 'mikrotik'))  . '</td>';
+			print "<td class='right'>" . ($row['last_seen'] ? __('%s Seconds', $row['last_seen']):__('N/A', 'mikrotik'))  . '</td>';
 
 			print "<td class='right'>" . ($row['dynamic'] ? __('Dynamic', 'mikrotik'):__('Static', 'mikrotik')) . '</td>';
 			print "<td class='right'>" . ($row['blocked'] ? 'true':'false') . '</td>';

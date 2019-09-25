@@ -889,6 +889,7 @@ function collect_system(&$host) {
 			db_execute("UPDATE plugin_mikrotik_system SET $key=" . db_qstr($tikInfoData[$key]) . " WHERE host_id=" . $host['id']);
 		}
 
+		// Load the MikroTik MIB to get good values
 		putenv('MIBS=All');
 
 		/* health oids */
@@ -923,21 +924,70 @@ function collect_system(&$host) {
 
 		// Locate the values names
 		if (cacti_sizeof($healthMibs)) {
-		foreach($healthMibs as $mib) {
-			/* do some cleanup */
-			if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
-			if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
+			foreach($healthMibs as $mib) {
+				/* do some cleanup */
+				if (substr($mib['oid'], 0, 1) != '.') $mib['oid'] = '.' . trim($mib['oid']);
+				if (substr($mib['value'], 0, 4) == 'OID:') $mib['value'] = str_replace('OID:', '', $mib['value']);
 
-			$key = array_search($mib['oid'], $tikHealthOIDs);
+				$key = array_search($mib['oid'], $tikHealthOIDs);
 
-			if ($key == 'date') {
-				$mib['value'] = mikrotik_dateParse($mib['value']);
+				// Attempt to Compensate for missing MikroTik MIB
+				if ($key == 'date') {
+					$mib['value'] = mikrotik_dateParse($mib['value']);
+				} elseif ($key == 'HlCoreVoltage') {
+					if ($mib['value'] > 150) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlThreeDotThreeVoltage') {
+					if ($mib['value'] > 10) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlFiveVoltage') {
+					if ($mib['value'] > 10) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlTwelveVoltage') {
+					if ($mib['value'] > 40) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlSensorTemperature') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlCpuTemperature') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlBoardTemperature') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlVoltage') {
+					if ($mib['value'] > 150) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlTemperature') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlProcessorTemperature') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlPower') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				} elseif ($key == 'HlCurrent') {
+					if ($mib['value'] > 100) {
+						$mib['value'] /= 10;
+					}
+				}
+
+				if (!empty($key)) {
+					$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . (is_numeric($mib['value']) ? $mib['value']:db_qstr(trim($mib['value'], ' "')));
+				}
 			}
-
-			if (!empty($key)) {
-				$set_string .= (strlen($set_string) ? ',':'') . $key . "=" . (is_numeric($mib['value']) ? $mib['value']:db_qstr(trim($mib['value'], ' "')));
-			}
-		}
 		}
 
 		/* Update the values */
@@ -945,8 +995,10 @@ function collect_system(&$host) {
 			db_execute("INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (" . $host['id'] . ")");
 			db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
 		}
+
 		return true;
 	}
+
 	return false;
 }
 
@@ -1205,9 +1257,15 @@ function collect_dhcp_details(&$host) {
 
 	if (cacti_sizeof($creds)) {
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
+			$noServer = false;
+
 			$api->write('/ip/dhcp-server/lease/print');
 
 			$read  = $api->read(false);
+			if (isset($read[0]) && $read[0] == '!trap') {
+				$noServer = true;
+			}
+
 			$array = $api->parseResponse($read);
 
 			$end = microtime(true);
@@ -1215,9 +1273,11 @@ function collect_dhcp_details(&$host) {
 			$sql = array();
 			$sql2 = array();
 
-			cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
+			if ($noServer === false && cacti_sizeof($array) > 0) {
+				cacti_log('MIKROTIK RouterOS API STATS: API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
+			}
 
-			if (cacti_sizeof($array)) {
+			if (cacti_sizeof($array) && $noServer === false) {
 				foreach($array as $row) {
 					$mac_address = isset($row['mac-address']) ? $row['mac-address']:'-99';
 					if (isset($entries[$mac_address]) && $mac_address != 99) {
@@ -1296,10 +1356,18 @@ function collect_dhcp_details(&$host) {
 					VALUES ' . implode(', ', $sql2));
 			}
 
-			db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
-				WHERE present=0
-				AND host_id = ?',
-				array($host['id']));
+			if ($noServer === true) {
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp WHERE host_id = ?', array($host['id']));
+			} else {
+				$retention = read_config_option('mikrotik_dhcp_retention');
+
+				if ($retention > 0) {
+					db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
+						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
+						AND host_id = ?',
+						array($retention, $host['id']));
+				}
+			}
 
 			$api->disconnect();
 		} else {

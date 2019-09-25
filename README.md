@@ -49,6 +49,16 @@ in GitHub.
 
 ## ChangeLog
 
+--- 2.4 ---
+* issue: Properly display uptime for Wireless Registrations
+
+* issue: Do not log when a device does not have DHCP enabled
+
+* issue: Workaround issues with the SNMP client and voltage, 
+  power, ampere and temperature reporting
+
+* feature: Specify a retention time for DHCP Registrations
+
 --- 2.3 ---
 
 * issue#31: Handle case where 'dhcp' package is not installed
