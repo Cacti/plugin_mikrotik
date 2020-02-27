@@ -1255,11 +1255,14 @@ function collect_dhcp_details(&$host) {
 			array($host['id'])),
 		'mac_address', $rekey_array);
 
-	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
+	$creds = db_fetch_row_prepared('SELECT *
+		FROM plugin_mikrotik_credentials
+		WHERE host_id = ?',
+		array($host['id']));
 
 	$start = microtime(true);
 
-	if (cacti_sizeof($creds)) {
+	if (cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
 
@@ -1405,11 +1408,14 @@ function collect_pppoe_users_api(&$host) {
 		AND name LIKE 'PPPOE-%'", array($host['id'])),
 		'name', $rekey_array);
 
-	$creds = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_credentials WHERE host_id = ?', array($host['id']));
+	$creds = db_fetch_row_prepared('SELECT *
+		FROM plugin_mikrotik_credentials
+		WHERE host_id = ?',
+		array($host['id']));
 
 	$start = microtime(true);
 
-	if (cacti_sizeof($creds)) {
+	if (cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$api->write('/ppp/active/getall');
 

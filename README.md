@@ -51,6 +51,7 @@ in GitHub.
 
 --- develop ---
 * issue#36: Mikrotik Plugin -- simple queue issue
+* feature: Allow disablement of API data collection
 
 --- 2.4 ---
 * issue: Properly display uptime for Wireless Registrations
