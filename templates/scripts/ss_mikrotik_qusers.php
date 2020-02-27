@@ -34,14 +34,14 @@ if (!isset($called_by_script_server)) {
 function ss_mikrotik_qusers($host_id, $cmd = 'index', $arg1 = '', $arg2 = '') {
 	if ($cmd == 'index') {
 		$return_arr = ss_mikrotik_qusers_getnames($host_id, $arg1);
-		for ($i=0;($i<sizeof($return_arr));$i++) {
+		for ($i=0;($i < cacti_sizeof($return_arr));$i++) {
 			print $return_arr[$i] . "\n";
 		}
 	} elseif ($cmd == 'query') {
 		$arr_index = ss_mikrotik_qusers_getnames($host_id, $arg1);
 		$arr = ss_mikrotik_qusers_getinfo($host_id, $arg1, $arg2);
 
-		for ($i=0;($i<sizeof($arr_index));$i++) {
+		for ($i=0;($i < cacti_sizeof($arr_index));$i++) {
 			if (isset($arr[$arr_index[$i]])) {
 				print $arr_index[$i] . '!' . $arr[$arr_index[$i]] . "\n";
 			}
@@ -113,7 +113,7 @@ function ss_mikrotik_qusers_getnames($host_id) {
 		ORDER BY name",
 		array($host_id));
 
-	for ($i=0;($i<sizeof($arr));$i++) {
+	for ($i=0;($i < cacti_sizeof($arr));$i++) {
 		$return_arr[$i] = $arr[$i]['name'];
 	}
 
@@ -157,7 +157,7 @@ function ss_mikrotik_qusers_getinfo($host_id, $info_requested) {
 			array($host_id));
 	}
 
-	for ($i=0;($i<sizeof($arr));$i++) {
+	for ($i=0;($i < cacti_sizeof($arr));$i++) {
 		$return_arr[$arr[$i]['qry_index']] = $arr[$i]['qry_value'];
 	}
 

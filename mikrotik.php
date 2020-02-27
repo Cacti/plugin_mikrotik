@@ -413,7 +413,7 @@ function mikrotik_interfaces() {
 		'last_seen'         => array('display' => __('Last Seen', 'mikrotik'),  'sort' => 'ASC',  'align' => 'right')
 	);
 
-	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($display_text), __('Interfaces', 'mikrotik'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=interfaces', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, cacti_sizeof($display_text), __('Interfaces', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 
@@ -706,7 +706,7 @@ function mikrotik_queues() {
 		'last_seen'          => array('display' => __('Last Seen', 'mikrotik'),     'sort' => 'ASC',  'align' => 'right')
 	);
 
-	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($display_text), __('Queues', 'mikrotik'), 'page', 'main');
+	$nav = html_nav_bar('mikrotik.php?action=queues', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, cacti_sizeof($display_text), __('Queues', 'mikrotik'), 'page', 'main');
 
 	print $nav;
 

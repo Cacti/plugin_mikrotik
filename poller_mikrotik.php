@@ -202,9 +202,11 @@ function autoDiscoverHosts() {
 		AND disabled!='on'
 		AND status!=1");
 
-	$template_id = db_fetch_cell('SELECT id FROM host_template WHERE hash="d364e2b9570f166ab33c8df8bd503887"');
+	$template_id = db_fetch_cell('SELECT id
+		FROM host_template
+		WHERE hash="d364e2b9570f166ab33c8df8bd503887"');
 
-	debug("Starting AutoDiscovery for '" . sizeof($hosts) . "' Hosts");
+	debug("Starting AutoDiscovery for '" . cacti_sizeof($hosts) . "' Hosts");
 
 	/* set a process lock */
 	db_execute('REPLACE INTO plugin_mikrotik_processes (pid, taskid) VALUES (' . getmypid() . ', 0)');

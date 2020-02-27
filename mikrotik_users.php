@@ -134,7 +134,7 @@ function form_actions() {
 
 	print "<form action='mikrotik_users.php' autocomplete='off' method='post'>\n";
 
-	if (isset($user_array) && sizeof($user_array)) {
+	if (cacti_sizeof($user_array)) {
 		if (get_request_var('drp_action') == '1') { /* delete */
 			print "	<tr>
 					<td class='textArea'>
