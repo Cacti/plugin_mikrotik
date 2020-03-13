@@ -880,7 +880,7 @@ function mikrotik_config_arrays() {
 	global $wireless_station_hashes, $wirless_reg_hashes, $interface_hashes;
 	global $device_hashes, $device_health_hashes, $graph_template_hashes, $device_query_hashes;
 
-	$menu[__('Management', 'mikrotik')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users', 'mikrotik');
+	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users', 'mikrotik');
 
 	$queue_hashes = array(
 		'2873cd299a639cbdc19320c7c59b76e0',
