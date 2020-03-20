@@ -882,6 +882,11 @@ function mikrotik_config_arrays() {
 
 	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users', 'mikrotik');
 
+	if (function_exists('auth_augment_roles')) {
+		auth_augment_roles(__('Normal User'), array('mikrotik.php'));
+		auth_augment_roles(__('General Administration'), array('mikrotik_users.php'));
+	}
+
 	$queue_hashes = array(
 		'2873cd299a639cbdc19320c7c59b76e0',
 		'f84afb6764a444799a4fdc6172127703',
