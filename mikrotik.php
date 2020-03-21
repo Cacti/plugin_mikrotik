@@ -1813,35 +1813,35 @@ function mikrotik_devices() {
 			print "<td class='nowrap left'>";
 			//print "<a class='padding:1px;' href='" . htmlspecialchars("$url?action=dashboard&reset=1&device=" . $row["host_id"]) . "'><img src='$dashboard' title='View Dashboard'></a>";
 			if ($row['users'] > 0) {
-				print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><img src='$users' title='" . __esc('View Users', 'mikrotik') . "' alt=''></a>";
+				print "<a class='pic' href='" . htmlspecialchars("$url?action=users&reset=1&device=" . $row['host_id']) . "'><i class='fas fa-users' style='color:lightblue;' title='" . __esc('View Users', 'mikrotik') . "'></i></a>";
 			} elseif (read_config_option('mikrotik_users_freq') != '-1') {
-				print "<img style='border:0px;padding:3px;' src='$usersn' title='" . __esc('No Users Found', 'mikrotik') . "' align='absmiddle' alt=''>";
+				print "<a class='pic' href='#'><i class='fas fa-users' style='color:grey;' title='" . __esc('No Users Found', 'mikrotik') . "'></i></a>";
 			}
 
 			if ($row['queues'] > 0) {
-				print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><img src='$queues' title='" . __esc('View Simple Queue', 'mikrotik') . "' alt=''></a>";
+				print "<a class='pic' style='padding:3px;' href='" . htmlspecialchars("$url?action=queues&reset=1&device=" . $row['host_id']) . "'><i class='fas fa-wave-square' style='padding:3px;color:blue;font-size:1.1em;' title='" . __esc('View Simple Queue', 'mikrotik') . "'></i></a>";
 			} elseif (read_config_option('mikrotik_queues_freq') != '-1') {
-				print "<img style='border:0px;padding:3px;' src='$queuesn' title='" . __esc('No Simple Queues Found', 'mikrotik') . "' align='absmiddle' alt=''>";
+				print "<a class='pic' href='#'><i class='fas fa-wave-square' style='padding:3px;font-size:1.1em;color:grey;' title='" . __esc('No Simple Queues Found', 'mikrotik') . "'></i></a>";
 			}
 
 			if ($row['trees'] > 0) {
-				print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><img src='$trees' title='" . __esc('View Queue Trees', 'mikrotik') . "' alt=''></a>";
+				print "<a class='pic' href='" . htmlspecialchars("$url?action=trees&reset=1&device=" . $row['host_id']) . "'><i class='fas fa-tree' style='padding:3px;color:green;font-size:1.1em;' title='" . __esc('View Queue Trees', 'mikrotik') . "'></i></a>";
 			} elseif (read_config_option('mikrotik_trees_freq') != '-1') {
-				print "<img style='border:0px;padding:3px;' src='$treesn' title='" . __esc('No Queue Trees Found', 'mikrotik') . "' align='absmiddle' alt=''>";
+				print "<a class='pic' href='#'><i class='fas fa-tree' style='padding:3px;font-size:1.1em;color:grey;' title='" . __esc('No Queue Trees Found', 'mikrotik') . "'></i></a>";
 			}
 
 			if ($row['aps'] > 0) {
-				print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><img src='$aps' title='" . __esc('View Wireless Aps', 'mikrotik') . "' alt=''></a>";
+				print "<a class='pic' href='" . htmlspecialchars("$url?action=wireless_aps&reset=1&device=" . $row['host_id']) . "'><i class='fas fa-wifi' style='padding:3px;color:lightblue;font-size:1.1em;' title='" . __esc('View Wireless Aps', 'mikrotik') . "'></i></a>";
 			} elseif (read_config_option('mikrotik_wireless_aps_freq') != '-1') {
-				print "<img style='border:0px;padding:3px;' src='$apsn' title='" . __esc('No Wireless Aps Found', 'mikrotik') . "' align='absmiddle' alt=''>";
+				print "<a class='pic' href='#'><i class='fas fa-wifi' style='padding:3px;font-size:1.1em;color:grey;' title='" . __esc('No Wireless Aps Found', 'mikrotik') . "'></i></a>";
 			}
 
-			print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><img src='$interfaces' title='" . __esc('View Interfaces', 'mikrotik') . "' alt=''></a>";
+			print "<a class='pic' href='" . htmlspecialchars("$url?action=interfaces&reset=1&device=" . $row['host_id']) . "'><i class='fas fa-sitemap' style='padding:3px;color:#41A317;font-size:1.1em;' title='" . __esc('View Interfaces', 'mikrotik') . "'></i></a>";
 
 			if ($found) {
-				print "<a class='hyperLink' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><img  src='$graphs' title='" . __esc('View Graphs', 'mikrotik') . "' alt=''></a>";
+				print "<a class='pic' href='" . htmlspecialchars("$url?action=graphs&reset=1&host_id=" . $row['host_id'] . "&style=selective&graph_add=&graph_list=&graph_template_id=0&filter=") . "'><i class='fas fa-chart-line' style='padding:3px;color:orange;font-size:1.1em;' title='" . __esc('View Graphs', 'mikrotik') . "'></i></a>";
 			} else {
-				print "<img src='$nographs' title='" . __esc('No Graphs Defined', 'mikrotik') . "'>";
+				print "<a class='pic' href='#'><i class='fas fa-chart-line' style='padding:3px;font-size:1.1em;color:grey;' title='" . __esc('No Graphs Defined', 'mikrotik') . "'></i></a>";
 			}
 
 			$graph_cpu   = mikrotik_get_graph_url($hcpudq, $row['host_id'], '', $row['numCpus'], false);
@@ -1853,7 +1853,7 @@ function mikrotik_devices() {
 			$graph_upt   = mikrotik_get_graph_template_url(mikrotik_template_by_hash('7d8dc3050621a2cb937cac3895bc5d5b'), $row['host_id'], ($row['host_status'] < 2 ? 'N/A':mikrotik_format_uptime($days, $hours, $minutes)), false);
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = "<a class='hyperLink' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
+				$host_url    = "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $row['host_id']) . "' title='Edit Device'>" . (strlen(get_request_var('filter')) ? preg_replace('/(' . preg_quote(get_request_var('filter'), '/') . ')/i', "<span class='filteredValue'>\\1</span>",  $row['description']):$row['description']) . '</a>';
 			} else {
 				$host_url    = $row['description'];
 			}
@@ -1887,7 +1887,7 @@ function mikrotik_devices() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript">$(function() { $("a.pic, i").tooltip(); });</script>';
 }
 
 function mikrotik_format_uptime($d, $h, $m) {
@@ -1971,7 +1971,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 
 		if (cacti_sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><img src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><i class='fas fa-chart-line' style='padding:3px;color:orange;font-size:1.1em;'></i></a>";
 			} else {
 				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
 			}
@@ -1979,7 +1979,7 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 			return "-";
 		}
 	} elseif ($image) {
-		return "<img src='$nograph' title='" . __esc('Please Select Data Query First from Console -> Settings -> Host MIB First', 'mikrotik') . "'>";
+		return "<i class='fas fa-chart-line' style='padding:3px;font-size:1.1em;' title='" . __esc('Please Select Data Query First from Console -> Settings -> Host MIB First', 'mikrotik') . "'></i>";
 	} else {
 		return $title;
 	}
@@ -2014,15 +2014,15 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 
 		if (cacti_sizeof($graphs)) {
 			if ($image) {
-				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><img src='" . $graph . "'></a>";
+				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'><i class='fas fa-chart-line' style='padding:3px;color:orange;font-size:1.1em;'></i></a>";
 			} else {
 				return "<a class='hyperLink' href='" . htmlspecialchars($url . "?action=graphs&reset=1&style=selective&graph_add=$graph_add&graph_list=&graph_template_id=0&filter=") . "' title='" . __esc('View Graphs', 'mikrotik') . "'>$title</a>";
 			}
 		} else {
-			return "<img src='$nograph' title='" . __esc('Graphs skipped or not created yet', 'mikrotik') . "'>";
+			return "<i class='fas fa-chart-line' style='padding:3px;font-size:1.1em;' title='" . __esc('Graphs skipped or not created yet', 'mikrotik') . "'></i>";
 		}
 	} elseif ($image) {
-		return "<img src='$nograph' title='" . __esc('Please select Data Query first from Console->Settings->Host MIB First', 'mikrotik') . "'>";
+		return "<i class='fas fa-chart-line' style='padding:3px;font-size:1.1em;' title='" . __esc('Please select Data Query first from Console->Settings->Host MIB First', 'mikrotik') . "'></i>";
 	} else {
 		return $title;
 	}

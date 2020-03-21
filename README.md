@@ -49,11 +49,15 @@ in GitHub.
 
 ## ChangeLog
 
---- develop ---
+--- 2.5 ---
 
 * issue#36: Mikrotik Plugin -- simple queue issue
-* 
+
 * feature: Allow disablement of API data collection
+
+* feature: Moving from images to glyphs
+
+* feature: Minimum version Cacti 1.2.11
 
 * issue: Internationalization issues on console
 

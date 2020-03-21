@@ -1287,12 +1287,12 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
 			WHERE gt.hash IN ('" . implode("','", $hashes) . "') $sql_where"), 'id', 'id');
 
 		if (cacti_sizeof($graphs)) {
-			return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><img src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'mikrotik') . "'></a>";
+			return "<a class='pic' href='" . htmlspecialchars($config['url_path'] . 'plugins/mikrotik/mikrotik.php?action=graphs&reset=1&style=selective&graph_list=' . implode(',', $graphs)) . "'><i class='fas fa-chart-line' style='color:orange;' title='" . __esc('View Graphs', 'mikrotik') . "'></i></a>";
 		} else {
-			return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'>";
+			return "<a class='pic' href='#'><i class='fas fa-chart-line' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'></i></a>";
 		}
 	} else {
-		return "<img style='padding:3px;' src='" . $config['url_path'] . "plugins/mikrotik/images/view_graphs_disabled.gif' alt='' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'>";
+		return "<a class='pic' href='#'><i class='fas fa-chart-line' title='" . __esc('Graphs Skipped by Rule, or Not Created', 'mikrotik') . "'></i></a>";
 	}
 }
 
