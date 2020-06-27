@@ -1520,7 +1520,21 @@ function collect_pppoe_users_api(&$host) {
 function uptimeToSeconds($value) {
 	$uptime = 0;
 
-	// remove days first
+	// handle 'never'
+	if ($value == 'never') {
+		return 0;
+	}
+
+	// remove weeks first
+	$parts = explode('w', $value);
+	if (cacti_sizeof($parts) == 2) {
+		$uptime += $parts[0] * 86400 * 7;
+		$value   = $parts[1];
+	} else {
+		$value   = $parts[0];
+	}
+
+	// remove days
 	$parts = explode('d', $value);
 	if (cacti_sizeof($parts) == 2) {
 		$uptime += $parts[0] * 86400;
