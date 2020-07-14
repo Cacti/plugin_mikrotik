@@ -57,6 +57,8 @@ in GitHub.
 
 * feature: Add Address Lists to MikroTik Plugin
 
+* feature: Add DHCP Leases to Device Template
+
 --- 2.5 ---
 
 * issue#36: Mikrotik Plugin -- simple queue issue
