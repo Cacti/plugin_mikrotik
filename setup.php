@@ -35,8 +35,8 @@ function plugin_mikrotik_install() {
 	api_plugin_register_hook('mikrotik', 'host_save',             'mikrotik_host_save',             'setup.php');
 	api_plugin_register_hook('mikrotik', 'host_delete',           'mikrotik_host_delete',           'setup.php');
 
-	api_plugin_register_realm('mikrotik', 'mikrotik.php', __('Plugin -> MikroTik Viewer', 'mikrotik'), 1);
-	api_plugin_register_realm('mikrotik', 'mikrotik_users.php', __('Plugin -> MikroTik Admin', 'mikrotik'), 1);
+	api_plugin_register_realm('mikrotik', 'mikrotik.php', __('MikroTik Viewer', 'mikrotik'), 1);
+	api_plugin_register_realm('mikrotik', 'mikrotik_users.php', __('MikroTik Admin', 'mikrotik'), 1);
 
 	mikrotik_setup_table();
 }
@@ -56,6 +56,8 @@ function plugin_mikrotik_uninstall() {
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_processor`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_credentials`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_dhcp`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_dns`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_lists`');
 }
 
 function plugin_mikrotik_check_config() {
@@ -115,7 +117,9 @@ function mikrotik_check_upgrade() {
 			db_execute("ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)");
 		}
 
-		if (!db_table_exists('plugin_mikrotik_dhcp')) {
+		if (!db_table_exists('plugin_mikrotik_dhcp') ||
+			!db_table_exists('plugin_mikrotik_dns') ||
+			!db_table_exists('plugin_mikrotik_lists')) {
 			mikrotik_setup_table();
 		}
 
@@ -663,6 +667,37 @@ function mikrotik_setup_table() {
 		ENGINE=InnoDB
 		COMMENT='Table of MikroTik DHCP Lease Information obtained from the API'");
 
+	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_lists` (
+		`id` bigint unsigned NOT NULL auto_increment,
+		`host_id` int(10) unsigned NOT NULL,
+		`dynamic` varchar(5) NOT NULL,
+		`disabled` varchar(5) NOT NULL,
+		`list` varchar(20) NOT NULL,
+		`address` varchar(60) NOT NULL,
+		`created` timestamp NOT NULL DEFAULT '1970-01-01',
+		`timeout` int(11) NOT NULL default '-1',
+		`present` tinyint unsigned NOT NULL default '1',
+		`last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+		PRIMARY KEY (`id`),
+		UNIQUE KEY (`host_id`, `list`, `address`))
+		ENGINE=InnoDB
+		COMMENT='Table of MikroTik Address List Information obtained from the API'");
+
+	db_execute("CREATE TABLE IF NOT EXISTS `plugin_mikrotik_dns` (
+		`id` bigint unsigned NOT NULL auto_increment,
+		`host_id` int(10) unsigned NOT NULL,
+		`type` varchar(10) NOT NULL,
+		`data` varchar(128) NOT NULL,
+		`name` varchar(128) NOT NULL,
+		`ttl` int(10) NOT NULL default '-1',
+		`static` varchar(10) NOT NULL default '',
+		`present` tinyint unsigned NOT NULL default '1',
+		`last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+		PRIMARY KEY (`id`),
+		UNIQUE KEY (`host_id`, `type`, `data`, `name`))
+		ENGINE=InnoDB
+		COMMENT='Table of MikroTik DNS Information obtained from the API'");
+
 	db_execute("CREATE TABLE IF NOT EXISTS plugin_mikrotik_mac2hostname (
 		`mac_address` varchar(20) default '',
 		`hostname` varchar(64) default '',
@@ -742,14 +777,28 @@ function mikrotik_config_settings() {
 			'array' => $mikrotik_frequencies
 			),
 		'mikrotik_dhcp_header' => array(
-			'friendly_name' => __('DHCP Settings', 'mikrotik'),
+			'friendly_name' => __('DHCP/DNS/List Settings', 'mikrotik'),
 			'method' => 'spacer',
 			),
 		'mikrotik_dhcp_retention' => array(
 			'friendly_name' => __('DHCP Renetion', 'mikrotik'),
 			'description' => __('How long would you like to retain DHCP IP registration history?', 'mikrotik'),
 			'method' => 'drop_array',
-			'default' => '300',
+			'default' => '2419200',
+			'array' => $mikrotik_retention
+			),
+		'mikrotik_dns_retention' => array(
+			'friendly_name' => __('DNS Renetion', 'mikrotik'),
+			'description' => __('How long would you like to retain DNS Cache history?', 'mikrotik'),
+			'method' => 'drop_array',
+			'default' => '2419200',
+			'array' => $mikrotik_retention
+			),
+		'mikrotik_list_retention' => array(
+			'friendly_name' => __('Address List Renetion', 'mikrotik'),
+			'description' => __('How long would you like to retain Address List history?', 'mikrotik'),
+			'method' => 'drop_array',
+			'default' => '2419200',
 			'array' => $mikrotik_retention
 			),
 		'mikrotik_automation_header' => array(
@@ -814,6 +863,13 @@ function mikrotik_config_settings() {
 		'mikrotik_interfaces_freq' => array(
 			'friendly_name' => __('Interfaces Frequency', 'mikrotik'),
 			'description' => __('How often do you want to scan the Interfaces?', 'mikrotik'),
+			'method' => 'drop_array',
+			'default' => '300',
+			'array' => $mikrotik_frequencies
+			),
+		'mikrotik_dns_dhcp_list_freq' => array(
+			'friendly_name' => __('DNS/DHCP/List Frequency', 'mikrotik'),
+			'description' => __('How often do you want to scan the DNS/DHCP/Address Lists?', 'mikrotik'),
 			'method' => 'drop_array',
 			'default' => '300',
 			'array' => $mikrotik_frequencies

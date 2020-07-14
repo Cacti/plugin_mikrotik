@@ -49,6 +49,14 @@ in GitHub.
 
 ## ChangeLog
 
+--- develop ---
+
+* feature: Add Device ID's to MikroTik API stats to track password failures
+
+* feature: Add DNS Cache to MikroTik Plugin
+
+* feature: Add Address Lists to MikroTik Plugin
+
 --- 2.5 ---
 
 * issue#36: Mikrotik Plugin -- simple queue issue
@@ -62,6 +70,7 @@ in GitHub.
 * issue: Internationalization issues on console
 
 --- 2.4 ---
+
 * issue: Properly display uptime for Wireless Registrations
 
 * issue: Do not log when a device does not have DHCP enabled

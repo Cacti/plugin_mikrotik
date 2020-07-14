@@ -1,1 +1,2 @@
 locales/po/*.mo
+\!templates/**
