@@ -651,7 +651,7 @@ msgstr "DHCP注册"
 
 #: ../setup.php:743
 #, fuzzy
-msgid "DHCP Renetion"
+msgid "DHCP Retention"
 msgstr "DHCP注册"
 
 #: ../setup.php:744

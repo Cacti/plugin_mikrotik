@@ -772,7 +772,7 @@ msgid "DHCP Settings"
 msgstr ""
 
 #: ../setup.php:743
-msgid "DHCP Renetion"
+msgid "DHCP Retention"
 msgstr ""
 
 #: ../setup.php:744
