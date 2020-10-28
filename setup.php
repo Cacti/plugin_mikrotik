@@ -781,21 +781,21 @@ function mikrotik_config_settings() {
 			'method' => 'spacer',
 			),
 		'mikrotik_dhcp_retention' => array(
-			'friendly_name' => __('DHCP Renetion', 'mikrotik'),
+			'friendly_name' => __('DHCP Retention', 'mikrotik'),
 			'description' => __('How long would you like to retain DHCP IP registration history?', 'mikrotik'),
 			'method' => 'drop_array',
 			'default' => '2419200',
 			'array' => $mikrotik_retention
 			),
 		'mikrotik_dns_retention' => array(
-			'friendly_name' => __('DNS Renetion', 'mikrotik'),
+			'friendly_name' => __('DNS Retention', 'mikrotik'),
 			'description' => __('How long would you like to retain DNS Cache history?', 'mikrotik'),
 			'method' => 'drop_array',
 			'default' => '2419200',
 			'array' => $mikrotik_retention
 			),
 		'mikrotik_list_retention' => array(
-			'friendly_name' => __('Address List Renetion', 'mikrotik'),
+			'friendly_name' => __('Address List Retention', 'mikrotik'),
 			'description' => __('How long would you like to retain Address List history?', 'mikrotik'),
 			'method' => 'drop_array',
 			'default' => '2419200',
