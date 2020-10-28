@@ -674,7 +674,7 @@ function mikrotik_setup_table() {
 		`disabled` varchar(5) NOT NULL,
 		`list` varchar(20) NOT NULL,
 		`address` varchar(60) NOT NULL,
-		`created` timestamp NOT NULL DEFAULT '1970-01-01 00:00:01',
+		`created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
 		`timeout` int(11) NOT NULL default '-1',
 		`present` tinyint unsigned NOT NULL default '1',
 		`last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
