@@ -2,7 +2,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2020 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1386,20 +1386,22 @@ function collect_dns_details(&$host) {
 
 			if (cacti_sizeof($array) && $noServer === false) {
 				foreach($array as $row) {
-					$dns['host_id'] = $host['id'];
-					$dns['type']    = isset($row['type']) ? $row['type']:'-1';
-					$dns['data']    = isset($row['data']) ? $row['data']:'-';
-					$dns['name']    = isset($row['name']) ? $row['name']:'';
-					$dns['ttl']     = isset($row['ttl'])  ? mikrotik_parse_ttl($row['ttl']) :'0';
-					$dns['static']  = isset($row['static']) ? $row['static']:'false';
+					if ($row['type'] != '-1') {
+						$dns['host_id'] = $host['id'];
+						$dns['type']    = isset($row['type']) ? $row['type']:'-1';
+						$dns['data']    = isset($row['data']) ? $row['data']:'-';
+						$dns['name']    = isset($row['name']) ? $row['name']:'';
+						$dns['ttl']     = isset($row['ttl'])  ? mikrotik_parse_ttl($row['ttl']) :'0';
+						$dns['static']  = isset($row['static']) ? $row['static']:'false';
 
-					$sql[] = '(' .
-						$dns['host_id']         . ',' .
-						db_qstr($dns['type'])   . ',' .
-						db_qstr($dns['data'])   . ',' .
-						db_qstr($dns['name'])   . ',' .
-						db_qstr($dns['ttl'])    . ',' .
-						db_qstr($dns['static']) . ', 1)';
+						$sql[] = '(' .
+							$dns['host_id']         . ',' .
+							db_qstr($dns['type'])   . ',' .
+							db_qstr($dns['data'])   . ',' .
+							db_qstr($dns['name'])   . ',' .
+							db_qstr($dns['ttl'])    . ',' .
+							db_qstr($dns['static']) . ', 1)';
+					}
 				}
 			}
 
@@ -1422,10 +1424,16 @@ function collect_dns_details(&$host) {
 					WHERE present = 0
 					AND host_id = ?',
 					array($host['id']));
+
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
+					WHERE host_id = ?
+					AND type = "-1"',
+					array($host['id']));
 			}
 
 			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_dns WHERE host_id = ?', array($host['id']));
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
+					WHERE host_id = ?', array($host['id']));
 			} else {
 				$retention = read_config_option('mikrotik_dns_retention');
 
