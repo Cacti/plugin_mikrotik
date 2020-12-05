@@ -1,4 +1,4 @@
-#!/usr/bin/php -q
+#!/usr/bin/env php
 <?php
 /*
  +-------------------------------------------------------------------------+
@@ -1867,3 +1867,4 @@ function display_help() {
 	print "master process: poller_mikrotik.php [-M] [-f] [-fd] [-d]\n";
 	print "child  process: poller_mikrotik.php --host-id=N [--seed=N] [-f] [-d]\n\n";
 }
+

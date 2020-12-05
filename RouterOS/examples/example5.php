@@ -14,11 +14,10 @@ if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
       "count-only"=> "",
       "~active-address" => "1.1.",
    ));
-   
+
    print_r($ARRAY);
 
    $API->disconnect();
 
 }
 
-?>

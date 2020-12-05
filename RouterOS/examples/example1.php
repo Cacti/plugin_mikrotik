@@ -19,4 +19,3 @@ if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
 
 }
 
-?>

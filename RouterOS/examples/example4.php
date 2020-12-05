@@ -14,11 +14,10 @@ if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
       ".proplist"=> ".id",
       "?mac-address" => "00:0E:BB:DD:FF:FF",
    ));
-	
+
    print_r($ARRAY);
 
    $API->disconnect();
 
 }
 
-?>

@@ -10,16 +10,15 @@ $API->debug = true;
 
 if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
 
-   $API->comm("/ppp/secret/add", array(
-      "name"     => "user",
-      "password" => "pass",
-      "remote-address" => "172.16.1.10",
-      "comment"  => "{new VPN user}",
-      "service"  => "pptp",
+   $API->comm('/ppp/secret/add', array(
+      'name'     => 'user',
+      'password' => 'pass',
+      'remote-address' => '172.16.1.10',
+      'comment'  => '{new VPN user}',
+      'service'  => 'pptp',
    ));
 
    $API->disconnect();
 
 }
 
-?>
