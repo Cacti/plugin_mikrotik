@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: mikrotik on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-07-26 13:15+0000\n"
+"PO-Revision-Date: 2020-12-14 19:36-0500\n"
 "Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/mikrotik/zh-CN/>\n"
-"Language: zh-CN\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -65,13 +65,13 @@ msgid "Interfaces"
 msgstr "接口"
 
 #: mikrotik.php:168
-#, fuzzy
 msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php:172 mikrotik.php:2816
+#, fuzzy
 msgid "DNS Cache"
-msgstr ""
+msgstr "DNS缓存"
 
 #: mikrotik.php:176 mikrotik.php:3154
 #, fuzzy
@@ -387,7 +387,6 @@ msgstr "总出"
 #: mikrotik.php:1556 mikrotik.php:1558 mikrotik.php:1559 mikrotik.php:1560
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
-#, fuzzy
 msgid "N/A"
 msgstr "N/A"
 
@@ -471,7 +470,6 @@ msgid "Used Disk"
 msgstr "使用的磁盘"
 
 #: mikrotik.php:1848
-#, fuzzy
 msgid "View Users"
 msgstr "查看用户"
 
@@ -546,14 +544,12 @@ msgid "Registrations"
 msgstr "注册"
 
 #: mikrotik.php:2434 mikrotik.php:2679
-#, fuzzy
 msgid "Client Name"
-msgstr "客户姓名"
+msgstr "客户名称"
 
 #: mikrotik.php:2435 mikrotik.php:2682
-#, fuzzy
 msgid "MAC Address"
-msgstr "IP地址"
+msgstr "MAC地址"
 
 #: mikrotik.php:2443
 msgid "Signal to Noise"
@@ -586,17 +582,15 @@ msgid "Last Updated"
 msgstr "最后更新"
 
 #: mikrotik.php:2709 mikrotik.php:2710
-#, fuzzy, php-format
+#, php-format
 msgid "%s Seconds"
 msgstr "%s 秒"
 
 #: mikrotik.php:2712 mikrotik.php:3290
-#, fuzzy
 msgid "Dynamic"
-msgstr "动态的"
+msgstr "动态"
 
 #: mikrotik.php:2712 mikrotik.php:2983
-#, fuzzy
 msgid "Static"
 msgstr "静态"
 
@@ -607,24 +601,23 @@ msgstr "找不到DHCP"
 
 #: mikrotik.php:2882 mikrotik.php:3020 mikrotik.php:3324
 msgid "Permanent"
-msgstr ""
+msgstr "永久"
 
 #: mikrotik.php:2883 mikrotik.php:3024 mikrotik.php:3326
-#, fuzzy
 msgid "Expired"
-msgstr "到期日"
+msgstr "过期"
 
 #: mikrotik.php:2913 mikrotik.php:3229
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 #: mikrotik.php:2980
 msgid "Data"
-msgstr ""
+msgstr "数据"
 
 #: mikrotik.php:2982
 msgid "TTL"
-msgstr ""
+msgstr "TTL"
 
 #: mikrotik.php:3033
 #, fuzzy
@@ -633,16 +626,15 @@ msgstr "找不到DHCP"
 
 #: mikrotik.php:3190 mikrotik.php:3288
 msgid "List"
-msgstr ""
+msgstr "列表"
 
 #: mikrotik.php:3289
-#, fuzzy
 msgid "Address"
-msgstr "IP地址"
+msgstr "地址"
 
 #: mikrotik.php:3292
 msgid "Timeout"
-msgstr ""
+msgstr "超时"
 
 #: mikrotik.php:3336
 #, fuzzy
@@ -658,7 +650,6 @@ msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "点击“继续”删除下列用户及其图表。"
 
 #: mikrotik_users.php:147
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
@@ -667,7 +658,6 @@ msgid "Continue"
 msgstr "继续"
 
 #: mikrotik_users.php:147
-#, fuzzy
 msgid "Delete Device(s)"
 msgstr "删除设备"
 
@@ -688,14 +678,12 @@ msgid "Inactive"
 msgstr "待用"
 
 #: mikrotik_users.php:296
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "设置/刷新过滤器"
 
 #: mikrotik_users.php:297
-#, fuzzy
 msgid "Clear Filters"
-msgstr "清除过滤"
+msgstr "清除过滤器"
 
 #: mikrotik_users.php:354
 msgid "User Name"
@@ -737,8 +725,9 @@ msgid "MikroTik API Polling Enabled"
 msgstr "启用MikroTik轮询器"
 
 #: setup.php:734
+#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr ""
+msgstr "如果您希望Cacti使用MikroTik API轮询各种设置，请选中此框。如果由于某种原因您无权访问MikroTik API，请取消选中此选项。"
 
 #: setup.php:739
 msgid "Automatically Discover Cacti Devices"
@@ -799,8 +788,9 @@ msgid "DHCP Retention"
 msgstr "DHCP注册"
 
 #: setup.php:785
+#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr ""
+msgstr "您想保留DHCP IP注册历史多长时间？"
 
 #: setup.php:791
 #, fuzzy
@@ -808,16 +798,19 @@ msgid "DNS Retention"
 msgstr "DHCP注册"
 
 #: setup.php:792
+#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr ""
+msgstr "您想保留DNS缓存历史多长时间？"
 
 #: setup.php:798
+#, fuzzy
 msgid "Address List Retention"
-msgstr ""
+msgstr "地址列表保留"
 
 #: setup.php:799
+#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr ""
+msgstr "您想保留地址列表历史记录多长时间？"
 
 #: setup.php:805
 msgid "Device Graph Automation"
@@ -978,11 +971,11 @@ msgstr "管理"
 
 #: setup.php:942
 msgid "Normal User"
-msgstr ""
+msgstr "普通用户"
 
 #: setup.php:943
 msgid "General Administration"
-msgstr ""
+msgstr "基本管理"
 
 #: setup.php:1087
 #, php-format
@@ -991,27 +984,27 @@ msgstr "%d 分钟"
 
 #: setup.php:1099
 msgid "Indefinite"
-msgstr ""
+msgstr "无限制"
 
 #: setup.php:1103
 #, php-format
 msgid "%d Week"
-msgstr ""
+msgstr "%d 周"
 
 #: setup.php:1104 setup.php:1105
 #, php-format
 msgid "%d Weeks"
-msgstr ""
+msgstr "%d 周"
 
 #: setup.php:1106 setup.php:1107
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d分钟"
+msgstr "%d 月"
 
 #: setup.php:1108
 #, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d 年"
 
 #: setup.php:1293
 msgid "Simple Queues"
