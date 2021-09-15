@@ -30,10 +30,11 @@ if (!isset($called_by_script_server)) {
 	array_shift($_SERVER['argv']);
 	print call_user_func_array('ss_count_oids', $_SERVER['argv']);
 }
-include_once(dirname(__FILE__) . '/../../../../lib/snmp.php');
 
 function ss_count_oids($host_id = '', $oid = '') {
 	global $config;
+
+	include_once($config['base_path'] . '/lib/snmp.php');
 
 	if ($host_id > 0) {
 		$host = db_fetch_row_prepared('SELECT hostname, snmp_community, snmp_version, snmp_username, snmp_password,

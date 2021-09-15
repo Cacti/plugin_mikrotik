@@ -35,7 +35,7 @@ function ss_mikrotik_cpu($host_id = '') {
 	$cpu = db_fetch_row_prepared('SELECT AVG(`load`) AS avgCPU,
 		MAX(`load`) AS maxCPU
 		FROM plugin_mikrotik_processor
-		WHERE host_id= ?',
+		WHERE host_id = ?',
 		array($host_id));
 
 	if (cacti_sizeof($cpu)) {
