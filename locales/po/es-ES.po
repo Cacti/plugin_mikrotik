@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2020-12-14 19:28-0500\n"
-"Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
-"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/mikrotik/es-ES/>\n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-09-22 14:09+0000\nLast-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\nLanguage-Team: Spanish <http://translate.cacti.net/projects/cacti/mikrotik/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.3.2\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -123,7 +111,7 @@ msgstr "Todos"
 #: mikrotik.php:1409 mikrotik.php:1716 mikrotik.php:2316 mikrotik.php:2611
 #: mikrotik.php:2899 mikrotik.php:3215 mikrotik_users.php:275
 msgid "Default"
-msgstr "Por defecto"
+msgstr "Predeterminado"
 
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
@@ -402,9 +390,8 @@ msgid "Connect Time"
 msgstr "tiempo de conexión"
 
 #: mikrotik.php:1502
-#, fuzzy
 msgid "Cur In"
-msgstr "Actual:"
+msgstr "Entrada actual"
 
 #: mikrotik.php:1503
 #, fuzzy
@@ -412,9 +399,8 @@ msgid "Cur Out"
 msgstr "Cur Out"
 
 #: mikrotik.php:1504
-#, fuzzy
 msgid "Avg In"
-msgstr "Prom:"
+msgstr "Entrada Prom"
 
 #: mikrotik.php:1505
 #, fuzzy
@@ -435,7 +421,7 @@ msgstr "Total Fuera"
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
 msgid "N/A"
-msgstr "N/D"
+msgstr "n/d"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
@@ -823,9 +809,9 @@ msgid "What is the maximum number of concurrent collector process that you want 
 msgstr "¿Cuál es el número máximo de procesos de colector concurrentes que desea ejecutar a la vez?"
 
 #: setup.php:756
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "Proceso"
+msgstr "%d Proceso"
 
 #: setup.php:757 setup.php:758 setup.php:759 setup.php:760 setup.php:761
 #: setup.php:762 setup.php:763 setup.php:764 setup.php:765
@@ -1117,7 +1103,7 @@ msgstr "Almacenes"
 
 #: setup.php:1300
 msgid "(edit)"
-msgstr "(editar)"
+msgstr "(Editar)"
 
 #: setup.php:1348 setup.php:1351
 #, fuzzy
