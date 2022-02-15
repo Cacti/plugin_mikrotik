@@ -1794,7 +1794,7 @@ function mikrotik_devices() {
 		'uptime'          => array('display' => __('Uptime(d:h:m)', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'),
 		'trees'           => array('display' => __('Trees', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
 		'users'           => array('display' => __('Users', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
-		'cpuPercent'      => array('display' => __('CPU %', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'),
+		'cpuPercent'      => array('display' => __('CPU %%%', 'mikrotik'),       'sort' => 'DESC', 'align' => 'right'),
 		'numCpus'         => array('display' => __('CPUs', 'mikrotik'),          'sort' => 'DESC', 'align' => 'right'),
 		'processes'       => array('display' => __('Processes', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
 		'memSize'         => array('display' => __('Total Mem', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'),
