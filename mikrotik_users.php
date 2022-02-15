@@ -130,7 +130,7 @@ function form_actions() {
 
 	top_header();
 
-	html_start_box('<strong>' . $user_actions{get_request_var('drp_action')} . '</strong>', '60%', '', '3', 'center', '');
+	html_start_box($user_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 	print "<form action='mikrotik_users.php' autocomplete='off' method='post'>\n";
 
