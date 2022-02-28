@@ -1386,7 +1386,7 @@ function collect_dns_details(&$host) {
 
 			if (cacti_sizeof($array) && $noServer === false) {
 				foreach($array as $row) {
-					if ($row['type'] != '-1') {
+					if (isset($row['type']) && $row['type'] != '-1') {
 						$dns['host_id'] = $host['id'];
 						$dns['type']    = isset($row['type']) ? $row['type']:'-1';
 						$dns['data']    = isset($row['data']) ? $row['data']:'-';
