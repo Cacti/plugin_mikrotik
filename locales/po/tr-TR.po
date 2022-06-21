@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-11 03:50+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/mikrotik/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-21 05:25+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/mikrotik/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -91,7 +91,7 @@ msgstr "Arayüz İstatistikleri"
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
 #: mikrotik.php:2825 mikrotik.php:3163 mikrotik_users.php:255
 msgid "Search"
-msgstr "Arama"
+msgstr "Ara"
 
 #: mikrotik.php:300 mikrotik.php:588 mikrotik.php:875 mikrotik.php:1103
 #: mikrotik.php:1374 mikrotik.php:2291 mikrotik.php:2433 mikrotik.php:2586
@@ -736,7 +736,6 @@ msgid "Inactive"
 msgstr "Pasif"
 
 #: mikrotik_users.php:296
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "Filtreleri Ayarla / Yenile"
 
@@ -1093,19 +1092,19 @@ msgid "%d Week"
 msgstr "%d Hafta"
 
 #: setup.php:1104 setup.php:1105
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "%d Hafta"
 
 #: setup.php:1106 setup.php:1107
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d Dakika"
+msgstr "%d Ay"
 
 #: setup.php:1108
 #, php-format
 msgid "%d Year"
-msgstr "%d yıl"
+msgstr "%d Yıl"
 
 #: setup.php:1293
 #, fuzzy
