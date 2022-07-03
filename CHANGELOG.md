@@ -3,6 +3,8 @@
 
 * issue: When combined with Cacti's new test data source, errors in scripts are thrown
 
+* issue: Move the package location for scripts and resource files to the correct location
+
 * feature: Add Device ID's to MikroTik API stats to track password failures
 
 * feature: Add DNS Cache to MikroTik Plugin
@@ -10,6 +12,8 @@
 * feature: Add Address Lists to MikroTik Plugin
 
 * feature: Add DHCP Leases to Device Template
+
+* feature: Add the Mikrotik Switch OS Device Package
 
 --- 2.5 ---
 
