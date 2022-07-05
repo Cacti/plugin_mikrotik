@@ -5,6 +5,8 @@
 
 * issue: Move the package location for scripts and resource files to the correct location
 
+* issue#62: PHP DEPRECATED warnings in mikrotik plugin
+
 * feature: Add Device ID's to MikroTik API stats to track password failures
 
 * feature: Add DNS Cache to MikroTik Plugin

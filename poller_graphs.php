@@ -88,18 +88,19 @@ if (read_config_option('mikrotik_enabled') == '' || db_fetch_cell("SELECT status
 }
 
 /* see if its time to run */
-$last_run  = read_config_option('mikrotik_automation_lastrun');
-$frequency = read_config_option('mikrotik_automation_frequency') * 60;
-debug("Last Run Was '" . date('Y-m-d H:i:s', $last_run) . "', Frequency is '" . ($frequency/60) . "' Minutes");
+$last_run  = (int) read_config_option('mikrotik_automation_lastrun');
+$frequency = (int) read_config_option('mikrotik_automation_frequency') * 60;
+
+debug("Last Run Was '" . date('Y-m-d H:i:s', $last_run) . "', Frequency is '" . round($frequency/60, 1) . "' Minutes");
 
 if ($frequency == 0) {
 	print "NOTE:  Graph Automation is Disabled\n";
 } elseif (($frequency > 0 && ($start - $last_run) > $frequency) || ($frequency > 0 && $forcerun)) {
-	list($micro,$seconds) = explode(' ', microtime());
-	$start = $seconds + $micro;
+	$start = microtime(true);
 
 	print "NOTE:  Starting Automation Process\n";
-	db_execute("REPLACE INTO settings (name,value) VALUES ('mikrotik_automation_lastrun', '$start')");
+
+	set_config_option('mikrotik_automation_lastrun', $start);
 
 	debug('Removing invalid stations graphs');
 	remove_invalid_station_graphs();
@@ -107,13 +108,12 @@ if ($frequency == 0) {
 	debug('Adding Graphs');
 	add_graphs();
 
-	list($micro,$seconds) = explode(' ', microtime());
-	$end = $seconds + $micro;
+	$end = microtime(true);
 
 	$cacti_stats = sprintf('Time:%01.4f ', round($end-$start,2));
 
 	/* log to the database */
-	db_execute("REPLACE INTO settings (name,value) VALUES ('stats_mikrotik_graphs', '" . $cacti_stats . "')");
+	set_config_option('stats_mikrotik_graphs', $cacti_stats);
 
 	/* log to the logfile */
 	cacti_log('MIKROTIK GRAPH STATS: ' . $cacti_stats , true, 'SYSTEM');
