@@ -127,8 +127,7 @@ if ($seed == '') {
 }
 
 if ($start == '') {
-	list($micro,$seconds) = explode(' ', microtime());
-	$start = $seconds + $micro;
+	$start = microtime(true);
 }
 
 if ($mainrun) {
@@ -674,8 +673,7 @@ function process_hosts() {
 	db_execute("DELETE FROM plugin_mikrotik_system_health WHERE host_id NOT IN (SELECT id FROM host)");
 
 	/* take time and log performance data */
-	list($micro,$seconds) = explode(' ', microtime());
-	$end = $seconds + $micro;
+	$end = microtime(true);
 
 	$interfaces = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_interfaces WHERE present=1");
 	$queues     = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_queues WHERE present=1");
