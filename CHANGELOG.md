@@ -5,6 +5,8 @@
 
 * issue: Move the package location for scripts and resource files to the correct location
 
+* issue#61: PLUGIN WARNING: Function does not exist config_form with function mikrotik_config_form
+
 * issue#62: PHP DEPRECATED warnings in mikrotik plugin
 
 * feature: Add Device ID's to MikroTik API stats to track password failures

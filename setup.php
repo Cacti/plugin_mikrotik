@@ -25,7 +25,6 @@
 function plugin_mikrotik_install() {
 	# graph setup all arrays needed for automation
 	api_plugin_register_hook('mikrotik', 'config_arrays',         'mikrotik_config_arrays',         'setup.php');
-	api_plugin_register_hook('mikrotik', 'config_form',           'mikrotik_config_form',           'setup.php');
 	api_plugin_register_hook('mikrotik', 'config_settings',       'mikrotik_config_settings',       'setup.php');
 	api_plugin_register_hook('mikrotik', 'draw_navigation_text',  'mikrotik_draw_navigation_text',  'setup.php');
 	api_plugin_register_hook('mikrotik', 'poller_bottom',         'mikrotik_poller_bottom',         'setup.php');
@@ -134,6 +133,8 @@ function mikrotik_check_upgrade() {
 				$info['name']
 			)
 		);
+
+		db_execute('DELETE FROM plugin_hooks WHERE name = "mikrotik" and hook = "config_form"');
 	}
 }
 
