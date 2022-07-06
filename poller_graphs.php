@@ -110,7 +110,7 @@ if ($frequency == 0) {
 
 	$end = microtime(true);
 
-	$cacti_stats = sprintf('Time:%01.4f ', round($end-$start,2));
+	$cacti_stats = sprintf('Time:%0.2f ', $end - $start);
 
 	/* log to the database */
 	set_config_option('stats_mikrotik_graphs', $cacti_stats);

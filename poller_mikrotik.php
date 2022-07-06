@@ -683,8 +683,8 @@ function process_hosts() {
 	$wreg       = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_wireless_registrations WHERE present=1");
 
 	$cacti_stats = sprintf(
-		'Time:%01.4f Processes:%s Hosts:%s Interfaces:%s Queues:%s Users:%s Trees:%s Waps:%s Wreg:%s',
-		round($end-$start,2),
+		'Time:%0.2f Processes:%s Hosts:%s Interfaces:%s Queues:%s Users:%s Trees:%s Waps:%s Wreg:%s',
+		$end - $start,
 		$concurrent_processes,
 		sizeof($hosts),
 		$interfaces,
