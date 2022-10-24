@@ -4,27 +4,27 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: lv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-10-24 22:47+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
-msgstr ""
+msgstr "Tagad"
 
 #: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #: mikrotik.php:43
 msgid "Running"
-msgstr ""
+msgstr "Procesā"
 
 #: mikrotik.php:44
 msgid "Warning"
-msgstr ""
+msgstr "Brīdinājums"
 
 #: mikrotik.php:45
 msgid "Testing"
-msgstr ""
+msgstr "Testēšana"
 
 #: mikrotik.php:46 mikrotik.php:1692
 msgid "Down"
@@ -33,40 +33,43 @@ msgstr ""
 #: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1712 mikrotik.php:1806
 #: setup.php:1291
 msgid "Devices"
-msgstr ""
+msgstr "Ierīces"
 
 #: mikrotik.php:152 mikrotik.php:1511 mikrotik.php:1796 mikrotik_users.php:271
 #: mikrotik_users.php:345 setup.php:1294
 msgid "Users"
-msgstr ""
+msgstr "Lietotāji"
 
 #: mikrotik.php:156 mikrotik.php:609 mikrotik.php:741
+#, fuzzy
 msgid "Queues"
-msgstr ""
+msgstr "Rindas"
 
 #: mikrotik.php:160
 msgid "Queue Trees"
 msgstr ""
 
 #: mikrotik.php:164 mikrotik.php:321 mikrotik.php:448 setup.php:1295
+#, fuzzy
 msgid "Interfaces"
-msgstr ""
+msgstr "Saskarnes"
 
 #: mikrotik.php:168
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 #: mikrotik.php:172 mikrotik.php:2816
 msgid "DNS Cache"
-msgstr ""
+msgstr "DNS kešatmiņa"
 
 #: mikrotik.php:176 mikrotik.php:3154
 msgid "Address Lists"
-msgstr ""
+msgstr "Adrešu saraksti"
 
 #: mikrotik.php:180 mikrotik.php:1212 setup.php:1298
+#, fuzzy
 msgid "Wireless Aps"
-msgstr ""
+msgstr "Bezvadu piekļuves punkti jeb lietojumprogrammas (Aps)"
 
 #: mikrotik.php:184
 msgid "Wireless Registrations"
@@ -74,23 +77,24 @@ msgstr ""
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
-msgstr ""
+msgstr "Grafiki"
 
 #: mikrotik.php:285
+#, fuzzy
 msgid "Interface Stats"
-msgstr ""
+msgstr "Saskarnes statistika"
 
 #: mikrotik.php:294 mikrotik.php:582 mikrotik.php:869 mikrotik.php:1097
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
 #: mikrotik.php:2825 mikrotik.php:3163 mikrotik_users.php:255
 msgid "Search"
-msgstr ""
+msgstr "Meklēt"
 
 #: mikrotik.php:300 mikrotik.php:588 mikrotik.php:875 mikrotik.php:1103
 #: mikrotik.php:1374 mikrotik.php:2291 mikrotik.php:2433 mikrotik.php:2586
 #: mikrotik.php:2831 mikrotik.php:3169
 msgid "Device"
-msgstr ""
+msgstr "Ierīce"
 
 #: mikrotik.php:304 mikrotik.php:592 mikrotik.php:879 mikrotik.php:1107
 #: mikrotik.php:1378 mikrotik.php:1399 mikrotik.php:1676 mikrotik.php:2295
@@ -98,7 +102,7 @@ msgstr ""
 #: mikrotik.php:3173 mikrotik.php:3194 mikrotik_users.php:265
 #: mikrotik_users.php:290
 msgid "All"
-msgstr ""
+msgstr "Visi"
 
 #: mikrotik.php:325 mikrotik.php:613 mikrotik.php:900 mikrotik.php:1128
 #: mikrotik.php:1409 mikrotik.php:1716 mikrotik.php:2316 mikrotik.php:2611
@@ -109,7 +113,7 @@ msgstr ""
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
 msgid "Active"
-msgstr ""
+msgstr "Aktīvs"
 
 #: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
 msgid "Since Reset"
@@ -119,62 +123,62 @@ msgstr ""
 #: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
 #: mikrotik.php:2911 mikrotik.php:3227 mikrotik_users.php:296
 msgid "Go"
-msgstr ""
+msgstr "Doties"
 
 #: mikrotik.php:349 mikrotik.php:638 mikrotik.php:913 mikrotik.php:1141
 #: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
 #: mikrotik.php:2912 mikrotik.php:3228 mikrotik_users.php:297
 msgid "Clear"
-msgstr ""
+msgstr "Notīrīt"
 
 #: mikrotik.php:436 mikrotik.php:725 mikrotik.php:967 mikrotik.php:1197
 #: mikrotik.php:1495 mikrotik.php:1788 mikrotik.php:2432 setup.php:1301
 msgid "Actions"
-msgstr ""
+msgstr "Darbības"
 
 #: mikrotik.php:437 mikrotik.php:726 mikrotik.php:968 mikrotik.php:1198
 #: mikrotik.php:1496 mikrotik.php:2678
 msgid "Hostname"
-msgstr ""
+msgstr "Resursdatora nosaukums"
 
 #: mikrotik.php:438 mikrotik.php:727 mikrotik.php:969 mikrotik.php:1789
 #: mikrotik.php:2981
 msgid "Name"
-msgstr ""
+msgstr "Nosaukums"
 
 #: mikrotik.php:439 mikrotik.php:2436
 msgid "Rx Bytes"
-msgstr ""
+msgstr "Saņemtie (Rx) baiti"
 
 #: mikrotik.php:440 mikrotik.php:2437
 msgid "Tx Bytes"
-msgstr ""
+msgstr "Pārsūtītie (Tx) baiti"
 
 #: mikrotik.php:441 mikrotik.php:2438
 msgid "Rx Packets"
-msgstr ""
+msgstr "Saņemtās (Rx) paketes"
 
 #: mikrotik.php:442 mikrotik.php:2439
 msgid "Tx Packets"
-msgstr ""
+msgstr "Pārsūtītās (Tx) paketes"
 
 #: mikrotik.php:443
 msgid "Rx Errors"
-msgstr ""
+msgstr "Saņemtās (Rx) kļūdas"
 
 #: mikrotik.php:444
 msgid "Tx Errors"
-msgstr ""
+msgstr "Pārsūtītās (Tx) kļūdas"
 
 #: mikrotik.php:445 mikrotik.php:738 mikrotik.php:975 mikrotik.php:1209
 #: mikrotik.php:1508 mikrotik.php:2444 mikrotik.php:2684 mikrotik_users.php:357
 msgid "Last Seen"
-msgstr ""
+msgstr "Pēdējo reizi redzēts"
 
 #: mikrotik.php:463 mikrotik.php:756 mikrotik.php:993 mikrotik.php:1227
 #: mikrotik.php:1534 mikrotik.php:2472
 msgid "Edit Device"
-msgstr ""
+msgstr "Rediģēt ierīci"
 
 #: mikrotik.php:482
 msgid "No Interfaces Found"
@@ -186,11 +190,11 @@ msgstr ""
 
 #: mikrotik.php:728
 msgid "Src Addr/Mask"
-msgstr ""
+msgstr "Avota adrese/maska"
 
 #: mikrotik.php:729
 msgid "Dst Addr/Mask"
-msgstr ""
+msgstr "Galamērķa adrese/maska"
 
 #: mikrotik.php:730
 msgid "Bytes In"
@@ -587,7 +591,7 @@ msgstr ""
 
 #: mikrotik.php:2980
 msgid "Data"
-msgstr ""
+msgstr "Dati"
 
 #: mikrotik.php:2982
 msgid "TTL"
