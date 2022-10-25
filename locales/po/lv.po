@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-10-24 22:47+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-10-25 04:08+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -28,7 +28,7 @@ msgstr "Testēšana"
 
 #: mikrotik.php:46 mikrotik.php:1692
 msgid "Down"
-msgstr ""
+msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta)"
 
 #: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1712 mikrotik.php:1806
 #: setup.php:1291
@@ -152,7 +152,7 @@ msgstr "Saņemtie (Rx) baiti"
 
 #: mikrotik.php:440 mikrotik.php:2437
 msgid "Tx Bytes"
-msgstr "Pārsūtītie (Tx) baiti"
+msgstr "Nosūtītie (Tx) baiti"
 
 #: mikrotik.php:441 mikrotik.php:2438
 msgid "Rx Packets"
@@ -160,7 +160,7 @@ msgstr "Saņemtās (Rx) paketes"
 
 #: mikrotik.php:442 mikrotik.php:2439
 msgid "Tx Packets"
-msgstr "Pārsūtītās (Tx) paketes"
+msgstr "Nosūtītās (Tx) paketes"
 
 #: mikrotik.php:443
 msgid "Rx Errors"
@@ -168,7 +168,7 @@ msgstr "Saņemtās (Rx) kļūdas"
 
 #: mikrotik.php:444
 msgid "Tx Errors"
-msgstr "Pārsūtītās (Tx) kļūdas"
+msgstr "Nosūtītās (Tx) kļūdas"
 
 #: mikrotik.php:445 mikrotik.php:738 mikrotik.php:975 mikrotik.php:1209
 #: mikrotik.php:1508 mikrotik.php:2444 mikrotik.php:2684 mikrotik_users.php:357
@@ -198,19 +198,19 @@ msgstr "Galamērķa adrese/maska"
 
 #: mikrotik.php:730
 msgid "Bytes In"
-msgstr ""
+msgstr "Saņemti baiti"
 
 #: mikrotik.php:731
 msgid "Bytes Out"
-msgstr ""
+msgstr "Nosūtīti baiti"
 
 #: mikrotik.php:732
 msgid "Pkts In"
-msgstr ""
+msgstr "Saņemtas paketes"
 
 #: mikrotik.php:733
 msgid "Pkts Out"
-msgstr ""
+msgstr "Nosūtītas paketes"
 
 #: mikrotik.php:734
 msgid "Qs In"
@@ -254,11 +254,11 @@ msgstr ""
 
 #: mikrotik.php:973
 msgid "Total Bytes"
-msgstr ""
+msgstr "Kopējie baiti"
 
 #: mikrotik.php:974
 msgid "Total Packets"
-msgstr ""
+msgstr "Pakešu kopskaits"
 
 #: mikrotik.php:1011 mikrotik.php:1862
 msgid "No Queue Trees Found"
@@ -273,12 +273,14 @@ msgid "Aps"
 msgstr ""
 
 #: mikrotik.php:1199
+#, fuzzy
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 #: mikrotik.php:1200
+#, fuzzy
 msgid "BSSID"
-msgstr ""
+msgstr "BSSID"
 
 #: mikrotik.php:1201 mikrotik.php:2441
 msgid "Tx Rate"
@@ -298,11 +300,11 @@ msgstr ""
 
 #: mikrotik.php:1205
 msgid "Frequency"
-msgstr ""
+msgstr "Frekvence"
 
 #: mikrotik.php:1206
 msgid "Band"
-msgstr ""
+msgstr "Diapazons"
 
 #: mikrotik.php:1207
 msgid "Noise Floor"
@@ -314,16 +316,16 @@ msgstr ""
 
 #: mikrotik.php:1359
 msgid "User Statistics"
-msgstr ""
+msgstr "Lietotāju statistika"
 
 #: mikrotik.php:1395 mikrotik.php:1498 mikrotik.php:2685 mikrotik.php:2852
 #: mikrotik.php:2979 mikrotik_users.php:261 mikrotik_users.php:356
 msgid "Type"
-msgstr ""
+msgstr "Tips"
 
 #: mikrotik.php:1400 mikrotik_users.php:266
 msgid "Hotspot"
-msgstr ""
+msgstr "Karstais punkts"
 
 #: mikrotik.php:1401 mikrotik_users.php:267
 msgid "PPPoe"
@@ -331,23 +333,23 @@ msgstr ""
 
 #: mikrotik.php:1422
 msgid "Active Users"
-msgstr ""
+msgstr "Aktīvie lietotāji"
 
 #: mikrotik.php:1497
 msgid "User"
-msgstr ""
+msgstr "Lietotājs"
 
 #: mikrotik.php:1499 mikrotik.php:2680
 msgid "IP Address"
-msgstr ""
+msgstr "IP adrese"
 
 #: mikrotik.php:1500
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 #: mikrotik.php:1501
 msgid "Connect Time"
-msgstr ""
+msgstr "Savienojuma laiks"
 
 #: mikrotik.php:1502
 msgid "Cur In"
@@ -359,19 +361,19 @@ msgstr ""
 
 #: mikrotik.php:1504
 msgid "Avg In"
-msgstr ""
+msgstr "Vidēji saņemti"
 
 #: mikrotik.php:1505
 msgid "Avg Out"
-msgstr ""
+msgstr "Vidēji nosūtīti"
 
 #: mikrotik.php:1506
 msgid "Total In"
-msgstr ""
+msgstr "Kopā saņemti"
 
 #: mikrotik.php:1507
 msgid "Total Out"
-msgstr ""
+msgstr "Kopā nosūtīti"
 
 #: mikrotik.php:1556 mikrotik.php:1558 mikrotik.php:1559 mikrotik.php:1560
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
@@ -381,7 +383,7 @@ msgstr ""
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
-msgstr ""
+msgstr "Nav atrasts neviens lietotājs"
 
 #: mikrotik.php:1650
 #, php-format
@@ -395,16 +397,16 @@ msgstr ""
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
-msgstr ""
+msgstr "Izmaiņu žurnāls"
 
 #: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
 #: mikrotik_users.php:286
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: mikrotik.php:1695
 msgid "Recovering"
-msgstr ""
+msgstr "Atgūstas"
 
 #: mikrotik.php:1698
 msgid "Up"
@@ -412,43 +414,43 @@ msgstr ""
 
 #: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
 msgid "Disabled"
-msgstr ""
+msgstr "Atspējots"
 
 #: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
 msgid "Description"
-msgstr ""
+msgstr "Apraksts"
 
 #: mikrotik.php:1792
 msgid "FW Ver"
-msgstr ""
+msgstr "Aparātprogrammatūras versija"
 
 #: mikrotik.php:1793
 msgid "Lic Ver"
-msgstr ""
+msgstr "Licences versija"
 
 #: mikrotik.php:1794 mikrotik.php:2442
 msgid "Uptime(d:h:m)"
-msgstr ""
+msgstr "Darbošanās laiks (d:s:m)"
 
 #: mikrotik.php:1797
 msgid "CPU %"
-msgstr ""
+msgstr "Procesors %"
 
 #: mikrotik.php:1798
 msgid "CPUs"
-msgstr ""
+msgstr "Procesori"
 
 #: mikrotik.php:1799
 msgid "Processes"
-msgstr ""
+msgstr "Procesi"
 
 #: mikrotik.php:1800
 msgid "Total Mem"
-msgstr ""
+msgstr "Kopējā atmiņa"
 
 #: mikrotik.php:1801
 msgid "Used Mem"
-msgstr ""
+msgstr "Izmantotā atmiņa"
 
 #: mikrotik.php:1802
 msgid "Total Disk"
@@ -460,7 +462,7 @@ msgstr ""
 
 #: mikrotik.php:1848
 msgid "View Users"
-msgstr ""
+msgstr "Skatīt lietotājus"
 
 #: mikrotik.php:1854
 msgid "View Simple Queue"
@@ -485,15 +487,15 @@ msgstr ""
 #: mikrotik.php:1874 mikrotik.php:2006 mikrotik.php:2008 mikrotik.php:2049
 #: mikrotik.php:2051 setup.php:1346
 msgid "View Graphs"
-msgstr ""
+msgstr "Skatīt grafikus"
 
 #: mikrotik.php:1876
 msgid "No Graphs Defined"
-msgstr ""
+msgstr "Nav nevienu definētu grafiku"
 
 #: mikrotik.php:1913
 msgid "No Devices Found"
-msgstr ""
+msgstr "Netika atrasta neviena ierīce"
 
 #: mikrotik.php:2014
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
@@ -513,7 +515,7 @@ msgstr ""
 
 #: mikrotik.php:2086
 msgid "Graph Preview Filters"
-msgstr ""
+msgstr "Grafika priekšskatījuma filtrēšana"
 
 #: mikrotik.php:2276
 msgid "Wireless Registration Stats"
@@ -521,15 +523,15 @@ msgstr ""
 
 #: mikrotik.php:2312 mikrotik.php:2447
 msgid "Registrations"
-msgstr ""
+msgstr "Reģistrācijas"
 
 #: mikrotik.php:2434 mikrotik.php:2679
 msgid "Client Name"
-msgstr ""
+msgstr "Klienta vārds"
 
 #: mikrotik.php:2435 mikrotik.php:2682
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC adrese"
 
 #: mikrotik.php:2443
 msgid "Signal to Noise"
@@ -546,40 +548,40 @@ msgstr ""
 #: mikrotik.php:2607 mikrotik.php:2691 mikrotik.php:2895 mikrotik.php:2996
 #: mikrotik.php:3211 mikrotik.php:3305
 msgid "Entries"
-msgstr ""
+msgstr "Ieraksti"
 
 #: mikrotik.php:2683
 msgid "Expires in"
-msgstr ""
+msgstr "Beidzas pēc"
 
 #: mikrotik.php:2686
 msgid "Blocked"
-msgstr ""
+msgstr "Bloķēts"
 
 #: mikrotik.php:2688 mikrotik.php:2984 mikrotik.php:3293
 msgid "Last Updated"
-msgstr ""
+msgstr "Pēdējoreiz atjaunināts"
 
 #: mikrotik.php:2709 mikrotik.php:2710
 #, php-format
 msgid "%s Seconds"
-msgstr ""
+msgstr "%s sekundes"
 
 #: mikrotik.php:2712 mikrotik.php:3290
 msgid "Dynamic"
-msgstr ""
+msgstr "Dinamiska"
 
 #: mikrotik.php:2712 mikrotik.php:2983
 msgid "Static"
-msgstr ""
+msgstr "Statiska"
 
 #: mikrotik.php:2720
 msgid "No DHCP Entries Found"
-msgstr ""
+msgstr "Netika atrasts neviens DHCP ieraksts"
 
 #: mikrotik.php:2882 mikrotik.php:3020 mikrotik.php:3324
 msgid "Permanent"
-msgstr ""
+msgstr "Pastāvīga"
 
 #: mikrotik.php:2883 mikrotik.php:3024 mikrotik.php:3326
 msgid "Expired"
@@ -587,7 +589,7 @@ msgstr ""
 
 #: mikrotik.php:2913 mikrotik.php:3229
 msgid "Export"
-msgstr ""
+msgstr "Eksportēt"
 
 #: mikrotik.php:2980
 msgid "Data"
@@ -595,19 +597,19 @@ msgstr "Dati"
 
 #: mikrotik.php:2982
 msgid "TTL"
-msgstr ""
+msgstr "Dzīvošanas laiks - mūžs (TTL)"
 
 #: mikrotik.php:3033
 msgid "No DNS Entries Found"
-msgstr ""
+msgstr "Netika atrasts neviens DNS ieraksts"
 
 #: mikrotik.php:3190 mikrotik.php:3288
 msgid "List"
-msgstr ""
+msgstr "Saraksts"
 
 #: mikrotik.php:3289
 msgid "Address"
-msgstr ""
+msgstr "Adrese"
 
 #: mikrotik.php:3292
 msgid "Timeout"
@@ -619,35 +621,36 @@ msgstr ""
 
 #: mikrotik_users.php:33
 msgid "Delete"
-msgstr ""
+msgstr "Dzēst"
 
 #: mikrotik_users.php:141
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr ""
+msgstr "Noklikšķiniet 'Turpināt', lai dzēstu šādus lietotājus un to grafiku(-us)."
 
 #: mikrotik_users.php:147
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #: mikrotik_users.php:147
 msgid "Continue"
-msgstr ""
+msgstr "Turpināt"
 
 #: mikrotik_users.php:147
 msgid "Delete Device(s)"
-msgstr ""
+msgstr "Dzēst ierīci(-es)"
 
 #: mikrotik_users.php:150
 msgid "You must select at least one User."
-msgstr ""
+msgstr "Jums ir jāizvēlas vismaz viens lietotājs."
 
 #: mikrotik_users.php:151
 msgid "Return"
-msgstr ""
+msgstr "Atgriezties"
 
 #: mikrotik_users.php:246 setup.php:939 setup.php:1299
 msgid "MikroTik Users"
-msgstr ""
+msgstr "MikroTik lietotāji"
 
 #: mikrotik_users.php:292 mikrotik_users.php:369
 msgid "Inactive"
@@ -655,19 +658,19 @@ msgstr ""
 
 #: mikrotik_users.php:296
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "Atlasīt/Atjaunināt filtrus"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
-msgstr ""
+msgstr "Notīrīt filtrus"
 
 #: mikrotik_users.php:354
 msgid "User Name"
-msgstr ""
+msgstr "Lietotājvārds"
 
 #: mikrotik_users.php:355
 msgid "Domain"
-msgstr ""
+msgstr "Domēns"
 
 #: setup.php:38
 msgid "MikroTik Viewer"
