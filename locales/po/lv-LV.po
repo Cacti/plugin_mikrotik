@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-11-04 04:14+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-11-07 18:22+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -41,7 +41,6 @@ msgid "Users"
 msgstr "Lietotāji"
 
 #: mikrotik.php:156 mikrotik.php:609 mikrotik.php:741
-#, fuzzy
 msgid "Queues"
 msgstr "Rindas"
 
@@ -68,13 +67,13 @@ msgid "Address Lists"
 msgstr "Adrešu saraksti"
 
 #: mikrotik.php:180 mikrotik.php:1212 setup.php:1298
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Bezvadu piekļuves punkti jeb lietojumprogrammas (Aps)"
+msgstr "Bezvadu piekļuves punkti"
 
 #: mikrotik.php:184
+#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Bezvada reģistrācija"
+msgstr "Bezvadu reģistrācijas"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
@@ -246,7 +245,7 @@ msgstr "Koki"
 
 #: mikrotik.php:970
 msgid "Flow"
-msgstr ""
+msgstr "Plūsma"
 
 #: mikrotik.php:971
 msgid "Cur Bytes"
@@ -270,7 +269,7 @@ msgstr ""
 
 #: mikrotik.php:1088
 msgid "Wireless Aps Status"
-msgstr "Bezvada piekļuves punktu statuss"
+msgstr "Bezvadu piekļuves punktu statuss"
 
 #: mikrotik.php:1124
 msgid "Aps"
@@ -286,11 +285,11 @@ msgstr "BSSID"
 
 #: mikrotik.php:1201 mikrotik.php:2441
 msgid "Tx Rate"
-msgstr ""
+msgstr "Sūtīšanas ātrums"
 
 #: mikrotik.php:1202 mikrotik.php:2440
 msgid "Rx Rate"
-msgstr ""
+msgstr "Saņemšanas ātrums"
 
 #: mikrotik.php:1203
 msgid "Clients"
@@ -310,7 +309,7 @@ msgstr "Diapazons"
 
 #: mikrotik.php:1207
 msgid "Noise Floor"
-msgstr ""
+msgstr "Trokšņa līmenis"
 
 #: mikrotik.php:1208
 msgid "Tx CQQ"
@@ -331,7 +330,7 @@ msgstr "Karstais punkts"
 
 #: mikrotik.php:1401 mikrotik_users.php:267
 msgid "PPPoe"
-msgstr ""
+msgstr "PPPoE"
 
 #: mikrotik.php:1422
 msgid "Active Users"
@@ -390,12 +389,12 @@ msgstr "Nav atrasts neviens lietotājs"
 #: mikrotik.php:1650
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr ""
+msgstr "Ierīces filtrs (Jaunākā MikroTik versija ir: %s)"
 
 #: mikrotik.php:1652
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr ""
+msgstr "Ierīces filtrs (Jaunākā MikroTik versija ir: %s, Publicēta: %s)"
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
@@ -478,11 +477,11 @@ msgstr "Skatīt rindas kokus"
 
 #: mikrotik.php:1866
 msgid "View Wireless Aps"
-msgstr ""
+msgstr "Skatīt bezvadu piekļuves punktus"
 
 #: mikrotik.php:1868
 msgid "No Wireless Aps Found"
-msgstr ""
+msgstr "Nav atrasts neviens bezvadu piekļuves punkts"
 
 #: mikrotik.php:1871
 msgid "View Interfaces"
@@ -522,8 +521,9 @@ msgid "Graph Preview Filters"
 msgstr "Grafika priekšskatījuma filtrēšana"
 
 #: mikrotik.php:2276
+#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr ""
+msgstr "Bezvadu reģistrācijas statistika"
 
 #: mikrotik.php:2312 mikrotik.php:2447
 msgid "Registrations"
@@ -542,8 +542,9 @@ msgid "Signal to Noise"
 msgstr ""
 
 #: mikrotik.php:2494
+#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr ""
+msgstr "Nav atrasta neviena bezvadu reģistrācija"
 
 #: mikrotik.php:2571
 msgid "DHCP Registrations"
@@ -784,8 +785,9 @@ msgid "How long would you like to retain Address List history?"
 msgstr ""
 
 #: setup.php:805
+#, fuzzy
 msgid "Device Graph Automation"
-msgstr ""
+msgstr "Ierīces grafika automatizācija"
 
 #: setup.php:809
 msgid "Automatically Add New Graphs"
@@ -843,8 +845,9 @@ msgid "How long should an excluded user's data be preserved after they have disc
 msgstr ""
 
 #: setup.php:846
+#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr ""
+msgstr "MikroTik ierīču apkopojuma atjaunošanas biežums"
 
 #: setup.php:850
 msgid "Storage Frequency"
@@ -860,7 +863,7 @@ msgstr "Procesora biežums"
 
 #: setup.php:858
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr ""
+msgstr "Cik bieži jūs vēlaties skenēt ierīces procesora statistiku?"
 
 #: setup.php:864
 msgid "Interfaces Frequency"
@@ -900,41 +903,43 @@ msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to
 msgstr ""
 
 #: setup.php:896
+#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr ""
+msgstr "MikroTik bezvadu savākšanas frekvences"
 
 #: setup.php:900
 msgid "Wireless HotSpot Users Frequency"
-msgstr "Bezvada karsto punktu lietotāju biežums"
+msgstr "Bezvadu karsto punktu lietotāju atjaunošanas biežums"
 
 #: setup.php:901
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt bezvadu lietotāju statistiku?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php:907
 msgid "Wireless Access Point Frequency"
-msgstr "Bezvada piekļuves punkta biežums"
+msgstr "Bezvadu piekļuves punkta atjaunošanas biežums"
 
 #: setup.php:908
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži jūs vēlaties skenēt bezvadu piekļuves punktus?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php:914
 #, fuzzy
 msgid "Wireless Registrations Frequency"
-msgstr "Bezvada reģistrācijas biežums"
+msgstr "Bezvadu reģistrāciju atjaunošanas biežums"
 
 #: setup.php:915
+#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži jūs vēlaties skenēt bezvadu reģistrāciju?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php:921
 msgid "Wireless Stations Frequency"
-msgstr "Bezvada staciju biežums"
+msgstr "Bezvadu staciju atjaunošanas biežums"
 
 #: setup.php:922
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži jūs vēlaties skenēt bezvadu stacijas?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php:939
 msgid "Management"
