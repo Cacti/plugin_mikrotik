@@ -9,6 +9,8 @@
 
 * issue#62: PHP DEPRECATED warnings in mikrotik plugin
 
+* issue#63: ERROR PHP DEPRECATED in Plugin 'mikrotik': str_replace() in poller_graphs.php on line: 386
+
 * feature: Add Device ID's to MikroTik API stats to track password failures
 
 * feature: Add DNS Cache to MikroTik Plugin

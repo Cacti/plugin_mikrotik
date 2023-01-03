@@ -383,7 +383,29 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 					" --snmp-query-id=$query_id --snmp-field=$field" .
 					" --snmp-value=" . cacti_escapeshellarg($field_value);
 
-				print "NOTE: Adding item: '$field_value' " . str_replace("\n", " ", passthru($command)) . "\n";
+				$return = 0;
+				$output = array();
+
+				$lline = exec($command, $output, $return);
+
+				if ($return != 0) {
+					print "WARNING: Error for Graph command and item '$field_value' Error Code:'$return'. Results below." . PHP_EOL;
+
+					if (sizeof($output)) {
+						foreach($output as $l) {
+							print trim("WARNING DATA: " . $l) . PHP_EOL;
+						}
+					}
+				} else {
+					print trim("NOTE: Graph command for item: '$field_value' succeded. Results relow") . PHP_EOL;
+
+					if (sizeof($output)) {
+						foreach($output as $l) {
+							print trim("WARNING DATA: " . $l) . PHP_EOL;
+						}
+					}
+				}
+
 			}
 		}
 	}
