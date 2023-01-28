@@ -412,8 +412,8 @@ function mikrotik_interfaces() {
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ', ' . $rows;
 
 	$sql = "SELECT mti.*, h.hostname, h.description, h.disabled,
-		({$pref}RxTooShort+{$pref}RxTooLong+{$pref}RxFCFSError+{$pref}RxAlignError+{$pref}RxFragment+{$pref}RxOverflow+{$pref}RxUnknownOp+{$pref}RxLengthError+{$pref}RxCodeError+{$pref}RxCarrierError+{$pref}RxJabber+{$pref}RxDrop) AS RxErrors,
-		({$pref}TxTooShort+{$pref}TxTooLong+{$pref}TxUnderrun+{$pref}TxCollision+{$pref}TxExCollision+{$pref}TxMultCollision+{$pref}TxSingCollision+{$pref}TxLateCollision+{$pref}TxDrop+{$pref}TxJabber+{$pref}TxFCFSError) AS TxErrors
+		(${pref}RxTooShort+${pref}RxTooLong+${pref}RxFCFSError+${pref}RxAlignError+${pref}RxFragment+${pref}RxOverflow+${pref}RxUnknownOp+${pref}RxLengthError+${pref}RxCodeError+${pref}RxCarrierError+${pref}RxJabber+${pref}RxDrop) AS RxErrors,
+		(${pref}TxTooShort+${pref}TxTooLong+${pref}TxUnderrun+${pref}TxCollision+${pref}TxExCollision+${pref}TxMultCollision+${pref}TxSingCollision+${pref}TxLateCollision+${pref}TxDrop+${pref}TxJabber+${pref}TxFCFSError) AS TxErrors
 		FROM plugin_mikrotik_interfaces AS mti
 		INNER JOIN host AS h
 		ON h.id=mti.host_id

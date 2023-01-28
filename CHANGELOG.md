@@ -1,6 +1,8 @@
 
 --- develop ---
 
+--- 3.0 ---
+
 * issue: When combined with Cacti's new test data source, errors in scripts are thrown
 
 * issue: Move the package location for scripts and resource files to the correct location
@@ -20,6 +22,8 @@
 * feature: Add DHCP Leases to Device Template
 
 * feature: Add the Mikrotik Switch OS Device Package
+
+* feature: Minimum Cacti version 1.2.24
 
 --- 2.5 ---
 
