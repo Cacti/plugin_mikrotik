@@ -1,6 +1,10 @@
 
 --- develop ---
 
+--- 3.1 ---
+
+* issue: Devices packages pointing to incorrect locations
+
 --- 3.0 ---
 
 * issue: When combined with Cacti's new test data source, errors in scripts are thrown
