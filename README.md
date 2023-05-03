@@ -1,7 +1,7 @@
 # MikroTik
 
 This plugin provides support for the MikroTik RouterOS available from
-[MikroTik](https://microtik.com) and other router and switch hardware suppliers.
+[MikroTik](https://mikrotik.com) and other router and switch hardware suppliers.
 It is not a replacement for MikroTik's GUI interface, but provides nice Cacti
 Graphs for multiple MikroTik features including, but not limited to:
 
