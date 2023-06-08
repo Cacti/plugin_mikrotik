@@ -7,15 +7,19 @@
 
 --- 3.0 ---
 
-* issue: When combined with Cacti's new test data source, errors in scripts are thrown
+* issue: When combined with Cacti's new test data source, errors in scripts are
+  thrown
 
-* issue: Move the package location for scripts and resource files to the correct location
+* issue: Move the package location for scripts and resource files to the correct
+  location
 
-* issue#61: PLUGIN WARNING: Function does not exist config_form with function mikrotik_config_form
+* issue#61: PLUGIN WARNING: Function does not exist config_form with function
+  mikrotik_config_form
 
 * issue#62: PHP DEPRECATED warnings in mikrotik plugin
 
-* issue#63: ERROR PHP DEPRECATED in Plugin 'mikrotik': str_replace() in poller_graphs.php on line: 386
+* issue#63: ERROR PHP DEPRECATED in Plugin 'mikrotik': str_replace() in
+  poller_graphs.php on line: 386
 
 * feature: Add Device ID's to MikroTik API stats to track password failures
 
@@ -41,16 +45,18 @@
 
 * issue: Internationalization issues on console
 
+
 --- 2.4 ---
 
 * issue: Properly display uptime for Wireless Registrations
 
 * issue: Do not log when a device does not have DHCP enabled
 
-* issue: Workaround issues with the SNMP client and voltage,
-  power, ampere and temperature reporting
+* issue: Workaround issues with the SNMP client and voltage, power, ampere and
+  temperature reporting
 
 * feature: Specify a retention time for DHCP Registrations
+
 
 --- 2.3 ---
 
@@ -62,6 +68,7 @@
 
 * feature: PHP 7.2 compatibility
 
+
 --- 2.2 ---
 
 * feature: Add DHCP table to view DHCP registrations
@@ -71,6 +78,7 @@
 * issue: Undefined offset when attempting to connect to Mikrotik
 
 * issue: MikroTik Uptime not reporting correctly
+
 
 --- 2.1 ---
 
@@ -84,6 +92,7 @@
 
 * feature: Roll out Cacti sort API to support multiple column sort
 
+
 --- 2.0 ---
 
 * issue#10: SQL Error when sorting from the Wireless Aps page
@@ -96,10 +105,15 @@
 
 * feature: Update text domain for i18n
 
+
 --- 1.01 ---
 
 * bug#0002318: Invalid round robin archive
 
+
 --- 1.0 ---
 
 * Initial release
+
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.

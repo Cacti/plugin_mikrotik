@@ -47,3 +47,5 @@ Bug and feature enhancements for the MikroTik plugin are handled in GitHub.  If
 you find a first search the Cacti forums for a solution before creating an issue
 in GitHub.
 
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.
