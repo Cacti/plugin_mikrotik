@@ -333,7 +333,7 @@ function process_hosts() {
 		$pl = db_fetch_cell('SELECT count(*) FROM plugin_mikrotik_processes');
 
 		if ($processes_left == 0) {
-			print "NOTE: All Processees Complete, Exiting\n";
+			print "NOTE: All Processes Complete, Exiting\n";
 			break;
 		} else {
 			print "NOTE: Waiting on '$processes_left' Processes\n";

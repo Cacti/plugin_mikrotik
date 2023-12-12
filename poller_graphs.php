@@ -397,7 +397,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 						}
 					}
 				} else {
-					print trim("NOTE: Graph command for item: '$field_value' succeded. Results relow") . PHP_EOL;
+					print trim("NOTE: Graph command for item: '$field_value' succeeded. Results relow") . PHP_EOL;
 
 					if (sizeof($output)) {
 						foreach($output as $l) {

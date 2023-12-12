@@ -705,7 +705,7 @@ function mikrotik_setup_table() {
 		`last_updated` timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 		PRIMARY KEY (`mac_address`, `hostname`))
 		ENGINE=InnoDB
-		COMMENT='Holds mappings from MAC Addres to Hostname'");
+		COMMENT='Holds mappings from MAC Address to Hostname'");
 }
 
 function mikrotik_poller_bottom() {
