@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-09-26 08:57+0000\nLast-Translator: Vladyslav V. Prodan <akapulko@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-12-31 23:07+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -62,14 +62,12 @@ msgid "DNS Cache"
 msgstr "Кэш DNS"
 
 #: mikrotik.php:176 mikrotik.php:3154
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP адрес"
+msgstr "Список IP адресов"
 
 #: mikrotik.php:180 mikrotik.php:1212 setup.php:1298
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Беспроводной апс"
+msgstr "Беспроводные приложения"
 
 #: mikrotik.php:184
 #, fuzzy
@@ -81,9 +79,8 @@ msgid "Graphs"
 msgstr "Графики"
 
 #: mikrotik.php:285
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Интерфейс Статистика"
+msgstr "Статистика интерфейса"
 
 #: mikrotik.php:294 mikrotik.php:582 mikrotik.php:869 mikrotik.php:1097
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
