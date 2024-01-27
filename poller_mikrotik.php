@@ -781,10 +781,10 @@ function checkHost($host_id) {
 			// Remove old records
 			db_execute_prepared('DELETE FROM plugin_mikrotik_users
 				WHERE userType=0
-				AND name RLIKE ' . read_config_option('mikrotik_user_exclusion') . '
+				AND name RLIKE ' . read_config_option('mikrotik_user_exclusion') . "'
 				AND present = 0
 				AND host_id = ?
-				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-' . read_config_option('mikrotik_user_exclusion_ttl') . ')',
+				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-" . read_config_option('mikrotik_user_exclusion_ttl') . ')',
 				array($host['id']));
 		}
 
