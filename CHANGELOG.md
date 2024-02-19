@@ -1,6 +1,8 @@
 
 --- develop ---
 
+* issue#78: SQL Syntax Error in poller_mikrotik.php
+
 --- 3.1 ---
 
 * issue: Devices packages pointing to incorrect locations

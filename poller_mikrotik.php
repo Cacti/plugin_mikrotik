@@ -778,14 +778,33 @@ function checkHost($host_id) {
 		if (runCollector($start, $users_lastrun, $users_freq)) {
 			collect_users($host);
 
-			// Remove old records
-			db_execute_prepared('DELETE FROM plugin_mikrotik_users
-				WHERE userType=0
-				AND name RLIKE ' . read_config_option('mikrotik_user_exclusion') . "'
-				AND present = 0
-				AND host_id = ?
-				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP()-" . read_config_option('mikrotik_user_exclusion_ttl') . ')',
-				array($host['id']));
+			$time_to_live   = read_config_option('mikrotik_user_exclusion_ttl');
+			$user_exclusion = read_config_option('mikrotik_user_exclusion');
+
+			if (empty($time_to_live)) {
+				$time_to_live = 3600;
+
+				set_config_option('mikrotik_user_exclusion_ttl', $time_to_live);
+			}
+
+			if ($user_exclusion != '') {
+				// Remove old records
+				db_execute_prepared('DELETE FROM plugin_mikrotik_users
+					WHERE userType = 0
+					AND name RLIKE ?
+					AND present = 0
+					AND host_id = ?
+					AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
+					array($user_exclusion, $host['id'], $time_to_live));
+			} else {
+				// Remove old records
+				db_execute_prepared('DELETE FROM plugin_mikrotik_users
+					WHERE userType = 0
+					AND present = 0
+					AND host_id = ?
+					AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
+					array($host['id'], $time_to_live));
+			}
 		}
 
 		if (runCollector($start, $trees_lastrun, $trees_freq)) {
