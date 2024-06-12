@@ -1180,7 +1180,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 					$parts = explode('.', $splitIndex[1]);
 					$index = '';
 					for ($i = 0; $i < 6; $i++) {
-						$index .= ($i>0 ? ':':'') . strtoupper(substr('0' . dechex($parts[$i]), -2));
+						$index .= ($i>0 ? ':':'') . substr('0' . dechex($parts[$i]), -2);
 					}
 				} else {
 					$index = $splitIndex[1];
@@ -1197,7 +1197,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 							$new_array[$index][$key] = 14;
 						}
 					} elseif ($key == 'name') {
-						$new_array[$index][$key] = str_replace('<', '', str_replace('>', '', strtoupper($mib['value'])));
+						$new_array[$index][$key] = str_replace('<', '', str_replace('>', '', $mib['value']));
 					} elseif ($key == 'date') {
 						$new_array[$index][$key] = mikrotik_dateParse($mib['value']);
 					} elseif ($key == 'mac') {
@@ -1697,7 +1697,7 @@ function collect_pppoe_users_api(&$host) {
 			if (cacti_sizeof($array)) {
 				foreach($array as $row) {
 					if (!isset($row['name'])) continue;
-					$name = strtoupper($row['name']);
+					$name = $row['name'];
 					if (isset($users[$name])) {
 						$user = $users[$name];
 

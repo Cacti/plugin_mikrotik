@@ -260,14 +260,14 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 		AND graph_template_id=$graph_template_id");
 
 	if (!$exists) {
-		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . "\n";
+		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . PHP_EOL;
 
 		$command = "$php_bin -q $base/cli/add_graphs.php" .
 			" --graph-template-id=$graph_template_id" .
 			" --graph-type=cg" .
 			" --host-id=" . $host_id;
 
-		print str_replace("\n", " ", passthru($command)) . "\n";
+		execute_automation($command, 'Template Graph');
 	}
 }
 
@@ -281,10 +281,16 @@ function add_summary_graphs($host_id, $host_template) {
 	if (empty($host_id)) {
 		/* add the host */
 		debug('Adding Host');
-		$result = exec("$php_bin -q $base/cli/add_device.php --description='Summary Device' --ip=summary --template=$host_template --version=0 --avail=none", $return_code);
+
+		$command = "$php_bin -q $base/cli/add_device.php --description='Summary Device' --ip=summary --template=$host_template --version=0 --avail=none";
+
+		execute_automation($command, 'Device Creation');
 	} else {
 		debug('Reindexing Host');
-		$result = exec("$php_bin -q $base/cli/poller_reindex_hosts.php -id=$host_id -qid=All", $return_code);
+
+		$command = "$php_bin -q $base/cli/poller_reindex_hosts.php -id=$host_id -qid=All";
+
+		execute_automation($command, 'Device Re-Index');
 	}
 
 	/* data query graphs first */
@@ -294,17 +300,17 @@ function add_summary_graphs($host_id, $host_template) {
 		WHERE host_id=$host_id");
 
 	if (cacti_sizeof($data_queries)) {
-	foreach($data_queries as $dq) {
-		$graph_templates = db_fetch_assoc("SELECT *
-			FROM snmp_query_graph
-			WHERE snmp_query_id=" . $dq['snmp_query_id']);
+		foreach($data_queries as $dq) {
+			$graph_templates = db_fetch_assoc("SELECT *
+				FROM snmp_query_graph
+				WHERE snmp_query_id=" . $dq['snmp_query_id']);
 
-		if (cacti_sizeof($graph_templates)) {
-		foreach($graph_templates as $gt) {
-			mikrotik_dq_graphs($host_id, $dq['snmp_query_id'], $gt['graph_template_id'], $gt['id']);
+			if (cacti_sizeof($graph_templates)) {
+				foreach($graph_templates as $gt) {
+					mikrotik_dq_graphs($host_id, $dq['snmp_query_id'], $gt['graph_template_id'], $gt['id']);
+				}
+			}
 		}
-		}
-	}
 	}
 
 	debug('Processing Graph Templates');
@@ -313,24 +319,24 @@ function add_summary_graphs($host_id, $host_template) {
 		WHERE host_id=$host_id");
 
 	if (cacti_sizeof($graph_templates)) {
-	foreach($graph_templates as $gt) {
-		/* see if the graph exists already */
-		$exists = db_fetch_cell("SELECT count(*)
-			FROM graph_local
-			WHERE host_id=$host_id
-			AND graph_template_id=" . $gt["graph_template_id"]);
+		foreach($graph_templates as $gt) {
+			/* see if the graph exists already */
+			$exists = db_fetch_cell("SELECT count(*)
+				FROM graph_local
+				WHERE host_id=$host_id
+				AND graph_template_id=" . $gt["graph_template_id"]);
 
-		if (!$exists) {
-			print "NOTE: Adding item: '$field_value' for Host: " . $host_id;
+			if (!$exists) {
+				print "NOTE: Adding item: '$field_value' for Host: " . $host_id;
 
-			$command = "$php_bin -q $base/cli/add_graphs.php" .
-				" --graph-template-id=" . $gt["graph_template_id"] .
-				" --graph-type=cg" .
-				" --host-id=" . $host_id;
+				$command = "$php_bin -q $base/cli/add_graphs.php" .
+					" --graph-template-id=" . $gt["graph_template_id"] .
+					" --graph-type=cg" .
+					" --host-id=" . $host_id;
 
-			print str_replace("\n", " ", passthru($command)) . "\n";
+				execute_automation($command, 'Template Graphs');
+			}
 		}
-	}
 	}
 }
 
@@ -383,29 +389,32 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 					" --snmp-query-id=$query_id --snmp-field=$field" .
 					" --snmp-value=" . cacti_escapeshellarg($field_value);
 
-				$return = 0;
-				$output = array();
+				execute_automation($command, 'Data Query Graph');
+			}
+		}
+	}
+}
 
-				$lline = exec($command, $output, $return);
+function execute_automation($command, $type) {
+	$return = 0;
+	$output = array();
 
-				if ($return != 0) {
-					print "WARNING: Error for Graph command and item '$field_value' Error Code:'$return'. Results below." . PHP_EOL;
+	$lline = exec($command, $output, $return);
 
-					if (sizeof($output)) {
-						foreach($output as $l) {
-							print trim("WARNING DATA: " . $l) . PHP_EOL;
-						}
-					}
-				} else {
-					print trim("NOTE: Graph command for item: '$field_value' succeeded. Results relow") . PHP_EOL;
+	if ($return > 0) {
+		print "WARNING: Error for $type command and item '$field_value' Error Code:'$return'. Results below." . PHP_EOL;
 
-					if (sizeof($output)) {
-						foreach($output as $l) {
-							print trim("WARNING DATA: " . $l) . PHP_EOL;
-						}
-					}
-				}
+		if (sizeof($output)) {
+			foreach($output as $l) {
+				print trim('WARNING Response: ' . $l) . PHP_EOL;
+			}
+		}
+	} else {
+		print trim("NOTE: $type command for item: '$field_value' succeded. Results relow") . PHP_EOL;
 
+		if (sizeof($output)) {
+			foreach($output as $l) {
+				print trim('Response: ' . $l) . PHP_EOL;
 			}
 		}
 	}
