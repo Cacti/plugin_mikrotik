@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: mikrotik on cacti 1.1.34\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-11-10 02:07+0000\nLast-Translator: Ben Hsu <48728121@qq.com>\nLanguage-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/mikrotik/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: mikrotik on cacti 1.1.34\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2024-06-20 15:11+0000\nLast-Translator: tql <fttx31@126.com>\nLanguage-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/mikrotik/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -750,7 +750,7 @@ msgstr "%d 进程"
 #: setup.php:762 setup.php:763 setup.php:764 setup.php:765
 #, php-format
 msgid "%d Processes"
-msgstr "%d 进程"
+msgstr "%d进程"
 
 #: setup.php:769
 #, fuzzy
