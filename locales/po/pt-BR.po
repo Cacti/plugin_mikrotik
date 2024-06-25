@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-04-20 18:53+0000\nLast-Translator: Ede Willians dos Santos Cavalcante <edewillians10@gmail.com>\nLanguage-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2024-06-25 16:31+0000\nLast-Translator: fabricio tavares maciel <fabricio.tavares@gmail.com>\nLanguage-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -736,9 +736,8 @@ msgid "Inactive"
 msgstr "Inativo"
 
 #: mikrotik_users.php:296
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Definir / Atualizar Filtros"
+msgstr "Setar/Atualizar Filtros"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
