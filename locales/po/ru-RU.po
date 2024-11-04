@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-12-31 23:07+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2024-11-04 17:07+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -817,9 +817,9 @@ msgstr "d Процесс"
 
 #: setup.php:757 setup.php:758 setup.php:759 setup.php:760 setup.php:761
 #: setup.php:762 setup.php:763 setup.php:764 setup.php:765
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "d Процессы"
+msgstr "%d Процессы"
 
 #: setup.php:769
 #, fuzzy
@@ -1104,7 +1104,7 @@ msgstr "Хранилище"
 
 #: setup.php:1300
 msgid "(edit)"
-msgstr "(редактировать)"
+msgstr "(Редактировать)"
 
 #: setup.php:1348 setup.php:1351
 #, fuzzy
