@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2020-12-14 19:31-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: ja_JP\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2024-11-22 02:12+0000\nLast-Translator: Nakayama Kito <nakayamakito@icloud.com>\nLanguage-Team: Japanese <http://translate.cacti.net/projects/cacti/mikrotik/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -833,9 +822,9 @@ msgstr "％dプロセス"
 
 #: setup.php:757 setup.php:758 setup.php:759 setup.php:760 setup.php:761
 #: setup.php:762 setup.php:763 setup.php:764 setup.php:765
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "％dプロセス"
+msgstr "%d プロセス"
 
 #: setup.php:769
 #, fuzzy
@@ -1085,7 +1074,7 @@ msgstr "総務"
 #: setup.php:1087
 #, fuzzy, php-format
 msgid "%d Minute"
-msgstr "％d分"
+msgstr "%d分"
 
 #: setup.php:1099
 msgid "Indefinite"
