@@ -6,6 +6,7 @@
 * issue: Don't captitalize everything including Queues, etc.
 * issue: Fix some PHP8 errors in Graph Automation
 * issue: Update Data Queries to allow Spaces and Underscores
+* issue: Fix issues with Mikrotik Interfaces polling and re-indexing
 
 --- 3.1 ---
 
