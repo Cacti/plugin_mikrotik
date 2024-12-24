@@ -410,7 +410,7 @@ function execute_automation($command, $type) {
 			}
 		}
 	} else {
-		print trim("NOTE: $type command for item: '$field_value' succeded. Results relow") . PHP_EOL;
+		print trim("NOTE: $type command for item: '$field_value' succeeded. Results relow") . PHP_EOL;
 
 		if (sizeof($output)) {
 			foreach($output as $l) {
