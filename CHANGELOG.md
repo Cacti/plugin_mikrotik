@@ -7,6 +7,7 @@
 * issue: Fix some PHP8 errors in Graph Automation
 * issue: Update Data Queries to allow Spaces and Underscores
 * issue: Fix issues with Mikrotik Interfaces polling and re-indexing
+* issue: Fix issues with Mikrotik Graph Automation throwing warnings
 
 --- 3.1 ---
 

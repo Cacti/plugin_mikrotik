@@ -244,20 +244,30 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 
 	$php_bin = read_config_option('path_php_binary');
 	$base    = $config['base_path'];
-	$name    = db_fetch_cell("SELECT name FROM graph_templates WHERE id=$graph_template_id");
-	$assoc   = db_fetch_cell("SELECT count(*)
+
+	$name = db_fetch_cell_prepared("SELECT name
+		FROM graph_templates
+		WHERE id = ?",
+		array($graph_template_id));
+
+	$assoc = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM host_graph
-		WHERE graph_template_id=$graph_template_id
-		AND host_id=$host_id");
+		WHERE graph_template_id = ?
+		AND host_id = ?",
+		array($graph_template_id, $host_id));
 
 	if (!$assoc) {
-		db_execute("INSERT INTO host_graph (host_id, graph_template_id) VALUES ($host_id, $graph_template_id)");
+		db_execute_prepared("INSERT INTO host_graph
+			(host_id, graph_template_id)
+			VALUES (?, ?)",
+			array($host_id, $graph_template_id));
 	}
 
-	$exists = db_fetch_cell("SELECT count(*)
+	$exists = db_fetch_cell_prepared("SELECT count(*)
 		FROM graph_local
-		WHERE host_id=$host_id
-		AND graph_template_id=$graph_template_id");
+		WHERE host_id = ?
+		AND graph_template_id = ?",
+		array($host_id, $graph_template_id));
 
 	if (!$exists) {
 		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . PHP_EOL;
@@ -267,7 +277,7 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 			" --graph-type=cg" .
 			" --host-id=" . $host_id;
 
-		execute_automation($command, 'Template Graph');
+		execute_automation($command, 'Template Graph', $name);
 	}
 }
 
@@ -284,20 +294,21 @@ function add_summary_graphs($host_id, $host_template) {
 
 		$command = "$php_bin -q $base/cli/add_device.php --description='Summary Device' --ip=summary --template=$host_template --version=0 --avail=none";
 
-		execute_automation($command, 'Device Creation');
+		execute_automation($command, 'Device Creation', 'Summary Device');
 	} else {
 		debug('Reindexing Host');
 
 		$command = "$php_bin -q $base/cli/poller_reindex_hosts.php -id=$host_id -qid=All";
 
-		execute_automation($command, 'Device Re-Index');
+		execute_automation($command, 'Device Re-Index', 'Summary Device');
 	}
 
 	/* data query graphs first */
 	debug('Processing Data Queries');
-	$data_queries = db_fetch_assoc("SELECT *
+	$data_queries = db_fetch_assoc_prepared("SELECT *
 		FROM host_snmp_query
-		WHERE host_id=$host_id");
+		WHERE host_id = ?",
+		array($host_id));
 
 	if (cacti_sizeof($data_queries)) {
 		foreach($data_queries as $dq) {
@@ -314,27 +325,35 @@ function add_summary_graphs($host_id, $host_template) {
 	}
 
 	debug('Processing Graph Templates');
-	$graph_templates = db_fetch_assoc("SELECT *
+
+	$graph_templates = db_fetch_assoc_prepared("SELECT *
 		FROM host_graph
-		WHERE host_id=$host_id");
+		WHERE host_id = ?",
+		array($host_id));
 
 	if (cacti_sizeof($graph_templates)) {
 		foreach($graph_templates as $gt) {
 			/* see if the graph exists already */
-			$exists = db_fetch_cell("SELECT count(*)
+			$exists = db_fetch_cell_prepared("SELECT COUNT(*)
 				FROM graph_local
-				WHERE host_id=$host_id
-				AND graph_template_id=" . $gt["graph_template_id"]);
+				WHERE host_id = ?
+				AND graph_template_id= ?",
+				array($host_id, $gt["graph_template_id"]));
 
 			if (!$exists) {
-				print "NOTE: Adding item: '$field_value' for Host: " . $host_id;
+				$name = db_fetch_cell_prepared('SELECT name
+					FROM graph_templates
+					WHERE id = ?',
+					array($gt['graph_template_id']));
+
+				print "NOTE: Adding item for Graph Template: '$name' for Host: '$host_id'" . PHP_EOL;
 
 				$command = "$php_bin -q $base/cli/add_graphs.php" .
 					" --graph-template-id=" . $gt["graph_template_id"] .
 					" --graph-type=cg" .
 					" --host-id=" . $host_id;
 
-				execute_automation($command, 'Template Graphs');
+				execute_automation($command, 'Template Graphs', $name);
 			}
 		}
 	}
@@ -347,16 +366,19 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 	$base    = $config['base_path'];
 
 	if ($field == '') {
-		$field = db_fetch_cell("SELECT sort_field
+		$field = db_fetch_cell_prepared("SELECT sort_field
 			FROM host_snmp_query
-			WHERE host_id=$host_id AND snmp_query_id=" . $query_id);
+			WHERE host_id = ?
+			AND snmp_query_id = ?",
+			array($host_id, $query_id));
 	}
 
-	$items = db_fetch_assoc("SELECT *
+	$items = db_fetch_assoc_prepared("SELECT *
 		FROM host_snmp_cache
-		WHERE field_name='$field'
-		AND host_id=$host_id
-		AND snmp_query_id=$query_id");
+		WHERE field_name = ?
+		AND host_id = ?
+		AND snmp_query_id = ?",
+		array($field, $host_id, $query_id));
 
 	if (cacti_sizeof($items)) {
 		foreach($items as $item) {
@@ -375,12 +397,13 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 			}
 
 			/* check to see if the graph exists or not */
-			$exists = db_fetch_cell("SELECT id
+			$exists = db_fetch_cell_prepared("SELECT id
 				FROM graph_local
-				WHERE host_id=$host_id
-				AND snmp_query_id=$query_id
-				AND graph_template_id=$graph_template_id
-				AND snmp_index='$index'");
+				WHERE host_id = ?
+				AND snmp_query_id = ?
+				AND graph_template_id = ?
+				AND snmp_index = ?",
+				array($host_id, $query_id, $graph_template_id, $index));
 
 			if (!$exists) {
 				$command = "$php_bin -q $base/cli/add_graphs.php" .
@@ -389,13 +412,13 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 					" --snmp-query-id=$query_id --snmp-field=$field" .
 					" --snmp-value=" . cacti_escapeshellarg($field_value);
 
-				execute_automation($command, 'Data Query Graph');
+				execute_automation($command, 'Data Query Graph', $field_value);
 			}
 		}
 	}
 }
 
-function execute_automation($command, $type) {
+function execute_automation($command, $type, $field_value = '') {
 	$return = 0;
 	$output = array();
 
@@ -410,7 +433,7 @@ function execute_automation($command, $type) {
 			}
 		}
 	} else {
-		print trim("NOTE: $type command for item: '$field_value' succeeded. Results relow") . PHP_EOL;
+		print trim("NOTE: $type command for item: '$field_value' succeded. Results relow") . PHP_EOL;
 
 		if (sizeof($output)) {
 			foreach($output as $l) {
