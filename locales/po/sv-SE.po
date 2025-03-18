@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-03-18 07:08+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: mikrotik.php:41
 msgid "Present"
-msgstr "Närrvarande"
+msgstr "Närvarande"
 
 #: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
 msgid "Unknown"
@@ -144,11 +144,11 @@ msgstr "Namn"
 
 #: mikrotik.php:439 mikrotik.php:2436
 msgid "Rx Bytes"
-msgstr "Rx Bytes"
+msgstr "Rx Byte"
 
 #: mikrotik.php:440 mikrotik.php:2437
 msgid "Tx Bytes"
-msgstr "Tx Bytes"
+msgstr "Tx Byte"
 
 #: mikrotik.php:441 mikrotik.php:2438
 msgid "Rx Packets"
@@ -202,11 +202,11 @@ msgstr "Byte ut"
 
 #: mikrotik.php:732
 msgid "Pkts In"
-msgstr "Pkts in"
+msgstr "Pkt in"
 
 #: mikrotik.php:733
 msgid "Pkts Out"
-msgstr "Pkts ut"
+msgstr "Pkt ut"
 
 #: mikrotik.php:734
 msgid "Qs In"
@@ -286,7 +286,7 @@ msgstr "Rx-frekvens"
 
 #: mikrotik.php:1203
 msgid "Clients"
-msgstr "Kunder"
+msgstr "Klienter"
 
 #: mikrotik.php:1204
 msgid "Auth Clients"
@@ -335,7 +335,7 @@ msgstr "Användare"
 
 #: mikrotik.php:1499 mikrotik.php:2680
 msgid "IP Address"
-msgstr "IP adress"
+msgstr "IP-adress"
 
 #: mikrotik.php:1500
 msgid "MAC"
@@ -347,19 +347,19 @@ msgstr "Anslut tid"
 
 #: mikrotik.php:1502
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "Aktuell in"
 
 #: mikrotik.php:1503
 msgid "Cur Out"
-msgstr "Cur Out"
+msgstr "Aktuell ut"
 
 #: mikrotik.php:1504
 msgid "Avg In"
-msgstr "Avg In"
+msgstr "Genom. in"
 
 #: mikrotik.php:1505
 msgid "Avg Out"
-msgstr "Avg ut"
+msgstr "Genom. ut"
 
 #: mikrotik.php:1506
 msgid "Total In"
@@ -377,7 +377,7 @@ msgstr "N/A"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
-msgstr "Ingen användare hittad"
+msgstr "Ingen användare hittades"
 
 #: mikrotik.php:1650
 #, php-format
@@ -424,7 +424,7 @@ msgstr "Lic Ver"
 
 #: mikrotik.php:1794 mikrotik.php:2442
 msgid "Uptime(d:h:m)"
-msgstr "Drifttid (d:h:m)"
+msgstr "Driftstid (d:h:m)"
 
 #: mikrotik.php:1797
 msgid "CPU %"
@@ -444,7 +444,7 @@ msgstr "Totalt Mem"
 
 #: mikrotik.php:1801
 msgid "Used Mem"
-msgstr "Begagnad Mem"
+msgstr "Använt minne"
 
 #: mikrotik.php:1802
 msgid "Total Disk"
@@ -452,7 +452,7 @@ msgstr "Total disk"
 
 #: mikrotik.php:1803
 msgid "Used Disk"
-msgstr "Begagnad disk"
+msgstr "Använd disk"
 
 #: mikrotik.php:1848
 msgid "View Users"
@@ -521,7 +521,7 @@ msgstr "Registreringar"
 
 #: mikrotik.php:2434 mikrotik.php:2679
 msgid "Client Name"
-msgstr "Kundnamn"
+msgstr "Klientnamn"
 
 #: mikrotik.php:2435 mikrotik.php:2682
 msgid "MAC Address"
@@ -724,13 +724,13 @@ msgstr "Vilket är det maximala antalet samtidiga collector-processer som du vil
 #: setup.php:756
 #, php-format
 msgid "%d Process"
-msgstr "%d Process"
+msgstr "%d process"
 
 #: setup.php:757 setup.php:758 setup.php:759 setup.php:760 setup.php:761
 #: setup.php:762 setup.php:763 setup.php:764 setup.php:765
 #, php-format
 msgid "%d Processes"
-msgstr "%d Processer"
+msgstr "%d processer"
 
 #: setup.php:769
 msgid "Auto Discovery Settings"
@@ -808,12 +808,12 @@ msgstr "%d timmar"
 #: setup.php:820 setup.php:842 setup.php:1095 setup.php:1100
 #, php-format
 msgid "%d Day"
-msgstr "%d Dag"
+msgstr "%d dygn"
 
 #: setup.php:821 setup.php:1101 setup.php:1102
 #, php-format
 msgid "%d Days"
-msgstr "%d Dagar"
+msgstr "%d dygn"
 
 #: setup.php:825
 msgid "Exclude Users RegEx"
@@ -829,7 +829,7 @@ msgstr "Utesluta användare Tid att leva"
 
 #: setup.php:834
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Hur länge ska en utesluten användares data bevaras efter att de har kopplat bort sig?"
+msgstr "Hur länge ska en utesluten användares data bevaras efter att de har kopplat från sig."
 
 #: setup.php:846
 msgid "MikroTik Device Collection Frequencies"
@@ -881,7 +881,7 @@ msgstr "Hur ofta vill du skanna Simple Queue Statistics?  Välj <b>Disabled</b> 
 
 #: setup.php:889
 msgid "Queue Trees Frequency"
-msgstr "Köer Träd Frekvens"
+msgstr "Frekvens för köträd"
 
 #: setup.php:890
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
@@ -938,7 +938,7 @@ msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
 #: setup.php:1087
 #, php-format
 msgid "%d Minute"
-msgstr "%d Minut"
+msgstr "%d minut"
 
 #: setup.php:1099
 msgid "Indefinite"
@@ -947,22 +947,22 @@ msgstr "Obestämd tid"
 #: setup.php:1103
 #, php-format
 msgid "%d Week"
-msgstr "%d Vecka"
+msgstr "%d vecka"
 
 #: setup.php:1104 setup.php:1105
 #, php-format
 msgid "%d Weeks"
-msgstr "%d Veckor"
+msgstr "%d veckor"
 
 #: setup.php:1106 setup.php:1107
 #, php-format
 msgid "%d Months"
-msgstr "%d Månader"
+msgstr "%d månader"
 
 #: setup.php:1108
 #, php-format
 msgid "%d Year"
-msgstr "%d År"
+msgstr "%d år"
 
 #: setup.php:1293
 msgid "Simple Queues"
@@ -974,7 +974,7 @@ msgstr "Lagring"
 
 #: setup.php:1300
 msgid "(edit)"
-msgstr "(Redigera)"
+msgstr "(redigera)"
 
 #: setup.php:1348 setup.php:1351
 msgid "Graphs Skipped by Rule, or Not Created"
