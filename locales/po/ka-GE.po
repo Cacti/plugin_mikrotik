@@ -4,57 +4,57 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-01 15:51+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
-msgstr ""
+msgstr "ახლა"
 
 #: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
 msgid "Unknown"
-msgstr ""
+msgstr "უცნობი"
 
 #: mikrotik.php:43
 msgid "Running"
-msgstr ""
+msgstr "გაშვებულია"
 
 #: mikrotik.php:44
 msgid "Warning"
-msgstr ""
+msgstr "გაფრთხილება"
 
 #: mikrotik.php:45
 msgid "Testing"
-msgstr ""
+msgstr "დატესტვა"
 
 #: mikrotik.php:46 mikrotik.php:1692
 msgid "Down"
-msgstr ""
+msgstr "გამორთ"
 
 #: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1712 mikrotik.php:1806
 #: setup.php:1291
 msgid "Devices"
-msgstr ""
+msgstr "მოწყობილობები"
 
 #: mikrotik.php:152 mikrotik.php:1511 mikrotik.php:1796 mikrotik_users.php:271
 #: mikrotik_users.php:345 setup.php:1294
 msgid "Users"
-msgstr ""
+msgstr "მომხმარებლები"
 
 #: mikrotik.php:156 mikrotik.php:609 mikrotik.php:741
 msgid "Queues"
-msgstr ""
+msgstr "რიგები"
 
 #: mikrotik.php:160
 msgid "Queue Trees"
-msgstr ""
+msgstr "რიგის ხეები"
 
 #: mikrotik.php:164 mikrotik.php:321 mikrotik.php:448 setup.php:1295
 msgid "Interfaces"
-msgstr ""
+msgstr "ინტერფეისები"
 
 #: mikrotik.php:168
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 #: mikrotik.php:172 mikrotik.php:2816
 msgid "DNS Cache"
@@ -70,11 +70,11 @@ msgstr ""
 
 #: mikrotik.php:184
 msgid "Wireless Registrations"
-msgstr ""
+msgstr "უსადენო რეგისტრაციები"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
-msgstr ""
+msgstr "გრაფიკები"
 
 #: mikrotik.php:285
 msgid "Interface Stats"
@@ -84,13 +84,13 @@ msgstr ""
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
 #: mikrotik.php:2825 mikrotik.php:3163 mikrotik_users.php:255
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 #: mikrotik.php:300 mikrotik.php:588 mikrotik.php:875 mikrotik.php:1103
 #: mikrotik.php:1374 mikrotik.php:2291 mikrotik.php:2433 mikrotik.php:2586
 #: mikrotik.php:2831 mikrotik.php:3169
 msgid "Device"
-msgstr ""
+msgstr "მოწყობილობა"
 
 #: mikrotik.php:304 mikrotik.php:592 mikrotik.php:879 mikrotik.php:1107
 #: mikrotik.php:1378 mikrotik.php:1399 mikrotik.php:1676 mikrotik.php:2295
@@ -98,18 +98,18 @@ msgstr ""
 #: mikrotik.php:3173 mikrotik.php:3194 mikrotik_users.php:265
 #: mikrotik_users.php:290
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 #: mikrotik.php:325 mikrotik.php:613 mikrotik.php:900 mikrotik.php:1128
 #: mikrotik.php:1409 mikrotik.php:1716 mikrotik.php:2316 mikrotik.php:2611
 #: mikrotik.php:2899 mikrotik.php:3215 mikrotik_users.php:275
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმევი"
 
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
 msgid "Active"
-msgstr ""
+msgstr "აქტიური"
 
 #: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
 msgid "Since Reset"
@@ -119,28 +119,28 @@ msgstr ""
 #: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
 #: mikrotik.php:2911 mikrotik.php:3227 mikrotik_users.php:296
 msgid "Go"
-msgstr ""
+msgstr "მიდი"
 
 #: mikrotik.php:349 mikrotik.php:638 mikrotik.php:913 mikrotik.php:1141
 #: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
 #: mikrotik.php:2912 mikrotik.php:3228 mikrotik_users.php:297
 msgid "Clear"
-msgstr ""
+msgstr "გასუფთავება"
 
 #: mikrotik.php:436 mikrotik.php:725 mikrotik.php:967 mikrotik.php:1197
 #: mikrotik.php:1495 mikrotik.php:1788 mikrotik.php:2432 setup.php:1301
 msgid "Actions"
-msgstr ""
+msgstr "ქმედებები"
 
 #: mikrotik.php:437 mikrotik.php:726 mikrotik.php:968 mikrotik.php:1198
 #: mikrotik.php:1496 mikrotik.php:2678
 msgid "Hostname"
-msgstr ""
+msgstr "ჰოსტის სახელი"
 
 #: mikrotik.php:438 mikrotik.php:727 mikrotik.php:969 mikrotik.php:1789
 #: mikrotik.php:2981
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: mikrotik.php:439 mikrotik.php:2436
 msgid "Rx Bytes"
@@ -206,11 +206,11 @@ msgstr ""
 
 #: mikrotik.php:733
 msgid "Pkts Out"
-msgstr ""
+msgstr "პაკეტები გასული"
 
 #: mikrotik.php:734
 msgid "Qs In"
-msgstr ""
+msgstr "Qs In"
 
 #: mikrotik.php:735
 msgid "Qs Out"
@@ -234,11 +234,11 @@ msgstr ""
 
 #: mikrotik.php:896 mikrotik.php:978 mikrotik.php:1795 setup.php:1292
 msgid "Trees"
-msgstr ""
+msgstr "ხეები"
 
 #: mikrotik.php:970
 msgid "Flow"
-msgstr ""
+msgstr "დინება"
 
 #: mikrotik.php:971
 msgid "Cur Bytes"
@@ -266,15 +266,15 @@ msgstr ""
 
 #: mikrotik.php:1124
 msgid "Aps"
-msgstr ""
+msgstr "Aps"
 
 #: mikrotik.php:1199
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 #: mikrotik.php:1200
 msgid "BSSID"
-msgstr ""
+msgstr "BSSID"
 
 #: mikrotik.php:1201 mikrotik.php:2441
 msgid "Tx Rate"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: mikrotik.php:1203
 msgid "Clients"
-msgstr ""
+msgstr "კლიენტები"
 
 #: mikrotik.php:1204
 msgid "Auth Clients"
@@ -294,11 +294,11 @@ msgstr ""
 
 #: mikrotik.php:1205
 msgid "Frequency"
-msgstr ""
+msgstr "სიხშირე"
 
 #: mikrotik.php:1206
 msgid "Band"
-msgstr ""
+msgstr "სიხშირის ზოლი"
 
 #: mikrotik.php:1207
 msgid "Noise Floor"
@@ -315,35 +315,35 @@ msgstr ""
 #: mikrotik.php:1395 mikrotik.php:1498 mikrotik.php:2685 mikrotik.php:2852
 #: mikrotik.php:2979 mikrotik_users.php:261 mikrotik_users.php:356
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: mikrotik.php:1400 mikrotik_users.php:266
 msgid "Hotspot"
-msgstr ""
+msgstr "ჰოტსპოტი"
 
 #: mikrotik.php:1401 mikrotik_users.php:267
 msgid "PPPoe"
-msgstr ""
+msgstr "PPPoe"
 
 #: mikrotik.php:1422
 msgid "Active Users"
-msgstr ""
+msgstr "აქტიური მომხმარებლები"
 
 #: mikrotik.php:1497
 msgid "User"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: mikrotik.php:1499 mikrotik.php:2680
 msgid "IP Address"
-msgstr ""
+msgstr "IP მისამართი"
 
 #: mikrotik.php:1500
 msgid "MAC"
-msgstr ""
+msgstr "MAC"
 
 #: mikrotik.php:1501
 msgid "Connect Time"
-msgstr ""
+msgstr "კავშირის დრო"
 
 #: mikrotik.php:1502
 msgid "Cur In"
@@ -373,7 +373,7 @@ msgstr ""
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
@@ -391,40 +391,40 @@ msgstr ""
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
-msgstr ""
+msgstr "ცვლილებების ჟურნალი"
 
 #: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
 #: mikrotik_users.php:286
 msgid "Status"
-msgstr ""
+msgstr "სტატუსი"
 
 #: mikrotik.php:1695
 msgid "Recovering"
-msgstr ""
+msgstr "მიმდინარეობს აღდგენა"
 
 #: mikrotik.php:1698
 msgid "Up"
-msgstr ""
+msgstr "ჩართ"
 
 #: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
 msgid "Disabled"
-msgstr ""
+msgstr "გათიშულია"
 
 #: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
 msgid "Description"
-msgstr ""
+msgstr "აღწერა"
 
 #: mikrotik.php:1792
 msgid "FW Ver"
-msgstr ""
+msgstr "მიკროკოდის ვერსია"
 
 #: mikrotik.php:1793
 msgid "Lic Ver"
-msgstr ""
+msgstr "ლიც. ვერს"
 
 #: mikrotik.php:1794 mikrotik.php:2442
 msgid "Uptime(d:h:m)"
-msgstr ""
+msgstr "ჩართულობის დრო (დ:სთ:წთ)"
 
 #: mikrotik.php:1797
 msgid "CPU %"
@@ -432,15 +432,15 @@ msgstr ""
 
 #: mikrotik.php:1798
 msgid "CPUs"
-msgstr ""
+msgstr "CPU-ები"
 
 #: mikrotik.php:1799
 msgid "Processes"
-msgstr ""
+msgstr "პროცესები"
 
 #: mikrotik.php:1800
 msgid "Total Mem"
-msgstr ""
+msgstr "მეხსიერება სულ"
 
 #: mikrotik.php:1801
 msgid "Used Mem"
@@ -476,7 +476,7 @@ msgstr ""
 
 #: mikrotik.php:1871
 msgid "View Interfaces"
-msgstr ""
+msgstr "ინტერფეისების ნახვა"
 
 #: mikrotik.php:1874 mikrotik.php:2006 mikrotik.php:2008 mikrotik.php:2049
 #: mikrotik.php:2051 setup.php:1346
@@ -517,7 +517,7 @@ msgstr ""
 
 #: mikrotik.php:2312 mikrotik.php:2447
 msgid "Registrations"
-msgstr ""
+msgstr "რეგისტრაციები"
 
 #: mikrotik.php:2434 mikrotik.php:2679
 msgid "Client Name"
@@ -542,32 +542,32 @@ msgstr ""
 #: mikrotik.php:2607 mikrotik.php:2691 mikrotik.php:2895 mikrotik.php:2996
 #: mikrotik.php:3211 mikrotik.php:3305
 msgid "Entries"
-msgstr ""
+msgstr "ჩანაწერები"
 
 #: mikrotik.php:2683
 msgid "Expires in"
-msgstr ""
+msgstr "ვადა ეწურება"
 
 #: mikrotik.php:2686
 msgid "Blocked"
-msgstr ""
+msgstr "დაბლოკილია"
 
 #: mikrotik.php:2688 mikrotik.php:2984 mikrotik.php:3293
 msgid "Last Updated"
-msgstr ""
+msgstr "ბოლო განახლება"
 
 #: mikrotik.php:2709 mikrotik.php:2710
 #, php-format
 msgid "%s Seconds"
-msgstr ""
+msgstr "%s წამი"
 
 #: mikrotik.php:2712 mikrotik.php:3290
 msgid "Dynamic"
-msgstr ""
+msgstr "დინამიკური"
 
 #: mikrotik.php:2712 mikrotik.php:2983
 msgid "Static"
-msgstr ""
+msgstr "სტატიკური"
 
 #: mikrotik.php:2720
 msgid "No DHCP Entries Found"
@@ -575,23 +575,23 @@ msgstr ""
 
 #: mikrotik.php:2882 mikrotik.php:3020 mikrotik.php:3324
 msgid "Permanent"
-msgstr ""
+msgstr "მუდმივი"
 
 #: mikrotik.php:2883 mikrotik.php:3024 mikrotik.php:3326
 msgid "Expired"
-msgstr ""
+msgstr "ვადაამოწურული"
 
 #: mikrotik.php:2913 mikrotik.php:3229
 msgid "Export"
-msgstr ""
+msgstr "გატანa"
 
 #: mikrotik.php:2980
 msgid "Data"
-msgstr ""
+msgstr "მონაცემები"
 
 #: mikrotik.php:2982
 msgid "TTL"
-msgstr ""
+msgstr "TTL"
 
 #: mikrotik.php:3033
 msgid "No DNS Entries Found"
@@ -599,15 +599,15 @@ msgstr ""
 
 #: mikrotik.php:3190 mikrotik.php:3288
 msgid "List"
-msgstr ""
+msgstr "სია"
 
 #: mikrotik.php:3289
 msgid "Address"
-msgstr ""
+msgstr "მისამართი"
 
 #: mikrotik.php:3292
 msgid "Timeout"
-msgstr ""
+msgstr "მოლოდინის ვადა"
 
 #: mikrotik.php:3336
 msgid "No Address List Entries Found"
@@ -615,7 +615,7 @@ msgstr ""
 
 #: mikrotik_users.php:33
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"
 
 #: mikrotik_users.php:141
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
@@ -623,15 +623,15 @@ msgstr ""
 
 #: mikrotik_users.php:147
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: mikrotik_users.php:147
 msgid "Continue"
-msgstr ""
+msgstr "გაგრძელება"
 
 #: mikrotik_users.php:147
 msgid "Delete Device(s)"
-msgstr ""
+msgstr "მოწყობილობების წაშლა"
 
 #: mikrotik_users.php:150
 msgid "You must select at least one User."
@@ -639,7 +639,7 @@ msgstr ""
 
 #: mikrotik_users.php:151
 msgid "Return"
-msgstr ""
+msgstr "დაბრუნება"
 
 #: mikrotik_users.php:246 setup.php:939 setup.php:1299
 msgid "MikroTik Users"
@@ -647,23 +647,23 @@ msgstr ""
 
 #: mikrotik_users.php:292 mikrotik_users.php:369
 msgid "Inactive"
-msgstr ""
+msgstr "არააქტიური"
 
 #: mikrotik_users.php:296
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "ფილტრების დაყენება/განახლება"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
-msgstr ""
+msgstr "ფილტრების გასუფთავება"
 
 #: mikrotik_users.php:354
 msgid "User Name"
-msgstr ""
+msgstr "მომხმარებლის სახელი"
 
 #: mikrotik_users.php:355
 msgid "Domain"
-msgstr ""
+msgstr "დომენი"
 
 #: setup.php:38
 msgid "MikroTik Viewer"
@@ -675,7 +675,7 @@ msgstr ""
 
 #: setup.php:720 setup.php:1290 setup.php:1311 setup.php:1313
 msgid "MikroTik"
-msgstr ""
+msgstr "MikroTik"
 
 #: setup.php:723
 msgid "MikroTik General Settings"
@@ -786,24 +786,24 @@ msgstr ""
 
 #: setup.php:814
 msgid "Never"
-msgstr ""
+msgstr "არასდროს"
 
 #: setup.php:815 setup.php:816 setup.php:817 setup.php:838 setup.php:1088
 #: setup.php:1089 setup.php:1090
 #, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d წუთი"
 
 #: setup.php:818 setup.php:839 setup.php:1091
 #, php-format
 msgid "%d Hour"
-msgstr ""
+msgstr "%d საათი"
 
 #: setup.php:819 setup.php:840 setup.php:841 setup.php:1092 setup.php:1093
 #: setup.php:1094
 #, php-format
 msgid "%d Hours"
-msgstr ""
+msgstr "%d საათი"
 
 #: setup.php:820 setup.php:842 setup.php:1095 setup.php:1100
 #, php-format
@@ -925,7 +925,7 @@ msgstr ""
 
 #: setup.php:939
 msgid "Management"
-msgstr ""
+msgstr "მართვა"
 
 #: setup.php:942
 msgid "Normal User"
@@ -933,26 +933,26 @@ msgstr ""
 
 #: setup.php:943
 msgid "General Administration"
-msgstr ""
+msgstr "ზოგადი ადმინისტრირება"
 
 #: setup.php:1087
 #, php-format
 msgid "%d Minute"
-msgstr ""
+msgstr "%d წუთი"
 
 #: setup.php:1099
 msgid "Indefinite"
-msgstr ""
+msgstr "შეუზღუდავი"
 
 #: setup.php:1103
 #, php-format
 msgid "%d Week"
-msgstr ""
+msgstr "%d კვირა"
 
 #: setup.php:1104 setup.php:1105
 #, php-format
 msgid "%d Weeks"
-msgstr ""
+msgstr "%d კვირა"
 
 #: setup.php:1106 setup.php:1107
 #, php-format
@@ -962,7 +962,7 @@ msgstr ""
 #: setup.php:1108
 #, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d წელი"
 
 #: setup.php:1293
 msgid "Simple Queues"
@@ -970,11 +970,11 @@ msgstr ""
 
 #: setup.php:1296
 msgid "Storage"
-msgstr ""
+msgstr "საცავი"
 
 #: setup.php:1300
 msgid "(edit)"
-msgstr ""
+msgstr "(ჩასწორება)"
 
 #: setup.php:1348 setup.php:1351
 msgid "Graphs Skipped by Rule, or Not Created"
@@ -994,7 +994,7 @@ msgstr ""
 
 #: setup.php:1385
 msgid "Password"
-msgstr ""
+msgstr "პაროლი"
 
 #: setup.php:1386
 msgid "Provide the read only username password for this MikroTik."
@@ -1010,4 +1010,4 @@ msgstr ""
 
 #: setup.php:1417
 msgid "Connection Failed"
-msgstr ""
+msgstr "კავშირის შეცდომა"
