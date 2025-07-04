@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-02 19:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-04 08:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -113,7 +113,7 @@ msgstr "აქტიური"
 
 #: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
 msgid "Since Reset"
-msgstr "გადატვირთვის შემდეგ"
+msgstr "ჩამოყრის შემდეგ"
 
 #: mikrotik.php:348 mikrotik.php:637 mikrotik.php:912 mikrotik.php:1140
 #: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
@@ -178,7 +178,7 @@ msgstr "მოწყობილობის ჩასწორება"
 
 #: mikrotik.php:482
 msgid "No Interfaces Found"
-msgstr ""
+msgstr "ინტერფეისები აღმოჩენილი არაა"
 
 #: mikrotik.php:573
 msgid "Queue Status"
@@ -226,11 +226,11 @@ msgstr "გამავალი დაკარგული პაკეტე�
 
 #: mikrotik.php:783 mikrotik.php:1856
 msgid "No Simple Queues Found"
-msgstr ""
+msgstr "მარტივი რიგები აღმოჩენილი არაა"
 
 #: mikrotik.php:860
 msgid "Queue Tree Status"
-msgstr ""
+msgstr "რიგების ხის სტატუსი"
 
 #: mikrotik.php:896 mikrotik.php:978 mikrotik.php:1795 setup.php:1292
 msgid "Trees"
@@ -258,7 +258,7 @@ msgstr "პაკეტები სულ"
 
 #: mikrotik.php:1011 mikrotik.php:1862
 msgid "No Queue Trees Found"
-msgstr ""
+msgstr "რიგის ხეები აღმოჩენილი არაა"
 
 #: mikrotik.php:1088
 msgid "Wireless Aps Status"
@@ -382,12 +382,12 @@ msgstr "მომხმარებლები ნაპოვნი არა�
 #: mikrotik.php:1650
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr ""
+msgstr "მოწყობილობების ფილტრი (MikroTik-ის უკანასკნელი ვერსიაა: %s)"
 
 #: mikrotik.php:1652
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr ""
+msgstr "მოწყობილობების ფილტრი (MikroTik-ის უკანასკნელი ვერსიაა: %s. გამოშვების თარიღი: %s)"
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
@@ -460,7 +460,7 @@ msgstr "მომხმარებლების ნახვა"
 
 #: mikrotik.php:1854
 msgid "View Simple Queue"
-msgstr ""
+msgstr "მარტივი რიგის ნახვა"
 
 #: mikrotik.php:1860
 msgid "View Queue Trees"
@@ -468,11 +468,11 @@ msgstr "რიგის ხეების ნახვა"
 
 #: mikrotik.php:1866
 msgid "View Wireless Aps"
-msgstr ""
+msgstr "უსადენო წვდომის წერტილების ნახვა"
 
 #: mikrotik.php:1868
 msgid "No Wireless Aps Found"
-msgstr ""
+msgstr "უსადენო წვდომის წერტილები აღმოჩენილი არაა"
 
 #: mikrotik.php:1871
 msgid "View Interfaces"
@@ -485,7 +485,7 @@ msgstr "გრაფიკების ნახვა"
 
 #: mikrotik.php:1876
 msgid "No Graphs Defined"
-msgstr ""
+msgstr "გრაფიკები აღწერილი არაა"
 
 #: mikrotik.php:1913
 msgid "No Devices Found"
@@ -493,15 +493,15 @@ msgstr "მოწყობილობების პოვნა ვერ მ
 
 #: mikrotik.php:2014
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr ""
+msgstr "ჯერ აირჩიეთ მონაცემების მოთხოვნა მენიუდან კონსოლი->მორგება->ჰოსტის MIB"
 
 #: mikrotik.php:2054
 msgid "Graphs skipped or not created yet"
-msgstr ""
+msgstr "გრაფიკები გამოტოვებულია, ან ჯერ არ იქმნება"
 
 #: mikrotik.php:2057
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr ""
+msgstr "ჯერ აირჩიეთ მონაცემების მოთხოვნა მენიუდან კონსოლი->მორგება->ჰოსტის MIB"
 
 #: mikrotik.php:2086
 msgid "Custom Graph List Applied - Filtering from List"
@@ -631,7 +631,7 @@ msgstr "გაგრძელება"
 
 #: mikrotik_users.php:147
 msgid "Delete Device(s)"
-msgstr "მოწყობილობების წაშლა"
+msgstr "მოწყობილობ(ებ)-ის წაშლა"
 
 #: mikrotik_users.php:150
 msgid "You must select at least one User."
