@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-04 08:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-06 05:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -509,7 +509,7 @@ msgstr ""
 
 #: mikrotik.php:2086
 msgid "Graph Preview Filters"
-msgstr ""
+msgstr "გრაფიკის მინიატურის ფილტრები"
 
 #: mikrotik.php:2276
 msgid "Wireless Registration Stats"
@@ -683,7 +683,7 @@ msgstr ""
 
 #: setup.php:727
 msgid "MikroTik Poller Enabled"
-msgstr ""
+msgstr "MiroTik-ის გამომთხოვი ჩართულია"
 
 #: setup.php:728
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
@@ -707,7 +707,7 @@ msgstr ""
 
 #: setup.php:745
 msgid "Automatically Purge Devices"
-msgstr ""
+msgstr "მოწყობილობების ავტომატური გასუფთავება"
 
 #: setup.php:746
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
@@ -715,7 +715,7 @@ msgstr ""
 
 #: setup.php:751
 msgid "Maximum Concurrent Collectors"
-msgstr ""
+msgstr "მაქსიმალური ერთდროული შემგროვებლები"
 
 #: setup.php:752
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
@@ -738,7 +738,7 @@ msgstr ""
 
 #: setup.php:773
 msgid "Auto Discovery Frequency"
-msgstr ""
+msgstr "ავტოაღმოჩენის სიხშირე"
 
 #: setup.php:774
 msgid "How often do you want to look for new Cacti Devices?"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: setup.php:798
 msgid "Address List Retention"
-msgstr ""
+msgstr "მისამართების სიის შეგროვება"
 
 #: setup.php:799
 msgid "How long would you like to retain Address List history?"
@@ -817,7 +817,7 @@ msgstr "%d დღე"
 
 #: setup.php:825
 msgid "Exclude Users RegEx"
-msgstr ""
+msgstr "ამოსაღების მომხმარებლების რეგგამოსი"
 
 #: setup.php:826
 msgid "User names that match this regex will not be graphed automatically"
@@ -917,7 +917,7 @@ msgstr ""
 
 #: setup.php:921
 msgid "Wireless Stations Frequency"
-msgstr ""
+msgstr "უსადენო სადგურების სიხშირე"
 
 #: setup.php:922
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
@@ -986,7 +986,7 @@ msgstr "MikroTik-ის ავტორიზაციის დეტალე�
 
 #: setup.php:1377
 msgid "Read Only User"
-msgstr ""
+msgstr "მხოლოდ წაკთხვადი მომხმარებელი"
 
 #: setup.php:1378
 msgid "Provide a read only username for the MikroTik."
