@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-07 06:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-07 12:51+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -505,7 +505,7 @@ msgstr "ჯერ აირჩიეთ მონაცემების მო
 
 #: mikrotik.php:2086
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr ""
+msgstr "გამოყენებულია მომხმარებლის გრაფიკების სია - გაფილტვრა სიიდან"
 
 #: mikrotik.php:2086
 msgid "Graph Preview Filters"
@@ -513,7 +513,7 @@ msgstr "გრაფიკის მინიატურის ფილტრ�
 
 #: mikrotik.php:2276
 msgid "Wireless Registration Stats"
-msgstr ""
+msgstr "უსადენო რეგისტრაციის სტატისტიკა"
 
 #: mikrotik.php:2312 mikrotik.php:2447
 msgid "Registrations"
@@ -529,11 +529,11 @@ msgstr "MAC მისამართი"
 
 #: mikrotik.php:2443
 msgid "Signal to Noise"
-msgstr ""
+msgstr "სიგნალი/ხმაურის ფარდობა"
 
 #: mikrotik.php:2494
 msgid "No Wireless Registrations Found"
-msgstr ""
+msgstr "უსადენო რეგისტრაციების გარეშე"
 
 #: mikrotik.php:2571
 msgid "DHCP Registrations"
@@ -571,7 +571,7 @@ msgstr "სტატიკური"
 
 #: mikrotik.php:2720
 msgid "No DHCP Entries Found"
-msgstr ""
+msgstr "DHCP ჩანაწერები აღმოჩენილი არაა"
 
 #: mikrotik.php:2882 mikrotik.php:3020 mikrotik.php:3324
 msgid "Permanent"
@@ -595,7 +595,7 @@ msgstr "TTL"
 
 #: mikrotik.php:3033
 msgid "No DNS Entries Found"
-msgstr ""
+msgstr "DNS ჩანაწერები აღმოჩენილი არაა"
 
 #: mikrotik.php:3190 mikrotik.php:3288
 msgid "List"
@@ -611,7 +611,7 @@ msgstr "მოლოდინის ვადა"
 
 #: mikrotik.php:3336
 msgid "No Address List Entries Found"
-msgstr ""
+msgstr "მისამართების სიის ჩანაწერები აღმოჩენილი არაა"
 
 #: mikrotik_users.php:33
 msgid "Delete"
@@ -619,7 +619,7 @@ msgstr "წაშლა"
 
 #: mikrotik_users.php:141
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელებაზე', რომ წაშალოთ შემდეგი მომხმარებლები და მათი გრაფიკები."
 
 #: mikrotik_users.php:147
 msgid "Cancel"
@@ -635,7 +635,7 @@ msgstr "მოწყობილობ(ებ)-ის წაშლა"
 
 #: mikrotik_users.php:150
 msgid "You must select at least one User."
-msgstr ""
+msgstr "უნდა აირჩიოთ სულ ცოტა ერთი მომხმარებელი."
 
 #: mikrotik_users.php:151
 msgid "Return"
@@ -679,7 +679,7 @@ msgstr "MikroTik"
 
 #: setup.php:723
 msgid "MikroTik General Settings"
-msgstr ""
+msgstr "MikroTik-ის ზოგადი პარამეტრები"
 
 #: setup.php:727
 msgid "MikroTik Poller Enabled"
@@ -687,19 +687,19 @@ msgstr "MiroTik-ის გამომთხოვი ჩართულია"
 
 #: setup.php:728
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr ""
+msgstr "დასვით ეს თოლია, თუ გნებავთ, MikroTik-დან გამოთხოვა ჩართოთ.   წინააღმდეგ შემთხვევაში გამომთხოვი არ იმუშავებს."
 
 #: setup.php:733
 msgid "MikroTik API Polling Enabled"
-msgstr ""
+msgstr "MikroTik-ის API-დან გამოთხოვა ჩართულია"
 
 #: setup.php:734
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr ""
+msgstr "დასვით ეს თოლია, თუ გნებავთ, Cacti-მა MIkroTik-ის API-ით სხვადსხვა პარამეტრები წამოიღოს.   თუ რაიმე მიზეზით MikroTik-ის API-სთან წვდომა არ გაქვთ, მოხსენით ეს თოლია."
 
 #: setup.php:739
 msgid "Automatically Discover Cacti Devices"
-msgstr ""
+msgstr "Cacti-ის მოწყობილობების ავტომატური აღმოჩენა"
 
 #: setup.php:740
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
