@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-06 05:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-07 06:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -734,7 +734,7 @@ msgstr "%d პროცესი"
 
 #: setup.php:769
 msgid "Auto Discovery Settings"
-msgstr ""
+msgstr "ავტოაღმოჩენის მორგება"
 
 #: setup.php:773
 msgid "Auto Discovery Frequency"
@@ -774,7 +774,7 @@ msgstr ""
 
 #: setup.php:805
 msgid "Device Graph Automation"
-msgstr ""
+msgstr "მოწყობილობის გრაფიკის ავტომატიზაცია"
 
 #: setup.php:809
 msgid "Automatically Add New Graphs"
@@ -909,7 +909,7 @@ msgstr ""
 
 #: setup.php:914
 msgid "Wireless Registrations Frequency"
-msgstr ""
+msgstr "უსადენო რეგისტრაციების სიხშირე"
 
 #: setup.php:915
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
