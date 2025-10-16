@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-16 17:46+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -109,7 +109,7 @@ msgstr "Standard"
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
 msgid "Active"
-msgstr "Aktiv"
+msgstr "Aktivt"
 
 #: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
 msgid "Since Reset"
@@ -125,7 +125,7 @@ msgstr "Start"
 #: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
 #: mikrotik.php:2912 mikrotik.php:3228 mikrotik_users.php:297
 msgid "Clear"
-msgstr "Rensa"
+msgstr "Töm"
 
 #: mikrotik.php:436 mikrotik.php:725 mikrotik.php:967 mikrotik.php:1197
 #: mikrotik.php:1495 mikrotik.php:1788 mikrotik.php:2432 setup.php:1301
@@ -373,7 +373,7 @@ msgstr "Totalt ut"
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
 msgid "N/A"
-msgstr "N/A"
+msgstr "Inte tillgänglig"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
@@ -391,7 +391,7 @@ msgstr "Enhetsfilter (senaste MikroTik-versionen är: %s, släppt: %s)"
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
-msgstr "ChangelogLanguage"
+msgstr "Ändringslogg"
 
 #: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
 #: mikrotik_users.php:286
@@ -408,7 +408,7 @@ msgstr "Uppe"
 
 #: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
 msgid "Disabled"
-msgstr "Inaktiverad"
+msgstr "Inaktiverat"
 
 #: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
 msgid "Description"
@@ -607,7 +607,7 @@ msgstr "Adress"
 
 #: mikrotik.php:3292
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Tidsgräns"
 
 #: mikrotik.php:3336
 msgid "No Address List Entries Found"
@@ -615,7 +615,7 @@ msgstr "Inga poster i adresslistan hittades"
 
 #: mikrotik_users.php:33
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: mikrotik_users.php:141
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
@@ -655,7 +655,7 @@ msgstr "Ställ in/uppdatera filter"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
-msgstr "Rensa filter"
+msgstr "Töm filter"
 
 #: mikrotik_users.php:354
 msgid "User Name"
