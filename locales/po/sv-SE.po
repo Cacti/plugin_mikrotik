@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-20 20:24+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -74,7 +74,7 @@ msgstr "Registreringar för trådlöst nätverk"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
-msgstr "Grafer"
+msgstr "Diagram"
 
 #: mikrotik.php:285
 msgid "Interface Stats"
@@ -933,7 +933,7 @@ msgstr "Normal användare"
 
 #: setup.php:943
 msgid "General Administration"
-msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
+msgstr "Allmän administration"
 
 #: setup.php:1087
 #, php-format
@@ -1010,7 +1010,7 @@ msgstr "Ok om Cacti kan ansluta till MikroTik via dess API-port."
 
 #: setup.php:1417
 msgid "Connection Failed"
-msgstr "% 1"
+msgstr "Anslutningen misslyckades"
 
 #, fuzzy
 #~ msgid "MikroTik Auto Discovery Frequency"
