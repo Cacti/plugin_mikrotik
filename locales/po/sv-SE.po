@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-16 17:46+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -109,7 +109,7 @@ msgstr "Standard"
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
 msgid "Active"
-msgstr "Aktivt"
+msgstr "Aktiv"
 
 #: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
 msgid "Since Reset"
@@ -408,7 +408,7 @@ msgstr "Uppe"
 
 #: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
 msgid "Disabled"
-msgstr "Inaktiverat"
+msgstr "Inaktiverad"
 
 #: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
 msgid "Description"
