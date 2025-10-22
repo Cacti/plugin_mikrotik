@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-20 20:24+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-10-22 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -400,7 +400,7 @@ msgstr "Status"
 
 #: mikrotik.php:1695
 msgid "Recovering"
-msgstr "Påväg upp"
+msgstr "Återhämtar"
 
 #: mikrotik.php:1698
 msgid "Up"
@@ -424,7 +424,7 @@ msgstr "Lic Ver"
 
 #: mikrotik.php:1794 mikrotik.php:2442
 msgid "Uptime(d:h:m)"
-msgstr "Driftstid (d:h:m)"
+msgstr "Upptid (d:t:m)"
 
 #: mikrotik.php:1797
 msgid "CPU %"
@@ -432,7 +432,7 @@ msgstr "CPU %"
 
 #: mikrotik.php:1798
 msgid "CPUs"
-msgstr "Processorer"
+msgstr "CPUer"
 
 #: mikrotik.php:1799
 msgid "Processes"
@@ -440,7 +440,7 @@ msgstr "Processer"
 
 #: mikrotik.php:1800
 msgid "Total Mem"
-msgstr "Totalt Mem"
+msgstr "Totalt minne"
 
 #: mikrotik.php:1801
 msgid "Used Mem"
@@ -481,11 +481,11 @@ msgstr "Visa gränssnitt"
 #: mikrotik.php:1874 mikrotik.php:2006 mikrotik.php:2008 mikrotik.php:2049
 #: mikrotik.php:2051 setup.php:1346
 msgid "View Graphs"
-msgstr "Se grafer"
+msgstr "Visa diagram"
 
 #: mikrotik.php:1876
 msgid "No Graphs Defined"
-msgstr "Inga grafer definierade"
+msgstr "Inga diagram definierade"
 
 #: mikrotik.php:1913
 msgid "No Devices Found"
@@ -505,11 +505,11 @@ msgstr "Välj Data Query först från Console->Settings->Host MIB First"
 
 #: mikrotik.php:2086
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Tillämpad lista med anpassade grafer - Filtrering från lista"
+msgstr "Anpassad diagramlista tillämpad - Filtrering från lista"
 
 #: mikrotik.php:2086
 msgid "Graph Preview Filters"
-msgstr "Filter för förhandsgranskning av grafer"
+msgstr "Filter för diagramförhandsvisning"
 
 #: mikrotik.php:2276
 msgid "Wireless Registration Stats"
@@ -707,19 +707,19 @@ msgstr "Vill du automatiskt söka efter och lägga till enheter som stöder Mikr
 
 #: setup.php:745
 msgid "Automatically Purge Devices"
-msgstr "Automatisk rensning av enheter"
+msgstr "Automatiskt rensa enheter"
 
 #: setup.php:746
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Vill du att enheter som tas bort från Cacti-systemet ska rensas automatiskt?"
+msgstr "Vill du automatiskt rensa bort enheter som tas bort från Cacti-systemet?"
 
 #: setup.php:751
 msgid "Maximum Concurrent Collectors"
-msgstr "Maximalt antal samtidiga insamlare"
+msgstr "Maximalt samtidiga insamlare"
 
 #: setup.php:752
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Vilket är det maximala antalet samtidiga collector-processer som du vill köra samtidigt?"
+msgstr "Vad är det maximala antalet samtidiga insamlingsprocesser som du vill köra på en gång?"
 
 #: setup.php:756
 #, php-format
@@ -742,7 +742,7 @@ msgstr "Frekvens för automatisk upptäckt"
 
 #: setup.php:774
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Hur ofta vill du leta efter nya Cacti Devices?"
+msgstr "Hur ofta vill du leta efter nya Cacti-enheter?"
 
 #: setup.php:780
 msgid "DHCP/DNS/List Settings"
@@ -778,11 +778,11 @@ msgstr "Automatisering av enhetsgraf"
 
 #: setup.php:809
 msgid "Automatically Add New Graphs"
-msgstr "Lägg automatiskt till nya grafer"
+msgstr "Lägg automatiskt till nya diagram"
 
 #: setup.php:810
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Hur ofta vill du kontrollera om det finns nya objekt i grafen?"
+msgstr "Hur ofta vill du leta efter nya objekt att göra diagram för?"
 
 #: setup.php:814
 msgid "Never"
