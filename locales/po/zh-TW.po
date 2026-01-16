@@ -4,21 +4,24 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-05-04 08:47+0000\nLast-Translator: Linya Huang <linya0405@gmail.com>\nLanguage-Team: Chinese (Traditional) <http://translate.cacti.net/projects/cacti/mikrotik/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.3.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2026-01-16 03:18+0000\nLast-Translator: sucharlie <su.charlie@gmail.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/mikrotik/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
 msgstr "出席"
 
 #: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
+#, fuzzy
 msgid "Unknown"
 msgstr "未知"
 
 #: mikrotik.php:43
+#, fuzzy
 msgid "Running"
 msgstr "運行"
 
 #: mikrotik.php:44
+#, fuzzy
 msgid "Warning"
 msgstr "警告"
 
@@ -27,16 +30,19 @@ msgid "Testing"
 msgstr "測試"
 
 #: mikrotik.php:46 mikrotik.php:1692
+#, fuzzy
 msgid "Down"
 msgstr "向下"
 
 #: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1712 mikrotik.php:1806
 #: setup.php:1291
+#, fuzzy
 msgid "Devices"
 msgstr "設備"
 
 #: mikrotik.php:152 mikrotik.php:1511 mikrotik.php:1796 mikrotik_users.php:271
 #: mikrotik_users.php:345 setup.php:1294
+#, fuzzy
 msgid "Users"
 msgstr "使用者"
 
@@ -79,6 +85,7 @@ msgid "Wireless Registrations"
 msgstr "無線註冊頻率"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
+#, fuzzy
 msgid "Graphs"
 msgstr "圖表"
 
@@ -90,12 +97,14 @@ msgstr "接口統計"
 #: mikrotik.php:294 mikrotik.php:582 mikrotik.php:869 mikrotik.php:1097
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
 #: mikrotik.php:2825 mikrotik.php:3163 mikrotik_users.php:255
+#, fuzzy
 msgid "Search"
 msgstr "搜尋"
 
 #: mikrotik.php:300 mikrotik.php:588 mikrotik.php:875 mikrotik.php:1103
 #: mikrotik.php:1374 mikrotik.php:2291 mikrotik.php:2433 mikrotik.php:2586
 #: mikrotik.php:2831 mikrotik.php:3169
+#, fuzzy
 msgid "Device"
 msgstr "裝置"
 
@@ -104,17 +113,20 @@ msgstr "裝置"
 #: mikrotik.php:2590 mikrotik.php:2835 mikrotik.php:2856 mikrotik.php:2878
 #: mikrotik.php:3173 mikrotik.php:3194 mikrotik_users.php:265
 #: mikrotik_users.php:290
+#, fuzzy
 msgid "All"
 msgstr "全部"
 
 #: mikrotik.php:325 mikrotik.php:613 mikrotik.php:900 mikrotik.php:1128
 #: mikrotik.php:1409 mikrotik.php:1716 mikrotik.php:2316 mikrotik.php:2611
 #: mikrotik.php:2899 mikrotik.php:3215 mikrotik_users.php:275
+#, fuzzy
 msgid "Default"
-msgstr "預設"
+msgstr "默认"
 
 #: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
 #: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
+#, fuzzy
 msgid "Active"
 msgstr "啟用"
 
@@ -126,27 +138,32 @@ msgstr "自重置"
 #: mikrotik.php:348 mikrotik.php:637 mikrotik.php:912 mikrotik.php:1140
 #: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
 #: mikrotik.php:2911 mikrotik.php:3227 mikrotik_users.php:296
+#, fuzzy
 msgid "Go"
 msgstr "送出"
 
 #: mikrotik.php:349 mikrotik.php:638 mikrotik.php:913 mikrotik.php:1141
 #: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
 #: mikrotik.php:2912 mikrotik.php:3228 mikrotik_users.php:297
+#, fuzzy
 msgid "Clear"
 msgstr "清除"
 
 #: mikrotik.php:436 mikrotik.php:725 mikrotik.php:967 mikrotik.php:1197
 #: mikrotik.php:1495 mikrotik.php:1788 mikrotik.php:2432 setup.php:1301
+#, fuzzy
 msgid "Actions"
 msgstr "動作"
 
 #: mikrotik.php:437 mikrotik.php:726 mikrotik.php:968 mikrotik.php:1198
 #: mikrotik.php:1496 mikrotik.php:2678
+#, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
 
 #: mikrotik.php:438 mikrotik.php:727 mikrotik.php:969 mikrotik.php:1789
 #: mikrotik.php:2981
+#, fuzzy
 msgid "Name"
 msgstr "名稱"
 
@@ -189,7 +206,7 @@ msgstr "最近一次登入"
 #: mikrotik.php:1534 mikrotik.php:2472
 #, fuzzy
 msgid "Edit Device"
-msgstr "裝置"
+msgstr "編輯設備"
 
 #: mikrotik.php:482
 #, fuzzy
@@ -262,6 +279,7 @@ msgid "Queue Tree Status"
 msgstr "隊列樹狀態"
 
 #: mikrotik.php:896 mikrotik.php:978 mikrotik.php:1795 setup.php:1292
+#, fuzzy
 msgid "Trees"
 msgstr "樹木"
 
@@ -332,6 +350,7 @@ msgid "Auth Clients"
 msgstr "Auth客戶"
 
 #: mikrotik.php:1205
+#, fuzzy
 msgid "Frequency"
 msgstr "頻率"
 
@@ -356,6 +375,7 @@ msgstr "用戶統計"
 
 #: mikrotik.php:1395 mikrotik.php:1498 mikrotik.php:2685 mikrotik.php:2852
 #: mikrotik.php:2979 mikrotik_users.php:261 mikrotik_users.php:356
+#, fuzzy
 msgid "Type"
 msgstr "類型"
 
@@ -373,10 +393,12 @@ msgid "Active Users"
 msgstr "活躍用戶"
 
 #: mikrotik.php:1497
+#, fuzzy
 msgid "User"
 msgstr "使用者"
 
 #: mikrotik.php:1499 mikrotik.php:2680
+#, fuzzy
 msgid "IP Address"
 msgstr "IP 位址"
 
@@ -422,10 +444,12 @@ msgstr "總計"
 #: mikrotik.php:1556 mikrotik.php:1558 mikrotik.php:1559 mikrotik.php:1560
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
+#, fuzzy
 msgid "N/A"
 msgstr "不适用"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
+#, fuzzy
 msgid "No Users Found"
 msgstr "找不到使用者"
 
@@ -442,26 +466,31 @@ msgstr "設備篩選器（最新MikroTik版本：％s，已發布：％s）"
 #: mikrotik.php:1655
 #, fuzzy
 msgid "ChangeLog"
-msgstr "更新日誌"
+msgstr "1改變"
 
 #: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
 #: mikrotik_users.php:286
+#, fuzzy
 msgid "Status"
 msgstr "狀態"
 
 #: mikrotik.php:1695
+#, fuzzy
 msgid "Recovering"
 msgstr "正在復原"
 
 #: mikrotik.php:1698
+#, fuzzy
 msgid "Up"
 msgstr "向上"
 
 #: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
+#, fuzzy
 msgid "Disabled"
 msgstr "停用"
 
 #: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
+#, fuzzy
 msgid "Description"
 msgstr "描述"
 
@@ -491,6 +520,7 @@ msgid "CPUs"
 msgstr "CPU的"
 
 #: mikrotik.php:1799
+#, fuzzy
 msgid "Processes"
 msgstr "商品/物料的流動程序"
 
@@ -547,7 +577,7 @@ msgstr "介面卡"
 #: mikrotik.php:2051 setup.php:1346
 #, fuzzy
 msgid "View Graphs"
-msgstr "圖表"
+msgstr "查看圖表"
 
 #: mikrotik.php:1876
 #, fuzzy
@@ -557,7 +587,7 @@ msgstr "未定義圖"
 #: mikrotik.php:1913
 #, fuzzy
 msgid "No Devices Found"
-msgstr "找不到設備"
+msgstr "未找到裝置"
 
 #: mikrotik.php:2014
 #, fuzzy
@@ -618,6 +648,7 @@ msgstr "DHCP註冊"
 
 #: mikrotik.php:2607 mikrotik.php:2691 mikrotik.php:2895 mikrotik.php:2996
 #: mikrotik.php:3211 mikrotik.php:3305
+#, fuzzy
 msgid "Entries"
 msgstr "留言"
 
@@ -660,10 +691,12 @@ msgid "Expired"
 msgstr "已過期"
 
 #: mikrotik.php:2913 mikrotik.php:3229
+#, fuzzy
 msgid "Export"
 msgstr "匯出"
 
 #: mikrotik.php:2980
+#, fuzzy
 msgid "Data"
 msgstr "數據"
 
@@ -685,6 +718,7 @@ msgid "Address"
 msgstr "地址"
 
 #: mikrotik.php:3292
+#, fuzzy
 msgid "Timeout"
 msgstr "已逾時"
 
@@ -694,6 +728,7 @@ msgid "No Address List Entries Found"
 msgstr "找不到設備"
 
 #: mikrotik_users.php:33
+#, fuzzy
 msgid "Delete"
 msgstr "刪除"
 
@@ -703,10 +738,12 @@ msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "單擊“繼續”以刪除以下用戶及其圖表。"
 
 #: mikrotik_users.php:147
+#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
 #: mikrotik_users.php:147
+#, fuzzy
 msgid "Continue"
 msgstr "繼續"
 
@@ -721,6 +758,7 @@ msgid "You must select at least one User."
 msgstr "您必須至少選擇一個用戶。"
 
 #: mikrotik_users.php:151
+#, fuzzy
 msgid "Return"
 msgstr "返回"
 
@@ -734,18 +772,22 @@ msgid "Inactive"
 msgstr "未啟用"
 
 #: mikrotik_users.php:296
+#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "設置/刷新過濾器"
 
 #: mikrotik_users.php:297
+#, fuzzy
 msgid "Clear Filters"
 msgstr "清除過濾器"
 
 #: mikrotik_users.php:354
+#, fuzzy
 msgid "User Name"
 msgstr "使用者名稱"
 
 #: mikrotik_users.php:355
+#, fuzzy
 msgid "Domain"
 msgstr "網域"
 
@@ -896,33 +938,34 @@ msgid "How often do you want to check for new objects to graph?"
 msgstr "您想多久檢查一下要繪製的新對象？"
 
 #: setup.php:814
+#, fuzzy
 msgid "Never"
 msgstr "從不"
 
 #: setup.php:815 setup.php:816 setup.php:817 setup.php:838 setup.php:1088
 #: setup.php:1089 setup.php:1090
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minutes"
 msgstr "%d 分鐘"
 
 #: setup.php:818 setup.php:839 setup.php:1091
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hour"
 msgstr "%d 小時"
 
 #: setup.php:819 setup.php:840 setup.php:841 setup.php:1092 setup.php:1093
 #: setup.php:1094
-#, php-format
+#, fuzzy, php-format
 msgid "%d Hours"
 msgstr "%d 小時"
 
 #: setup.php:820 setup.php:842 setup.php:1095 setup.php:1100
-#, php-format
+#, fuzzy, php-format
 msgid "%d Day"
 msgstr "%d 天"
 
 #: setup.php:821 setup.php:1101 setup.php:1102
-#, php-format
+#, fuzzy, php-format
 msgid "%d Days"
 msgstr "%d 天"
 
@@ -1062,10 +1105,12 @@ msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled<
 msgstr "您希望多久掃描一次無線電台？選擇<b>已禁用</b>以刪除此功能。"
 
 #: setup.php:939
+#, fuzzy
 msgid "Management"
 msgstr "管理"
 
 #: setup.php:942
+#, fuzzy
 msgid "Normal User"
 msgstr "普通用戶"
 
@@ -1075,7 +1120,7 @@ msgid "General Administration"
 msgstr "總務局"
 
 #: setup.php:1087
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minute"
 msgstr "%d 分鐘"
 
@@ -1089,19 +1134,19 @@ msgid "%d Week"
 msgstr "%d週"
 
 #: setup.php:1104 setup.php:1105
-#, php-format
+#, fuzzy, php-format
 msgid "%d Weeks"
-msgstr "％d週"
+msgstr "%d週"
 
 #: setup.php:1106 setup.php:1107
-#, php-format
+#, fuzzy, php-format
 msgid "%d Months"
-msgstr "％d個月"
+msgstr "%d個月"
 
 #: setup.php:1108
-#, php-format
+#, fuzzy, php-format
 msgid "%d Year"
-msgstr "％d年"
+msgstr "%d年"
 
 #: setup.php:1293
 #, fuzzy
@@ -1113,6 +1158,7 @@ msgid "Storage"
 msgstr "儲存空間"
 
 #: setup.php:1300
+#, fuzzy
 msgid "(edit)"
 msgstr "(編輯)"
 
@@ -1137,6 +1183,7 @@ msgid "Provide a read only username for the MikroTik."
 msgstr "為MikroTik提供只讀用戶名。"
 
 #: setup.php:1385
+#, fuzzy
 msgid "Password"
 msgstr "密碼"
 
@@ -1156,6 +1203,7 @@ msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr "好的，如果Cacti可以通過其API端口連接到MikroTik。"
 
 #: setup.php:1417
+#, fuzzy
 msgid "Connection Failed"
 msgstr "連線失敗"
 
