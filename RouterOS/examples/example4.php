@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* Example of finding registration-table ID for specified MAC */
 
 require('../routeros_api.class.php');

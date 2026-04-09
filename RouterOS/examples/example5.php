@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* Example of counting leases from a specific IP Pool (using regexp) */
 
 require('../routeros_api.class.php');
