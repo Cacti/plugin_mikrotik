@@ -60,7 +60,10 @@ function form_actions() {
 
 	/* if we are to save this form, instead of display it */
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = unserialize(stripslashes(get_request_var('selected_items')), ['allowed_classes' => false]);
+		if (!is_array($selected_items)) {
+			$selected_items = [];
+		}
 
 		if (get_request_var('drp_action') == '1') { /* delete */
 			if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
@@ -105,7 +108,11 @@ function form_actions() {
 
 			api_graph_remove_multi($graphs_to_act_on);
 
-			db_execute("DELETE FROM plugin_mikrotik_users WHERE name IN ('" . implode("','", $devices_to_act_on) . "')");
+			// Issue QUEUE-6: use prepared statement for IN() — prevents name-column SQL injection
+			if (!empty($devices_to_act_on)) {
+				$placeholders = implode(',', array_fill(0, count($devices_to_act_on), '?'));
+				db_execute_prepared("DELETE FROM plugin_mikrotik_users WHERE name IN ($placeholders)", $devices_to_act_on);
+			}
 		}
 
 		header('Location: mikrotik_users.php?header=false');
