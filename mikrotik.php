@@ -215,42 +215,42 @@ function mikrotik_interfaces() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -503,42 +503,42 @@ function mikrotik_queues() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -804,30 +804,30 @@ function mikrotik_trees() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1032,30 +1032,30 @@ function mikrotik_wireless_aps() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'apSSID',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1290,41 +1290,41 @@ function mikrotik_users() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'type' => array(
+		'type' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'page' => array(
+			],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1592,30 +1592,30 @@ function mikrotik_devices() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'status' => array(
+			],
+		'status' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'description',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1687,7 +1687,7 @@ function mikrotik_devices() {
 								INNER JOIN plugin_mikrotik_system
 								ON host.id=plugin_mikrotik_system.host_id');
 
-							$statuses = array_merge($statuses, array('-2' => array('status' => '-2')));
+							$statuses = array_merge($statuses, array('-2' => ['status' => '-2']));
 
 							if (cacti_sizeof($statuses)) {
 								foreach($statuses AS $s) {
@@ -2107,7 +2107,7 @@ function mikrotik_view_graphs() {
 					$graph_list[$item] = 1;
 				}
 			} else {
-				$graph_list = array();
+				$graph_list = [];
 			}
 			if (!isempty_request_var('graph_add')) {
 				foreach (explode(',',get_request_var('graph_add')) as $item) {
@@ -2211,42 +2211,42 @@ function mikrotik_wireless_regs() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'index',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -2520,30 +2520,30 @@ function mikrotik_dhcp() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'dhcp.hostname',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -2746,41 +2746,41 @@ function mikrotik_dns($export = false) {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'type' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'status' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
-		'filter' => array(
+		'filter' => [
 			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => '',
-			),
+			],
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'dns.name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -3084,41 +3084,41 @@ function mikrotik_list($export = false) {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'list' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'dynamic' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
-		'filter' => array(
+		'filter' => [
 			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => '',
-			),
+			],
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'lists.address',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 

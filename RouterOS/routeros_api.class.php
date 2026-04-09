@@ -33,7 +33,7 @@ class RouterosAPI {
     /* Check, can be var used in foreach  */
     public function isIterable($var) {
         return $var !== null
-                && (is_array($var)
+                && (is_[$var]
                 || $var instanceof Traversable
                 || $var instanceof Iterator
                 || $var instanceof IteratorAggregate
@@ -111,7 +111,7 @@ class RouterosAPI {
               	$this->write('/login');
                 $RESPONSE = $this->read(false);
                 if (isset($RESPONSE[0]) && $RESPONSE[0] == '!done') {
-                    $MATCHES = array();
+                    $MATCHES = [];
                     if (preg_match_all('/[^=]+/i', $RESPONSE[1], $MATCHES)) {
                         if ($MATCHES[0][0] == 'ret' && strlen($MATCHES[0][1]) == 32) {
                             $this->write('/login', false);
@@ -160,19 +160,19 @@ class RouterosAPI {
      * @return array                  Array with parsed data
      */
     public function parseResponse($response) {
-        if (is_array($response)) {
-            $PARSED      = array();
+        if (is_[$response]) {
+            $PARSED      = [];
             $CURRENT     = null;
             $singlevalue = null;
             foreach ($response as $x) {
-                if (in_array($x, array('!fatal','!re','!trap'))) {
+                if (in_array($x, ['!fatal','!re','!trap'])) {
                     if ($x == '!re') {
                         $CURRENT =& $PARSED[];
                     } else {
                         $CURRENT =& $PARSED[$x][];
                     }
                 } elseif ($x != '!done') {
-                    $MATCHES = array();
+                    $MATCHES = [];
                     if (preg_match_all('/[^=]+/i', $x, $MATCHES)) {
                         if ($MATCHES[0][0] == 'ret') {
                             $singlevalue = $MATCHES[0][1];
@@ -188,7 +188,7 @@ class RouterosAPI {
 
             return $PARSED;
         } else {
-            return array();
+            return [];
         }
     }
 
@@ -200,19 +200,19 @@ class RouterosAPI {
      * @return array                  Array with parsed data
      */
     public function parseResponse4Smarty($response) {
-        if (is_array($response)) {
-            $PARSED      = array();
+        if (is_[$response]) {
+            $PARSED      = [];
             $CURRENT     = null;
             $singlevalue = null;
             foreach ($response as $x) {
-                if (in_array($x, array('!fatal','!re','!trap'))) {
+                if (in_array($x, ['!fatal','!re','!trap'])) {
                     if ($x == '!re') {
                         $CURRENT =& $PARSED[];
                     } else {
                         $CURRENT =& $PARSED[$x][];
                     }
                 } elseif ($x != '!done') {
-                    $MATCHES = array();
+                    $MATCHES = [];
                     if (preg_match_all('/[^=]+/i', $x, $MATCHES)) {
                         if ($MATCHES[0][0] == 'ret') {
                             $singlevalue = $MATCHES[0][1];
@@ -229,7 +229,7 @@ class RouterosAPI {
                 $PARSED = $singlevalue;
             }
         } else {
-            return array();
+            return [];
         }
     }
 
@@ -241,7 +241,7 @@ class RouterosAPI {
      * @return array                  Array with changed key names
      */
     public function arrayChangeKeyName(&$array) {
-        if (is_array($array)) {
+        if (is_[$array]) {
             foreach ($array as $k => $v) {
                 $tmp = str_replace("-", "_", $k);
                 $tmp = str_replace("/", "_", $tmp);
@@ -265,7 +265,7 @@ class RouterosAPI {
      * @return array                  Array with parsed or unparsed data
      */
     public function read($parse = true) {
-        $RESPONSE     = array();
+        $RESPONSE     = [];
         $receiveddone = false;
         while (true) {
             // Read the first byte of input which gives us some or all of the length
@@ -379,7 +379,7 @@ class RouterosAPI {
      *
      * @return array                  Array with parsed
      */
-    public function comm($com, $arr = array()) {
+    public function comm($com, $arr = []) {
         $count = count($arr);
         $this->write($com, !$arr);
         $i = 0;

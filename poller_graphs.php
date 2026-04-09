@@ -177,7 +177,7 @@ function add_host_based_graphs() {
 			foreach($device_hashes as $hash) {
 				$template = mikrotik_template_by_hash($hash);
 				if (!empty($template)) {
-					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', array($hash)));
+					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', [$hash]));
 					mikrotik_gt_graph($h['host_id'], $template);
 				}
 			}
@@ -185,7 +185,7 @@ function add_host_based_graphs() {
 			foreach($device_query_hashes as $hash) {
 				$query = mikrotik_data_query_by_hash($hash);
 				if (!empty($query)) {
-					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM snmp_query WHERE hash = ?', array($hash)));
+					debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM snmp_query WHERE hash = ?', [$hash]));
 					if ($hash == '7dd90372956af1dc8ec7b859a678f227') {
 						$exclusion = read_config_option('mikrotik_user_exclusion');
 						add_host_dq_graphs($h['host_id'], $query, 'userName', $exclusion, false);
@@ -195,14 +195,14 @@ function add_host_based_graphs() {
 				}
 			}
 
-			$health = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_system_health WHERE host_id = ?', array($h['host_id']));
+			$health = db_fetch_row_prepared('SELECT * FROM plugin_mikrotik_system_health WHERE host_id = ?', [$h['host_id']]);
 			debug('Processing Health');
 			if (cacti_sizeof($health)) {
 				foreach($device_health_hashes as $column => $hash) {
 					if (!empty($health[$column]) && $health[$column] != 'NULL') {
 						$template = mikrotik_template_by_hash($hash);
 						if (!empty($template)) {
-							debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', array($hash)));
+							debug('Processing ' . db_fetch_cell_prepared('SELECT name FROM graph_templates WHERE hash = ?', [$hash]));
 							mikrotik_gt_graph($h['host_id'], $template);
 						}
 					}
@@ -248,26 +248,26 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 	$name = db_fetch_cell_prepared("SELECT name
 		FROM graph_templates
 		WHERE id = ?",
-		array($graph_template_id));
+		[$graph_template_id]);
 
 	$assoc = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM host_graph
 		WHERE graph_template_id = ?
 		AND host_id = ?",
-		array($graph_template_id, $host_id));
+		[$graph_template_id, $host_id]);
 
 	if (!$assoc) {
 		db_execute_prepared("INSERT INTO host_graph
 			(host_id, graph_template_id)
 			VALUES (?, ?)",
-			array($host_id, $graph_template_id));
+			[$host_id, $graph_template_id]);
 	}
 
 	$exists = db_fetch_cell_prepared("SELECT count(*)
 		FROM graph_local
 		WHERE host_id = ?
 		AND graph_template_id = ?",
-		array($host_id, $graph_template_id));
+		[$host_id, $graph_template_id]);
 
 	if (!$exists) {
 		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . PHP_EOL;
@@ -308,7 +308,7 @@ function add_summary_graphs($host_id, $host_template) {
 	$data_queries = db_fetch_assoc_prepared("SELECT *
 		FROM host_snmp_query
 		WHERE host_id = ?",
-		array($host_id));
+		[$host_id]);
 
 	if (cacti_sizeof($data_queries)) {
 		foreach($data_queries as $dq) {
@@ -329,7 +329,7 @@ function add_summary_graphs($host_id, $host_template) {
 	$graph_templates = db_fetch_assoc_prepared("SELECT *
 		FROM host_graph
 		WHERE host_id = ?",
-		array($host_id));
+		[$host_id]);
 
 	if (cacti_sizeof($graph_templates)) {
 		foreach($graph_templates as $gt) {
@@ -338,13 +338,13 @@ function add_summary_graphs($host_id, $host_template) {
 				FROM graph_local
 				WHERE host_id = ?
 				AND graph_template_id= ?",
-				array($host_id, $gt["graph_template_id"]));
+				[$host_id, $gt["graph_template_id"]]);
 
 			if (!$exists) {
 				$name = db_fetch_cell_prepared('SELECT name
 					FROM graph_templates
 					WHERE id = ?',
-					array($gt['graph_template_id']));
+					[$gt['graph_template_id']]);
 
 				print "NOTE: Adding item for Graph Template: '$name' for Host: '$host_id'" . PHP_EOL;
 
@@ -370,7 +370,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 			FROM host_snmp_query
 			WHERE host_id = ?
 			AND snmp_query_id = ?",
-			array($host_id, $query_id));
+			[$host_id, $query_id]);
 	}
 
 	$items = db_fetch_assoc_prepared("SELECT *
@@ -378,7 +378,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 		WHERE field_name = ?
 		AND host_id = ?
 		AND snmp_query_id = ?",
-		array($field, $host_id, $query_id));
+		[$field, $host_id, $query_id]);
 
 	if (cacti_sizeof($items)) {
 		foreach($items as $item) {
@@ -403,7 +403,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 				AND snmp_query_id = ?
 				AND graph_template_id = ?
 				AND snmp_index = ?",
-				array($host_id, $query_id, $graph_template_id, $index));
+				[$host_id, $query_id, $graph_template_id, $index]);
 
 			if (!$exists) {
 				$command = "$php_bin -q $base/cli/add_graphs.php" .
@@ -420,7 +420,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 
 function execute_automation($command, $type, $field_value = '') {
 	$return = 0;
-	$output = array();
+	$output = [];
 
 	$lline = exec($command, $output, $return);
 
@@ -444,25 +444,25 @@ function execute_automation($command, $type, $field_value = '') {
 }
 
 function remove_invalid_station_graphs() {
-	$old_wireless_station_hashes = array(
+	$old_wireless_station_hashes = [
 		'0e88ad681dda36417a537c2e06a2add3',
 		'8cea2d49a035d5424ff28b9856d78053',
 		'0a0e496b94667220dce953cb374cee7c',
 		'98ee665dc39e0404a272c87cc4efea2e'
-	);
+	];
 
 	// Remove incorrect graphs
 	foreach($old_wireless_station_hashes as $hash) {
 		$graph_template_id = db_fetch_cell_prepared('SELECT id
 			FROM graph_templates
 			WHERE hash = ?',
-			array($hash));
+			[$hash]);
 
 		$snmp_query_ids[] = db_fetch_cell_prepared('SELECT sqg.snmp_query_id
 			FROM snmp_query_graph AS sqg
 			INNER JOIN graph_templates AS gt
 			ON sqg.graph_template_id=gt.id
-			WHERE gt.hash = ?', array($hash));
+			WHERE gt.hash = ?', [$hash]);
 
 		if ($graph_template_id > 0) {
 			mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id);
@@ -470,77 +470,77 @@ function remove_invalid_station_graphs() {
 			// Remove graph templates
 			db_execute_prepared('DELETE FROM graph_templates
 				WHERE id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 
 			$graph_template_input = db_fetch_assoc('SELECT id
 				FROM graph_template_input
 				WHERE graph_template_id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 
 			if (cacti_sizeof($graph_template_input)) {
 				foreach ($graph_template_input as $item) {
 					db_execute_prepared('DELETE FROM graph_template_input_defs
-						WHERE graph_template_input_id = ?', array($item['id']));
+						WHERE graph_template_input_id = ?', [$item['id']]);
 				}
 			}
 
 			db_execute_prepared('DELETE FROM graph_template_input
 				WHERE graph_template_id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 
 			db_execute_prepared('DELETE FROM graph_templates_graph
 				WHERE graph_template_id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 
 			db_execute_prepared('DELETE FROM graph_templates_item
 				WHERE graph_template_id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 
 			db_execute_prepared('DELETE FROM host_template_graph
 				WHERE graph_template_id = ?',
-				array($graph_template_id));
+				[$graph_template_id]);
 		}
 	}
 
 	if (!empty($snmp_query_ids)) {
 		foreach($snmp_query_ids as $snmp_query_id) {
-			db_execute_prepared('DELETE FROM host_template_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
-			db_execute_prepared('DELETE FROM host_snmp_query WHERE snmp_query_id = ?', array($snmp_query_id));
-			db_execute_prepared('DELETE FROM snmp_query_graph WHERE snmp_query_id = ?', array($snmp_query_id));
+			db_execute_prepared('DELETE FROM host_template_snmp_query WHERE snmp_query_id = ?', [$snmp_query_id]);
+			db_execute_prepared('DELETE FROM host_snmp_query WHERE snmp_query_id = ?', [$snmp_query_id]);
+			db_execute_prepared('DELETE FROM snmp_query_graph WHERE snmp_query_id = ?', [$snmp_query_id]);
 		}
 	}
 
-	$old_data_template_hashes = array(
+	$old_data_template_hashes = [
 		'2e88a62f3d3bd3756ab48a9613e86439',
 		'852ab786ca385b1bd87d1308d7e3ae75',
 		'2828f43f6d8e477ee5616da510ccc314',
 		'ca928def30203cc6d7daed75d826f91c'
-	);
+	];
 
 	foreach($old_data_template_hashes as $hash) {
 		$data_template_id = db_fetch_cell_prepared('SELECT id
 			FROM data_template
 			WHERE hash = ?',
-			array($hash));
+			[$hash]);
 
 		if (!empty($data_template_id)) {
 			db_execute_prepared('DELETE FROM data_template_data
-				WHERE data_template_id = ?', array($data_template_id));
+				WHERE data_template_id = ?', [$data_template_id]);
 
 			db_execute_prepared('DELETE FROM data_template_rrd
-				WHERE data_template_id = ?', array($data_template_id));
+				WHERE data_template_id = ?', [$data_template_id]);
 
 			db_execute_prepared('DELETE FROM snmp_query_graph_rrd
-				WHERE data_template_id = ?', array($data_template_id));
+				WHERE data_template_id = ?', [$data_template_id]);
 
 			db_execute_prepared('DELETE FROM snmp_query_graph_rrd_sv
-				WHERE data_template_id = ?', array($data_template_id));
+				WHERE data_template_id = ?', [$data_template_id]);
 
 			db_execute_prepared('DELETE FROM data_template
-				WHERE id = ?' , array($data_template_id));
+				WHERE id = ?' , [$data_template_id]);
 
 			db_execute_prepared('DELETE FROM data_local
-				WHERE data_template_id = ?' , array($data_template_id));
+				WHERE data_template_id = ?' , [$data_template_id]);
 		}
 	}
 }
