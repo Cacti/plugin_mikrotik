@@ -175,7 +175,7 @@ class RouterosAPI {
                         if ($MATCHES[0][0] == 'ret') {
                             $singlevalue = $MATCHES[0][1];
                         }
-                        $CURRENT[$MATCHES[0][0]] = (isset($MATCHES[0][1]) ? $MATCHES[0][1] : '');
+                        $CURRENT[$MATCHES[0][0]] = ($MATCHES[0][1] ?? '');
                     }
                 }
             }
@@ -215,7 +215,7 @@ class RouterosAPI {
                         if ($MATCHES[0][0] == 'ret') {
                             $singlevalue = $MATCHES[0][1];
                         }
-                        $CURRENT[$MATCHES[0][0]] = (isset($MATCHES[0][1]) ? $MATCHES[0][1] : '');
+                        $CURRENT[$MATCHES[0][0]] = ($MATCHES[0][1] ?? '');
                     }
                 }
             }

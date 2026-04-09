@@ -1045,7 +1045,7 @@ function mikrotik_dateParse($value) {
 		$value[1] = substr($value[1], 0, strpos($value[1], '.'));
 	}
 
-	$date1 = trim($value[0] . ' ' . (isset($value[1]) ? $value[1]:''));
+	$date1 = trim($value[0] . ' ' . ($value[1] ?? ''));
 	if (strtotime($date1) === false) {
 		$value = date('Y-m-d H:i:s');
 	} else {
@@ -1304,10 +1304,10 @@ function collect_list_details(&$host) {
 			if (cacti_sizeof($array) && $noServer === false) {
 				foreach($array as $row) {
 					$list['host_id'] = $host['id'];
-					$list['dynamic'] = isset($row['dynamic'])       ? $row['dynamic']:'0';
-					$list['disabled']= isset($row['disabled'])      ? $row['disabled']:'0';
-					$list['list']    = isset($row['list'])          ? $row['list']:'N/A';
-					$list['address'] = isset($row['address'])       ? $row['address']:'';
+					$list['dynamic'] = $row['dynamic'] ?? '0';
+					$list['disabled']= $row['disabled'] ?? '0';
+					$list['list']    = $row['list'] ?? 'N/A';
+					$list['address'] = $row['address'] ?? '';
 					$list['created'] = isset($row['creation-time']) ? date('Y-m-d H:i:s', strtotime(str_replace('/', ' ', $row['creation-time']))):date('Y-m-d H:i:s');
 					$list['timeout'] = isset($row['timeout'])       ? mikrotik_parse_ttl($row['timeout']) :'-1';
 
@@ -1405,11 +1405,11 @@ function collect_dns_details(&$host) {
 				foreach($array as $row) {
 					if (isset($row['type']) && $row['type'] != '-1') {
 						$dns['host_id'] = $host['id'];
-						$dns['type']    = isset($row['type']) ? $row['type']:'-1';
-						$dns['data']    = isset($row['data']) ? $row['data']:'-';
-						$dns['name']    = isset($row['name']) ? $row['name']:'';
+						$dns['type']    = $row['type'] ?? '-1';
+						$dns['data']    = $row['data'] ?? '-';
+						$dns['name']    = $row['name'] ?? '';
 						$dns['ttl']     = isset($row['ttl'])  ? mikrotik_parse_ttl($row['ttl']) :'0';
-						$dns['static']  = isset($row['static']) ? $row['static']:'false';
+						$dns['static']  = $row['static'] ?? 'false';
 
 						$sql[] = '(' .
 							$dns['host_id']         . ',' .
@@ -1552,7 +1552,7 @@ function collect_dhcp_details(&$host) {
 
 			if (cacti_sizeof($array) && $noServer === false) {
 				foreach($array as $row) {
-					$mac_address = isset($row['mac-address']) ? $row['mac-address']:'-99';
+					$mac_address = $row['mac-address'] ?? '-99';
 					if (isset($entries[$mac_address]) && $mac_address != 99) {
 						$dhcp = $entries[$mac_address];
 					}
@@ -1564,20 +1564,20 @@ function collect_dhcp_details(&$host) {
 					}
 
 					$dhcp['host_id']            = $host['id'];
-					$dhcp['address']            = isset($row['address']) ? $row['address']:'N/A';
-					$dhcp['mac_address']        = isset($row['mac-address']) ? $row['mac-address']:'N/A';
-					$dhcp['client_id']          = isset($row['client-id']) ? $row['client-id']:'';
-					$dhcp['address_lists']      = isset($row['address-lists']) ? $row['address-lists']:'N/A';
-					$dhcp['server']             = isset($row['server']) ? $row['server']:'N/A';
-					$dhcp['dhcp_option']        = isset($row['dhcp-option']) ? $row['dhcp-option']:'N/A';
-					$dhcp['status']             = isset($row['status']) ? $row['status']:'N/A';
+					$dhcp['address']            = $row['address'] ?? 'N/A';
+					$dhcp['mac_address']        = $row['mac-address'] ?? 'N/A';
+					$dhcp['client_id']          = $row['client-id'] ?? '';
+					$dhcp['address_lists']      = $row['address-lists'] ?? 'N/A';
+					$dhcp['server']             = $row['server'] ?? 'N/A';
+					$dhcp['dhcp_option']        = $row['dhcp-option'] ?? 'N/A';
+					$dhcp['status']             = $row['status'] ?? 'N/A';
 					$dhcp['expires_after']      = isset($row['expires-after']) ? uptimeToSeconds($row['expires-after']):0;
 					$dhcp['last_seen']          = isset($row['last-seen']) ? uptimeToSeconds($row['last-seen']):0;
 					$dhcp['active_address']     = isset($row['active_address']) ? $row['active-address']:'';
-					$dhcp['active_mac_address'] = isset($row['active-mac-address']) ? $row['active-mac-address']:'';
-					$dhcp['active_client_id']   = isset($row['active-client-id']) ? $row['active-client-id']:'';
-					$dhcp['active_server']      = isset($row['active-server']) ? $row['active-server']:'';
-					$dhcp['hostname']           = isset($row['host-name']) ? $row['host-name']:'';
+					$dhcp['active_mac_address'] = $row['active-mac-address'] ?? '';
+					$dhcp['active_client_id']   = $row['active-client-id'] ?? '';
+					$dhcp['active_server']      = $row['active-server'] ?? '';
+					$dhcp['hostname']           = $row['host-name'] ?? '';
 					$dhcp['radius']             = isset($row['radius']) ? ($row['radius'] == 'true' ? 1:0):0;
 					$dhcp['dynamic']            = isset($row['dynamic']) ? ($row['dynamic'] == 'true' ? 1:0):0;
 					$dhcp['blocked']            = isset($row['blocked']) ? ($row['blocked'] == 'true' ? 1:0):0;

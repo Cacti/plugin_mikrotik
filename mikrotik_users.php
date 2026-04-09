@@ -109,7 +109,11 @@ function form_actions() {
 
 			api_graph_remove_multi($graphs_to_act_on);
 
-			db_execute("DELETE FROM plugin_mikrotik_users WHERE name IN ('" . implode("','", $devices_to_act_on) . "')");
+			// Issue QUEUE-6: use prepared statement for IN() — prevents name-column SQL injection
+			if (!empty($devices_to_act_on)) {
+				$placeholders = implode(',', array_fill(0, count($devices_to_act_on), '?'));
+				db_execute_prepared("DELETE FROM plugin_mikrotik_users WHERE name IN ($placeholders)", $devices_to_act_on);
+			}
 		}
 
 		header('Location: mikrotik_users.php?header=false');
