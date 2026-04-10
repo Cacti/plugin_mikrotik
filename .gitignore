@@ -1,2 +1,3 @@
 locales/po/*.mo
 \!templates/**
+.omc/
