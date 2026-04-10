@@ -33,7 +33,7 @@ class RouterosAPI {
     /* Check, can be var used in foreach  */
     public function isIterable($var) {
         return $var !== null
-                && (is_[$var]
+                && (is_array($var)
                 || $var instanceof Traversable
                 || $var instanceof Iterator
                 || $var instanceof IteratorAggregate
@@ -160,7 +160,7 @@ class RouterosAPI {
      * @return array                  Array with parsed data
      */
     public function parseResponse($response) {
-        if (is_[$response]) {
+        if (is_array($response)) {
             $PARSED      = [];
             $CURRENT     = null;
             $singlevalue = null;
@@ -200,7 +200,7 @@ class RouterosAPI {
      * @return array                  Array with parsed data
      */
     public function parseResponse4Smarty($response) {
-        if (is_[$response]) {
+        if (is_array($response)) {
             $PARSED      = [];
             $CURRENT     = null;
             $singlevalue = null;
@@ -241,7 +241,7 @@ class RouterosAPI {
      * @return array                  Array with changed key names
      */
     public function arrayChangeKeyName(&$array) {
-        if (is_[$array]) {
+        if (is_array($array)) {
             foreach ($array as $k => $v) {
                 $tmp = str_replace("-", "_", $k);
                 $tmp = str_replace("/", "_", $tmp);
