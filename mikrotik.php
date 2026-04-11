@@ -296,7 +296,7 @@ function mikrotik_interfaces() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -373,9 +373,9 @@ function mikrotik_interfaces() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mti.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mti.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sort_column = get_request_var('sort_column');
@@ -584,7 +584,7 @@ function mikrotik_queues() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -694,9 +694,9 @@ function mikrotik_queues() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mtq.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mtq.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql_order = get_order_string();
@@ -871,7 +871,7 @@ function mikrotik_trees() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -939,9 +939,9 @@ function mikrotik_trees() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hrswls.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hrswls.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hrswls.*, h.hostname, h.description, h.disabled
@@ -1099,7 +1099,7 @@ function mikrotik_wireless_aps() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1167,11 +1167,11 @@ function mikrotik_wireless_aps() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apSSID LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apBSSID LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apBand LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apSSID LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apBSSID LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apBand LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hraps.*, h.hostname, h.description, h.disabled
@@ -1370,7 +1370,7 @@ function mikrotik_users() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1464,9 +1464,9 @@ function mikrotik_users() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hrswr.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hrswr.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hrswr.*, h.hostname, h.description, h.disabled,
@@ -1673,7 +1673,7 @@ function mikrotik_devices() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Status', 'mikrotik');?>
@@ -1762,8 +1762,8 @@ function mikrotik_devices() {
 	$sql_join = '';
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " h.description LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	$sql = "SELECT hrs.*, h.hostname, h.description, h.disabled, trees.trees, queues.queues, aps.aps
@@ -2139,7 +2139,7 @@ function mikrotik_view_graphs() {
 	$total_graphs = 0;
 
 	// Filter sql_where
-	$sql_where  = (strlen(get_request_var('filter')) ? "gtg.title_cache LIKE '%" . get_request_var('filter') . "%'":'');
+	$sql_where  = (strlen(get_request_var('filter')) ? 'gtg.title_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%') : '');
 	$sql_where .= (strlen($sql_or) && strlen($sql_where) ? ' AND ':'') . $sql_or;
 
 	// Host Id sql_where
@@ -2292,7 +2292,7 @@ function mikrotik_wireless_regs() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -2369,9 +2369,9 @@ function mikrotik_wireless_regs() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mtwr.index LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mtwr.index LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sort_column = get_request_var('sort_column');
@@ -2587,7 +2587,7 @@ function mikrotik_dhcp() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -2655,8 +2655,8 @@ function mikrotik_dhcp() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			dhcp.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			dhcp.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT dhcp.*, h.description
