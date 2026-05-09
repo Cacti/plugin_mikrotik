@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-06-26 13:06+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2026-05-09 07:18+0000\nLast-Translator: \"Coool (github.com/Coool)\" <coool@mail.lv>\nLanguage-Team: Latvian <https://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -71,18 +71,16 @@ msgid "Wireless Aps"
 msgstr "Bezvadu piekļuves punkti"
 
 #: mikrotik.php:184
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Bezvadu reģistrācijas"
+msgstr "Bezvadu tīkla reģistrācijas"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
 msgstr "Grafiki"
 
 #: mikrotik.php:285
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Saskarnes statistika"
+msgstr "Interfeisa statistika"
 
 #: mikrotik.php:294 mikrotik.php:582 mikrotik.php:869 mikrotik.php:1097
 #: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
@@ -313,7 +311,7 @@ msgstr "Trokšņa līmenis"
 
 #: mikrotik.php:1208
 msgid "Tx CQQ"
-msgstr ""
+msgstr "Tx CQQ"
 
 #: mikrotik.php:1359
 msgid "User Statistics"
@@ -380,7 +378,7 @@ msgstr "Kopā nosūtīti"
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
 msgid "N/A"
-msgstr ""
+msgstr "Nav pieejams"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
@@ -506,7 +504,7 @@ msgstr ""
 
 #: mikrotik.php:2054
 msgid "Graphs skipped or not created yet"
-msgstr ""
+msgstr "Grafiki izlaisti vai vēl nav izveidoti"
 
 #: mikrotik.php:2057
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
@@ -523,7 +521,7 @@ msgstr "Grafika priekšskatījuma filtrēšana"
 #: mikrotik.php:2276
 #, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Bezvadu reģistrācijas statistika"
+msgstr "Bezvadu tīkla reģistrācijas statistika"
 
 #: mikrotik.php:2312 mikrotik.php:2447
 msgid "Registrations"
@@ -544,7 +542,7 @@ msgstr ""
 #: mikrotik.php:2494
 #, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Nav atrasta neviena bezvadu reģistrācija"
+msgstr "Nav atrasta neviena bezvadu tīkla reģistrācija"
 
 #: mikrotik.php:2571
 msgid "DHCP Registrations"
@@ -594,7 +592,7 @@ msgstr ""
 
 #: mikrotik.php:2913 mikrotik.php:3229
 msgid "Export"
-msgstr "Eksportēt"
+msgstr "Izgūt"
 
 #: mikrotik.php:2980
 msgid "Data"
@@ -659,7 +657,7 @@ msgstr "MikroTik lietotāji"
 
 #: mikrotik_users.php:292 mikrotik_users.php:369
 msgid "Inactive"
-msgstr ""
+msgstr "Neaktīvs"
 
 #: mikrotik_users.php:296
 msgid "Set/Refresh Filters"
@@ -695,15 +693,15 @@ msgstr "MikroTik vispārīgie iestatījumi"
 
 #: setup.php:727
 msgid "MikroTik Poller Enabled"
-msgstr ""
+msgstr "MikroTik aptaujātajs iespējots"
 
 #: setup.php:728
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr ""
+msgstr "Atķeksējiet šo izvēles rūtiņu, ja vēlaties, lai MikroTik aptaujāšana būtu iespējota.  Pretējā gadījumā aptaujātajs nedarbosies."
 
 #: setup.php:733
 msgid "MikroTik API Polling Enabled"
-msgstr ""
+msgstr "MikroTik API aptaujāšana iespējota"
 
 #: setup.php:734
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
@@ -711,7 +709,7 @@ msgstr ""
 
 #: setup.php:739
 msgid "Automatically Discover Cacti Devices"
-msgstr ""
+msgstr "Automātiski atklāt Cacti ierīces"
 
 #: setup.php:740
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
@@ -746,7 +744,7 @@ msgstr "%d procesi"
 
 #: setup.php:769
 msgid "Auto Discovery Settings"
-msgstr ""
+msgstr "Automātiskās atklāšanas iestatījumi"
 
 #: setup.php:773
 msgid "Auto Discovery Frequency"
@@ -758,7 +756,7 @@ msgstr "Cik bieži meklēt jaunas Cacti ierīces?"
 
 #: setup.php:780
 msgid "DHCP/DNS/List Settings"
-msgstr ""
+msgstr "DHCP/DNS/saraksta iestatījumi"
 
 #: setup.php:784
 msgid "DHCP Retention"
@@ -766,7 +764,7 @@ msgstr ""
 
 #: setup.php:785
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr ""
+msgstr "Cik ilgi jūs vēlētos paturēt DHCP IP reģistrācijas vēsturi?"
 
 #: setup.php:791
 msgid "DNS Retention"
@@ -774,7 +772,7 @@ msgstr ""
 
 #: setup.php:792
 msgid "How long would you like to retain DNS Cache history?"
-msgstr ""
+msgstr "Cik ilgi jūs vēlētos paturēt DNS kešatmiņas vēsturi?"
 
 #: setup.php:798
 msgid "Address List Retention"
@@ -782,7 +780,7 @@ msgstr ""
 
 #: setup.php:799
 msgid "How long would you like to retain Address List history?"
-msgstr ""
+msgstr "Cik ilgi jūs vēlētos paturēt adrešu saraksta vēsturi?"
 
 #: setup.php:805
 #, fuzzy
