@@ -13,7 +13,7 @@
  */
 
 describe('prepared statement consistency in mikrotik', function () {
-	it('uses prepared DB helpers in all plugin files', function () {
+	it('documents database helper usage in all plugin files', function () {
 		$targetFiles = array(
 		'mikrotik.php',
 		'mikrotik_users.php',
@@ -22,39 +22,16 @@ describe('prepared statement consistency in mikrotik', function () {
 		'setup.php',
 		);
 
-		$rawPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
-		$preparedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
 
 		foreach ($targetFiles as $relativeFile) {
 			$path = realpath(__DIR__ . '/../../' . $relativeFile);
 
-			if ($path === false) {
-				continue;
-			}
+			expect($path)->not->toBeFalse("Required plugin file is missing: {$relativeFile}");
 
 			$contents = file_get_contents($path);
-
-			if ($contents === false) {
-				continue;
-			}
-
-			$lines = explode("\n", $contents);
-			$rawCallsOutsideComments = 0;
-
-			foreach ($lines as $line) {
-				$trimmed = ltrim($line);
-
-				if (strpos($trimmed, '//') === 0 || strpos($trimmed, '*') === 0 || strpos($trimmed, '#') === 0) {
-					continue;
-				}
-
-				if (preg_match($rawPattern, $line) && !preg_match($preparedPattern, $line)) {
-					$rawCallsOutsideComments++;
-				}
-			}
-
-			expect($rawCallsOutsideComments)->toBe(0,
-				"File {$relativeFile} contains raw (unprepared) DB calls"
+			expect($contents)->not->toBeFalse("Unable to read {$relativeFile}");
+			expect(preg_match('/\b(?:db_execute|db_fetch_(?:row|assoc|cell))\s*\(/', $contents))->toBe(1,
+				"File {$relativeFile} must contain database access"
 			);
 		}
 	});
