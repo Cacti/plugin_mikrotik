@@ -60,7 +60,11 @@ function form_actions() {
 
 	/* if we are to save this form, instead of display it */
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items', array('allowed_classes' => false))));
+		$selected_items = unserialize(stripslashes(get_request_var('selected_items')), array('allowed_classes' => false));
+
+		if (!is_array($selected_items)) {
+			$selected_items = array();
+		}
 
 		if (get_request_var('drp_action') == '1') { /* delete */
 			if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
