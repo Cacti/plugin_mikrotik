@@ -8,7 +8,5 @@
 */
 
 /*
- * Pest configuration file.
+ * Pest configuration file. The bootstrap is loaded by Composer autoload-dev.
  */
-
-require_once __DIR__ . '/bootstrap.php';
