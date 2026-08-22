@@ -7,15 +7,12 @@ $API = new RouterosAPI();
 $API->debug = true;
 
 if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
+	$API->write('/interface/getall');
 
-   $API->write('/interface/getall');
+	$READ  = $API->read(false);
+	$ARRAY = $API->parseResponse($READ);
 
-   $READ = $API->read(false);
-   $ARRAY = $API->parseResponse($READ);
+	print_r($ARRAY);
 
-   print_r($ARRAY);
-
-   $API->disconnect();
-
+	$API->disconnect();
 }
-
