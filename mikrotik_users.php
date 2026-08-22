@@ -61,7 +61,10 @@ function form_actions() {
 
 	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')), ['allowed_classes' => false]);
+		$serialized_items = get_request_var('selected_items');
+		$selected_items = is_string($serialized_items)
+			? @unserialize(stripslashes($serialized_items), ['allowed_classes' => false])
+			: false;
 
 		if (!is_array($selected_items)) {
 			$selected_items = [];
