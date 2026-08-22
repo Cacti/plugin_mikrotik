@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -65,9 +67,9 @@ function form_actions() {
 		if (get_request_var('drp_action') == '1') { /* delete */
 			if (!isset_request_var('delete_type')) { set_request_var('delete_type', 2); }
 
-			$data_sources_to_act_on = array();
-			$graphs_to_act_on       = array();
-			$devices_to_act_on      = array();
+			$data_sources_to_act_on = [];
+			$graphs_to_act_on       = [];
+			$devices_to_act_on      = [];
 
 			for ($i=0; $i<count($selected_items); $i++) {
 				/* ================= input validation ================= */
@@ -170,40 +172,40 @@ function mikrotik_user() {
 
     /* ================= input validation and session storage ================= */
     $filters = array(
-		'rows' => array(
+		'rows' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'type' => array(
+			],
+		'type' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'page' => array(
+			],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'status' => array(
+			],
+		'status' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
