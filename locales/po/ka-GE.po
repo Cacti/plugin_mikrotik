@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2025-07-07 12:51+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2026-08-04 05:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
@@ -742,7 +742,7 @@ msgstr "ავტოაღმოჩენის სიხშირე"
 
 #: setup.php:774
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ ახალი Cacti-ის მოწყობილობების ძებნა?"
 
 #: setup.php:780
 msgid "DHCP/DNS/List Settings"
@@ -754,7 +754,7 @@ msgstr "DHCP შენარჩუნება"
 
 #: setup.php:785
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr ""
+msgstr "რამდენი ხანი გნებავთ DHCP-ის IP-ის რეგისტრაციის ისტორიის შენარჩუნება?"
 
 #: setup.php:791
 msgid "DNS Retention"
@@ -762,7 +762,7 @@ msgstr "DNS-ის შენარჩუნება"
 
 #: setup.php:792
 msgid "How long would you like to retain DNS Cache history?"
-msgstr ""
+msgstr "რამდენი ხანი გნებავთ DNS-ის კეშის ისტორიის შენარჩუნება?"
 
 #: setup.php:798
 msgid "Address List Retention"
@@ -770,7 +770,7 @@ msgstr "მისამართების სიის შეგროვე�
 
 #: setup.php:799
 msgid "How long would you like to retain Address List history?"
-msgstr ""
+msgstr "რამდენი ხანი გნებავთ მისამართების სიის ისტორიის შენარჩუნება?"
 
 #: setup.php:805
 msgid "Device Graph Automation"
@@ -778,11 +778,11 @@ msgstr "მოწყობილობის გრაფიკის ავტ�
 
 #: setup.php:809
 msgid "Automatically Add New Graphs"
-msgstr ""
+msgstr "ახალი გრაფიკების ავტომატური დამატება"
 
 #: setup.php:810
 msgid "How often do you want to check for new objects to graph?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ დასახატად ახალი ობიექტების ძებნა?"
 
 #: setup.php:814
 msgid "Never"
@@ -821,11 +821,11 @@ msgstr "ამოსაღების მომხმარებლები�
 
 #: setup.php:826
 msgid "User names that match this regex will not be graphed automatically"
-msgstr ""
+msgstr "მომხმარებლის სახელების, რომლებიც ამ რეგულარულ გამოსახულებას ემთხვევა, ავტომატური დახატვა არ მოხდება"
 
 #: setup.php:833
 msgid "Exclude Users Time to Live"
-msgstr ""
+msgstr "მომხმარებლის სიცოცხლის დროების ამოღება"
 
 #: setup.php:834
 msgid "How long should an excluded user's data be preserved after they have disconnected."
@@ -833,7 +833,7 @@ msgstr ""
 
 #: setup.php:846
 msgid "MikroTik Device Collection Frequencies"
-msgstr ""
+msgstr "MikroTik-ის მოწყობილობის კოლექციის სიხშირეები"
 
 #: setup.php:850
 msgid "Storage Frequency"
@@ -841,7 +841,7 @@ msgstr "შენახვის სიხშირე"
 
 #: setup.php:851
 msgid "How often do you want to scan Storage Statistics?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ საცავის სტატისტიკის სკანირება?"
 
 #: setup.php:857
 msgid "Processor Frequency"
@@ -849,7 +849,7 @@ msgstr "პროცესორის სიხშირე"
 
 #: setup.php:858
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ მოწყობილობის პროცესორის სტატისტიკის სკანირება?"
 
 #: setup.php:864
 msgid "Interfaces Frequency"
@@ -857,7 +857,7 @@ msgstr "ინტერფეისის სიხშირე"
 
 #: setup.php:865
 msgid "How often do you want to scan the Interfaces?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ ინტერფეისების სკანირება?"
 
 #: setup.php:871
 msgid "DNS/DHCP/List Frequency"
@@ -865,15 +865,15 @@ msgstr "DNS/DHCP/სიხშირეების სია"
 
 #: setup.php:872
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr ""
+msgstr "რამდენად ხშირად გნებავთ DNS/DHCP/მისამართების სიის სკანირება?"
 
 #: setup.php:878
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr ""
+msgstr "MikroTik-ის რიგის/ხის კოლექციის სიხშირეები"
 
 #: setup.php:882
 msgid "Simple Queue/PPPoe Frequency"
-msgstr ""
+msgstr "მარტივი რიგის/PPPoe-ის სიხშირე"
 
 #: setup.php:883
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
@@ -889,11 +889,11 @@ msgstr ""
 
 #: setup.php:896
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr ""
+msgstr "MikroTik-ის უსადენო კოლექციის სიხშირეები"
 
 #: setup.php:900
 msgid "Wireless HotSpot Users Frequency"
-msgstr ""
+msgstr "უსადენო ჰოტსპოტის მომხმარებლების სიხშირე"
 
 #: setup.php:901
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
@@ -901,7 +901,7 @@ msgstr ""
 
 #: setup.php:907
 msgid "Wireless Access Point Frequency"
-msgstr ""
+msgstr "უსადენო წვდომის წერტილის სიხშირე"
 
 #: setup.php:908
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
@@ -978,7 +978,7 @@ msgstr "(ჩასწორება)"
 
 #: setup.php:1348 setup.php:1351
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr ""
+msgstr "წესის მიერ გამოტოვებული, ან არშექმნილი გრაფიკები"
 
 #: setup.php:1373
 msgid "MikroTik Credentials"
@@ -990,7 +990,7 @@ msgstr "მხოლოდ წაკთხვადი მომხმარე�
 
 #: setup.php:1378
 msgid "Provide a read only username for the MikroTik."
-msgstr ""
+msgstr "შეიყვანეთ მხოლოდ-წაკითხვადი მომხმარებლის სახელი MikroTik-ისთვის."
 
 #: setup.php:1385
 msgid "Password"
@@ -998,7 +998,7 @@ msgstr "პაროლი"
 
 #: setup.php:1386
 msgid "Provide the read only username password for this MikroTik."
-msgstr ""
+msgstr "შეიყვანეთ მხოლოდ-წაკითხვადი მომხმარებლის პაროლი ამ MikroTik-ისთვის."
 
 #: setup.php:1406 setup.php:1415
 msgid "Connection Result"
@@ -1006,7 +1006,7 @@ msgstr "კავშირის შედეგი"
 
 #: setup.php:1407 setup.php:1416
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr ""
+msgstr "კარგი, თუ Cacti-ს შეუძლია, დაუკავშირდეს MikroTik-ს მის API-ის პორტზე."
 
 #: setup.php:1417
 msgid "Connection Failed"
