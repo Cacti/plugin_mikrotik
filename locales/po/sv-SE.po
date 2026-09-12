@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2026-03-16 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2026-09-12 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php:41
 msgid "Present"
-msgstr "Närvarande"
+msgstr "Närrvarande"
 
 #: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
 msgid "Unknown"
@@ -74,7 +74,7 @@ msgstr "Registreringar för trådlöst nätverk"
 
 #: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
 msgid "Graphs"
-msgstr "Diagram"
+msgstr "Grafer"
 
 #: mikrotik.php:285
 msgid "Interface Stats"
@@ -119,7 +119,7 @@ msgstr "Sedan återställning"
 #: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
 #: mikrotik.php:2911 mikrotik.php:3227 mikrotik_users.php:296
 msgid "Go"
-msgstr "Start"
+msgstr "Utför"
 
 #: mikrotik.php:349 mikrotik.php:638 mikrotik.php:913 mikrotik.php:1141
 #: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
@@ -190,7 +190,7 @@ msgstr "Src-adress/Mask"
 
 #: mikrotik.php:729
 msgid "Dst Addr/Mask"
-msgstr "Dst adr/Mask"
+msgstr "Dst Addr/Mask"
 
 #: mikrotik.php:730
 msgid "Bytes In"
@@ -335,7 +335,7 @@ msgstr "Användare"
 
 #: mikrotik.php:1499 mikrotik.php:2680
 msgid "IP Address"
-msgstr "IP-adress"
+msgstr "IP adress"
 
 #: mikrotik.php:1500
 msgid "MAC"
@@ -373,11 +373,11 @@ msgstr "Totalt ut"
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
 #: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
 msgid "N/A"
-msgstr "Inte tillgänglig"
+msgstr "N/A"
 
 #: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
 msgid "No Users Found"
-msgstr "Ingen användare hittades"
+msgstr "Ingen användare hittad"
 
 #: mikrotik.php:1650
 #, php-format
@@ -391,7 +391,7 @@ msgstr "Enhetsfilter (senaste MikroTik-versionen är: %s, släppt: %s)"
 
 #: mikrotik.php:1655
 msgid "ChangeLog"
-msgstr "Ändringslogg"
+msgstr "ChangelogLanguage"
 
 #: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
 #: mikrotik_users.php:286
@@ -400,7 +400,7 @@ msgstr "Status"
 
 #: mikrotik.php:1695
 msgid "Recovering"
-msgstr "Återhämtar"
+msgstr "Påväg upp"
 
 #: mikrotik.php:1698
 msgid "Up"
@@ -424,7 +424,7 @@ msgstr "Lic Ver"
 
 #: mikrotik.php:1794 mikrotik.php:2442
 msgid "Uptime(d:h:m)"
-msgstr "Upptid (d:t:m)"
+msgstr "Driftstid (d: t: m)"
 
 #: mikrotik.php:1797
 msgid "CPU %"
@@ -432,7 +432,7 @@ msgstr "CPU %"
 
 #: mikrotik.php:1798
 msgid "CPUs"
-msgstr "CPUer"
+msgstr "Processorer"
 
 #: mikrotik.php:1799
 msgid "Processes"
@@ -440,7 +440,7 @@ msgstr "Processer"
 
 #: mikrotik.php:1800
 msgid "Total Mem"
-msgstr "Totalt minne"
+msgstr "Totalt Mem"
 
 #: mikrotik.php:1801
 msgid "Used Mem"
@@ -481,11 +481,11 @@ msgstr "Visa gränssnitt"
 #: mikrotik.php:1874 mikrotik.php:2006 mikrotik.php:2008 mikrotik.php:2049
 #: mikrotik.php:2051 setup.php:1346
 msgid "View Graphs"
-msgstr "Visa diagram"
+msgstr "Se grafer"
 
 #: mikrotik.php:1876
 msgid "No Graphs Defined"
-msgstr "Inga diagram definierade"
+msgstr "Inga grafer definierade"
 
 #: mikrotik.php:1913
 msgid "No Devices Found"
@@ -505,11 +505,11 @@ msgstr "Välj Data Query först från Console->Settings->Host MIB First"
 
 #: mikrotik.php:2086
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Anpassad diagramlista tillämpad - Filtrering från lista"
+msgstr "Anpassad graflista tillämpad - Filtrering från lista"
 
 #: mikrotik.php:2086
 msgid "Graph Preview Filters"
-msgstr "Filter för diagramförhandsvisning"
+msgstr "Graph Preview Filters"
 
 #: mikrotik.php:2276
 msgid "Wireless Registration Stats"
@@ -607,7 +607,7 @@ msgstr "Adress"
 
 #: mikrotik.php:3292
 msgid "Timeout"
-msgstr "Tidsgräns"
+msgstr "Timeout"
 
 #: mikrotik.php:3336
 msgid "No Address List Entries Found"
@@ -651,11 +651,11 @@ msgstr "Inaktiv"
 
 #: mikrotik_users.php:296
 msgid "Set/Refresh Filters"
-msgstr "Ställ in/uppdatera filter"
+msgstr "Ange / Uppdatera filter"
 
 #: mikrotik_users.php:297
 msgid "Clear Filters"
-msgstr "Töm filter"
+msgstr "Rensa filter"
 
 #: mikrotik_users.php:354
 msgid "User Name"
@@ -699,7 +699,7 @@ msgstr "Markera den här rutan om du vill att Cacti ska polla olika inställning
 
 #: setup.php:739
 msgid "Automatically Discover Cacti Devices"
-msgstr "Upptäck automatiskt Cacti-enheter"
+msgstr "Upptäck automatiskt kaktusenheter"
 
 #: setup.php:740
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
@@ -707,19 +707,19 @@ msgstr "Vill du automatiskt söka efter och lägga till enheter som stöder Mikr
 
 #: setup.php:745
 msgid "Automatically Purge Devices"
-msgstr "Automatiskt rensa enheter"
+msgstr "Automatiskt rengöringsenheter"
 
 #: setup.php:746
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Vill du automatiskt rensa bort enheter som tas bort från Cacti-systemet?"
+msgstr "Vill du automatiskt rensa enheter som tas bort från kaktisystemet?"
 
 #: setup.php:751
 msgid "Maximum Concurrent Collectors"
-msgstr "Maximalt samtidiga insamlare"
+msgstr "Maximal samtidiga samlare"
 
 #: setup.php:752
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Vad är det maximala antalet samtidiga insamlingsprocesser som du vill köra på en gång?"
+msgstr "Vad är det maximala antalet samtidiga samlarprocesser som du vill köra på en gång?"
 
 #: setup.php:756
 #, php-format
@@ -738,11 +738,11 @@ msgstr "Inställningar för automatisk upptäckt"
 
 #: setup.php:773
 msgid "Auto Discovery Frequency"
-msgstr "Frekvens för automatisk upptäckt"
+msgstr "Auto Discovery Frequency"
 
 #: setup.php:774
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Hur ofta vill du leta efter nya Cacti-enheter?"
+msgstr "Hur ofta vill du leta efter nya kaktiska enheter?"
 
 #: setup.php:780
 msgid "DHCP/DNS/List Settings"
@@ -778,11 +778,11 @@ msgstr "Automatisering av enhetsgraf"
 
 #: setup.php:809
 msgid "Automatically Add New Graphs"
-msgstr "Lägg automatiskt till nya diagram"
+msgstr "Lägg automatiskt till nya grafer"
 
 #: setup.php:810
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Hur ofta vill du leta efter nya objekt att göra diagram för?"
+msgstr "Hur ofta vill du söka efter nya objekt i diagrammet?"
 
 #: setup.php:814
 msgid "Never"
@@ -808,7 +808,7 @@ msgstr "%d timmar"
 #: setup.php:820 setup.php:842 setup.php:1095 setup.php:1100
 #, php-format
 msgid "%d Day"
-msgstr "%d dygn"
+msgstr "%d Dag"
 
 #: setup.php:821 setup.php:1101 setup.php:1102
 #, php-format
@@ -933,7 +933,7 @@ msgstr "Normal användare"
 
 #: setup.php:943
 msgid "General Administration"
-msgstr "Allmän administration"
+msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
 
 #: setup.php:1087
 #, php-format
@@ -1010,7 +1010,7 @@ msgstr "Ok om Cacti kan ansluta till MikroTik via dess API-port."
 
 #: setup.php:1417
 msgid "Connection Failed"
-msgstr "Anslutningen misslyckades"
+msgstr "% 1"
 
 #, fuzzy
 #~ msgid "MikroTik Auto Discovery Frequency"
