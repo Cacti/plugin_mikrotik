@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -213,42 +215,42 @@ function mikrotik_interfaces() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -294,7 +296,7 @@ function mikrotik_interfaces() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -371,9 +373,9 @@ function mikrotik_interfaces() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mti.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mti.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sort_column = get_request_var('sort_column');
@@ -501,42 +503,42 @@ function mikrotik_queues() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -582,7 +584,7 @@ function mikrotik_queues() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -692,9 +694,9 @@ function mikrotik_queues() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mtq.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mtq.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql_order = get_order_string();
@@ -802,30 +804,30 @@ function mikrotik_trees() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -869,7 +871,7 @@ function mikrotik_trees() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -937,9 +939,9 @@ function mikrotik_trees() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hrswls.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hrswls.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hrswls.*, h.hostname, h.description, h.disabled
@@ -1030,30 +1032,30 @@ function mikrotik_wireless_aps() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'apSSID',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1097,7 +1099,7 @@ function mikrotik_wireless_aps() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1165,11 +1167,11 @@ function mikrotik_wireless_aps() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apSSID LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apBSSID LIKE '%" . get_request_var('filter') . "%' OR
-			hraps.apBand LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apSSID LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apBSSID LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hraps.apBand LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hraps.*, h.hostname, h.description, h.disabled
@@ -1288,41 +1290,41 @@ function mikrotik_users() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'type' => array(
+		'type' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'page' => array(
+			],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1368,7 +1370,7 @@ function mikrotik_users() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1462,9 +1464,9 @@ function mikrotik_users() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			hrswr.name LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hrswr.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT hrswr.*, h.hostname, h.description, h.disabled,
@@ -1590,30 +1592,30 @@ function mikrotik_devices() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'status' => array(
+			],
+		'status' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'description',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -1671,7 +1673,7 @@ function mikrotik_devices() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Status', 'mikrotik');?>
@@ -1685,7 +1687,7 @@ function mikrotik_devices() {
 								INNER JOIN plugin_mikrotik_system
 								ON host.id=plugin_mikrotik_system.host_id');
 
-							$statuses = array_merge($statuses, array('-2' => array('status' => '-2')));
+							$statuses = array_merge($statuses, array('-2' => ['status' => '-2']));
 
 							if (cacti_sizeof($statuses)) {
 								foreach($statuses AS $s) {
@@ -1760,8 +1762,8 @@ function mikrotik_devices() {
 	$sql_join = '';
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " h.description LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	$sql = "SELECT hrs.*, h.hostname, h.description, h.disabled, trees.trees, queues.queues, aps.aps
@@ -2105,7 +2107,7 @@ function mikrotik_view_graphs() {
 					$graph_list[$item] = 1;
 				}
 			} else {
-				$graph_list = array();
+				$graph_list = [];
 			}
 			if (!isempty_request_var('graph_add')) {
 				foreach (explode(',',get_request_var('graph_add')) as $item) {
@@ -2137,7 +2139,7 @@ function mikrotik_view_graphs() {
 	$total_graphs = 0;
 
 	// Filter sql_where
-	$sql_where  = (strlen(get_request_var('filter')) ? "gtg.title_cache LIKE '%" . get_request_var('filter') . "%'":'');
+	$sql_where  = (strlen(get_request_var('filter')) ? 'gtg.title_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%') : '');
 	$sql_where .= (strlen($sql_or) && strlen($sql_where) ? ' AND ':'') . $sql_or;
 
 	// Host Id sql_where
@@ -2209,42 +2211,42 @@ function mikrotik_wireless_regs() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'active' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sincereset' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'index',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -2290,7 +2292,7 @@ function mikrotik_wireless_regs() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -2367,9 +2369,9 @@ function mikrotik_wireless_regs() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			mtwr.index LIKE '%" . get_request_var('filter') . "%' OR
-			h.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			mtwr.index LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sort_column = get_request_var('sort_column');
@@ -2518,30 +2520,30 @@ function mikrotik_dhcp() {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'dhcp.hostname',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -2585,7 +2587,7 @@ function mikrotik_dhcp() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -2653,8 +2655,8 @@ function mikrotik_dhcp() {
 	}
 
 	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . " (h.description LIKE '%" . get_request_var('filter') . "%' OR
-			dhcp.hostname LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where .= ($sql_where != '' ? ' AND':'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			dhcp.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	$sql = "SELECT dhcp.*, h.description
@@ -2744,41 +2746,41 @@ function mikrotik_dns($export = false) {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'type' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'status' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
-		'filter' => array(
+		'filter' => [
 			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => '',
-			),
+			],
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'dns.name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 
@@ -3082,41 +3084,41 @@ function mikrotik_list($export = false) {
 			'pageset' => true,
 			'default' => read_config_option('num_rows_table')
 			),
-		'page' => array(
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'device' => array(
+			],
+		'device' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
-			),
+			],
 		'list' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'dynamic' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => '-1',
 			'pageset' => true,
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
-		'filter' => array(
+		'filter' => [
 			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => '',
-			),
+			],
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'lists.address',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 			)
 	);
 

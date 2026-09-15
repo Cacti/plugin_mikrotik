@@ -263,7 +263,7 @@ function process_hosts() {
 		exit(0);
 	}
 
-	$types = array('storage', 'trees', 'users', 'queues', 'interfaces', 'wireless_aps', 'wireless_reg');
+	$types = ['storage', 'trees', 'users', 'queues', 'interfaces', 'wireless_aps', 'wireless_reg'];
 	$run = false;
 	foreach ($types as $t) {
 		$lastrun = read_config_option('mikrotik_' . $t . '_lastrun');
@@ -761,7 +761,7 @@ function checkHost($host_id) {
 	db_execute("REPLACE INTO plugin_mikrotik_processes (pid, taskid) VALUES (" . getmypid() . ", $seed)");
 
 	/* obtain host information */
-	$host = db_fetch_row_prepared("SELECT * FROM host WHERE id = ?", array($host_id));
+	$host = db_fetch_row_prepared("SELECT * FROM host WHERE id = ?", [$host_id]);
 
 	if (function_exists('snmp_read_mib')) {
 		debug('Function snmp_read_mib() EXISTS!');
@@ -795,7 +795,7 @@ function checkHost($host_id) {
 					AND present = 0
 					AND host_id = ?
 					AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
-					array($user_exclusion, $host['id'], $time_to_live));
+					[$user_exclusion, $host['id'], $time_to_live]);
 			} else {
 				// Remove old records
 				db_execute_prepared('DELETE FROM plugin_mikrotik_users
@@ -803,7 +803,7 @@ function checkHost($host_id) {
 					AND present = 0
 					AND host_id = ?
 					AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
-					array($host['id'], $time_to_live));
+					[$host['id'], $time_to_live]);
 			}
 		}
 
@@ -907,13 +907,13 @@ function collect_system(&$host) {
 		}
 
 		/* system mibs */
-		$tikInfoOIDs = array(
+		$tikInfoOIDs = [
 			'softwareId'            => '.1.3.6.1.4.1.14988.1.1.4.1.0',
 			'licVersion'            => '.1.3.6.1.4.1.14988.1.1.4.4.0',
 			'firmwareVersion'       => '.1.3.6.1.4.1.14988.1.1.7.4.0',
 			'firmwareVersionLatest' => '.1.3.6.1.4.1.14988.1.1.7.7.0',
 			'serialNumber'          => '.1.3.6.1.4.1.14988.1.1.7.3.0'
-		);
+		];
 
 		foreach($tikInfoOIDs as $key => $oid) {
 			$tikInfoData[$key] = cacti_snmp_get($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
@@ -929,7 +929,7 @@ function collect_system(&$host) {
 		putenv('MIBS=All');
 
 		/* health oids */
-		$tikHealthOIDs = array(
+		$tikHealthOIDs = [
 			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
 			'HlThreeDotThreeVoltage'   => '.1.3.6.1.4.1.14988.1.1.3.2.0',
 			'HlFiveVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.3.0',
@@ -948,7 +948,7 @@ function collect_system(&$host) {
 			'HlBackupPowerSupplyState' => '.1.3.6.1.4.1.14988.1.1.3.16.0',
 			'HlFanSpeed1'              => '.1.3.6.1.4.1.14988.1.1.3.17.0',
 			'HlFanSpeed2'              => '.1.3.6.1.4.1.14988.1.1.3.18.0'
-		);
+		];
 
 		$healthMibs = cacti_snmp_walk($host['hostname'], $host['snmp_community'], '.1.3.6.1.4.1.14988.1.1.3', $host['snmp_version'],
 			$host['snmp_username'], $host['snmp_password'],
@@ -1081,9 +1081,9 @@ function mikrotik_splitBaseIndex($oid, $depth = 1) {
 	$index = strrev($index);
 
 	if ($index != '') {
-		return array($base, $index);
+		return [$base, $index];
 	} else {
-		return array();
+		return [];
 	}
 }
 
@@ -1101,8 +1101,8 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 		}
 
 		debug("Polling $name from '" . $host['description'] . '[' . $host['hostname'] . "]'");
-		$treeMib   = array();
-		$goodVals  = array();
+		$treeMib   = [];
+		$goodVals  = [];
 		foreach($tree AS $mname => $oid) {
 			if ($name == 'processor') {
 				// collect
@@ -1163,7 +1163,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 
 		// Locate the values names
 		$prevIndex    = '';
-		$new_array    = array();
+		$new_array    = [];
 
 		if (cacti_sizeof($treeMib)) {
 		foreach($treeMib as $mib) {
@@ -1250,7 +1250,7 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 			db_execute_prepared("DELETE FROM $table
 				WHERE host_id = ?
 				AND present = 0",
-				array($host['id']));
+				[$host['id']]);
 		}
 	}
 }
@@ -1266,7 +1266,7 @@ function collect_users(&$host) {
 }
 
 function collect_list_details(&$host) {
-	$rows = array();
+	$rows = [];
 
 	$api  = new RouterosAPI();
 	$api->debug = false;
@@ -1274,7 +1274,7 @@ function collect_list_details(&$host) {
 	$creds = db_fetch_row_prepared('SELECT *
 		FROM plugin_mikrotik_credentials
 		WHERE host_id = ?',
-		array($host['id']));
+		[$host['id']]);
 
 	$start = microtime(true);
 
@@ -1293,9 +1293,9 @@ function collect_list_details(&$host) {
 
 			$end = microtime(true);
 
-			$sql  = array();
-			$sql2 = array();
-			$list  = array();
+			$sql  = [];
+			$sql2 = [];
+			$list  = [];
 
 			if ($noServer === false && cacti_sizeof($array) > 0) {
 				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Address List Entries in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
@@ -1326,7 +1326,7 @@ function collect_list_details(&$host) {
 				db_execute_prepared('UPDATE plugin_mikrotik_lists
 					SET present = 0
 					WHERE host_id = ?',
-					array($host['id']));
+					[$host['id']]);
 
 				db_execute('INSERT INTO plugin_mikrotik_lists
 					(`host_id`, `dynamic`, `disabled`, `list`, `address`, `created`, `timeout`, `present`)
@@ -1342,11 +1342,11 @@ function collect_list_details(&$host) {
 					SET timeout= 0
 					WHERE present = 0
 					AND host_id = ?',
-					array($host['id']));
+					[$host['id']]);
 			}
 
 			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_lists WHERE host_id = ?', array($host['id']));
+				db_execute_prepared('DELETE FROM plugin_mikrotik_lists WHERE host_id = ?', [$host['id']]);
 			} else {
 				$retention = read_config_option('mikrotik_list_retention');
 
@@ -1354,7 +1354,7 @@ function collect_list_details(&$host) {
 					db_execute_prepared('DELETE FROM plugin_mikrotik_lists
 						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
 						AND host_id = ?',
-						array($retention, $host['id']));
+						[$retention, $host['id']]);
 				}
 			}
 
@@ -1366,7 +1366,7 @@ function collect_list_details(&$host) {
 }
 
 function collect_dns_details(&$host) {
-	$rows = array();
+	$rows = [];
 
 	$api  = new RouterosAPI();
 	$api->debug = false;
@@ -1374,7 +1374,7 @@ function collect_dns_details(&$host) {
 	$creds = db_fetch_row_prepared('SELECT *
 		FROM plugin_mikrotik_credentials
 		WHERE host_id = ?',
-		array($host['id']));
+		[$host['id']]);
 
 	$start = microtime(true);
 
@@ -1393,9 +1393,9 @@ function collect_dns_details(&$host) {
 
 			$end = microtime(true);
 
-			$sql  = array();
-			$sql2 = array();
-			$dns  = array();
+			$sql  = [];
+			$sql2 = [];
+			$dns  = [];
 
 			if ($noServer === false && cacti_sizeof($array) > 0) {
 				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DNS Cache Entries in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
@@ -1426,7 +1426,7 @@ function collect_dns_details(&$host) {
 				db_execute_prepared('UPDATE plugin_mikrotik_dns
 					SET present = 0
 					WHERE host_id = ?',
-					array($host['id']));
+					[$host['id']]);
 
 				db_execute('INSERT INTO plugin_mikrotik_dns
 					(`host_id`, `type`, `data`, `name`, `ttl`, `static`, `present`)
@@ -1440,17 +1440,17 @@ function collect_dns_details(&$host) {
 					SET ttl= 0
 					WHERE present = 0
 					AND host_id = ?',
-					array($host['id']));
+					[$host['id']]);
 
 				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
 					WHERE host_id = ?
 					AND type = "-1"',
-					array($host['id']));
+					[$host['id']]);
 			}
 
 			if ($noServer === true) {
 				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
-					WHERE host_id = ?', array($host['id']));
+					WHERE host_id = ?', [$host['id']]);
 			} else {
 				$retention = read_config_option('mikrotik_dns_retention');
 
@@ -1458,7 +1458,7 @@ function collect_dns_details(&$host) {
 					db_execute_prepared('DELETE FROM plugin_mikrotik_dns
 						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
 						AND host_id = ?',
-						array($retention, $host['id']));
+						[$retention, $host['id']]);
 				}
 			}
 
@@ -1500,31 +1500,31 @@ function mikrotik_parse_ttl($ttl) {
 }
 
 function collect_dhcp_details(&$host) {
-	$rows = array();
+	$rows = [];
 
 	$api  = new RouterosAPI();
 	$api->debug = false;
 
-	$rekey_array = array(
+	$rekey_array = [
 		'host_id', 'address', 'mac_address', 'client_id', 'address_lists',
 		'server', 'dhcp_option', 'status', 'expires_after',
         'last_seen', 'active_address', 'active_mac_address', 'active_client_id',
 		'active_server', 'hostname', 'radius', 'dynamic', 'blocked',
 		'disabled', 'present', 'last_updated'
-	);
+	];
 
 	// Put the queues into an array
 	$entries = array_rekey(
 		db_fetch_assoc_prepared('SELECT *
 			FROM plugin_mikrotik_dhcp
 			WHERE host_id = ?',
-			array($host['id'])),
+			[$host['id']]),
 		'mac_address', $rekey_array);
 
 	$creds = db_fetch_row_prepared('SELECT *
 		FROM plugin_mikrotik_credentials
 		WHERE host_id = ?',
-		array($host['id']));
+		[$host['id']]);
 
 	$start = microtime(true);
 
@@ -1543,8 +1543,8 @@ function collect_dhcp_details(&$host) {
 
 			$end = microtime(true);
 
-			$sql = array();
-			$sql2 = array();
+			$sql = [];
+			$sql2 = [];
 
 			if ($noServer === false && cacti_sizeof($array) > 0) {
 				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
@@ -1630,7 +1630,7 @@ function collect_dhcp_details(&$host) {
 			}
 
 			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp WHERE host_id = ?', array($host['id']));
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp WHERE host_id = ?', [$host['id']]);
 			} else {
 				$retention = read_config_option('mikrotik_dhcp_retention');
 
@@ -1638,7 +1638,7 @@ function collect_dhcp_details(&$host) {
 					db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
 						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
 						AND host_id = ?',
-						array($retention, $host['id']));
+						[$retention, $host['id']]);
 				}
 			}
 
@@ -1650,18 +1650,18 @@ function collect_dhcp_details(&$host) {
 }
 
 function collect_pppoe_users_api(&$host) {
-	$rows = array();
+	$rows = [];
 
 	$api  = new RouterosAPI();
 	$api->debug = false;
 
-	$rekey_array = array(
+	$rekey_array = [
 		'host_id', 'name', 'index', 'userType', 'serverID', 'domain',
 		'bytesIn', 'bytesOut', 'packetsIn', 'packetsOut',
         'curBytesIn', 'curBytesOut', 'curPacketsIn', 'curPacketsOut',
 		'prevBytesIn', 'prevBytesOut', 'prevPacketsIn', 'prevPacketsOut',
 		'present', 'last_seen'
-	);
+	];
 
 	// Put the queues into an array
 	$users = array_rekey(db_fetch_assoc_prepared("SELECT
@@ -1671,13 +1671,13 @@ function collect_pppoe_users_api(&$host) {
 		prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut, present, last_seen
 		FROM plugin_mikrotik_queues
 		WHERE host_id = ?
-		AND name LIKE 'PPPOE-%'", array($host['id'])),
+		AND name LIKE 'PPPOE-%'", [$host['id']]),
 		'name', $rekey_array);
 
 	$creds = db_fetch_row_prepared('SELECT *
 		FROM plugin_mikrotik_credentials
 		WHERE host_id = ?',
-		array($host['id']));
+		[$host['id']]);
 
 	$start = microtime(true);
 
@@ -1690,7 +1690,7 @@ function collect_pppoe_users_api(&$host) {
 
 			$end = microtime(true);
 
-			$sql   = array();
+			$sql   = [];
 
 			cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' PPPoe Users in ' . round($end-$start,2) . ' seconds.', false, 'SYSTEM');
 

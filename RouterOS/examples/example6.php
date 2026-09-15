@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /* 3 step action
    1) fetch all static dns hosts
    2) remove all static dns hosts
@@ -21,11 +23,11 @@ if ($API->connect('111.111.111.111', 'LOGIN', 'PASSWORD')) {
    }
 
   #add some new
-   $API->comm('/ip/dns/static/add', array(
+   $API->comm('/ip/dns/static/add', [
       'name'     => 'jefkeklak',
       'address'  => '1.2.3.4',
       'ttl'      => '1m'
-   ));
+   ]);
 
    #show me what you got
    $API->write('/ip/dns/static/print');

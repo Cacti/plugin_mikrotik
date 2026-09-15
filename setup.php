@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -81,7 +83,7 @@ function mikrotik_check_upgrade() {
 	global $config, $database_default;
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('plugins.php', 'mikrotik.php');
+	$files = ['plugins.php', 'mikrotik.php'];
 	if (!in_array(get_current_page(), $files)) {
 		return;
 	}
@@ -125,13 +127,13 @@ function mikrotik_check_upgrade() {
 		db_execute_prepared('UPDATE plugin_config
 			SET version = ?, name = ?, author = ?, webpage = ?
 			WHERE directory = ?',
-			array(
+			[
 				$info['version'],
 				$info['longname'],
 				$info['author'],
 				$info['homepage'],
 				$info['name']
-			)
+			]
 		);
 
 		db_execute('DELETE FROM plugin_hooks WHERE name = "mikrotik" and hook = "config_form"');
@@ -143,7 +145,7 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 		db_fetch_assoc_prepared('SELECT id
 			FROM graph_local
 			WHERE graph_template_id = ?',
-			array($graph_template_id)),
+			[$graph_template_id]),
 		'id', 'id'
 	);
 
@@ -940,40 +942,40 @@ function mikrotik_config_arrays() {
 	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users', 'mikrotik');
 
 	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User'), array('mikrotik.php'));
-		auth_augment_roles(__('General Administration'), array('mikrotik_users.php'));
+		auth_augment_roles(__('Normal User'), ['mikrotik.php']);
+		auth_augment_roles(__('General Administration'), ['mikrotik_users.php']);
 	}
 
-	$queue_hashes = array(
+	$queue_hashes = [
 		'2873cd299a639cbdc19320c7c59b76e0',
 		'f84afb6764a444799a4fdc6172127703',
 		'8fa87e4b89385be56ebc567acefe9895',
 		'3c64e6c838a93df2d1f077674e373546',
 		'b16ae9022425599a6dc8235258f77246'
-	);
+	];
 
-	$tree_hashes = array(
+	$tree_hashes = [
 		'9cc1e791b12935d5d374cccece6e6e0a',
 		'c6e96bdc60197dde8ba470305daf05f5'
-	);
+	];
 
-	$user_hashes = array(
+	$user_hashes = [
 		'a52861518dd67783a211ae0938cb8ec5',
 		'9a7dfd85d24b8320243521300cbfd1d2',
 		'75a943d675f2d3e72353df4aa822c535',
 		'0e5cd325b4956aaf11fc8e7d813a5e02',
 		'a3b1e1488352975428edfb9dcbb29208'
-	);
+	];
 
-	$wireless_reg_hashes = array(
+	$wireless_reg_hashes = [
 		'de393e2fe3c31572c0282607ce785335',
 		'2c845abc422a651bb298211f6af3d332',
 		'ac69d7ecba65c00e19d6db4ebc5132fd',
 		'b6089dfa8d9b3638d8ff650e97376c90',
 		'8b0b279ce963a63addfc211cb5fea19c'
-	);
+	];
 
-	$interface_hashes = array(
+	$interface_hashes = [
 		'69ccb07edd51939407892ac334812c9a',
 		'f4763dd2ab03be32c0afc934c077f34c',
 		'42b97712b5edfa5eb54f0f40240dd3e2',
@@ -981,9 +983,9 @@ function mikrotik_config_arrays() {
 		'742515def28f84ac787195a3cc1639fa',
 		'9266484d98848569fa13fb988699656b',
 		'7514b3a58cf1ba6d3306e0dd3ff78928'
-	);
+	];
 
-	$device_hashes = array(
+	$device_hashes = [
 		'7df474393f58bae8e8d6b85f10efad71',
 		'0ece13b90785aa04d1f554a093685948',
 		'8856e3943ecc70e5da835072f584d5a0',
@@ -998,9 +1000,9 @@ function mikrotik_config_arrays() {
 		'b1d124f28ba3242cdcb8767b45bc0a9d',
 		'f58edbcb3b6e682bc2332942c37b2652',
 		'0c5c6edf53a418032801b9b67eb4ef42'
-	);
+	];
 
-	$device_health_hashes = array(
+	$device_health_hashes = [
 		'HlTwelveVoltage'        => '1d877789bec088d883549afd7df9fae5',
 		'HlThreeDotThreeVoltage' => '59730f20f092f0b3ac1eab830f8122bf',
 		'HlFiveVoltage'          => 'dbed5f0a76bdf28db7778912caa916e0',
@@ -1012,18 +1014,18 @@ function mikrotik_config_arrays() {
 		'HlSensorTemperature'    => 'c8f7d27b3eede759c355dfe075995620',
 		'HlTemperature'          => 'bf336909dbede294a0dbfe77082b64f6',
 		'HlVoltage'              => 'a8d04f1326b164ca9dd5368ea91dff67'
-	);
+	];
 
-	$device_query_hashes = array(
+	$device_query_hashes = [
 		'11a443ebe40073aaa6972f8b357829de',
 		'ce63249e6cc3d52bc69659a3f32194fe',
 		'b11acd180dad8a955f88fb84237b0350',
 		'dff839be04a5844e4d1033567f411c99',
 		'7dd90372956af1dc8ec7b859a678f227',
 		'25e2a46f8b3e160aed7e1d4ef3504cc3',
-	);
+	];
 
-	$graph_template_hashes = array(
+	$graph_template_hashes = [
 		'7df474393f58bae8e8d6b85f10efad71',
 		'0ece13b90785aa04d1f554a093685948',
 		'1d877789bec088d883549afd7df9fae5',
@@ -1077,11 +1079,11 @@ function mikrotik_config_arrays() {
 		'ac69d7ecba65c00e19d6db4ebc5132fd',
 		'b6089dfa8d9b3638d8ff650e97376c90',
 		'8b0b279ce963a63addfc211cb5fea19c',
-	);
+	];
 
-	$host_template_hashes = array(
+	$host_template_hashes = [
 		'd364e2b9570f166ab33c8df8bd503887'
-	);
+	];
 
 	$mikrotik_frequencies = array(
 		-1    => __('Disabled', 'mikrotik'),
@@ -1109,7 +1111,7 @@ function mikrotik_config_arrays() {
 		31536000 => __('%d Year',   1, 'mikrotik')
 	);
 
-	$mikrotikSystem = array(
+	$mikrotikSystem = [
 		'baseOID'     => '.1.3.6.1.2.1.25.1.',
 		'uptime'      => '.1.3.6.1.2.1.25.1.1.0',
 		'date'        => '.1.3.6.1.2.1.25.1.2.0',
@@ -1121,9 +1123,9 @@ function mikrotik_config_arrays() {
 		'sysContact'  => '.1.3.6.1.2.1.1.4.0',
 		'sysName'     => '.1.3.6.1.2.1.1.5.0',
 		'sysLocation' => '.1.3.6.1.2.1.1.6.0'
-	);
+	];
 
-	$mikrotikStorage = array(
+	$mikrotikStorage = [
 		'baseOID'         => '.1.3.6.1.2.1.25.2.3',
 		'index'           => '.1.3.6.1.2.1.25.2.3.1.1',
 		'type'            => '.1.3.6.1.2.1.25.2.3.1.2',
@@ -1132,9 +1134,9 @@ function mikrotik_config_arrays() {
 		'size'            => '.1.3.6.1.2.1.25.2.3.1.5',
 		'used'            => '.1.3.6.1.2.1.25.2.3.1.6',
 		'failures'        => '.1.3.6.1.2.1.25.2.3.1.7'
-	);
+	];
 
-	$mikrotikUsers = array(
+	$mikrotikUsers = [
 		'baseOID'         => '.1.3.6.1.4.1.14988.1.1.5.1.1',
 		'serverId'        => '.1.3.6.1.4.1.14988.1.1.5.1.1.2',
 		'name'            => '.1.3.6.1.4.1.14988.1.1.5.1.1.3',
@@ -1155,18 +1157,18 @@ function mikrotik_config_arrays() {
 		'advertStatus'    => '.1.3.6.1.4.1.14988.1.1.5.1.1.18',
 		'radius'          => '.1.3.6.1.4.1.14988.1.1.5.1.1.19',
 		'blockedByAdvert' => '.1.3.6.1.4.1.14988.1.1.5.1.1.20',
-	);
+	];
 
-	$mikrotikTrees = array(
+	$mikrotikTrees = [
 		'name'        => '.1.3.6.1.4.1.14988.1.1.2.2.1.2',
 		'flow'        => '.1.3.6.1.4.1.14988.1.1.2.2.1.3',
 		'parentIndex' => '.1.3.6.1.4.1.14988.1.1.2.2.1.4',
 		'bytes'       => '.1.3.6.1.4.1.14988.1.1.2.2.1.5',
 		'packets'     => '.1.3.6.1.4.1.14988.1.1.2.2.1.6',
 		'HCBytes'     => '.1.3.6.1.4.1.14988.1.1.2.2.1.7'
-	);
+	];
 
-	$mikrotikQueueSimpleEntry = array(
+	$mikrotikQueueSimpleEntry = [
 		'name'       => '.1.3.6.1.4.1.14988.1.1.2.1.1.2',
 		'srcAddr'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.3',
 		'srcMask'    => '.1.3.6.1.4.1.14988.1.1.2.1.1.4',
@@ -1181,9 +1183,9 @@ function mikrotik_config_arrays() {
 		'QueuesOut'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.13',
 		'DroppedIn'  => '.1.3.6.1.4.1.14988.1.1.2.1.1.14',
 		'DroppedOut' => '.1.3.6.1.4.1.14988.1.1.2.1.1.15',
-	);
+	];
 
-	$mikrotikWirelessAps = array(
+	$mikrotikWirelessAps = [
 		'apSSID'            => '.1.3.6.1.4.1.14988.1.1.1.3.1.4',
 		'apTxRate'          => '.1.3.6.1.4.1.14988.1.1.1.3.1.2',
 		'apRxRate'          => '.1.3.6.1.4.1.14988.1.1.1.3.1.3',
@@ -1194,9 +1196,9 @@ function mikrotik_config_arrays() {
 		'apNoiseFloor'      => '.1.3.6.1.4.1.14988.1.1.1.3.1.9',
 		'apOverallTxCCQ'    => '.1.3.6.1.4.1.14988.1.1.1.3.1.10',
 		'apAuthClientCount' => '.1.3.6.1.4.1.14988.1.1.1.3.1.11',
-	);
+	];
 
-	$mikrotikWirelessRegistrations = array(
+	$mikrotikWirelessRegistrations = [
 		'index'           => '.1.3.6.1.4.1.14988.1.1.1.2.1.1',
 		'Strength'        => '.1.3.6.1.4.1.14988.1.1.1.2.1.3',
 		'TxBytes'         => '.1.3.6.1.4.1.14988.1.1.1.2.1.4',
@@ -1215,9 +1217,9 @@ function mikrotik_config_arrays() {
 		'TxStrengthCh2'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.17',
 		'RxStrengthCh2'   => '.1.3.6.1.4.1.14988.1.1.1.2.1.18',
 		'TxStrength'      => '.1.3.6.1.4.1.14988.1.1.1.2.1.19',
-	);
+	];
 
-	$mikrotikInterfaces = array(
+	$mikrotikInterfaces = [
 		'name'             => '.1.3.6.1.4.1.14988.1.1.14.1.1.2',
 		'RxBytes'          => '.1.3.6.1.4.1.14988.1.1.14.1.1.31',
 		'RxPackets'        => '.1.3.6.1.4.1.14988.1.1.14.1.1.12',
@@ -1273,15 +1275,15 @@ function mikrotik_config_arrays() {
 		'TxFCFSError'      => '.1.3.6.1.4.1.14988.1.1.14.1.1.87',
 		'TxControl'        => '.1.3.6.1.4.1.14988.1.1.14.1.1.88',
 		'TxFragment'       => '.1.3.6.1.4.1.14988.1.1.14.1.1.89',
-	);
+	];
 
-	$mikrotikProcessor = array(
+	$mikrotikProcessor = [
 		'baseOID' => '.1.3.6.1.2.1.25.3.3.1',
 		'load'    => '.1.3.6.1.2.1.25.3.3.1.2'
-	);
+	];
 
 	if (isset($_SESSION['mikrotik_message']) && $_SESSION['mikrotik_message'] != '') {
-		$messages['mikrotik_message'] = array('message' => $_SESSION['mikrotik_message'], 'type' => 'info');
+		$messages['mikrotik_message'] = ['message' => $_SESSION['mikrotik_message'], 'type' => 'info'];
 	}
 
 	mikrotik_check_upgrade();
@@ -1364,7 +1366,7 @@ function mikrotik_host_top() {
 		FROM host
 		LEFT JOIN plugin_mikrotik_credentials AS pmc
 		ON host.id=pmc.host_id
-		WHERE host_template_id = ? AND host.id = ?', array($template_id, $id));
+		WHERE host_template_id = ? AND host.id = ?', [$template_id, $id]);
 
 	if (cacti_sizeof($is_tik)) {
 		$fields_host_edit += array(
