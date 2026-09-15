@@ -308,7 +308,7 @@ function process_hosts() {
 				if ($processes < $concurrent_processes) {
 					/* put a placeholder in place to prevent overloads on slow systems */
 					$key = rand();
-					db_execute("INSERT INTO plugin_mikrotik_processes (pid, taskid, started) VALUES ($key, $seed, NOW())");
+					db_execute_prepared('INSERT INTO plugin_mikrotik_processes (pid, taskid, started) VALUES (?, ?, NOW())', array($key, $seed));
 
 					print "NOTE: Launching Host Collector For: '" . $host['description'] . '[' . $host['hostname'] . "]'\n";
 					process_host($host['host_id'], $seed, $key);
@@ -329,7 +329,7 @@ function process_hosts() {
 
 	/* wait for all processes to end or max run time */
 	while (true) {
-		$processes_left = db_fetch_cell("SELECT count(*) FROM plugin_mikrotik_processes WHERE taskid=$seed");
+		$processes_left = db_fetch_cell_prepared('SELECT count(*) FROM plugin_mikrotik_processes WHERE taskid = ?', array($seed));
 		$pl = db_fetch_cell('SELECT count(*) FROM plugin_mikrotik_processes');
 
 		if ($processes_left == 0) {

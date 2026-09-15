@@ -133,14 +133,14 @@ function add_graphs() {
 //		/* check to see if the template exists */
 //		debug('Host Template Set');
 //
-//		if (db_fetch_cell("SELECT count(*) FROM host_template WHERE id=$host_template")) {
+//		if (db_fetch_cell_prepared('SELECT count(*) FROM host_template WHERE id = ?', array($host_template))) {
 //			debug('Host Template Exists');
 //
-//			$host_id = db_fetch_cell("SELECT id FROM host WHERE host_template_id=$host_template");
+//			$host_id = db_fetch_cell_prepared('SELECT id FROM host WHERE host_template_id = ?', array($host_template));
 //			if (empty($host_id)) {
 //				debug('MikroTik Summary Device Not Found, Adding');
 //			} else {
-//				debug("Host Exists Hostname is '" . db_fetch_cell("SELECT description FROM host WHERE id=$host_id"). "'");
+//				debug("Host Exists Hostname is '" . db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)). "'");
 //			}
 //
 //
