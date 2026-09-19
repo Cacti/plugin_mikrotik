@@ -109,25 +109,23 @@ jobs:
     - name: Create MySQL Config
       run: |
         echo -e "[client]\nuser = root\npassword = cactiroot\nhost = 127.0.0.1\n" > ~/.my.cnf
-        cat ~/.my.cnf
+        chmod 600 ~/.my.cnf
 
     - name: Initialize Cacti Database
-      env:
-        MYSQL_AUTH_USR: '--defaults-file=~/.my.cnf'
       run: |
-        mysql $MYSQL_AUTH_USR -e 'CREATE DATABASE IF NOT EXISTS cacti;'
-        mysql $MYSQL_AUTH_USR -e "CREATE USER IF NOT EXISTS 'cactiuser'@'localhost' IDENTIFIED BY 'cactiuser';"
-        mysql $MYSQL_AUTH_USR -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'localhost';"
-        mysql $MYSQL_AUTH_USR -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
-        mysql $MYSQL_AUTH_USR -e "FLUSH PRIVILEGES;"
-        mysql $MYSQL_AUTH_USR cacti < ${{ github.workspace }}/cacti/cacti.sql
-        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
+        mysql --defaults-file="$HOME/.my.cnf" -e 'CREATE DATABASE IF NOT EXISTS cacti;'
+        mysql --defaults-file="$HOME/.my.cnf" -e "CREATE USER IF NOT EXISTS 'cactiuser'@'localhost' IDENTIFIED BY 'cactiuser';"
+        mysql --defaults-file="$HOME/.my.cnf" -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'localhost';"
+        mysql --defaults-file="$HOME/.my.cnf" -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
+        mysql --defaults-file="$HOME/.my.cnf" -e "FLUSH PRIVILEGES;"
+        mysql --defaults-file="$HOME/.my.cnf" cacti < ${{ github.workspace }}/cacti/cacti.sql
+        mysql --defaults-file="$HOME/.my.cnf" -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
 
     - name: Validate composer files
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          composer validate --strict || true
+          composer validate --strict
         fi
 
     - name: Install Composer Dependencies
@@ -136,7 +134,6 @@ jobs:
         if [ -f composer.json ]; then
           sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
           sudo composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
-          sudo rm -f composer.lock
           sudo composer install --dev --no-progress
         fi
 

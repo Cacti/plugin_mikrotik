@@ -2,15 +2,35 @@
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
  +-------------------------------------------------------------------------+
  | Cacti: The Complete RRDtool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
  +-------------------------------------------------------------------------+
 */
 
 describe('setup.php structure in mikrotik', function () {
 	$source = plugin_test_read_source('setup.php');
 
-	$infoFile = parse_ini_file(realpath(__DIR__ . '/../../INFO'), true);
+	$infoPath = realpath(__DIR__ . '/../../INFO');
+	if ($infoPath === false) {
+		throw new RuntimeException('Unable to resolve required file: INFO');
+	}
+
+	$infoFile = parse_ini_file($infoPath, true);
 	if (!is_array($infoFile) || !isset($infoFile['info']) || !is_array($infoFile['info'])) {
 		throw new RuntimeException('Unable to parse the INFO section');
 	}

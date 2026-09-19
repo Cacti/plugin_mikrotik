@@ -2,8 +2,23 @@
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
  +-------------------------------------------------------------------------+
  | Cacti: The Complete RRDtool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
  +-------------------------------------------------------------------------+
 */
 
@@ -77,7 +92,7 @@ describe('PHP 8.2 compatibility in mikrotik', function () {
 			if ($p === false) continue;
 			$c = file_get_contents($p);
 			if ($c === false) continue;
-			expect(preg_match('/\bconst\s+(?:public|private|protected|final)\s+\??\s*\w+\s+\w+\s*=/', $c))->toBe(0,
+			expect(preg_match('/\b(?:public|private|protected|final)\s+const\s+\??[\w|]+\s+\w+\s*=/', $c))->toBe(0,
 				"{$f} uses typed class constants (PHP 8.3)"
 			);
 		}
