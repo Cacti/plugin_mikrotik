@@ -44,5 +44,6 @@ describe('setup.php structure in mikrotik', function () {
 	it('declares a plugin version in INFO', function () use ($info) {
 		expect($info)->toHaveKey('version');
 		expect($info['version'])->not->toBe('');
+		expect($info['version'])->toMatch('/^\d+\.\d+$/');
 	});
 });
