@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../include/vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap-unit.php"
+         cacheDirectory=".phpunit.cache"
+         colors="true"
+         failOnWarning="true"
+         failOnNotice="true"
+         failOnDeprecation="true"
+         beStrictAboutOutputDuringTests="false">
+    <php>
+        <ini name="error_reporting" value="-1"/>
+        <env name="CACTI_TEST_BOOTSTRAP" value="1"/>
+    </php>
+    <testsuites>
+        <testsuite name="Plugin MikroTik">
+            <directory>tests/Unit</directory>
+            <directory>tests/Integration</directory>
+            <directory>tests/Security</directory>
+        </testsuite>
+    </testsuites>
+
+    <!--
+        Pest reads this PHPUnit-compatible configuration through Cacti's
+        Composer-managed vendor tree, checked out alongside this plugin by
+        the CI workflow (see .github/workflows/plugin-ci-workflow.yml).
+
+        The RouterOS/ directory (the bundled third-party RouterOS PHP API
+        client) is intentionally excluded from coverage - it is vendored
+        code, not plugin logic.
+    -->
+    <source>
+        <include>
+            <file>setup.php</file>
+            <file>mikrotik.php</file>
+            <file>mikrotik_users.php</file>
+            <file>poller_graphs.php</file>
+            <file>poller_mikrotik.php</file>
+        </include>
+    </source>
+</phpunit>
