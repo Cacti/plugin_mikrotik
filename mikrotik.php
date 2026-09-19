@@ -294,7 +294,7 @@ function mikrotik_interfaces() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -582,7 +582,7 @@ function mikrotik_queues() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -869,7 +869,7 @@ function mikrotik_trees() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1097,7 +1097,7 @@ function mikrotik_wireless_aps() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -1671,7 +1671,7 @@ function mikrotik_devices() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Status', 'mikrotik');?>
@@ -2290,7 +2290,7 @@ function mikrotik_wireless_regs() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
@@ -2585,7 +2585,7 @@ function mikrotik_dhcp() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
