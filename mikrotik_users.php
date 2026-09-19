@@ -117,7 +117,7 @@ function form_actions() {
 	$user_list = '';
 
 	/* loop through each of the user templates selected on the previous page and get more info about them */
-	while (list($var,$val) = each($_POST)) {
+	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_([A-Z0-9]+)$/', $var, $matches)) {
 			/* ================= input validation ================= */
 			$matches[1] = sanitize_search_string($matches[1]);
