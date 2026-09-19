@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 require('../routeros_api.class.php');
 
 $API = new RouterosAPI();

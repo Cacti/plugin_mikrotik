@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /* Example for adding a VPN user */
 
 require('../routeros_api.class.php');

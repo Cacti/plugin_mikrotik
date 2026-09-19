@@ -1,6 +1,4 @@
 <?php
-
-declare(strict_types=1);
 /*****************************
  *
  * RouterOS PHP API class v1.6

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /* 3 step action
    1) fetch all static dns hosts
    2) remove all static dns hosts
