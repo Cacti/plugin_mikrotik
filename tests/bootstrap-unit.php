@@ -75,7 +75,7 @@ require_once __DIR__ . '/TestCase.php';
  */
 $GLOBALS['config'] = array(
 	'base_path'       => $cacti_root,
-	'library_path'    => $cacti_root . '/lib',
+	'library_path'    => __DIR__ . '/stubs/lib',
 	'url_path'        => '/cacti/',
 	'cacti_version'   => $cacti_version,
 	'cacti_server_os' => 'unix',
