@@ -23,8 +23,10 @@
 */
 
 /*
- * Verify migrated files use prepared DB helpers exclusively.
- * Catches regressions where raw db_execute/db_fetch_* calls creep back in.
+ * Smoke test that migrated files still perform their database access through
+ * the shared db_* helper functions (prepared or unprepared). This does not
+ * assert that a file uses prepared statements exclusively; it only catches
+ * regressions where the db_* helper calls are removed or renamed entirely.
  */
 
 describe('prepared statement consistency in mikrotik', function () {
@@ -44,8 +46,8 @@ describe('prepared statement consistency in mikrotik', function () {
 
 			$contents = file_get_contents($path);
 			expect($contents)->not->toBeFalse("Unable to read {$relativeFile}");
-			expect(preg_match('/\b(?:db_execute|db_fetch_(?:row|assoc|cell))\s*\(/', $contents))->toBe(1,
-				"File {$relativeFile} must contain database access"
+			expect(preg_match('/\b(?:db_execute|db_fetch_(?:row|assoc|cell))(?:_prepared)?\s*\(/', $contents))->toBe(1,
+				"File {$relativeFile} must contain database access via db_* helpers (prepared or unprepared)"
 			);
 		}
 	});

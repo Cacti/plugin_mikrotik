@@ -134,7 +134,7 @@ jobs:
         if [ -f composer.json ]; then
           sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
           sudo composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
-          sudo composer install --dev --no-progress
+          sudo composer install --no-progress
         fi
 
     - name: Restore vendor ownership for Pest
