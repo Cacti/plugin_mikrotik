@@ -1368,7 +1368,7 @@ function mikrotik_users() {
 						<?php print __('Search', 'mikrotik');?>
 					</td>
 					<td>
-						<input id='filter' type='text' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Device', 'mikrotik');?>
