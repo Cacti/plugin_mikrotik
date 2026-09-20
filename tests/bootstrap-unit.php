@@ -484,3 +484,27 @@ function mikrotik_test_load_function($relative_file, $function_name) {
 
 	$loaded[$key] = true;
 }
+
+/**
+ * Convenience wrapper around mikrotik_test_load_function() to isolate and
+ * define several functions from the same plugin source file in one call.
+ *
+ * @param string $file           Absolute or plugin-root-relative path to the source file.
+ * @param array  $function_names Names of the functions to isolate and define.
+ *
+ * @return void
+ */
+function mikrotik_test_load_functions($file, array $function_names) {
+	$plugin_root = realpath(dirname(__DIR__));
+	$absolute    = realpath($file) ?: realpath($plugin_root . '/' . $file);
+
+	if ($absolute === false) {
+		throw new RuntimeException("Unable to resolve required plugin source: {$file}");
+	}
+
+	$relative_file = ltrim(str_replace($plugin_root, '', $absolute), DIRECTORY_SEPARATOR);
+
+	foreach ($function_names as $function_name) {
+		mikrotik_test_load_function($relative_file, $function_name);
+	}
+}
