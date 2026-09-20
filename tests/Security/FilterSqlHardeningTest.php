@@ -26,8 +26,18 @@ describe('filter SQL/output hardening in mikrotik', function () {
 		expect($source)->toContain("html_escape_request_var('filter')");
 	});
 
-	it('builds filter LIKE clauses through db_qstr()', function () use ($source) {
+	it('builds every filter LIKE clause through db_qstr()', function () use ($source) {
 		expect($source)->toContain("db_qstr('%' . get_request_var('filter') . '%')");
+
+		// The check above only proves db_qstr() is used *somewhere*; walk
+		// every line that builds a LIKE clause from the filter and make
+		// sure each one wraps the value in db_qstr(), so a regression that
+		// reintroduces raw interpolation on any single line still fails.
+		foreach (explode("\n", $source) as $line) {
+			if (stripos($line, 'LIKE') !== false && strpos($line, "get_request_var('filter')") !== false) {
+				expect($line)->toMatch("/db_qstr\('%'\s*\.\s*get_request_var\('filter'\)\s*\.\s*'%'\)/");
+			}
+		}
 	});
 
 	it('does not print the raw filter value directly', function () use ($source) {

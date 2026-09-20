@@ -226,19 +226,19 @@ function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = 
 	global $config;
 
 	// add entry if it does not exist
-	$exists = db_fetch_cell("SELECT count(*) FROM host_snmp_query WHERE host_id=$host_id AND snmp_query_id=$dq");
+	$exists = db_fetch_cell_prepared('SELECT count(*) FROM host_snmp_query WHERE host_id = ? AND snmp_query_id = ?', [$host_id, $dq]);
 
 	if (!$exists) {
-		db_execute("REPLACE INTO host_snmp_query (host_id,snmp_query_id,reindex_method) VALUES ($host_id, $dq, 1)");
+		db_execute_prepared('REPLACE INTO host_snmp_query (host_id,snmp_query_id,reindex_method) VALUES (?, ?, 1)', [$host_id, $dq]);
 	}
 
 	// recache snmp data
 	debug('Reindexing Host');
 	run_data_query($host_id, $dq);
 
-	$graph_templates = db_fetch_assoc('SELECT *
+	$graph_templates = db_fetch_assoc_prepared('SELECT *
 		FROM snmp_query_graph
-		WHERE snmp_query_id=' . $dq);
+		WHERE snmp_query_id = ?', [$dq]);
 
 	debug('Adding Graphs');
 

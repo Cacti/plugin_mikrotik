@@ -255,6 +255,8 @@ class RouterosAPI {
 	 */
 	public function arrayChangeKeyName(&$array) {
 		if (is_array($array)) {
+			$array_new = [];
+
 			foreach ($array as $k => $v) {
 				$tmp = str_replace('-', '_', $k);
 				$tmp = str_replace('/', '_', $tmp);

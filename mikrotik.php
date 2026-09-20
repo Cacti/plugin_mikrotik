@@ -2712,8 +2712,8 @@ function mikrotik_dhcp() {
 			print "<td class='left'>"  . ($row['status'] ? html_escape($row['status']):__('N/A', 'mikrotik')) .  '</td>';
 			print "<td class='right'>"  . filter_value($row['mac_address'], get_request_var('filter')) . '</td>';
 
-			print "<td class='right'>" . ($row['expires_after'] ? __('%s Seconds', html_escape($row['expires_after'])):__('N/A', 'mikrotik'))  . '</td>';
-			print "<td class='right'>" . ($row['last_seen'] ? __('%s Seconds', html_escape($row['last_seen'])):__('N/A', 'mikrotik'))  . '</td>';
+			print "<td class='right'>" . ($row['expires_after'] ? __('%s Seconds', html_escape($row['expires_after']), 'mikrotik'):__('N/A', 'mikrotik'))  . '</td>';
+			print "<td class='right'>" . ($row['last_seen'] ? __('%s Seconds', html_escape($row['last_seen']), 'mikrotik'):__('N/A', 'mikrotik'))  . '</td>';
 
 			print "<td class='right'>" . ($row['dynamic'] ? __('Dynamic', 'mikrotik'):__('Static', 'mikrotik')) . '</td>';
 			print "<td class='right'>" . ($row['blocked'] ? 'true':'false') . '</td>';
