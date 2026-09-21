@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* chore: Harmonize CI workflow, issue/PR templates, and PHP-compatibility test structure with the shared Cacti plugin baseline
 * issue#78: SQL Syntax Error in poller_mikrotik.php
 * issue: Data Query Graphs with spaces in their indexes not working.  This is Cacti issue fixed in 1.2.280
 * issue: Don't captitalize everything including Queues, etc.
