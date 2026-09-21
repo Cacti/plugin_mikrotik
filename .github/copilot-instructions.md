@@ -178,6 +178,12 @@ if (!db_column_exists('plugin_mikrotik_trees', 'prevPackets')) {
 
 Document all changes in `CHANGELOG.md`; use descriptive commit messages referencing issue/PR numbers when applicable.
 
+## CI & Dependency Baselines
+
+- Do not commit a `composer.json` or `composer.lock` in this plugin's own repo root — the shared CI workflow installs Pest/dev dependencies into Cacti's own Composer-managed vendor tree (checked out alongside the plugin). Use Cacti's `composer.json`, not a plugin-local one.
+- Do not add a plugin-local `.phpstan.neon`/`phpstan.neon` or `.php-cs-fixer.php`/`.php-cs-fixer.dist.php` — lint/static-analysis steps run against Cacti's own config from the Cacti core checkout, targeting this plugin's directory. Use the Cacti version, not a plugin-local config.
+- Prefer Cacti's `cacti_count()`/`cacti_sizeof()` wrappers over the raw `count()`/`sizeof()` builtins in new or edited code.
+
 ## References
 
 - [Cacti main repo](https://github.com/Cacti/cacti/tree/1.2.x)

@@ -75,7 +75,6 @@ if (!in_array($expected_version, array('1.2.x', 'develop'), true) && $cacti_vers
 }
 
 require_once $autoload;
-require_once __DIR__ . '/TestCase.php';
 
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
