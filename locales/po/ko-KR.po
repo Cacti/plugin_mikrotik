@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
+"POT-Creation-Date: 2026-09-21 13:14-0400\n"
 "PO-Revision-Date: 2020-12-14 19:31-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Present"
 msgstr "현재"
 
-#: mikrotik.php:42 mikrotik.php:1689 mikrotik.php:2704 mikrotik.php:3009
+#: mikrotik.php:42 mikrotik.php:1694 mikrotik.php:2710 mikrotik.php:3015
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -37,17 +37,17 @@ msgstr "경고"
 msgid "Testing"
 msgstr "테스트"
 
-#: mikrotik.php:46 mikrotik.php:1692
+#: mikrotik.php:46 mikrotik.php:1697
 msgid "Down"
 msgstr "아래로"
 
-#: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1712 mikrotik.php:1806
-#: setup.php:1291
+#: mikrotik.php:149 mikrotik.php:1405 mikrotik.php:1717 mikrotik.php:1811
+#: setup.php:1296
 msgid "Devices"
 msgstr "장치"
 
-#: mikrotik.php:152 mikrotik.php:1511 mikrotik.php:1796 mikrotik_users.php:271
-#: mikrotik_users.php:345 setup.php:1294
+#: mikrotik.php:152 mikrotik.php:1511 mikrotik.php:1801 mikrotik_users.php:282
+#: mikrotik_users.php:356 setup.php:1299
 msgid "Users"
 msgstr "사용자"
 
@@ -61,7 +61,7 @@ msgstr "대기열"
 msgid "Queue Trees"
 msgstr "대기열 트리"
 
-#: mikrotik.php:164 mikrotik.php:321 mikrotik.php:448 setup.php:1295
+#: mikrotik.php:164 mikrotik.php:321 mikrotik.php:448 setup.php:1300
 #, fuzzy
 msgid "Interfaces"
 msgstr "인터페이스"
@@ -71,17 +71,17 @@ msgstr "인터페이스"
 msgid "DHCP"
 msgstr "DHCP"
 
-#: mikrotik.php:172 mikrotik.php:2816
+#: mikrotik.php:172 mikrotik.php:2822
 #, fuzzy
 msgid "DNS Cache"
 msgstr "DNS 캐시"
 
-#: mikrotik.php:176 mikrotik.php:3154
+#: mikrotik.php:176 mikrotik.php:3160
 #, fuzzy
 msgid "Address Lists"
 msgstr "IP 주소"
 
-#: mikrotik.php:180 mikrotik.php:1212 setup.php:1298
+#: mikrotik.php:180 mikrotik.php:1212 setup.php:1303
 #, fuzzy
 msgid "Wireless Aps"
 msgstr "무선 AP"
@@ -91,7 +91,7 @@ msgstr "무선 AP"
 msgid "Wireless Registrations"
 msgstr "무선 등록 주파수"
 
-#: mikrotik.php:187 mikrotik.php:2176 setup.php:1297
+#: mikrotik.php:187 mikrotik.php:2182 setup.php:1302
 msgid "Graphs"
 msgstr "그래프 "
 
@@ -101,84 +101,84 @@ msgid "Interface Stats"
 msgstr "인터페이스 통계"
 
 #: mikrotik.php:294 mikrotik.php:582 mikrotik.php:869 mikrotik.php:1097
-#: mikrotik.php:1368 mikrotik.php:1666 mikrotik.php:2285 mikrotik.php:2580
-#: mikrotik.php:2825 mikrotik.php:3163 mikrotik_users.php:255
+#: mikrotik.php:1368 mikrotik.php:1671 mikrotik.php:2291 mikrotik.php:2586
+#: mikrotik.php:2831 mikrotik.php:3169 mikrotik_users.php:266
 msgid "Search"
 msgstr "검색"
 
 #: mikrotik.php:300 mikrotik.php:588 mikrotik.php:875 mikrotik.php:1103
-#: mikrotik.php:1374 mikrotik.php:2291 mikrotik.php:2433 mikrotik.php:2586
-#: mikrotik.php:2831 mikrotik.php:3169
+#: mikrotik.php:1374 mikrotik.php:2297 mikrotik.php:2439 mikrotik.php:2592
+#: mikrotik.php:2837 mikrotik.php:3175
 msgid "Device"
 msgstr "장치"
 
 #: mikrotik.php:304 mikrotik.php:592 mikrotik.php:879 mikrotik.php:1107
-#: mikrotik.php:1378 mikrotik.php:1399 mikrotik.php:1676 mikrotik.php:2295
-#: mikrotik.php:2590 mikrotik.php:2835 mikrotik.php:2856 mikrotik.php:2878
-#: mikrotik.php:3173 mikrotik.php:3194 mikrotik_users.php:265
-#: mikrotik_users.php:290
+#: mikrotik.php:1378 mikrotik.php:1399 mikrotik.php:1681 mikrotik.php:2301
+#: mikrotik.php:2596 mikrotik.php:2841 mikrotik.php:2862 mikrotik.php:2884
+#: mikrotik.php:3179 mikrotik.php:3200 mikrotik_users.php:276
+#: mikrotik_users.php:301
 msgid "All"
 msgstr "모두"
 
 #: mikrotik.php:325 mikrotik.php:613 mikrotik.php:900 mikrotik.php:1128
-#: mikrotik.php:1409 mikrotik.php:1716 mikrotik.php:2316 mikrotik.php:2611
-#: mikrotik.php:2899 mikrotik.php:3215 mikrotik_users.php:275
+#: mikrotik.php:1409 mikrotik.php:1721 mikrotik.php:2322 mikrotik.php:2617
+#: mikrotik.php:2905 mikrotik.php:3221 mikrotik_users.php:286
 msgid "Default"
 msgstr "기본값"
 
-#: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2329 mikrotik.php:2881
-#: mikrotik_users.php:291 mikrotik_users.php:358 mikrotik_users.php:369
+#: mikrotik.php:338 mikrotik.php:626 mikrotik.php:2335 mikrotik.php:2887
+#: mikrotik_users.php:302 mikrotik_users.php:369 mikrotik_users.php:380
 msgid "Active"
 msgstr "활성화"
 
-#: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2334
+#: mikrotik.php:343 mikrotik.php:632 mikrotik.php:2340
 #, fuzzy
 msgid "Since Reset"
 msgstr "재설정 이후"
 
 #: mikrotik.php:348 mikrotik.php:637 mikrotik.php:912 mikrotik.php:1140
-#: mikrotik.php:1427 mikrotik.php:1728 mikrotik.php:2339 mikrotik.php:2623
-#: mikrotik.php:2911 mikrotik.php:3227 mikrotik_users.php:296
+#: mikrotik.php:1427 mikrotik.php:1733 mikrotik.php:2345 mikrotik.php:2629
+#: mikrotik.php:2917 mikrotik.php:3233 mikrotik_users.php:307
 msgid "Go"
 msgstr "가기"
 
 #: mikrotik.php:349 mikrotik.php:638 mikrotik.php:913 mikrotik.php:1141
-#: mikrotik.php:1428 mikrotik.php:1729 mikrotik.php:2340 mikrotik.php:2624
-#: mikrotik.php:2912 mikrotik.php:3228 mikrotik_users.php:297
+#: mikrotik.php:1428 mikrotik.php:1734 mikrotik.php:2346 mikrotik.php:2630
+#: mikrotik.php:2918 mikrotik.php:3234 mikrotik_users.php:308
 msgid "Clear"
 msgstr "지우기"
 
 #: mikrotik.php:436 mikrotik.php:725 mikrotik.php:967 mikrotik.php:1197
-#: mikrotik.php:1495 mikrotik.php:1788 mikrotik.php:2432 setup.php:1301
+#: mikrotik.php:1495 mikrotik.php:1793 mikrotik.php:2438 setup.php:1306
 msgid "Actions"
 msgstr "작업"
 
 #: mikrotik.php:437 mikrotik.php:726 mikrotik.php:968 mikrotik.php:1198
-#: mikrotik.php:1496 mikrotik.php:2678
+#: mikrotik.php:1496 mikrotik.php:2684
 msgid "Hostname"
 msgstr "호스트명"
 
-#: mikrotik.php:438 mikrotik.php:727 mikrotik.php:969 mikrotik.php:1789
-#: mikrotik.php:2981
+#: mikrotik.php:438 mikrotik.php:727 mikrotik.php:969 mikrotik.php:1794
+#: mikrotik.php:2987
 msgid "Name"
 msgstr "이름"
 
-#: mikrotik.php:439 mikrotik.php:2436
+#: mikrotik.php:439 mikrotik.php:2442
 #, fuzzy
 msgid "Rx Bytes"
 msgstr "Rx 바이트"
 
-#: mikrotik.php:440 mikrotik.php:2437
+#: mikrotik.php:440 mikrotik.php:2443
 #, fuzzy
 msgid "Tx Bytes"
 msgstr "Tx 바이트"
 
-#: mikrotik.php:441 mikrotik.php:2438
+#: mikrotik.php:441 mikrotik.php:2444
 #, fuzzy
 msgid "Rx Packets"
 msgstr "Rx 패킷"
 
-#: mikrotik.php:442 mikrotik.php:2439
+#: mikrotik.php:442 mikrotik.php:2445
 #, fuzzy
 msgid "Tx Packets"
 msgstr "전송 패킷"
@@ -194,12 +194,12 @@ msgid "Tx Errors"
 msgstr "Tx 오류"
 
 #: mikrotik.php:445 mikrotik.php:738 mikrotik.php:975 mikrotik.php:1209
-#: mikrotik.php:1508 mikrotik.php:2444 mikrotik.php:2684 mikrotik_users.php:357
+#: mikrotik.php:1508 mikrotik.php:2450 mikrotik.php:2690 mikrotik_users.php:368
 msgid "Last Seen"
 msgstr "최근 확인"
 
 #: mikrotik.php:463 mikrotik.php:756 mikrotik.php:993 mikrotik.php:1227
-#: mikrotik.php:1534 mikrotik.php:2472
+#: mikrotik.php:1534 mikrotik.php:2478
 #, fuzzy
 msgid "Edit Device"
 msgstr "장치"
@@ -264,7 +264,7 @@ msgstr "Drps In"
 msgid "Drps Out"
 msgstr "Drps Out"
 
-#: mikrotik.php:783 mikrotik.php:1856
+#: mikrotik.php:783 mikrotik.php:1861
 #, fuzzy
 msgid "No Simple Queues Found"
 msgstr "단순 대기열이 없습니다."
@@ -274,7 +274,7 @@ msgstr "단순 대기열이 없습니다."
 msgid "Queue Tree Status"
 msgstr "큐 트리 상태"
 
-#: mikrotik.php:896 mikrotik.php:978 mikrotik.php:1795 setup.php:1292
+#: mikrotik.php:896 mikrotik.php:978 mikrotik.php:1800 setup.php:1297
 msgid "Trees"
 msgstr "나무"
 
@@ -302,7 +302,7 @@ msgstr "총 바이트 수"
 msgid "Total Packets"
 msgstr "총 패킷 수"
 
-#: mikrotik.php:1011 mikrotik.php:1862
+#: mikrotik.php:1011 mikrotik.php:1867
 #, fuzzy
 msgid "No Queue Trees Found"
 msgstr "대기열 트리를 찾을 수 없음"
@@ -327,12 +327,12 @@ msgstr "SSID"
 msgid "BSSID"
 msgstr "BSSID"
 
-#: mikrotik.php:1201 mikrotik.php:2441
+#: mikrotik.php:1201 mikrotik.php:2447
 #, fuzzy
 msgid "Tx Rate"
 msgstr "전송률"
 
-#: mikrotik.php:1202 mikrotik.php:2440
+#: mikrotik.php:1202 mikrotik.php:2446
 #, fuzzy
 msgid "Rx Rate"
 msgstr "수신률"
@@ -367,17 +367,17 @@ msgstr "Tx CQQ"
 msgid "User Statistics"
 msgstr "사용자 현황"
 
-#: mikrotik.php:1395 mikrotik.php:1498 mikrotik.php:2685 mikrotik.php:2852
-#: mikrotik.php:2979 mikrotik_users.php:261 mikrotik_users.php:356
+#: mikrotik.php:1395 mikrotik.php:1498 mikrotik.php:2691 mikrotik.php:2858
+#: mikrotik.php:2985 mikrotik_users.php:272 mikrotik_users.php:367
 msgid "Type"
 msgstr "유형"
 
-#: mikrotik.php:1400 mikrotik_users.php:266
+#: mikrotik.php:1400 mikrotik_users.php:277
 #, fuzzy
 msgid "Hotspot"
 msgstr "핫스팟"
 
-#: mikrotik.php:1401 mikrotik_users.php:267
+#: mikrotik.php:1401 mikrotik_users.php:278
 #, fuzzy
 msgid "PPPoe"
 msgstr "PPPoe"
@@ -390,7 +390,7 @@ msgstr "온라인 사용자"
 msgid "User"
 msgstr "사용자"
 
-#: mikrotik.php:1499 mikrotik.php:2680
+#: mikrotik.php:1499 mikrotik.php:2686
 msgid "IP Address"
 msgstr "IP 주소"
 
@@ -436,278 +436,283 @@ msgstr "총계"
 
 #: mikrotik.php:1556 mikrotik.php:1558 mikrotik.php:1559 mikrotik.php:1560
 #: mikrotik.php:1561 mikrotik.php:1562 mikrotik.php:1563 mikrotik.php:1564
-#: mikrotik.php:2706 mikrotik.php:2709 mikrotik.php:2710 mikrotik.php:3012
+#: mikrotik.php:2712 mikrotik.php:2715 mikrotik.php:2716 mikrotik.php:3018
 msgid "N/A"
 msgstr "N/A"
 
-#: mikrotik.php:1571 mikrotik.php:1850 mikrotik_users.php:374
+#: mikrotik.php:1571 mikrotik.php:1855 mikrotik_users.php:385
 msgid "No Users Found"
 msgstr "사용자가 없습니다"
 
-#: mikrotik.php:1650
+#: mikrotik.php:1642
+#, fuzzy
+msgid "MikroTik Changelog"
+msgstr "MikroTik 자격증 명"
+
+#: mikrotik.php:1655
 #, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
 msgstr "장치 필터 (최신 MikroTik 버전 :  %s)"
 
-#: mikrotik.php:1652
+#: mikrotik.php:1657
 #, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
 msgstr "장치 필터 (최신 MikroTik 버전 :  %s, 출시 :  %s)"
 
-#: mikrotik.php:1655
+#: mikrotik.php:1660
 msgid "ChangeLog"
 msgstr "ChangeLogLanguage"
 
-#: mikrotik.php:1672 mikrotik.php:1791 mikrotik.php:2681 mikrotik.php:2874
-#: mikrotik_users.php:286
+#: mikrotik.php:1677 mikrotik.php:1796 mikrotik.php:2687 mikrotik.php:2880
+#: mikrotik_users.php:297
 msgid "Status"
 msgstr "상태"
 
-#: mikrotik.php:1695
+#: mikrotik.php:1700
 #, fuzzy
 msgid "Recovering"
 msgstr "복구 중"
 
-#: mikrotik.php:1698
+#: mikrotik.php:1703
 msgid "Up"
 msgstr "위로"
 
-#: mikrotik.php:1701 mikrotik.php:2687 mikrotik.php:3291 setup.php:1086
+#: mikrotik.php:1706 mikrotik.php:2693 mikrotik.php:3297 setup.php:1091
 msgid "Disabled"
 msgstr "비활성화"
 
-#: mikrotik.php:1790 mikrotik.php:2978 mikrotik.php:3287
+#: mikrotik.php:1795 mikrotik.php:2984 mikrotik.php:3293
 msgid "Description"
 msgstr "설명"
 
-#: mikrotik.php:1792
+#: mikrotik.php:1797
 #, fuzzy
 msgid "FW Ver"
 msgstr "FW 버전"
 
-#: mikrotik.php:1793
+#: mikrotik.php:1798
 #, fuzzy
 msgid "Lic Ver"
 msgstr "Lic Ver"
 
-#: mikrotik.php:1794 mikrotik.php:2442
+#: mikrotik.php:1799 mikrotik.php:2448
 #, fuzzy
 msgid "Uptime(d:h:m)"
 msgstr "가동 시간 (d : h : m)"
 
-#: mikrotik.php:1797
+#: mikrotik.php:1802
 #, fuzzy
-msgid "CPU %"
+msgid "CPU %%%"
 msgstr "CPU %"
 
-#: mikrotik.php:1798
+#: mikrotik.php:1803
 #, fuzzy
 msgid "CPUs"
 msgstr "CPU"
 
-#: mikrotik.php:1799
+#: mikrotik.php:1804
 msgid "Processes"
 msgstr "프로세스"
 
-#: mikrotik.php:1800
+#: mikrotik.php:1805
 #, fuzzy
 msgid "Total Mem"
 msgstr "총 Mem"
 
-#: mikrotik.php:1801
+#: mikrotik.php:1806
 #, fuzzy
 msgid "Used Mem"
 msgstr "사용한 Mem"
 
-#: mikrotik.php:1802
+#: mikrotik.php:1807
 #, fuzzy
 msgid "Total Disk"
 msgstr "총 디스크"
 
-#: mikrotik.php:1803
+#: mikrotik.php:1808
 #, fuzzy
 msgid "Used Disk"
 msgstr "사용 된 디스크"
 
-#: mikrotik.php:1848
+#: mikrotik.php:1853
 msgid "View Users"
 msgstr "사용자 보기"
 
-#: mikrotik.php:1854
+#: mikrotik.php:1859
 #, fuzzy
 msgid "View Simple Queue"
 msgstr "단순 대기열"
 
-#: mikrotik.php:1860
+#: mikrotik.php:1865
 #, fuzzy
 msgid "View Queue Trees"
 msgstr "대기열 트리"
 
-#: mikrotik.php:1866
+#: mikrotik.php:1871
 #, fuzzy
 msgid "View Wireless Aps"
 msgstr "무선 AP"
 
-#: mikrotik.php:1868
+#: mikrotik.php:1873
 #, fuzzy
 msgid "No Wireless Aps Found"
 msgstr "무선 AP"
 
-#: mikrotik.php:1871
+#: mikrotik.php:1876
 #, fuzzy
 msgid "View Interfaces"
 msgstr "인터페이스"
 
-#: mikrotik.php:1874 mikrotik.php:2006 mikrotik.php:2008 mikrotik.php:2049
-#: mikrotik.php:2051 setup.php:1346
+#: mikrotik.php:1879 mikrotik.php:2012 mikrotik.php:2014 mikrotik.php:2055
+#: mikrotik.php:2057 setup.php:1352
 #, fuzzy
 msgid "View Graphs"
 msgstr "그래프 "
 
-#: mikrotik.php:1876
+#: mikrotik.php:1881
 #, fuzzy
 msgid "No Graphs Defined"
 msgstr "정의 된 그래프 없음"
 
-#: mikrotik.php:1913
+#: mikrotik.php:1918
 #, fuzzy
 msgid "No Devices Found"
 msgstr "장치를 찾을 수 없음"
 
-#: mikrotik.php:2014
+#: mikrotik.php:2020
 #, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
 msgstr "먼저 콘솔-> 설정-> 호스트 MIB에서 데이터 쿼리를 먼저 선택하십시오."
 
-#: mikrotik.php:2054
+#: mikrotik.php:2060
 #, fuzzy
 msgid "Graphs skipped or not created yet"
 msgstr "건너 뛰거나 아직 생성되지 않은 그래프"
 
-#: mikrotik.php:2057
+#: mikrotik.php:2063
 #, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
 msgstr "먼저 Console-> Settings-> Host MIB First에서 데이터 쿼리를 선택하십시오."
 
-#: mikrotik.php:2086
+#: mikrotik.php:2092
 #, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
 msgstr "맞춤 그래프 목록 적용 - 목록에서 필터링"
 
-#: mikrotik.php:2086
+#: mikrotik.php:2092
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "그래프 미리보기 필터"
 
-#: mikrotik.php:2276
+#: mikrotik.php:2282
 #, fuzzy
 msgid "Wireless Registration Stats"
 msgstr "무선 등록 주파수"
 
-#: mikrotik.php:2312 mikrotik.php:2447
+#: mikrotik.php:2318 mikrotik.php:2453
 msgid "Registrations"
 msgstr "등록수"
 
-#: mikrotik.php:2434 mikrotik.php:2679
+#: mikrotik.php:2440 mikrotik.php:2685
 msgid "Client Name"
 msgstr "클라이언트 이름"
 
-#: mikrotik.php:2435 mikrotik.php:2682
+#: mikrotik.php:2441 mikrotik.php:2688
 #, fuzzy
 msgid "MAC Address"
 msgstr "IP 주소"
 
-#: mikrotik.php:2443
+#: mikrotik.php:2449
 #, fuzzy
 msgid "Signal to Noise"
 msgstr "신호 대 잡음"
 
-#: mikrotik.php:2494
+#: mikrotik.php:2500
 #, fuzzy
 msgid "No Wireless Registrations Found"
 msgstr "무선 등록 주파수"
 
-#: mikrotik.php:2571
+#: mikrotik.php:2577
 #, fuzzy
 msgid "DHCP Registrations"
 msgstr "DHCP 등록"
 
-#: mikrotik.php:2607 mikrotik.php:2691 mikrotik.php:2895 mikrotik.php:2996
-#: mikrotik.php:3211 mikrotik.php:3305
+#: mikrotik.php:2613 mikrotik.php:2697 mikrotik.php:2901 mikrotik.php:3002
+#: mikrotik.php:3217 mikrotik.php:3311
 msgid "Entries"
 msgstr "입력 항목"
 
-#: mikrotik.php:2683
+#: mikrotik.php:2689
 #, fuzzy
 msgid "Expires in"
 msgstr "만료"
 
-#: mikrotik.php:2686
+#: mikrotik.php:2692
 msgid "Blocked"
 msgstr "차단됨"
 
-#: mikrotik.php:2688 mikrotik.php:2984 mikrotik.php:3293
+#: mikrotik.php:2694 mikrotik.php:2990 mikrotik.php:3299
 msgid "Last Updated"
 msgstr "수정일"
 
-#: mikrotik.php:2709 mikrotik.php:2710
+#: mikrotik.php:2715 mikrotik.php:2716
 #, fuzzy, php-format
 msgid "%s Seconds"
 msgstr "%s 초"
 
-#: mikrotik.php:2712 mikrotik.php:3290
+#: mikrotik.php:2718 mikrotik.php:3296
 msgid "Dynamic"
 msgstr "동적"
 
-#: mikrotik.php:2712 mikrotik.php:2983
+#: mikrotik.php:2718 mikrotik.php:2989
 msgid "Static"
 msgstr "고정"
 
-#: mikrotik.php:2720
+#: mikrotik.php:2726
 #, fuzzy
 msgid "No DHCP Entries Found"
 msgstr "장치를 찾을 수 없음"
 
-#: mikrotik.php:2882 mikrotik.php:3020 mikrotik.php:3324
+#: mikrotik.php:2888 mikrotik.php:3026 mikrotik.php:3330
 #, fuzzy
 msgid "Permanent"
 msgstr "영구적 인"
 
-#: mikrotik.php:2883 mikrotik.php:3024 mikrotik.php:3326
+#: mikrotik.php:2889 mikrotik.php:3030 mikrotik.php:3332
 msgid "Expired"
 msgstr "만료됨"
 
-#: mikrotik.php:2913 mikrotik.php:3229
+#: mikrotik.php:2919 mikrotik.php:3235
 msgid "Export"
 msgstr "내보내기"
 
-#: mikrotik.php:2980
+#: mikrotik.php:2986
 msgid "Data"
 msgstr "데이터"
 
-#: mikrotik.php:2982
+#: mikrotik.php:2988
 #, fuzzy
 msgid "TTL"
 msgstr "TTL"
 
-#: mikrotik.php:3033
+#: mikrotik.php:3039
 #, fuzzy
 msgid "No DNS Entries Found"
 msgstr "장치를 찾을 수 없음"
 
-#: mikrotik.php:3190 mikrotik.php:3288
+#: mikrotik.php:3196 mikrotik.php:3294
 msgid "List"
 msgstr "목록"
 
-#: mikrotik.php:3289
+#: mikrotik.php:3295
 msgid "Address"
 msgstr "주소"
 
-#: mikrotik.php:3292
+#: mikrotik.php:3298
 msgid "Timeout"
 msgstr "타임아웃"
 
-#: mikrotik.php:3336
+#: mikrotik.php:3342
 #, fuzzy
 msgid "No Address List Entries Found"
 msgstr "장치를 찾을 수 없음"
@@ -716,468 +721,468 @@ msgstr "장치를 찾을 수 없음"
 msgid "Delete"
 msgstr "삭제"
 
-#: mikrotik_users.php:141
+#: mikrotik_users.php:152
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "다음 사용자와 해당 그래프를 삭제하려면 '계속'을 클릭하십시오."
 
-#: mikrotik_users.php:147
+#: mikrotik_users.php:158
 msgid "Cancel"
 msgstr "취소"
 
-#: mikrotik_users.php:147
+#: mikrotik_users.php:158
 msgid "Continue"
 msgstr "계속"
 
-#: mikrotik_users.php:147
+#: mikrotik_users.php:158
 #, fuzzy
 msgid "Delete Device(s)"
 msgstr "장치"
 
-#: mikrotik_users.php:150
+#: mikrotik_users.php:161
 #, fuzzy
 msgid "You must select at least one User."
 msgstr "하나 이상의 사용자를 선택해야합니다."
 
-#: mikrotik_users.php:151
+#: mikrotik_users.php:162
 msgid "Return"
 msgstr "반환"
 
-#: mikrotik_users.php:246 setup.php:939 setup.php:1299
+#: mikrotik_users.php:257 setup.php:944 setup.php:1304
 #, fuzzy
 msgid "MikroTik Users"
 msgstr "MikroTik 사용자"
 
-#: mikrotik_users.php:292 mikrotik_users.php:369
+#: mikrotik_users.php:303 mikrotik_users.php:380
 msgid "Inactive"
 msgstr "비활성화"
 
-#: mikrotik_users.php:296
+#: mikrotik_users.php:307
 #, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "필터 설정 / 새로 고침"
 
-#: mikrotik_users.php:297
+#: mikrotik_users.php:308
 msgid "Clear Filters"
 msgstr "필터 지우기"
 
-#: mikrotik_users.php:354
+#: mikrotik_users.php:365
 msgid "User Name"
 msgstr "사용자 이름"
 
-#: mikrotik_users.php:355
+#: mikrotik_users.php:366
 msgid "Domain"
 msgstr "도메인"
 
-#: setup.php:38
+#: setup.php:37
 #, fuzzy
 msgid "MikroTik Viewer"
 msgstr "MikroTik 사용자"
 
-#: setup.php:39
+#: setup.php:38
 #, fuzzy
 msgid "MikroTik Admin"
 msgstr "플러그인 -> MikroTik Admin"
 
-#: setup.php:720 setup.php:1290 setup.php:1311 setup.php:1313
+#: setup.php:725 setup.php:1295 setup.php:1316 setup.php:1318
 #, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
-#: setup.php:723
+#: setup.php:728
 #, fuzzy
 msgid "MikroTik General Settings"
 msgstr "MikroTik 일반 설정"
 
-#: setup.php:727
+#: setup.php:732
 #, fuzzy
 msgid "MikroTik Poller Enabled"
 msgstr "MikroTik Poller 사용 가능"
 
-#: setup.php:728
+#: setup.php:733
 #, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "MikroTik 폴링을 사용 가능하게하려면이 상자를 선택하십시오. 그렇지 않으면 폴러가 작동하지 않습니다."
 
-#: setup.php:733
+#: setup.php:738
 #, fuzzy
 msgid "MikroTik API Polling Enabled"
 msgstr "MikroTik Poller 사용 가능"
 
-#: setup.php:734
+#: setup.php:739
 #, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
 msgstr "Cacti가 MikroTik API를 사용하여 다양한 설정을 폴링하도록하려면이 상자를 선택하십시오. 어떤 이유로 MikroTik API에 액세스 할 수없는 경우이 옵션을 선택 취소하십시오."
 
-#: setup.php:739
+#: setup.php:744
 #, fuzzy
 msgid "Automatically Discover Cacti Devices"
 msgstr "Cacti 장치 자동 검색"
 
-#: setup.php:740
+#: setup.php:745
 #, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
 msgstr "Cacti 호스트 테이블에서 MikroTik MIB를 지원하는 장치를 자동으로 검색하고 추가 하시겠습니까?"
 
-#: setup.php:745
+#: setup.php:750
 #, fuzzy
 msgid "Automatically Purge Devices"
 msgstr "자동으로 장치 제거"
 
-#: setup.php:746
+#: setup.php:751
 #, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
 msgstr "Cacti 시스템에서 제거 된 장치를 자동으로 제거 하시겠습니까?"
 
-#: setup.php:751
+#: setup.php:756
 #, fuzzy
 msgid "Maximum Concurrent Collectors"
 msgstr "최대 동시 컬렉터"
 
-#: setup.php:752
+#: setup.php:757
 #, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
 msgstr "한 번에 실행할 동시 콜렉터 프로세스의 최대 수는 얼마입니까?"
 
-#: setup.php:756
+#: setup.php:761
 #, fuzzy, php-format
 msgid "%d Process"
 msgstr "프로세스 % d 개"
 
-#: setup.php:757 setup.php:758 setup.php:759 setup.php:760 setup.php:761
-#: setup.php:762 setup.php:763 setup.php:764 setup.php:765
+#: setup.php:762 setup.php:763 setup.php:764 setup.php:765 setup.php:766
+#: setup.php:767 setup.php:768 setup.php:769 setup.php:770
 #, fuzzy, php-format
 msgid "%d Processes"
 msgstr "프로세스 % d 개"
 
-#: setup.php:769
+#: setup.php:774
 #, fuzzy
 msgid "Auto Discovery Settings"
 msgstr "자동 발견 빈도"
 
-#: setup.php:773
+#: setup.php:778
 #, fuzzy
 msgid "Auto Discovery Frequency"
 msgstr "자동 발견 빈도"
 
-#: setup.php:774
+#: setup.php:779
 #, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
 msgstr "새로운 Cacti 장치를 얼마나 자주 찾고 싶습니까?"
 
-#: setup.php:780
+#: setup.php:785
 #, fuzzy
 msgid "DHCP/DNS/List Settings"
 msgstr "DHCP / DNS / 목록 설정"
 
-#: setup.php:784
+#: setup.php:789
 #, fuzzy
 msgid "DHCP Retention"
 msgstr "DHCP 보존"
 
-#: setup.php:785
+#: setup.php:790
 #, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
 msgstr "DHCP IP 등록 내역을 얼마 동안 보관 하시겠습니까?"
 
-#: setup.php:791
+#: setup.php:796
 #, fuzzy
 msgid "DNS Retention"
 msgstr "DNS 보존"
 
-#: setup.php:792
+#: setup.php:797
 #, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
 msgstr "DNS 캐시 기록을 얼마 동안 보관 하시겠습니까?"
 
-#: setup.php:798
+#: setup.php:803
 #, fuzzy
 msgid "Address List Retention"
 msgstr "주소 목록 보존"
 
-#: setup.php:799
+#: setup.php:804
 #, fuzzy
 msgid "How long would you like to retain Address List history?"
 msgstr "주소 목록 기록을 얼마 동안 보관 하시겠습니까?"
 
-#: setup.php:805
+#: setup.php:810
 #, fuzzy
 msgid "Device Graph Automation"
 msgstr "장치 그래프 자동화"
 
-#: setup.php:809
+#: setup.php:814
 #, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "새 그래프 자동 추가"
 
-#: setup.php:810
+#: setup.php:815
 #, fuzzy
 msgid "How often do you want to check for new objects to graph?"
 msgstr "얼마나 자주 그래프에 새 객체가 있는지 확인하고 싶습니까?"
 
-#: setup.php:814
+#: setup.php:819
 msgid "Never"
 msgstr "안함"
 
-#: setup.php:815 setup.php:816 setup.php:817 setup.php:838 setup.php:1088
-#: setup.php:1089 setup.php:1090
+#: setup.php:820 setup.php:821 setup.php:822 setup.php:843 setup.php:1093
+#: setup.php:1094 setup.php:1095
 #, php-format
 msgid "%d Minutes"
 msgstr "%d 분"
 
-#: setup.php:818 setup.php:839 setup.php:1091
+#: setup.php:823 setup.php:844 setup.php:1096
 #, php-format
 msgid "%d Hour"
 msgstr "%d 시간"
 
-#: setup.php:819 setup.php:840 setup.php:841 setup.php:1092 setup.php:1093
-#: setup.php:1094
+#: setup.php:824 setup.php:845 setup.php:846 setup.php:1097 setup.php:1098
+#: setup.php:1099
 #, php-format
 msgid "%d Hours"
 msgstr "%d 시간"
 
-#: setup.php:820 setup.php:842 setup.php:1095 setup.php:1100
+#: setup.php:825 setup.php:847 setup.php:1100 setup.php:1105
 #, fuzzy, php-format
 msgid "%d Day"
 msgstr "% d 일"
 
-#: setup.php:821 setup.php:1101 setup.php:1102
+#: setup.php:826 setup.php:1106 setup.php:1107
 #, php-format
 msgid "%d Days"
 msgstr "%d일"
 
-#: setup.php:825
+#: setup.php:830
 #, fuzzy
 msgid "Exclude Users RegEx"
 msgstr "사용자 제외 RegEx"
 
-#: setup.php:826
+#: setup.php:831
 #, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
 msgstr "이 정규식과 일치하는 사용자 이름은 자동으로 그래프로 표시되지 않습니다."
 
-#: setup.php:833
+#: setup.php:838
 #, fuzzy
 msgid "Exclude Users Time to Live"
 msgstr "사용자의 생중계 시간 제외"
 
-#: setup.php:834
+#: setup.php:839
 #, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
 msgstr "제외 된 사용자의 데이터는 연결이 끊어진 후 보존되어야합니다."
 
-#: setup.php:846
+#: setup.php:851
 #, fuzzy
 msgid "MikroTik Device Collection Frequencies"
 msgstr "MikroTik 장치 수집 주파수"
 
-#: setup.php:850
+#: setup.php:855
 #, fuzzy
 msgid "Storage Frequency"
 msgstr "저장 빈도"
 
-#: setup.php:851
+#: setup.php:856
 #, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
 msgstr "얼마나 자주 스토리지 통계를 스캔 하시겠습니까?"
 
-#: setup.php:857
+#: setup.php:862
 #, fuzzy
 msgid "Processor Frequency"
 msgstr "프로세서 주파수"
 
-#: setup.php:858
+#: setup.php:863
 #, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
 msgstr "얼마나 자주 장치 프로세서 통계를 스캔 하시겠습니까?"
 
-#: setup.php:864
+#: setup.php:869
 #, fuzzy
 msgid "Interfaces Frequency"
 msgstr "인터페이스 주파수"
 
-#: setup.php:865
+#: setup.php:870
 #, fuzzy
 msgid "How often do you want to scan the Interfaces?"
 msgstr "얼마나 자주 인터페이스를 스캔 하시겠습니까?"
 
-#: setup.php:871
+#: setup.php:876
 #, fuzzy
 msgid "DNS/DHCP/List Frequency"
 msgstr "저장 빈도"
 
-#: setup.php:872
+#: setup.php:877
 #, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr "얼마나 자주 장치 프로세서 통계를 스캔 하시겠습니까?"
 
-#: setup.php:878
+#: setup.php:883
 #, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
 msgstr "MikroTik 대기열 / 나무 수집 빈도"
 
-#: setup.php:882
+#: setup.php:887
 #, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
 msgstr "단순 대기열 / PPPoe 빈도"
 
-#: setup.php:883
+#: setup.php:888
 #, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "Simple Queue Statistics를 얼마나 자주 스캔 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:889
+#: setup.php:894
 #, fuzzy
 msgid "Queue Trees Frequency"
 msgstr "대기열 수 빈도"
 
-#: setup.php:890
+#: setup.php:895
 #, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
 msgstr "대기열 트리를 얼마나 자주 스캔 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:896
+#: setup.php:901
 #, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
 msgstr "MikroTik 무선 수집 주파수"
 
-#: setup.php:900
+#: setup.php:905
 #, fuzzy
 msgid "Wireless HotSpot Users Frequency"
 msgstr "무선 HotSpot 사용자 빈도"
 
-#: setup.php:901
+#: setup.php:906
 #, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "무선 사용자 통계를 얼마나 자주 검사 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:907
+#: setup.php:912
 #, fuzzy
 msgid "Wireless Access Point Frequency"
 msgstr "무선 액세스 포인트 주파수"
 
-#: setup.php:908
+#: setup.php:913
 #, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr "얼마나 자주 무선 액세스 포인트를 스캔 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:914
+#: setup.php:919
 #, fuzzy
 msgid "Wireless Registrations Frequency"
 msgstr "무선 등록 주파수"
 
-#: setup.php:915
+#: setup.php:920
 #, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
 msgstr "얼마나 자주 무선 등록을 스캔 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:921
+#: setup.php:926
 #, fuzzy
 msgid "Wireless Stations Frequency"
 msgstr "무선 기지국 주파수"
 
-#: setup.php:922
+#: setup.php:927
 #, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
 msgstr "얼마나 자주 무선 스테이션을 스캔 하시겠습니까? 이 기능을 제거하려면 <b>Disabled</b> 를 선택하십시오."
 
-#: setup.php:939
+#: setup.php:944
 msgid "Management"
 msgstr "관리"
 
-#: setup.php:942
+#: setup.php:947
 #, fuzzy
 msgid "Normal User"
 msgstr "일반 사용자"
 
-#: setup.php:943
+#: setup.php:948
 #, fuzzy
 msgid "General Administration"
 msgstr "일반 관리"
 
-#: setup.php:1087
+#: setup.php:1092
 #, php-format
 msgid "%d Minute"
 msgstr "%d 분"
 
-#: setup.php:1099
+#: setup.php:1104
 #, fuzzy
 msgid "Indefinite"
 msgstr "무기한"
 
-#: setup.php:1103
+#: setup.php:1108
 #, fuzzy, php-format
 msgid "%d Week"
 msgstr "%d 주"
 
-#: setup.php:1104 setup.php:1105
+#: setup.php:1109 setup.php:1110
 #, fuzzy, php-format
 msgid "%d Weeks"
 msgstr "%d 주"
 
-#: setup.php:1106 setup.php:1107
+#: setup.php:1111 setup.php:1112
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "%d 분"
 
-#: setup.php:1108
+#: setup.php:1113
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "%d 년"
 
-#: setup.php:1293
+#: setup.php:1298
 #, fuzzy
 msgid "Simple Queues"
 msgstr "단순 대기열"
 
-#: setup.php:1296
+#: setup.php:1301
 msgid "Storage"
 msgstr "저장고"
 
-#: setup.php:1300
+#: setup.php:1305
 msgid "(edit)"
 msgstr "(편집)"
 
-#: setup.php:1348 setup.php:1351
+#: setup.php:1354 setup.php:1357
 #, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "규칙에 의해 건너 뛰거나 생성되지 않은 그래프"
 
-#: setup.php:1373
+#: setup.php:1379
 #, fuzzy
 msgid "MikroTik Credentials"
 msgstr "MikroTik 자격증 명"
 
-#: setup.php:1377
+#: setup.php:1383
 #, fuzzy
 msgid "Read Only User"
 msgstr "읽기 전용 사용자"
 
-#: setup.php:1378
+#: setup.php:1384
 #, fuzzy
 msgid "Provide a read only username for the MikroTik."
 msgstr "MikroTik에 대한 읽기 전용 사용자 이름을 입력하십시오."
 
-#: setup.php:1385
+#: setup.php:1391
 msgid "Password"
 msgstr "비밀번호"
 
-#: setup.php:1386
+#: setup.php:1392
 #, fuzzy
 msgid "Provide the read only username password for this MikroTik."
 msgstr "이 MikroTik에 대한 읽기 전용 사용자 이름 암호를 입력하십시오."
 
-#: setup.php:1406 setup.php:1415
+#: setup.php:1412 setup.php:1421
 #, fuzzy
 msgid "Connection Result"
 msgstr "연결 결과"
 
-#: setup.php:1407 setup.php:1416
+#: setup.php:1413 setup.php:1422
 #, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr "Cacti가 API 포트를 통해 MikroTik에 연결할 수 있다면 좋습니다."
 
-#: setup.php:1417
+#: setup.php:1423
 msgid "Connection Failed"
 msgstr "연결 실패"
 
