@@ -208,7 +208,7 @@ existing code or adding new code, not just in dedicated cleanup passes:
   `$sql_where`/`$sql_params` prepared-statement pattern, not string concatenation via `db_qstr()`.
 - **Use `html_escape_request_var()`.** Prefer it over the `html_escape(get_request_var(...))` call
   chain.
-- **Harden `unserialize()`.** Always pass `['allow_classes' => false]` as the second argument.
+- **Harden `unserialize()`.** Always pass `['allowed_classes' => false]` as the second argument.
 - **i18n text domain.** Every `__()`/`__esc()` call must include this plugin's text domain as the
   final argument, except when deliberately comparing against a literal, untranslated Cacti-core
   label.
