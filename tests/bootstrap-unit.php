@@ -91,6 +91,45 @@ $GLOBALS['config'] = array(
 $GLOBALS['__test_db_calls']   = array();
 $GLOBALS['__test_hook_calls'] = array();
 $GLOBALS['__test_realm_calls'] = array();
+$GLOBALS['__test_db_fixtures'] = array();
+
+if (!function_exists('mikrotik_test_mock_db')) {
+	function mikrotik_test_mock_db($fn, $match, $result) {
+		$GLOBALS['__test_db_fixtures'][] = array('fn' => $fn, 'match' => $match, 'result' => $result);
+	}
+}
+
+if (!function_exists('mikrotik_test_reset_db_mocks')) {
+	function mikrotik_test_reset_db_mocks() {
+		$GLOBALS['__test_db_fixtures'] = array();
+	}
+}
+
+if (!function_exists('mikrotik_test_db_result')) {
+	function mikrotik_test_db_result($fn, $sql, $params, $default) {
+		foreach (array_reverse($GLOBALS['__test_db_fixtures']) as $fixture) {
+			if ($fixture['fn'] !== $fn) {
+				continue;
+			}
+
+			$match = $fixture['match'];
+
+			if (is_callable($match)) {
+				if (!$match($sql, $params)) {
+					continue;
+				}
+			} elseif (strpos($sql, $match) === false) {
+				continue;
+			}
+
+			$result = $fixture['result'];
+
+			return is_callable($result) ? $result($sql, $params) : $result;
+		}
+
+		return $default;
+	}
+}
 
 if (!function_exists('db_execute')) {
 	function db_execute($sql) {
@@ -108,7 +147,7 @@ if (!function_exists('db_execute_prepared')) {
 
 if (!function_exists('db_fetch_assoc')) {
 	function db_fetch_assoc($sql) {
-		return array();
+		return mikrotik_test_db_result('db_fetch_assoc', $sql, array(), array());
 	}
 }
 
@@ -126,13 +165,13 @@ if (!function_exists('db_fetch_row')) {
 
 if (!function_exists('db_fetch_row_prepared')) {
 	function db_fetch_row_prepared($sql, $params = array()) {
-		return array();
+		return mikrotik_test_db_result('db_fetch_row_prepared', $sql, $params, array());
 	}
 }
 
 if (!function_exists('db_fetch_cell')) {
 	function db_fetch_cell($sql) {
-		return '';
+		return mikrotik_test_db_result('db_fetch_cell', $sql, array(), '');
 	}
 }
 
@@ -263,7 +302,7 @@ if (!function_exists('get_request_var')) {
 
 if (!function_exists('get_nfilter_request_var')) {
 	function get_nfilter_request_var($name) {
-		return '';
+		return isset($GLOBALS['__test_request'][$name]) ? $GLOBALS['__test_request'][$name] : '';
 	}
 }
 
@@ -275,12 +314,43 @@ if (!function_exists('get_filter_request_var')) {
 
 if (!function_exists('isset_request_var')) {
 	function isset_request_var($name) {
-		return false;
+		return isset($GLOBALS['__test_request'][$name]);
 	}
 }
 
 if (!function_exists('set_request_var')) {
 	function set_request_var($name, $value) {
+		$GLOBALS['__test_request'][$name] = $value;
+	}
+}
+
+if (!function_exists('test_set_request')) {
+	function test_set_request(array $vars) {
+		$GLOBALS['__test_request'] = $vars;
+	}
+}
+
+if (!function_exists('array_rekey')) {
+	function array_rekey($array, $index, $value = null) {
+		$ret = array();
+
+		if (is_array($array)) {
+			foreach ($array as $item) {
+				if ($value === null) {
+					$ret[$item[$index]] = $item;
+				} elseif (is_array($value)) {
+					$ret[$item[$index]] = array();
+
+					foreach ($value as $v) {
+						$ret[$item[$index]][$v] = $item[$v];
+					}
+				} else {
+					$ret[$item[$index]] = $item[$value];
+				}
+			}
+		}
+
+		return $ret;
 	}
 }
 
