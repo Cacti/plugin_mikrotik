@@ -1760,7 +1760,7 @@ function mikrotik_host_save($data) {
  * @return array The unmodified $data array.
  */
 function mikrotik_host_delete($data) {
-	db_execute('DELETE * FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
+	db_execute('DELETE FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
 
 	return $data;
 }

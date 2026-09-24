@@ -94,8 +94,8 @@ if (strpos(get_request_var('action'), 'export') === false) {
 
 /**
  * Converts a dotted-decimal subnet mask (e.g. '255.255.255.0') into its
- * CIDR prefix length. Called when rendering IP/subnet information in
- * the DHCP/interfaces views.
+ * CIDR prefix length. Called when rendering source/destination subnet
+ * information in the queues view.
  *
  * @param string $mask The dotted-decimal subnet mask to convert.
  *
@@ -2209,7 +2209,7 @@ function mikrotik_memory($mem, $suffix = '') {
 	}
 	$mem /= 1024;
 
-	return html_escape(round($mem,2) . "P");
+	return html_escape(round($mem,2) . " P$suffix");
 }
 
 /**
@@ -3125,7 +3125,7 @@ function mikrotik_dhcp() {
  * matching the selected filters, or (when $export is true) streams all
  * matching entries as a downloadable CSV file. Called from this
  * script's main request-dispatch switch when action=dns, with
- * $export=true when action=export_dns.
+ * $export=true when action=dnsexport.
  *
  * @param bool $export Whether to export matching entries as CSV
  *                     instead of rendering the HTML view.
@@ -3485,7 +3485,7 @@ function mikrotik_dns($export = false) {
  * entries matching the selected filters, or (when $export is true)
  * streams all matching entries as a downloadable CSV file. Called from
  * this script's main request-dispatch switch when action=list, with
- * $export=true when action=export_list.
+ * $export=true when action=listexport.
  *
  * @param bool $export Whether to export matching entries as CSV
  *                     instead of rendering the HTML view.

@@ -235,13 +235,12 @@ function debug($message) {
  * MikroTik devices, registering supported hosts for collection. Called
  * from process_hosts() when autodiscovery is due to run.
  *
- * @return void
+ * @return bool Always returns true after completing discovery.
  *
  * @global bool  $debug Whether debug output is enabled (declared but
  *                      not directly used here; debug() reads it
  *                      itself).
- * @global float $start The current run's start time, used for timing/
- *                      logging.
+ * @global float $start Declared but not read here.
  */
 function autoDiscoverHosts() {
 	global $debug, $start;
@@ -2091,8 +2090,11 @@ function collect_pppoe_users_api(&$host) {
 }
 
 /**
- * Parses a RouterOS-formatted uptime string (e.g. '1w2d03:04:05' or
- * 'never') into a total number of seconds. Called from RouterOS API
+ * Parses a RouterOS-formatted uptime string (e.g. '1w2d3h4m5s' or
+ * 'never') into a total number of seconds by successively splitting
+ * off the w/d/h/m/s suffix-delimited components; only this
+ * suffix-based format is recognized (a colon-formatted time portion,
+ * e.g. '03:04:05', is not parsed). Called from RouterOS API
  * collectors (e.g. collect_pppoe_users_api()) to normalize session/
  * device uptime values.
  *

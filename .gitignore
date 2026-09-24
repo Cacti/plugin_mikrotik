@@ -1,3 +1,4 @@
 locales/po/*.mo
+locales/LC_MESSAGES/*.mo
 \!templates/**
 .omc/

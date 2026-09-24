@@ -172,10 +172,11 @@ function add_graphs() {
 /**
  * Scans every active MikroTik host and, for each, adds any missing
  * standard device graphs (via mikrotik_gt_graph()), missing data-query
- * graphs (via add_host_dq_graphs(), excluding configured
- * user/interface patterns for the users data query), and missing
- * health-metric graphs based on which health columns the device has
- * data for. Called from add_graphs().
+ * graphs (via add_host_dq_graphs(), excluding entries matching the
+ * configured 'mikrotik_user_exclusion' pattern for the users data
+ * query only; no exclusion pattern is applied to other data queries),
+ * and missing health-metric graphs based on which health columns the
+ * device has data for. Called from add_graphs().
  *
  * @return void
  *
