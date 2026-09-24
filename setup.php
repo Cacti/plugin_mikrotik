@@ -22,6 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Plugin install hook: registers all of this plugin's Cacti hooks
+ * (config arrays/settings, navigation text, poller_bottom, header
+ * tabs, and host edit/save/delete integration), registers its two
+ * admin realms, and creates its database tables. Called by Cacti's
+ * plugin architecture when the plugin is installed.
+ *
+ * @return void
+ */
 function plugin_mikrotik_install() {
 	// graph setup all arrays needed for automation
 	api_plugin_register_hook('mikrotik', 'config_arrays',         'mikrotik_config_arrays',         'setup.php');
@@ -40,6 +49,13 @@ function plugin_mikrotik_install() {
 	mikrotik_setup_table();
 }
 
+/**
+ * Plugin uninstall hook: drops all of this plugin's database tables.
+ * Called by Cacti's plugin architecture when the plugin is
+ * uninstalled.
+ *
+ * @return void
+ */
 function plugin_mikrotik_uninstall() {
 	// Do any extra Uninstall stuff here
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system`');
@@ -59,6 +75,13 @@ function plugin_mikrotik_uninstall() {
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_lists`');
 }
 
+/**
+ * Plugin config-check hook: ensures the plugin's schema/hooks are up to
+ * date by delegating to mikrotik_check_upgrade(). Called by Cacti's
+ * plugin architecture on relevant page loads.
+ *
+ * @return bool Always true.
+ */
 function plugin_mikrotik_check_config() {
 	// Here we will check to ensure everything is configured
 	mikrotik_check_upgrade();
@@ -66,6 +89,13 @@ function plugin_mikrotik_check_config() {
 	return true;
 }
 
+/**
+ * Plugin upgrade hook: brings the plugin's schema/hooks up to date by
+ * delegating to mikrotik_check_upgrade(). Called by Cacti's plugin
+ * architecture when the plugin is upgraded to a new version.
+ *
+ * @return bool Always true.
+ */
 function plugin_mikrotik_upgrade() {
 	// Here we will upgrade to the newest version
 	mikrotik_check_upgrade();
@@ -73,6 +103,17 @@ function plugin_mikrotik_upgrade() {
 	return true;
 }
 
+/**
+ * Reads and returns this plugin's version/author/metadata info from its
+ * INFO file. Called wherever plugin metadata is needed (e.g.
+ * display_version() in the poller scripts, mikrotik_check_upgrade()).
+ *
+ * @return array The plugin's info array, as parsed from the INFO
+ *              file's '[info]' section.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the plugin's INFO file.
+ */
 function plugin_mikrotik_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/mikrotik/INFO', true);
@@ -80,6 +121,25 @@ function plugin_mikrotik_version() {
 	return $info['info'];
 }
 
+/**
+ * Checks whether the plugin's recorded database version differs from
+ * its actual (INFO file) version and, if so, re-enables its hooks,
+ * applies a sequence of incremental schema changes (new trend/system
+ * columns, a users-table primary key change, and any missing DHCP/DNS/
+ * lists tables), updates the plugin_config record, and clears a stale
+ * config_form hook registration. Only runs on plugins.php/mikrotik.php
+ * page loads. Called from plugin_mikrotik_check_config() and
+ * plugin_mikrotik_upgrade().
+ *
+ * @return void
+ *
+ * @global array $config           Cacti global configuration array
+ *                                (declared but not directly used
+ *                                here).
+ * @global mixed $database_default Reserved/declared for parity with
+ *                                other setup functions; not used
+ *                                directly here.
+ */
 function mikrotik_check_upgrade() {
 	global $config, $database_default;
 
@@ -142,6 +202,19 @@ function mikrotik_check_upgrade() {
 	}
 }
 
+/**
+ * Removes every graph using a given graph template along with any of
+ * its data sources that would become orphaned (used by no other
+ * graph), including cleanup of data sources left with no remaining
+ * graph reference at all. Called during schema migrations/template
+ * consolidations that retire a graph template.
+ *
+ * @param int $graph_template_id The graph_templates id whose graphs
+ *                              (and now-orphaned data sources) should
+ *                              be removed.
+ *
+ * @return void
+ */
 function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 	$graphs = array_rekey(
 		db_fetch_assoc_prepared('SELECT id
@@ -199,10 +272,33 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
 	}
 }
 
+/**
+ * Reports whether this plugin's dependencies are satisfied. Called by
+ * Cacti's plugin architecture when checking whether the plugin can be
+ * enabled.
+ *
+ * @return bool Always true (this plugin declares no extra
+ *              dependencies).
+ */
 function mikrotik_check_dependencies() {
 	return true;
 }
 
+/**
+ * Creates (if not already present) all of this plugin's database
+ * tables (system/system_health, storage, users, trees, queues,
+ * interfaces, wireless APs/registrations, processes, processor,
+ * credentials, DHCP, DNS, lists). Called from
+ * plugin_mikrotik_install() and mikrotik_check_upgrade().
+ *
+ * @return void
+ *
+ * @global array $config           Cacti global configuration array;
+ *                                used to include the database library.
+ * @global mixed $database_default Reserved/declared for parity with
+ *                                other setup functions; not used
+ *                                directly here.
+ */
 function mikrotik_setup_table() {
 	global $config, $database_default;
 	include_once($config['library_path'] . '/database.php');
@@ -712,6 +808,18 @@ function mikrotik_setup_table() {
 		COMMENT='Holds mappings from MAC Address to Hostname'");
 }
 
+/**
+ * Poller_bottom hook: launches the main MikroTik poller process
+ * (poller_mikrotik.php -M) as a background process at the end of each
+ * Cacti polling cycle. Called by Cacti's poller via the
+ * 'poller_bottom' hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the PHP binary and this plugin's poller
+ *                       script.
+ */
 function mikrotik_poller_bottom() {
 	global $config;
 	include_once($config['base_path'] . '/lib/poller.php');
@@ -719,6 +827,32 @@ function mikrotik_poller_bottom() {
 	exec_background(read_config_option('path_php_binary'), ' -q ' . $config['base_path'] . '/plugins/mikrotik/poller_mikrotik.php -M');
 }
 
+/**
+ * Config_settings hook: registers this plugin's 'MikroTik' settings tab
+ * and all of its configuration fields (poller enable toggle, row-count/
+ * frequency/retention defaults, and collection intervals). Called by
+ * Cacti's settings framework via the 'config_settings' hook.
+ *
+ * @return void
+ *
+ * @global array $tabs                  Cacti's settings tabs registry;
+ *                                      appended with this plugin's
+ *                                      tab.
+ * @global array $settings              Cacti's settings fields
+ *                                      registry; appended with this
+ *                                      plugin's fields.
+ * @global array $mikrotik_frequencies  Map of frequency (seconds) =>
+ *                                      display label, used as the
+ *                                      option list for the frequency
+ *                                      drop-downs.
+ * @global array $mikrotik_retention    Map of retention period
+ *                                      (seconds) => display label,
+ *                                      used as the option list for the
+ *                                      retention drop-downs.
+ * @global array $item_rows             Cacti's standard row-count
+ *                                      option list, used for the
+ *                                      default row-count setting.
+ */
 function mikrotik_config_settings() {
 	global $tabs, $settings, $mikrotik_frequencies, $mikrotik_retention, $item_rows;
 
@@ -932,6 +1066,102 @@ function mikrotik_config_settings() {
 		];
 }
 
+/**
+ * Config_arrays hook: registers the MikroTik Users management menu
+ * entry and user-realm role augmentations, initializes the collection
+ * frequency/retention option lists, initializes every SNMP OID tree
+ * map used by the poller collectors (system, storage, users, trees,
+ * queues, wireless APs/registrations, interfaces, processor) and the
+ * graph-template/data-query hash lists used to identify this plugin's
+ * standard templates, surfaces any pending session message, and
+ * triggers a schema/hooks upgrade check. Called by Cacti's plugin
+ * framework via the 'config_arrays' hook on every page load.
+ *
+ * @return void
+ *
+ * @global array $menu                          Cacti's admin menu
+ *                                              registry; appended with
+ *                                              this plugin's Users
+ *                                              entry.
+ * @global array $messages                      Cacti's session-message
+ *                                              display registry.
+ * @global array $mikrotik_frequencies          Populated here with the
+ *                                              map of frequency
+ *                                              (seconds) => display
+ *                                              label.
+ * @global array $mikrotik_retention            Populated here with the
+ *                                              map of retention period
+ *                                              (seconds) => display
+ *                                              label.
+ * @global array $mikrotikSystem                Populated here with the
+ *                                              system SNMP OID tree
+ *                                              map.
+ * @global array $mikrotikTrees                 Populated here with the
+ *                                              trees SNMP OID tree
+ *                                              map.
+ * @global array $mikrotikQueueSimpleEntry       Populated here with the
+ *                                              simple-queue SNMP OID
+ *                                              tree map.
+ * @global array $mikrotikUsers                 Populated here with the
+ *                                              users SNMP OID tree
+ *                                              map.
+ * @global array $mikrotikProcessor              Populated here with the
+ *                                              processor SNMP OID tree
+ *                                              map.
+ * @global array $mikrotikStorage                Populated here with the
+ *                                              storage SNMP OID tree
+ *                                              map.
+ * @global array $mikrotikInterfaces             Populated here with the
+ *                                              interfaces SNMP OID
+ *                                              tree map.
+ * @global array $mikrotikWirelessAps            Populated here with the
+ *                                              wireless AP SNMP OID
+ *                                              tree map.
+ * @global array $mikrotikWirelessRegistrations  Populated here with the
+ *                                              wireless registration
+ *                                              SNMP OID tree map.
+ * @global array $host_template_hashes           Populated here with the
+ *                                              list of this plugin's
+ *                                              host template hashes.
+ * @global array $queue_hashes                   Populated here with the
+ *                                              list of queue graph
+ *                                              template hashes.
+ * @global array $tree_hashes                    Populated here with the
+ *                                              list of tree graph
+ *                                              template hashes.
+ * @global array $user_hashes                    Populated here with the
+ *                                              list of user graph
+ *                                              template hashes.
+ * @global array $wireless_station_hashes        Reserved/declared for
+ *                                              parity with other
+ *                                              functions in this file;
+ *                                              not populated directly
+ *                                              here.
+ * @global array $wirless_reg_hashes             Reserved/declared for
+ *                                              parity with other
+ *                                              functions in this file;
+ *                                              not populated directly
+ *                                              here (see local
+ *                                              $wireless_reg_hashes).
+ * @global array $interface_hashes               Populated here with the
+ *                                              list of interface graph
+ *                                              template hashes.
+ * @global array $device_hashes                  Populated here with the
+ *                                              list of standard
+ *                                              device-level graph
+ *                                              template hashes.
+ * @global array $device_health_hashes           Populated here with the
+ *                                              map of health column
+ *                                              name => graph template
+ *                                              hash.
+ * @global array $graph_template_hashes          Populated here with the
+ *                                              full combined list of
+ *                                              this plugin's graph
+ *                                              template hashes.
+ * @global array $device_query_hashes            Populated here with the
+ *                                              list of standard data
+ *                                              query hashes.
+ */
 function mikrotik_config_arrays() {
 	global $menu, $messages, $mikrotik_frequencies, $mikrotik_retention;
 	global $mikrotikSystem, $mikrotikTrees, $mikrotikQueueSimpleEntry, $mikrotikUsers;
@@ -1291,6 +1521,16 @@ function mikrotik_config_arrays() {
 	mikrotik_check_upgrade();
 }
 
+/**
+ * Draw_navigation_text hook: registers the breadcrumb/navigation title
+ * entries for this plugin's mikrotik.php and mikrotik_users.php pages
+ * and their sub-views. Called by Cacti's navigation framework via the
+ * 'draw_navigation_text' hook.
+ *
+ * @param array $nav The navigation entries array being built up.
+ *
+ * @return array The $nav array with this plugin's entries added.
+ */
 function mikrotik_draw_navigation_text($nav) {
 	$nav['mikrotik.php:']              = ['title' => __('MikroTik', 'mikrotik'), 'mapping' => '', 'url' => 'mikrotik.php', 'level' => '0'];
 	$nav['mikrotik.php:devices']       = ['title' => __('Devices', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
@@ -1308,6 +1548,17 @@ function mikrotik_draw_navigation_text($nav) {
 	return $nav;
 }
 
+/**
+ * Top_header_tabs/top_graph_header_tabs hook: prints the MikroTik tab
+ * icon/link in Cacti's page header, using the 'down' (active) icon when
+ * currently viewing mikrotik.php. Called by Cacti's header rendering
+ * via the 'top_header_tabs'/'top_graph_header_tabs' hooks.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the tab's URL and image paths.
+ */
 function mikrotik_show_tab() {
 	global $config;
 
@@ -1320,14 +1571,51 @@ function mikrotik_show_tab() {
 	}
 }
 
+/**
+ * Looks up a graph template's id by its unique hash. Called throughout
+ * the poller/UI code to resolve this plugin's known standard graph
+ * templates.
+ *
+ * @param string $hash The graph template's hash to look up.
+ *
+ * @return int|null The matching graph_templates id, or null if not
+ *                  found.
+ */
 function mikrotik_template_by_hash($hash) {
 	return db_fetch_cell("SELECT id FROM graph_templates WHERE hash='$hash'");
 }
 
+/**
+ * Looks up a data query's id by its unique hash. Called throughout the
+ * poller/UI code to resolve this plugin's known standard data queries.
+ *
+ * @param string $hash The data query's hash to look up.
+ *
+ * @return int|null The matching snmp_query id, or null if not found.
+ */
 function mikrotik_data_query_by_hash($hash) {
 	return db_fetch_cell("SELECT id FROM snmp_query WHERE hash='$hash'");
 }
 
+/**
+ * Builds a 'view graphs' icon link to Cacti's selective graphs view for
+ * all graphs using any of a set of graph template hashes, optionally
+ * restricted to a specific device and/or SNMP index search string.
+ * Called from mikrotik.php's list views to render each row's graph
+ * link.
+ *
+ * @param array  $hashes  The list of graph template hashes to include.
+ * @param int    $host_id Optional host id to restrict the search to a
+ *                        single device.
+ * @param string $search  Optional SNMP index substring to restrict the
+ *                        search to.
+ *
+ * @return string An HTML anchor linking to the matching graphs, or a
+ *               disabled-looking placeholder link if none are found.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL.
+ */
 function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = '') {
 	global $config;
 
@@ -1358,6 +1646,21 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
 	}
 }
 
+/**
+ * Host_edit_top hook: when editing a device using this plugin's
+ * MikroTik host template, adds credential fields (read-only
+ * username/password) to the host edit form and, if credentials are
+ * already set, attempts a live API connection to report success/
+ * failure. Called by Cacti's host edit page via the 'host_edit_top'
+ * hook.
+ *
+ * @return void
+ *
+ * @global array $fields_host_edit The host edit form's field
+ *                                definitions array; appended with this
+ *                                plugin's credential fields when
+ *                                applicable.
+ */
 function mikrotik_host_top() {
 	global $fields_host_edit;
 
@@ -1428,6 +1731,15 @@ function mikrotik_host_top() {
 	}
 }
 
+/**
+ * Host_save hook: persists a submitted MikroTik read-only
+ * username/password into plugin_mikrotik_credentials for the saved
+ * host. Called by Cacti's host edit page via the 'host_save' hook.
+ *
+ * @param array $data The host save-hook data, including 'host_id'.
+ *
+ * @return array The unmodified $data array.
+ */
 function mikrotik_host_save($data) {
 	$id = $data['host_id'];
 
@@ -1438,8 +1750,17 @@ function mikrotik_host_save($data) {
 	return $data;
 }
 
+/**
+ * Host_delete hook: removes this plugin's stored credentials for one
+ * or more deleted hosts. Called by Cacti's host admin via the
+ * 'host_delete' hook.
+ *
+ * @param array $data The list of deleted host ids.
+ *
+ * @return array The unmodified $data array.
+ */
 function mikrotik_host_delete($data) {
-	db_execute('DELETE * FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
+	db_execute('DELETE FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
 
 	return $data;
 }

@@ -51,6 +51,27 @@ default:
     The 'actions' function
    ------------------------ */
 
+/**
+ * Handles the bulk-action confirmation page/submission for the
+ * Mikrotik users list (currently only 'delete'): on first display,
+ * renders a confirmation box listing the selected users; on confirmed
+ * submission, removes each selected user's associated data
+ * sources/graphs and its plugin_mikrotik_users row, then redirects
+ * back to the list. Called from this script's main request-dispatch
+ * switch when action=actions.
+ *
+ * @return void
+ *
+ * @global array $colors            Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ * @global array $user_actions      Map of drp_action value => action
+ *                                  label, used as the confirmation
+ *                                  box title.
+ * @global array $fields_user_edit  Reserved/declared for parity with
+ *                                  other functions in this file; not
+ *                                  used directly here.
+ */
 function form_actions() {
 	global $colors, $user_actions, $fields_user_edit;
 
@@ -176,6 +197,21 @@ function form_actions() {
 	bottom_footer();
 }
 
+/**
+ * Renders the main Mikrotik Users list page: validates/stores this
+ * view's filter request variables (rows, type, page, status, text
+ * filter, sort), then queries and displays a sortable/paginated table
+ * of Mikrotik PPP/hotspot users along with the bulk-actions dropdown.
+ * Called from this script's main request-dispatch switch as the
+ * default view.
+ *
+ * @return void
+ *
+ * @global array $user_actions Map of drp_action value => action label,
+ *                             used for the bulk-actions dropdown.
+ * @global array $item_rows    Cacti's standard row-count option list,
+ *                             used to populate the rows dropdown.
+ */
 function mikrotik_user() {
 	global $user_actions, $item_rows;
 
