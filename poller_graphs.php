@@ -126,6 +126,17 @@ if ($frequency == 0) {
 
 exit(0);
 
+/**
+ * Entry point for the graph-automation cycle: delegates to
+ * add_host_based_graphs() to create any missing per-host graphs.
+ * Called from this script's main flow on every poller_graphs.php run.
+ *
+ * @return void
+ *
+ * @global array $config Reserved/declared for parity with other
+ *                       functions in this file; not used directly
+ *                       here.
+ */
 function add_graphs() {
 	global $config;
 
@@ -158,6 +169,31 @@ function add_graphs() {
 	add_host_based_graphs();
 }
 
+/**
+ * Scans every active MikroTik host and, for each, adds any missing
+ * standard device graphs (via mikrotik_gt_graph()), missing data-query
+ * graphs (via add_host_dq_graphs(), excluding configured
+ * user/interface patterns for the users data query), and missing
+ * health-metric graphs based on which health columns the device has
+ * data for. Called from add_graphs().
+ *
+ * @return void
+ *
+ * @global array $config                Cacti global configuration
+ *                                      array (declared but not
+ *                                      directly used here).
+ * @global array $device_hashes         The list of standard
+ *                                      device-level graph template
+ *                                      hashes to ensure exist for every
+ *                                      host.
+ * @global array $device_query_hashes   The list of standard data-query
+ *                                      hashes to ensure are attached to
+ *                                      every host.
+ * @global array $device_health_hashes  Map of health column name =>
+ *                                      graph template hash, used to
+ *                                      conditionally add health graphs
+ *                                      only for populated metrics.
+ */
 function add_host_based_graphs() {
 	global $config, $device_hashes, $device_query_hashes, $device_health_hashes;
 
@@ -222,6 +258,31 @@ function add_host_based_graphs() {
 	}
 }
 
+/**
+ * Ensures a data query is attached to a host (adding it if missing),
+ * reindexes it, then adds a graph for every graph template associated
+ * with that data query (via mikrotik_dq_graphs()). Called from
+ * add_host_based_graphs() for each of the standard MikroTik data
+ * queries.
+ *
+ * @param int    $host_id The host id to add the data query/graphs for.
+ * @param int    $dq      The snmp_query id to attach and graph.
+ * @param string $field   Optional sort/match field name used to filter
+ *                       which data query rows get graphed (passed
+ *                       through to mikrotik_dq_graphs()).
+ * @param string $regex   Optional regex pattern used to include/exclude
+ *                       matching rows (passed through to
+ *                       mikrotik_dq_graphs()).
+ * @param bool   $include Whether $regex matches should be included
+ *                       (true) or excluded (false) (passed through to
+ *                       mikrotik_dq_graphs()).
+ *
+ * @return void
+ *
+ * @global array $config Reserved/declared for parity with other
+ *                       functions in this file; not used directly
+ *                       here.
+ */
 function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = true) {
 	global $config;
 
@@ -249,6 +310,22 @@ function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = 
 	}
 }
 
+/**
+ * Ensures a host-level graph template is associated with a host (adding
+ * the host_graph mapping if missing) and, if no matching graph exists
+ * yet, invokes Cacti's add_graphs.php CLI tool to create it. Called
+ * from add_host_based_graphs() for each standard device-level and
+ * health graph template.
+ *
+ * @param int $host_id           The host id to add the graph for.
+ * @param int $graph_template_id The graph_templates id to add.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       resolve the PHP binary and add_graphs.php
+ *                       path.
+ */
 function mikrotik_gt_graph($host_id, $graph_template_id) {
 	global $config;
 
@@ -291,6 +368,22 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
 	}
 }
 
+/**
+ * Adds summary graphs for a designated MikroTik summary host template,
+ * by invoking Cacti's add_graphs.php CLI tool for the given host and
+ * template. Currently unused by add_graphs() (its calling code is
+ * commented out) but retained for the summary-graph feature.
+ *
+ * @param int $host_id       The summary host id to add graphs for.
+ * @param int $host_template The host_template id whose graph templates
+ *                          should be added.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       resolve the PHP binary and add_graphs.php
+ *                       path.
+ */
 function add_summary_graphs($host_id, $host_template) {
 	global $config;
 
@@ -370,6 +463,41 @@ function add_summary_graphs($host_id, $host_template) {
 	}
 }
 
+/**
+ * Adds a data-query-driven graph for every host_snmp_cache row matching
+ * a data query's sort field (optionally filtered by a regex
+ * include/exclude rule on the field value), for any row that doesn't
+ * already have a matching graph, by invoking Cacti's add_graphs.php CLI
+ * tool. Called from add_host_dq_graphs() for each graph template
+ * associated with a data query.
+ *
+ * @param int    $host_id           The host id to add graphs for.
+ * @param int    $query_id          The snmp_query id being graphed.
+ * @param int    $graph_template_id The graph_templates id to add for
+ *                                 each matching row.
+ * @param int    $query_type_id     The snmp_query_graph id identifying
+ *                                 this specific graph type within the
+ *                                 data query.
+ * @param string $field             The host_snmp_cache field name to
+ *                                 match rows on; defaults to the data
+ *                                 query's configured sort field.
+ * @param string $regex             Optional regex pattern applied to
+ *                                 each row's field value to
+ *                                 include/exclude it from graphing.
+ * @param bool   $include           Whether $regex matches should be
+ *                                 included (true) or excluded (false).
+ *
+ * @return void
+ *
+ * @global array  $config    Cacti global configuration array; used to
+ *                          resolve the PHP binary and add_graphs.php
+ *                          path.
+ * @global string $php_bin   Populated here with the resolved PHP
+ *                          binary path.
+ * @global string $path_grid Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type_id, $field = '', $regex = '', $include = true) {
 	global $config, $php_bin, $path_grid;
 
@@ -430,6 +558,21 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
 	}
 }
 
+/**
+ * Runs a shell command (typically Cacti's add_graphs.php CLI tool) and
+ * prints a success/warning summary of its output. Called from
+ * mikrotik_gt_graph(), add_summary_graphs(), and mikrotik_dq_graphs()
+ * after building each graph-creation command.
+ *
+ * @param string $command     The shell command to execute.
+ * @param string $type        A short label describing the command's
+ *                            purpose, used in the printed summary.
+ * @param string $field_value An identifying value (e.g. the graphed
+ *                            item's field value) included in the
+ *                            printed summary.
+ *
+ * @return void
+ */
 function execute_automation($command, $type, $field_value = '') {
 	$return = 0;
 	$output = [];
@@ -455,6 +598,14 @@ function execute_automation($command, $type, $field_value = '') {
 	}
 }
 
+/**
+ * Removes graphs created from now-obsolete wireless station graph
+ * templates (identified by a fixed list of legacy template hashes),
+ * cleaning up after a template consolidation/rename. Called from this
+ * script's main flow as a one-time/periodic cleanup step.
+ *
+ * @return void
+ */
 function remove_invalid_station_graphs() {
 	$old_wireless_station_hashes = [
 		'0e88ad681dda36417a537c2e06a2add3',
@@ -557,6 +708,17 @@ function remove_invalid_station_graphs() {
 	}
 }
 
+/**
+ * Prints a debug message to stdout when CLI debug output is enabled.
+ * Called throughout this script to report graph-automation progress.
+ *
+ * @param string $message The debug message to print.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output ('--debug' CLI flag) is
+ *                     enabled; when false, this function is a no-op.
+ */
 function debug($message) {
 	global $debug;
 
@@ -565,6 +727,16 @@ function debug($message) {
 	}
 }
 
+/**
+ * Prints this script's version and copyright banner, loading the
+ * plugin's version info from setup.php if not already available.
+ * Called from display_help() and when invoked with '--version'/'-v'.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate and include setup.php.
+ */
 function display_version() {
 	global $config;
 
@@ -576,6 +748,13 @@ function display_version() {
 	print 'MikroTik Graph Automator, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . "\n";
 }
 
+/**
+ * Prints the version banner followed by this script's command-line
+ * usage summary. Called when invoked with '--help'/'-h' or with
+ * invalid/missing arguments.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 

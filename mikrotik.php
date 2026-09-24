@@ -92,6 +92,15 @@ if (strpos(get_request_var('action'), 'export') === false) {
 	bottom_footer();
 }
 
+/**
+ * Converts a dotted-decimal subnet mask (e.g. '255.255.255.0') into its
+ * CIDR prefix length. Called when rendering IP/subnet information in
+ * the DHCP/interfaces views.
+ *
+ * @param string $mask The dotted-decimal subnet mask to convert.
+ *
+ * @return int|string The CIDR prefix length, or '0' if $mask is empty.
+ */
 function mikrotik_get_network($mask) {
 	$octets = explode('.', $mask);
 	$output = '';
@@ -106,42 +115,115 @@ function mikrotik_get_network($mask) {
 	return '0';
 }
 
+/**
+ * Reports whether any MikroTik user records have been collected.
+ * Called from mikrotik_tabs() to decide whether to show the Users tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_users.
+ */
 function mikrotik_users_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_users");
 }
 
+/**
+ * Reports whether any MikroTik simple queue records have been
+ * collected. Called from mikrotik_tabs() to decide whether to show the
+ * Queues tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_queues.
+ */
 function mikrotik_queues_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_queues");
 }
 
+/**
+ * Reports whether any MikroTik queue tree records have been collected.
+ * Called from mikrotik_tabs() to decide whether to show the Trees tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_trees.
+ */
 function mikrotik_queue_trees_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_trees");
 }
 
+/**
+ * Reports whether any MikroTik interface records have been collected.
+ * Called from mikrotik_tabs() to decide whether to show the Interfaces
+ * tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_interfaces.
+ */
 function mikrotik_interfaces_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_interfaces");
 }
 
+/**
+ * Reports whether any MikroTik firewall address-list records have been
+ * collected. Called from mikrotik_tabs() to decide whether to show the
+ * Lists tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_lists.
+ */
 function mikrotik_lists_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_lists");
 }
 
+/**
+ * Reports whether any MikroTik DNS cache records have been collected.
+ * Called from mikrotik_tabs() to decide whether to show the DNS tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_dns.
+ */
 function mikrotik_dns_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_dns");
 }
 
+/**
+ * Reports whether any MikroTik DHCP lease records have been collected.
+ * Called from mikrotik_tabs() to decide whether to show the DHCP tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_dhcp.
+ */
 function mikrotik_dhcp_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_dhcp");
 }
 
+/**
+ * Reports whether any MikroTik wireless access-point records have been
+ * collected. Called from mikrotik_tabs() to decide whether to show the
+ * Wireless APs tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_wireless_aps.
+ */
 function mikrotik_wireless_aps_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_wireless_aps");
 }
 
+/**
+ * Reports whether any MikroTik wireless client registration records
+ * have been collected. Called from mikrotik_tabs() to decide whether
+ * to show the Wireless Registrations tab.
+ *
+ * @return int The number of rows in
+ *            plugin_mikrotik_wireless_registrations.
+ */
 function mikrotik_wregs_exist() {
 	return db_fetch_cell("SELECT COUNT(*) FROM plugin_mikrotik_wireless_registrations");
 }
 
+/**
+ * Renders the top tabbed navigation bar for this page's views,
+ * conditionally showing tabs only for data types that have actually
+ * been collected (users/queues/trees/interfaces/dhcp/dns/lists/
+ * wireless), highlighting whichever tab corresponds to the current
+ * action. Called from this script's main flow at the top of every
+ * rendered view.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build each tab's URL.
+ */
 function mikrotik_tabs() {
 	global $config;
 
@@ -203,6 +285,25 @@ function mikrotik_tabs() {
 	print "</ul></nav></div>\n";
 }
 
+/**
+ * Renders the Interfaces view: validates/stores this view's filter
+ * request variables, renders the filter box, then queries and displays
+ * a sortable/paginated table of collected MikroTik interfaces matching
+ * the selected filters, each with a link to its interface graphs.
+ * Called from this script's main request-dispatch switch when
+ * action=interfaces.
+ *
+ * @return void
+ *
+ * @global array $config           Cacti global configuration array;
+ *                                used to build device edit links.
+ * @global array $item_rows        Cacti's standard row-count option
+ *                                list, used to populate the rows
+ *                                dropdown.
+ * @global array $interface_hashes The list of interface graph template
+ *                                hashes, used to build each interface's
+ *                                'view graphs' link.
+ */
 function mikrotik_interfaces() {
 	global $config, $item_rows, $interface_hashes;
 
@@ -491,6 +592,24 @@ function mikrotik_interfaces() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the Queues view: validates/stores this view's filter request
+ * variables, renders the filter box, then queries and displays a
+ * sortable/paginated table of collected MikroTik simple queues
+ * matching the selected filters, each with a link to its queue graphs.
+ * Called from this script's main request-dispatch switch when
+ * action=queues.
+ *
+ * @return void
+ *
+ * @global array $config       Cacti global configuration array; used
+ *                             to build device edit links.
+ * @global array $item_rows    Cacti's standard row-count option list,
+ *                             used to populate the rows dropdown.
+ * @global array $queue_hashes The list of queue graph template hashes,
+ *                             used to build each queue's 'view graphs'
+ *                             link.
+ */
 function mikrotik_queues() {
 	global $config, $item_rows, $queue_hashes;
 
@@ -792,6 +911,23 @@ function mikrotik_queues() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the Queue Trees view: validates/stores this view's filter
+ * request variables, renders the filter box, then queries and displays
+ * a sortable/paginated table of collected MikroTik queue trees matching
+ * the selected filters, each with a link to its tree graphs. Called
+ * from this script's main request-dispatch switch when action=trees.
+ *
+ * @return void
+ *
+ * @global array $config      Cacti global configuration array; used to
+ *                            build device edit links.
+ * @global array $item_rows   Cacti's standard row-count option list,
+ *                            used to populate the rows dropdown.
+ * @global array $tree_hashes The list of tree graph template hashes,
+ *                            used to build each tree's 'view graphs'
+ *                            link.
+ */
 function mikrotik_trees() {
 	global $config, $item_rows, $tree_hashes;
 
@@ -1020,6 +1156,26 @@ function mikrotik_trees() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the Wireless APs view: validates/stores this view's filter
+ * request variables, renders the filter box, then queries and displays
+ * a sortable/paginated table of collected MikroTik wireless access
+ * points matching the selected filters. Called from this script's main
+ * request-dispatch switch when action=wireless_aps.
+ *
+ * @return void
+ *
+ * @global array $config                   Cacti global configuration
+ *                                         array; used to build device
+ *                                         edit links.
+ * @global array $item_rows                Cacti's standard row-count
+ *                                         option list, used to
+ *                                         populate the rows dropdown.
+ * @global array $wireless_station_hashes  Reserved/declared for parity
+ *                                         with other functions in this
+ *                                         file; not used directly
+ *                                         here.
+ */
 function mikrotik_wireless_aps() {
 	global $config, $item_rows, $wireless_station_hashes;
 
@@ -1258,6 +1414,15 @@ function mikrotik_wireless_aps() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Formats a duration in seconds as a 'days:hours:minutes' runtime
+ * string. Called from mikrotik_users() to display each user's
+ * connection/session duration.
+ *
+ * @param int $time The duration in seconds to format.
+ *
+ * @return string The formatted 'days:hours:minutes' string.
+ */
 function mikrotik_get_runtime($time) {
 	if ($time > 86400) {
 		$days  = floor($time/86400);
@@ -1278,6 +1443,33 @@ function mikrotik_get_runtime($time) {
 	return $days . ':' . $hours . ':' . $minutes;
 }
 
+/**
+ * Renders the Users view: validates/stores this view's filter request
+ * variables, renders the filter box, then queries and displays a
+ * sortable/paginated table of collected MikroTik PPP/hotspot users
+ * matching the selected filters, each with a link to its user graphs.
+ * Called from this script's main request-dispatch switch when
+ * action=users.
+ *
+ * @return void
+ *
+ * @global array $config                 Cacti global configuration
+ *                                       array; used to build device
+ *                                       edit links.
+ * @global array $item_rows              Cacti's standard row-count
+ *                                       option list, used to populate
+ *                                       the rows dropdown.
+ * @global array $mikrotik_hrSWTypes     Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $mikrotik_hrSWRunStatus Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $user_hashes            The list of user graph
+ *                                       template hashes, used to build
+ *                                       each user's 'view graphs'
+ *                                       link.
+ */
 function mikrotik_users() {
 	global $config, $item_rows, $mikrotik_hrSWTypes, $mikrotik_hrSWRunStatus, $user_hashes;
 
@@ -1580,6 +1772,20 @@ function mikrotik_users() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the Devices view: validates/stores this view's filter
+ * request variables, renders the filter box, then queries and displays
+ * a sortable/paginated table of MikroTik-monitored devices matching
+ * the selected filters. Called from this script's main request-
+ * dispatch switch as the default view (action=devices or no action).
+ *
+ * @return void
+ *
+ * @global array $config    Cacti global configuration array; used to
+ *                          build device edit links.
+ * @global array $item_rows Cacti's standard row-count option list, used
+ *                          to populate the rows dropdown.
+ */
 function mikrotik_devices() {
 	global $config, $item_rows;
 
@@ -1927,10 +2133,35 @@ function mikrotik_devices() {
 	print '<script type="text/javascript">$(function() { $("a.pic, i").tooltip(); });</script>';
 }
 
+/**
+ * Formats a days/hours/minutes uptime triple into a 'Nd Nh Nm' display
+ * string, omitting the days segment entirely when zero. Called when
+ * rendering a device's uptime in the MikroTik views.
+ *
+ * @param int $d Days.
+ * @param int $h Hours.
+ * @param int $m Minutes.
+ *
+ * @return string The formatted uptime string.
+ */
 function mikrotik_format_uptime($d, $h, $m) {
 	return ($d > 0 ? mikrotik_right('000' . $d, 3, true) . 'd ':'') . mikrotik_right('000' . $h, 2) . 'h ' . mikrotik_right('000' . $m, 2) . 'm';
 }
 
+/**
+ * Returns the rightmost $chars characters of a string, used to truncate
+ * a zero-padded number to a fixed width, optionally stripping leading
+ * zeros from the result. Called from mikrotik_format_uptime() to pad/
+ * trim each uptime component.
+ *
+ * @param string $string The string to truncate.
+ * @param int    $chars  The number of trailing characters to keep.
+ * @param bool   $strip  Whether to strip leading zeros from the
+ *                       truncated result.
+ *
+ * @return string The rightmost $chars characters of $string, with
+ *               leading zeros optionally stripped.
+ */
 function mikrotik_right($string, $chars, $strip = false) {
 	if ($strip) {
 		return ltrim(strrev(substr(strrev($string), 0, $chars)),'0');
@@ -1939,6 +2170,18 @@ function mikrotik_right($string, $chars, $strip = false) {
 	}
 }
 
+/**
+ * Formats a byte count as a human-readable, HTML-escaped size string
+ * with the appropriate unit suffix (blank/K/M/G/T/P), appending an
+ * optional caller-supplied suffix (e.g. 'bps'). Called when rendering
+ * memory/storage/traffic sizes in the MikroTik views.
+ *
+ * @param float  $mem    The size to format.
+ * @param string $suffix An optional extra suffix to append after the
+ *                       unit letter.
+ *
+ * @return string The formatted, HTML-escaped size string.
+ */
 function mikrotik_memory($mem, $suffix = '') {
 	// DB-sourced $mem/$suffix are only ever used for display; html_escape() here covers every call site at once.
 	if ($mem < 1024) {
@@ -1969,6 +2212,21 @@ function mikrotik_memory($mem, $suffix = '') {
 	return html_escape(round($mem,2) . "P");
 }
 
+/**
+ * Builds a link to the Devices view filtered by status, displaying a
+ * count as its label (or the plain count if zero, with no link).
+ * Called when rendering per-status device counts in the MikroTik
+ * views.
+ *
+ * @param int $count  The device count to display as the link label.
+ * @param int $status The device status to filter the Devices view by.
+ *
+ * @return string An HTML anchor linking to the filtered Devices view,
+ *               or the plain $count if it is not greater than zero.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL.
+ */
 function mikrotik_get_device_status_url($count, $status) {
 	global $config;
 
@@ -1979,6 +2237,29 @@ function mikrotik_get_device_status_url($count, $status) {
 	}
 }
 
+/**
+ * Builds a link (icon or titled text) to the selective Graphs view for
+ * all graphs using a given graph template, optionally restricted to a
+ * specific device. Called from list views when rendering a 'view
+ * graphs' action for a graph template.
+ *
+ * @param int    $graph_template The graph_templates id to find graphs
+ *                              for.
+ * @param int    $host_id       Optional host id to restrict the search
+ *                              to a single device.
+ * @param string $title         The link text to use when $image is
+ *                              false.
+ * @param bool   $image         Whether to render an icon link (true) or
+ *                              a titled text link (false).
+ *
+ * @return string An HTML anchor linking to the matching graphs, a '-'
+ *               placeholder if no matching graphs are found, an icon
+ *               hint if no graph template is set, or $title unchanged
+ *               (in text mode with no template).
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL and image paths.
+ */
 function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title = '', $image = true) {
 	global $config;
 
@@ -2023,6 +2304,29 @@ function mikrotik_get_graph_template_url($graph_template, $host_id = 0, $title =
 	}
 }
 
+/**
+ * Builds a link (icon or titled text) to the selective Graphs view for
+ * graphs from a given data query, optionally restricted to a specific
+ * SNMP index and/or device. Called from list views when rendering a
+ * 'view graphs' action for a data-query-driven metric (e.g. a specific
+ * queue or interface entry).
+ *
+ * @param int    $data_query The snmp_query id to find graphs for.
+ * @param int    $host_id    Optional host id to restrict the search to
+ *                          a single device.
+ * @param string $index      Optional SNMP index to restrict the search
+ *                          to a specific data query row.
+ * @param string $title      The link text to use when $image is false.
+ * @param bool   $image      Whether to render an icon link (true) or a
+ *                          titled text link (false).
+ *
+ * @return string An HTML anchor linking to the matching graphs, an icon
+ *               hint if none are found or no data query is set, or
+ *               $title unchanged (in text mode with no data query).
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL and image paths.
+ */
 function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $image = true) {
 	global $config;
 
@@ -2066,12 +2370,32 @@ function mikrotik_get_graph_url($data_query, $host_id, $index, $title = '', $ima
 	}
 }
 
+/**
+ * Resolves a list of graph template hashes into their corresponding
+ * graph_templates ids. Called from mikrotik_view_graphs() and other
+ * filtering code needing to constrain a query to this plugin's known
+ * graph templates.
+ *
+ * @param array $hashes The list of graph template hashes to resolve.
+ *
+ * @return array The matching graph_templates ids, keyed by id.
+ */
 function mikrotik_graph_templates_from_hashes($hashes) {
 	return array_rekey(db_fetch_assoc('SELECT id
 		FROM graph_templates
 		WHERE hash IN ("' . implode('","', $hashes) . '")'), 'id', 'id');
 }
 
+/**
+ * Resolves a list of host template hashes into the ids of devices using
+ * any of those templates. Called from filtering code needing to
+ * constrain a query to devices using this plugin's known host
+ * templates.
+ *
+ * @param array $hashes The list of host template hashes to resolve.
+ *
+ * @return array The matching host ids, keyed by id.
+ */
 function mikrotik_host_ids_from_hashes($hashes) {
 	return array_rekey(db_fetch_assoc('SELECT h.id
 		FROM host AS h
@@ -2080,6 +2404,30 @@ function mikrotik_host_ids_from_hashes($hashes) {
 		WHERE hash IN ("' . implode('","', $hashes) . '")'), 'id', 'id');
 }
 
+/**
+ * Renders the Graphs view: reuses Cacti's standard graph-preview
+ * filter/rendering framework, pre-scoped to devices using this
+ * plugin's known host templates and graphs using its known graph
+ * templates (further narrowed by any selective graph list supplied via
+ * a 'view graphs' link). Called from this script's main request-
+ * dispatch switch when action=graphs.
+ *
+ * @return void
+ *
+ * @global object $current_user           Reserved/declared for parity
+ *                                        with Cacti's graph-view
+ *                                        rendering; not used directly
+ *                                        here.
+ * @global array  $config                 Cacti global configuration
+ *                                        array; used throughout graph
+ *                                        rendering.
+ * @global array  $host_template_hashes   The list of this plugin's host
+ *                                        template hashes, used to scope
+ *                                        the device filter.
+ * @global array  $graph_template_hashes  The list of this plugin's
+ *                                        graph template hashes, used to
+ *                                        scope the graph filter.
+ */
 function mikrotik_view_graphs() {
 	global $current_user, $config, $host_template_hashes, $graph_template_hashes;
 
@@ -2200,6 +2548,24 @@ function mikrotik_view_graphs() {
 	bottom_footer();
 }
 
+/**
+ * Renders the Wireless Registrations view: validates/stores this
+ * view's filter request variables, renders the filter box, then
+ * queries and displays a sortable/paginated table of collected
+ * MikroTik wireless client registrations matching the selected
+ * filters. Called from this script's main request-dispatch switch when
+ * action=wireless_regs.
+ *
+ * @return void
+ *
+ * @global array $config       Cacti global configuration array; used
+ *                             to build device edit links.
+ * @global array $item_rows    Cacti's standard row-count option list,
+ *                             used to populate the rows dropdown.
+ * @global array $wreg_hashes  Reserved/declared for parity with other
+ *                             functions in this file; not used
+ *                             directly here.
+ */
 function mikrotik_wireless_regs() {
 	global $config, $item_rows, $wreg_hashes;
 
@@ -2509,6 +2875,23 @@ function mikrotik_wireless_regs() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the DHCP view: validates/stores this view's filter request
+ * variables, renders the filter box, then queries and displays a
+ * sortable/paginated table of collected MikroTik DHCP leases matching
+ * the selected filters. Called from this script's main request-
+ * dispatch switch when action=dhcp.
+ *
+ * @return void
+ *
+ * @global array $config      Cacti global configuration array; used to
+ *                            build device edit links.
+ * @global array $item_rows   Cacti's standard row-count option list,
+ *                            used to populate the rows dropdown.
+ * @global array $tree_hashes Reserved/declared for parity with other
+ *                            functions in this file; not used directly
+ *                            here.
+ */
 function mikrotik_dhcp() {
 	global $config, $item_rows, $tree_hashes;
 
@@ -2735,6 +3118,28 @@ function mikrotik_dhcp() {
 	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
+/**
+ * Renders the DNS Cache view: validates/stores this view's filter
+ * request variables, then either renders the filter box plus a
+ * sortable/paginated table of collected MikroTik DNS cache entries
+ * matching the selected filters, or (when $export is true) streams all
+ * matching entries as a downloadable CSV file. Called from this
+ * script's main request-dispatch switch when action=dns, with
+ * $export=true when action=export_dns.
+ *
+ * @param bool $export Whether to export matching entries as CSV
+ *                     instead of rendering the HTML view.
+ *
+ * @return void
+ *
+ * @global array $config      Cacti global configuration array; used to
+ *                            build device edit links.
+ * @global array $item_rows   Cacti's standard row-count option list,
+ *                            used to populate the rows dropdown.
+ * @global array $tree_hashes Reserved/declared for parity with other
+ *                            functions in this file; not used directly
+ *                            here.
+ */
 function mikrotik_dns($export = false) {
 	global $config, $item_rows, $tree_hashes;
 
@@ -3073,6 +3478,28 @@ function mikrotik_dns($export = false) {
 	}
 }
 
+/**
+ * Renders the Address Lists view: validates/stores this view's filter
+ * request variables, then either renders the filter box plus a
+ * sortable/paginated table of collected MikroTik firewall address-list
+ * entries matching the selected filters, or (when $export is true)
+ * streams all matching entries as a downloadable CSV file. Called from
+ * this script's main request-dispatch switch when action=list, with
+ * $export=true when action=export_list.
+ *
+ * @param bool $export Whether to export matching entries as CSV
+ *                     instead of rendering the HTML view.
+ *
+ * @return void
+ *
+ * @global array $config      Cacti global configuration array; used to
+ *                            build device edit links.
+ * @global array $item_rows   Cacti's standard row-count option list,
+ *                            used to populate the rows dropdown.
+ * @global array $tree_hashes Reserved/declared for parity with other
+ *                            functions in this file; not used directly
+ *                            here.
+ */
 function mikrotik_list($export = false) {
 	global $config, $item_rows, $tree_hashes;
 
@@ -3377,6 +3804,16 @@ function mikrotik_list($export = false) {
 	}
 }
 
+/**
+ * Formats a timeout duration in seconds as a human-readable,
+ * HTML-escaped 'Xd Xh Xm Xs'-style string (or plain seconds for values
+ * under a minute). Called when rendering address-list/DHCP entry
+ * timeouts in the MikroTik views.
+ *
+ * @param int $value The timeout duration in seconds to format.
+ *
+ * @return string The formatted, HTML-escaped timeout string.
+ */
 function mikrotik_get_timeout($value) {
 	// DB-sourced $value is only ever used for display; html_escape() here covers every call site at once.
 	if ($value < 60) {

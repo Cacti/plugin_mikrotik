@@ -139,6 +139,15 @@ if ($mainrun) {
 
 exit(0);
 
+/**
+ * Periodically (at most hourly) checks MikroTik's public RouterOS
+ * version feed for the latest stable release and version-check date,
+ * caching the result in Cacti settings for display/comparison against
+ * devices' installed firmware. Called from this script's main flow on
+ * every poller run.
+ *
+ * @return void
+ */
 function getLatestVersion() {
 	$t = intval(read_config_option('mikrotik_latestversioncheck'));
 	if ($t == 0 || time() - $t > 3600) {
@@ -158,6 +167,23 @@ function getLatestVersion() {
 	}
 }
 
+/**
+ * Determines whether a scheduled collection task is due to run, based
+ * on elapsed time vs. frequency or a forced-run flag. Called from
+ * process_hosts()/checkHost() to decide whether autodiscovery/other
+ * periodic subtasks should run this cycle.
+ *
+ * @param float $start     The current run's start time (from
+ *                        microtime(true)).
+ * @param int   $lastrun   The Unix timestamp of the task's last run.
+ * @param int   $frequency The task's configured run frequency in
+ *                        seconds; -1 disables the task.
+ *
+ * @return bool True if the task is due to run, false otherwise.
+ *
+ * @global bool $forcerun Whether this run was started with '--force',
+ *                        in which case the task always runs.
+ */
 function runCollector($start, $lastrun, $frequency) {
 	global $forcerun;
 
@@ -174,6 +200,18 @@ function runCollector($start, $lastrun, $frequency) {
 	}
 }
 
+/**
+ * Prints a debug message to stdout when CLI debug output is enabled,
+ * prefixed with the elapsed time since the first debug call. Called
+ * throughout this script to report progress during collection.
+ *
+ * @param string $message The debug message to print.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output ('--debug' CLI flag) is
+ *                     enabled; when false, this function is a no-op.
+ */
 function debug($message) {
 	global $debug;
 	static $timer = 0;
@@ -192,6 +230,19 @@ function debug($message) {
 	}
 }
 
+/**
+ * Scans every enabled, SNMP-capable Cacti host to detect which ones are
+ * MikroTik devices, registering supported hosts for collection. Called
+ * from process_hosts() when autodiscovery is due to run.
+ *
+ * @return void
+ *
+ * @global bool  $debug Whether debug output is enabled (declared but
+ *                      not directly used here; debug() reads it
+ *                      itself).
+ * @global float $start The current run's start time, used for timing/
+ *                      logging.
+ */
 function autoDiscoverHosts() {
 	global $debug, $start;
 
@@ -230,6 +281,29 @@ function autoDiscoverHosts() {
 	return true;
 }
 
+/**
+ * Master process orchestrating a full MikroTik collection cycle: runs
+ * autodiscovery when due, purges stale process locks, checks whether
+ * any of the various data-type collectors are due to run at all
+ * (exiting early if none are), then launches a background per-host
+ * collector process (process_host()) for every discovered MikroTik
+ * device, respecting the configured concurrency limit, and waits for
+ * all of them to finish before updating per-collector last-run
+ * timestamps and launching graph automation. Called from this script's
+ * main flow when run with the '-M' (main run) flag.
+ *
+ * @return void
+ *
+ * @global float $start The run's start time (from microtime(true)),
+ *                      used to decide which sub-collectors are due and
+ *                      to compute overall run duration.
+ * @global mixed $seed  A random value identifying this run, used to tag
+ *                      and track the per-host collector processes it
+ *                      launches.
+ * @global mixed $key   Reserved/declared for parity with other
+ *                      functions in this file; assigned per-host
+ *                      during launch.
+ */
 function process_hosts() {
 	global $start, $seed, $key;
 
@@ -706,6 +780,31 @@ function process_hosts() {
 	process_graphs();
 }
 
+/**
+ * Launches a background poller_mikrotik.php worker process to collect
+ * data for a single host. Called from process_hosts() for each
+ * discovered MikroTik device, respecting the configured concurrency
+ * limit.
+ *
+ * @param int   $host_id The host id to collect data for.
+ * @param mixed $seed    The current run's seed value, used to tag the
+ *                       launched process.
+ * @param mixed $key     The placeholder process-lock key to pass
+ *                       through so the worker can remove it once it
+ *                       registers its own lock.
+ *
+ * @return void
+ *
+ * @global array $config   Cacti global configuration array; used to
+ *                         resolve the PHP binary and this plugin's
+ *                         poller script path.
+ * @global bool  $debug    Whether debug output is enabled, propagated
+ *                         to the worker via '--debug'.
+ * @global float $start    The current run's start time, propagated to
+ *                         the worker via '--start'.
+ * @global bool  $forcerun Whether this run was forced, propagated to
+ *                         the worker via '--force'.
+ */
 function process_host($host_id, $seed, $key) {
 	global $config, $debug, $start, $forcerun;
 
@@ -719,6 +818,23 @@ function process_host($host_id, $seed, $key) {
 		($debug ? ' --debug':''));
 }
 
+/**
+ * Launches a background poller_graphs.php process to run graph
+ * automation once all per-host data collection has completed. Called
+ * from process_hosts() at the end of a collection cycle.
+ *
+ * @return void
+ *
+ * @global array $config   Cacti global configuration array; used to
+ *                         resolve the PHP binary and poller_graphs.php
+ *                         path.
+ * @global bool  $debug    Whether debug output is enabled, propagated
+ *                         via '--debug'.
+ * @global float $start    Reserved/declared for parity with
+ *                         process_host(); not used directly here.
+ * @global bool  $forcerun Whether this run was forced, propagated via
+ *                         '--force'.
+ */
 function process_graphs() {
 	global $config, $debug, $start, $forcerun;
 
@@ -728,6 +844,29 @@ function process_graphs() {
 		($debug ? ' --debug':''));
 }
 
+/**
+ * Runs the full set of per-host MikroTik collectors for a single device
+ * (system info, users, storage, trees, queues, interfaces, wireless
+ * APs/registrations, processor, and DNS/DHCP/list details), each only
+ * when its own configured collection interval is due, skipping
+ * everything beyond system info if the device is detected as down.
+ * Called from this script's main flow when run with a specific
+ * '--host-id' (i.e. as a per-host worker launched by process_host()).
+ *
+ * @param int $host_id The host id to collect data for.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to load
+ *                       the MikroTik SNMP MIB when supported.
+ * @global float $start  The current run's start time, used to decide
+ *                       which sub-collectors are due.
+ * @global mixed $seed   The current run's seed value, used to register
+ *                       this worker's process lock.
+ * @global mixed $key    The placeholder process-lock key from the
+ *                       launching process_host() call, removed once
+ *                       this worker registers its own lock.
+ */
 function checkHost($host_id) {
 	global $config, $start, $seed, $key;
 
@@ -853,6 +992,30 @@ function checkHost($host_id) {
 	db_execute('DELETE FROM plugin_mikrotik_processes WHERE pid=' . getmypid());
 }
 
+/**
+ * Queries a device's Host Resources System group, MIB-II system group,
+ * and MikroTik-specific system/health OIDs via SNMP, maps the returned
+ * values to their plugin_mikrotik_system/plugin_mikrotik_system_health
+ * columns (parsing/normalizing date, uptime, and health metric scaling
+ * along the way), and updates the device's rows with the collected
+ * values. Called from checkHost() for every device, on every run, to
+ * determine whether the device is reachable before running other
+ * collectors.
+ *
+ * @param array $host Reference, the Cacti host row to collect data
+ *                    for, providing SNMP connection settings.
+ *
+ * @return bool True if the device responded and was successfully
+ *             collected, false if the initial SNMP walk failed
+ *             (device considered down).
+ *
+ * @global array $mikrotikSystem Map of OID => plugin_mikrotik_system
+ *                               column name, used to translate SNMP
+ *                               results into database columns.
+ * @global array $config         Cacti global configuration array
+ *                               (declared but not directly used
+ *                               here).
+ */
 function collect_system(&$host) {
 	global $mikrotikSystem, $config;
 
@@ -1038,6 +1201,17 @@ function collect_system(&$host) {
 	return false;
 }
 
+/**
+ * Parses a Host Resources hrSystemDate-style comma-separated date/time
+ * string (dropping any sub-second fraction) into a normalized date/time
+ * string, falling back to the current time if the value can't be
+ * parsed. Called from collect_system() to normalize the system date
+ * field.
+ *
+ * @param string $value The raw date/time string returned by the device.
+ *
+ * @return string The normalized date/time string.
+ */
 function mikrotik_dateParse($value) {
 	$value = explode(',', $value);
 
@@ -1055,6 +1229,17 @@ function mikrotik_dateParse($value) {
 	return $value;
 }
 
+/**
+ * Normalizes a MAC address value returned via SNMP into a colon-
+ * separated hex string, passing already-hex-formatted values through
+ * unchanged. Called from collect result-processing code when a
+ * collected field represents a MAC address.
+ *
+ * @param string $value The raw MAC address value (either already
+ *                      hex-formatted, or raw binary octets).
+ *
+ * @return string The MAC address as a colon-separated hex string.
+ */
 function mikrotik_macParse($value) {
 	if (is_hexadecimal($value)) {
 		return $value;
@@ -1067,6 +1252,20 @@ function mikrotik_macParse($value) {
 	}
 }
 
+/**
+ * Splits a table entry's full OID into its base table OID and trailing
+ * index portion, supporting multi-component (compound) indexes of a
+ * given depth. Called from collectHostIndexedOid() while processing
+ * walked table rows.
+ *
+ * @param string $oid   The full OID (base + index) to split.
+ * @param int    $depth The number of trailing dot-separated components
+ *                      that make up the index (1 for a simple scalar
+ *                      index, more for compound indexes).
+ *
+ * @return array A two-element [base, index] array, or an empty array if
+ *              no index portion could be extracted.
+ */
 function mikrotik_splitBaseIndex($oid, $depth = 1) {
 	$oid        = strrev($oid);
 	$parts      = explode('.', $oid);
@@ -1087,6 +1286,33 @@ function mikrotik_splitBaseIndex($oid, $depth = 1) {
 	}
 }
 
+/**
+ * Generic MikroTik indexed-table collector: walks every OID column
+ * defined in a table's SNMP tree map for a device, reassembles the
+ * per-index rows (supporting compound indexes via $depth), and
+ * bulk-upserts the resulting rows into the target table, either
+ * marking rows no longer present as absent (default) or deleting them
+ * outright when $preserve is false. Called from collect_trees(),
+ * collect_users(), collect_queues(), collect_interfaces(),
+ * collect_processor(), collect_storage(), collect_wireless_aps(), and
+ * collect_wireless_reg() for each MikroTik table type.
+ *
+ * @param array  $host     Reference, the Cacti host row to collect data
+ *                         for, providing SNMP connection settings.
+ * @param array  $tree     Map of column name => OID defining the
+ *                         table's SNMP structure to walk.
+ * @param string $table    The plugin_mikrotik_* database table to
+ *                         upsert the collected rows into.
+ * @param string $name     A display name for this table, used in
+ *                         debug/log messages.
+ * @param bool   $preserve Whether to keep rows no longer seen (marking
+ *                         them absent) rather than deleting them.
+ * @param int    $depth    The number of trailing OID components making
+ *                         up each row's index, passed through to
+ *                         mikrotik_splitBaseIndex().
+ *
+ * @return void
+ */
 function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, $depth = 1) {
 	static $types;
 
@@ -1255,16 +1481,52 @@ function collectHostIndexedOid(&$host, $tree, $table, $name, $preserve = false, 
 	}
 }
 
+/**
+ * Collects a device's queue tree (trees) table via
+ * collectHostIndexedOid(). Called from checkHost() when this
+ * collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikTrees The trees SNMP tree map (column => OID).
+ */
 function collect_trees(&$host) {
 	global $mikrotikTrees;
 	collectHostIndexedOid($host, $mikrotikTrees, 'plugin_mikrotik_trees', 'trees', true);
 }
 
+/**
+ * Collects a device's PPP/hotspot user (users) table via
+ * collectHostIndexedOid(). Called from checkHost() when this
+ * collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikUsers The users SNMP tree map (column => OID).
+ */
 function collect_users(&$host) {
 	global $mikrotikUsers;
 	collectHostIndexedOid($host, $mikrotikUsers, 'plugin_mikrotik_users', 'users', true);
 }
 
+/**
+ * Collects a device's firewall address-list entries via the RouterOS
+ * API (not SNMP), upserting them into plugin_mikrotik_lists and
+ * marking/purging entries no longer present, or purging all entries if
+ * the API call indicates the address-list feature isn't available.
+ * Called from collect_dhcp_details()-style API collectors when this
+ * collector's interval is due and the RouterOS API is enabled with
+ * valid credentials.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return void
+ */
 function collect_list_details(&$host) {
 	$rows = array();
 
@@ -1365,6 +1627,18 @@ function collect_list_details(&$host) {
 	}
 }
 
+/**
+ * Collects a device's DNS cache/static entries via the RouterOS API
+ * (not SNMP), upserting them into their plugin_mikrotik_dns table and
+ * marking/purging entries no longer present. Called from checkHost()
+ * when this collector's interval is due and the RouterOS API is
+ * enabled with valid credentials.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return void
+ */
 function collect_dns_details(&$host) {
 	$rows = array();
 
@@ -1469,6 +1743,15 @@ function collect_dns_details(&$host) {
 	}
 }
 
+/**
+ * Parses a RouterOS-formatted TTL/duration string (e.g. '1d02h03m04s')
+ * into a total number of seconds. Called from collect_list_details()
+ * and other RouterOS API collectors to normalize timeout/lease values.
+ *
+ * @param string $ttl The RouterOS duration string to parse.
+ *
+ * @return int The total duration in seconds.
+ */
 function mikrotik_parse_ttl($ttl) {
 	$time = 0;
 
@@ -1499,6 +1782,18 @@ function mikrotik_parse_ttl($ttl) {
 	return $time;
 }
 
+/**
+ * Collects a device's DHCP lease details via the RouterOS API (not
+ * SNMP), upserting them into plugin_mikrotik_dhcp and marking/purging
+ * leases no longer present. Called from checkHost() when this
+ * collector's interval is due and the RouterOS API is enabled with
+ * valid credentials.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return void
+ */
 function collect_dhcp_details(&$host) {
 	$rows = array();
 
@@ -1649,6 +1944,18 @@ function collect_dhcp_details(&$host) {
 	}
 }
 
+/**
+ * Collects PPPoE user session details via the RouterOS API (not SNMP),
+ * upserting them into plugin_mikrotik_users and marking sessions no
+ * longer present as absent. Called from checkHost() when this
+ * collector's interval is due and the RouterOS API is enabled with
+ * valid credentials.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return void
+ */
 function collect_pppoe_users_api(&$host) {
 	$rows = array();
 
@@ -1783,6 +2090,16 @@ function collect_pppoe_users_api(&$host) {
 	}
 }
 
+/**
+ * Parses a RouterOS-formatted uptime string (e.g. '1w2d03:04:05' or
+ * 'never') into a total number of seconds. Called from RouterOS API
+ * collectors (e.g. collect_pppoe_users_api()) to normalize session/
+ * device uptime values.
+ *
+ * @param string $value The RouterOS uptime string to parse.
+ *
+ * @return int The total uptime in seconds (0 for 'never').
+ */
 function uptimeToSeconds($value) {
 	$uptime = 0;
 
@@ -1836,36 +2153,115 @@ function uptimeToSeconds($value) {
 	return $uptime;
 }
 
+/**
+ * Collects a device's simple queues table via collectHostIndexedOid().
+ * Called from checkHost() when this collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikQueueSimpleEntry The simple-queue SNMP tree
+ *                                        map (column => OID).
+ */
 function collect_queues(&$host) {
 	global $mikrotikQueueSimpleEntry;
 	collectHostIndexedOid($host, $mikrotikQueueSimpleEntry, 'plugin_mikrotik_queues', 'queues', true);
 }
 
+/**
+ * Collects a device's interfaces table via collectHostIndexedOid().
+ * Called from checkHost() when this collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikInterfaces The interfaces SNMP tree map
+ *                                  (column => OID).
+ */
 function collect_interfaces(&$host) {
 	global $mikrotikInterfaces;
 	collectHostIndexedOid($host, $mikrotikInterfaces, 'plugin_mikrotik_interfaces', 'interfaces', true);
 }
 
+/**
+ * Collects a device's processor table via collectHostIndexedOid().
+ * Called from checkHost() when this collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikProcessor The processor SNMP tree map (column
+ *                                 => OID).
+ */
 function collect_processor(&$host) {
 	global $mikrotikProcessor;
 	collectHostIndexedOid($host, $mikrotikProcessor, 'plugin_mikrotik_processor', 'processor');
 }
 
+/**
+ * Collects a device's storage table via collectHostIndexedOid(). Called
+ * from checkHost() when this collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikStorage The storage SNMP tree map (column =>
+ *                                OID).
+ */
 function collect_storage(&$host) {
 	global $mikrotikStorage;
 	collectHostIndexedOid($host, $mikrotikStorage, 'plugin_mikrotik_storage', 'storage');
 }
 
+/**
+ * Collects a device's wireless access-point table via
+ * collectHostIndexedOid(). Called from checkHost() when this
+ * collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikWirelessAps The wireless AP SNMP tree map
+ *                                   (column => OID).
+ */
 function collect_wireless_aps(&$host) {
 	global $mikrotikWirelessAps;
 	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', false);
 }
 
+/**
+ * Collects a device's wireless client registrations table (using a
+ * 7-component compound index) via collectHostIndexedOid(). Called from
+ * checkHost() when this collector's interval is due.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return void
+ *
+ * @global array $mikrotikWirelessRegistrations The wireless
+ *                                              registration SNMP tree
+ *                                              map (column => OID).
+ */
 function collect_wireless_reg(&$host) {
 	global $mikrotikWirelessRegistrations;
 	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
 }
 
+/**
+ * Prints this poller script's version and copyright banner, loading the
+ * plugin's version info from setup.php if not already available.
+ * Called from display_help() and when invoked with '--version'/'-v'.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate and include setup.php.
+ */
 function display_version() {
 	global $config;
 	if (!function_exists('plugin_mikrotik_version')) {
@@ -1876,6 +2272,13 @@ function display_version() {
 	print "MikroTik Poller Process, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
 }
 
+/**
+ * Prints the version banner followed by this script's command-line
+ * usage summary. Called when invoked with '--help'/'-h' or with
+ * invalid/missing arguments.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 
