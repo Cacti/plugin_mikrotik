@@ -47,8 +47,8 @@ describe('DB output escaping in mikrotik.php', function () {
 	});
 
 	it('escapes the shared memory/timeout formatter output at its source', function () use ($source) {
-		expect(preg_match('/function mikrotik_memory\([^)]*\)\s*\{.*?html_escape\(/s', $source))->toBe(1);
-		expect(preg_match('/function mikrotik_get_timeout\([^)]*\)\s*\{.*?html_escape\(/s', $source))->toBe(1);
+		expect(preg_match('/function mikrotik_memory\([^)]*\)\s*(?::\s*[\w|]+\s*)?\{.*?html_escape\(/s', $source))->toBe(1);
+		expect(preg_match('/function mikrotik_get_timeout\([^)]*\)\s*(?::\s*[\w|]+\s*)?\{.*?html_escape\(/s', $source))->toBe(1);
 	});
 });
 
