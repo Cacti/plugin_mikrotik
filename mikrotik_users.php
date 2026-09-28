@@ -270,7 +270,7 @@ function mikrotik_user(): void {
 	}
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter(objForm) {
 		strURL  = 'mikrotik_users.php?filter=' + $('#filter').val();
 		strURL += '&status=' + $('#status').val();

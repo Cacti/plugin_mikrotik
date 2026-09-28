@@ -5,6 +5,7 @@
 * issue: Fix stale/invalid html_start_box() and html_header_sort() arguments
 * issue: Fix uptime/TTL arithmetic on SNMP string values and a double strlen() typo
 * issue: Fix db_fetch_assoc() used with prepared parameters in poller_graphs.php
+* security: Add a version-safe CSP nonce (`plugin_mikrotik_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * chore: Harmonize CI workflow, issue/PR templates, and PHP-compatibility test structure with the shared Cacti plugin baseline
 * issue#78: SQL Syntax Error in poller_mikrotik.php
 * issue: Data Query Graphs with spaces in their indexes not working.  This is Cacti issue fixed in 1.2.280

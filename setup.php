@@ -23,6 +23,22 @@
 */
 
 /**
+ * Return the CSP nonce attribute for inline <script> tags, safely across
+ * Cacti versions. Newer Cacti releases enforce a Content-Security-Policy that
+ * requires a per-request nonce on parser-inserted scripts; older releases lack
+ * the CactiSecureHeaders class, so this returns an empty string there.
+ *
+ * @return string The `nonce="..."` attribute when supported, otherwise ''.
+ */
+function plugin_mikrotik_csp_nonce(): string {
+	if (class_exists('CactiSecureHeaders')) {
+		return CactiSecureHeaders::getNonceAttribute();
+	}
+
+	return '';
+}
+
+/**
  * Plugin install hook: registers all of this plugin's Cacti hooks
  * (config arrays/settings, navigation text, poller_bottom, header
  * tabs, and host edit/save/delete integration), registers its two
