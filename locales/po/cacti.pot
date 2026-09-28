@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 09:42-0400\n"
+"POT-Creation-Date: 2026-09-27 10:24-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -42,12 +42,12 @@ msgid "Down"
 msgstr ""
 
 #: mikrotik.php:231 mikrotik.php:1597 mikrotik.php:1923 mikrotik.php:2017
-#: setup.php:1536
+#: setup.php:1552
 msgid "Devices"
 msgstr ""
 
 #: mikrotik.php:234 mikrotik.php:1703 mikrotik.php:2007 mikrotik_users.php:318
-#: mikrotik_users.php:392 setup.php:1539
+#: mikrotik_users.php:392 setup.php:1555
 msgid "Users"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Queue Trees"
 msgstr ""
 
-#: mikrotik.php:246 mikrotik.php:422 mikrotik.php:549 setup.php:1540
+#: mikrotik.php:246 mikrotik.php:422 mikrotik.php:549 setup.php:1556
 msgid "Interfaces"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Address Lists"
 msgstr ""
 
-#: mikrotik.php:262 mikrotik.php:1368 setup.php:1543
+#: mikrotik.php:262 mikrotik.php:1368 setup.php:1559
 msgid "Wireless Aps"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Wireless Registrations"
 msgstr ""
 
-#: mikrotik.php:269 mikrotik.php:2530 setup.php:1542
+#: mikrotik.php:269 mikrotik.php:2530 setup.php:1558
 msgid "Graphs"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgid "Clear"
 msgstr ""
 
 #: mikrotik.php:537 mikrotik.php:844 mikrotik.php:1103 mikrotik.php:1353
-#: mikrotik.php:1687 mikrotik.php:1999 mikrotik.php:2804 setup.php:1546
+#: mikrotik.php:1687 mikrotik.php:1999 mikrotik.php:2804 setup.php:1562
 msgid "Actions"
 msgstr ""
 
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Queue Tree Status"
 msgstr ""
 
-#: mikrotik.php:1032 mikrotik.php:1114 mikrotik.php:2006 setup.php:1537
+#: mikrotik.php:1032 mikrotik.php:1114 mikrotik.php:2006 setup.php:1553
 msgid "Trees"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 msgid "Up"
 msgstr ""
 
-#: mikrotik.php:1912 mikrotik.php:3076 mikrotik.php:3724 setup.php:1321
+#: mikrotik.php:1912 mikrotik.php:3076 mikrotik.php:3724 setup.php:1337
 msgid "Disabled"
 msgstr ""
 
@@ -494,7 +494,7 @@ msgid "View Interfaces"
 msgstr ""
 
 #: mikrotik.php:2085 mikrotik.php:2293 mikrotik.php:2295 mikrotik.php:2359
-#: mikrotik.php:2361 setup.php:1640
+#: mikrotik.php:2361 setup.php:1656
 msgid "View Graphs"
 msgstr ""
 
@@ -656,7 +656,7 @@ msgstr ""
 msgid "Return"
 msgstr ""
 
-#: mikrotik_users.php:293 setup.php:1174 setup.php:1544
+#: mikrotik_users.php:293 setup.php:1190 setup.php:1560
 msgid "MikroTik Users"
 msgstr ""
 
@@ -680,349 +680,349 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-#: setup.php:46
+#: setup.php:62
 msgid "MikroTik Viewer"
 msgstr ""
 
-#: setup.php:47
+#: setup.php:63
 msgid "MikroTik Admin"
 msgstr ""
 
-#: setup.php:859 setup.php:1535 setup.php:1567 setup.php:1569
+#: setup.php:875 setup.php:1551 setup.php:1583 setup.php:1585
 msgid "MikroTik"
 msgstr ""
 
-#: setup.php:862
+#: setup.php:878
 msgid "MikroTik General Settings"
 msgstr ""
 
-#: setup.php:866
+#: setup.php:882
 msgid "MikroTik Poller Enabled"
 msgstr ""
 
-#: setup.php:867
+#: setup.php:883
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr ""
 
-#: setup.php:872
+#: setup.php:888
 msgid "MikroTik API Polling Enabled"
 msgstr ""
 
-#: setup.php:873
+#: setup.php:889
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
 msgstr ""
 
-#: setup.php:878
+#: setup.php:894
 msgid "Automatically Discover Cacti Devices"
 msgstr ""
 
-#: setup.php:879
+#: setup.php:895
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
 msgstr ""
 
-#: setup.php:884
+#: setup.php:900
 msgid "Automatically Purge Devices"
 msgstr ""
 
-#: setup.php:885
+#: setup.php:901
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
 msgstr ""
 
-#: setup.php:890
+#: setup.php:906
 msgid "Maximum Concurrent Collectors"
 msgstr ""
 
-#: setup.php:891
+#: setup.php:907
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
 msgstr ""
 
-#: setup.php:895
+#: setup.php:911
 #, php-format
 msgid "%d Process"
 msgstr ""
 
-#: setup.php:896 setup.php:897 setup.php:898 setup.php:899 setup.php:900
-#: setup.php:901 setup.php:902 setup.php:903 setup.php:904
+#: setup.php:912 setup.php:913 setup.php:914 setup.php:915 setup.php:916
+#: setup.php:917 setup.php:918 setup.php:919 setup.php:920
 #, php-format
 msgid "%d Processes"
 msgstr ""
 
-#: setup.php:908
+#: setup.php:924
 msgid "Auto Discovery Settings"
 msgstr ""
 
-#: setup.php:912
+#: setup.php:928
 msgid "Auto Discovery Frequency"
 msgstr ""
 
-#: setup.php:913
+#: setup.php:929
 msgid "How often do you want to look for new Cacti Devices?"
 msgstr ""
 
-#: setup.php:919
+#: setup.php:935
 msgid "DHCP/DNS/List Settings"
 msgstr ""
 
-#: setup.php:923
+#: setup.php:939
 msgid "DHCP Retention"
 msgstr ""
 
-#: setup.php:924
+#: setup.php:940
 msgid "How long would you like to retain DHCP IP registration history?"
 msgstr ""
 
-#: setup.php:930
+#: setup.php:946
 msgid "DNS Retention"
 msgstr ""
 
-#: setup.php:931
+#: setup.php:947
 msgid "How long would you like to retain DNS Cache history?"
 msgstr ""
 
-#: setup.php:937
+#: setup.php:953
 msgid "Address List Retention"
 msgstr ""
 
-#: setup.php:938
+#: setup.php:954
 msgid "How long would you like to retain Address List history?"
 msgstr ""
 
-#: setup.php:944
+#: setup.php:960
 msgid "Device Graph Automation"
 msgstr ""
 
-#: setup.php:948
+#: setup.php:964
 msgid "Automatically Add New Graphs"
 msgstr ""
 
-#: setup.php:949
+#: setup.php:965
 msgid "How often do you want to check for new objects to graph?"
 msgstr ""
 
-#: setup.php:953
+#: setup.php:969
 msgid "Never"
 msgstr ""
 
-#: setup.php:954 setup.php:955 setup.php:956 setup.php:977 setup.php:1323
-#: setup.php:1324 setup.php:1325
+#: setup.php:970 setup.php:971 setup.php:972 setup.php:993 setup.php:1339
+#: setup.php:1340 setup.php:1341
 #, php-format
 msgid "%d Minutes"
 msgstr ""
 
-#: setup.php:957 setup.php:978 setup.php:1326
+#: setup.php:973 setup.php:994 setup.php:1342
 #, php-format
 msgid "%d Hour"
 msgstr ""
 
-#: setup.php:958 setup.php:979 setup.php:980 setup.php:1327 setup.php:1328
-#: setup.php:1329
+#: setup.php:974 setup.php:995 setup.php:996 setup.php:1343 setup.php:1344
+#: setup.php:1345
 #, php-format
 msgid "%d Hours"
 msgstr ""
 
-#: setup.php:959 setup.php:981 setup.php:1330 setup.php:1335
+#: setup.php:975 setup.php:997 setup.php:1346 setup.php:1351
 #, php-format
 msgid "%d Day"
 msgstr ""
 
-#: setup.php:960 setup.php:1336 setup.php:1337
+#: setup.php:976 setup.php:1352 setup.php:1353
 #, php-format
 msgid "%d Days"
 msgstr ""
 
-#: setup.php:964
+#: setup.php:980
 msgid "Exclude Users RegEx"
 msgstr ""
 
-#: setup.php:965
+#: setup.php:981
 msgid "User names that match this regex will not be graphed automatically"
 msgstr ""
 
-#: setup.php:972
+#: setup.php:988
 msgid "Exclude Users Time to Live"
 msgstr ""
 
-#: setup.php:973
+#: setup.php:989
 msgid "How long should an excluded user's data be preserved after they have disconnected."
 msgstr ""
 
-#: setup.php:985
+#: setup.php:1001
 msgid "MikroTik Device Collection Frequencies"
 msgstr ""
 
-#: setup.php:989
+#: setup.php:1005
 msgid "Storage Frequency"
 msgstr ""
 
-#: setup.php:990
+#: setup.php:1006
 msgid "How often do you want to scan Storage Statistics?"
 msgstr ""
 
-#: setup.php:996
+#: setup.php:1012
 msgid "Processor Frequency"
 msgstr ""
 
-#: setup.php:997
+#: setup.php:1013
 msgid "How often do you want to scan Device Processor Statistics?"
 msgstr ""
 
-#: setup.php:1003
+#: setup.php:1019
 msgid "Interfaces Frequency"
 msgstr ""
 
-#: setup.php:1004
+#: setup.php:1020
 msgid "How often do you want to scan the Interfaces?"
 msgstr ""
 
-#: setup.php:1010
+#: setup.php:1026
 msgid "DNS/DHCP/List Frequency"
 msgstr ""
 
-#: setup.php:1011
+#: setup.php:1027
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr ""
 
-#: setup.php:1017
+#: setup.php:1033
 msgid "MikroTik Queue/Tree Collection Frequencies"
 msgstr ""
 
-#: setup.php:1021
+#: setup.php:1037
 msgid "Simple Queue/PPPoe Frequency"
 msgstr ""
 
-#: setup.php:1022
+#: setup.php:1038
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1028
+#: setup.php:1044
 msgid "Queue Trees Frequency"
 msgstr ""
 
-#: setup.php:1029
+#: setup.php:1045
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1035
+#: setup.php:1051
 msgid "MikroTik Wireless Collection Frequencies"
 msgstr ""
 
-#: setup.php:1039
+#: setup.php:1055
 msgid "Wireless HotSpot Users Frequency"
 msgstr ""
 
-#: setup.php:1040
+#: setup.php:1056
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1046
+#: setup.php:1062
 msgid "Wireless Access Point Frequency"
 msgstr ""
 
-#: setup.php:1047
+#: setup.php:1063
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1053
+#: setup.php:1069
 msgid "Wireless Registrations Frequency"
 msgstr ""
 
-#: setup.php:1054
+#: setup.php:1070
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1060
+#: setup.php:1076
 msgid "Wireless Stations Frequency"
 msgstr ""
 
-#: setup.php:1061
+#: setup.php:1077
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
 msgstr ""
 
-#: setup.php:1174
+#: setup.php:1190
 msgid "Management"
 msgstr ""
 
-#: setup.php:1177
+#: setup.php:1193
 msgid "Normal User"
 msgstr ""
 
-#: setup.php:1178
+#: setup.php:1194
 msgid "General Administration"
-msgstr ""
-
-#: setup.php:1322
-#, php-format
-msgid "%d Minute"
-msgstr ""
-
-#: setup.php:1334
-msgid "Indefinite"
 msgstr ""
 
 #: setup.php:1338
 #, php-format
+msgid "%d Minute"
+msgstr ""
+
+#: setup.php:1350
+msgid "Indefinite"
+msgstr ""
+
+#: setup.php:1354
+#, php-format
 msgid "%d Week"
 msgstr ""
 
-#: setup.php:1339 setup.php:1340
+#: setup.php:1355 setup.php:1356
 #, php-format
 msgid "%d Weeks"
 msgstr ""
 
-#: setup.php:1341 setup.php:1342
+#: setup.php:1357 setup.php:1358
 #, php-format
 msgid "%d Months"
 msgstr ""
 
-#: setup.php:1343
+#: setup.php:1359
 #, php-format
 msgid "%d Year"
 msgstr ""
 
-#: setup.php:1538
+#: setup.php:1554
 msgid "Simple Queues"
 msgstr ""
 
-#: setup.php:1541
+#: setup.php:1557
 msgid "Storage"
 msgstr ""
 
-#: setup.php:1545
+#: setup.php:1561
 msgid "(edit)"
 msgstr ""
 
-#: setup.php:1642 setup.php:1645
+#: setup.php:1658 setup.php:1661
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr ""
 
-#: setup.php:1682
+#: setup.php:1698
 msgid "MikroTik Credentials"
 msgstr ""
 
-#: setup.php:1686
+#: setup.php:1702
 msgid "Read Only User"
 msgstr ""
 
-#: setup.php:1687
+#: setup.php:1703
 msgid "Provide a read only username for the MikroTik."
 msgstr ""
 
-#: setup.php:1694
+#: setup.php:1710
 msgid "Password"
 msgstr ""
 
-#: setup.php:1695
+#: setup.php:1711
 msgid "Provide the read only username password for this MikroTik."
 msgstr ""
 
-#: setup.php:1715 setup.php:1724
+#: setup.php:1731 setup.php:1740
 msgid "Connection Result"
 msgstr ""
 
-#: setup.php:1716 setup.php:1725
+#: setup.php:1732 setup.php:1741
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr ""
 
-#: setup.php:1726
+#: setup.php:1742
 msgid "Connection Failed"
 msgstr ""

@@ -357,7 +357,7 @@ function mikrotik_interfaces() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=interfaces';
 		strURL += '&filter='     + $('#filter').val();
@@ -589,7 +589,7 @@ function mikrotik_interfaces() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -663,7 +663,7 @@ function mikrotik_queues() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=queues';
 		strURL += '&filter='     + $('#filter').val();
@@ -908,7 +908,7 @@ function mikrotik_queues() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -969,7 +969,7 @@ function mikrotik_trees() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=trees';
 		strURL += '&filter='   + $('#filter').val();
@@ -1153,7 +1153,7 @@ function mikrotik_trees() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -1217,7 +1217,7 @@ function mikrotik_wireless_aps() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=wireless_aps';
 		strURL += '&filter='   + $('#filter').val();
@@ -1411,7 +1411,7 @@ function mikrotik_wireless_aps() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -1522,7 +1522,7 @@ function mikrotik_users() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=users';
 		strURL += '&filter='   + $('#filter').val();
@@ -1769,7 +1769,7 @@ function mikrotik_users() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -1827,7 +1827,7 @@ function mikrotik_devices() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=devices';
 		strURL += '&status='   + $('#status').val();
@@ -2130,7 +2130,7 @@ function mikrotik_devices() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.pic, i").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.pic, i").tooltip(); });</script>';
 }
 
 /**
@@ -2619,7 +2619,7 @@ function mikrotik_wireless_regs() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=wireless_regs';
 		strURL += '&filter='     + $('#filter').val();
@@ -2872,7 +2872,7 @@ function mikrotik_wireless_regs() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -2933,7 +2933,7 @@ function mikrotik_dhcp() {
 	/* ================= input validation ================= */
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 	function applyFilter() {
 		strURL  = '?action=dhcp';
 		strURL += '&filter='   + $('#filter').val();
@@ -3115,7 +3115,7 @@ function mikrotik_dhcp() {
 		print $nav;
 	}
 
-	print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+	print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 }
 
 /**
@@ -3193,7 +3193,7 @@ function mikrotik_dns($export = false) {
 
 	if (!$export) {
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 		function applyFilter() {
 			strURL  = '?action=dns';
 			strURL += '&filter='   + $('#filter').val();
@@ -3450,7 +3450,7 @@ function mikrotik_dns($export = false) {
 			print $nav;
 		}
 
-		print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+		print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 	} else {
 		$output = '';
 
@@ -3553,7 +3553,7 @@ function mikrotik_list($export = false) {
 
 	if (!$export) {
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
 		function applyFilter() {
 			strURL  = '?action=list';
 			strURL += '&filter='   + $('#filter').val();
@@ -3775,7 +3775,7 @@ function mikrotik_list($export = false) {
 			print $nav;
 		}
 
-		print '<script type="text/javascript">$(function() { $("a.hyperLink, img").tooltip(); });</script>';
+		print '<script type="text/javascript" ' . plugin_mikrotik_csp_nonce() . '>$(function() { $("a.hyperLink, img").tooltip(); });</script>';
 	} else {
 		$output = '';
 
