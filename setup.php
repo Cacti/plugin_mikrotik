@@ -47,7 +47,7 @@ function plugin_mikrotik_csp_nonce(): string {
  *
  * @return void
  */
-function plugin_mikrotik_install() {
+function plugin_mikrotik_install(): void {
 	// graph setup all arrays needed for automation
 	api_plugin_register_hook('mikrotik', 'config_arrays',         'mikrotik_config_arrays',         'setup.php');
 	api_plugin_register_hook('mikrotik', 'config_settings',       'mikrotik_config_settings',       'setup.php');
@@ -72,7 +72,7 @@ function plugin_mikrotik_install() {
  *
  * @return void
  */
-function plugin_mikrotik_uninstall() {
+function plugin_mikrotik_uninstall(): void {
 	// Do any extra Uninstall stuff here
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system_health`');
@@ -98,7 +98,7 @@ function plugin_mikrotik_uninstall() {
  *
  * @return bool Always true.
  */
-function plugin_mikrotik_check_config() {
+function plugin_mikrotik_check_config(): bool {
 	// Here we will check to ensure everything is configured
 	mikrotik_check_upgrade();
 
@@ -112,7 +112,7 @@ function plugin_mikrotik_check_config() {
  *
  * @return bool Always true.
  */
-function plugin_mikrotik_upgrade() {
+function plugin_mikrotik_upgrade(): bool {
 	// Here we will upgrade to the newest version
 	mikrotik_check_upgrade();
 
@@ -125,14 +125,18 @@ function plugin_mikrotik_upgrade() {
  * display_version() in the poller scripts, mikrotik_check_upgrade()).
  *
  * @return array The plugin's info array, as parsed from the INFO
- *              file's '[info]' section.
+ *               file's '[info]' section.
  *
  * @global array $config Cacti global configuration array; used to
  *                       locate the plugin's INFO file.
  */
-function plugin_mikrotik_version() {
+function plugin_mikrotik_version(): array {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/mikrotik/INFO', true);
+
+	if (!is_array($info) || !isset($info['info']) || !is_array($info['info'])) {
+		return [];
+	}
 
 	return $info['info'];
 }
@@ -156,7 +160,7 @@ function plugin_mikrotik_version() {
  *                                other setup functions; not used
  *                                directly here.
  */
-function mikrotik_check_upgrade() {
+function mikrotik_check_upgrade(): void {
 	global $config, $database_default;
 
 	// Let's only run this check if we are on a page that actually needs the data
@@ -226,12 +230,12 @@ function mikrotik_check_upgrade() {
  * consolidations that retire a graph template.
  *
  * @param int $graph_template_id The graph_templates id whose graphs
- *                              (and now-orphaned data sources) should
- *                              be removed.
+ *                               (and now-orphaned data sources) should
+ *                               be removed.
  *
  * @return void
  */
-function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
+function mikrotik_delete_graphs_and_data_sources_from_hash(int $graph_template_id): void {
 	$graphs = array_rekey(
 		db_fetch_assoc_prepared('SELECT id
 			FROM graph_local
@@ -296,7 +300,7 @@ function mikrotik_delete_graphs_and_data_sources_from_hash($graph_template_id) {
  * @return bool Always true (this plugin declares no extra
  *              dependencies).
  */
-function mikrotik_check_dependencies() {
+function mikrotik_check_dependencies(): bool {
 	return true;
 }
 
@@ -315,7 +319,7 @@ function mikrotik_check_dependencies() {
  *                                other setup functions; not used
  *                                directly here.
  */
-function mikrotik_setup_table() {
+function mikrotik_setup_table(): void {
 	global $config, $database_default;
 	include_once($config['library_path'] . '/database.php');
 
@@ -836,7 +840,7 @@ function mikrotik_setup_table() {
  *                       locate the PHP binary and this plugin's poller
  *                       script.
  */
-function mikrotik_poller_bottom() {
+function mikrotik_poller_bottom(): void {
 	global $config;
 	include_once($config['base_path'] . '/lib/poller.php');
 
@@ -869,7 +873,7 @@ function mikrotik_poller_bottom() {
  *                                      option list, used for the
  *                                      default row-count setting.
  */
-function mikrotik_config_settings() {
+function mikrotik_config_settings(): void {
 	global $tabs, $settings, $mikrotik_frequencies, $mikrotik_retention, $item_rows;
 
 	$tabs['mikrotik']     = __('MikroTik', 'mikrotik');
@@ -1178,7 +1182,7 @@ function mikrotik_config_settings() {
  *                                              list of standard data
  *                                              query hashes.
  */
-function mikrotik_config_arrays() {
+function mikrotik_config_arrays(): void {
 	global $menu, $messages, $mikrotik_frequencies, $mikrotik_retention;
 	global $mikrotikSystem, $mikrotikTrees, $mikrotikQueueSimpleEntry, $mikrotikUsers;
 	global $mikrotikProcessor, $mikrotikStorage, $mikrotikInterfaces, $mikrotikWirelessAps;
@@ -1547,7 +1551,7 @@ function mikrotik_config_arrays() {
  *
  * @return array The $nav array with this plugin's entries added.
  */
-function mikrotik_draw_navigation_text($nav) {
+function mikrotik_draw_navigation_text($nav): array {
 	$nav['mikrotik.php:']              = ['title' => __('MikroTik', 'mikrotik'), 'mapping' => '', 'url' => 'mikrotik.php', 'level' => '0'];
 	$nav['mikrotik.php:devices']       = ['title' => __('Devices', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik.php:trees']         = ['title' => __('Trees', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
@@ -1575,7 +1579,7 @@ function mikrotik_draw_navigation_text($nav) {
  * @global array $config Cacti global configuration array; used to
  *                       build the tab's URL and image paths.
  */
-function mikrotik_show_tab() {
+function mikrotik_show_tab(): void {
 	global $config;
 
 	if (api_user_realm_auth('mikrotik.php')) {
@@ -1597,7 +1601,7 @@ function mikrotik_show_tab() {
  * @return int|null The matching graph_templates id, or null if not
  *                  found.
  */
-function mikrotik_template_by_hash($hash) {
+function mikrotik_template_by_hash(string $hash) {
 	return db_fetch_cell("SELECT id FROM graph_templates WHERE hash='$hash'");
 }
 
@@ -1609,7 +1613,7 @@ function mikrotik_template_by_hash($hash) {
  *
  * @return int|null The matching snmp_query id, or null if not found.
  */
-function mikrotik_data_query_by_hash($hash) {
+function mikrotik_data_query_by_hash(string $hash) {
 	return db_fetch_cell("SELECT id FROM snmp_query WHERE hash='$hash'");
 }
 
@@ -1627,12 +1631,12 @@ function mikrotik_data_query_by_hash($hash) {
  *                        search to.
  *
  * @return string An HTML anchor linking to the matching graphs, or a
- *               disabled-looking placeholder link if none are found.
+ *                disabled-looking placeholder link if none are found.
  *
  * @global array $config Cacti global configuration array; used to
  *                       build the link URL.
  */
-function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = '') {
+function mikrotik_graphs_url_by_template_hashs(array $hashes, int $host_id = 0, string $search = ''): string {
 	global $config;
 
 	$sql_where = '';
@@ -1677,7 +1681,7 @@ function mikrotik_graphs_url_by_template_hashs($hashes, $host_id = 0, $search = 
  *                                plugin's credential fields when
  *                                applicable.
  */
-function mikrotik_host_top() {
+function mikrotik_host_top(): void {
 	global $fields_host_edit;
 
 	$id = get_filter_request_var('id');
@@ -1690,7 +1694,7 @@ function mikrotik_host_top() {
 		ON host.id=pmc.host_id
 		WHERE host_template_id = ? AND host.id = ?', [$template_id, $id]);
 
-	if (cacti_sizeof($is_tik)) {
+	if (is_array($is_tik) && cacti_sizeof($is_tik)) {
 		$fields_host_edit += [
 			'mikrotik_head' => [
 				'method'        => 'spacer',
@@ -1756,7 +1760,7 @@ function mikrotik_host_top() {
  *
  * @return array The unmodified $data array.
  */
-function mikrotik_host_save($data) {
+function mikrotik_host_save(array $data): array {
 	$id = $data['host_id'];
 
 	if (isset_request_var('mikrotik_user')) {
@@ -1775,7 +1779,7 @@ function mikrotik_host_save($data) {
  *
  * @return array The unmodified $data array.
  */
-function mikrotik_host_delete($data) {
+function mikrotik_host_delete(array $data): array {
 	db_execute('DELETE FROM plugin_mikrotik_credentials WHERE host_id IN(' . implode(',', $data) . ')');
 
 	return $data;

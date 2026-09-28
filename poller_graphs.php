@@ -137,7 +137,7 @@ exit(0);
  *                       functions in this file; not used directly
  *                       here.
  */
-function add_graphs() {
+function add_graphs(): void {
 	global $config;
 
 //	/* check for summary changes first */
@@ -195,7 +195,7 @@ function add_graphs() {
  *                                      conditionally add health graphs
  *                                      only for populated metrics.
  */
-function add_host_based_graphs() {
+function add_host_based_graphs(): void {
 	global $config, $device_hashes, $device_query_hashes, $device_health_hashes;
 
 	debug('Adding Host Based Graphs');
@@ -269,14 +269,14 @@ function add_host_based_graphs() {
  * @param int    $host_id The host id to add the data query/graphs for.
  * @param int    $dq      The snmp_query id to attach and graph.
  * @param string $field   Optional sort/match field name used to filter
- *                       which data query rows get graphed (passed
- *                       through to mikrotik_dq_graphs()).
+ *                        which data query rows get graphed (passed
+ *                        through to mikrotik_dq_graphs()).
  * @param string $regex   Optional regex pattern used to include/exclude
- *                       matching rows (passed through to
- *                       mikrotik_dq_graphs()).
+ *                        matching rows (passed through to
+ *                        mikrotik_dq_graphs()).
  * @param bool   $include Whether $regex matches should be included
- *                       (true) or excluded (false) (passed through to
- *                       mikrotik_dq_graphs()).
+ *                        (true) or excluded (false) (passed through to
+ *                        mikrotik_dq_graphs()).
  *
  * @return void
  *
@@ -284,7 +284,7 @@ function add_host_based_graphs() {
  *                       functions in this file; not used directly
  *                       here.
  */
-function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = true) {
+function add_host_dq_graphs(int $host_id, int $dq, string $field = '', string $regex = '', bool $include = true): void {
 	global $config;
 
 	// add entry if it does not exist
@@ -327,7 +327,7 @@ function add_host_dq_graphs($host_id, $dq, $field = '', $regex = '', $include = 
  *                       resolve the PHP binary and add_graphs.php
  *                       path.
  */
-function mikrotik_gt_graph($host_id, $graph_template_id) {
+function mikrotik_gt_graph(int $host_id, int $graph_template_id): void {
 	global $config;
 
 	$php_bin = read_config_option('path_php_binary');
@@ -377,7 +377,7 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
  *
  * @param int $host_id       The summary host id to add graphs for.
  * @param int $host_template The host_template id whose graph templates
- *                          should be added.
+ *                           should be added.
  *
  * @return void
  *
@@ -385,7 +385,7 @@ function mikrotik_gt_graph($host_id, $graph_template_id) {
  *                       resolve the PHP binary and add_graphs.php
  *                       path.
  */
-function add_summary_graphs($host_id, $host_template) {
+function add_summary_graphs(int $host_id, int $host_template): void {
 	global $config;
 
 	$php_bin = read_config_option('path_php_binary');
@@ -475,18 +475,18 @@ function add_summary_graphs($host_id, $host_template) {
  * @param int    $host_id           The host id to add graphs for.
  * @param int    $query_id          The snmp_query id being graphed.
  * @param int    $graph_template_id The graph_templates id to add for
- *                                 each matching row.
+ *                                  each matching row.
  * @param int    $query_type_id     The snmp_query_graph id identifying
- *                                 this specific graph type within the
- *                                 data query.
+ *                                  this specific graph type within the
+ *                                  data query.
  * @param string $field             The host_snmp_cache field name to
- *                                 match rows on; defaults to the data
- *                                 query's configured sort field.
+ *                                  match rows on; defaults to the data
+ *                                  query's configured sort field.
  * @param string $regex             Optional regex pattern applied to
- *                                 each row's field value to
- *                                 include/exclude it from graphing.
+ *                                  each row's field value to
+ *                                  include/exclude it from graphing.
  * @param bool   $include           Whether $regex matches should be
- *                                 included (true) or excluded (false).
+ *                                  included (true) or excluded (false).
  *
  * @return void
  *
@@ -499,7 +499,7 @@ function add_summary_graphs($host_id, $host_template) {
  *                          functions in this file; not used directly
  *                          here.
  */
-function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type_id, $field = '', $regex = '', $include = true) {
+function mikrotik_dq_graphs(int $host_id, int $query_id, int $graph_template_id, int $query_type_id, string $field = '', string $regex = '', bool $include = true): void {
 	global $config, $php_bin, $path_grid;
 
 	$php_bin = read_config_option('path_php_binary');
@@ -574,7 +574,7 @@ function mikrotik_dq_graphs($host_id, $query_id, $graph_template_id, $query_type
  *
  * @return void
  */
-function execute_automation($command, $type, $field_value = '') {
+function execute_automation(string $command, string $type, string $field_value = ''): void {
 	$return = 0;
 	$output = [];
 
@@ -607,7 +607,7 @@ function execute_automation($command, $type, $field_value = '') {
  *
  * @return void
  */
-function remove_invalid_station_graphs() {
+function remove_invalid_station_graphs(): void {
 	$old_wireless_station_hashes = [
 		'0e88ad681dda36417a537c2e06a2add3',
 		'8cea2d49a035d5424ff28b9856d78053',
@@ -636,7 +636,7 @@ function remove_invalid_station_graphs() {
 				WHERE id = ?',
 				[$graph_template_id]);
 
-			$graph_template_input = db_fetch_assoc('SELECT id
+			$graph_template_input = db_fetch_assoc_prepared('SELECT id
 				FROM graph_template_input
 				WHERE graph_template_id = ?',
 				[$graph_template_id]);
@@ -720,7 +720,7 @@ function remove_invalid_station_graphs() {
  * @global bool $debug Whether debug output ('--debug' CLI flag) is
  *                     enabled; when false, this function is a no-op.
  */
-function debug($message) {
+function debug(string $message): void {
 	global $debug;
 
 	if ($debug) {
@@ -738,7 +738,7 @@ function debug($message) {
  * @global array $config Cacti global configuration array; used to
  *                       locate and include setup.php.
  */
-function display_version() {
+function display_version(): void {
 	global $config;
 
 	if (!function_exists('plugin_mikrotik_version')) {
@@ -756,7 +756,7 @@ function display_version() {
  *
  * @return void
  */
-function display_help() {
+function display_help(): void {
 	display_version();
 
 	print "\nThe MikroTik process that creates graphs for Cacti.\n\n";

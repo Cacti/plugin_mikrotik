@@ -1,6 +1,11 @@
 
 --- develop ---
 
+* dev: Bring all plugin code to PHPStan level 8 with accurate native and PHPDoc types
+* issue: Normalize nullable/config-string inputs to runCollector() and mikrotik_memory() so unset last-run settings and NULL wireless AP rate columns no longer raise a TypeError under PHP 8.2
+* issue: Fix stale/invalid html_start_box() and html_header_sort() arguments
+* issue: Fix uptime/TTL arithmetic on SNMP string values and a double strlen() typo
+* issue: Fix db_fetch_assoc() used with prepared parameters in poller_graphs.php
 * security: Add a version-safe CSP nonce (`plugin_mikrotik_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * chore: Harmonize CI workflow, issue/PR templates, and PHP-compatibility test structure with the shared Cacti plugin baseline
 * issue#78: SQL Syntax Error in poller_mikrotik.php
