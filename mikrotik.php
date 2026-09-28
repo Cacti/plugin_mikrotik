@@ -114,7 +114,11 @@ if (strpos(get_request_var('action'), 'export') === false) {
  *
  * @return int|string The CIDR prefix length, or '0' if $mask is empty.
  */
-function mikrotik_get_network(string $mask): int|string {
+function mikrotik_get_network(?string $mask): int|string {
+	if (empty($mask)) {
+		return '0';
+	}
+
 	$octets = explode('.', $mask);
 	$output = '';
 

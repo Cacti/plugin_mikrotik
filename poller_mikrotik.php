@@ -946,6 +946,7 @@ function checkHost(int $host_id): void {
 	$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', [$host_id]);
 
 	if (!is_array($host)) {
+		db_execute('DELETE FROM plugin_mikrotik_processes WHERE pid=' . getmypid());
 		return;
 	}
 
@@ -1517,7 +1518,7 @@ function collectHostIndexedOid(array &$host, array $tree, string $table, string 
 				foreach ($tree as $mname => $oid) {
 					if ($mname != 'baseOID' && $mname != 'index') {
 						if ($goodVals[$mname] == true) {
-							$sql_insert .= ($i > 0 ? ', ' : '') . (isset($item[$mname]) && strlen($item[$mname]) ? db_qstr($item[$mname]) : "''");
+							$sql_insert .= ($i > 0 ? ', ' : '') . (isset($item[$mname]) && $item[$mname] != '' ? db_qstr($item[$mname]) : "''");
 							$i++;
 						}
 					}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 07:55-0400\n"
+"POT-Creation-Date: 2026-09-28 08:04-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Present"
 msgstr ""
 
-#: mikrotik.php:42 mikrotik.php:1923 mikrotik.php:3130 mikrotik.php:3457
+#: mikrotik.php:42 mikrotik.php:1927 mikrotik.php:3134 mikrotik.php:3461
 msgid "Unknown"
 msgstr ""
 
@@ -37,594 +37,594 @@ msgstr ""
 msgid "Testing"
 msgstr ""
 
-#: mikrotik.php:46 mikrotik.php:1927
+#: mikrotik.php:46 mikrotik.php:1931
 msgid "Down"
 msgstr ""
 
-#: mikrotik.php:245 mikrotik.php:1613 mikrotik.php:1951 mikrotik.php:2045
+#: mikrotik.php:249 mikrotik.php:1617 mikrotik.php:1955 mikrotik.php:2049
 #: setup.php:1540
 msgid "Devices"
 msgstr ""
 
-#: mikrotik.php:248 mikrotik.php:1719 mikrotik.php:2035 mikrotik_users.php:323
+#: mikrotik.php:252 mikrotik.php:1723 mikrotik.php:2039 mikrotik_users.php:323
 #: mikrotik_users.php:401 setup.php:1543
 msgid "Users"
 msgstr ""
 
-#: mikrotik.php:252 mikrotik.php:743 mikrotik.php:876
+#: mikrotik.php:256 mikrotik.php:747 mikrotik.php:880
 msgid "Queues"
 msgstr ""
 
-#: mikrotik.php:256
+#: mikrotik.php:260
 msgid "Queue Trees"
 msgstr ""
 
-#: mikrotik.php:260 mikrotik.php:436 mikrotik.php:564 setup.php:1544
+#: mikrotik.php:264 mikrotik.php:440 mikrotik.php:568 setup.php:1544
 msgid "Interfaces"
 msgstr ""
 
-#: mikrotik.php:264
+#: mikrotik.php:268
 msgid "DHCP"
 msgstr ""
 
-#: mikrotik.php:268 mikrotik.php:3264
+#: mikrotik.php:272 mikrotik.php:3268
 msgid "DNS Cache"
 msgstr ""
 
-#: mikrotik.php:272 mikrotik.php:3624
+#: mikrotik.php:276 mikrotik.php:3628
 msgid "Address Lists"
 msgstr ""
 
-#: mikrotik.php:276 mikrotik.php:1384 setup.php:1547
+#: mikrotik.php:280 mikrotik.php:1388 setup.php:1547
 msgid "Wireless Aps"
 msgstr ""
 
-#: mikrotik.php:280
+#: mikrotik.php:284
 msgid "Wireless Registrations"
 msgstr ""
 
-#: mikrotik.php:283 mikrotik.php:2566 setup.php:1546
+#: mikrotik.php:287 mikrotik.php:2570 setup.php:1546
 msgid "Graphs"
 msgstr ""
 
-#: mikrotik.php:400
+#: mikrotik.php:404
 msgid "Interface Stats"
 msgstr ""
 
-#: mikrotik.php:409 mikrotik.php:716 mikrotik.php:1021 mikrotik.php:1269
-#: mikrotik.php:1576 mikrotik.php:1898 mikrotik.php:2693 mikrotik.php:3006
-#: mikrotik.php:3273 mikrotik.php:3633 mikrotik_users.php:307
+#: mikrotik.php:413 mikrotik.php:720 mikrotik.php:1025 mikrotik.php:1273
+#: mikrotik.php:1580 mikrotik.php:1902 mikrotik.php:2697 mikrotik.php:3010
+#: mikrotik.php:3277 mikrotik.php:3637 mikrotik_users.php:307
 msgid "Search"
 msgstr ""
 
-#: mikrotik.php:415 mikrotik.php:722 mikrotik.php:1027 mikrotik.php:1275
-#: mikrotik.php:1582 mikrotik.php:2699 mikrotik.php:2842 mikrotik.php:3012
-#: mikrotik.php:3279 mikrotik.php:3639
+#: mikrotik.php:419 mikrotik.php:726 mikrotik.php:1031 mikrotik.php:1279
+#: mikrotik.php:1586 mikrotik.php:2703 mikrotik.php:2846 mikrotik.php:3016
+#: mikrotik.php:3283 mikrotik.php:3643
 msgid "Device"
 msgstr ""
 
-#: mikrotik.php:419 mikrotik.php:726 mikrotik.php:1031 mikrotik.php:1279
-#: mikrotik.php:1586 mikrotik.php:1607 mikrotik.php:1908 mikrotik.php:2703
-#: mikrotik.php:3016 mikrotik.php:3283 mikrotik.php:3304 mikrotik.php:3326
-#: mikrotik.php:3643 mikrotik.php:3664 mikrotik_users.php:317
+#: mikrotik.php:423 mikrotik.php:730 mikrotik.php:1035 mikrotik.php:1283
+#: mikrotik.php:1590 mikrotik.php:1611 mikrotik.php:1912 mikrotik.php:2707
+#: mikrotik.php:3020 mikrotik.php:3287 mikrotik.php:3308 mikrotik.php:3330
+#: mikrotik.php:3647 mikrotik.php:3668 mikrotik_users.php:317
 #: mikrotik_users.php:346
 msgid "All"
 msgstr ""
 
-#: mikrotik.php:440 mikrotik.php:747 mikrotik.php:1052 mikrotik.php:1300
-#: mikrotik.php:1617 mikrotik.php:1955 mikrotik.php:2724 mikrotik.php:3037
-#: mikrotik.php:3347 mikrotik.php:3685 mikrotik_users.php:327
+#: mikrotik.php:444 mikrotik.php:751 mikrotik.php:1056 mikrotik.php:1304
+#: mikrotik.php:1621 mikrotik.php:1959 mikrotik.php:2728 mikrotik.php:3041
+#: mikrotik.php:3351 mikrotik.php:3689 mikrotik_users.php:327
 msgid "Default"
 msgstr ""
 
-#: mikrotik.php:453 mikrotik.php:760 mikrotik.php:2737 mikrotik.php:3329
+#: mikrotik.php:457 mikrotik.php:764 mikrotik.php:2741 mikrotik.php:3333
 #: mikrotik_users.php:347 mikrotik_users.php:414 mikrotik_users.php:425
 msgid "Active"
 msgstr ""
 
-#: mikrotik.php:458 mikrotik.php:766 mikrotik.php:2742
+#: mikrotik.php:462 mikrotik.php:770 mikrotik.php:2746
 msgid "Since Reset"
 msgstr ""
 
-#: mikrotik.php:463 mikrotik.php:771 mikrotik.php:1064 mikrotik.php:1312
-#: mikrotik.php:1635 mikrotik.php:1967 mikrotik.php:2747 mikrotik.php:3049
-#: mikrotik.php:3359 mikrotik.php:3697 mikrotik_users.php:352
+#: mikrotik.php:467 mikrotik.php:775 mikrotik.php:1068 mikrotik.php:1316
+#: mikrotik.php:1639 mikrotik.php:1971 mikrotik.php:2751 mikrotik.php:3053
+#: mikrotik.php:3363 mikrotik.php:3701 mikrotik_users.php:352
 msgid "Go"
 msgstr ""
 
-#: mikrotik.php:464 mikrotik.php:772 mikrotik.php:1065 mikrotik.php:1313
-#: mikrotik.php:1636 mikrotik.php:1968 mikrotik.php:2748 mikrotik.php:3050
-#: mikrotik.php:3360 mikrotik.php:3698 mikrotik_users.php:353
+#: mikrotik.php:468 mikrotik.php:776 mikrotik.php:1069 mikrotik.php:1317
+#: mikrotik.php:1640 mikrotik.php:1972 mikrotik.php:2752 mikrotik.php:3054
+#: mikrotik.php:3364 mikrotik.php:3702 mikrotik_users.php:353
 msgid "Clear"
 msgstr ""
 
-#: mikrotik.php:552 mikrotik.php:860 mikrotik.php:1119 mikrotik.php:1369
-#: mikrotik.php:1703 mikrotik.php:2027 mikrotik.php:2841 setup.php:1550
+#: mikrotik.php:556 mikrotik.php:864 mikrotik.php:1123 mikrotik.php:1373
+#: mikrotik.php:1707 mikrotik.php:2031 mikrotik.php:2845 setup.php:1550
 msgid "Actions"
 msgstr ""
 
-#: mikrotik.php:553 mikrotik.php:861 mikrotik.php:1120 mikrotik.php:1370
-#: mikrotik.php:1704 mikrotik.php:3104
+#: mikrotik.php:557 mikrotik.php:865 mikrotik.php:1124 mikrotik.php:1374
+#: mikrotik.php:1708 mikrotik.php:3108
 msgid "Hostname"
 msgstr ""
 
-#: mikrotik.php:554 mikrotik.php:862 mikrotik.php:1121 mikrotik.php:2028
-#: mikrotik.php:3429
+#: mikrotik.php:558 mikrotik.php:866 mikrotik.php:1125 mikrotik.php:2032
+#: mikrotik.php:3433
 msgid "Name"
 msgstr ""
 
-#: mikrotik.php:555 mikrotik.php:2845
+#: mikrotik.php:559 mikrotik.php:2849
 msgid "Rx Bytes"
 msgstr ""
 
-#: mikrotik.php:556 mikrotik.php:2846
+#: mikrotik.php:560 mikrotik.php:2850
 msgid "Tx Bytes"
 msgstr ""
 
-#: mikrotik.php:557 mikrotik.php:2847
+#: mikrotik.php:561 mikrotik.php:2851
 msgid "Rx Packets"
 msgstr ""
 
-#: mikrotik.php:558 mikrotik.php:2848
+#: mikrotik.php:562 mikrotik.php:2852
 msgid "Tx Packets"
 msgstr ""
 
-#: mikrotik.php:559
+#: mikrotik.php:563
 msgid "Rx Errors"
 msgstr ""
 
-#: mikrotik.php:560
+#: mikrotik.php:564
 msgid "Tx Errors"
 msgstr ""
 
-#: mikrotik.php:561 mikrotik.php:873 mikrotik.php:1127 mikrotik.php:1381
-#: mikrotik.php:1716 mikrotik.php:2853 mikrotik.php:3110 mikrotik_users.php:413
+#: mikrotik.php:565 mikrotik.php:877 mikrotik.php:1131 mikrotik.php:1385
+#: mikrotik.php:1720 mikrotik.php:2857 mikrotik.php:3114 mikrotik_users.php:413
 msgid "Last Seen"
 msgstr ""
 
-#: mikrotik.php:579 mikrotik.php:891 mikrotik.php:1145 mikrotik.php:1399
-#: mikrotik.php:1746 mikrotik.php:2881
+#: mikrotik.php:583 mikrotik.php:895 mikrotik.php:1149 mikrotik.php:1403
+#: mikrotik.php:1750 mikrotik.php:2885
 msgid "Edit Device"
 msgstr ""
 
-#: mikrotik.php:598
+#: mikrotik.php:602
 msgid "No Interfaces Found"
 msgstr ""
 
-#: mikrotik.php:707
+#: mikrotik.php:711
 msgid "Queue Status"
 msgstr ""
 
-#: mikrotik.php:863
+#: mikrotik.php:867
 msgid "Src Addr/Mask"
 msgstr ""
 
-#: mikrotik.php:864
+#: mikrotik.php:868
 msgid "Dst Addr/Mask"
 msgstr ""
 
-#: mikrotik.php:865
+#: mikrotik.php:869
 msgid "Bytes In"
 msgstr ""
 
-#: mikrotik.php:866
+#: mikrotik.php:870
 msgid "Bytes Out"
 msgstr ""
 
-#: mikrotik.php:867
+#: mikrotik.php:871
 msgid "Pkts In"
 msgstr ""
 
-#: mikrotik.php:868
+#: mikrotik.php:872
 msgid "Pkts Out"
 msgstr ""
 
-#: mikrotik.php:869
+#: mikrotik.php:873
 msgid "Qs In"
 msgstr ""
 
-#: mikrotik.php:870
+#: mikrotik.php:874
 msgid "Qs Out"
 msgstr ""
 
-#: mikrotik.php:871
+#: mikrotik.php:875
 msgid "Drps In"
 msgstr ""
 
-#: mikrotik.php:872
+#: mikrotik.php:876
 msgid "Drps Out"
 msgstr ""
 
-#: mikrotik.php:918 mikrotik.php:2096
+#: mikrotik.php:922 mikrotik.php:2100
 msgid "No Simple Queues Found"
 msgstr ""
 
-#: mikrotik.php:1012
+#: mikrotik.php:1016
 msgid "Queue Tree Status"
 msgstr ""
 
-#: mikrotik.php:1048 mikrotik.php:1130 mikrotik.php:2034 setup.php:1541
+#: mikrotik.php:1052 mikrotik.php:1134 mikrotik.php:2038 setup.php:1541
 msgid "Trees"
 msgstr ""
 
-#: mikrotik.php:1122
+#: mikrotik.php:1126
 msgid "Flow"
 msgstr ""
 
-#: mikrotik.php:1123
+#: mikrotik.php:1127
 msgid "Cur Bytes"
 msgstr ""
 
-#: mikrotik.php:1124
+#: mikrotik.php:1128
 msgid "Cur Packets"
 msgstr ""
 
-#: mikrotik.php:1125
+#: mikrotik.php:1129
 msgid "Total Bytes"
 msgstr ""
 
-#: mikrotik.php:1126
+#: mikrotik.php:1130
 msgid "Total Packets"
 msgstr ""
 
-#: mikrotik.php:1163 mikrotik.php:2102
+#: mikrotik.php:1167 mikrotik.php:2106
 msgid "No Queue Trees Found"
 msgstr ""
 
-#: mikrotik.php:1260
+#: mikrotik.php:1264
 msgid "Wireless Aps Status"
 msgstr ""
 
-#: mikrotik.php:1296
+#: mikrotik.php:1300
 msgid "Aps"
 msgstr ""
 
-#: mikrotik.php:1371
+#: mikrotik.php:1375
 msgid "SSID"
 msgstr ""
 
-#: mikrotik.php:1372
+#: mikrotik.php:1376
 msgid "BSSID"
 msgstr ""
 
-#: mikrotik.php:1373 mikrotik.php:2850
+#: mikrotik.php:1377 mikrotik.php:2854
 msgid "Tx Rate"
 msgstr ""
 
-#: mikrotik.php:1374 mikrotik.php:2849
+#: mikrotik.php:1378 mikrotik.php:2853
 msgid "Rx Rate"
 msgstr ""
 
-#: mikrotik.php:1375
+#: mikrotik.php:1379
 msgid "Clients"
 msgstr ""
 
-#: mikrotik.php:1376
+#: mikrotik.php:1380
 msgid "Auth Clients"
 msgstr ""
 
-#: mikrotik.php:1377
+#: mikrotik.php:1381
 msgid "Frequency"
 msgstr ""
 
-#: mikrotik.php:1378
+#: mikrotik.php:1382
 msgid "Band"
 msgstr ""
 
-#: mikrotik.php:1379
+#: mikrotik.php:1383
 msgid "Noise Floor"
 msgstr ""
 
-#: mikrotik.php:1380
+#: mikrotik.php:1384
 msgid "Tx CQQ"
 msgstr ""
 
-#: mikrotik.php:1567
+#: mikrotik.php:1571
 msgid "User Statistics"
 msgstr ""
 
-#: mikrotik.php:1603 mikrotik.php:1706 mikrotik.php:3111 mikrotik.php:3300
-#: mikrotik.php:3427 mikrotik_users.php:313 mikrotik_users.php:412
+#: mikrotik.php:1607 mikrotik.php:1710 mikrotik.php:3115 mikrotik.php:3304
+#: mikrotik.php:3431 mikrotik_users.php:313 mikrotik_users.php:412
 msgid "Type"
 msgstr ""
 
-#: mikrotik.php:1608 mikrotik_users.php:318
+#: mikrotik.php:1612 mikrotik_users.php:318
 msgid "Hotspot"
 msgstr ""
 
-#: mikrotik.php:1609 mikrotik_users.php:319
+#: mikrotik.php:1613 mikrotik_users.php:319
 msgid "PPPoe"
 msgstr ""
 
-#: mikrotik.php:1630
+#: mikrotik.php:1634
 msgid "Active Users"
 msgstr ""
 
-#: mikrotik.php:1705
+#: mikrotik.php:1709
 msgid "User"
 msgstr ""
 
-#: mikrotik.php:1707 mikrotik.php:3106
+#: mikrotik.php:1711 mikrotik.php:3110
 msgid "IP Address"
 msgstr ""
 
-#: mikrotik.php:1708
+#: mikrotik.php:1712
 msgid "MAC"
 msgstr ""
 
-#: mikrotik.php:1709
+#: mikrotik.php:1713
 msgid "Connect Time"
 msgstr ""
 
-#: mikrotik.php:1710
+#: mikrotik.php:1714
 msgid "Cur In"
 msgstr ""
 
-#: mikrotik.php:1711
+#: mikrotik.php:1715
 msgid "Cur Out"
 msgstr ""
 
-#: mikrotik.php:1712
+#: mikrotik.php:1716
 msgid "Avg In"
 msgstr ""
 
-#: mikrotik.php:1713
+#: mikrotik.php:1717
 msgid "Avg Out"
 msgstr ""
 
-#: mikrotik.php:1714
+#: mikrotik.php:1718
 msgid "Total In"
 msgstr ""
 
-#: mikrotik.php:1715
+#: mikrotik.php:1719
 msgid "Total Out"
 msgstr ""
 
-#: mikrotik.php:1768 mikrotik.php:1770 mikrotik.php:1771 mikrotik.php:1772
-#: mikrotik.php:1773 mikrotik.php:1774 mikrotik.php:1775 mikrotik.php:1776
-#: mikrotik.php:3132 mikrotik.php:3135 mikrotik.php:3136 mikrotik.php:3460
+#: mikrotik.php:1772 mikrotik.php:1774 mikrotik.php:1775 mikrotik.php:1776
+#: mikrotik.php:1777 mikrotik.php:1778 mikrotik.php:1779 mikrotik.php:1780
+#: mikrotik.php:3136 mikrotik.php:3139 mikrotik.php:3140 mikrotik.php:3464
 msgid "N/A"
 msgstr ""
 
-#: mikrotik.php:1783 mikrotik.php:2090 mikrotik_users.php:430
+#: mikrotik.php:1787 mikrotik.php:2094 mikrotik_users.php:430
 msgid "No Users Found"
 msgstr ""
 
-#: mikrotik.php:1868
+#: mikrotik.php:1872
 msgid "MikroTik Changelog"
 msgstr ""
 
-#: mikrotik.php:1882
+#: mikrotik.php:1886
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
 msgstr ""
 
-#: mikrotik.php:1884
+#: mikrotik.php:1888
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
 msgstr ""
 
-#: mikrotik.php:1887
+#: mikrotik.php:1891
 msgid "ChangeLog"
 msgstr ""
 
-#: mikrotik.php:1904 mikrotik.php:2030 mikrotik.php:3107 mikrotik.php:3322
+#: mikrotik.php:1908 mikrotik.php:2034 mikrotik.php:3111 mikrotik.php:3326
 #: mikrotik_users.php:342
 msgid "Status"
 msgstr ""
 
-#: mikrotik.php:1931
+#: mikrotik.php:1935
 msgid "Recovering"
 msgstr ""
 
-#: mikrotik.php:1935
+#: mikrotik.php:1939
 msgid "Up"
 msgstr ""
 
-#: mikrotik.php:1939 mikrotik.php:3113 mikrotik.php:3761 setup.php:1325
+#: mikrotik.php:1943 mikrotik.php:3117 mikrotik.php:3765 setup.php:1325
 msgid "Disabled"
 msgstr ""
 
-#: mikrotik.php:2029 mikrotik.php:3426 mikrotik.php:3757
+#: mikrotik.php:2033 mikrotik.php:3430 mikrotik.php:3761
 msgid "Description"
 msgstr ""
 
-#: mikrotik.php:2031
+#: mikrotik.php:2035
 msgid "FW Ver"
 msgstr ""
 
-#: mikrotik.php:2032
+#: mikrotik.php:2036
 msgid "Lic Ver"
 msgstr ""
 
-#: mikrotik.php:2033 mikrotik.php:2851
+#: mikrotik.php:2037 mikrotik.php:2855
 msgid "Uptime(d:h:m)"
 msgstr ""
 
-#: mikrotik.php:2036
+#: mikrotik.php:2040
 msgid "CPU %%%"
 msgstr ""
 
-#: mikrotik.php:2037
+#: mikrotik.php:2041
 msgid "CPUs"
 msgstr ""
 
-#: mikrotik.php:2038
+#: mikrotik.php:2042
 msgid "Processes"
 msgstr ""
 
-#: mikrotik.php:2039
+#: mikrotik.php:2043
 msgid "Total Mem"
 msgstr ""
 
-#: mikrotik.php:2040
+#: mikrotik.php:2044
 msgid "Used Mem"
 msgstr ""
 
-#: mikrotik.php:2041
+#: mikrotik.php:2045
 msgid "Total Disk"
 msgstr ""
 
-#: mikrotik.php:2042
+#: mikrotik.php:2046
 msgid "Used Disk"
 msgstr ""
 
-#: mikrotik.php:2088
+#: mikrotik.php:2092
 msgid "View Users"
 msgstr ""
 
-#: mikrotik.php:2094
+#: mikrotik.php:2098
 msgid "View Simple Queue"
 msgstr ""
 
-#: mikrotik.php:2100
+#: mikrotik.php:2104
 msgid "View Queue Trees"
 msgstr ""
 
-#: mikrotik.php:2106
+#: mikrotik.php:2110
 msgid "View Wireless Aps"
 msgstr ""
 
-#: mikrotik.php:2108
+#: mikrotik.php:2112
 msgid "No Wireless Aps Found"
 msgstr ""
 
-#: mikrotik.php:2111
+#: mikrotik.php:2115
 msgid "View Interfaces"
 msgstr ""
 
-#: mikrotik.php:2114 mikrotik.php:2323 mikrotik.php:2325 mikrotik.php:2390
-#: mikrotik.php:2392 setup.php:1644
+#: mikrotik.php:2118 mikrotik.php:2327 mikrotik.php:2329 mikrotik.php:2394
+#: mikrotik.php:2396 setup.php:1644
 msgid "View Graphs"
 msgstr ""
 
-#: mikrotik.php:2116
+#: mikrotik.php:2120
 msgid "No Graphs Defined"
 msgstr ""
 
-#: mikrotik.php:2153
+#: mikrotik.php:2157
 msgid "No Devices Found"
 msgstr ""
 
-#: mikrotik.php:2331
+#: mikrotik.php:2335
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
 msgstr ""
 
-#: mikrotik.php:2395
+#: mikrotik.php:2399
 msgid "Graphs skipped or not created yet"
 msgstr ""
 
-#: mikrotik.php:2398
+#: mikrotik.php:2402
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
 msgstr ""
 
-#: mikrotik.php:2471
+#: mikrotik.php:2475
 msgid "Custom Graph List Applied - Filtering from List"
 msgstr ""
 
-#: mikrotik.php:2471
+#: mikrotik.php:2475
 msgid "Graph Preview Filters"
 msgstr ""
 
-#: mikrotik.php:2684
+#: mikrotik.php:2688
 msgid "Wireless Registration Stats"
 msgstr ""
 
-#: mikrotik.php:2720 mikrotik.php:2856
+#: mikrotik.php:2724 mikrotik.php:2860
 msgid "Registrations"
 msgstr ""
 
-#: mikrotik.php:2843 mikrotik.php:3105
+#: mikrotik.php:2847 mikrotik.php:3109
 msgid "Client Name"
 msgstr ""
 
-#: mikrotik.php:2844 mikrotik.php:3108
+#: mikrotik.php:2848 mikrotik.php:3112
 msgid "MAC Address"
 msgstr ""
 
-#: mikrotik.php:2852
+#: mikrotik.php:2856
 msgid "Signal to Noise"
 msgstr ""
 
-#: mikrotik.php:2903
+#: mikrotik.php:2907
 msgid "No Wireless Registrations Found"
 msgstr ""
 
-#: mikrotik.php:2997
+#: mikrotik.php:3001
 msgid "DHCP Registrations"
 msgstr ""
 
-#: mikrotik.php:3033 mikrotik.php:3117 mikrotik.php:3343 mikrotik.php:3444
-#: mikrotik.php:3681 mikrotik.php:3775
+#: mikrotik.php:3037 mikrotik.php:3121 mikrotik.php:3347 mikrotik.php:3448
+#: mikrotik.php:3685 mikrotik.php:3779
 msgid "Entries"
 msgstr ""
 
-#: mikrotik.php:3109
+#: mikrotik.php:3113
 msgid "Expires in"
 msgstr ""
 
-#: mikrotik.php:3112
+#: mikrotik.php:3116
 msgid "Blocked"
 msgstr ""
 
-#: mikrotik.php:3114 mikrotik.php:3432 mikrotik.php:3763
+#: mikrotik.php:3118 mikrotik.php:3436 mikrotik.php:3767
 msgid "Last Updated"
 msgstr ""
 
-#: mikrotik.php:3135 mikrotik.php:3136
+#: mikrotik.php:3139 mikrotik.php:3140
 #, php-format
 msgid "%s Seconds"
 msgstr ""
 
-#: mikrotik.php:3138 mikrotik.php:3760
+#: mikrotik.php:3142 mikrotik.php:3764
 msgid "Dynamic"
 msgstr ""
 
-#: mikrotik.php:3138 mikrotik.php:3431
+#: mikrotik.php:3142 mikrotik.php:3435
 msgid "Static"
 msgstr ""
 
-#: mikrotik.php:3146
+#: mikrotik.php:3150
 msgid "No DHCP Entries Found"
 msgstr ""
 
-#: mikrotik.php:3330 mikrotik.php:3468 mikrotik.php:3795
+#: mikrotik.php:3334 mikrotik.php:3472 mikrotik.php:3799
 msgid "Permanent"
 msgstr ""
 
-#: mikrotik.php:3331 mikrotik.php:3472 mikrotik.php:3797
+#: mikrotik.php:3335 mikrotik.php:3476 mikrotik.php:3801
 msgid "Expired"
 msgstr ""
 
-#: mikrotik.php:3361 mikrotik.php:3699
+#: mikrotik.php:3365 mikrotik.php:3703
 msgid "Export"
 msgstr ""
 
-#: mikrotik.php:3428
+#: mikrotik.php:3432
 msgid "Data"
 msgstr ""
 
-#: mikrotik.php:3430
+#: mikrotik.php:3434
 msgid "TTL"
 msgstr ""
 
-#: mikrotik.php:3481
+#: mikrotik.php:3485
 msgid "No DNS Entries Found"
 msgstr ""
 
-#: mikrotik.php:3660 mikrotik.php:3758
+#: mikrotik.php:3664 mikrotik.php:3762
 msgid "List"
 msgstr ""
 
-#: mikrotik.php:3759
+#: mikrotik.php:3763
 msgid "Address"
 msgstr ""
 
-#: mikrotik.php:3762
+#: mikrotik.php:3766
 msgid "Timeout"
 msgstr ""
 
-#: mikrotik.php:3807
+#: mikrotik.php:3811
 msgid "No Address List Entries Found"
 msgstr ""
 
