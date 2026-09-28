@@ -189,8 +189,8 @@ function getLatestVersion(): void {
  *
  * @param float $start     The current run's start time (from
  *                         microtime(true)).
- * @param int   $lastrun   The Unix timestamp of the task's last run.
- * @param int   $frequency The task's configured run frequency in
+ * @param int|string|null $lastrun   The Unix timestamp of the task's last run.
+ * @param int|string|null $frequency The task's configured run frequency in
  *                         seconds; -1 disables the task.
  *
  * @return bool True if the task is due to run, false otherwise.
@@ -198,8 +198,12 @@ function getLatestVersion(): void {
  * @global bool $forcerun Whether this run was started with '--force',
  *                        in which case the task always runs.
  */
-function runCollector(float $start, int $lastrun, int $frequency): bool {
+function runCollector(float $start, int|string|null $lastrun, int|string|null $frequency): bool {
 	global $forcerun;
+
+	// Settings arrive straight from read_config_option(); an unset last-run is '' or null.
+	$lastrun   = (int) $lastrun;
+	$frequency = (int) $frequency;
 
 	if ($frequency == -1) {
 		return false;

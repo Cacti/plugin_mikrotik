@@ -2,6 +2,7 @@
 --- develop ---
 
 * dev: Bring all plugin code to PHPStan level 8 with accurate native and PHPDoc types
+* issue: Normalize nullable/config-string inputs to runCollector() and mikrotik_memory() so unset last-run settings and NULL wireless AP rate columns no longer raise a TypeError under PHP 8.2
 * issue: Fix stale/invalid html_start_box() and html_header_sort() arguments
 * issue: Fix uptime/TTL arithmetic on SNMP string values and a double strlen() typo
 * issue: Fix db_fetch_assoc() used with prepared parameters in poller_graphs.php

@@ -2209,13 +2209,16 @@ function mikrotik_right(string $string, int $chars, bool $strip = false): string
  * optional caller-supplied suffix (e.g. 'bps'). Called when rendering
  * memory/storage/traffic sizes in the MikroTik views.
  *
- * @param float  $mem    The size to format.
+ * @param float|null $mem    The size to format.
  * @param string $suffix An optional extra suffix to append after the
  *                       unit letter.
  *
  * @return string The formatted, HTML-escaped size string.
  */
-function mikrotik_memory(float $mem, string $suffix = ''): string {
+function mikrotik_memory(?float $mem, string $suffix = ''): string {
+	// Nullable DB rate columns (e.g. apTxRate/apRxRate DEFAULT NULL) normalize to 0 here.
+	$mem = (float) $mem;
+
 	// DB-sourced $mem/$suffix are only ever used for display; html_escape() here covers every call site at once.
 	if ($mem < 1024) {
 		return html_escape(round($mem,0) . "  $suffix");
