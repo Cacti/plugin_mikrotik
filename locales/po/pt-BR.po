@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 10:00-0400\n"
+"POT-Creation-Date: 2026-09-28 16:06-0400\n"
 "PO-Revision-Date: 2024-06-25 16:31+0000\n"
 "Last-Translator: fabricio tavares maciel <fabricio.tavares@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\n"
@@ -18,1163 +18,1132 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.8.1\n"
 
-#: mikrotik.php:41
+#: mikrotik.php
 msgid "Present"
 msgstr "Presente"
 
-#: mikrotik.php:42 mikrotik.php:1927 mikrotik.php:3137 mikrotik.php:3464
+#: mikrotik.php
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: mikrotik.php:43
+#: mikrotik.php
 msgid "Running"
 msgstr "Corrida"
 
-#: mikrotik.php:44
+#: mikrotik.php
 msgid "Warning"
 msgstr "Atenção"
 
-#: mikrotik.php:45
+#: mikrotik.php
 msgid "Testing"
 msgstr "Testando"
 
-#: mikrotik.php:46 mikrotik.php:1931
+#: mikrotik.php
 msgid "Down"
 msgstr "Down"
 
-#: mikrotik.php:249 mikrotik.php:1617 mikrotik.php:1955 mikrotik.php:2049
-#: setup.php:1556
+#: mikrotik.php setup.php
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: mikrotik.php:252 mikrotik.php:1723 mikrotik.php:2039 mikrotik_users.php:323
-#: mikrotik_users.php:401 setup.php:1559
+#: mikrotik.php mikrotik_users.php setup.php
 msgid "Users"
 msgstr "Usuários"
 
-#: mikrotik.php:256 mikrotik.php:747 mikrotik.php:880
+#: mikrotik.php
 msgid "Queues"
 msgstr "Dúvidas"
 
-#: mikrotik.php:260
+#: mikrotik.php
 #, fuzzy
 msgid "Queue Trees"
 msgstr "Árvores de fila"
 
-#: mikrotik.php:264 mikrotik.php:440 mikrotik.php:568 setup.php:1560
+#: mikrotik.php setup.php
 msgid "Interfaces"
 msgstr "Interfaces"
 
-#: mikrotik.php:268
+#: mikrotik.php
 msgid "DHCP"
 msgstr "DHCP"
 
-#: mikrotik.php:272 mikrotik.php:3271
+#: mikrotik.php
 #, fuzzy
 msgid "DNS Cache"
 msgstr "Cache DNS"
 
-#: mikrotik.php:276 mikrotik.php:3631
+#: mikrotik.php
 #, fuzzy
 msgid "Address Lists"
 msgstr "Endereço IP"
 
-#: mikrotik.php:280 mikrotik.php:1388 setup.php:1563
+#: mikrotik.php setup.php
 #, fuzzy
 msgid "Wireless Aps"
 msgstr "Aps sem fio"
 
-#: mikrotik.php:284
+#: mikrotik.php
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "Freqüência de Registros Sem Fio"
 
-#: mikrotik.php:287 mikrotik.php:2573 setup.php:1562
+#: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "Gráficos"
 
-#: mikrotik.php:404
+#: mikrotik.php
 #, fuzzy
 msgid "Interface Stats"
 msgstr "Estatísticas de interface"
 
-#: mikrotik.php:413 mikrotik.php:720 mikrotik.php:1025 mikrotik.php:1273
-#: mikrotik.php:1580 mikrotik.php:1902 mikrotik.php:2700 mikrotik.php:3013
-#: mikrotik.php:3280 mikrotik.php:3640 mikrotik_users.php:307
+#: mikrotik.php mikrotik_users.php
 msgid "Search"
 msgstr "Pesquisar"
 
-#: mikrotik.php:419 mikrotik.php:726 mikrotik.php:1031 mikrotik.php:1279
-#: mikrotik.php:1586 mikrotik.php:2706 mikrotik.php:2849 mikrotik.php:3019
-#: mikrotik.php:3286 mikrotik.php:3646
+#: mikrotik.php
 msgid "Device"
 msgstr "Dispositivo"
 
-#: mikrotik.php:423 mikrotik.php:730 mikrotik.php:1035 mikrotik.php:1283
-#: mikrotik.php:1590 mikrotik.php:1611 mikrotik.php:1912 mikrotik.php:2710
-#: mikrotik.php:3023 mikrotik.php:3290 mikrotik.php:3311 mikrotik.php:3333
-#: mikrotik.php:3650 mikrotik.php:3671 mikrotik_users.php:317
-#: mikrotik_users.php:346
+#: mikrotik.php mikrotik_users.php
 msgid "All"
 msgstr "Todos"
 
-#: mikrotik.php:444 mikrotik.php:751 mikrotik.php:1056 mikrotik.php:1304
-#: mikrotik.php:1621 mikrotik.php:1959 mikrotik.php:2731 mikrotik.php:3044
-#: mikrotik.php:3354 mikrotik.php:3692 mikrotik_users.php:327
+#: mikrotik.php mikrotik_users.php
 msgid "Default"
 msgstr "Padrão"
 
-#: mikrotik.php:457 mikrotik.php:764 mikrotik.php:2744 mikrotik.php:3336
-#: mikrotik_users.php:347 mikrotik_users.php:414 mikrotik_users.php:425
+#: mikrotik.php mikrotik_users.php
 msgid "Active"
 msgstr "Ativo"
 
-#: mikrotik.php:462 mikrotik.php:770 mikrotik.php:2749
+#: mikrotik.php
 #, fuzzy
 msgid "Since Reset"
 msgstr "Desde a reinicialização"
 
-#: mikrotik.php:467 mikrotik.php:775 mikrotik.php:1068 mikrotik.php:1316
-#: mikrotik.php:1639 mikrotik.php:1971 mikrotik.php:2754 mikrotik.php:3056
-#: mikrotik.php:3366 mikrotik.php:3704 mikrotik_users.php:352
+#: mikrotik.php mikrotik_users.php
 msgid "Go"
 msgstr "Ir"
 
-#: mikrotik.php:468 mikrotik.php:776 mikrotik.php:1069 mikrotik.php:1317
-#: mikrotik.php:1640 mikrotik.php:1972 mikrotik.php:2755 mikrotik.php:3057
-#: mikrotik.php:3367 mikrotik.php:3705 mikrotik_users.php:353
+#: mikrotik.php mikrotik_users.php
 msgid "Clear"
 msgstr "Limpar"
 
-#: mikrotik.php:556 mikrotik.php:864 mikrotik.php:1123 mikrotik.php:1373
-#: mikrotik.php:1707 mikrotik.php:2031 mikrotik.php:2848 setup.php:1566
+#: mikrotik.php setup.php
 msgid "Actions"
 msgstr "Ações"
 
-#: mikrotik.php:557 mikrotik.php:865 mikrotik.php:1124 mikrotik.php:1374
-#: mikrotik.php:1708 mikrotik.php:3111
+#: mikrotik.php
 msgid "Hostname"
 msgstr "Hostname"
 
-#: mikrotik.php:558 mikrotik.php:866 mikrotik.php:1125 mikrotik.php:2032
-#: mikrotik.php:3436
+#: mikrotik.php
 msgid "Name"
 msgstr "Nome"
 
-#: mikrotik.php:559 mikrotik.php:2852
+#: mikrotik.php
 #, fuzzy
 msgid "Rx Bytes"
 msgstr "Rx Bytes"
 
-#: mikrotik.php:560 mikrotik.php:2853
+#: mikrotik.php
 #, fuzzy
 msgid "Tx Bytes"
 msgstr "Tx Bytes"
 
-#: mikrotik.php:561 mikrotik.php:2854
+#: mikrotik.php
 #, fuzzy
 msgid "Rx Packets"
 msgstr "Pacotes Rx"
 
-#: mikrotik.php:562 mikrotik.php:2855
+#: mikrotik.php
 #, fuzzy
 msgid "Tx Packets"
 msgstr "Pacotes Tx"
 
-#: mikrotik.php:563
+#: mikrotik.php
 #, fuzzy
 msgid "Rx Errors"
 msgstr "Erros Rx"
 
-#: mikrotik.php:564
+#: mikrotik.php
 #, fuzzy
 msgid "Tx Errors"
 msgstr "Erros Tx"
 
-#: mikrotik.php:565 mikrotik.php:877 mikrotik.php:1131 mikrotik.php:1385
-#: mikrotik.php:1720 mikrotik.php:2860 mikrotik.php:3117 mikrotik_users.php:413
+#: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
 msgstr "Visto pela última vez"
 
-#: mikrotik.php:583 mikrotik.php:895 mikrotik.php:1149 mikrotik.php:1403
-#: mikrotik.php:1750 mikrotik.php:2888
+#: mikrotik.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "Dispositivo"
 
-#: mikrotik.php:602
+#: mikrotik.php
 #, fuzzy
 msgid "No Interfaces Found"
 msgstr "Nenhuma interface encontrada"
 
-#: mikrotik.php:711
+#: mikrotik.php
 #, fuzzy
 msgid "Queue Status"
 msgstr "Status da fila"
 
-#: mikrotik.php:867
+#: mikrotik.php
 #, fuzzy
 msgid "Src Addr/Mask"
 msgstr "Src Endereço/Máscara"
 
-#: mikrotik.php:868
+#: mikrotik.php
 #, fuzzy
 msgid "Dst Addr/Mask"
 msgstr "Dst Endereços/Máscara"
 
-#: mikrotik.php:869
+#: mikrotik.php
 #, fuzzy
 msgid "Bytes In"
 msgstr "Bytes"
 
-#: mikrotik.php:870
+#: mikrotik.php
 #, fuzzy
 msgid "Bytes Out"
 msgstr "Bytes Fora"
 
-#: mikrotik.php:871
+#: mikrotik.php
 #, fuzzy
 msgid "Pkts In"
 msgstr "Pkts In"
 
-#: mikrotik.php:872
+#: mikrotik.php
 #, fuzzy
 msgid "Pkts Out"
 msgstr "Pkts Out"
 
-#: mikrotik.php:873
+#: mikrotik.php
 #, fuzzy
 msgid "Qs In"
 msgstr "Qs In"
 
-#: mikrotik.php:874
+#: mikrotik.php
 #, fuzzy
 msgid "Qs Out"
 msgstr "Qs Out"
 
-#: mikrotik.php:875
+#: mikrotik.php
 #, fuzzy
 msgid "Drps In"
 msgstr "Drps In"
 
-#: mikrotik.php:876
+#: mikrotik.php
 #, fuzzy
 msgid "Drps Out"
 msgstr "Drps Out"
 
-#: mikrotik.php:922 mikrotik.php:2100
+#: mikrotik.php
 #, fuzzy
 msgid "No Simple Queues Found"
 msgstr "Não foram encontradas filas simples"
 
-#: mikrotik.php:1016
+#: mikrotik.php
 #, fuzzy
 msgid "Queue Tree Status"
 msgstr "Status da árvore de fila"
 
-#: mikrotik.php:1052 mikrotik.php:1134 mikrotik.php:2038 setup.php:1557
+#: mikrotik.php setup.php
 msgid "Trees"
 msgstr "Árvores"
 
-#: mikrotik.php:1126
+#: mikrotik.php
 msgid "Flow"
 msgstr "Fluxo"
 
-#: mikrotik.php:1127
+#: mikrotik.php
 #, fuzzy
 msgid "Cur Bytes"
 msgstr "Curva Bytes"
 
-#: mikrotik.php:1128
+#: mikrotik.php
 #, fuzzy
 msgid "Cur Packets"
 msgstr "Pacotes Cur"
 
-#: mikrotik.php:1129
+#: mikrotik.php
 #, fuzzy
 msgid "Total Bytes"
 msgstr "Total de Bytes"
 
-#: mikrotik.php:1130
+#: mikrotik.php
 #, fuzzy
 msgid "Total Packets"
 msgstr "Total de Pacotes"
 
-#: mikrotik.php:1167 mikrotik.php:2106
+#: mikrotik.php
 #, fuzzy
 msgid "No Queue Trees Found"
 msgstr "Nenhuma Fila de Árvores Encontradas"
 
-#: mikrotik.php:1264
+#: mikrotik.php
 #, fuzzy
 msgid "Wireless Aps Status"
 msgstr "Status das Aps sem fio"
 
-#: mikrotik.php:1300
+#: mikrotik.php
 #, fuzzy
 msgid "Aps"
 msgstr "Aps"
 
-#: mikrotik.php:1375
+#: mikrotik.php
 msgid "SSID"
 msgstr "SSID"
 
-#: mikrotik.php:1376
+#: mikrotik.php
 #, fuzzy
 msgid "BSSID"
 msgstr "BSSID"
 
-#: mikrotik.php:1377 mikrotik.php:2857
+#: mikrotik.php
 #, fuzzy
 msgid "Tx Rate"
 msgstr "Taxa Tx"
 
-#: mikrotik.php:1378 mikrotik.php:2856
+#: mikrotik.php
 #, fuzzy
 msgid "Rx Rate"
 msgstr "Taxa Rx"
 
-#: mikrotik.php:1379
+#: mikrotik.php
 msgid "Clients"
 msgstr "Clientes"
 
-#: mikrotik.php:1380
+#: mikrotik.php
 #, fuzzy
 msgid "Auth Clients"
 msgstr "Clientes Auth"
 
-#: mikrotik.php:1381
+#: mikrotik.php
 msgid "Frequency"
 msgstr "Frequência"
 
-#: mikrotik.php:1382
+#: mikrotik.php
 #, fuzzy
 msgid "Band"
 msgstr "Banda"
 
-#: mikrotik.php:1383
+#: mikrotik.php
 #, fuzzy
 msgid "Noise Floor"
 msgstr "Piso Ruído"
 
-#: mikrotik.php:1384
+#: mikrotik.php
 #, fuzzy
 msgid "Tx CQQ"
 msgstr "Tx CQQQ"
 
-#: mikrotik.php:1571
+#: mikrotik.php
 msgid "User Statistics"
 msgstr "Estatísticas de Usuário"
 
-#: mikrotik.php:1607 mikrotik.php:1710 mikrotik.php:3118 mikrotik.php:3307
-#: mikrotik.php:3434 mikrotik_users.php:313 mikrotik_users.php:412
+#: mikrotik.php mikrotik_users.php
 msgid "Type"
 msgstr "Tipo"
 
-#: mikrotik.php:1612 mikrotik_users.php:318
+#: mikrotik.php mikrotik_users.php
 msgid "Hotspot"
 msgstr "Hotspot"
 
-#: mikrotik.php:1613 mikrotik_users.php:319
+#: mikrotik.php mikrotik_users.php
 #, fuzzy
 msgid "PPPoe"
 msgstr "PPPoe"
 
-#: mikrotik.php:1634
+#: mikrotik.php
 msgid "Active Users"
 msgstr "Usuários ativos"
 
-#: mikrotik.php:1709
+#: mikrotik.php
 msgid "User"
 msgstr "Usuário"
 
-#: mikrotik.php:1711 mikrotik.php:3113
+#: mikrotik.php
 msgid "IP Address"
 msgstr "Endereço IP"
 
-#: mikrotik.php:1712
+#: mikrotik.php
 #, fuzzy
 msgid "MAC"
 msgstr "MAC"
 
-#: mikrotik.php:1713
+#: mikrotik.php
 #, fuzzy
 msgid "Connect Time"
 msgstr "Tempo de Conexão"
 
-#: mikrotik.php:1714
+#: mikrotik.php
 #, fuzzy
 msgid "Cur In"
 msgstr "Cur In"
 
-#: mikrotik.php:1715
+#: mikrotik.php
 #, fuzzy
 msgid "Cur Out"
 msgstr "Cur-out"
 
-#: mikrotik.php:1716
+#: mikrotik.php
 #, fuzzy
 msgid "Avg In"
 msgstr "Média:"
 
-#: mikrotik.php:1717
+#: mikrotik.php
 #, fuzzy
 msgid "Avg Out"
 msgstr "Média Out"
 
-#: mikrotik.php:1718
+#: mikrotik.php
 #, fuzzy
 msgid "Total In"
 msgstr "Total"
 
-#: mikrotik.php:1719
+#: mikrotik.php
 #, fuzzy
 msgid "Total Out"
 msgstr "Total Out"
 
-#: mikrotik.php:1772 mikrotik.php:1774 mikrotik.php:1775 mikrotik.php:1776
-#: mikrotik.php:1777 mikrotik.php:1778 mikrotik.php:1779 mikrotik.php:1780
-#: mikrotik.php:3139 mikrotik.php:3142 mikrotik.php:3143 mikrotik.php:3467
+#: mikrotik.php
 msgid "N/A"
 msgstr "N/A"
 
-#: mikrotik.php:1787 mikrotik.php:2094 mikrotik_users.php:430
+#: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
 msgstr "Usuários não encontrados"
 
-#: mikrotik.php:1872
+#: mikrotik.php
 #, fuzzy
 msgid "MikroTik Changelog"
 msgstr "Credenciais MikroTik"
 
-#: mikrotik.php:1886
+#: mikrotik.php
 #, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
 msgstr "Device Filter (A última versão do MikroTik é: %s)"
 
-#: mikrotik.php:1888
+#: mikrotik.php
 #, fuzzy, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
 msgstr "Device Filter (A versão mais recente do MikroTik é: %s, Lançado: %s)"
 
-#: mikrotik.php:1891
+#: mikrotik.php
 msgid "ChangeLog"
 msgstr "TrocarRegistro"
 
-#: mikrotik.php:1908 mikrotik.php:2034 mikrotik.php:3114 mikrotik.php:3329
-#: mikrotik_users.php:342
+#: mikrotik.php mikrotik_users.php
 msgid "Status"
 msgstr "Status"
 
-#: mikrotik.php:1935
+#: mikrotik.php
 #, fuzzy
 msgid "Recovering"
 msgstr "Recuperando"
 
-#: mikrotik.php:1939
+#: mikrotik.php
 msgid "Up"
 msgstr "Up"
 
-#: mikrotik.php:1943 mikrotik.php:3120 mikrotik.php:3768 setup.php:1341
+#: mikrotik.php setup.php
 msgid "Disabled"
 msgstr "Desativado"
 
-#: mikrotik.php:2033 mikrotik.php:3433 mikrotik.php:3764
+#: mikrotik.php
 msgid "Description"
 msgstr "Descrição"
 
-#: mikrotik.php:2035
+#: mikrotik.php
 #, fuzzy
 msgid "FW Ver"
 msgstr "FW Ver"
 
-#: mikrotik.php:2036
+#: mikrotik.php
 #, fuzzy
 msgid "Lic Ver"
 msgstr "Lic Ver"
 
-#: mikrotik.php:2037 mikrotik.php:2858
+#: mikrotik.php
 #, fuzzy
 msgid "Uptime(d:h:m)"
 msgstr "Tempo de atividade (d:h:m)"
 
-#: mikrotik.php:2040
+#: mikrotik.php
 #, fuzzy
 msgid "CPU %%%"
 msgstr "% CPU"
 
-#: mikrotik.php:2041
+#: mikrotik.php
 #, fuzzy
 msgid "CPUs"
 msgstr "CPUs"
 
-#: mikrotik.php:2042
+#: mikrotik.php
 msgid "Processes"
 msgstr "Processos"
 
-#: mikrotik.php:2043
+#: mikrotik.php
 #, fuzzy
 msgid "Total Mem"
 msgstr "Total Mem"
 
-#: mikrotik.php:2044
+#: mikrotik.php
 #, fuzzy
 msgid "Used Mem"
 msgstr "Mem usado"
 
-#: mikrotik.php:2045
+#: mikrotik.php
 #, fuzzy
 msgid "Total Disk"
 msgstr "Disco Total"
 
-#: mikrotik.php:2046
+#: mikrotik.php
 #, fuzzy
 msgid "Used Disk"
 msgstr "Disco Usado"
 
-#: mikrotik.php:2092
+#: mikrotik.php
 msgid "View Users"
 msgstr "Visualizar usuários"
 
-#: mikrotik.php:2098
+#: mikrotik.php
 #, fuzzy
 msgid "View Simple Queue"
 msgstr "Filas simples"
 
-#: mikrotik.php:2104
+#: mikrotik.php
 #, fuzzy
 msgid "View Queue Trees"
 msgstr "Árvores de fila"
 
-#: mikrotik.php:2110
+#: mikrotik.php
 #, fuzzy
 msgid "View Wireless Aps"
 msgstr "Aps sem fio"
 
-#: mikrotik.php:2112
+#: mikrotik.php
 #, fuzzy
 msgid "No Wireless Aps Found"
 msgstr "Aps sem fio"
 
-#: mikrotik.php:2115
+#: mikrotik.php
 #, fuzzy
 msgid "View Interfaces"
 msgstr "Interfaces"
 
-#: mikrotik.php:2118 mikrotik.php:2330 mikrotik.php:2332 mikrotik.php:2397
-#: mikrotik.php:2399 setup.php:1660
+#: mikrotik.php setup.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "Gráficos"
 
-#: mikrotik.php:2120
+#: mikrotik.php
 #, fuzzy
 msgid "No Graphs Defined"
 msgstr "Nenhum gráfico definido"
 
-#: mikrotik.php:2157
+#: mikrotik.php
 #, fuzzy
 msgid "No Devices Found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: mikrotik.php:2338
+#: mikrotik.php
 #, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
 msgstr "Selecione a consulta de dados primeiro no console -> Configurações -> Host MIB primeiro"
 
-#: mikrotik.php:2402
+#: mikrotik.php
 #, fuzzy
 msgid "Graphs skipped or not created yet"
 msgstr "Gráficos pulados ou ainda não criados"
 
-#: mikrotik.php:2405
+#: mikrotik.php
 #, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
 msgstr "Por favor, selecione Consulta de Dados primeiro no Console-> Configurações-> Host MIB Primeiro"
 
-#: mikrotik.php:2478
+#: mikrotik.php
 #, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
 msgstr "Lista Personalizada de Gráficos Aplicada - Filtragem da Lista"
 
-#: mikrotik.php:2478
+#: mikrotik.php
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Filtros de Pré-visualização de Gráficos"
 
-#: mikrotik.php:2691
+#: mikrotik.php
 #, fuzzy
 msgid "Wireless Registration Stats"
 msgstr "Freqüência de Registros Sem Fio"
 
-#: mikrotik.php:2727 mikrotik.php:2863
+#: mikrotik.php
 msgid "Registrations"
 msgstr "Inscrições"
 
-#: mikrotik.php:2850 mikrotik.php:3112
+#: mikrotik.php
 msgid "Client Name"
 msgstr "Nome do Cliente"
 
-#: mikrotik.php:2851 mikrotik.php:3115
+#: mikrotik.php
 msgid "MAC Address"
 msgstr "Endereço MAC"
 
-#: mikrotik.php:2859
+#: mikrotik.php
 #, fuzzy
 msgid "Signal to Noise"
 msgstr "Sinal para ruído"
 
-#: mikrotik.php:2910
+#: mikrotik.php
 #, fuzzy
 msgid "No Wireless Registrations Found"
 msgstr "Freqüência de Registros Sem Fio"
 
-#: mikrotik.php:3004
+#: mikrotik.php
 #, fuzzy
 msgid "DHCP Registrations"
 msgstr "Registros DHCP"
 
-#: mikrotik.php:3040 mikrotik.php:3124 mikrotik.php:3350 mikrotik.php:3451
-#: mikrotik.php:3688 mikrotik.php:3782
+#: mikrotik.php
 msgid "Entries"
 msgstr "Entradas"
 
-#: mikrotik.php:3116
+#: mikrotik.php
 msgid "Expires in"
 msgstr "Expira em"
 
-#: mikrotik.php:3119
+#: mikrotik.php
 msgid "Blocked"
 msgstr "Bloqueado"
 
-#: mikrotik.php:3121 mikrotik.php:3439 mikrotik.php:3770
+#: mikrotik.php
 msgid "Last Updated"
 msgstr "Última Atualização"
 
-#: mikrotik.php:3142 mikrotik.php:3143
+#: mikrotik.php
 #, php-format
 msgid "%s Seconds"
 msgstr "%s Segundos"
 
-#: mikrotik.php:3145 mikrotik.php:3767
+#: mikrotik.php
 msgid "Dynamic"
 msgstr "Dinâmico"
 
-#: mikrotik.php:3145 mikrotik.php:3438
+#: mikrotik.php
 msgid "Static"
 msgstr "Estático"
 
-#: mikrotik.php:3153
+#: mikrotik.php
 #, fuzzy
 msgid "No DHCP Entries Found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: mikrotik.php:3337 mikrotik.php:3475 mikrotik.php:3802
+#: mikrotik.php
 msgid "Permanent"
 msgstr "Permanente"
 
-#: mikrotik.php:3338 mikrotik.php:3479 mikrotik.php:3804
+#: mikrotik.php
 msgid "Expired"
 msgstr "Expirado"
 
-#: mikrotik.php:3368 mikrotik.php:3706
+#: mikrotik.php
 msgid "Export"
 msgstr "Exportar"
 
-#: mikrotik.php:3435
+#: mikrotik.php
 msgid "Data"
 msgstr "Dados"
 
-#: mikrotik.php:3437
+#: mikrotik.php
 #, fuzzy
 msgid "TTL"
 msgstr "TTL"
 
-#: mikrotik.php:3488
+#: mikrotik.php
 #, fuzzy
 msgid "No DNS Entries Found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: mikrotik.php:3667 mikrotik.php:3765
+#: mikrotik.php
 msgid "List"
 msgstr "Lista"
 
-#: mikrotik.php:3766
+#: mikrotik.php
 msgid "Address"
 msgstr "Endereço"
 
-#: mikrotik.php:3769
+#: mikrotik.php
 msgid "Timeout"
 msgstr "Tempo esgotado"
 
-#: mikrotik.php:3814
+#: mikrotik.php
 #, fuzzy
 msgid "No Address List Entries Found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: mikrotik_users.php:33
+#: mikrotik_users.php
 msgid "Delete"
 msgstr "Excluir"
 
-#: mikrotik_users.php:178
+#: mikrotik_users.php
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "Clique em 'Continuar' para excluir os seguintes usuários e seus gráficos."
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 msgid "Continue"
 msgstr "Continuar"
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 #, fuzzy
 msgid "Delete Device(s)"
 msgstr "Dispositivos"
 
-#: mikrotik_users.php:187
+#: mikrotik_users.php
 #, fuzzy
 msgid "You must select at least one User."
 msgstr "Você deve selecionar pelo menos um Usuário."
 
-#: mikrotik_users.php:188
+#: mikrotik_users.php
 msgid "Return"
 msgstr "Retorno"
 
-#: mikrotik_users.php:298 setup.php:1194 setup.php:1564
+#: mikrotik_users.php setup.php
 #, fuzzy
 msgid "MikroTik Users"
 msgstr "Usuários do MikroTik"
 
-#: mikrotik_users.php:348 mikrotik_users.php:425
+#: mikrotik_users.php
 msgid "Inactive"
 msgstr "Inativo"
 
-#: mikrotik_users.php:352
+#: mikrotik_users.php
 msgid "Set/Refresh Filters"
 msgstr "Setar/Atualizar Filtros"
 
-#: mikrotik_users.php:353
+#: mikrotik_users.php
 msgid "Clear Filters"
 msgstr "Limpar Filtros"
 
-#: mikrotik_users.php:410
+#: mikrotik_users.php
 msgid "User Name"
 msgstr "Nome de Usuário"
 
-#: mikrotik_users.php:411
+#: mikrotik_users.php
 msgid "Domain"
 msgstr "Domínio"
 
-#: setup.php:62
+#: setup.php
 #, fuzzy
 msgid "MikroTik Viewer"
 msgstr "Usuários do MikroTik"
 
-#: setup.php:63
+#: setup.php
 #, fuzzy
 msgid "MikroTik Admin"
 msgstr "Plugin -> MikroTik Admin"
 
-#: setup.php:879 setup.php:1555 setup.php:1587 setup.php:1589
+#: setup.php
 #, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
-#: setup.php:882
+#: setup.php
 #, fuzzy
 msgid "MikroTik General Settings"
 msgstr "Configurações gerais do MikroTik"
 
-#: setup.php:886
+#: setup.php
 #, fuzzy
 msgid "MikroTik Poller Enabled"
 msgstr "Polidor MikroTik habilitado"
 
-#: setup.php:887
+#: setup.php
 #, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "Marque esta caixa, se você quiser que a sondagem MikroTik seja ativada.  Caso contrário, o polidor não funcionará."
 
-#: setup.php:892
+#: setup.php
 #, fuzzy
 msgid "MikroTik API Polling Enabled"
 msgstr "Polidor MikroTik habilitado"
 
-#: setup.php:893
+#: setup.php
 #, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
 msgstr "Marque esta caixa, se você quiser que o Cacti pesquise várias configurações usando a API MikroTik. Se por algum motivo você não tem acesso à API MikroTik, desmarque esta opção."
 
-#: setup.php:898
+#: setup.php
 #, fuzzy
 msgid "Automatically Discover Cacti Devices"
 msgstr "Descubra automaticamente os dispositivos Cacti"
 
-#: setup.php:899
+#: setup.php
 #, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
 msgstr "Deseja procurar e adicionar automaticamente dispositivos que suportam o MikroTik MIB a partir da tabela de host Cacti?"
 
-#: setup.php:904
+#: setup.php
 #, fuzzy
 msgid "Automatically Purge Devices"
 msgstr "Purga automática de dispositivos"
 
-#: setup.php:905
+#: setup.php
 #, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
 msgstr "Deseja purgar automaticamente os dispositivos que são removidos do sistema Cacti?"
 
-#: setup.php:910
+#: setup.php
 #, fuzzy
 msgid "Maximum Concurrent Collectors"
 msgstr "Coletores simultâneos máximos"
 
-#: setup.php:911
+#: setup.php
 #, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
 msgstr "Qual é o número máximo de processo de coletor simultâneo que você deseja executar de uma só vez?"
 
-#: setup.php:915
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Process"
 msgstr "%d Processo"
 
-#: setup.php:916 setup.php:917 setup.php:918 setup.php:919 setup.php:920
-#: setup.php:921 setup.php:922 setup.php:923 setup.php:924
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Processes"
 msgstr "Processos"
 
-#: setup.php:928
+#: setup.php
 #, fuzzy
 msgid "Auto Discovery Settings"
 msgstr "Frequência de Descoberta Automática"
 
-#: setup.php:932
+#: setup.php
 #, fuzzy
 msgid "Auto Discovery Frequency"
 msgstr "Frequência de Descoberta Automática"
 
-#: setup.php:933
+#: setup.php
 #, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
 msgstr "Com que frequência queres procurar novos dispositivos Cacti?"
 
-#: setup.php:939
+#: setup.php
 #, fuzzy
 msgid "DHCP/DNS/List Settings"
 msgstr "DHCP / DNS / Configurações de lista"
 
-#: setup.php:943
+#: setup.php
 #, fuzzy
 msgid "DHCP Retention"
 msgstr "Retenção de DHCP"
 
-#: setup.php:944
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
 msgstr "Por quanto tempo você gostaria de manter o histórico de registro de IP DHCP?"
 
-#: setup.php:950
+#: setup.php
 #, fuzzy
 msgid "DNS Retention"
 msgstr "Retenção de DNS"
 
-#: setup.php:951
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
 msgstr "Por quanto tempo você gostaria de manter o histórico do cache DNS?"
 
-#: setup.php:957
+#: setup.php
 #, fuzzy
 msgid "Address List Retention"
 msgstr "Retenção de lista de endereços"
 
-#: setup.php:958
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain Address List history?"
 msgstr "Por quanto tempo você deseja manter o histórico da Lista de endereços?"
 
-#: setup.php:964
+#: setup.php
 #, fuzzy
 msgid "Device Graph Automation"
 msgstr "Automação de Gráficos de Dispositivos"
 
-#: setup.php:968
+#: setup.php
 #, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "Adicionar novos gráficos automaticamente"
 
-#: setup.php:969
+#: setup.php
 #, fuzzy
 msgid "How often do you want to check for new objects to graph?"
 msgstr "Quantas vezes você quer verificar se há novos objetos para o gráfico?"
 
-#: setup.php:973
+#: setup.php
 msgid "Never"
 msgstr "Nunca"
 
-#: setup.php:974 setup.php:975 setup.php:976 setup.php:997 setup.php:1343
-#: setup.php:1344 setup.php:1345
+#: setup.php
 #, php-format
 msgid "%d Minutes"
 msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> Minutos"
 
-#: setup.php:977 setup.php:998 setup.php:1346
+#: setup.php
 #, php-format
 msgid "%d Hour"
 msgstr "%d Hora"
 
-#: setup.php:978 setup.php:999 setup.php:1000 setup.php:1347 setup.php:1348
-#: setup.php:1349
+#: setup.php
 #, php-format
 msgid "%d Hours"
 msgstr "%d horas"
 
-#: setup.php:979 setup.php:1001 setup.php:1350 setup.php:1355
+#: setup.php
 #, php-format
 msgid "%d Day"
 msgstr "%d Dia"
 
-#: setup.php:980 setup.php:1356 setup.php:1357
+#: setup.php
 #, php-format
 msgid "%d Days"
 msgstr "%d Dias"
 
-#: setup.php:984
+#: setup.php
 #, fuzzy
 msgid "Exclude Users RegEx"
 msgstr "Excluir usuários RegEx"
 
-#: setup.php:985
+#: setup.php
 #, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
 msgstr "Nomes de usuários que correspondam a este regex não serão representados em gráficos automaticamente"
 
-#: setup.php:992
+#: setup.php
 #, fuzzy
 msgid "Exclude Users Time to Live"
 msgstr "Excluir o Tempo de Vida dos Utilizadores"
 
-#: setup.php:993
+#: setup.php
 #, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
 msgstr "Por quanto tempo devem ser preservados os dados de um usuário excluído após a desconexão."
 
-#: setup.php:1005
+#: setup.php
 #, fuzzy
 msgid "MikroTik Device Collection Frequencies"
 msgstr "MikroTik Coleção de Dispositivos Frequências"
 
-#: setup.php:1009
+#: setup.php
 #, fuzzy
 msgid "Storage Frequency"
 msgstr "Freqüência de armazenamento"
 
-#: setup.php:1010
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
 msgstr "Com que frequência você deseja verificar as estatísticas de armazenamento?"
 
-#: setup.php:1016
+#: setup.php
 #, fuzzy
 msgid "Processor Frequency"
 msgstr "Freqüência do processador"
 
-#: setup.php:1017
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
 msgstr "Com que frequência você deseja verificar as estatísticas do processador de dispositivos?"
 
-#: setup.php:1023
+#: setup.php
 #, fuzzy
 msgid "Interfaces Frequency"
 msgstr "Freqüência de Interfaces"
 
-#: setup.php:1024
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the Interfaces?"
 msgstr "Com que frequência você deseja digitalizar as Interfaces?"
 
-#: setup.php:1030
+#: setup.php
 #, fuzzy
 msgid "DNS/DHCP/List Frequency"
 msgstr "Freqüência de armazenamento"
 
-#: setup.php:1031
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr "Com que frequência você deseja verificar as estatísticas do processador de dispositivos?"
 
-#: setup.php:1037
+#: setup.php
 #, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
 msgstr "MikroTik Queue/Tree Collection Frequencies"
 
-#: setup.php:1041
+#: setup.php
 #, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
 msgstr "Fila simples/PPPoe Frequência"
 
-#: setup.php:1042
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você deseja verificar as estatísticas da Fila Simples?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1048
+#: setup.php
 #, fuzzy
 msgid "Queue Trees Frequency"
 msgstr "Frequência das árvores de fila"
 
-#: setup.php:1049
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você quer verificar as árvores da fila?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1055
+#: setup.php
 #, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
 msgstr "MikroTik Wireless Collection Frequencies"
 
-#: setup.php:1059
+#: setup.php
 #, fuzzy
 msgid "Wireless HotSpot Users Frequency"
 msgstr "Freqüência de usuários do HotSpot sem fio"
 
-#: setup.php:1060
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você deseja verificar as estatísticas de usuários sem fio?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1066
+#: setup.php
 #, fuzzy
 msgid "Wireless Access Point Frequency"
 msgstr "Freqüência do ponto de acesso sem fio"
 
-#: setup.php:1067
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você deseja verificar os pontos de acesso sem fio?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1073
+#: setup.php
 #, fuzzy
 msgid "Wireless Registrations Frequency"
 msgstr "Freqüência de Registros Sem Fio"
 
-#: setup.php:1074
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você deseja verificar os registros sem fio?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1080
+#: setup.php
 #, fuzzy
 msgid "Wireless Stations Frequency"
 msgstr "Freqüência de estações sem fio"
 
-#: setup.php:1081
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
 msgstr "Com que frequência você deseja verificar as estações sem fio?  Selecione <b>Desabilitado</b> para remover esse recurso."
 
-#: setup.php:1194
+#: setup.php
 msgid "Management"
 msgstr "Gerenciamento"
 
-#: setup.php:1197
+#: setup.php
 msgid "Normal User"
 msgstr "Usuário normal"
 
-#: setup.php:1198
+#: setup.php
 msgid "General Administration"
 msgstr "Administração Geral"
 
-#: setup.php:1342
+#: setup.php
 #, php-format
 msgid "%d Minute"
 msgstr "%d Minuto"
 
-#: setup.php:1354
+#: setup.php
 #, fuzzy
 msgid "Indefinite"
 msgstr "Indeterminado"
 
-#: setup.php:1358
+#: setup.php
 #, php-format
 msgid "%d Week"
 msgstr "%d Semana"
 
-#: setup.php:1359 setup.php:1360
+#: setup.php
 #, php-format
 msgid "%d Weeks"
 msgstr "%d Semanas"
 
-#: setup.php:1361 setup.php:1362
+#: setup.php
 #, php-format
 msgid "%d Months"
 msgstr "%d Meses"
 
-#: setup.php:1363
+#: setup.php
 #, php-format
 msgid "%d Year"
 msgstr "%d Ano"
 
-#: setup.php:1558
+#: setup.php
 #, fuzzy
 msgid "Simple Queues"
 msgstr "Filas simples"
 
-#: setup.php:1561
+#: setup.php
 msgid "Storage"
 msgstr "Armazenamento"
 
-#: setup.php:1565
+#: setup.php
 msgid "(edit)"
 msgstr "(editar)"
 
-#: setup.php:1662 setup.php:1665
+#: setup.php
 #, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "Gráficos ignorados por regra ou não criados"
 
-#: setup.php:1702
+#: setup.php
 #, fuzzy
 msgid "MikroTik Credentials"
 msgstr "Credenciais MikroTik"
 
-#: setup.php:1706
+#: setup.php
 #, fuzzy
 msgid "Read Only User"
 msgstr "Usuário Somente Leitura"
 
-#: setup.php:1707
+#: setup.php
 #, fuzzy
 msgid "Provide a read only username for the MikroTik."
 msgstr "Forneça um nome de usuário somente para leitura para a MikroTik."
 
-#: setup.php:1714
+#: setup.php
 msgid "Password"
 msgstr "Senha"
 
-#: setup.php:1715
+#: setup.php
 #, fuzzy
 msgid "Provide the read only username password for this MikroTik."
 msgstr "Forneça a senha de usuário somente para leitura para esta MikroTik."
 
-#: setup.php:1735 setup.php:1744
+#: setup.php
 #, fuzzy
 msgid "Connection Result"
 msgstr "Resultado da conexão"
 
-#: setup.php:1736 setup.php:1745
+#: setup.php
 #, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr "Ok se Cacti pode se conectar ao MikroTik através de sua porta API."
 
-#: setup.php:1746
+#: setup.php
 #, fuzzy
 msgid "Connection Failed"
 msgstr "Conexão falhou"
