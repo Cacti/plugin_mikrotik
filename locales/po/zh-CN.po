@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mikrotik on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 10:00-0400\n"
+"POT-Creation-Date: 2026-09-28 16:06-0400\n"
 "PO-Revision-Date: 2024-06-23 04:08+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/mikrotik/zh_Hans/>\n"
@@ -18,1048 +18,1017 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.8.1\n"
 
-#: mikrotik.php:41
+#: mikrotik.php
 msgid "Present"
 msgstr "当前"
 
-#: mikrotik.php:42 mikrotik.php:1927 mikrotik.php:3137 mikrotik.php:3464
+#: mikrotik.php
 msgid "Unknown"
 msgstr "未知"
 
-#: mikrotik.php:43
+#: mikrotik.php
 msgid "Running"
 msgstr "运行"
 
-#: mikrotik.php:44
+#: mikrotik.php
 msgid "Warning"
 msgstr "警告"
 
-#: mikrotik.php:45
+#: mikrotik.php
 msgid "Testing"
 msgstr "测试"
 
-#: mikrotik.php:46 mikrotik.php:1931
+#: mikrotik.php
 msgid "Down"
 msgstr "离线"
 
-#: mikrotik.php:249 mikrotik.php:1617 mikrotik.php:1955 mikrotik.php:2049
-#: setup.php:1556
+#: mikrotik.php setup.php
 msgid "Devices"
 msgstr "设备"
 
-#: mikrotik.php:252 mikrotik.php:1723 mikrotik.php:2039 mikrotik_users.php:323
-#: mikrotik_users.php:401 setup.php:1559
+#: mikrotik.php mikrotik_users.php setup.php
 msgid "Users"
 msgstr "用户"
 
-#: mikrotik.php:256 mikrotik.php:747 mikrotik.php:880
+#: mikrotik.php
 msgid "Queues"
 msgstr "队列"
 
-#: mikrotik.php:260
+#: mikrotik.php
 msgid "Queue Trees"
 msgstr "队列树"
 
-#: mikrotik.php:264 mikrotik.php:440 mikrotik.php:568 setup.php:1560
+#: mikrotik.php setup.php
 msgid "Interfaces"
 msgstr "接口"
 
-#: mikrotik.php:268
+#: mikrotik.php
 msgid "DHCP"
 msgstr "DHCP"
 
-#: mikrotik.php:272 mikrotik.php:3271
+#: mikrotik.php
 #, fuzzy
 msgid "DNS Cache"
 msgstr "DNS缓存"
 
-#: mikrotik.php:276 mikrotik.php:3631
+#: mikrotik.php
 #, fuzzy
 msgid "Address Lists"
 msgstr "IP地址"
 
-#: mikrotik.php:280 mikrotik.php:1388 setup.php:1563
+#: mikrotik.php setup.php
 msgid "Wireless Aps"
 msgstr "无线Ap"
 
-#: mikrotik.php:284
+#: mikrotik.php
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "无线注册"
 
-#: mikrotik.php:287 mikrotik.php:2573 setup.php:1562
+#: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "图表"
 
-#: mikrotik.php:404
+#: mikrotik.php
 msgid "Interface Stats"
 msgstr "接口统计"
 
-#: mikrotik.php:413 mikrotik.php:720 mikrotik.php:1025 mikrotik.php:1273
-#: mikrotik.php:1580 mikrotik.php:1902 mikrotik.php:2700 mikrotik.php:3013
-#: mikrotik.php:3280 mikrotik.php:3640 mikrotik_users.php:307
+#: mikrotik.php mikrotik_users.php
 msgid "Search"
 msgstr "搜索"
 
-#: mikrotik.php:419 mikrotik.php:726 mikrotik.php:1031 mikrotik.php:1279
-#: mikrotik.php:1586 mikrotik.php:2706 mikrotik.php:2849 mikrotik.php:3019
-#: mikrotik.php:3286 mikrotik.php:3646
+#: mikrotik.php
 msgid "Device"
 msgstr "设备"
 
-#: mikrotik.php:423 mikrotik.php:730 mikrotik.php:1035 mikrotik.php:1283
-#: mikrotik.php:1590 mikrotik.php:1611 mikrotik.php:1912 mikrotik.php:2710
-#: mikrotik.php:3023 mikrotik.php:3290 mikrotik.php:3311 mikrotik.php:3333
-#: mikrotik.php:3650 mikrotik.php:3671 mikrotik_users.php:317
-#: mikrotik_users.php:346
+#: mikrotik.php mikrotik_users.php
 msgid "All"
 msgstr "所有"
 
-#: mikrotik.php:444 mikrotik.php:751 mikrotik.php:1056 mikrotik.php:1304
-#: mikrotik.php:1621 mikrotik.php:1959 mikrotik.php:2731 mikrotik.php:3044
-#: mikrotik.php:3354 mikrotik.php:3692 mikrotik_users.php:327
+#: mikrotik.php mikrotik_users.php
 msgid "Default"
 msgstr "默认"
 
-#: mikrotik.php:457 mikrotik.php:764 mikrotik.php:2744 mikrotik.php:3336
-#: mikrotik_users.php:347 mikrotik_users.php:414 mikrotik_users.php:425
+#: mikrotik.php mikrotik_users.php
 msgid "Active"
 msgstr "活跃"
 
-#: mikrotik.php:462 mikrotik.php:770 mikrotik.php:2749
+#: mikrotik.php
 msgid "Since Reset"
 msgstr "自重置"
 
-#: mikrotik.php:467 mikrotik.php:775 mikrotik.php:1068 mikrotik.php:1316
-#: mikrotik.php:1639 mikrotik.php:1971 mikrotik.php:2754 mikrotik.php:3056
-#: mikrotik.php:3366 mikrotik.php:3704 mikrotik_users.php:352
+#: mikrotik.php mikrotik_users.php
 msgid "Go"
 msgstr "Go"
 
-#: mikrotik.php:468 mikrotik.php:776 mikrotik.php:1069 mikrotik.php:1317
-#: mikrotik.php:1640 mikrotik.php:1972 mikrotik.php:2755 mikrotik.php:3057
-#: mikrotik.php:3367 mikrotik.php:3705 mikrotik_users.php:353
+#: mikrotik.php mikrotik_users.php
 msgid "Clear"
 msgstr "清除"
 
-#: mikrotik.php:556 mikrotik.php:864 mikrotik.php:1123 mikrotik.php:1373
-#: mikrotik.php:1707 mikrotik.php:2031 mikrotik.php:2848 setup.php:1566
+#: mikrotik.php setup.php
 msgid "Actions"
 msgstr "操作"
 
-#: mikrotik.php:557 mikrotik.php:865 mikrotik.php:1124 mikrotik.php:1374
-#: mikrotik.php:1708 mikrotik.php:3111
+#: mikrotik.php
 msgid "Hostname"
 msgstr "主机名"
 
-#: mikrotik.php:558 mikrotik.php:866 mikrotik.php:1125 mikrotik.php:2032
-#: mikrotik.php:3436
+#: mikrotik.php
 msgid "Name"
 msgstr "名称"
 
-#: mikrotik.php:559 mikrotik.php:2852
+#: mikrotik.php
 msgid "Rx Bytes"
 msgstr "Rx Bytes"
 
-#: mikrotik.php:560 mikrotik.php:2853
+#: mikrotik.php
 msgid "Tx Bytes"
 msgstr "Tx Bytes"
 
-#: mikrotik.php:561 mikrotik.php:2854
+#: mikrotik.php
 msgid "Rx Packets"
 msgstr "Rx数据包"
 
-#: mikrotik.php:562 mikrotik.php:2855
+#: mikrotik.php
 msgid "Tx Packets"
 msgstr "Tx数据包"
 
-#: mikrotik.php:563
+#: mikrotik.php
 msgid "Rx Errors"
 msgstr "Rx错误"
 
-#: mikrotik.php:564
+#: mikrotik.php
 msgid "Tx Errors"
 msgstr "Tx错误"
 
-#: mikrotik.php:565 mikrotik.php:877 mikrotik.php:1131 mikrotik.php:1385
-#: mikrotik.php:1720 mikrotik.php:2860 mikrotik.php:3117 mikrotik_users.php:413
+#: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
 msgstr "最后一次露面"
 
-#: mikrotik.php:583 mikrotik.php:895 mikrotik.php:1149 mikrotik.php:1403
-#: mikrotik.php:1750 mikrotik.php:2888
+#: mikrotik.php
 msgid "Edit Device"
 msgstr "编辑设备"
 
-#: mikrotik.php:602
+#: mikrotik.php
 msgid "No Interfaces Found"
 msgstr "没有找到接口"
 
-#: mikrotik.php:711
+#: mikrotik.php
 msgid "Queue Status"
 msgstr "队列状态"
 
-#: mikrotik.php:867
+#: mikrotik.php
 msgid "Src Addr/Mask"
 msgstr "源地址/掩码"
 
-#: mikrotik.php:868
+#: mikrotik.php
 msgid "Dst Addr/Mask"
 msgstr "目标地址/掩码"
 
-#: mikrotik.php:869
+#: mikrotik.php
 msgid "Bytes In"
 msgstr "Bytes入"
 
-#: mikrotik.php:870
+#: mikrotik.php
 msgid "Bytes Out"
 msgstr "字节输出"
 
-#: mikrotik.php:871
+#: mikrotik.php
 msgid "Pkts In"
 msgstr "Pkts入"
 
-#: mikrotik.php:872
+#: mikrotik.php
 msgid "Pkts Out"
 msgstr "Pkts输出"
 
-#: mikrotik.php:873
+#: mikrotik.php
 msgid "Qs In"
 msgstr "Qs入"
 
-#: mikrotik.php:874
+#: mikrotik.php
 msgid "Qs Out"
 msgstr "Qs输出"
 
-#: mikrotik.php:875
+#: mikrotik.php
 msgid "Drps In"
 msgstr "Drps入"
 
-#: mikrotik.php:876
+#: mikrotik.php
 msgid "Drps Out"
 msgstr "Drps输出"
 
-#: mikrotik.php:922 mikrotik.php:2100
+#: mikrotik.php
 msgid "No Simple Queues Found"
 msgstr "找不到简单的队列"
 
-#: mikrotik.php:1016
+#: mikrotik.php
 msgid "Queue Tree Status"
 msgstr "队列树状态"
 
-#: mikrotik.php:1052 mikrotik.php:1134 mikrotik.php:2038 setup.php:1557
+#: mikrotik.php setup.php
 msgid "Trees"
 msgstr "树"
 
-#: mikrotik.php:1126
+#: mikrotik.php
 msgid "Flow"
 msgstr "流量"
 
-#: mikrotik.php:1127
+#: mikrotik.php
 msgid "Cur Bytes"
 msgstr "当前Bytes"
 
-#: mikrotik.php:1128
+#: mikrotik.php
 msgid "Cur Packets"
 msgstr "当前包"
 
-#: mikrotik.php:1129
+#: mikrotik.php
 msgid "Total Bytes"
 msgstr "总Bytes"
 
-#: mikrotik.php:1130
+#: mikrotik.php
 msgid "Total Packets"
 msgstr "总包"
 
-#: mikrotik.php:1167 mikrotik.php:2106
+#: mikrotik.php
 msgid "No Queue Trees Found"
 msgstr "没有找到队列树"
 
-#: mikrotik.php:1264
+#: mikrotik.php
 msgid "Wireless Aps Status"
 msgstr "无线Ap状态"
 
-#: mikrotik.php:1300
+#: mikrotik.php
 msgid "Aps"
 msgstr "Ap"
 
-#: mikrotik.php:1375
+#: mikrotik.php
 msgid "SSID"
 msgstr "SSID"
 
-#: mikrotik.php:1376
+#: mikrotik.php
 msgid "BSSID"
 msgstr "BSSID"
 
-#: mikrotik.php:1377 mikrotik.php:2857
+#: mikrotik.php
 msgid "Tx Rate"
 msgstr "Tx速率"
 
-#: mikrotik.php:1378 mikrotik.php:2856
+#: mikrotik.php
 msgid "Rx Rate"
 msgstr "Rx速率"
 
-#: mikrotik.php:1379
+#: mikrotik.php
 msgid "Clients"
 msgstr "客户端"
 
-#: mikrotik.php:1380
+#: mikrotik.php
 msgid "Auth Clients"
 msgstr "身份验证客户端"
 
-#: mikrotik.php:1381
+#: mikrotik.php
 msgid "Frequency"
 msgstr "频率"
 
-#: mikrotik.php:1382
+#: mikrotik.php
 msgid "Band"
 msgstr "带宽"
 
-#: mikrotik.php:1383
+#: mikrotik.php
 msgid "Noise Floor"
 msgstr "本底噪声"
 
-#: mikrotik.php:1384
+#: mikrotik.php
 msgid "Tx CQQ"
 msgstr "Tx CQQ"
 
-#: mikrotik.php:1571
+#: mikrotik.php
 msgid "User Statistics"
 msgstr "用户统计"
 
-#: mikrotik.php:1607 mikrotik.php:1710 mikrotik.php:3118 mikrotik.php:3307
-#: mikrotik.php:3434 mikrotik_users.php:313 mikrotik_users.php:412
+#: mikrotik.php mikrotik_users.php
 msgid "Type"
 msgstr "类型"
 
-#: mikrotik.php:1612 mikrotik_users.php:318
+#: mikrotik.php mikrotik_users.php
 msgid "Hotspot"
 msgstr "热点"
 
-#: mikrotik.php:1613 mikrotik_users.php:319
+#: mikrotik.php mikrotik_users.php
 msgid "PPPoe"
 msgstr "PPPoe"
 
-#: mikrotik.php:1634
+#: mikrotik.php
 msgid "Active Users"
 msgstr "活跃用户"
 
-#: mikrotik.php:1709
+#: mikrotik.php
 msgid "User"
 msgstr "用户"
 
-#: mikrotik.php:1711 mikrotik.php:3113
+#: mikrotik.php
 msgid "IP Address"
 msgstr "IP地址"
 
-#: mikrotik.php:1712
+#: mikrotik.php
 msgid "MAC"
 msgstr "MAC"
 
-#: mikrotik.php:1713
+#: mikrotik.php
 msgid "Connect Time"
 msgstr "连接时间"
 
-#: mikrotik.php:1714
+#: mikrotik.php
 msgid "Cur In"
 msgstr "当前入"
 
-#: mikrotik.php:1715
+#: mikrotik.php
 msgid "Cur Out"
 msgstr "当前输出"
 
-#: mikrotik.php:1716
+#: mikrotik.php
 msgid "Avg In"
 msgstr "平均入"
 
-#: mikrotik.php:1717
+#: mikrotik.php
 msgid "Avg Out"
 msgstr "平均出"
 
-#: mikrotik.php:1718
+#: mikrotik.php
 msgid "Total In"
 msgstr "总入"
 
-#: mikrotik.php:1719
+#: mikrotik.php
 msgid "Total Out"
 msgstr "总出"
 
-#: mikrotik.php:1772 mikrotik.php:1774 mikrotik.php:1775 mikrotik.php:1776
-#: mikrotik.php:1777 mikrotik.php:1778 mikrotik.php:1779 mikrotik.php:1780
-#: mikrotik.php:3139 mikrotik.php:3142 mikrotik.php:3143 mikrotik.php:3467
+#: mikrotik.php
 msgid "N/A"
 msgstr "不可用"
 
-#: mikrotik.php:1787 mikrotik.php:2094 mikrotik_users.php:430
+#: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
 msgstr "未找到相应的用户"
 
-#: mikrotik.php:1872
+#: mikrotik.php
 #, fuzzy
 #| msgid "MikroTik Credentials"
 msgid "MikroTik Changelog"
 msgstr "MikroTik证书"
 
-#: mikrotik.php:1886
+#: mikrotik.php
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
 msgstr "设备过滤器（最新的MikroTik版本是： %s)"
 
-#: mikrotik.php:1888
+#: mikrotik.php
 #, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
 msgstr "设备过滤器（最新的MikroTik版本是： %s, 发布： %s) "
 
-#: mikrotik.php:1891
+#: mikrotik.php
 msgid "ChangeLog"
 msgstr "更新日志"
 
-#: mikrotik.php:1908 mikrotik.php:2034 mikrotik.php:3114 mikrotik.php:3329
-#: mikrotik_users.php:342
+#: mikrotik.php mikrotik_users.php
 msgid "Status"
 msgstr "状态"
 
-#: mikrotik.php:1935
+#: mikrotik.php
 msgid "Recovering"
 msgstr "恢复"
 
-#: mikrotik.php:1939
+#: mikrotik.php
 msgid "Up"
 msgstr "在线"
 
-#: mikrotik.php:1943 mikrotik.php:3120 mikrotik.php:3768 setup.php:1341
+#: mikrotik.php setup.php
 msgid "Disabled"
 msgstr "已禁用"
 
-#: mikrotik.php:2033 mikrotik.php:3433 mikrotik.php:3764
+#: mikrotik.php
 msgid "Description"
 msgstr "描述"
 
-#: mikrotik.php:2035
+#: mikrotik.php
 msgid "FW Ver"
 msgstr "FW 版本"
 
-#: mikrotik.php:2036
+#: mikrotik.php
 msgid "Lic Ver"
 msgstr "Lic 版本"
 
-#: mikrotik.php:2037 mikrotik.php:2858
+#: mikrotik.php
 msgid "Uptime(d:h:m)"
 msgstr "正常运行时间(d:h:m)"
 
-#: mikrotik.php:2040
+#: mikrotik.php
 #, fuzzy
 #| msgid "CPU %"
 msgid "CPU %%%"
 msgstr "CPU %"
 
-#: mikrotik.php:2041
+#: mikrotik.php
 msgid "CPUs"
 msgstr "CPU"
 
-#: mikrotik.php:2042
+#: mikrotik.php
 msgid "Processes"
 msgstr "进程"
 
-#: mikrotik.php:2043
+#: mikrotik.php
 msgid "Total Mem"
 msgstr "总内存"
 
-#: mikrotik.php:2044
+#: mikrotik.php
 msgid "Used Mem"
 msgstr "使用的内存"
 
-#: mikrotik.php:2045
+#: mikrotik.php
 msgid "Total Disk"
 msgstr "总磁盘"
 
-#: mikrotik.php:2046
+#: mikrotik.php
 msgid "Used Disk"
 msgstr "使用的磁盘"
 
-#: mikrotik.php:2092
+#: mikrotik.php
 msgid "View Users"
 msgstr "查看用户"
 
-#: mikrotik.php:2098
+#: mikrotik.php
 #, fuzzy
 msgid "View Simple Queue"
 msgstr "查看简单队列"
 
-#: mikrotik.php:2104
+#: mikrotik.php
 #, fuzzy
 msgid "View Queue Trees"
 msgstr "查看队列树"
 
-#: mikrotik.php:2110
+#: mikrotik.php
 #, fuzzy
 msgid "View Wireless Aps"
 msgstr "查看无线Aps"
 
-#: mikrotik.php:2112
+#: mikrotik.php
 #, fuzzy
 msgid "No Wireless Aps Found"
 msgstr "找不到无线Aps"
 
-#: mikrotik.php:2115
+#: mikrotik.php
 #, fuzzy
 msgid "View Interfaces"
 msgstr "查看接口"
 
-#: mikrotik.php:2118 mikrotik.php:2330 mikrotik.php:2332 mikrotik.php:2397
-#: mikrotik.php:2399 setup.php:1660
+#: mikrotik.php setup.php
 msgid "View Graphs"
 msgstr "查看图形"
 
-#: mikrotik.php:2120
+#: mikrotik.php
 msgid "No Graphs Defined"
 msgstr "没有定义的图形"
 
-#: mikrotik.php:2157
+#: mikrotik.php
 msgid "No Devices Found"
 msgstr "未找到设备"
 
-#: mikrotik.php:2338
+#: mikrotik.php
 #, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
 msgstr "请从控制台 - &gt;设置 - &gt;主机MIB中选择数据查询"
 
-#: mikrotik.php:2402
+#: mikrotik.php
 #, fuzzy
 msgid "Graphs skipped or not created yet"
 msgstr "图形已跳过或未创建"
 
-#: mikrotik.php:2405
+#: mikrotik.php
 #, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
 msgstr "请先从控制台-&gt; 设置-&gt; 主机 MIB First选择Data Query"
 
-#: mikrotik.php:2478
+#: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
 msgstr "自定义图表列表已应用 - 从列表中过滤"
 
-#: mikrotik.php:2478
+#: mikrotik.php
 msgid "Graph Preview Filters"
 msgstr "图预览过滤器"
 
-#: mikrotik.php:2691
+#: mikrotik.php
 #, fuzzy
 msgid "Wireless Registration Stats"
 msgstr "无线注册统计"
 
-#: mikrotik.php:2727 mikrotik.php:2863
+#: mikrotik.php
 msgid "Registrations"
 msgstr "注册"
 
-#: mikrotik.php:2850 mikrotik.php:3112
+#: mikrotik.php
 msgid "Client Name"
 msgstr "客户名称"
 
-#: mikrotik.php:2851 mikrotik.php:3115
+#: mikrotik.php
 msgid "MAC Address"
 msgstr "MAC地址"
 
-#: mikrotik.php:2859
+#: mikrotik.php
 msgid "Signal to Noise"
 msgstr "信噪比"
 
-#: mikrotik.php:2910
+#: mikrotik.php
 #, fuzzy
 msgid "No Wireless Registrations Found"
 msgstr "未找到无线注册"
 
-#: mikrotik.php:3004
+#: mikrotik.php
 msgid "DHCP Registrations"
 msgstr "DHCP注册"
 
-#: mikrotik.php:3040 mikrotik.php:3124 mikrotik.php:3350 mikrotik.php:3451
-#: mikrotik.php:3688 mikrotik.php:3782
+#: mikrotik.php
 msgid "Entries"
 msgstr "条目"
 
-#: mikrotik.php:3116
+#: mikrotik.php
 msgid "Expires in"
 msgstr "到期日"
 
-#: mikrotik.php:3119
+#: mikrotik.php
 msgid "Blocked"
 msgstr "阻止"
 
-#: mikrotik.php:3121 mikrotik.php:3439 mikrotik.php:3770
+#: mikrotik.php
 msgid "Last Updated"
 msgstr "最后更新"
 
-#: mikrotik.php:3142 mikrotik.php:3143
+#: mikrotik.php
 #, php-format
 msgid "%s Seconds"
 msgstr "%s 秒"
 
-#: mikrotik.php:3145 mikrotik.php:3767
+#: mikrotik.php
 msgid "Dynamic"
 msgstr "动态"
 
-#: mikrotik.php:3145 mikrotik.php:3438
+#: mikrotik.php
 msgid "Static"
 msgstr "静态"
 
-#: mikrotik.php:3153
+#: mikrotik.php
 #, fuzzy
 msgid "No DHCP Entries Found"
 msgstr "找不到DHCP"
 
-#: mikrotik.php:3337 mikrotik.php:3475 mikrotik.php:3802
+#: mikrotik.php
 msgid "Permanent"
 msgstr "永久"
 
-#: mikrotik.php:3338 mikrotik.php:3479 mikrotik.php:3804
+#: mikrotik.php
 msgid "Expired"
 msgstr "过期"
 
-#: mikrotik.php:3368 mikrotik.php:3706
+#: mikrotik.php
 msgid "Export"
 msgstr "导出"
 
-#: mikrotik.php:3435
+#: mikrotik.php
 msgid "Data"
 msgstr "数据"
 
-#: mikrotik.php:3437
+#: mikrotik.php
 msgid "TTL"
 msgstr "TTL"
 
-#: mikrotik.php:3488
+#: mikrotik.php
 #, fuzzy
 msgid "No DNS Entries Found"
 msgstr "找不到DHCP"
 
-#: mikrotik.php:3667 mikrotik.php:3765
+#: mikrotik.php
 msgid "List"
 msgstr "列表"
 
-#: mikrotik.php:3766
+#: mikrotik.php
 msgid "Address"
 msgstr "地址"
 
-#: mikrotik.php:3769
+#: mikrotik.php
 msgid "Timeout"
 msgstr "超时"
 
-#: mikrotik.php:3814
+#: mikrotik.php
 #, fuzzy
 msgid "No Address List Entries Found"
 msgstr "找不到DHCP"
 
-#: mikrotik_users.php:33
+#: mikrotik_users.php
 msgid "Delete"
 msgstr "删除"
 
-#: mikrotik_users.php:178
+#: mikrotik_users.php
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
 msgstr "点击“继续”删除下列用户及其图表。"
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 msgid "Cancel"
 msgstr "取消"
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 msgid "Continue"
 msgstr "继续"
 
-#: mikrotik_users.php:184
+#: mikrotik_users.php
 msgid "Delete Device(s)"
 msgstr "删除设备"
 
-#: mikrotik_users.php:187
+#: mikrotik_users.php
 msgid "You must select at least one User."
 msgstr "您必须至少选择一个用户。"
 
-#: mikrotik_users.php:188
+#: mikrotik_users.php
 msgid "Return"
 msgstr "返回"
 
-#: mikrotik_users.php:298 setup.php:1194 setup.php:1564
+#: mikrotik_users.php setup.php
 msgid "MikroTik Users"
 msgstr "MikroTik用户"
 
-#: mikrotik_users.php:348 mikrotik_users.php:425
+#: mikrotik_users.php
 msgid "Inactive"
 msgstr "待用"
 
-#: mikrotik_users.php:352
+#: mikrotik_users.php
 msgid "Set/Refresh Filters"
 msgstr "设置/刷新过滤器"
 
-#: mikrotik_users.php:353
+#: mikrotik_users.php
 msgid "Clear Filters"
 msgstr "清除过滤器"
 
-#: mikrotik_users.php:410
+#: mikrotik_users.php
 msgid "User Name"
 msgstr "用户名"
 
-#: mikrotik_users.php:411
+#: mikrotik_users.php
 msgid "Domain"
 msgstr "域"
 
-#: setup.php:62
+#: setup.php
 #, fuzzy
 msgid "MikroTik Viewer"
 msgstr "MikroTik用户"
 
-#: setup.php:63
+#: setup.php
 #, fuzzy
 msgid "MikroTik Admin"
 msgstr "插件 - > MikroTik管理"
 
-#: setup.php:879 setup.php:1555 setup.php:1587 setup.php:1589
+#: setup.php
 msgid "MikroTik"
 msgstr "MikroTik"
 
-#: setup.php:882
+#: setup.php
 msgid "MikroTik General Settings"
 msgstr "MikroTik常规设置"
 
-#: setup.php:886
+#: setup.php
 msgid "MikroTik Poller Enabled"
 msgstr "启用MikroTik轮询器"
 
-#: setup.php:887
+#: setup.php
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "如果希望启用MikroTik轮询，请选中此框。 否则，轮询器将无法运行。"
 
-#: setup.php:892
+#: setup.php
 #, fuzzy
 msgid "MikroTik API Polling Enabled"
 msgstr "启用MikroTik轮询器"
 
-#: setup.php:893
+#: setup.php
 #, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
 msgstr "如果您希望Cacti使用MikroTik API轮询各种设置，请选中此框。如果由于某种原因您无权访问MikroTik API，请取消选中此选项。"
 
-#: setup.php:898
+#: setup.php
 msgid "Automatically Discover Cacti Devices"
 msgstr "自动发现Cacti设备"
 
-#: setup.php:899
+#: setup.php
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
 msgstr "您是否希望自动扫描并添加支持来自Cacti主机表的MikroTik MIB的设备？"
 
-#: setup.php:904
+#: setup.php
 msgid "Automatically Purge Devices"
 msgstr "自动清除设备"
 
-#: setup.php:905
+#: setup.php
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
 msgstr "您是否希望自动清除从Cacti系统中移除的设备？"
 
-#: setup.php:910
+#: setup.php
 msgid "Maximum Concurrent Collectors"
 msgstr "最大并发收集器"
 
-#: setup.php:911
+#: setup.php
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
 msgstr "您想同时运行的并发收集器进程的最大数量是多少？"
 
-#: setup.php:915
+#: setup.php
 #, php-format
 msgid "%d Process"
 msgstr "%d 进程"
 
-#: setup.php:916 setup.php:917 setup.php:918 setup.php:919 setup.php:920
-#: setup.php:921 setup.php:922 setup.php:923 setup.php:924
+#: setup.php
 #, php-format
 msgid "%d Processes"
 msgstr "%d进程"
 
-#: setup.php:928
+#: setup.php
 #, fuzzy
 msgid "Auto Discovery Settings"
 msgstr "自动发现频率"
 
-#: setup.php:932
+#: setup.php
 msgid "Auto Discovery Frequency"
 msgstr "自动发现频率"
 
-#: setup.php:933
+#: setup.php
 msgid "How often do you want to look for new Cacti Devices?"
 msgstr "您想多久查找一次新的Cacti 设备？"
 
-#: setup.php:939
+#: setup.php
 #, fuzzy
 msgid "DHCP/DNS/List Settings"
 msgstr "DHCP注册"
 
-#: setup.php:943
+#: setup.php
 #, fuzzy
 msgid "DHCP Retention"
 msgstr "DHCP注册"
 
-#: setup.php:944
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
 msgstr "您想保留DHCP IP注册历史多长时间？"
 
-#: setup.php:950
+#: setup.php
 #, fuzzy
 msgid "DNS Retention"
 msgstr "DHCP注册"
 
-#: setup.php:951
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
 msgstr "您想保留DNS缓存历史多长时间？"
 
-#: setup.php:957
+#: setup.php
 #, fuzzy
 msgid "Address List Retention"
 msgstr "地址列表保留"
 
-#: setup.php:958
+#: setup.php
 #, fuzzy
 msgid "How long would you like to retain Address List history?"
 msgstr "您想保留地址列表历史记录多长时间？"
 
-#: setup.php:964
+#: setup.php
 msgid "Device Graph Automation"
 msgstr "设备图形自动化"
 
-#: setup.php:968
+#: setup.php
 msgid "Automatically Add New Graphs"
 msgstr "自动添加新图"
 
-#: setup.php:969
+#: setup.php
 msgid "How often do you want to check for new objects to graph?"
 msgstr "你想多久检查一次新的对象来绘制图表？"
 
-#: setup.php:973
+#: setup.php
 msgid "Never"
 msgstr "从不"
 
-#: setup.php:974 setup.php:975 setup.php:976 setup.php:997 setup.php:1343
-#: setup.php:1344 setup.php:1345
+#: setup.php
 #, php-format
 msgid "%d Minutes"
 msgstr "%d分钟"
 
-#: setup.php:977 setup.php:998 setup.php:1346
+#: setup.php
 #, php-format
 msgid "%d Hour"
 msgstr "%d 小时"
 
-#: setup.php:978 setup.php:999 setup.php:1000 setup.php:1347 setup.php:1348
-#: setup.php:1349
+#: setup.php
 #, php-format
 msgid "%d Hours"
 msgstr "%d 小时"
 
-#: setup.php:979 setup.php:1001 setup.php:1350 setup.php:1355
+#: setup.php
 #, php-format
 msgid "%d Day"
 msgstr "%d 天"
 
-#: setup.php:980 setup.php:1356 setup.php:1357
+#: setup.php
 #, php-format
 msgid "%d Days"
 msgstr "%d 天"
 
-#: setup.php:984
+#: setup.php
 msgid "Exclude Users RegEx"
 msgstr "排除用户RegEx"
 
-#: setup.php:985
+#: setup.php
 msgid "User names that match this regex will not be graphed automatically"
 msgstr "与此正则表达式匹配的用户名不会自动生成图表"
 
-#: setup.php:992
+#: setup.php
 msgid "Exclude Users Time to Live"
 msgstr "排除用户的生存时间"
 
-#: setup.php:993
+#: setup.php
 msgid "How long should an excluded user's data be preserved after they have disconnected."
 msgstr "排除的用户数据在断开连接后应保留多长时间。"
 
-#: setup.php:1005
+#: setup.php
 msgid "MikroTik Device Collection Frequencies"
 msgstr "MikroTik器件集合频率"
 
-#: setup.php:1009
+#: setup.php
 msgid "Storage Frequency"
 msgstr "存储频率"
 
-#: setup.php:1010
+#: setup.php
 msgid "How often do you want to scan Storage Statistics?"
 msgstr "您希望扫描存储统计信息的频率如何？"
 
-#: setup.php:1016
+#: setup.php
 msgid "Processor Frequency"
 msgstr "处理器频率"
 
-#: setup.php:1017
+#: setup.php
 msgid "How often do you want to scan Device Processor Statistics?"
 msgstr "您希望扫描设备处理器统计信息的频率如何？"
 
-#: setup.php:1023
+#: setup.php
 msgid "Interfaces Frequency"
 msgstr "接口频率"
 
-#: setup.php:1024
+#: setup.php
 msgid "How often do you want to scan the Interfaces?"
 msgstr "您希望扫描接口的频率如何？"
 
-#: setup.php:1030
+#: setup.php
 #, fuzzy
 msgid "DNS/DHCP/List Frequency"
 msgstr "存储频率"
 
-#: setup.php:1031
+#: setup.php
 #, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr "您希望扫描设备处理器统计信息的频率如何？"
 
-#: setup.php:1037
+#: setup.php
 msgid "MikroTik Queue/Tree Collection Frequencies"
 msgstr "MikroTik队列/树集合频率"
 
-#: setup.php:1041
+#: setup.php
 msgid "Simple Queue/PPPoe Frequency"
 msgstr "简单队列/ PPPoe频率"
 
-#: setup.php:1042
+#: setup.php
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "您希望扫描简单队列统计的频率？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1048
+#: setup.php
 msgid "Queue Trees Frequency"
 msgstr "队列树频率"
 
-#: setup.php:1049
+#: setup.php
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
 msgstr "你想多久扫描一次队列树？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1055
+#: setup.php
 msgid "MikroTik Wireless Collection Frequencies"
 msgstr "MikroTik无线收集频率"
 
-#: setup.php:1059
+#: setup.php
 msgid "Wireless HotSpot Users Frequency"
 msgstr "无线热点用户频率"
 
-#: setup.php:1060
+#: setup.php
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "您想要扫描无线用户统计的频率？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1066
+#: setup.php
 msgid "Wireless Access Point Frequency"
 msgstr "无线接入点频率"
 
-#: setup.php:1067
+#: setup.php
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr "你想多长时间扫描一次无线接入点？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1073
+#: setup.php
 msgid "Wireless Registrations Frequency"
 msgstr "无线注册频率"
 
-#: setup.php:1074
+#: setup.php
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
 msgstr "您想多久扫描一次无线注册？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1080
+#: setup.php
 msgid "Wireless Stations Frequency"
 msgstr "无线站点频率"
 
-#: setup.php:1081
+#: setup.php
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
 msgstr "您想多久扫描一次无线站？ 选择<b>禁用</b>删除此功能。"
 
-#: setup.php:1194
+#: setup.php
 msgid "Management"
 msgstr "管理"
 
-#: setup.php:1197
+#: setup.php
 msgid "Normal User"
 msgstr "普通用户"
 
-#: setup.php:1198
+#: setup.php
 msgid "General Administration"
 msgstr "基本管理"
 
-#: setup.php:1342
+#: setup.php
 #, php-format
 msgid "%d Minute"
 msgstr "%d分钟"
 
-#: setup.php:1354
+#: setup.php
 msgid "Indefinite"
 msgstr "无限制"
 
-#: setup.php:1358
+#: setup.php
 #, php-format
 msgid "%d Week"
 msgstr "%d 周"
 
-#: setup.php:1359 setup.php:1360
+#: setup.php
 #, php-format
 msgid "%d Weeks"
 msgstr "%d 周"
 
-#: setup.php:1361 setup.php:1362
+#: setup.php
 #, php-format
 msgid "%d Months"
 msgstr "%d 月"
 
-#: setup.php:1363
+#: setup.php
 #, php-format
 msgid "%d Year"
 msgstr "%d 年"
 
-#: setup.php:1558
+#: setup.php
 msgid "Simple Queues"
 msgstr "简单的队列"
 
-#: setup.php:1561
+#: setup.php
 msgid "Storage"
 msgstr "存储"
 
-#: setup.php:1565
+#: setup.php
 msgid "(edit)"
 msgstr "(编辑)"
 
-#: setup.php:1662 setup.php:1665
+#: setup.php
 #, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "按规则跳过或未创建的图形"
 
-#: setup.php:1702
+#: setup.php
 msgid "MikroTik Credentials"
 msgstr "MikroTik证书"
 
-#: setup.php:1706
+#: setup.php
 msgid "Read Only User"
 msgstr "只读用户"
 
-#: setup.php:1707
+#: setup.php
 msgid "Provide a read only username for the MikroTik."
 msgstr "为MikroTik提供只读用户名。"
 
-#: setup.php:1714
+#: setup.php
 msgid "Password"
 msgstr "密码"
 
-#: setup.php:1715
+#: setup.php
 msgid "Provide the read only username password for this MikroTik."
 msgstr "为此MikroTik提供只读用户名密码。"
 
-#: setup.php:1735 setup.php:1744
+#: setup.php
 msgid "Connection Result"
 msgstr "连接结果"
 
-#: setup.php:1736 setup.php:1745
+#: setup.php
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr "好的，如果Cacti可以通过API端口连接到MikroTik。"
 
-#: setup.php:1746
+#: setup.php
 msgid "Connection Failed"
 msgstr "连接失败"
 
