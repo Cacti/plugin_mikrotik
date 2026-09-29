@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
 * dev: Bring all plugin code to PHPStan level 8 with accurate native and PHPDoc types
 * issue: Normalize nullable/config-string inputs to runCollector() and mikrotik_memory() so unset last-run settings and NULL wireless AP rate columns no longer raise a TypeError under PHP 8.2
 * issue: Fix stale/invalid html_start_box() and html_header_sort() arguments
