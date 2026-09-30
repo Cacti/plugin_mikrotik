@@ -160,6 +160,11 @@ foreach ($clover->xpath('//file') as $file) {
  * Empty by default; add entries per repository as the need arises.
  */
 $unmeasured_allowlist = [
+	// Schema provisioning relocated verbatim from setup.php; only loaded from
+	// plugin_mikrotik_install()/mikrotik_check_upgrade() at install/upgrade
+	// time, not exercisable in the isolated unit process, and asserted
+	// end-to-end by the lifecycle/wiring tests.
+	'includes/database.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));
