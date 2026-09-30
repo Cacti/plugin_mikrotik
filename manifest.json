@@ -14,7 +14,6 @@
         "manifest.json",
         "mikrotik.php",
         "mikrotik_users.php",
-        "phpunit.xml",
         "poller_graphs.php",
         "poller_mikrotik.php",
         "setup.php",
