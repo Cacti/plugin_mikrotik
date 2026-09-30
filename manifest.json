@@ -1,0 +1,24 @@
+{
+    "tombstones": [],
+    "expected": [
+        "CHANGELOG.md",
+        "INFO",
+        "LICENSE",
+        "MIKROTIK-MIB.txt",
+        "README.md",
+        "RouterOS/",
+        "images/",
+        "includes/",
+        "index.php",
+        "locales/",
+        "manifest.json",
+        "mikrotik.php",
+        "mikrotik_users.php",
+        "phpunit.xml",
+        "poller_graphs.php",
+        "poller_mikrotik.php",
+        "setup.php",
+        "templates/"
+    ],
+    "whitelist": []
+}
