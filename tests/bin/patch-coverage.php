@@ -160,7 +160,8 @@ foreach ($clover->xpath('//file') as $file) {
  * Empty by default; add entries per repository as the need arises.
  */
 $unmeasured_allowlist = [
-	// Schema provisioning relocated verbatim from setup.php; only loaded from
+	// Schema provisioning relocated from setup.php into a dedicated library;
+	// tables are created through api_plugin_db_table_create(), only loaded from
 	// plugin_mikrotik_install()/mikrotik_check_upgrade() at install/upgrade
 	// time, not exercisable in the isolated unit process, and asserted
 	// end-to-end by the lifecycle/wiring tests.
