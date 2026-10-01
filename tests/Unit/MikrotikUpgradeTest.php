@@ -8,7 +8,7 @@
 /*
  * Unit coverage for mikrotik_check_upgrade()'s version-drift path in
  * setup.php, including the upgrade-time manifest prune
- * (plugin_mikrotik_prune_files()).
+ * (mikrotik_prune_files()).
  */
 
 beforeAll(function () {

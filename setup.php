@@ -209,7 +209,7 @@ function mikrotik_check_upgrade(): void {
 		}
 
 		// Remove files tombstoned in manifest.json plus the dev-only tests/ tree.
-		plugin_mikrotik_prune_files();
+		mikrotik_prune_files();
 
 		db_execute_prepared('UPDATE plugin_config
 			SET version = ?, name = ?, author = ?, webpage = ?
@@ -1283,7 +1283,7 @@ function mikrotik_host_delete(array $data): array {
  * @global array $config Cacti global configuration array; used to resolve
  *                       the plugin directory.
  */
-function plugin_mikrotik_prune_files(): void {
+function mikrotik_prune_files(): void {
 	global $config;
 
 	$plugin_dir    = $config['base_path'] . '/plugins/mikrotik';
@@ -1369,7 +1369,7 @@ function plugin_mikrotik_prune_files(): void {
 		}
 
 		if (is_dir($path) && !is_link($path)) {
-			$removed = plugin_mikrotik_rmtree($path);
+			$removed = mikrotik_rmtree($path);
 		} else {
 			$removed = @unlink($path);
 		}
@@ -1403,14 +1403,14 @@ function plugin_mikrotik_prune_files(): void {
 
 /**
  * Recursively deletes a directory and its contents. Symlinks are removed
- * without being followed. Helper for plugin_mikrotik_prune_files().
+ * without being followed. Helper for mikrotik_prune_files().
  *
  * @param string $dir Absolute path to the directory to remove.
  *
  * @return bool True if the directory and everything under it was removed;
  *              false if any entry could not be deleted.
  */
-function plugin_mikrotik_rmtree(string $dir): bool {
+function mikrotik_rmtree(string $dir): bool {
 	$entries = scandir($dir);
 	$ok      = true;
 
@@ -1422,7 +1422,7 @@ function plugin_mikrotik_rmtree(string $dir): bool {
 		$path = $dir . '/' . $entry;
 
 		if (is_dir($path) && !is_link($path)) {
-			if (!plugin_mikrotik_rmtree($path)) {
+			if (!mikrotik_rmtree($path)) {
 				$ok = false;
 			}
 		} elseif (!@unlink($path)) {
