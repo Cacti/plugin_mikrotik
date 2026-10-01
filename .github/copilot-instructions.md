@@ -4,7 +4,7 @@
 
 When generating code for this repository:
 
-1. **Version Compatibility**: This is a Cacti plugin (`mikrotik`, version 3.1) targeting Cacti 1.2.32+
+1. **Version Compatibility**: This is a Cacti plugin (`mikrotik`, version 3.1) targeting Cacti 1.2.29+
 2. **Context Files**: Prioritize patterns and standards defined in this file (`.github/copilot-instructions.md`)
 3. **Codebase Patterns**: When context files don't provide specific guidance, scan the codebase for established patterns
 4. **Architectural Consistency**: Maintain plugin-based architecture extending Cacti core
@@ -14,7 +14,7 @@ When generating code for this repository:
 
 ### Core Technologies
 - **PHP**: Compatible with Cacti 1.2.x supported versions
-- **Platform**: Cacti Plugin Architecture (Cacti 1.2.32+)
+- **Platform**: Cacti Plugin Architecture (Cacti 1.2.29+)
 - **Database**: MySQL/MariaDB with InnoDB engine
 - **SNMP**: Cacti's SNMP library for MikroTik RouterOS device polling
 
@@ -26,19 +26,19 @@ When generating code for this repository:
 ## Project Structure
 
 ```
-mikrotik/                # Repository root (install to plugins/mikrotik/ in Cacti)
-├── RouterOS/             # RouterOS-specific data query/template assets
-├── templates/            # Graph/device template XML
-├── images/                # UI icons
-├── locales/               # Internationalization files
-├── mikrotik.php            # Main viewer page (tabs, interfaces, queues, trees, wireless)
-├── mikrotik_users.php       # Admin page for wireless/PPPoE user views
-├── poller_graphs.php         # Graph URL helper output
-├── poller_mikrotik.php        # Background poller entry point (CLI)
-├── MIKROTIK-MIB.txt            # Vendor MIB reference
-├── INFO                        # Plugin metadata (name, version, compat)
+mikrotik/               # Repository root (install to plugins/mikrotik/ in Cacti)
+├── RouterOS/           # RouterOS-specific data query/template assets
+├── templates/          # Graph/device template XML
+├── images/             # UI icons
+├── locales/            # Internationalization files
+├── mikrotik.php        # Main viewer page (tabs, interfaces, queues, trees, wireless)
+├── mikrotik_users.php  # Admin page for wireless/PPPoE user views
+├── poller_graphs.php   # Graph URL helper output
+├── poller_mikrotik.php # Background poller entry point (CLI)
+├── MIKROTIK-MIB.txt    # Vendor MIB reference
+├── INFO                # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                    # Plugin install/uninstall/upgrade hooks
+└── setup.php           # Plugin install/uninstall/upgrade hooks
 ```
 
 ## Naming Conventions
@@ -221,3 +221,7 @@ existing code or adding new code, not just in dedicated cleanup passes:
   line, `@param` lines, a blank comment line, then `@return`. Infer parameter/return types from
   actual usage; don't change the function's real type-hints in the same pass (let static analysis
   flag mismatches separately). Skip vendored third-party library files.
+
+## File manifest & upgrade pruning
+
+The plugin ships a root `manifest.json` with three arrays: `tombstones` (files/directories older versions shipped that have since moved or been removed), `expected` (the top-level files and directories that ship today, directories written with a trailing `/`), and `whitelist` (paths holding user data that must never be touched). Keep `expected` current: CI runs `tests/bin/validate-manifest.php`, which fails on any drift between `expected` and the real top-level tree (it ignores `tests/`, `phpunit.xml`, `.git*`, `.md*`, and whitelisted paths). Custom customer CSS/theme files belong in `expected`, and stylesheets live in `css/` (not `themes/`). On upgrade, `mikrotik_prune_files()` deletes the tombstoned paths, the dev-only `tests/` tree, and the `phpunit.xml` test config, leaves `whitelist`, `.git*`, and `.md*` alone, and logs (without removing) any top-level entry the manifest does not account for. As a safety measure it refuses any tombstone that resolves outside the plugin directory (a tampered manifest.json) and logs a warning for any file or directory it cannot remove. When you move or delete a shipped file, add its old path to `tombstones` and update `expected` in the same change.
