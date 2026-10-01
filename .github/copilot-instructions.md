@@ -4,7 +4,7 @@
 
 When generating code for this repository:
 
-1. **Version Compatibility**: This is a Cacti plugin (`mikrotik`, version 3.1) targeting Cacti 1.2.32+
+1. **Version Compatibility**: This is a Cacti plugin (`mikrotik`, version 3.1) targeting Cacti 1.2.29+
 2. **Context Files**: Prioritize patterns and standards defined in this file (`.github/copilot-instructions.md`)
 3. **Codebase Patterns**: When context files don't provide specific guidance, scan the codebase for established patterns
 4. **Architectural Consistency**: Maintain plugin-based architecture extending Cacti core
@@ -14,7 +14,7 @@ When generating code for this repository:
 
 ### Core Technologies
 - **PHP**: Compatible with Cacti 1.2.x supported versions
-- **Platform**: Cacti Plugin Architecture (Cacti 1.2.32+)
+- **Platform**: Cacti Plugin Architecture (Cacti 1.2.29+)
 - **Database**: MySQL/MariaDB with InnoDB engine
 - **SNMP**: Cacti's SNMP library for MikroTik RouterOS device polling
 
