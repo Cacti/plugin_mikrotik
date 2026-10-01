@@ -26,19 +26,19 @@ When generating code for this repository:
 ## Project Structure
 
 ```
-mikrotik/                # Repository root (install to plugins/mikrotik/ in Cacti)
-├── RouterOS/             # RouterOS-specific data query/template assets
-├── templates/            # Graph/device template XML
-├── images/                # UI icons
-├── locales/               # Internationalization files
-├── mikrotik.php            # Main viewer page (tabs, interfaces, queues, trees, wireless)
-├── mikrotik_users.php       # Admin page for wireless/PPPoE user views
-├── poller_graphs.php         # Graph URL helper output
-├── poller_mikrotik.php        # Background poller entry point (CLI)
-├── MIKROTIK-MIB.txt            # Vendor MIB reference
-├── INFO                        # Plugin metadata (name, version, compat)
+mikrotik/               # Repository root (install to plugins/mikrotik/ in Cacti)
+├── RouterOS/           # RouterOS-specific data query/template assets
+├── templates/          # Graph/device template XML
+├── images/             # UI icons
+├── locales/            # Internationalization files
+├── mikrotik.php        # Main viewer page (tabs, interfaces, queues, trees, wireless)
+├── mikrotik_users.php  # Admin page for wireless/PPPoE user views
+├── poller_graphs.php   # Graph URL helper output
+├── poller_mikrotik.php # Background poller entry point (CLI)
+├── MIKROTIK-MIB.txt    # Vendor MIB reference
+├── INFO                # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                    # Plugin install/uninstall/upgrade hooks
+└── setup.php           # Plugin install/uninstall/upgrade hooks
 ```
 
 ## Naming Conventions
