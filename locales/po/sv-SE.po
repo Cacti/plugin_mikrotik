@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-05 08:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -104,7 +104,7 @@ msgstr "Sedan återställning"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
-msgstr "Utför"
+msgstr "Start"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear"
@@ -312,7 +312,7 @@ msgstr "Användare"
 
 #: mikrotik.php
 msgid "IP Address"
-msgstr "IP adress"
+msgstr "IP-adress"
 
 #: mikrotik.php
 msgid "MAC"
@@ -348,17 +348,15 @@ msgstr "Totalt ut"
 
 #: mikrotik.php
 msgid "N/A"
-msgstr "N/A"
+msgstr "Ej tillämpligt"
 
 #: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
 msgstr "Ingen användare hittad"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "MikroTik Credentials"
 msgid "MikroTik Changelog"
-msgstr "MikroTik-referenser"
+msgstr "MikroTik-ändringslogg"
 
 #: mikrotik.php
 #, php-format
@@ -407,10 +405,8 @@ msgid "Uptime(d:h:m)"
 msgstr "Driftstid (d: t: m)"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "CPU %"
 msgid "CPU %%%"
-msgstr "CPU %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
 msgid "CPUs"
@@ -595,7 +591,7 @@ msgstr "Inga poster i adresslistan hittades"
 
 #: mikrotik_users.php
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Radera"
 
 #: mikrotik_users.php
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
@@ -631,7 +627,7 @@ msgstr "Inaktiv"
 
 #: mikrotik_users.php
 msgid "Set/Refresh Filters"
-msgstr "Ange/uppdatera filter"
+msgstr "Ställ in/uppdatera filter"
 
 #: mikrotik_users.php
 msgid "Clear Filters"
@@ -987,7 +983,7 @@ msgstr "Ok om Cacti kan ansluta till MikroTik via dess API-port."
 
 #: setup.php
 msgid "Connection Failed"
-msgstr "% 1"
+msgstr "Anslutningen misslyckades"
 
 #, fuzzy
 #~ msgid "MikroTik Auto Discovery Frequency"
