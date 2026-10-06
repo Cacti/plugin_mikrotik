@@ -2070,7 +2070,7 @@ function mikrotik_devices(): void {
 	$graphs     = $config['url_path'] . 'plugins/mikrotik/images/view_graphs.gif';
 	$nographs   = $config['url_path'] . 'plugins/mikrotik/images/view_graphs_disabled.gif';
 
-	$hcpudq            = read_config_option('mikrotik_dq_host_cpu');
+	$hcpudq            = (int) read_config_option('mikrotik_dq_host_cpu');
 	$licVersionLatest  = read_config_option('mikrotik_latestversion', true);
 
 	if (cacti_sizeof($data_rows)) {
@@ -2120,7 +2120,7 @@ function mikrotik_devices(): void {
 				print "<a class='pic' href='#'><i class='fas fa-chart-line' style='padding:3px;color:grey;' title='" . __esc('No Graphs Defined', 'mikrotik') . "'></i></a>";
 			}
 
-			$graph_cpu   = mikrotik_get_graph_url((int) $hcpudq, $row['host_id'], '', $row['numCpus'], false);
+			$graph_cpu   = mikrotik_get_graph_url($hcpudq, $row['host_id'], '', $row['numCpus'], false);
 			$graph_cpup  = mikrotik_get_graph_template_url((int) mikrotik_template_by_hash('7df474393f58bae8e8d6b85f10efad71'), $row['host_id'], (string) round($row['cpuPercent'],2), false);
 			$graph_users = mikrotik_get_graph_template_url((int) mikrotik_template_by_hash('99e37ff13139f586d257ba9a637d7340'), $row['host_id'], (empty($row['users']) ? '-' : $row['users']), false);
 			$graph_aproc = mikrotik_get_graph_template_url((int) mikrotik_template_by_hash('e797d967db24fd86341a8aa8c60fa9e0'), $row['host_id'], ($row['host_status'] < 2 ? 'N/A' : $row['processes']), false);
