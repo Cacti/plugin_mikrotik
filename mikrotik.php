@@ -2070,7 +2070,7 @@ function mikrotik_devices(): void {
 	$graphs     = $config['url_path'] . 'plugins/mikrotik/images/view_graphs.gif';
 	$nographs   = $config['url_path'] . 'plugins/mikrotik/images/view_graphs_disabled.gif';
 
-	$hcpudq            = (int) read_config_option('mikrotik_dq_host_cpu');
+	$hcpudq            = read_config_option('mikrotik_dq_host_cpu');
 	$licVersionLatest  = read_config_option('mikrotik_latestversion', true);
 
 	if (cacti_sizeof($data_rows)) {
@@ -2348,7 +2348,9 @@ function mikrotik_get_graph_template_url(int $graph_template, int $host_id = 0, 
  * 'view graphs' action for a data-query-driven metric (e.g. a specific
  * queue or interface entry).
  *
- * @param int    $data_query The snmp_query id to find graphs for.
+ * @param int    $data_query The snmp_query id to find graphs for. May be
+ *                           null (e.g. an unset Host MIB data query
+ *                           setting), which is treated the same as 0.
  * @param int    $host_id    Optional host id to restrict the search to
  *                           a single device.
  * @param string $index      Optional SNMP index to restrict the search
@@ -2364,7 +2366,7 @@ function mikrotik_get_graph_template_url(int $graph_template, int $host_id = 0, 
  * @global array $config Cacti global configuration array; used to
  *                       build the link URL and image paths.
  */
-function mikrotik_get_graph_url(int $data_query, int $host_id, string $index, string $title = '', bool $image = true): string {
+function mikrotik_get_graph_url(?int $data_query, int $host_id, string $index, string $title = '', bool $image = true): string {
 	global $config;
 
 	$url     = $config['url_path'] . 'plugins/mikrotik/mikrotik.php';
