@@ -393,6 +393,22 @@ function mikrotik_interfaces(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_interfaces').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -419,7 +435,7 @@ function mikrotik_interfaces(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -440,7 +456,7 @@ function mikrotik_interfaces(): void {
 						<?php print __('Interfaces', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -453,19 +469,19 @@ function mikrotik_interfaces(): void {
 					</td>
 					<td>
 						<span>
-							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?>>
 							<label for='active'><?php print __('Active', 'mikrotik'); ?></label>
 						</span>
 					<td>
 						<span>
-							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?>>
 							<label for='sincereset'><?php print __('Since Reset', 'mikrotik'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -700,6 +716,22 @@ function mikrotik_queues(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_queues').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -726,7 +758,7 @@ function mikrotik_queues(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -747,7 +779,7 @@ function mikrotik_queues(): void {
 						<?php print __('Queues', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -760,20 +792,20 @@ function mikrotik_queues(): void {
 					</td>
 					<td>
 						<span>
-							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?>>
 							<label for='active'><?php print __('Active', 'mikrotik'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
-							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?>>
 							<label for='sincereset'><?php print __('Since Reset', 'mikrotik'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1005,6 +1037,22 @@ function mikrotik_trees(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_trees').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -1031,7 +1079,7 @@ function mikrotik_trees(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -1052,7 +1100,7 @@ function mikrotik_trees(): void {
 						<?php print __('Trees', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1065,8 +1113,8 @@ function mikrotik_trees(): void {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1253,6 +1301,22 @@ function mikrotik_wireless_aps(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_wireless_aps').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -1279,7 +1343,7 @@ function mikrotik_wireless_aps(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -1300,7 +1364,7 @@ function mikrotik_wireless_aps(): void {
 						<?php print __('Aps', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1313,8 +1377,8 @@ function mikrotik_wireless_aps(): void {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1560,6 +1624,22 @@ function mikrotik_users(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_users').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -1586,7 +1666,7 @@ function mikrotik_users(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT host.id, host.description
@@ -1607,7 +1687,7 @@ function mikrotik_users(): void {
 						<?php print __('Type', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='type' onChange='applyFilter()'>
+						<select id='type'>
 							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot', 'mikrotik'); ?></option>
 							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe', 'mikrotik'); ?></option>
@@ -1617,7 +1697,7 @@ function mikrotik_users(): void {
 						<?php print __('Devices', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1630,14 +1710,14 @@ function mikrotik_users(): void {
 					</td>
 					<td>
 						<span>
-							<input type='checkbox' id='active' onChange='applyFilter()' <?php print(get_request_var('active') == 'true' || get_request_var('active') == 'on' ? 'checked' : ''); ?>>
+							<input type='checkbox' id='active' <?php print(get_request_var('active') == 'true' || get_request_var('active') == 'on' ? 'checked' : ''); ?>>
 							<label for='active'><?php print __('Active Users', 'mikrotik'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
-							<input type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>' id='refresh'>
-							<input type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>' id='clear'>
+							<input type='button' value='<?php print __esc('Go', 'mikrotik'); ?>' id='refresh'>
+							<input type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>' id='clear'>
 						</span>
 					</td>
 				</tr>
@@ -1867,6 +1947,22 @@ function mikrotik_devices(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('.changelog').click(function(event) {
 			event.stopPropagation();
 			window.open('https://mikrotik.com/download/changelogs', '<?php print __esc('MikroTik Changelog'); ?>');
@@ -1908,7 +2004,7 @@ function mikrotik_devices(): void {
 						<?php print __('Status', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='status' onChange='applyFilter()'>
+						<select id='status'>
 							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$statuses = db_fetch_assoc('SELECT DISTINCT status
@@ -1955,7 +2051,7 @@ function mikrotik_devices(): void {
 						<?php print __('Devices', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1968,8 +2064,8 @@ function mikrotik_devices(): void {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -2680,6 +2776,22 @@ function mikrotik_wireless_regs(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_wregs').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -2706,7 +2818,7 @@ function mikrotik_wireless_regs(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -2727,7 +2839,7 @@ function mikrotik_wireless_regs(): void {
 						<?php print __('Registrations', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -2740,19 +2852,19 @@ function mikrotik_wireless_regs(): void {
 					</td>
 					<td>
 						<span>
-							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='active' type='checkbox' <?php print(get_request_var('active') == 'true' ? 'checked' : ''); ?>>
 							<label for='active'><?php print __('Active', 'mikrotik'); ?></label>
 						</span>
 					<td>
 						<span>
-							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?> onClick='applyFilter()'>
+							<input id='sincereset' type='checkbox' <?php print(get_request_var('sincereset') == 'true' ? 'checked' : ''); ?>>
 							<label for='sincereset'><?php print __('Since Reset', 'mikrotik'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -2993,6 +3105,22 @@ function mikrotik_dhcp(): void {
 	}
 
 	$(function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#export').off('click').on('click', function() {
+			exportData();
+		});
+
 		$('#form_dhcp').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -3019,7 +3147,7 @@ function mikrotik_dhcp(): void {
 						<?php print __('Device', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='device' onChange='applyFilter()'>
+						<select id='device'>
 							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<?php
 							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -3040,7 +3168,7 @@ function mikrotik_dhcp(): void {
 						<?php print __('Entries', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -3053,8 +3181,8 @@ function mikrotik_dhcp(): void {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-							<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -3260,6 +3388,22 @@ function mikrotik_dns(bool $export = false): void {
 		}
 
 		$(function() {
+			$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#refresh').off('click').on('click', function() {
+				applyFilter();
+			});
+
+			$('#clear').off('click').on('click', function() {
+				clearFilter();
+			});
+
+			$('#export').off('click').on('click', function() {
+				exportData();
+			});
+
 			$('#form_dns').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
@@ -3286,7 +3430,7 @@ function mikrotik_dns(bool $export = false): void {
 							<?php print __('Device', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='device' onChange='applyFilter()'>
+							<select id='device'>
 								<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 								<?php
 								$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -3307,7 +3451,7 @@ function mikrotik_dns(bool $export = false): void {
 							<?php print __('Type', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='type' onChange='applyFilter()'>
+							<select id='type'>
 								<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 								<?php
 		$types = db_fetch_assoc('SELECT DISTINCT type
@@ -3329,7 +3473,7 @@ function mikrotik_dns(bool $export = false): void {
 							<?php print __('Status', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='status' onChange='applyFilter()'>
+							<select id='status'>
 								<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 								<?php
 		$status = [
@@ -3350,7 +3494,7 @@ function mikrotik_dns(bool $export = false): void {
 							<?php print __('Entries', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='rows' onChange='applyFilter()'>
+							<select id='rows'>
 								<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 								<?php
 		if (cacti_sizeof($item_rows)) {
@@ -3363,9 +3507,9 @@ function mikrotik_dns(bool $export = false): void {
 						</td>
 						<td>
 							<span>
-								<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-								<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
-								<input id='export' type='button' onClick='exportData()' value='<?php print __esc('Export', 'mikrotik'); ?>'>
+								<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+								<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+								<input id='export' type='button' value='<?php print __esc('Export', 'mikrotik'); ?>'>
 							</span>
 						</td>
 					</tr>
@@ -3620,6 +3764,22 @@ function mikrotik_list(bool $export = false): void {
 		}
 
 		$(function() {
+			$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#refresh').off('click').on('click', function() {
+				applyFilter();
+			});
+
+			$('#clear').off('click').on('click', function() {
+				clearFilter();
+			});
+
+			$('#export').off('click').on('click', function() {
+				exportData();
+			});
+
 			$('#form_list').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
@@ -3646,7 +3806,7 @@ function mikrotik_list(bool $export = false): void {
 							<?php print __('Device', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='device' onChange='applyFilter()'>
+							<select id='device'>
 								<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 								<?php
 								$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
@@ -3667,7 +3827,7 @@ function mikrotik_list(bool $export = false): void {
 							<?php print __('List', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='list' onChange='applyFilter()'>
+							<select id='list'>
 								<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 								<?php
 		$lists = db_fetch_assoc('SELECT DISTINCT list
@@ -3688,7 +3848,7 @@ function mikrotik_list(bool $export = false): void {
 							<?php print __('Entries', 'mikrotik'); ?>
 						</td>
 						<td>
-							<select id='rows' onChange='applyFilter()'>
+							<select id='rows'>
 								<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 								<?php
 		if (cacti_sizeof($item_rows)) {
@@ -3701,9 +3861,9 @@ function mikrotik_list(bool $export = false): void {
 						</td>
 						<td>
 							<span>
-								<input id='refresh' type='button' onClick='applyFilter()' value='<?php print __esc('Go', 'mikrotik'); ?>'>
-								<input id='clear' type='button' onClick='clearFilter()' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
-								<input id='export' type='button' onClick='exportData()' value='<?php print __esc('Export', 'mikrotik'); ?>'>
+								<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+								<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+								<input id='export' type='button' value='<?php print __esc('Export', 'mikrotik'); ?>'>
 							</span>
 						</td>
 					</tr>

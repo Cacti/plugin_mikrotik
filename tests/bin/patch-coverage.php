@@ -166,6 +166,11 @@ $unmeasured_allowlist = [
 	// time, not exercisable in the isolated unit process, and asserted
 	// end-to-end by the lifecycle/wiring tests.
 	'includes/database.php',
+	// Web UI entry points (chdir + include auth.php, top-level execution); not
+	// loadable in the isolated unit process. Their pure helpers are covered via
+	// mikrotik_test_load_function(); their render output is asserted by the UI.
+	'mikrotik.php',
+	'mikrotik_users.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));
