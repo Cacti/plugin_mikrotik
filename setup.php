@@ -1106,11 +1106,15 @@ function mikrotik_data_query_by_hash(string $hash) {
  * Called from mikrotik.php's list views to render each row's graph
  * link.
  *
- * @param array  $hashes  The list of graph template hashes to include.
- * @param int    $host_id Optional host id to restrict the search to a
- *                        single device.
- * @param string $search  Optional SNMP index substring to restrict the
- *                        search to.
+ * @param array|null $hashes  The list of graph template hashes to
+ *                            include. May be null when the caller's
+ *                            hash list global has not been populated,
+ *                            in which case the placeholder link is
+ *                            returned.
+ * @param int        $host_id Optional host id to restrict the search
+ *                            to a single device.
+ * @param string     $search  Optional SNMP index substring to restrict
+ *                            the search to.
  *
  * @return string An HTML anchor linking to the matching graphs, or a
  *                disabled-looking placeholder link if none are found.
@@ -1118,7 +1122,7 @@ function mikrotik_data_query_by_hash(string $hash) {
  * @global array $config Cacti global configuration array; used to
  *                       build the link URL.
  */
-function mikrotik_graphs_url_by_template_hashs(array $hashes, int $host_id = 0, string $search = ''): string {
+function mikrotik_graphs_url_by_template_hashs(?array $hashes, int $host_id = 0, string $search = ''): string {
 	global $config;
 
 	$sql_where = '';
