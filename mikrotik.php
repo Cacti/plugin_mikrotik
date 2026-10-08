@@ -2699,16 +2699,18 @@ function mikrotik_view_graphs(): void {
  *
  * @return void
  *
- * @global array $config       Cacti global configuration array; used
- *                             to build device edit links.
- * @global array $item_rows    Cacti's standard row-count option list,
- *                             used to populate the rows dropdown.
- * @global array $wreg_hashes  Reserved/declared for parity with other
- *                             functions in this file; not used
- *                             directly here.
+ * @global array $config              Cacti global configuration array;
+ *                                    used to build device edit links.
+ * @global array $item_rows           Cacti's standard row-count option
+ *                                    list, used to populate the rows
+ *                                    dropdown.
+ * @global array $wireless_reg_hashes The list of wireless registration
+ *                                    graph template hashes, used to
+ *                                    build each row's 'view graphs'
+ *                                    link.
  */
 function mikrotik_wireless_regs(): void {
-	global $config, $item_rows, $wreg_hashes;
+	global $config, $item_rows, $wireless_reg_hashes;
 
 	// ================= input validation and session storage =================
 	$filters = [
@@ -2996,7 +2998,7 @@ function mikrotik_wireless_regs(): void {
 
 			form_alternate_row();
 
-			$graphs = mikrotik_graphs_url_by_template_hashs($wreg_hashes, $row['host_id'], $row['index']);
+			$graphs = mikrotik_graphs_url_by_template_hashs($wireless_reg_hashes, $row['host_id'], $row['index']);
 
 			if (api_plugin_user_realm_auth('host.php')) {
 				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));

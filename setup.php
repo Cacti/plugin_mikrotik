@@ -634,17 +634,16 @@ function mikrotik_config_settings(): void {
  * @global array $user_hashes                    Populated here with the
  *                                              list of user graph
  *                                              template hashes.
- * @global array $wireless_station_hashes        Reserved/declared for
- *                                              parity with other
- *                                              functions in this file;
- *                                              not populated directly
- *                                              here.
- * @global array $wirless_reg_hashes             Reserved/declared for
- *                                              parity with other
- *                                              functions in this file;
- *                                              not populated directly
- *                                              here (see local
- *                                              $wireless_reg_hashes).
+ * @global array $wireless_station_hashes        Initialized here to an
+ *                                              empty array; there are
+ *                                              currently no wireless AP
+ *                                              station graph templates,
+ *                                              so the APs view renders
+ *                                              the placeholder link.
+ * @global array $wireless_reg_hashes            Populated here with the
+ *                                              list of wireless client
+ *                                              registration graph
+ *                                              template hashes.
  * @global array $interface_hashes               Populated here with the
  *                                              list of interface graph
  *                                              template hashes.
@@ -670,7 +669,7 @@ function mikrotik_config_arrays(): void {
 	global $mikrotikProcessor, $mikrotikStorage, $mikrotikInterfaces, $mikrotikWirelessAps;
 	global $mikrotikWirelessRegistrations;
 	global $host_template_hashes, $queue_hashes, $tree_hashes, $user_hashes;
-	global $wireless_station_hashes, $wirless_reg_hashes, $interface_hashes;
+	global $wireless_station_hashes, $wireless_reg_hashes, $interface_hashes;
 	global $device_hashes, $device_health_hashes, $graph_template_hashes, $device_query_hashes;
 
 	$menu[__('Management')]['plugins/mikrotik/mikrotik_users.php'] = __('MikroTik Users', 'mikrotik');
@@ -700,6 +699,9 @@ function mikrotik_config_arrays(): void {
 		'0e5cd325b4956aaf11fc8e7d813a5e02',
 		'a3b1e1488352975428edfb9dcbb29208'
 	];
+
+	// No wireless AP station graph templates currently ship with the plugin.
+	$wireless_station_hashes = [];
 
 	$wireless_reg_hashes = [
 		'de393e2fe3c31572c0282607ce785335',
