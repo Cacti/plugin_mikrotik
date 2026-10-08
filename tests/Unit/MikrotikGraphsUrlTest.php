@@ -32,6 +32,15 @@ it('renders a skipped-graphs placeholder when no hashes are given', function () 
 	expect($html)->toContain('Graphs Skipped by Rule');
 });
 
+it('renders a skipped-graphs placeholder when the hash list is null', function () {
+	mikrotik_test_mock_db('db_fetch_assoc', 'graph_local', array(array('id' => 9)));
+
+	$html = mikrotik_graphs_url_by_template_hashs(null);
+
+	expect($html)->toContain('Graphs Skipped by Rule');
+	expect($html)->not->toContain('graph_list=');
+});
+
 it('renders a skipped-graphs placeholder when no graphs match', function () {
 	mikrotik_test_mock_db('db_fetch_assoc', 'graph_local', array());
 

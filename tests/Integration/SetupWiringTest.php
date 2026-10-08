@@ -88,3 +88,13 @@ describe('plugin_mikrotik_version()', function () {
 		expect($info)->toHaveKey('version');
 	});
 });
+
+describe('mikrotik_config_arrays() hash wiring', function () {
+	it('publishes the wireless registration and (empty) AP station hash globals', function () {
+		mikrotik_config_arrays();
+
+		expect($GLOBALS['wireless_station_hashes'])->toBe(array());
+		expect($GLOBALS['wireless_reg_hashes'])->toBeArray();
+		expect($GLOBALS['wireless_reg_hashes'])->toHaveCount(5);
+	});
+});
