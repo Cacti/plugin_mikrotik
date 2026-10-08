@@ -28,8 +28,6 @@
     <source>
         <include>
             <file>setup.php</file>
-            <file>mikrotik.php</file>
-            <file>mikrotik_users.php</file>
             <file>poller_mikrotik.php</file>
             <file>poller_graphs.php</file>
         </include>

@@ -181,11 +181,11 @@ function form_actions(): void {
 					</td>
 				</tr>\n
 				";
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'mikrotik') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'mikrotik') . "' title='" . __esc('Delete Device(s)', 'mikrotik') . "'>";
+			$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'mikrotik') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'mikrotik') . "' title='" . __esc('Delete Device(s)', 'mikrotik') . "'>";
 		}
 	} else {
 		print "<tr><td><span class='textError'>" . __('You must select at least one User.', 'mikrotik') . "</span></td></tr>\n";
-		$save_html = "<input type='button' value='" . __esc('Return', 'mikrotik') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Return', 'mikrotik') . "'>";
 	}
 
 	print "<tr class='saveRow'>
@@ -287,6 +287,18 @@ function mikrotik_user(): void {
 	}
 
 	$(function() {
+		$('#type, #rows, #status').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
 		$('#users').submit(function(event) {
 			event.preventDefault();
 			applyFilter();
@@ -313,7 +325,7 @@ function mikrotik_user(): void {
 						<?php print __('Type', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='type' onChange='applyFilter()'>
+						<select id='type'>
 							<option value='-1'<?php if (get_request_var('type') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<option value='0'<?php if (get_request_var('type') == '0') {?> selected<?php }?>><?php print __('Hotspot', 'mikrotik'); ?></option>
 							<option value='1'<?php if (get_request_var('type') == '1') {?> selected<?php }?>><?php print __('PPPoe', 'mikrotik'); ?></option>
@@ -323,7 +335,7 @@ function mikrotik_user(): void {
 						<?php print __('Users', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
 							<?php
 							if (cacti_sizeof($item_rows)) {
@@ -342,15 +354,15 @@ function mikrotik_user(): void {
 						<?php print __('Status', 'mikrotik'); ?>
 					</td>
 					<td>
-						<select id='status' onChange='applyFilter()'>
+						<select id='status'>
 							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
 							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Active', 'mikrotik'); ?></option>
 							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Inactive', 'mikrotik'); ?></option>
 						</select>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>' title='<?php print __esc('Set/Refresh Filters', 'mikrotik'); ?>' onClick='applyFilter()'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>' title='<?php print __esc('Clear Filters', 'mikrotik'); ?>' onClick='clearFilter()'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>' title='<?php print __esc('Set/Refresh Filters', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>' title='<?php print __esc('Clear Filters', 'mikrotik'); ?>'>
 						<span>
 					</td>
 				</tr>
