@@ -393,7 +393,7 @@ function mikrotik_interfaces(): void {
 	}
 
 	$(function() {
-		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change').on('change', function() {
+		$('#device, #rows, #type, #status, #list, #active, #sincereset').off('change.mikrotikFilter').on('change.mikrotikFilter', function() {
 			applyFilter();
 		});
 
