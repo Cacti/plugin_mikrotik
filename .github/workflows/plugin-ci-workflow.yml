@@ -31,12 +31,20 @@ on:
       - main
       - develop
 
+permissions:
+  contents: read
+
 env:
   CACTI: 1.2.x
-  COMPOSER_ALLOW_SUPERUSER: 1
+  CACTI_REF: d6d230f712c0af1a0391646f65364950ebf131af # 1.2.x fixture
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   integration-test:
+    timeout-minutes: 45
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -47,7 +55,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:11.8
+        image: mariadb:11.8@sha256:6422478cb8e159f080fb1d8ccf65101e26fe51385787fde7d16c3b165a331f15
         env:
           MYSQL_ROOT_PASSWORD: cactiroot
           MYSQL_DATABASE: cacti
@@ -67,13 +75,15 @@ jobs:
     - name: Checkout Cacti
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
+        persist-credentials: false
         repository: Cacti/cacti
-        ref: ${{ env.CACTI }}
+        ref: ${{ env.CACTI_REF }}
         path: cacti
 
     - name: Checkout Mikrotik Plugin
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
+        persist-credentials: false
         path: cacti/plugins/mikrotik
         # patch-coverage.php diffs against the base branch below.
         fetch-depth: 0
@@ -82,6 +92,7 @@ jobs:
       uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
       with:
         php-version: ${{ matrix.php }}
+        tools: composer:2.10.3
         extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring, snmp
         coverage: xdebug
         ini-values: "post_max_size=256M, max_execution_time=60, date.timezone=America/New_York"
@@ -130,28 +141,24 @@ jobs:
         mysql --defaults-file="$HOME/.my.cnf" cacti < ${{ github.workspace }}/cacti/cacti.sql
         mysql --defaults-file="$HOME/.my.cnf" -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
 
-    - name: Validate composer files
-      run: |
-        cd ${{ github.workspace }}/cacti
-        if [ -f composer.json ]; then
-          composer validate --strict
-        fi
+    # Core's release archives exclude .github and tests. Fetch these paths
+    # through Git at the immutable helper revision instead of an Action archive.
+    - name: Checkout shared CI tooling
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        repository: Cacti/cacti
+        ref: b1d8dd6a03a3c756a2b22dfe3a0c744b1f11116c
+        persist-credentials: false
+        path: ci-tools
+        sparse-checkout: |
+          .github/actions/setup-plugin-dependencies
+          tests/tools/plugin-harness
 
-    - name: Install Composer Dependencies
-      run: |
-        cd ${{ github.workspace }}/cacti
-        if [ -f composer.json ]; then
-          sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
-          sudo composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
-          sudo composer install --no-progress
-        fi
-
-    - name: Restore vendor ownership for Pest
-      run: |
-        cd ${{ github.workspace }}/cacti
-        if [ -d include/vendor ]; then
-          sudo chown -R runner:runner include/vendor composer.lock
-        fi
+    - name: Install locked Cacti and plugin test dependencies
+      uses: ./ci-tools/.github/actions/setup-plugin-dependencies
+      with:
+        cacti-directory: cacti
+        install-core-dev: 'false'
 
     - name: Create Cacti config.php
       run: |
@@ -192,7 +199,7 @@ jobs:
     - name: Run Pest Unit Tests
       run: |
         cd ${{ github.workspace }}/cacti
-        include/vendor/bin/pest --configuration=plugins/mikrotik/phpunit.xml \
+        "$CACTI_PEST_BIN" --configuration=plugins/mikrotik/phpunit.xml \
           --coverage-clover=plugins/mikrotik/coverage/clover.xml
 
     # Whole-file coverage is meaningless here: most of the plugin only runs
