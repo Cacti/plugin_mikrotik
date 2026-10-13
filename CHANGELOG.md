@@ -1,5 +1,6 @@
 
 --- develop ---
+* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * issue: Fix an uncaught TypeError that disabled the plugin when mikrotik_graphs_url_by_template_hashs() received a null hash list (unpopulated wireless AP station hashes), and wire the Wireless Registrations view to the correctly-named $wireless_reg_hashes global so its graph links resolve
 * security: Move every page's inline event handlers to CSP-safe jQuery bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the per-view filter selects, checkboxes, Go/Clear/Export buttons are bound in each view's ready block, and the confirmation Cancel/Return buttons use the `cactiReturnTo` class. `mikrotik.php`/`mikrotik_users.php` move from the phpunit measured `<source>` set into the patch-coverage allowlist (matching the rest of the plugin fleet) because they are web UI entry points that cannot be loaded into the isolated unit process; their pure helpers remain covered via `mikrotik_test_load_function()`
