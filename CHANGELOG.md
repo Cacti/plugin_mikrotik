@@ -5,6 +5,7 @@
 * security: Move every page's inline event handlers to CSP-safe jQuery bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the per-view filter selects, checkboxes, Go/Clear/Export buttons are bound in each view's ready block, and the confirmation Cancel/Return buttons use the `cactiReturnTo` class. `mikrotik.php`/`mikrotik_users.php` move from the phpunit measured `<source>` set into the patch-coverage allowlist (matching the rest of the plugin fleet) because they are web UI entry points that cannot be loaded into the isolated unit process; their pure helpers remain covered via `mikrotik_test_load_function()`
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
 * dev: Bring all plugin code to PHPStan level 8 with accurate native and PHPDoc types
+* dev: Pin the CI database image and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 * issue: Normalize nullable/config-string inputs to runCollector() and mikrotik_memory() so unset last-run settings and NULL wireless AP rate columns no longer raise a TypeError under PHP 8.2
 * issue: Fix stale/invalid html_start_box() and html_header_sort() arguments
 * issue: Fix uptime/TTL arithmetic on SNMP string values and a double strlen() typo
