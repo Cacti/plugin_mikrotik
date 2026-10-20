@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
-msgstr "Närrvarande"
+msgstr "Närvarande"
 
 #: mikrotik.php
 msgid "Unknown"
@@ -164,11 +164,11 @@ msgstr "Status för kö"
 
 #: mikrotik.php
 msgid "Src Addr/Mask"
-msgstr "Src-adress/Mask"
+msgstr "Källadress/nätmask"
 
 #: mikrotik.php
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr/Mask"
+msgstr "Måladress/nätmask"
 
 #: mikrotik.php
 msgid "Bytes In"
@@ -348,7 +348,7 @@ msgstr "Totalt ut"
 
 #: mikrotik.php
 msgid "N/A"
-msgstr "Ej tillämpligt"
+msgstr "Inte tillämpligt"
 
 #: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
@@ -378,7 +378,7 @@ msgstr "Status"
 
 #: mikrotik.php
 msgid "Recovering"
-msgstr "Påväg upp"
+msgstr "Återhämtar sig"
 
 #: mikrotik.php
 msgid "Up"
@@ -486,7 +486,7 @@ msgstr "Anpassad graflista tillämpad - Filtrering från lista"
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
-msgstr "Graph Preview Filters"
+msgstr "Filter för graföversikt"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
@@ -583,7 +583,7 @@ msgstr "Adress"
 
 #: mikrotik.php
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Tidsgräns"
 
 #: mikrotik.php
 msgid "No Address List Entries Found"
@@ -627,7 +627,7 @@ msgstr "Inaktiv"
 
 #: mikrotik_users.php
 msgid "Set/Refresh Filters"
-msgstr "Ställ in/uppdatera filter"
+msgstr "Ange/uppdatera filter"
 
 #: mikrotik_users.php
 msgid "Clear Filters"
@@ -713,7 +713,7 @@ msgstr "Inställningar för automatisk upptäckt"
 
 #: setup.php
 msgid "Auto Discovery Frequency"
-msgstr "Auto Discovery Frequency"
+msgstr "Frekvens för automatisk identifiering"
 
 #: setup.php
 msgid "How often do you want to look for new Cacti Devices?"
@@ -786,7 +786,7 @@ msgstr "%d Dag"
 #: setup.php
 #, php-format
 msgid "%d Days"
-msgstr "%d dygn"
+msgstr "%d dagar"
 
 #: setup.php
 msgid "Exclude Users RegEx"
@@ -902,11 +902,11 @@ msgstr "Hantering"
 
 #: setup.php
 msgid "Normal User"
-msgstr "Normal användare"
+msgstr "Vanlig användare"
 
 #: setup.php
 msgid "General Administration"
-msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
+msgstr "Allmän administration"
 
 #: setup.php
 #, php-format
