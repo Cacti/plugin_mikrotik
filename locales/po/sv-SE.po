@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-21 16:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-26 10:33+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -16,7 +16,7 @@ msgstr "Okänd"
 
 #: mikrotik.php
 msgid "Running"
-msgstr "Kör"
+msgstr "Pågår"
 
 #: mikrotik.php
 msgid "Warning"
@@ -352,7 +352,7 @@ msgstr "Inte tillämpligt"
 
 #: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
-msgstr "Ingen användare hittad"
+msgstr "Inga användare hittades"
 
 #: mikrotik.php
 msgid "MikroTik Changelog"
@@ -370,7 +370,7 @@ msgstr "Enhetsfilter (senaste MikroTik-versionen är: %s, släppt: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
-msgstr "ChangelogLanguage"
+msgstr "Ändringslogg"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Status"
@@ -486,7 +486,7 @@ msgstr "Anpassad graflista tillämpad - Filtrering från lista"
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
-msgstr "Filter för förhandsvisning av diagram"
+msgstr "Filter för förhandsvisning av grafer"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
@@ -607,7 +607,7 @@ msgstr "Fortsätt"
 
 #: mikrotik_users.php
 msgid "Delete Device(s)"
-msgstr "Ta bort enhet(er)"
+msgstr "Ta bort enheter"
 
 #: mikrotik_users.php
 msgid "You must select at least one User."
