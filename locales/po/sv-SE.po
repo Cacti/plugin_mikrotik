@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-26 10:33+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-26 12:27+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -458,7 +458,7 @@ msgstr "Visa gränssnitt"
 
 #: mikrotik.php setup.php
 msgid "View Graphs"
-msgstr "Se grafer"
+msgstr "Visa grafer"
 
 #: mikrotik.php
 msgid "No Graphs Defined"
@@ -591,7 +591,7 @@ msgstr "Inga poster i adresslistan hittades"
 
 #: mikrotik_users.php
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: mikrotik_users.php
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
@@ -659,15 +659,15 @@ msgstr "MikroTik Allmänna inställningar"
 
 #: setup.php
 msgid "MikroTik Poller Enabled"
-msgstr "MikroTik Poller aktiverad"
+msgstr "MikroTik-insamling aktiverad"
 
 #: setup.php
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "Markera den här rutan om du vill att MikroTik-polling ska aktiveras.  Annars fungerar inte pollaren."
+msgstr "Markera rutan för att aktivera MikroTik-insamling. Annars fungerar inte insamlingsprocessen."
 
 #: setup.php
 msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik API Polling aktiverad"
+msgstr "MikroTik API-insamling aktiverad"
 
 #: setup.php
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
