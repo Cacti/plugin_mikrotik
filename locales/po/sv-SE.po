@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-26 12:27+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-27 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -64,7 +64,7 @@ msgstr "Adresslistor"
 
 #: mikrotik.php setup.php
 msgid "Wireless Aps"
-msgstr "Trådlösa Aps"
+msgstr "Trådlösa åtkomstpunkter"
 
 #: mikrotik.php
 msgid "Wireless Registrations"
@@ -124,11 +124,11 @@ msgstr "Namn"
 
 #: mikrotik.php
 msgid "Rx Bytes"
-msgstr "Rx Byte"
+msgstr "Mottagna byte"
 
 #: mikrotik.php
 msgid "Tx Bytes"
-msgstr "Tx Byte"
+msgstr "Skickade byte"
 
 #: mikrotik.php
 msgid "Rx Packets"
@@ -180,11 +180,11 @@ msgstr "Byte ut"
 
 #: mikrotik.php
 msgid "Pkts In"
-msgstr "Pkt in"
+msgstr "Paket in"
 
 #: mikrotik.php
 msgid "Pkts Out"
-msgstr "Pkt ut"
+msgstr "Paket ut"
 
 #: mikrotik.php
 msgid "Qs In"
@@ -220,11 +220,11 @@ msgstr "Flöde"
 
 #: mikrotik.php
 msgid "Cur Bytes"
-msgstr "Akt byte"
+msgstr "Aktuella byte"
 
 #: mikrotik.php
 msgid "Cur Packets"
-msgstr "Akt paket"
+msgstr "Aktuella paket"
 
 #: mikrotik.php
 msgid "Total Bytes"
@@ -236,11 +236,11 @@ msgstr "Totalt antal paket"
 
 #: mikrotik.php
 msgid "No Queue Trees Found"
-msgstr "Inga köer hittades"
+msgstr "Inga köträd hittades"
 
 #: mikrotik.php
 msgid "Wireless Aps Status"
-msgstr "Status för trådlös Aps"
+msgstr "Status för trådlösa åtkomstpunkter"
 
 #: mikrotik.php
 msgid "Aps"
@@ -256,11 +256,11 @@ msgstr "BSSID"
 
 #: mikrotik.php
 msgid "Tx Rate"
-msgstr "Tx-frekvens"
+msgstr "Sändningshastighet"
 
 #: mikrotik.php
 msgid "Rx Rate"
-msgstr "Rx-frekvens"
+msgstr "Mottagningshastighet"
 
 #: mikrotik.php
 msgid "Clients"
@@ -268,7 +268,7 @@ msgstr "Klienter"
 
 #: mikrotik.php
 msgid "Auth Clients"
-msgstr "Auth-klienter"
+msgstr "Autentiserade klienter"
 
 #: mikrotik.php
 msgid "Frequency"
@@ -280,7 +280,7 @@ msgstr "Band"
 
 #: mikrotik.php
 msgid "Noise Floor"
-msgstr "Bullernivåer"
+msgstr "Brusnivå"
 
 #: mikrotik.php
 msgid "Tx CQQ"
@@ -320,7 +320,7 @@ msgstr "MAC"
 
 #: mikrotik.php
 msgid "Connect Time"
-msgstr "Anslut tid"
+msgstr "Anslutningstid"
 
 #: mikrotik.php
 msgid "Cur In"
@@ -402,7 +402,7 @@ msgstr "Lic Ver"
 
 #: mikrotik.php
 msgid "Uptime(d:h:m)"
-msgstr "Driftstid (d: t: m)"
+msgstr "Drifttid (d:h:m)"
 
 #: mikrotik.php
 msgid "CPU %%%"
@@ -418,7 +418,7 @@ msgstr "Processer"
 
 #: mikrotik.php
 msgid "Total Mem"
-msgstr "Totalt Mem"
+msgstr "Totalt minne"
 
 #: mikrotik.php
 msgid "Used Mem"
@@ -442,15 +442,15 @@ msgstr "Visa enkel kö"
 
 #: mikrotik.php
 msgid "View Queue Trees"
-msgstr "Visa köer för träd"
+msgstr "Visa köträd"
 
 #: mikrotik.php
 msgid "View Wireless Aps"
-msgstr "Visa trådlösa Aps"
+msgstr "Visa trådlösa åtkomstpunkter"
 
 #: mikrotik.php
 msgid "No Wireless Aps Found"
-msgstr "Inga trådlösa Aps hittades"
+msgstr "Inga trådlösa åtkomstpunkter hittades"
 
 #: mikrotik.php
 msgid "View Interfaces"
@@ -470,7 +470,7 @@ msgstr "Inga enheter hittades"
 
 #: mikrotik.php
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "Välj Data Query först från Konsol -> Inställningar -> Host MIB först"
+msgstr "Välj först en datafråga under Konsol -> Inställningar -> Host MIB"
 
 #: mikrotik.php
 msgid "Graphs skipped or not created yet"
@@ -478,11 +478,11 @@ msgstr "Grafer som hoppats över eller inte skapats ännu"
 
 #: mikrotik.php
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "Välj Data Query först från Console->Settings->Host MIB First"
+msgstr "Välj först en datafråga under Konsol->Inställningar->Host MIB"
 
 #: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Anpassad graflista tillämpad - Filtrering från lista"
+msgstr "Anpassad graflista används – filtrerar enligt listan"
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
@@ -490,7 +490,7 @@ msgstr "Filter för förhandsvisning av grafer"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
-msgstr "Statistik för registrering av trådlöst"
+msgstr "Statistik för trådlösa registreringar"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -643,11 +643,11 @@ msgstr "Domän"
 
 #: setup.php
 msgid "MikroTik Viewer"
-msgstr "MikroTik-visningsprogram"
+msgstr "MikroTik-visare"
 
 #: setup.php
 msgid "MikroTik Admin"
-msgstr "MikroTik Administratör"
+msgstr "MikroTik-administratör"
 
 #: setup.php
 msgid "MikroTik"
@@ -655,7 +655,7 @@ msgstr "MikroTik"
 
 #: setup.php
 msgid "MikroTik General Settings"
-msgstr "MikroTik Allmänna inställningar"
+msgstr "Allmänna MikroTik-inställningar"
 
 #: setup.php
 msgid "MikroTik Poller Enabled"
@@ -671,31 +671,31 @@ msgstr "MikroTik API-insamling aktiverad"
 
 #: setup.php
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "Markera den här rutan om du vill att Cacti ska polla olika inställningar med hjälp av MikroTik API.  Om du av någon anledning inte har tillgång till MikroTik API avmarkerar du det här alternativet."
+msgstr "Markera rutan om Cacti ska samla in inställningar via MikroTik-API:et. Avmarkera den om API:et inte är tillgängligt."
 
 #: setup.php
 msgid "Automatically Discover Cacti Devices"
-msgstr "Upptäck automatiskt kaktusenheter"
+msgstr "Upptäck Cacti-enheter automatiskt"
 
 #: setup.php
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "Vill du automatiskt söka efter och lägga till enheter som stöder MikroTik MIB från Cacti host table?"
+msgstr "Vill du automatiskt söka efter och lägga till enheter i Cactis värdtabell som stöder MikroTik MIB?"
 
 #: setup.php
 msgid "Automatically Purge Devices"
-msgstr "Automatiskt rengöringsenheter"
+msgstr "Rensa bort enheter automatiskt"
 
 #: setup.php
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Vill du automatiskt rensa enheter som tas bort från kaktisystemet?"
+msgstr "Vill du automatiskt rensa bort enheter som har tagits bort från Cacti?"
 
 #: setup.php
 msgid "Maximum Concurrent Collectors"
-msgstr "Maximal samtidiga samlare"
+msgstr "Högsta antal samtidiga insamlare"
 
 #: setup.php
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Vad är det maximala antalet samtidiga samlarprocesser som du vill köra på en gång?"
+msgstr "Hur många insamlarprocesser får köras samtidigt?"
 
 #: setup.php
 #, php-format
@@ -717,15 +717,15 @@ msgstr "Frekvens för automatisk upptäckt"
 
 #: setup.php
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Hur ofta vill du leta efter nya kaktiska enheter?"
+msgstr "Hur ofta ska nya Cacti-enheter sökas efter?"
 
 #: setup.php
 msgid "DHCP/DNS/List Settings"
-msgstr "DHCP/DNS/List-inställningar"
+msgstr "Inställningar för DHCP, DNS och adresslistor"
 
 #: setup.php
 msgid "DHCP Retention"
-msgstr "DHCP-retention"
+msgstr "Lagringstid för DHCP"
 
 #: setup.php
 msgid "How long would you like to retain DHCP IP registration history?"
@@ -733,15 +733,15 @@ msgstr "Hur länge vill du spara DHCP:s IP-registreringshistorik?"
 
 #: setup.php
 msgid "DNS Retention"
-msgstr "Bevarande av DNS"
+msgstr "Lagringstid för DNS"
 
 #: setup.php
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "Hur länge vill du behålla historiken för DNS Cache?"
+msgstr "Hur länge ska historiken för DNS-cachen sparas?"
 
 #: setup.php
 msgid "Address List Retention"
-msgstr "Bevarande av adresslistor"
+msgstr "Lagringstid för adresslistor"
 
 #: setup.php
 msgid "How long would you like to retain Address List history?"
@@ -757,7 +757,7 @@ msgstr "Lägg automatiskt till nya grafer"
 
 #: setup.php
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Hur ofta vill du söka efter nya objekt i diagrammet?"
+msgstr "Hur ofta ska nya objekt att skapa grafer för sökas?"
 
 #: setup.php
 msgid "Never"
@@ -781,7 +781,7 @@ msgstr "%d timmar"
 #: setup.php
 #, php-format
 msgid "%d Day"
-msgstr "%d Dag"
+msgstr "%d dag"
 
 #: setup.php
 #, php-format
@@ -790,19 +790,19 @@ msgstr "%d dagar"
 
 #: setup.php
 msgid "Exclude Users RegEx"
-msgstr "Exkludera användare RegEx"
+msgstr "Reguljärt uttryck för att utesluta användare"
 
 #: setup.php
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "Användarnamn som matchar denna regex kommer inte att visas i grafen automatiskt"
+msgstr "Användarnamn som matchar det reguljära uttrycket får inte automatiskt några grafer"
 
 #: setup.php
 msgid "Exclude Users Time to Live"
-msgstr "Utesluta användare Tid att leva"
+msgstr "Lagringstid för uteslutna användare"
 
 #: setup.php
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Hur länge ska en utesluten användares data bevaras efter att de har kopplat från sig."
+msgstr "Hur länge ska data för en utesluten användare sparas efter att användaren har kopplat från?"
 
 #: setup.php
 msgid "MikroTik Device Collection Frequencies"
@@ -814,7 +814,7 @@ msgstr "Lagringsfrekvens"
 
 #: setup.php
 msgid "How often do you want to scan Storage Statistics?"
-msgstr "Hur ofta vill du skanna Storage Statistics?"
+msgstr "Hur ofta ska lagringsstatistiken samlas in?"
 
 #: setup.php
 msgid "Processor Frequency"
@@ -822,11 +822,11 @@ msgstr "Processorfrekvens"
 
 #: setup.php
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "Hur ofta vill du skanna Device Processor Statistics?"
+msgstr "Hur ofta ska enhetens processorstatistik samlas in?"
 
 #: setup.php
 msgid "Interfaces Frequency"
-msgstr "Gränssnitt Frekvens"
+msgstr "Insamlingsfrekvens för gränssnitt"
 
 #: setup.php
 msgid "How often do you want to scan the Interfaces?"
@@ -834,23 +834,23 @@ msgstr "Hur ofta vill du skanna gränssnitten?"
 
 #: setup.php
 msgid "DNS/DHCP/List Frequency"
-msgstr "DNS/DHCP/List Frekvens"
+msgstr "Insamlingsfrekvens för DNS, DHCP och adresslistor"
 
 #: setup.php
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "Hur ofta vill du skanna DNS/DHCP/Adresslistorna?"
+msgstr "Hur ofta ska DNS, DHCP och adresslistor samlas in?"
 
 #: setup.php
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "MikroTik Queue/Tree Collection Frekvenser"
+msgstr "Insamlingsfrekvenser för MikroTik-köer och köträd"
 
 #: setup.php
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "Enkel kö/PPPoe Frekvens"
+msgstr "Insamlingsfrekvens för enkla köer och PPPoE"
 
 #: setup.php
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du skanna Simple Queue Statistics?  Välj <b>Disabled</b> om du vill ta bort den här funktionen."
+msgstr "Hur ofta ska statistik för enkla köer samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "Queue Trees Frequency"
@@ -858,19 +858,19 @@ msgstr "Frekvens för köträd"
 
 #: setup.php
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du skanna kösystemen?  Välj <b>Disabled</b> för att ta bort den här funktionen."
+msgstr "Hur ofta ska köträden samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik trådlös samling Frekvenser"
+msgstr "Insamlingsfrekvenser för MikroTik trådlöst"
 
 #: setup.php
 msgid "Wireless HotSpot Users Frequency"
-msgstr "Användare av trådlösa hotspots Frekvens"
+msgstr "Insamlingsfrekvens för trådlösa hotspotanvändare"
 
 #: setup.php
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du skanna Wireless User Statistics?  Välj <b>Disabled</b> om du vill ta bort den här funktionen."
+msgstr "Hur ofta ska statistik för trådlösa användare samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "Wireless Access Point Frequency"
@@ -878,23 +878,23 @@ msgstr "Frekvens för trådlös åtkomstpunkt"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du att de trådlösa åtkomstpunkterna ska skannas?  Välj <b>Disabled</b> för att ta bort den här funktionen."
+msgstr "Hur ofta ska trådlösa åtkomstpunkter samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "Wireless Registrations Frequency"
-msgstr "Trådlösa registreringar Frekvens"
+msgstr "Insamlingsfrekvens för trådlösa registreringar"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du att de trådlösa registreringarna ska skannas?  Välj <b>Disabled</b> om du vill ta bort den här funktionen."
+msgstr "Hur ofta ska trådlösa registreringar samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "Wireless Stations Frequency"
-msgstr "Trådlösa stationer Frekvens"
+msgstr "Insamlingsfrekvens för trådlösa stationer"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hur ofta vill du att de trådlösa stationerna ska skannas?  Välj <b>Disabled</b> för att ta bort den här funktionen."
+msgstr "Hur ofta ska trådlösa stationer samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
 msgid "Management"
@@ -955,7 +955,7 @@ msgstr "Grafer som utelämnats enligt regel eller som inte skapats"
 
 #: setup.php
 msgid "MikroTik Credentials"
-msgstr "MikroTik-referenser"
+msgstr "Inloggningsuppgifter för MikroTik"
 
 #: setup.php
 msgid "Read Only User"
@@ -963,7 +963,7 @@ msgstr "Skrivskyddad användare"
 
 #: setup.php
 msgid "Provide a read only username for the MikroTik."
-msgstr "Ange ett skrivskyddat användarnamn för MikroTik."
+msgstr "Ange ett användarnamn med endast läsbehörighet för MikroTik."
 
 #: setup.php
 msgid "Password"
@@ -971,11 +971,11 @@ msgstr "Lösenord"
 
 #: setup.php
 msgid "Provide the read only username password for this MikroTik."
-msgstr "Ange lösenordet för det skrivskyddade användarnamnet för denna MikroTik."
+msgstr "Ange lösenordet för användaren med endast läsbehörighet på denna MikroTik."
 
 #: setup.php
 msgid "Connection Result"
-msgstr "Anslutning Resultat"
+msgstr "Anslutningsresultat"
 
 #: setup.php
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
