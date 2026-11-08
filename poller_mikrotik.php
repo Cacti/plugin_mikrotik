@@ -164,10 +164,10 @@ function getLatestVersion(): void {
 	if ($t == 0 || time() - $t > 3600) {
 		// @codeCoverageIgnoreStart
 		// Network fetch + config writes; not exercisable in the isolated
-		// unit process. Track the current RouterOS 7 stable series instead
-		// of the retired RouterOS 6 feed so the "Latest MikroTik Version"
-		// comparison reflects the real latest release.
-		$latest = file_get_contents('http://upgrade.mikrotik.com/routeros/LATEST.7');
+		// unit process. Query MikroTik's current RouterOS 7 stable update
+		// feed (NEWESTa7.stable, "<version> <epoch>") over HTTPS. The legacy
+		// LATEST.6/LATEST.7 files are frozen and no longer reflect releases.
+		$latest = file_get_contents('https://upgrade.mikrotik.com/routeros/NEWESTa7.stable');
 
 		if ($latest) {
 			$latest = explode(' ', $latest);
@@ -185,6 +185,27 @@ function getLatestVersion(): void {
 		set_config_option('mikrotik_latestversioncheck', time());
 		// @codeCoverageIgnoreEnd
 	}
+}
+
+/**
+ * Applies a host's stored SSL preference (from plugin_mikrotik_credentials)
+ * to a RouterOS API client, selecting the api-ssl port (8729) when SSL is
+ * enabled and the plaintext api port (8728) otherwise.
+ *
+ * @param object $api   The RouterosAPI client to configure.
+ * @param array  $creds The credentials row; its 'ssl' column is 'on' when
+ *                      SSL should be used.
+ *
+ * @return void
+ */
+function mikrotik_api_apply_ssl($api, array $creds): void {
+	// @codeCoverageIgnoreStart
+	// Behaviour is asserted in PollerParsingTest, but mikrotik_test_load_function()
+	// eval()s the isolated function, so the executed lines are not attributed back
+	// to this file in the coverage report.
+	$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+	$api->port = $api->ssl ? 8729 : 8728;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -1617,8 +1638,7 @@ function collect_list_details(array &$host): void {
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		// @codeCoverageIgnoreStart
-		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
-		$api->port = $api->ssl ? 8729 : 8728;
+		mikrotik_api_apply_ssl($api, $creds);
 		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
@@ -1734,8 +1754,7 @@ function collect_dns_details(array &$host): void {
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		// @codeCoverageIgnoreStart
-		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
-		$api->port = $api->ssl ? 8729 : 8728;
+		mikrotik_api_apply_ssl($api, $creds);
 		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
@@ -1910,8 +1929,7 @@ function collect_dhcp_details(array &$host): void {
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		// @codeCoverageIgnoreStart
-		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
-		$api->port = $api->ssl ? 8729 : 8728;
+		mikrotik_api_apply_ssl($api, $creds);
 		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
@@ -2081,8 +2099,7 @@ function collect_pppoe_users_api(array &$host): void {
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
 		// @codeCoverageIgnoreStart
-		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
-		$api->port = $api->ssl ? 8729 : 8728;
+		mikrotik_api_apply_ssl($api, $creds);
 		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$api->write('/ppp/active/getall');

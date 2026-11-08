@@ -31,6 +31,7 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_macParse');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_splitBaseIndex');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_parse_ttl');
 mikrotik_test_load_function('poller_mikrotik.php', 'uptimeToSeconds');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
 
 describe('mikrotik_dateParse()', function () {
 	it('normalizes a parseable RouterOS clock value', function () {
@@ -87,5 +88,31 @@ describe('uptimeToSeconds()', function () {
 
 	it('accumulates a value with no weeks component', function () {
 		expect(uptimeToSeconds('1d2h3m4s'))->toBe(93784);
+	});
+});
+
+describe('mikrotik_api_apply_ssl()', function () {
+	it('enables SSL and selects the api-ssl port when the credential ssl flag is on', function () {
+		$api = new stdClass();
+		mikrotik_api_apply_ssl($api, array('ssl' => 'on'));
+
+		expect($api->ssl)->toBeTrue();
+		expect($api->port)->toBe(8729);
+	});
+
+	it('defaults to no SSL and the plaintext api port when ssl is unset', function () {
+		$api = new stdClass();
+		mikrotik_api_apply_ssl($api, array());
+
+		expect($api->ssl)->toBeFalse();
+		expect($api->port)->toBe(8728);
+	});
+
+	it('treats any non-"on" ssl value as disabled', function () {
+		$api = new stdClass();
+		mikrotik_api_apply_ssl($api, array('ssl' => ''));
+
+		expect($api->ssl)->toBeFalse();
+		expect($api->port)->toBe(8728);
 	});
 });

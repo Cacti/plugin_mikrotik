@@ -3,7 +3,7 @@
 
 * dev: Run the CI poller with `runuser -u www-data -g runner` so RRD files it creates get the runner group that owns the tree, clearing the "collaborative owner/group/mode arrangement could not be fully applied" warnings that failed the Cacti log check
 * issue: Add an SSL option (Yes/No, default No) to the MikroTik host edit form, directly above the Read Only User, and connect to the RouterOS API over api-ssl (port 8729) when enabled, accepting the device's self-signed api-ssl certificate by default; adds an `ssl` column to plugin_mikrotik_credentials (schema version bump to 3.2)
-* issue: Track the RouterOS 7 stable release feed (LATEST.7) instead of the retired RouterOS 6 feed so the "Latest MikroTik Version" header and per-device firmware comparison report the real latest release
+* issue: Query MikroTik's current RouterOS 7 stable update feed (NEWESTa7.stable) over HTTPS so the "Latest MikroTik Version" header and per-device firmware comparison report the real latest release; the legacy LATEST.6/LATEST.7 files are frozen (stuck at 7.12.1) and no longer reflect releases
 * issue: Load the RouterOS 7 MIB (mikrotik-7.mib) by default in the poller, as RouterOS 7 is now the current stable series
 * issue#84: Update the bundled MikroTik MIBs to the latest by major RouterOS version, replacing MIKROTIK-MIB.txt with mikrotik-6.mib and mikrotik-7.mib (tombstoned in manifest.json and loaded by the poller)
 * issue: Fix an uncaught TypeError that disabled the plugin when mikrotik_graphs_url_by_template_hashs() received a null hash list (unpopulated wireless AP station hashes), and wire the Wireless Registrations view to the correctly-named $wireless_reg_hashes global so its graph links resolve
