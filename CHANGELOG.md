@@ -1,6 +1,8 @@
 
 --- develop ---
 
+* issue: Track the RouterOS 7 stable release feed (LATEST.7) instead of the retired RouterOS 6 feed so the "Latest MikroTik Version" header and per-device firmware comparison report the real latest release
+* issue: Load the RouterOS 7 MIB (mikrotik-7.mib) by default in the poller, as RouterOS 7 is now the current stable series
 * issue#84: Update the bundled MikroTik MIBs to the latest by major RouterOS version, replacing MIKROTIK-MIB.txt with mikrotik-6.mib and mikrotik-7.mib (tombstoned in manifest.json and loaded by the poller)
 * issue: Fix an uncaught TypeError that disabled the plugin when mikrotik_graphs_url_by_template_hashs() received a null hash list (unpopulated wireless AP station hashes), and wire the Wireless Registrations view to the correctly-named $wireless_reg_hashes global so its graph links resolve
 * security: Move every page's inline event handlers to CSP-safe jQuery bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the per-view filter selects, checkboxes, Go/Clear/Export buttons are bound in each view's ready block, and the confirmation Cancel/Return buttons use the `cactiReturnTo` class. `mikrotik.php`/`mikrotik_users.php` move from the phpunit measured `<source>` set into the patch-coverage allowlist (matching the rest of the plugin fleet) because they are web UI entry points that cannot be loaded into the isolated unit process; their pure helpers remain covered via `mikrotik_test_load_function()`
