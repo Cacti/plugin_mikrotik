@@ -59,8 +59,13 @@ jobs:
           - php: '8.5'
             os: ubuntu-latest
             experimental: true
+          # Pin 8.6 to Ubuntu 24.04 (Noble). ubuntu-latest has rolled to
+          # Ubuntu 26.04 (Resolute), for which Ondřej Surý's Launchpad PPA
+          # has no Release file yet (that suite is migrating to
+          # packages.sury.org), so `apt-get update` 404s and the PPA install
+          # below dies. Noble still carries the latest packaged 8.6 RC.
           - php: '8.6'
-            os: ubuntu-latest
+            os: ubuntu-24.04
             experimental: true
 
     services:
