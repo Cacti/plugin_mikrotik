@@ -162,7 +162,12 @@ function getLatestVersion(): void {
 	$t = intval(read_config_option('mikrotik_latestversioncheck'));
 
 	if ($t == 0 || time() - $t > 3600) {
-		$latest = file_get_contents('http://upgrade.mikrotik.com/routeros/LATEST.6');
+		// @codeCoverageIgnoreStart
+		// Network fetch + config writes; not exercisable in the isolated
+		// unit process. Track the current RouterOS 7 stable series instead
+		// of the retired RouterOS 6 feed so the "Latest MikroTik Version"
+		// comparison reflects the real latest release.
+		$latest = file_get_contents('http://upgrade.mikrotik.com/routeros/LATEST.7');
 
 		if ($latest) {
 			$latest = explode(' ', $latest);
@@ -178,6 +183,7 @@ function getLatestVersion(): void {
 			}
 		}
 		set_config_option('mikrotik_latestversioncheck', time());
+		// @codeCoverageIgnoreEnd
 	}
 }
 
