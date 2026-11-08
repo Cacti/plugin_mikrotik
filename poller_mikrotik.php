@@ -209,6 +209,46 @@ function mikrotik_api_apply_ssl($api, array $creds): void {
 }
 
 /**
+ * Opens a connected RouterOS API session for a host using its stored
+ * credentials. Returns a connected RouterosAPI client, or false when the
+ * RouterOS API is disabled globally, the host has no stored credentials, or
+ * the connection fails (which is logged).
+ *
+ * @param array $host The Cacti host row; needs 'id' and 'hostname'.
+ *
+ * @return RouterosAPI|false A connected client, or false.
+ */
+function mikrotik_api_open(array $host) {
+	// @codeCoverageIgnoreStart
+	if (read_config_option('mikrotik_api_enabled') != 'on') {
+		return false;
+	}
+
+	$creds = db_fetch_row_prepared('SELECT *
+		FROM plugin_mikrotik_credentials
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	if (!is_array($creds) || !cacti_sizeof($creds)) {
+		return false;
+	}
+
+	$api        = new RouterosAPI();
+	$api->debug = false;
+
+	mikrotik_api_apply_ssl($api, $creds);
+
+	if (!$api->connect($host['hostname'], $creds['user'], $creds['password'])) {
+		cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+
+		return false;
+	}
+
+	return $api;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
  * Determines whether a scheduled collection task is due to run, based
  * on elapsed time vs. frequency or a forced-run flag. Called from
  * process_hosts()/checkHost() to decide whether autodiscovery/other
@@ -1626,105 +1666,96 @@ function collect_users(array &$host): void {
 function collect_list_details(array &$host): void {
 	$rows = [];
 
-	$api        = new RouterosAPI();
-	$api->debug = false;
-
-	$creds = db_fetch_row_prepared('SELECT *
-		FROM plugin_mikrotik_credentials
-		WHERE host_id = ?',
-		[$host['id']]);
-
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
 	$start = microtime(true);
 
-	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
-		// @codeCoverageIgnoreStart
-		mikrotik_api_apply_ssl($api, $creds);
-		// @codeCoverageIgnoreEnd
-		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-			$noServer = false;
+	$api = mikrotik_api_open($host);
 
-			$api->write('/ip/firewall/address-list/print');
+	if ($api !== false) {
+		$noServer = false;
 
-			$read  = $api->read(false);
+		$api->write('/ip/firewall/address-list/print');
 
-			if (isset($read[0]) && $read[0] == '!trap') {
-				$noServer = true;
-			}
+		$read  = $api->read(false);
 
-			$array = $api->parseResponse($read);
-
-			$end = microtime(true);
-
-			$sql   = [];
-			$sql2  = [];
-			$list  = [];
-
-			if ($noServer === false && cacti_sizeof($array) > 0) {
-				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Address List Entries in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
-			}
-
-			if (cacti_sizeof($array) && $noServer === false) {
-				foreach ($array as $row) {
-					$list['host_id']  = $host['id'];
-					$list['dynamic']  = $row['dynamic'] ?? '0';
-					$list['disabled'] = $row['disabled'] ?? '0';
-					$list['list']     = $row['list'] ?? 'N/A';
-					$list['address']  = $row['address'] ?? '';
-					$list['created']  = isset($row['creation-time']) ? date('Y-m-d H:i:s', (int) strtotime(str_replace('/', ' ', $row['creation-time']))) : date('Y-m-d H:i:s');
-					$list['timeout']  = isset($row['timeout']) ? mikrotik_parse_ttl($row['timeout']) : '-1';
-
-					$sql[] = '(' .
-						$list['host_id'] . ',' .
-						db_qstr($list['dynamic']) . ',' .
-						db_qstr($list['disabled']) . ',' .
-						db_qstr($list['list']) . ',' .
-						db_qstr($list['address']) . ',' .
-						db_qstr($list['created']) . ',' .
-						db_qstr($list['timeout']) . ', 1)';
-				}
-			}
-
-			if (cacti_sizeof($sql)) {
-				db_execute_prepared('UPDATE plugin_mikrotik_lists
-					SET present = 0
-					WHERE host_id = ?',
-					[$host['id']]);
-
-				db_execute('INSERT INTO plugin_mikrotik_lists
-					(`host_id`, `dynamic`, `disabled`, `list`, `address`, `created`, `timeout`, `present`)
-					VALUES ' . implode(', ', $sql) . '
-					ON DUPLICATE KEY UPDATE
-						dynamic=VALUES(dynamic),
-						disabled=VALUES(disabled),
-						timeout=VALUES(timeout),
-						created=VALUES(created),
-						present=1');
-
-				db_execute_prepared('UPDATE plugin_mikrotik_lists
-					SET timeout= 0
-					WHERE present = 0
-					AND host_id = ?',
-					[$host['id']]);
-			}
-
-			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_lists WHERE host_id = ?', [$host['id']]);
-			} else {
-				$retention = read_config_option('mikrotik_list_retention');
-
-				if ($retention > 0) {
-					db_execute_prepared('DELETE FROM plugin_mikrotik_lists
-						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
-						AND host_id = ?',
-						[$retention, $host['id']]);
-				}
-			}
-
-			$api->disconnect();
-		} else {
-			cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+		if (isset($read[0]) && $read[0] == '!trap') {
+			$noServer = true;
 		}
+
+		$array = $api->parseResponse($read);
+
+		$end = microtime(true);
+
+		$sql   = [];
+		$sql2  = [];
+		$list  = [];
+
+		if ($noServer === false && cacti_sizeof($array) > 0) {
+			cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Address List Entries in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+		}
+
+		if (cacti_sizeof($array) && $noServer === false) {
+			foreach ($array as $row) {
+				$list['host_id']  = $host['id'];
+				$list['dynamic']  = $row['dynamic'] ?? '0';
+				$list['disabled'] = $row['disabled'] ?? '0';
+				$list['list']     = $row['list'] ?? 'N/A';
+				$list['address']  = $row['address'] ?? '';
+				$list['created']  = isset($row['creation-time']) ? date('Y-m-d H:i:s', (int) strtotime(str_replace('/', ' ', $row['creation-time']))) : date('Y-m-d H:i:s');
+				$list['timeout']  = isset($row['timeout']) ? mikrotik_parse_ttl($row['timeout']) : '-1';
+
+				$sql[] = '(' .
+					$list['host_id'] . ',' .
+					db_qstr($list['dynamic']) . ',' .
+					db_qstr($list['disabled']) . ',' .
+					db_qstr($list['list']) . ',' .
+					db_qstr($list['address']) . ',' .
+					db_qstr($list['created']) . ',' .
+					db_qstr($list['timeout']) . ', 1)';
+			}
+		}
+
+		if (cacti_sizeof($sql)) {
+			db_execute_prepared('UPDATE plugin_mikrotik_lists
+				SET present = 0
+				WHERE host_id = ?',
+				[$host['id']]);
+
+			db_execute('INSERT INTO plugin_mikrotik_lists
+				(`host_id`, `dynamic`, `disabled`, `list`, `address`, `created`, `timeout`, `present`)
+				VALUES ' . implode(', ', $sql) . '
+				ON DUPLICATE KEY UPDATE
+					dynamic=VALUES(dynamic),
+					disabled=VALUES(disabled),
+					timeout=VALUES(timeout),
+					created=VALUES(created),
+					present=1');
+
+			db_execute_prepared('UPDATE plugin_mikrotik_lists
+				SET timeout= 0
+				WHERE present = 0
+				AND host_id = ?',
+				[$host['id']]);
+		}
+
+		if ($noServer === true) {
+			db_execute_prepared('DELETE FROM plugin_mikrotik_lists WHERE host_id = ?', [$host['id']]);
+		} else {
+			$retention = read_config_option('mikrotik_list_retention');
+
+			if ($retention > 0) {
+				db_execute_prepared('DELETE FROM plugin_mikrotik_lists
+					WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
+					AND host_id = ?',
+					[$retention, $host['id']]);
+			}
+		}
+
+		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -1742,109 +1773,100 @@ function collect_list_details(array &$host): void {
 function collect_dns_details(array &$host): void {
 	$rows = [];
 
-	$api        = new RouterosAPI();
-	$api->debug = false;
-
-	$creds = db_fetch_row_prepared('SELECT *
-		FROM plugin_mikrotik_credentials
-		WHERE host_id = ?',
-		[$host['id']]);
-
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
 	$start = microtime(true);
 
-	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
-		// @codeCoverageIgnoreStart
-		mikrotik_api_apply_ssl($api, $creds);
-		// @codeCoverageIgnoreEnd
-		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-			$noServer = false;
+	$api = mikrotik_api_open($host);
 
-			$api->write('/ip/dns/cache/print');
+	if ($api !== false) {
+		$noServer = false;
 
-			$read  = $api->read(false);
+		$api->write('/ip/dns/cache/print');
 
-			if (isset($read[0]) && $read[0] == '!trap') {
-				$noServer = true;
-			}
+		$read  = $api->read(false);
 
-			$array = $api->parseResponse($read);
-
-			$end = microtime(true);
-
-			$sql  = [];
-			$sql2 = [];
-			$dns  = [];
-
-			if ($noServer === false && cacti_sizeof($array) > 0) {
-				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DNS Cache Entries in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
-			}
-
-			if (cacti_sizeof($array) && $noServer === false) {
-				foreach ($array as $row) {
-					if (isset($row['type']) && $row['type'] != '-1') {
-						$dns['host_id'] = $host['id'];
-						$dns['type']    = $row['type'] ?? '-1';
-						$dns['data']    = $row['data'] ?? '-';
-						$dns['name']    = $row['name'] ?? '';
-						$dns['ttl']     = isset($row['ttl']) ? mikrotik_parse_ttl($row['ttl']) : '0';
-						$dns['static']  = $row['static'] ?? 'false';
-
-						$sql[] = '(' .
-							$dns['host_id'] . ',' .
-							db_qstr($dns['type']) . ',' .
-							db_qstr($dns['data']) . ',' .
-							db_qstr($dns['name']) . ',' .
-							db_qstr($dns['ttl']) . ',' .
-							db_qstr($dns['static']) . ', 1)';
-					}
-				}
-			}
-
-			if (cacti_sizeof($sql)) {
-				db_execute_prepared('UPDATE plugin_mikrotik_dns
-					SET present = 0
-					WHERE host_id = ?',
-					[$host['id']]);
-
-				db_execute('INSERT INTO plugin_mikrotik_dns
-					(`host_id`, `type`, `data`, `name`, `ttl`, `static`, `present`)
-					VALUES ' . implode(', ', $sql) . '
-					ON DUPLICATE KEY UPDATE
-						ttl=VALUES(ttl),
-						static=VALUES(static),
-						present=1');
-
-				db_execute_prepared('UPDATE plugin_mikrotik_dns
-					SET ttl= 0
-					WHERE present = 0
-					AND host_id = ?',
-					[$host['id']]);
-
-				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
-					WHERE host_id = ?
-					AND type = "-1"',
-					[$host['id']]);
-			}
-
-			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
-					WHERE host_id = ?', [$host['id']]);
-			} else {
-				$retention = read_config_option('mikrotik_dns_retention');
-
-				if ($retention > 0) {
-					db_execute_prepared('DELETE FROM plugin_mikrotik_dns
-						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
-						AND host_id = ?',
-						[$retention, $host['id']]);
-				}
-			}
-
-			$api->disconnect();
-		} else {
-			cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+		if (isset($read[0]) && $read[0] == '!trap') {
+			$noServer = true;
 		}
+
+		$array = $api->parseResponse($read);
+
+		$end = microtime(true);
+
+		$sql  = [];
+		$sql2 = [];
+		$dns  = [];
+
+		if ($noServer === false && cacti_sizeof($array) > 0) {
+			cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DNS Cache Entries in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+		}
+
+		if (cacti_sizeof($array) && $noServer === false) {
+			foreach ($array as $row) {
+				if (isset($row['type']) && $row['type'] != '-1') {
+					$dns['host_id'] = $host['id'];
+					$dns['type']    = $row['type'] ?? '-1';
+					$dns['data']    = $row['data'] ?? '-';
+					$dns['name']    = $row['name'] ?? '';
+					$dns['ttl']     = isset($row['ttl']) ? mikrotik_parse_ttl($row['ttl']) : '0';
+					$dns['static']  = $row['static'] ?? 'false';
+
+					$sql[] = '(' .
+						$dns['host_id'] . ',' .
+						db_qstr($dns['type']) . ',' .
+						db_qstr($dns['data']) . ',' .
+						db_qstr($dns['name']) . ',' .
+						db_qstr($dns['ttl']) . ',' .
+						db_qstr($dns['static']) . ', 1)';
+				}
+			}
+		}
+
+		if (cacti_sizeof($sql)) {
+			db_execute_prepared('UPDATE plugin_mikrotik_dns
+				SET present = 0
+				WHERE host_id = ?',
+				[$host['id']]);
+
+			db_execute('INSERT INTO plugin_mikrotik_dns
+				(`host_id`, `type`, `data`, `name`, `ttl`, `static`, `present`)
+				VALUES ' . implode(', ', $sql) . '
+				ON DUPLICATE KEY UPDATE
+					ttl=VALUES(ttl),
+					static=VALUES(static),
+					present=1');
+
+			db_execute_prepared('UPDATE plugin_mikrotik_dns
+				SET ttl= 0
+				WHERE present = 0
+				AND host_id = ?',
+				[$host['id']]);
+
+			db_execute_prepared('DELETE FROM plugin_mikrotik_dns
+				WHERE host_id = ?
+				AND type = "-1"',
+				[$host['id']]);
+		}
+
+		if ($noServer === true) {
+			db_execute_prepared('DELETE FROM plugin_mikrotik_dns
+				WHERE host_id = ?', [$host['id']]);
+		} else {
+			$retention = read_config_option('mikrotik_dns_retention');
+
+			if ($retention > 0) {
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dns
+					WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
+					AND host_id = ?',
+					[$retention, $host['id']]);
+			}
+		}
+
+		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -1901,9 +1923,6 @@ function mikrotik_parse_ttl(string $ttl): int {
 function collect_dhcp_details(array &$host): void {
 	$rows = [];
 
-	$api        = new RouterosAPI();
-	$api->debug = false;
-
 	$rekey_array = [
 		'host_id', 'address', 'mac_address', 'client_id', 'address_lists',
 		'server', 'dhcp_option', 'status', 'expires_after',
@@ -1920,137 +1939,131 @@ function collect_dhcp_details(array &$host): void {
 			[$host['id']]),
 		'mac_address', $rekey_array);
 
-	$creds = db_fetch_row_prepared('SELECT *
-		FROM plugin_mikrotik_credentials
-		WHERE host_id = ?',
-		[$host['id']]);
-
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
 	$start = microtime(true);
 
-	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
-		// @codeCoverageIgnoreStart
-		mikrotik_api_apply_ssl($api, $creds);
-		// @codeCoverageIgnoreEnd
-		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-			$noServer = false;
+	$api = mikrotik_api_open($host);
 
-			$api->write('/ip/dhcp-server/lease/print');
+	if ($api !== false) {
+		$noServer = false;
 
-			$read  = $api->read(false);
+		$api->write('/ip/dhcp-server/lease/print');
 
-			if (isset($read[0]) && $read[0] == '!trap') {
-				$noServer = true;
-			}
+		$read  = $api->read(false);
 
-			$array = $api->parseResponse($read);
-
-			$end = microtime(true);
-
-			$sql  = [];
-			$sql2 = [];
-
-			if ($noServer === false && cacti_sizeof($array) > 0) {
-				cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
-			}
-
-			if (cacti_sizeof($array) && $noServer === false) {
-				foreach ($array as $row) {
-					$mac_address = $row['mac-address'] ?? '-99';
-
-					if (isset($entries[$mac_address]) && $mac_address != 99) {
-						$dhcp = $entries[$mac_address];
-					}
-
-					if (isset($row['mac-address']) && isset($row['host-name'])) {
-						if ($row['mac-address'] != '' && $row['host-name'] != '') {
-							$sql2[] = '(' . db_qstr($row['mac-address']) . ', ' . db_qstr($row['host-name']) . ')';
-						}
-					}
-
-					$dhcp['host_id']            = $host['id'];
-					$dhcp['address']            = $row['address'] ?? 'N/A';
-					$dhcp['mac_address']        = $row['mac-address'] ?? 'N/A';
-					$dhcp['client_id']          = $row['client-id'] ?? '';
-					$dhcp['address_lists']      = $row['address-lists'] ?? 'N/A';
-					$dhcp['server']             = $row['server'] ?? 'N/A';
-					$dhcp['dhcp_option']        = $row['dhcp-option'] ?? 'N/A';
-					$dhcp['status']             = $row['status'] ?? 'N/A';
-					$dhcp['expires_after']      = isset($row['expires-after']) ? uptimeToSeconds($row['expires-after']) : 0;
-					$dhcp['last_seen']          = isset($row['last-seen']) ? uptimeToSeconds($row['last-seen']) : 0;
-					$dhcp['active_address']     = isset($row['active_address']) ? $row['active-address'] : '';
-					$dhcp['active_mac_address'] = $row['active-mac-address'] ?? '';
-					$dhcp['active_client_id']   = $row['active-client-id'] ?? '';
-					$dhcp['active_server']      = $row['active-server'] ?? '';
-					$dhcp['hostname']           = $row['host-name'] ?? '';
-					$dhcp['radius']             = isset($row['radius']) ? ($row['radius'] == 'true' ? 1 : 0) : 0;
-					$dhcp['dynamic']            = isset($row['dynamic']) ? ($row['dynamic'] == 'true' ? 1 : 0) : 0;
-					$dhcp['blocked']            = isset($row['blocked']) ? ($row['blocked'] == 'true' ? 1 : 0) : 0;
-					$dhcp['disabled']           = isset($row['disabled']) ? ($row['disabled'] == 'true' ? 1 : 0) : 0;
-
-					$sql[] = '(' .
-						$dhcp['host_id'] . ',' .
-						db_qstr($dhcp['address']) . ',' .
-						db_qstr($dhcp['mac_address']) . ',' .
-						db_qstr($dhcp['client_id']) . ',' .
-						db_qstr($dhcp['address_lists']) . ',' .
-						db_qstr($dhcp['server']) . ',' .
-						db_qstr($dhcp['dhcp_option']) . ',' .
-						db_qstr($dhcp['status']) . ',' .
-						$dhcp['expires_after'] . ',' .
-						$dhcp['last_seen'] . ',' .
-						db_qstr($dhcp['active_address']) . ',' .
-						db_qstr($dhcp['active_mac_address']) . ',' .
-						db_qstr($dhcp['active_client_id']) . ',' .
-						db_qstr($dhcp['active_server']) . ',' .
-						db_qstr($dhcp['hostname']) . ',' .
-						$dhcp['radius'] . ',' .
-						$dhcp['dynamic'] . ',' .
-						$dhcp['blocked'] . ',' .
-						$dhcp['disabled'] . ',' .
-						'1' . ',' .
-						'NOW()' . ')';
-				}
-			}
-
-			if (cacti_sizeof($sql)) {
-				db_execute('INSERT INTO plugin_mikrotik_dhcp
-					(`' . implode('`,`', $rekey_array) . '`)
-					VALUES ' . implode(', ', $sql) . '
-					ON DUPLICATE KEY UPDATE address=VALUES(address),
-					mac_address=VALUES(mac_address), client_id=VALUES(client_id),
-					address_lists=VALUES(address_lists), dhcp_option=VALUES(dhcp_option),
-					status=VALUES(status), expires_after=VALUES(expires_after),
-					last_seen=VALUES(last_seen), active_address=VALUES(active_address),
-					active_mac_address=VALUES(active_mac_address), active_client_id=VALUES(active_client_id),
-					hostname=VALUES(hostname), radius=VALUES(radius),
-					dynamic=VALUES(dynamic), blocked=VALUES(blocked),
-					disabled=VALUES(disabled), present=VALUES(present), last_updated=VALUES(last_updated)');
-			}
-
-			if (cacti_sizeof($sql2)) {
-				db_execute('REPLACE INTO plugin_mikrotik_mac2hostname
-					(mac_address, hostname)
-					VALUES ' . implode(', ', $sql2));
-			}
-
-			if ($noServer === true) {
-				db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp WHERE host_id = ?', [$host['id']]);
-			} else {
-				$retention = read_config_option('mikrotik_dhcp_retention');
-
-				if ($retention > 0) {
-					db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
-						WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
-						AND host_id = ?',
-						[$retention, $host['id']]);
-				}
-			}
-
-			$api->disconnect();
-		} else {
-			cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+		if (isset($read[0]) && $read[0] == '!trap') {
+			$noServer = true;
 		}
+
+		$array = $api->parseResponse($read);
+
+		$end = microtime(true);
+
+		$sql  = [];
+		$sql2 = [];
+
+		if ($noServer === false && cacti_sizeof($array) > 0) {
+			cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' DHCP Leases in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+		}
+
+		if (cacti_sizeof($array) && $noServer === false) {
+			foreach ($array as $row) {
+				$mac_address = $row['mac-address'] ?? '-99';
+
+				if (isset($entries[$mac_address]) && $mac_address != 99) {
+					$dhcp = $entries[$mac_address];
+				}
+
+				if (isset($row['mac-address']) && isset($row['host-name'])) {
+					if ($row['mac-address'] != '' && $row['host-name'] != '') {
+						$sql2[] = '(' . db_qstr($row['mac-address']) . ', ' . db_qstr($row['host-name']) . ')';
+					}
+				}
+
+				$dhcp['host_id']            = $host['id'];
+				$dhcp['address']            = $row['address'] ?? 'N/A';
+				$dhcp['mac_address']        = $row['mac-address'] ?? 'N/A';
+				$dhcp['client_id']          = $row['client-id'] ?? '';
+				$dhcp['address_lists']      = $row['address-lists'] ?? 'N/A';
+				$dhcp['server']             = $row['server'] ?? 'N/A';
+				$dhcp['dhcp_option']        = $row['dhcp-option'] ?? 'N/A';
+				$dhcp['status']             = $row['status'] ?? 'N/A';
+				$dhcp['expires_after']      = isset($row['expires-after']) ? uptimeToSeconds($row['expires-after']) : 0;
+				$dhcp['last_seen']          = isset($row['last-seen']) ? uptimeToSeconds($row['last-seen']) : 0;
+				$dhcp['active_address']     = isset($row['active_address']) ? $row['active-address'] : '';
+				$dhcp['active_mac_address'] = $row['active-mac-address'] ?? '';
+				$dhcp['active_client_id']   = $row['active-client-id'] ?? '';
+				$dhcp['active_server']      = $row['active-server'] ?? '';
+				$dhcp['hostname']           = $row['host-name'] ?? '';
+				$dhcp['radius']             = isset($row['radius']) ? ($row['radius'] == 'true' ? 1 : 0) : 0;
+				$dhcp['dynamic']            = isset($row['dynamic']) ? ($row['dynamic'] == 'true' ? 1 : 0) : 0;
+				$dhcp['blocked']            = isset($row['blocked']) ? ($row['blocked'] == 'true' ? 1 : 0) : 0;
+				$dhcp['disabled']           = isset($row['disabled']) ? ($row['disabled'] == 'true' ? 1 : 0) : 0;
+
+				$sql[] = '(' .
+					$dhcp['host_id'] . ',' .
+					db_qstr($dhcp['address']) . ',' .
+					db_qstr($dhcp['mac_address']) . ',' .
+					db_qstr($dhcp['client_id']) . ',' .
+					db_qstr($dhcp['address_lists']) . ',' .
+					db_qstr($dhcp['server']) . ',' .
+					db_qstr($dhcp['dhcp_option']) . ',' .
+					db_qstr($dhcp['status']) . ',' .
+					$dhcp['expires_after'] . ',' .
+					$dhcp['last_seen'] . ',' .
+					db_qstr($dhcp['active_address']) . ',' .
+					db_qstr($dhcp['active_mac_address']) . ',' .
+					db_qstr($dhcp['active_client_id']) . ',' .
+					db_qstr($dhcp['active_server']) . ',' .
+					db_qstr($dhcp['hostname']) . ',' .
+					$dhcp['radius'] . ',' .
+					$dhcp['dynamic'] . ',' .
+					$dhcp['blocked'] . ',' .
+					$dhcp['disabled'] . ',' .
+					'1' . ',' .
+					'NOW()' . ')';
+			}
+		}
+
+		if (cacti_sizeof($sql)) {
+			db_execute('INSERT INTO plugin_mikrotik_dhcp
+				(`' . implode('`,`', $rekey_array) . '`)
+				VALUES ' . implode(', ', $sql) . '
+				ON DUPLICATE KEY UPDATE address=VALUES(address),
+				mac_address=VALUES(mac_address), client_id=VALUES(client_id),
+				address_lists=VALUES(address_lists), dhcp_option=VALUES(dhcp_option),
+				status=VALUES(status), expires_after=VALUES(expires_after),
+				last_seen=VALUES(last_seen), active_address=VALUES(active_address),
+				active_mac_address=VALUES(active_mac_address), active_client_id=VALUES(active_client_id),
+				hostname=VALUES(hostname), radius=VALUES(radius),
+				dynamic=VALUES(dynamic), blocked=VALUES(blocked),
+				disabled=VALUES(disabled), present=VALUES(present), last_updated=VALUES(last_updated)');
+		}
+
+		if (cacti_sizeof($sql2)) {
+			db_execute('REPLACE INTO plugin_mikrotik_mac2hostname
+				(mac_address, hostname)
+				VALUES ' . implode(', ', $sql2));
+		}
+
+		if ($noServer === true) {
+			db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp WHERE host_id = ?', [$host['id']]);
+		} else {
+			$retention = read_config_option('mikrotik_dhcp_retention');
+
+			if ($retention > 0) {
+				db_execute_prepared('DELETE FROM plugin_mikrotik_dhcp
+					WHERE UNIX_TIMESTAMP(last_updated) < UNIX_TIMESTAMP() - ?
+					AND host_id = ?',
+					[$retention, $host['id']]);
+			}
+		}
+
+		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2067,9 +2080,6 @@ function collect_dhcp_details(array &$host): void {
  */
 function collect_pppoe_users_api(array &$host): void {
 	$rows = [];
-
-	$api        = new RouterosAPI();
-	$api->debug = false;
 
 	$rekey_array = [
 		'host_id', 'name', 'index', 'userType', 'serverID', 'domain',
@@ -2090,119 +2100,113 @@ function collect_pppoe_users_api(array &$host): void {
 		AND name LIKE 'PPPOE-%'", [$host['id']]),
 		'name', $rekey_array);
 
-	$creds = db_fetch_row_prepared('SELECT *
-		FROM plugin_mikrotik_credentials
-		WHERE host_id = ?',
-		[$host['id']]);
-
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
 	$start = microtime(true);
 
-	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
-		// @codeCoverageIgnoreStart
-		mikrotik_api_apply_ssl($api, $creds);
-		// @codeCoverageIgnoreEnd
-		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-			$api->write('/ppp/active/getall');
+	$api = mikrotik_api_open($host);
 
-			$read  = $api->read(false);
-			$array = $api->parseResponse($read);
+	if ($api !== false) {
+		$api->write('/ppp/active/getall');
 
-			$end = microtime(true);
+		$read  = $api->read(false);
+		$array = $api->parseResponse($read);
 
-			$sql   = [];
+		$end = microtime(true);
 
-			cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' PPPoe Users in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+		$sql   = [];
 
-			if (cacti_sizeof($array)) {
-				foreach ($array as $row) {
-					if (!isset($row['name'])) {
-						continue;
-					}
-					$name = $row['name'];
+		cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' PPPoe Users in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
 
-					if (isset($users[$name])) {
-						$user = $users[$name];
-
-						$user['mac']           = $row['caller-id'];
-						$user['ip']            = $row['address'];
-						$user['connectTime']   = uptimeToSeconds($row['uptime']);
-						$user['host_id']       = $host['id'];
-						$user['radius']        = ($row['radius'] == 'true' ? 1 : 0);
-						$user['limitBytesIn']  = $row['limit-bytes-in'];
-						$user['limitBytesOut'] = $row['limit-bytes-out'];
-						$user['userType']      = 1;
-
-						$sql[] = '(' .
-							$user['host_id'] . ',' .
-							$user['index'] . ',' .
-							$user['userType'] . ',' .
-							$user['serverID'] . ',' .
-							db_qstr($user['name']) . ',' .
-							db_qstr($user['domain']) . ',' .
-							db_qstr($user['mac']) . ',' .
-							db_qstr($user['ip']) . ',' .
-							$user['connectTime'] . ',' .
-							$user['bytesIn'] . ',' .
-							$user['bytesOut'] . ',' .
-							$user['packetsIn'] . ',' .
-							$user['packetsOut'] . ',' .
-							$user['curBytesIn'] . ',' .
-							$user['curBytesOut'] . ',' .
-							$user['curPacketsIn'] . ',' .
-							$user['curPacketsOut'] . ',' .
-							$user['prevBytesIn'] . ',' .
-							$user['prevBytesOut'] . ',' .
-							$user['prevPacketsIn'] . ',' .
-							$user['prevPacketsOut'] . ',' .
-							$user['limitBytesIn'] . ',' .
-							$user['limitBytesOut'] . ',' .
-							$user['radius'] . ',' .
-							$user['present'] . ',' .
-							db_qstr($user['last_seen']) . ')';
-					}
+		if (cacti_sizeof($array)) {
+			foreach ($array as $row) {
+				if (!isset($row['name'])) {
+					continue;
 				}
+				$name = $row['name'];
 
-				if (cacti_sizeof($sql)) {
-					db_execute('INSERT INTO plugin_mikrotik_users
-						(host_id, `index`, userType, serverID, name, domain, mac, ip, connectTime,
-						bytesIn, bytesOut, packetsIn, packetsOut,
-						curBytesIn, curBytesOut, curPacketsIn, curPacketsOut,
-						prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut,
-						limitBytesIn, limitBytesOut, radius, present, last_seen)
-						VALUES ' . implode(', ', $sql) . '
-						ON DUPLICATE KEY UPDATE connectTime=VALUES(connectTime),
-						bytesIn=VALUES(bytesIn), bytesOut=VALUES(bytesOut),
-						packetsIn=VALUES(packetsIn), packetsOut=VALUES(packetsOut),
-						curBytesIn=VALUES(curBytesIn), curBytesOut=VALUES(curBytesOut),
-						curPacketsIn=VALUES(curPacketsIn), curPacketsOut=VALUES(curPacketsOut),
-						prevBytesIn=VALUES(prevBytesIn), prevBytesOut=VALUES(prevBytesOut),
-						prevPacketsIn=VALUES(prevPacketsIn), prevPacketsOut=VALUES(prevPacketsOut),
-						limitBytesIn=VALUES(limitBytesIn), limitBytesOut=VALUES(limitBytesOut),
-						radius=VALUES(radius), present=VALUES(present), last_seen=VALUES(last_seen)');
+				if (isset($users[$name])) {
+					$user = $users[$name];
+
+					$user['mac']           = $row['caller-id'];
+					$user['ip']            = $row['address'];
+					$user['connectTime']   = uptimeToSeconds($row['uptime']);
+					$user['host_id']       = $host['id'];
+					$user['radius']        = ($row['radius'] == 'true' ? 1 : 0);
+					$user['limitBytesIn']  = $row['limit-bytes-in'];
+					$user['limitBytesOut'] = $row['limit-bytes-out'];
+					$user['userType']      = 1;
+
+					$sql[] = '(' .
+						$user['host_id'] . ',' .
+						$user['index'] . ',' .
+						$user['userType'] . ',' .
+						$user['serverID'] . ',' .
+						db_qstr($user['name']) . ',' .
+						db_qstr($user['domain']) . ',' .
+						db_qstr($user['mac']) . ',' .
+						db_qstr($user['ip']) . ',' .
+						$user['connectTime'] . ',' .
+						$user['bytesIn'] . ',' .
+						$user['bytesOut'] . ',' .
+						$user['packetsIn'] . ',' .
+						$user['packetsOut'] . ',' .
+						$user['curBytesIn'] . ',' .
+						$user['curBytesOut'] . ',' .
+						$user['curPacketsIn'] . ',' .
+						$user['curPacketsOut'] . ',' .
+						$user['prevBytesIn'] . ',' .
+						$user['prevBytesOut'] . ',' .
+						$user['prevPacketsIn'] . ',' .
+						$user['prevPacketsOut'] . ',' .
+						$user['limitBytesIn'] . ',' .
+						$user['limitBytesOut'] . ',' .
+						$user['radius'] . ',' .
+						$user['present'] . ',' .
+						db_qstr($user['last_seen']) . ')';
 				}
 			}
 
-			$idle_users = db_fetch_assoc_prepared('SELECT name
-				FROM plugin_mikrotik_users
-				WHERE last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)
-				AND present=1
-				AND host_id = ?',
-				[read_config_option('mikrotik_queues_freq'), $host['id']]);
-
-			db_execute_prepared('UPDATE IGNORE plugin_mikrotik_users SET
-				bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, connectTime=0,
-				curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
-				prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, present=0
-				WHERE host_id = ?
-				AND userType = 1
-				AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
-				[$host['id'], read_config_option('mikrotik_queues_freq')]);
-
-			$api->disconnect();
-		} else {
-			cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+			if (cacti_sizeof($sql)) {
+				db_execute('INSERT INTO plugin_mikrotik_users
+					(host_id, `index`, userType, serverID, name, domain, mac, ip, connectTime,
+					bytesIn, bytesOut, packetsIn, packetsOut,
+					curBytesIn, curBytesOut, curPacketsIn, curPacketsOut,
+					prevBytesIn, prevBytesOut, prevPacketsIn, prevPacketsOut,
+					limitBytesIn, limitBytesOut, radius, present, last_seen)
+					VALUES ' . implode(', ', $sql) . '
+					ON DUPLICATE KEY UPDATE connectTime=VALUES(connectTime),
+					bytesIn=VALUES(bytesIn), bytesOut=VALUES(bytesOut),
+					packetsIn=VALUES(packetsIn), packetsOut=VALUES(packetsOut),
+					curBytesIn=VALUES(curBytesIn), curBytesOut=VALUES(curBytesOut),
+					curPacketsIn=VALUES(curPacketsIn), curPacketsOut=VALUES(curPacketsOut),
+					prevBytesIn=VALUES(prevBytesIn), prevBytesOut=VALUES(prevBytesOut),
+					prevPacketsIn=VALUES(prevPacketsIn), prevPacketsOut=VALUES(prevPacketsOut),
+					limitBytesIn=VALUES(limitBytesIn), limitBytesOut=VALUES(limitBytesOut),
+					radius=VALUES(radius), present=VALUES(present), last_seen=VALUES(last_seen)');
+			}
 		}
+
+		$idle_users = db_fetch_assoc_prepared('SELECT name
+			FROM plugin_mikrotik_users
+			WHERE last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)
+			AND present=1
+			AND host_id = ?',
+			[read_config_option('mikrotik_queues_freq'), $host['id']]);
+
+		db_execute_prepared('UPDATE IGNORE plugin_mikrotik_users SET
+			bytesIn=0, bytesOut=0, packetsIn=0, packetsOut=0, connectTime=0,
+			curBytesIn=0, curBytesOut=0, curPacketsIn=0, curPacketsOut=0,
+			prevBytesIn=0, prevBytesOut=0, prevPacketsIn=0, prevPacketsOut=0, present=0
+			WHERE host_id = ?
+			AND userType = 1
+			AND last_seen < FROM_UNIXTIME(UNIX_TIMESTAMP() - ?)',
+			[$host['id'], read_config_option('mikrotik_queues_freq')]);
+
+		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
