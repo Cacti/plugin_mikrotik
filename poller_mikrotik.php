@@ -1616,6 +1616,10 @@ function collect_list_details(array &$host): void {
 	$start = microtime(true);
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
+		// @codeCoverageIgnoreStart
+		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+		$api->port = $api->ssl ? 8729 : 8728;
+		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
 
@@ -1729,6 +1733,10 @@ function collect_dns_details(array &$host): void {
 	$start = microtime(true);
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
+		// @codeCoverageIgnoreStart
+		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+		$api->port = $api->ssl ? 8729 : 8728;
+		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
 
@@ -1901,6 +1909,10 @@ function collect_dhcp_details(array &$host): void {
 	$start = microtime(true);
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
+		// @codeCoverageIgnoreStart
+		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+		$api->port = $api->ssl ? 8729 : 8728;
+		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$noServer = false;
 
@@ -2068,6 +2080,10 @@ function collect_pppoe_users_api(array &$host): void {
 	$start = microtime(true);
 
 	if (is_array($creds) && cacti_sizeof($creds) && read_config_option('mikrotik_api_enabled') == 'on') {
+		// @codeCoverageIgnoreStart
+		$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+		$api->port = $api->ssl ? 8729 : 8728;
+		// @codeCoverageIgnoreEnd
 		if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 			$api->write('/ppp/active/getall');
 

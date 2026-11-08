@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* issue: Add an SSL option (Yes/No, default No) to the MikroTik host edit form, directly above the Read Only User, and connect to the RouterOS API over api-ssl (port 8729) when enabled; adds an `ssl` column to plugin_mikrotik_credentials (schema version bump to 3.2)
 * issue: Track the RouterOS 7 stable release feed (LATEST.7) instead of the retired RouterOS 6 feed so the "Latest MikroTik Version" header and per-device firmware comparison report the real latest release
 * issue: Load the RouterOS 7 MIB (mikrotik-7.mib) by default in the poller, as RouterOS 7 is now the current stable series
 * issue#84: Update the bundled MikroTik MIBs to the latest by major RouterOS version, replacing MIKROTIK-MIB.txt with mikrotik-6.mib and mikrotik-7.mib (tombstoned in manifest.json and loaded by the poller)

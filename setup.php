@@ -202,6 +202,10 @@ function mikrotik_check_upgrade(): void {
 			db_execute('ALTER TABLE plugin_mikrotik_users DROP PRIMARY KEY, ADD PRIMARY KEY (`host_id`,`name`,`serverID`,`userType`)');
 		}
 
+		if (!db_column_exists('plugin_mikrotik_credentials', 'ssl')) {
+			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN ssl varchar(3) NOT NULL default '' AFTER password");
+		}
+
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
 			!db_table_exists('plugin_mikrotik_lists')) {
@@ -1189,6 +1193,19 @@ function mikrotik_host_top(): void {
 				'collapsible'   => 'true',
 				'friendly_name' => __('MikroTik Credentials', 'mikrotik')
 			],
+			// @codeCoverageIgnoreStart
+			'mikrotik_ssl' => [
+				'method'        => 'drop_array',
+				'friendly_name' => __('SSL', 'mikrotik'),
+				'description'   => __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik'),
+				'value'         => (isset($is_tik['ssl']) ? $is_tik['ssl'] : ''),
+				'default'       => '',
+				'array'         => [
+					''   => __('No', 'mikrotik'),
+					'on' => __('Yes', 'mikrotik')
+				]
+			],
+			// @codeCoverageIgnoreEnd
 			'mikrotik_user' => [
 				'method'        => 'textbox',
 				'friendly_name' => __('Read Only User', 'mikrotik'),
@@ -1213,6 +1230,11 @@ function mikrotik_host_top(): void {
 			$api = new RouterosAPI();
 
 			$api->debug = false;
+
+			// @codeCoverageIgnoreStart
+			$api->ssl  = (isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
+			$api->port = $api->ssl ? 8729 : 8728;
+			// @codeCoverageIgnoreEnd
 
 			if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
 				$api->disconnect();
@@ -1252,7 +1274,7 @@ function mikrotik_host_save(array $data): array {
 	$id = $data['host_id'];
 
 	if (isset_request_var('mikrotik_user')) {
-		db_execute_prepared('REPLACE INTO plugin_mikrotik_credentials (host_id, user, password) VALUES (?,?,?)', [$id, get_nfilter_request_var('mikrotik_user'), get_nfilter_request_var('mikrotik_password')]);
+		db_execute_prepared('REPLACE INTO plugin_mikrotik_credentials (host_id, user, password, ssl) VALUES (?,?,?,?)', [$id, get_nfilter_request_var('mikrotik_user'), get_nfilter_request_var('mikrotik_password'), (isset_request_var('mikrotik_ssl') && get_nfilter_request_var('mikrotik_ssl') == 'on' ? 'on' : '')]);
 	}
 
 	return $data;

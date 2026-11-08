@@ -517,6 +517,7 @@ function mikrotik_setup_table(): void {
 			array('name' => 'host_id', 'type' => 'mediumint(8)', 'unsigned' => true, 'NULL' => false, 'default' => '0'),
 			array('name' => 'user', 'type' => 'varchar(20)', 'default' => ''),
 			array('name' => 'password', 'type' => 'varchar(40)', 'default' => ''),
+			array('name' => 'ssl', 'type' => 'varchar(3)', 'NULL' => false, 'default' => ''),
 		),
 		'primary' => 'host_id',
 		'type' => 'InnoDB',
