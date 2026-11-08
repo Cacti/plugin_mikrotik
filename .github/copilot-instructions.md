@@ -35,7 +35,8 @@ mikrotik/               # Repository root (install to plugins/mikrotik/ in Cacti
 ├── mikrotik_users.php  # Admin page for wireless/PPPoE user views
 ├── poller_graphs.php   # Graph URL helper output
 ├── poller_mikrotik.php # Background poller entry point (CLI)
-├── MIKROTIK-MIB.txt    # Vendor MIB reference
+├── mikrotik-6.mib      # Vendor MIB reference (RouterOS 6)
+├── mikrotik-7.mib      # Vendor MIB reference (RouterOS 7)
 ├── INFO                # Plugin metadata (name, version, compat)
 ├── README.md
 └── setup.php           # Plugin install/uninstall/upgrade hooks

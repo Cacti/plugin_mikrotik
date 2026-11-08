@@ -956,7 +956,8 @@ function checkHost(int $host_id): void {
 
 	if (function_exists('snmp_read_mib')) {
 		debug('Function snmp_read_mib() EXISTS!');
-		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/MIKROTIK-MIB.txt');
+		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/mikrotik-6.mib');
+		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/mikrotik-7.mib');
 	} else {
 		putenv('MIBS=all');
 	}
