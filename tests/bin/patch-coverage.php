@@ -171,6 +171,10 @@ $unmeasured_allowlist = [
 	// mikrotik_test_load_function(); their render output is asserted by the UI.
 	'mikrotik.php',
 	'mikrotik_users.php',
+	// Vendored third-party RouterOS API client (Denis Basta et al.); a thin
+	// socket/SSL transport whose connect()/read()/write() only exercise live
+	// TCP/TLS to a device and cannot run in the isolated unit process.
+	'RouterOS/routeros_api.class.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));
