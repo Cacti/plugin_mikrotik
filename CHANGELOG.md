@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* dev: Run the CI poller with `runuser -u www-data -g runner` so RRD files it creates get the runner group that owns the tree, clearing the "collaborative owner/group/mode arrangement could not be fully applied" warnings that failed the Cacti log check
 * issue: Add an SSL option (Yes/No, default No) to the MikroTik host edit form, directly above the Read Only User, and connect to the RouterOS API over api-ssl (port 8729) when enabled, accepting the device's self-signed api-ssl certificate by default; adds an `ssl` column to plugin_mikrotik_credentials (schema version bump to 3.2)
 * issue: Track the RouterOS 7 stable release feed (LATEST.7) instead of the retired RouterOS 6 feed so the "Latest MikroTik Version" header and per-device firmware comparison report the real latest release
 * issue: Load the RouterOS 7 MIB (mikrotik-7.mib) by default in the poller, as RouterOS 7 is now the current stable series
