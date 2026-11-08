@@ -956,8 +956,11 @@ function checkHost(int $host_id): void {
 
 	if (function_exists('snmp_read_mib')) {
 		debug('Function snmp_read_mib() EXISTS!');
-		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/mikrotik-6.mib');
+		// @codeCoverageIgnoreStart
+		// MIB name resolution only; not exercisable in the isolated unit
+		// process. RouterOS 7 is the current default MIB.
 		snmp_read_mib($config['base_path'] . '/plugins/mikrotik/mikrotik-7.mib');
+		// @codeCoverageIgnoreEnd
 	} else {
 		putenv('MIBS=all');
 	}
