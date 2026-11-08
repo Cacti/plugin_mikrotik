@@ -153,7 +153,7 @@ if (!function_exists('db_fetch_assoc')) {
 
 if (!function_exists('db_fetch_assoc_prepared')) {
 	function db_fetch_assoc_prepared($sql, $params = array()) {
-		return array();
+		return mikrotik_test_db_result('db_fetch_assoc_prepared', $sql, $params, array());
 	}
 }
 
@@ -177,7 +177,7 @@ if (!function_exists('db_fetch_cell')) {
 
 if (!function_exists('db_fetch_cell_prepared')) {
 	function db_fetch_cell_prepared($sql, $params = array()) {
-		return '';
+		return mikrotik_test_db_result('db_fetch_cell_prepared', $sql, $params, '');
 	}
 }
 

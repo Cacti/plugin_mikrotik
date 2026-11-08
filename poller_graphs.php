@@ -358,6 +358,14 @@ function mikrotik_gt_graph(int $host_id, int $graph_template_id): void {
 		[$host_id, $graph_template_id]);
 
 	if (!$exists) {
+		// Honor the Graph Template 'Test Data Source' setting: if enabled and the
+		// data source does not return valid data for this host, skip the graph.
+		if (!test_data_sources($graph_template_id, $host_id)) {
+			debug("Skipping Graph Template '$name' for Host: $host_id - Test Data Source returned no valid data");
+
+			return;
+		}
+
 		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . PHP_EOL;
 
 		$command = "$php_bin -q $base/cli/add_graphs.php" .
@@ -450,6 +458,14 @@ function add_summary_graphs(int $host_id, int $host_template): void {
 					FROM graph_templates
 					WHERE id = ?',
 					[$gt['graph_template_id']]);
+
+				// Honor the Graph Template 'Test Data Source' setting: if enabled and the
+				// data source does not return valid data for this host, skip the graph.
+				if (!test_data_sources($gt['graph_template_id'], $host_id)) {
+					debug("Skipping Graph Template '$name' for Host: $host_id - Test Data Source returned no valid data");
+
+					continue;
+				}
 
 				print "NOTE: Adding item for Graph Template: '$name' for Host: '$host_id'" . PHP_EOL;
 
@@ -547,6 +563,14 @@ function mikrotik_dq_graphs(int $host_id, int $query_id, int $graph_template_id,
 				[$host_id, $query_id, $graph_template_id, $index]);
 
 			if (!$exists) {
+				// Honor the Graph Template 'Test Data Source' setting: if enabled and the
+				// data source does not return valid data for this host/index, skip the graph.
+				if (!test_data_sources($graph_template_id, $host_id, $query_id, $index)) {
+					debug("Skipping Data Query Graph for Host: $host_id, index: $index - Test Data Source returned no valid data");
+
+					continue;
+				}
+
 				$command = "$php_bin -q $base/cli/add_graphs.php" .
 					" --graph-template-id=$graph_template_id --graph-type=ds" .
 					" --snmp-query-type-id=$query_type_id --host-id=" . $host_id .
