@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:06-0400\nPO-Revision-Date: 2026-10-27 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-08 09:58-0500\n"
+"PO-Revision-Date: 2026-10-27 13:18+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\n"
+"Language: sv-SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -956,6 +968,22 @@ msgstr "Grafer som utelämnats enligt regel eller som inte skapats"
 #: setup.php
 msgid "MikroTik Credentials"
 msgstr "Inloggningsuppgifter för MikroTik"
+
+#: setup.php
+msgid "SSL"
+msgstr ""
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr ""
+
+#: setup.php
+msgid "No"
+msgstr ""
+
+#: setup.php
+msgid "Yes"
+msgstr ""
 
 #: setup.php
 msgid "Read Only User"
