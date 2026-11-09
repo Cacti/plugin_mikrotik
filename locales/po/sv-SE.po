@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2026-11-08 09:58-0500\n"
-"PO-Revision-Date: 2026-10-27 13:18+0000\n"
+"PO-Revision-Date: 2026-11-09 20:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\n"
 "Language: sv-SE\n"
@@ -116,7 +116,7 @@ msgstr "Sedan återställning"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
-msgstr "Start"
+msgstr "Gå"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear"
@@ -971,19 +971,31 @@ msgstr "Inloggningsuppgifter för MikroTik"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Anslut till MikroTik API via SSL (api-ssl, port 8729). Aktivera tjänsten api-ssl under IP > Services på enheten innan du aktiverar detta."
+
+#: setup.php
+msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
+msgstr ""
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr ""
+
+#: setup.php
+msgid "Not Available"
 msgstr ""
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: setup.php
 msgid "Read Only User"
@@ -998,8 +1010,8 @@ msgid "Password"
 msgstr "Lösenord"
 
 #: setup.php
-msgid "Provide the read only username password for this MikroTik."
-msgstr "Ange lösenordet för användaren med endast läsbehörighet på denna MikroTik."
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr ""
 
 #: setup.php
 msgid "Connection Result"
@@ -1012,6 +1024,9 @@ msgstr "Ok om Cacti kan ansluta till MikroTik via dess API-port."
 #: setup.php
 msgid "Connection Failed"
 msgstr "Anslutningen misslyckades"
+
+#~ msgid "Provide the read only username password for this MikroTik."
+#~ msgstr "Ange lösenordet för användaren med endast läsbehörighet på denna MikroTik."
 
 #, fuzzy
 #~ msgid "MikroTik Auto Discovery Frequency"
