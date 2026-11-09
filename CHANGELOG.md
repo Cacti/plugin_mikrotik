@@ -1,6 +1,8 @@
 
 --- develop ---
 
+* issue: Fix the MikroTik device credential save failing with a SQL syntax error (`ssl`, `user` and `password` are reserved words) so the SSL selection and credentials persist again; bump the schema version to 3.3 so installations that recorded the broken 3.2 migration retry and add the missing `ssl` column
+* issue: Obfuscate the MikroTik device password field: render it as a single masked input that is no longer pre-populated with the stored value, keep the stored password when the field is submitted blank, and update it only when a new value is entered
 * dev: Run the CI poller with `runuser -u www-data -g runner` so RRD files it creates get the runner group that owns the tree, clearing the "collaborative owner/group/mode arrangement could not be fully applied" warnings that failed the Cacti log check
 * issue: Preserve the previous indexed SNMP snapshot when a required table walk fails
 * issue: Add an SSL option (Yes/No, default No) to the MikroTik host edit form, directly above the Read Only User, and connect to the RouterOS API over api-ssl (port 8729) when enabled, accepting the device's self-signed api-ssl certificate by default; adds an `ssl` column to plugin_mikrotik_credentials (schema version bump to 3.2)

@@ -59,6 +59,31 @@ it('persists the ssl preference when the SSL dropdown is set to on', function ()
 	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'secret', 'on'));
 });
 
+it('keeps the stored password when the password field is submitted blank', function () {
+	mikrotik_test_mock_db('db_fetch_cell_prepared', 'plugin_mikrotik_credentials', 'storedsecret');
+
+	set_request_var('mikrotik_user', 'admin');
+	set_request_var('mikrotik_password', '');
+
+	mikrotik_host_save(array('host_id' => 5));
+
+	expect($GLOBALS['__test_db_calls'])->toHaveCount(1);
+	expect($GLOBALS['__test_db_calls'][0]['sql'])->toContain('REPLACE INTO plugin_mikrotik_credentials');
+	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'storedsecret', ''));
+});
+
+it('updates the stored password when a new value is provided', function () {
+	mikrotik_test_mock_db('db_fetch_cell_prepared', 'plugin_mikrotik_credentials', 'storedsecret');
+
+	set_request_var('mikrotik_user', 'admin');
+	set_request_var('mikrotik_password', 'newsecret');
+
+	mikrotik_host_save(array('host_id' => 5));
+
+	expect($GLOBALS['__test_db_calls'])->toHaveCount(1);
+	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'newsecret', ''));
+});
+
 it('deletes credentials for every host id passed', function () {
 	$data = mikrotik_host_delete(array(3, 4));
 

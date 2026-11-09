@@ -203,7 +203,7 @@ function mikrotik_check_upgrade(): void {
 		}
 
 		if (!db_column_exists('plugin_mikrotik_credentials', 'ssl')) {
-			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN ssl varchar(3) NOT NULL default '' AFTER password");
+			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN `ssl` varchar(3) NOT NULL default '' AFTER `password`");
 		}
 
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
@@ -1187,6 +1187,12 @@ function mikrotik_host_top(): void {
 		WHERE host_template_id = ? AND host.id = ?', [$template_id, $id]);
 
 	if (is_array($is_tik) && cacti_sizeof($is_tik)) {
+		// @codeCoverageIgnoreStart
+		ob_start();
+		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
+		$mikrotik_password_field = ob_get_clean();
+		// @codeCoverageIgnoreEnd
+
 		$fields_host_edit += [
 			'mikrotik_head' => [
 				'method'        => 'spacer',
@@ -1214,14 +1220,14 @@ function mikrotik_host_top(): void {
 				'max_length'    => '40',
 				'size'          => '20'
 			],
+			// @codeCoverageIgnoreStart
 			'mikrotik_password' => [
-				'method'        => 'textbox',
+				'method'        => 'custom',
 				'friendly_name' => __('Password', 'mikrotik'),
-				'description'   => __('Provide the read only username password for this MikroTik.', 'mikrotik'),
-				'value'         => $is_tik['password'],
-				'max_length'    => '40',
-				'size'          => '30',
+				'description'   => __('Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password.', 'mikrotik'),
+				'value'         => $mikrotik_password_field,
 			]
+			// @codeCoverageIgnoreEnd
 		];
 
 		if ($is_tik['user'] != '') {
@@ -1262,9 +1268,12 @@ function mikrotik_host_top(): void {
 }
 
 /**
- * Host_save hook: persists a submitted MikroTik read-only
- * username/password into plugin_mikrotik_credentials for the saved
- * host. Called by Cacti's host edit page via the 'host_save' hook.
+ * Host_save hook: persists a submitted MikroTik read-only username,
+ * password and SSL preference into plugin_mikrotik_credentials for the
+ * saved host. The password field is write-only on the edit form: when it
+ * is submitted blank, the previously stored password is preserved rather
+ * than being overwritten with an empty value. Called by Cacti's host edit
+ * page via the 'host_save' hook.
  *
  * @param array $data The host save-hook data, including 'host_id'.
  *
@@ -1274,7 +1283,19 @@ function mikrotik_host_save(array $data): array {
 	$id = $data['host_id'];
 
 	if (isset_request_var('mikrotik_user')) {
-		db_execute_prepared('REPLACE INTO plugin_mikrotik_credentials (host_id, user, password, ssl) VALUES (?,?,?,?)', [$id, get_nfilter_request_var('mikrotik_user'), get_nfilter_request_var('mikrotik_password'), (isset_request_var('mikrotik_ssl') && get_nfilter_request_var('mikrotik_ssl') == 'on' ? 'on' : '')]);
+		$password = isset_request_var('mikrotik_password') ? get_nfilter_request_var('mikrotik_password') : '';
+
+		if ($password === '') {
+			$existing = db_fetch_cell_prepared('SELECT `password` FROM plugin_mikrotik_credentials WHERE host_id = ?', [$id]);
+
+			if ($existing !== false && $existing !== null) {
+				$password = $existing;
+			}
+		}
+
+		$ssl = (isset_request_var('mikrotik_ssl') && get_nfilter_request_var('mikrotik_ssl') == 'on') ? 'on' : '';
+
+		db_execute_prepared('REPLACE INTO plugin_mikrotik_credentials (host_id, `user`, `password`, `ssl`) VALUES (?, ?, ?, ?)', [$id, get_nfilter_request_var('mikrotik_user'), $password, $ssl]);
 	}
 
 	return $data;
