@@ -23,6 +23,13 @@
  +-------------------------------------------------------------------------+
 */
 
+// Allow the unit tests to load the functions defined below by require()ing
+// this file, without running the CLI poller (which bootstraps Cacti and then
+// exits). Cacti itself never defines this constant.
+if (defined('MIKROTIK_POLLER_GRAPHS_NO_MAIN')) {
+	return;
+}
+
 $no_http_headers = true;
 
 chdir(__DIR__);
@@ -31,6 +38,9 @@ include('./include/global.php');
 include_once('./lib/poller.php');
 include_once('./lib/utility.php');
 include_once('./lib/data_query.php');
+// @codeCoverageIgnoreStart
+include_once('./lib/snmp.php');
+// @codeCoverageIgnoreEnd
 include_once('./lib/api_graph.php');
 include_once('./lib/api_tree.php');
 include_once('./lib/api_data_source.php');
@@ -358,6 +368,14 @@ function mikrotik_gt_graph(int $host_id, int $graph_template_id): void {
 		[$host_id, $graph_template_id]);
 
 	if (!$exists) {
+		// Honor the Graph Template 'Test Data Source' setting: if enabled and the
+		// data source does not return valid data for this host, skip the graph.
+		if (!test_data_sources($graph_template_id, $host_id)) {
+			debug("Skipping Graph Template '$name' for Host: $host_id - Test Data Source returned no valid data");
+
+			return;
+		}
+
 		print "NOTE: Adding Graph: '$name' for Host: " . $host_id . PHP_EOL;
 
 		$command = "$php_bin -q $base/cli/add_graphs.php" .
@@ -547,6 +565,14 @@ function mikrotik_dq_graphs(int $host_id, int $query_id, int $graph_template_id,
 				[$host_id, $query_id, $graph_template_id, $index]);
 
 			if (!$exists) {
+				// Honor the Graph Template 'Test Data Source' setting: if enabled and the
+				// data source does not return valid data for this host/index, skip the graph.
+				if (!test_data_sources($graph_template_id, $host_id, $query_id, $index)) {
+					debug("Skipping Data Query Graph for Host: $host_id, index: $index - Test Data Source returned no valid data");
+
+					continue;
+				}
+
 				$command = "$php_bin -q $base/cli/add_graphs.php" .
 					" --graph-template-id=$graph_template_id --graph-type=ds" .
 					" --snmp-query-type-id=$query_type_id --host-id=" . $host_id .
