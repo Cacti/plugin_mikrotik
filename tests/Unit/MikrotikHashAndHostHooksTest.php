@@ -45,7 +45,18 @@ it('saves credentials only when the mikrotik_user field was submitted', function
 
 	expect($GLOBALS['__test_db_calls'])->toHaveCount(1);
 	expect($GLOBALS['__test_db_calls'][0]['sql'])->toContain('REPLACE INTO plugin_mikrotik_credentials');
-	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'secret'));
+	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'secret', ''));
+});
+
+it('persists the ssl preference when the SSL dropdown is set to on', function () {
+	set_request_var('mikrotik_user', 'admin');
+	set_request_var('mikrotik_password', 'secret');
+	set_request_var('mikrotik_ssl', 'on');
+
+	mikrotik_host_save(array('host_id' => 5));
+
+	expect($GLOBALS['__test_db_calls'])->toHaveCount(1);
+	expect($GLOBALS['__test_db_calls'][0]['params'])->toBe(array(5, 'admin', 'secret', 'on'));
 });
 
 it('deletes credentials for every host id passed', function () {

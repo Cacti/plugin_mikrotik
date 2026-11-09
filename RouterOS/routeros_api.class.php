@@ -20,6 +20,7 @@ class RouterosAPI {
 	var $connected = false; //  Connection state
 	var $port      = 8728;  //  Port to connect to (default 8729 for ssl)
 	var $ssl       = false; //  Connect using SSL (must enable api-ssl in IP/Services)
+	var $ssl_allow_self_signed = true; //  Accept self-signed api-ssl certificates (RouterOS ships one by default)
 	var $timeout   = 3;     //  Connection attempt timeout and data read timeout
 	var $attempts  = 5;     //  Connection attempt count
 	var $delay     = 3;     //  Delay between connection attempts in seconds
@@ -91,7 +92,24 @@ class RouterosAPI {
 			$this->connected = false;
 			$PROTOCOL        = ($this->ssl ? 'ssl://' : '');
 			$this->debug('Connection attempt #' . $ATTEMPT . ' to ' . $PROTOCOL . $ip . ':' . $this->port . '...');
-			$this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
+
+			if ($this->ssl) {
+				// fsockopen() cannot carry a stream context, so use
+				// stream_socket_client() for SSL. RouterOS ships a
+				// self-signed api-ssl certificate, so peer verification is
+				// disabled by default (toggle via $ssl_allow_self_signed).
+				$context = stream_context_create([
+					'ssl' => [
+						'verify_peer'       => !$this->ssl_allow_self_signed,
+						'verify_peer_name'  => !$this->ssl_allow_self_signed,
+						'allow_self_signed' => $this->ssl_allow_self_signed,
+					],
+				]);
+
+				$this->socket = @stream_socket_client($PROTOCOL . $ip . ':' . $this->port, $this->error_no, $this->error_str, $this->timeout, STREAM_CLIENT_CONNECT, $context);
+			} else {
+				$this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
+			}
 
 			if ($this->socket) {
 				socket_set_timeout($this->socket, $this->timeout);
