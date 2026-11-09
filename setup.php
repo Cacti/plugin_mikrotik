@@ -1246,22 +1246,29 @@ function mikrotik_host_top(): void {
 		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
 		$mikrotik_password_field = ob_get_clean();
 
-		// Keep the SSL selector enabled even when SSL is unavailable so an
+		// When SSL is unavailable, offer only the "No" (off) option so an
 		// administrator can still turn SSL off on a device whose api-ssl service
-		// has gone away. When unavailable, the off ("No") option is relabelled
-		// "Not Available" to make the state obvious.
+		// has gone away, but cannot enable SSL that would not work.
+		if ($ssl_available) {
+			$ssl_description = __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik');
+			$ssl_array       = [
+				''   => __('No', 'mikrotik'),
+				'on' => __('Yes', 'mikrotik')
+			];
+		} else {
+			$ssl_description = __('An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL.', 'mikrotik');
+			$ssl_array       = [
+				'' => __('No', 'mikrotik')
+			];
+		}
+
 		$mikrotik_ssl_field = [
 			'method'        => 'drop_array',
 			'friendly_name' => __('SSL', 'mikrotik'),
-			'description'   => $ssl_available
-				? __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik')
-				: __('An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL shows as Not Available. You can still turn SSL off here; enable and verify the api-ssl service under IP > Services on the device to use SSL.', 'mikrotik'),
+			'description'   => $ssl_description,
 			'value'         => (isset($is_tik['ssl']) ? $is_tik['ssl'] : ''),
 			'default'       => '',
-			'array'         => [
-				''   => ($ssl_available ? __('No', 'mikrotik') : __('Not Available', 'mikrotik')),
-				'on' => __('Yes', 'mikrotik')
-			]
+			'array'         => $ssl_array
 		];
 
 		$fields_host_edit += [
