@@ -1159,6 +1159,40 @@ function mikrotik_graphs_url_by_template_hashs(?array $hashes, int $host_id = 0,
 }
 
 /**
+ * Checks whether a MikroTik device's api-ssl port is reachable so the host
+ * edit form can offer (or disable) the SSL option. A plain TCP connect is
+ * enough to tell whether the api-ssl service is listening, and it avoids the
+ * TLS handshake that would otherwise flood the Cacti log with warnings when
+ * the service is not enabled on the device.
+ *
+ * @param string $hostname The device hostname or IP address.
+ * @param int    $port     The api-ssl TCP port (8729 by default).
+ * @param float  $timeout  Connection timeout, in seconds.
+ *
+ * @return bool True when the port accepts a TCP connection.
+ */
+function mikrotik_ssl_port_available(string $hostname, int $port = 8729, float $timeout = 2.0): bool {
+	if (trim($hostname) === '') {
+		return false;
+	}
+
+	// @codeCoverageIgnoreStart
+	$errno  = 0;
+	$errstr = '';
+
+	$socket = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
+
+	if ($socket === false) {
+		return false;
+	}
+
+	fclose($socket);
+
+	return true;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
  * Host_edit_top hook: when editing a device using this plugin's
  * MikroTik host template, adds credential fields (read-only
  * username/password) to the host edit form and, if credentials are
@@ -1188,19 +1222,14 @@ function mikrotik_host_top(): void {
 
 	if (is_array($is_tik) && cacti_sizeof($is_tik)) {
 		// @codeCoverageIgnoreStart
+		$ssl_available = mikrotik_ssl_port_available($is_tik['hostname']);
+
 		ob_start();
 		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
 		$mikrotik_password_field = ob_get_clean();
-		// @codeCoverageIgnoreEnd
 
-		$fields_host_edit += [
-			'mikrotik_head' => [
-				'method'        => 'spacer',
-				'collapsible'   => 'true',
-				'friendly_name' => __('MikroTik Credentials', 'mikrotik')
-			],
-			// @codeCoverageIgnoreStart
-			'mikrotik_ssl' => [
+		if ($ssl_available) {
+			$mikrotik_ssl_field = [
 				'method'        => 'drop_array',
 				'friendly_name' => __('SSL', 'mikrotik'),
 				'description'   => __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik'),
@@ -1210,8 +1239,23 @@ function mikrotik_host_top(): void {
 					''   => __('No', 'mikrotik'),
 					'on' => __('Yes', 'mikrotik')
 				]
+			];
+		} else {
+			$mikrotik_ssl_field = [
+				'method'        => 'custom',
+				'friendly_name' => __('SSL', 'mikrotik'),
+				'description'   => __('The MikroTik API SSL service (api-ssl, port 8729) is not reachable on this device, so SSL is disabled. Enable the api-ssl service under IP > Services on the device to use SSL.', 'mikrotik'),
+				'value'         => "<select class='ui-state-default ui-corner-all' disabled='disabled'><option value=''>" . __esc('Not Available', 'mikrotik') . "</option></select><input type='hidden' name='mikrotik_ssl' value=''>"
+			];
+		}
+
+		$fields_host_edit += [
+			'mikrotik_head' => [
+				'method'        => 'spacer',
+				'collapsible'   => 'true',
+				'friendly_name' => __('MikroTik Credentials', 'mikrotik')
 			],
-			// @codeCoverageIgnoreEnd
+			'mikrotik_ssl'  => $mikrotik_ssl_field,
 			'mikrotik_user' => [
 				'method'        => 'textbox',
 				'friendly_name' => __('Read Only User', 'mikrotik'),
@@ -1220,14 +1264,12 @@ function mikrotik_host_top(): void {
 				'max_length'    => '40',
 				'size'          => '20'
 			],
-			// @codeCoverageIgnoreStart
 			'mikrotik_password' => [
 				'method'        => 'custom',
 				'friendly_name' => __('Password', 'mikrotik'),
 				'description'   => __('Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password.', 'mikrotik'),
 				'value'         => $mikrotik_password_field,
 			]
-			// @codeCoverageIgnoreEnd
 		];
 
 		if ($is_tik['user'] != '') {
@@ -1237,10 +1279,8 @@ function mikrotik_host_top(): void {
 
 			$api->debug = false;
 
-			// @codeCoverageIgnoreStart
-			$api->ssl  = (isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
+			$api->ssl  = ($ssl_available && isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
 			$api->port = $api->ssl ? 8729 : 8728;
-			// @codeCoverageIgnoreEnd
 
 			if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
 				$api->disconnect();
@@ -1264,6 +1304,7 @@ function mikrotik_host_top(): void {
 				];
 			}
 		}
+		// @codeCoverageIgnoreEnd
 	}
 }
 
