@@ -26,6 +26,11 @@ it('looks up a graph template id by its hash', function () {
 	expect(mikrotik_template_by_hash('abc123'))->toBe('42');
 });
 
+it('reports the ssl port unavailable when the hostname is empty', function () {
+	expect(mikrotik_ssl_port_available(''))->toBeFalse();
+	expect(mikrotik_ssl_port_available('   '))->toBeFalse();
+});
+
 it('looks up a data query id by its hash', function () {
 	mikrotik_test_mock_db('db_fetch_cell', 'snmp_query', '7');
 

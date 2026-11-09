@@ -977,6 +977,18 @@ msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api
 msgstr ""
 
 #: setup.php
+msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
+msgstr ""
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr ""
+
+#: setup.php
+msgid "Not Available"
+msgstr ""
+
+#: setup.php
 msgid "No"
 msgstr ""
 
