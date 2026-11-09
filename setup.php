@@ -1246,9 +1246,9 @@ function mikrotik_host_top(): void {
 		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
 		$mikrotik_password_field = ob_get_clean();
 
-		// When SSL is unavailable, offer only the "No" (off) option so an
-		// administrator can still turn SSL off on a device whose api-ssl service
-		// has gone away, but cannot enable SSL that would not work.
+		// When SSL is available, offer the usual No/Yes dropdown. When it is not,
+		// offer only "No" so SSL cannot be enabled where it would not work; the
+		// reason is shown in the Connection Result row below.
 		if ($ssl_available) {
 			$ssl_description = __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik');
 			$ssl_array       = [
@@ -1296,6 +1296,7 @@ function mikrotik_host_top(): void {
 
 		if ($is_tik['user'] != '') {
 			$ssl_configured = (isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
+			$ssl_note       = (!$ssl_available ? ' — ' . __('SSL not present on this device', 'mikrotik') : '');
 
 			if ($ssl_configured && !$ssl_available) {
 				// SSL is the configured transport but its port is unreachable.
@@ -1327,7 +1328,7 @@ function mikrotik_host_top(): void {
 							'method'        => 'other',
 							'friendly_name' => __('Connection Result', 'mikrotik'),
 							'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
-							'value'         => 'Connected Successfully'
+							'value'         => 'Connected Successfully' . $ssl_note
 						]
 					];
 				} else {
@@ -1336,7 +1337,7 @@ function mikrotik_host_top(): void {
 							'method'        => 'other',
 							'friendly_name' => __('Connection Result', 'mikrotik'),
 							'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
-							'value'         => __('Connection Failed', 'mikrotik')
+							'value'         => __('Connection Failed', 'mikrotik') . $ssl_note
 						]
 					];
 				}

@@ -985,6 +985,10 @@ msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection n
 msgstr ""
 
 #: setup.php
+msgid "SSL not present on this device"
+msgstr ""
+
+#: setup.php
 msgid "No"
 msgstr ""
 
