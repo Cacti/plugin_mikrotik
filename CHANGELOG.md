@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* issue: Preserve the previous indexed SNMP snapshot when a required table walk fails
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * issue#84: Update the bundled MikroTik MIBs to the latest by major RouterOS version, replacing MIKROTIK-MIB.txt with mikrotik-6.mib and mikrotik-7.mib (tombstoned in manifest.json and loaded by the poller)
 * issue: Fix an uncaught TypeError that disabled the plugin when mikrotik_graphs_url_by_template_hashs() received a null hash list (unpopulated wireless AP station hashes), and wire the Wireless Registrations view to the correctly-named $wireless_reg_hashes global so its graph links resolve

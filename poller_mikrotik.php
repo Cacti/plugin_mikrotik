@@ -1383,13 +1383,6 @@ function collectHostIndexedOid(array &$host, array $tree, string $table, string 
 	debug("Beginning Processing for '" . $host['description'] . '[' . $host['hostname'] . "]', Table '$name'");
 
 	if (cacti_sizeof($host)) {
-		// mark for deletion
-		if ($name == 'users') {
-			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id'] . ' AND userType=0');
-		} else {
-			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id']);
-		}
-
 		debug("Polling $name from '" . $host['description'] . '[' . $host['hostname'] . "]'");
 		$treeMib   = [];
 		$goodVals  = [];
@@ -1432,6 +1425,13 @@ function collectHostIndexedOid(array &$host, array $tree, string $table, string 
 			}
 
 			debug('Polled: ' . $host['description'] . ', OID: ' . $oid . ', Size: ' . sizeof($walk));
+		}
+
+		// Retain the last complete snapshot when a required walk fails above.
+		if ($name == 'users') {
+			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id'] . ' AND userType=0');
+		} else {
+			db_execute("UPDATE $table SET present=0 WHERE host_id=" . $host['id']);
 		}
 
 		$set_string = '';
