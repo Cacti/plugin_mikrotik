@@ -997,7 +997,7 @@ msgid "Password"
 msgstr ""
 
 #: setup.php
-msgid "Provide the read only username password for this MikroTik."
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
 msgstr ""
 
 #: setup.php

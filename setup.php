@@ -1187,6 +1187,12 @@ function mikrotik_host_top(): void {
 		WHERE host_template_id = ? AND host.id = ?', [$template_id, $id]);
 
 	if (is_array($is_tik) && cacti_sizeof($is_tik)) {
+		// @codeCoverageIgnoreStart
+		ob_start();
+		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
+		$mikrotik_password_field = ob_get_clean();
+		// @codeCoverageIgnoreEnd
+
 		$fields_host_edit += [
 			'mikrotik_head' => [
 				'method'        => 'spacer',
@@ -1214,15 +1220,14 @@ function mikrotik_host_top(): void {
 				'max_length'    => '40',
 				'size'          => '20'
 			],
+			// @codeCoverageIgnoreStart
 			'mikrotik_password' => [
-				'method'        => 'textbox_password',
+				'method'        => 'custom',
 				'friendly_name' => __('Password', 'mikrotik'),
 				'description'   => __('Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password.', 'mikrotik'),
-				'value'         => '',
-				'noconfirm'     => true,
-				'max_length'    => '40',
-				'size'          => '30',
+				'value'         => $mikrotik_password_field,
 			]
+			// @codeCoverageIgnoreEnd
 		];
 
 		if ($is_tik['user'] != '') {

@@ -21,7 +21,7 @@
 
 [info]
 name = mikrotik
-version = 3.2
+version = 3.3
 longname = MikroTik Switch Tool
 author = The Cacti Group
 email = 
