@@ -1246,28 +1246,23 @@ function mikrotik_host_top(): void {
 		form_text_box('mikrotik_password', '', '', '40', '30', 'password');
 		$mikrotik_password_field = ob_get_clean();
 
-		if ($ssl_available) {
-			$mikrotik_ssl_field = [
-				'method'        => 'drop_array',
-				'friendly_name' => __('SSL', 'mikrotik'),
-				'description'   => __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik'),
-				'value'         => (isset($is_tik['ssl']) ? $is_tik['ssl'] : ''),
-				'default'       => '',
-				'array'         => [
-					''   => __('No', 'mikrotik'),
-					'on' => __('Yes', 'mikrotik')
-				]
-			];
-		} else {
-			$stored_ssl = (isset($is_tik['ssl']) ? $is_tik['ssl'] : '');
-
-			$mikrotik_ssl_field = [
-				'method'        => 'custom',
-				'friendly_name' => __('SSL', 'mikrotik'),
-				'description'   => __('The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL.', 'mikrotik'),
-				'value'         => "<select class='ui-state-default ui-corner-all' disabled='disabled'><option value=''>" . __esc('Not Available', 'mikrotik') . "</option></select><input type='hidden' name='mikrotik_ssl' value='" . html_escape($stored_ssl) . "'>"
-			];
-		}
+		// Keep the SSL selector enabled even when SSL is unavailable so an
+		// administrator can still turn SSL off on a device whose api-ssl service
+		// has gone away. When unavailable, the off ("No") option is relabelled
+		// "Not Available" to make the state obvious.
+		$mikrotik_ssl_field = [
+			'method'        => 'drop_array',
+			'friendly_name' => __('SSL', 'mikrotik'),
+			'description'   => $ssl_available
+				? __('Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on.', 'mikrotik')
+				: __('An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL shows as Not Available. You can still turn SSL off here; enable and verify the api-ssl service under IP > Services on the device to use SSL.', 'mikrotik'),
+			'value'         => (isset($is_tik['ssl']) ? $is_tik['ssl'] : ''),
+			'default'       => '',
+			'array'         => [
+				''   => ($ssl_available ? __('No', 'mikrotik') : __('Not Available', 'mikrotik')),
+				'on' => __('Yes', 'mikrotik')
+			]
+		];
 
 		$fields_host_edit += [
 			'mikrotik_head' => [
