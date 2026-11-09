@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-11-08 09:58-0500\n"
 "PO-Revision-Date: 2021-01-18 18:17+0000\n"
 "Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/mikrotik/pt_PT/>\n"
@@ -1121,6 +1121,22 @@ msgstr "Gráficos ignorados por regra ou não criados"
 #, fuzzy
 msgid "MikroTik Credentials"
 msgstr "Credenciais MikroTik"
+
+#: setup.php
+msgid "SSL"
+msgstr ""
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr ""
+
+#: setup.php
+msgid "No"
+msgstr ""
+
+#: setup.php
+msgid "Yes"
+msgstr ""
 
 #: setup.php
 #, fuzzy
