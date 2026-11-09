@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-11-08 09:58-0500\n"
 "PO-Revision-Date: 2026-05-09 07:18+0000\n"
 "Last-Translator: \"Coool (github.com/Coool)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://translate.cacti.net/projects/cacti/mikrotik/lv/>\n"
@@ -988,6 +988,22 @@ msgstr ""
 #: setup.php
 msgid "MikroTik Credentials"
 msgstr "MikroTik akreditācijas dati"
+
+#: setup.php
+msgid "SSL"
+msgstr ""
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr ""
+
+#: setup.php
+msgid "No"
+msgstr ""
+
+#: setup.php
+msgid "Yes"
+msgstr ""
 
 #: setup.php
 msgid "Read Only User"
