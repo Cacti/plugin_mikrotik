@@ -66,7 +66,6 @@ mikrotik_test_load_function('poller_graphs.php', 'add_summary_graphs');
 beforeEach(function () {
 	mikrotik_test_reset_db_mocks();
 
-	$GLOBALS['config']            = array('base_path' => '/opt/cacti');
 	$GLOBALS['__mt_debug']        = array();
 	$GLOBALS['__mt_automation']   = array();
 	$GLOBALS['__mt_tds_calls']    = array();
