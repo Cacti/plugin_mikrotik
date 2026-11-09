@@ -38,6 +38,9 @@ include('./include/global.php');
 include_once('./lib/poller.php');
 include_once('./lib/utility.php');
 include_once('./lib/data_query.php');
+// @codeCoverageIgnoreStart
+include_once('./lib/snmp.php');
+// @codeCoverageIgnoreEnd
 include_once('./lib/api_graph.php');
 include_once('./lib/api_tree.php');
 include_once('./lib/api_data_source.php');
