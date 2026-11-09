@@ -1159,17 +1159,20 @@ function mikrotik_graphs_url_by_template_hashs(?array $hashes, int $host_id = 0,
 }
 
 /**
- * Checks whether a MikroTik device's api-ssl port is reachable so the host
- * edit form can offer (or disable) the SSL option. A plain TCP connect is
- * enough to tell whether the api-ssl service is listening, and it avoids the
- * TLS handshake that would otherwise flood the Cacti log with warnings when
- * the service is not enabled on the device.
+ * Checks whether a MikroTik device's api-ssl service is usable so the host
+ * edit form can offer (or disable) the SSL option. A plain TCP connect is not
+ * enough: RouterOS may accept the TCP connection on port 8729 while the TLS
+ * handshake still fails (for example when api-ssl is misconfigured), which is
+ * exactly the case that floods the log. So this performs a real TLS handshake
+ * using the same self-signed-friendly context as the RouterOS client, and
+ * swallows any connect/handshake warnings with a scoped error handler so the
+ * probe itself never writes to the Cacti log.
  *
  * @param string $hostname The device hostname or IP address.
  * @param int    $port     The api-ssl TCP port (8729 by default).
  * @param float  $timeout  Connection timeout, in seconds.
  *
- * @return bool True when the port accepts a TCP connection.
+ * @return bool True when a TLS connection to the api-ssl port succeeds.
  */
 function mikrotik_ssl_port_available(string $hostname, int $port = 8729, float $timeout = 2.0): bool {
 	if (trim($hostname) === '') {
@@ -1177,10 +1180,25 @@ function mikrotik_ssl_port_available(string $hostname, int $port = 8729, float $
 	}
 
 	// @codeCoverageIgnoreStart
+	// A closed port or a failed TLS handshake raises warnings that Cacti's
+	// error handler logs even when prefixed with '@'. Swallow them for the
+	// duration of the probe so merely opening the edit page stays quiet.
+	set_error_handler(static function () { return true; });
+
+	$context = stream_context_create([
+		'ssl' => [
+			'verify_peer'       => false,
+			'verify_peer_name'  => false,
+			'allow_self_signed' => true,
+		],
+	]);
+
 	$errno  = 0;
 	$errstr = '';
 
-	$socket = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
+	$socket = @stream_socket_client('ssl://' . $hostname . ':' . $port, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $context);
+
+	restore_error_handler();
 
 	if ($socket === false) {
 		return false;

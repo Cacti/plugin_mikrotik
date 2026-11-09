@@ -106,9 +106,16 @@ class RouterosAPI {
 					],
 				]);
 
+				// A closed port or a failed TLS handshake raises warnings that
+				// Cacti's error handler logs even behind '@'. The caller already
+				// reports connection failures, so swallow the low-level noise.
+				set_error_handler(static function () { return true; });
 				$this->socket = @stream_socket_client($PROTOCOL . $ip . ':' . $this->port, $this->error_no, $this->error_str, $this->timeout, STREAM_CLIENT_CONNECT, $context);
+				restore_error_handler();
 			} else {
+				set_error_handler(static function () { return true; });
 				$this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
+				restore_error_handler();
 			}
 
 			if ($this->socket) {

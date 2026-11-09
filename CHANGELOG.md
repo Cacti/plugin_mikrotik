@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* issue: Detect SSL availability with a real TLS handshake instead of a plain TCP connect, so a device whose api-ssl port is open but whose TLS handshake fails is correctly treated as SSL-unavailable (the SSL dropdown is disabled), and suppress the low-level `stream_socket_client()`/`fsockopen()` connection warnings in the RouterOS client so a failed SSL handshake no longer floods the Cacti log from the device edit page or the poller
 * issue: Probe the MikroTik api-ssl port (8729) when editing a device and, when it is not reachable, disable the SSL dropdown (shown as "Not Available") while preserving the saved SSL preference, and skip the SSL connection test rather than falling back to plaintext, so the Cacti log is no longer flooded with `stream_socket_client()` TLS handshake warnings and a TLS-only password is never sent over port 8728
 * issue: Fix the MikroTik device credential save failing with a SQL syntax error (`ssl`, `user` and `password` are reserved words) so the SSL selection and credentials persist again; bump the schema version to 3.3 so installations that recorded the broken 3.2 migration retry and add the missing `ssl` column
 * issue: Obfuscate the MikroTik device password field: render it as a single masked input that is no longer pre-populated with the stored value, keep the stored password when the field is submitted blank, and update it only when a new value is entered
