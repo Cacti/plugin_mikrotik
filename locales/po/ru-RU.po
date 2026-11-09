@@ -1029,6 +1029,18 @@ msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api
 msgstr ""
 
 #: setup.php
+msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
+msgstr ""
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr ""
+
+#: setup.php
+msgid "Not Available"
+msgstr ""
+
+#: setup.php
 msgid "No"
 msgstr ""
 
@@ -1049,9 +1061,8 @@ msgid "Password"
 msgstr "Пароль"
 
 #: setup.php
-#, fuzzy
-msgid "Provide the read only username password for this MikroTik."
-msgstr "Введите для MikroTik единственный пароль для чтения."
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr ""
 
 #: setup.php
 msgid "Connection Result"
@@ -1065,6 +1076,10 @@ msgstr "Хорошо, если Cacti может подключиться к Mikr
 #: setup.php
 msgid "Connection Failed"
 msgstr "Ошибка подключения"
+
+#, fuzzy
+#~ msgid "Provide the read only username password for this MikroTik."
+#~ msgstr "Введите для MikroTik единственный пароль для чтения."
 
 #, fuzzy
 #~ msgid "MikroTik Auto Discovery Frequency"
