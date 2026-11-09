@@ -166,6 +166,12 @@ $unmeasured_allowlist = [
 	// time, not exercisable in the isolated unit process, and asserted
 	// end-to-end by the lifecycle/wiring tests.
 	'includes/database.php',
+	// The poller is a CLI entry point with top-level argument handling,
+	// Cacti bootstrap, and process exits; it cannot be loaded in the isolated
+	// unit process. Pure collector behavior is exercised through
+	// mikrotik_test_load_function(), though eval prevents Clover from mapping
+	// those executed lines back to this source file.
+	'poller_mikrotik.php',
 	// Web UI entry points (chdir + include auth.php, top-level execution); not
 	// loadable in the isolated unit process. Their pure helpers are covered via
 	// mikrotik_test_load_function(); their render output is asserted by the UI.
