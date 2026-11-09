@@ -32,6 +32,28 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_splitBaseIndex');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_parse_ttl');
 mikrotik_test_load_function('poller_mikrotik.php', 'uptimeToSeconds');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
+mikrotik_test_load_function('poller_mikrotik.php', 'collectHostIndexedOid');
+
+if (!defined('SNMP_WEBUI')) {
+	define('SNMP_WEBUI', 1);
+}
+
+if (!function_exists('cacti_snmp_walk')) {
+	function cacti_snmp_walk(...$args) {
+		return $GLOBALS['__mikrotik_snmp_walks'][$args[2]] ?? [];
+	}
+}
+
+if (!function_exists('debug')) {
+	function debug($message) {
+	}
+}
+
+if (!function_exists('db_qstr')) {
+	function db_qstr($value) {
+		return "'" . addslashes((string) $value) . "'";
+	}
+}
 
 describe('mikrotik_dateParse()', function () {
 	it('normalizes a parseable RouterOS clock value', function () {
@@ -114,5 +136,73 @@ describe('mikrotik_api_apply_ssl()', function () {
 
 		expect($api->ssl)->toBeFalse();
 		expect($api->port)->toBe(8728);
+	});
+});
+
+describe('collectHostIndexedOid()', function () {
+	beforeEach(function () {
+		$GLOBALS['__test_db_calls'] = [];
+		$GLOBALS['__mikrotik_snmp_walks'] = [];
+	});
+
+	it('keeps the previous rows visible when a required walk is empty', function () {
+		$GLOBALS['__mikrotik_snmp_walks'] = [
+			'.1.3.6.1.4.1.14988.1.1.2.2.1.2' => [],
+			'.1.3.6.1.4.1.14988.1.1.2.2.1.3' => [
+				['oid' => '.1.3.6.1.4.1.14988.1.1.2.2.1.3.7', 'value' => 'some-flow'],
+			],
+		];
+
+		$host = [
+			'id' => 8, 'description' => 'router', 'hostname' => '192.0.2.1',
+			'snmp_community' => 'public', 'snmp_version' => 2, 'snmp_username' => '',
+			'snmp_password' => '', 'snmp_auth_protocol' => '', 'snmp_priv_passphrase' => '',
+			'snmp_priv_protocol' => '', 'snmp_context' => '', 'snmp_port' => 161,
+			'snmp_timeout' => 500, 'max_oids' => 10, 'snmp_engine_id' => '',
+		];
+
+		collectHostIndexedOid(
+			$host,
+			[
+				'name' => '.1.3.6.1.4.1.14988.1.1.2.2.1.2',
+				'flow' => '.1.3.6.1.4.1.14988.1.1.2.2.1.3',
+			],
+			'plugin_mikrotik_trees',
+			'trees',
+			true
+		);
+
+		expect($GLOBALS['__test_db_calls'])->toBeEmpty();
+	});
+
+	it('marks prior rows absent only after required walks succeed', function () {
+		$GLOBALS['__mikrotik_snmp_walks'] = [
+			'.1.3.6.1.4.1.14988.1.1.2.2.1.2' => [
+				['oid' => '.1.3.6.1.4.1.14988.1.1.2.2.1.2.7', 'value' => 'queue-a'],
+			],
+			'.1.3.6.1.4.1.14988.1.1.2.2.1.3' => [],
+		];
+
+		$host = [
+			'id' => 8, 'description' => 'router', 'hostname' => '192.0.2.1',
+			'snmp_community' => 'public', 'snmp_version' => 2, 'snmp_username' => '',
+			'snmp_password' => '', 'snmp_auth_protocol' => '', 'snmp_priv_passphrase' => '',
+			'snmp_priv_protocol' => '', 'snmp_context' => '', 'snmp_port' => 161,
+			'snmp_timeout' => 500, 'max_oids' => 10, 'snmp_engine_id' => '',
+		];
+
+		collectHostIndexedOid(
+			$host,
+			[
+				'name' => '.1.3.6.1.4.1.14988.1.1.2.2.1.2',
+				'flow' => '.1.3.6.1.4.1.14988.1.1.2.2.1.3',
+			],
+			'plugin_mikrotik_trees',
+			'trees',
+			true
+		);
+
+		expect($GLOBALS['__test_db_calls'])->not->toBeEmpty();
+		expect($GLOBALS['__test_db_calls'][0]['sql'])->toContain('SET present=0');
 	});
 });
