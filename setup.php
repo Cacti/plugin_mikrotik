@@ -1241,11 +1241,13 @@ function mikrotik_host_top(): void {
 				]
 			];
 		} else {
+			$stored_ssl = (isset($is_tik['ssl']) ? $is_tik['ssl'] : '');
+
 			$mikrotik_ssl_field = [
 				'method'        => 'custom',
 				'friendly_name' => __('SSL', 'mikrotik'),
-				'description'   => __('The MikroTik API SSL service (api-ssl, port 8729) is not reachable on this device, so SSL is disabled. Enable the api-ssl service under IP > Services on the device to use SSL.', 'mikrotik'),
-				'value'         => "<select class='ui-state-default ui-corner-all' disabled='disabled'><option value=''>" . __esc('Not Available', 'mikrotik') . "</option></select><input type='hidden' name='mikrotik_ssl' value=''>"
+				'description'   => __('The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL.', 'mikrotik'),
+				'value'         => "<select class='ui-state-default ui-corner-all' disabled='disabled'><option value=''>" . __esc('Not Available', 'mikrotik') . "</option></select><input type='hidden' name='mikrotik_ssl' value='" . html_escape($stored_ssl) . "'>"
 			];
 		}
 
@@ -1273,35 +1275,51 @@ function mikrotik_host_top(): void {
 		];
 
 		if ($is_tik['user'] != '') {
-			include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
+			$ssl_configured = (isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
 
-			$api = new RouterosAPI();
-
-			$api->debug = false;
-
-			$api->ssl  = ($ssl_available && isset($is_tik['ssl']) && $is_tik['ssl'] == 'on');
-			$api->port = $api->ssl ? 8729 : 8728;
-
-			if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
-				$api->disconnect();
-
+			if ($ssl_configured && !$ssl_available) {
+				// SSL is the configured transport but its port is unreachable.
+				// Do not fall back to plaintext: that would send the stored
+				// credentials over port 8728 in the clear. Skip the test instead.
 				$fields_host_edit += [
 					'mikrotik_result' => [
 						'method'        => 'other',
 						'friendly_name' => __('Connection Result', 'mikrotik'),
 						'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
-						'value'         => 'Connected Successfully'
+						'value'         => __('SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested.', 'mikrotik')
 					]
 				];
 			} else {
-				$fields_host_edit += [
-					'mikrotik_result' => [
-						'method'        => 'other',
-						'friendly_name' => __('Connection Result', 'mikrotik'),
-						'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
-						'value'         => __('Connection Failed', 'mikrotik')
-					]
-				];
+				include_once('./plugins/mikrotik/RouterOS/routeros_api.class.php');
+
+				$api = new RouterosAPI();
+
+				$api->debug = false;
+
+				$api->ssl  = $ssl_configured;
+				$api->port = $api->ssl ? 8729 : 8728;
+
+				if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
+					$api->disconnect();
+
+					$fields_host_edit += [
+						'mikrotik_result' => [
+							'method'        => 'other',
+							'friendly_name' => __('Connection Result', 'mikrotik'),
+							'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
+							'value'         => 'Connected Successfully'
+						]
+					];
+				} else {
+					$fields_host_edit += [
+						'mikrotik_result' => [
+							'method'        => 'other',
+							'friendly_name' => __('Connection Result', 'mikrotik'),
+							'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
+							'value'         => __('Connection Failed', 'mikrotik')
+						]
+					];
+				}
 			}
 		}
 		// @codeCoverageIgnoreEnd
