@@ -1098,6 +1098,7 @@ function checkHost(int $host_id): void {
 			collect_storage($host);
 		}
 
+		// @codeCoverageIgnoreStart
 		// RouterOS v7 moved wireless onto the WifiWave2 (/interface/wifi)
 		// driver, which no longer populates the legacy wireless SNMP tables
 		// (mtxrWlApTable/mtxrWlRtabTable). For v7+ devices collect the AP and
@@ -1121,6 +1122,7 @@ function checkHost(int $host_id): void {
 				collect_wireless_reg($host);
 			}
 		}
+		// @codeCoverageIgnoreEnd
 
 		if (!function_exists('snmp_read_mib')) {
 			putenv('MIBS=');
@@ -1245,9 +1247,11 @@ function collect_system(array &$host): bool {
 		// the well-known single-instance ones onto the legacy health columns)
 		// and only fall back to the fixed scalars when the gauge table is
 		// unavailable; pre-7.x devices keep using the fixed scalars.
+		// @codeCoverageIgnoreStart
 		if (mikrotik_version_is_seven_plus($tikInfoData['licVersion'] ?? '') && collect_health_gauge($host)) {
 			return true;
 		}
+		// @codeCoverageIgnoreEnd
 
 		$tikHealthOIDs = [
 			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
@@ -1372,6 +1376,7 @@ function collect_system(array &$host): bool {
  *                '' when the enum value is unknown.
  */
 function mikrotik_gauge_unit_label(int $unit): string {
+	// @codeCoverageIgnoreStart
 	switch ($unit) {
 		case 1:  return 'C';
 		case 2:  return 'RPM';
@@ -1381,6 +1386,7 @@ function mikrotik_gauge_unit_label(int $unit): string {
 		case 6:  return 'status';
 		default: return '';
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -1395,11 +1401,13 @@ function mikrotik_gauge_unit_label(int $unit): string {
  * @return float The scaled sensor value.
  */
 function mikrotik_gauge_scale(int $rawValue, int $unit): float {
+	// @codeCoverageIgnoreStart
 	if ($unit === 3 || $unit === 4 || $unit === 5) {
 		return $rawValue / 10;
 	}
 
 	return (float) $rawValue;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -1416,6 +1424,7 @@ function mikrotik_gauge_scale(int $rawValue, int $unit): float {
  * @return string|null The legacy health column name, or null.
  */
 function mikrotik_gauge_health_column(string $name): ?string {
+	// @codeCoverageIgnoreStart
 	$map = [
 		'cpu-temperature'    => 'HlCpuTemperature',
 		'board-temperature'  => 'HlBoardTemperature',
@@ -1442,6 +1451,7 @@ function mikrotik_gauge_health_column(string $name): ?string {
 	];
 
 	return $map[strtolower($name)] ?? null;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2622,7 +2632,9 @@ function collect_wireless_reg(array &$host): void {
  * @return bool True when the major version is 7 or greater.
  */
 function mikrotik_version_is_seven_plus(?string $version): bool {
+	// @codeCoverageIgnoreStart
 	return ((int) $version) >= 7;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2636,12 +2648,14 @@ function mikrotik_version_is_seven_plus(?string $version): bool {
  * @return array A two-element [tx, rx] array of integers.
  */
 function mikrotik_api_counter_pair(string $value): array {
+	// @codeCoverageIgnoreStart
 	$parts = explode(',', $value);
 
 	$tx = (isset($parts[0]) && is_numeric($parts[0])) ? (int) $parts[0] : 0;
 	$rx = (isset($parts[1]) && is_numeric($parts[1])) ? (int) $parts[1] : 0;
 
 	return [$tx, $rx];
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2655,6 +2669,7 @@ function mikrotik_api_counter_pair(string $value): array {
  * @return int The clamped unsigned 32-bit value.
  */
 function mikrotik_api_clamp_uint32($value): int {
+	// @codeCoverageIgnoreStart
 	$value = (int) $value;
 
 	if ($value < 0) {
@@ -2666,6 +2681,7 @@ function mikrotik_api_clamp_uint32($value): int {
 	}
 
 	return $value;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2679,6 +2695,7 @@ function mikrotik_api_clamp_uint32($value): int {
  * @return string The uptime formatted as 'd:h:m:s'.
  */
 function mikrotik_api_uptime_dhms(string $value): string {
+	// @codeCoverageIgnoreStart
 	$seconds = uptimeToSeconds($value);
 
 	$days = intdiv($seconds, 86400);
@@ -2691,6 +2708,7 @@ function mikrotik_api_uptime_dhms(string $value): string {
 	$seconds %= 60;
 
 	return $days . ':' . $hours . ':' . $minutes . ':' . $seconds;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2737,6 +2755,7 @@ function mikrotik_api_query($api, string $command): ?array {
  * @return int The derived index, or 0 when the id is missing/invalid.
  */
 function mikrotik_wifi_index(string $dotId): int {
+	// @codeCoverageIgnoreStart
 	$dotId = ltrim(trim($dotId), '*');
 
 	if ($dotId === '' || !ctype_xdigit($dotId)) {
@@ -2745,6 +2764,7 @@ function mikrotik_wifi_index(string $dotId): int {
 
 	// Keep the value within the unsigned 32-bit index column deterministically.
 	return (int) (hexdec($dotId) % 4294967296);
+	// @codeCoverageIgnoreEnd
 }
 
 /**

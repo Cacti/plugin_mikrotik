@@ -181,6 +181,28 @@ $unmeasured_allowlist = [
 	// socket/SSL transport whose connect()/read()/write() only exercise live
 	// TCP/TLS to a device and cannot run in the isolated unit process.
 	'RouterOS/routeros_api.class.php',
+	// Script-server data backends for the graph data sources: each is a
+	// script-server/CLI entry point (includes cli_check.php and dispatches on
+	// $_SERVER['argv'] when not called by the script server) that only reads
+	// the plugin_mikrotik_* tables inside a live Cacti, so it cannot run in the
+	// isolated unit process.
+	'scripts/ss_mikrotik_cpu.php',
+	'scripts/ss_mikrotik_disk.php',
+	'scripts/ss_mikrotik_health.php',
+	'scripts/ss_mikrotik_interfaces.php',
+	'scripts/ss_mikrotik_mem.php',
+	'scripts/ss_mikrotik_procs.php',
+	'scripts/ss_mikrotik_qcount.php',
+	'scripts/ss_mikrotik_qtrees.php',
+	'scripts/ss_mikrotik_queues.php',
+	'scripts/ss_mikrotik_qusers.php',
+	'scripts/ss_mikrotik_snmpget.php',
+	'scripts/ss_mikrotik_trees.php',
+	'scripts/ss_mikrotik_uptime.php',
+	'scripts/ss_mikrotik_users.php',
+	'scripts/ss_mikrotik_wapcount.php',
+	'scripts/ss_mikrotik_wireless_reg.php',
+	'scripts/ss_mikrotik_wrcount.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

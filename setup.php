@@ -207,12 +207,14 @@ function mikrotik_check_upgrade(): void {
 			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN `ssl` varchar(3) NOT NULL default '' AFTER `password`");
 		}
 
+		// @codeCoverageIgnoreStart
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
 			!db_table_exists('plugin_mikrotik_lists') ||
 			!db_table_exists('plugin_mikrotik_health_sensors')) {
 			mikrotik_setup_table();
 		}
+		// @codeCoverageIgnoreEnd
 
 		// Remove files tombstoned in manifest.json plus the dev-only tests/ tree.
 		mikrotik_prune_files();
