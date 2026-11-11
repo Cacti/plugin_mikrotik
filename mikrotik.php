@@ -91,6 +91,10 @@ switch(get_request_var('action')) {
 		mikrotik_wireless_regs();
 
 		break;
+	case 'health':
+		mikrotik_health();
+
+		break;
 	case 'users':
 		mikrotik_users();
 
@@ -230,6 +234,17 @@ function mikrotik_wregs_exist(): int {
 }
 
 /**
+ * Reports whether any MikroTik RouterOS 7 health sensors (mtxrGaugeTable)
+ * have been collected. Called from mikrotik_tabs() to decide whether to
+ * show the Health tab.
+ *
+ * @return int The number of rows in plugin_mikrotik_health_sensors.
+ */
+function mikrotik_health_exist(): int {
+	return db_fetch_cell('SELECT COUNT(*) FROM plugin_mikrotik_health_sensors');
+}
+
+/**
  * Renders the top tabbed navigation bar for this page's views,
  * conditionally showing tabs only for data types that have actually
  * been collected (users/queues/trees/interfaces/dhcp/dns/lists/
@@ -282,6 +297,10 @@ function mikrotik_tabs(): void {
 
 	if (mikrotik_wregs_exist()) {
 		$tabs['wireless_regs'] = __('Wireless Registrations', 'mikrotik');
+	}
+
+	if (mikrotik_health_exist()) {
+		$tabs['health'] = __('Health', 'mikrotik');
 	}
 
 	$tabs['graphs'] = __('Graphs', 'mikrotik');
@@ -2687,6 +2706,247 @@ function mikrotik_view_graphs(): void {
 	}
 
 	bottom_footer();
+}
+
+/**
+ * Renders the Health view: validates/stores this view's filter request
+ * variables, renders the filter box, then queries and displays a
+ * sortable/paginated table of the RouterOS 7 health sensors collected
+ * from mtxrGaugeTable into plugin_mikrotik_health_sensors. Called from
+ * this script's main request-dispatch switch when action=health.
+ *
+ * @return void
+ *
+ * @global array $config    Cacti global configuration array; used to
+ *                          build device edit links.
+ * @global array $item_rows Cacti's standard row-count option list, used
+ *                          to populate the rows dropdown.
+ */
+function mikrotik_health(): void {
+	global $config, $item_rows;
+
+	// ================= input validation and session storage =================
+	$filters = [
+		'rows' => [
+			'filter'  => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => read_config_option('num_rows_table')
+			],
+		'page' => [
+			'filter'  => FILTER_VALIDATE_INT,
+			'default' => '1'
+			],
+		'device' => [
+			'filter'  => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1',
+			],
+		'filter' => [
+			'filter'  => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => ['options' => 'sanitize_search_string']
+			],
+		'sort_column' => [
+			'filter'  => FILTER_CALLBACK,
+			'default' => 'name',
+			'options' => ['options' => 'sanitize_search_string']
+			],
+		'sort_direction' => [
+			'filter'  => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => ['options' => 'sanitize_search_string']
+			]
+	];
+
+	validate_store_request_vars($filters, 'sess_mths');
+	// ================= input validation =================
+
+	?>
+	<script type='text/javascript' <?php print plugin_mikrotik_csp_nonce(); ?>>
+	function applyFilter() {
+		strURL  = '?action=health';
+		strURL += '&filter=' + $('#filter').val();
+		strURL += '&rows='   + $('#rows').val();
+		strURL += '&device=' + $('#device').val();
+		strURL += '&header=false';
+		loadPageNoHeader(strURL);
+	}
+
+	function clearFilter() {
+		strURL  = '?action=health&clear=&header=false';
+		loadPageNoHeader(strURL);
+	}
+
+	$(function() {
+		$('#device, #rows').off('change').on('change', function() {
+			applyFilter();
+		});
+
+		$('#refresh').off('click').on('click', function() {
+			applyFilter();
+		});
+
+		$('#clear').off('click').on('click', function() {
+			clearFilter();
+		});
+
+		$('#form_health').submit(function(event) {
+			event.preventDefault();
+			applyFilter();
+		});
+	});
+	</script>
+	<?php
+
+	html_start_box(__('Health Sensors', 'mikrotik'), '100%', false, 3, 'center', '');
+
+	?>
+	<tr class='even noprint'>
+		<td>
+		<form id='form_health' action='mikrotik.php?action=health'>
+			<table class='filterTable'>
+				<tr>
+					<td>
+						<?php print __('Search', 'mikrotik'); ?>
+					</td>
+					<td>
+						<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
+					</td>
+					<td>
+						<?php print __('Device', 'mikrotik'); ?>
+					</td>
+					<td>
+						<select id='device'>
+							<option value='-1'<?php if (get_request_var('device') == '-1') {?> selected<?php }?>><?php print __('All', 'mikrotik'); ?></option>
+							<?php
+							$hosts = db_fetch_assoc('SELECT DISTINCT h.id, h.description
+								FROM plugin_mikrotik_system AS hrs
+								INNER JOIN host AS h
+								ON hrs.host_id=h.id
+								ORDER BY description');
+
+	if (cacti_sizeof($hosts)) {
+		foreach ($hosts as $h) {
+			print "<option value='" . $h['id'] . "' " . (get_request_var('device') == $h['id'] ? 'selected' : '') . '>' . html_escape($h['description']) . '</option>';
+		}
+	}
+	?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Sensors', 'mikrotik'); ?>
+					</td>
+					<td>
+						<select id='rows'>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'mikrotik'); ?></option>
+							<?php
+	if (cacti_sizeof($item_rows)) {
+		foreach ($item_rows as $key => $name) {
+			print "<option value='" . $key . "' " . (get_request_var('rows') == $key ? 'selected' : '') . '>' . $name . '</option>';
+		}
+	}
+	?>
+						</select>
+					</td>
+					<td>
+						<span>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'mikrotik'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'mikrotik'); ?>'>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</form>
+		</td>
+	</tr>
+	<?php
+
+	html_end_box();
+
+	if (get_request_var('rows') == '-1') {
+		$rows = read_config_option('num_rows_table');
+	} else {
+		$rows = get_request_var('rows');
+	}
+
+	$sql_where = '';
+
+	if (get_request_var('device') != '-1') {
+		$sql_where .= (strlen($sql_where) ? ' AND' : 'WHERE') . ' h.id=' . get_request_var('device');
+	}
+
+	if (get_request_var('filter') != '') {
+		$sql_where .= (strlen($sql_where) ? ' AND' : 'WHERE') . ' (h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			hs.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR
+			h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+	}
+
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ', ' . $rows;
+
+	$sql = "SELECT hs.*, h.hostname, h.description
+		FROM plugin_mikrotik_health_sensors AS hs
+		INNER JOIN host AS h
+		ON h.id=hs.host_id
+		INNER JOIN plugin_mikrotik_system AS hrs
+		ON hrs.host_id=h.id
+		$sql_where
+		$sql_order
+		$sql_limit";
+
+	$data_rows  = db_fetch_assoc($sql);
+	$total_rows = db_fetch_cell("SELECT COUNT(*)
+		FROM plugin_mikrotik_health_sensors AS hs
+		INNER JOIN host AS h
+		ON h.id=hs.host_id
+		INNER JOIN plugin_mikrotik_system AS hrs
+		ON hrs.host_id=h.id
+		$sql_where");
+
+	$display_text = [
+		'description' => ['display' => __('Device', 'mikrotik'),    'sort' => 'ASC',  'align' => 'left'],
+		'name'        => ['display' => __('Sensor', 'mikrotik'),    'sort' => 'ASC',  'align' => 'left'],
+		'value'       => ['display' => __('Value', 'mikrotik'),     'sort' => 'DESC', 'align' => 'right'],
+		'unit'        => ['display' => __('Unit', 'mikrotik'),      'sort' => 'ASC',  'align' => 'left'],
+		'last_seen'   => ['display' => __('Last Seen', 'mikrotik'), 'sort' => 'ASC',  'align' => 'right']
+	];
+
+	$nav = html_nav_bar('mikrotik.php?action=health', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($display_text), __('Health Sensors', 'mikrotik'), 'page', 'main');
+
+	print $nav;
+
+	html_start_box('', '100%', false, 3, 'center', '');
+
+	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), 1, 'mikrotik.php?action=health');
+
+	if (cacti_sizeof($data_rows)) {
+		foreach ($data_rows as $row) {
+			form_alternate_row();
+
+			if (api_plugin_user_realm_auth('host.php')) {
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
+			} else {
+				$host_url = $row['description'];
+			}
+
+			print "<td class='left nowrap'>" . $host_url . '</td>';
+			print "<td class='left'>" . filter_value($row['name'], get_request_var('filter')) . '</td>';
+			print "<td class='right'>" . html_escape($row['value']) . '</td>';
+			print "<td class='left'>" . html_escape($row['unit']) . '</td>';
+			print "<td class='right'>" . html_escape($row['last_seen']) . '</td>';
+
+			form_end_row();
+		}
+	} else {
+		print '<tr><td colspan="5"><em>' . __('No Health Sensors Found', 'mikrotik') . '</em></td></tr>';
+	}
+
+	html_end_box();
+
+	if (cacti_sizeof($data_rows)) {
+		print $nav;
+	}
 }
 
 /**

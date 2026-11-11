@@ -19,6 +19,7 @@
         "mikrotik_users.php",
         "poller_graphs.php",
         "poller_mikrotik.php",
+        "scripts/",
         "setup.php",
         "templates/"
     ],

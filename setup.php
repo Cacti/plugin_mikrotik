@@ -1051,6 +1051,7 @@ function mikrotik_draw_navigation_text($nav): array {
 	$nav['mikrotik.php:storage']       = ['title' => __('Storage', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik.php:graphs']        = ['title' => __('Graphs', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik.php:wireless_aps']  = ['title' => __('Wireless Aps', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
+	$nav['mikrotik.php:health']        = ['title' => __('Health', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik_users.php:']        = ['title' => __('MikroTik Users', 'mikrotik'), 'mapping' => 'index.php:', 'url' => 'mikrotik_users.php', 'level' => '1'];
 	$nav['mikrotik_users.php:edit']    = ['title' => __('(edit)', 'mikrotik'), 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2'];
 	$nav['mikrotik_users.php:actions'] = ['title' => __('Actions', 'mikrotik'), 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2'];
