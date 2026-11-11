@@ -32,6 +32,10 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_splitBaseIndex');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_parse_ttl');
 mikrotik_test_load_function('poller_mikrotik.php', 'uptimeToSeconds');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_version_is_seven_plus');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_counter_pair');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_clamp_uint32');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_uptime_dhms');
 mikrotik_test_load_function('poller_mikrotik.php', 'collectHostIndexedOid');
 
 if (!defined('SNMP_WEBUI')) {
@@ -204,5 +208,67 @@ describe('collectHostIndexedOid()', function () {
 
 		expect($GLOBALS['__test_db_calls'])->not->toBeEmpty();
 		expect($GLOBALS['__test_db_calls'][0]['sql'])->toContain('SET present=0');
+	});
+});
+
+describe('mikrotik_version_is_seven_plus()', function () {
+	it('returns true for a v7 version string', function () {
+		expect(mikrotik_version_is_seven_plus('7.25.1'))->toBeTrue();
+	});
+
+	it('returns true for a major version above 7', function () {
+		expect(mikrotik_version_is_seven_plus('8.0.0'))->toBeTrue();
+	});
+
+	it('returns false for a pre-v7 version string', function () {
+		expect(mikrotik_version_is_seven_plus('6.49.7'))->toBeFalse();
+	});
+
+	it('returns false for an empty or null version', function () {
+		expect(mikrotik_version_is_seven_plus(''))->toBeFalse();
+		expect(mikrotik_version_is_seven_plus(null))->toBeFalse();
+	});
+});
+
+describe('mikrotik_api_counter_pair()', function () {
+	it('splits a tx,rx counter pair into integers', function () {
+		expect(mikrotik_api_counter_pair('8058206,30403984'))->toBe([8058206, 30403984]);
+	});
+
+	it('defaults a missing rx component to zero', function () {
+		expect(mikrotik_api_counter_pair('123'))->toBe([123, 0]);
+	});
+
+	it('defaults non-numeric or empty components to zero', function () {
+		expect(mikrotik_api_counter_pair(''))->toBe([0, 0]);
+		expect(mikrotik_api_counter_pair('abc,def'))->toBe([0, 0]);
+	});
+});
+
+describe('mikrotik_api_clamp_uint32()', function () {
+	it('passes through an in-range value', function () {
+		expect(mikrotik_api_clamp_uint32(1201000000))->toBe(1201000000);
+	});
+
+	it('clamps a value above the unsigned 32-bit maximum', function () {
+		expect(mikrotik_api_clamp_uint32('6000000000'))->toBe(4294967295);
+	});
+
+	it('clamps a negative value to zero', function () {
+		expect(mikrotik_api_clamp_uint32(-5))->toBe(0);
+	});
+});
+
+describe('mikrotik_api_uptime_dhms()', function () {
+	it('formats a RouterOS uptime string as d:h:m:s', function () {
+		expect(mikrotik_api_uptime_dhms('4d16h56m23s'))->toBe('4:16:56:23');
+	});
+
+	it('handles a sub-day uptime', function () {
+		expect(mikrotik_api_uptime_dhms('13h52m56s'))->toBe('0:13:52:56');
+	});
+
+	it('returns zeroes for "never"', function () {
+		expect(mikrotik_api_uptime_dhms('never'))->toBe('0:0:0:0');
 	});
 });

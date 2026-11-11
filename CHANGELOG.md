@@ -1,6 +1,7 @@
 
 --- develop ---
 
+* issue: Restore the Wireless Aps and Wireless Registrations views for RouterOS 7+ devices: the legacy wireless SNMP tables (mtxrWlApTable/mtxrWlRtabTable) are no longer populated by the v7 WifiWave2 (`/interface/wifi`) driver, so the poller now checks each device's RouterOS version and collects wireless AP and client registration data through the RouterOS API (`/interface/wifi/print` and `/interface/wifi/registration-table/print`) on 7.x, falling back to SNMP collection when the API is unavailable; pre-7.x devices continue to use SNMP
 * issue: Probe the MikroTik api-ssl port (8729) when editing a device and, when it is not reachable, disable the SSL dropdown (shown as "Not Available") while preserving the saved SSL preference, and skip the SSL connection test rather than falling back to plaintext, so the Cacti log is no longer flooded with `stream_socket_client()` TLS handshake warnings and a TLS-only password is never sent over port 8728
 * issue: Fix the MikroTik device credential save failing with a SQL syntax error (`ssl`, `user` and `password` are reserved words) so the SSL selection and credentials persist again; bump the schema version to 3.3 so installations that recorded the broken 3.2 migration retry and add the missing `ssl` column
 * issue: Obfuscate the MikroTik device password field: render it as a single masked input that is no longer pre-populated with the stored value, keep the stored password when the field is submitted blank, and update it only when a new value is entered

@@ -1098,12 +1098,28 @@ function checkHost(int $host_id): void {
 			collect_storage($host);
 		}
 
+		// RouterOS v7 moved wireless onto the WifiWave2 (/interface/wifi)
+		// driver, which no longer populates the legacy wireless SNMP tables
+		// (mtxrWlApTable/mtxrWlRtabTable). For v7+ devices collect the AP and
+		// registration data through the RouterOS API instead, falling back to
+		// SNMP when the API is unavailable; pre-v7 devices keep using SNMP.
+		$routeros_version = db_fetch_cell_prepared('SELECT licVersion
+			FROM plugin_mikrotik_system
+			WHERE host_id = ?',
+			[$host['id']]);
+
+		$use_wireless_api = mikrotik_version_is_seven_plus($routeros_version);
+
 		if (runCollector($start, $wireless_aps_lastrun, $wireless_aps_freq)) {
-			collect_wireless_aps($host);
+			if (!$use_wireless_api || !collect_wireless_aps_api($host)) {
+				collect_wireless_aps($host);
+			}
 		}
 
 		if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
-			collect_wireless_reg($host);
+			if (!$use_wireless_api || !collect_wireless_reg_api($host)) {
+				collect_wireless_reg($host);
+			}
 		}
 
 		if (!function_exists('snmp_read_mib')) {
@@ -2377,6 +2393,287 @@ function collect_wireless_aps(array &$host): void {
 function collect_wireless_reg(array &$host): void {
 	global $mikrotikWirelessRegistrations;
 	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
+}
+
+/**
+ * Determines whether a RouterOS version string represents a major
+ * version of 7 or newer. Used to decide whether wireless AP and
+ * registration data should be collected through the RouterOS API
+ * (WifiWave2 '/interface/wifi' driver) rather than the legacy wireless
+ * SNMP tables, which v7 no longer populates.
+ *
+ * @param string|null $version The RouterOS version string (e.g. '7.25.1').
+ *
+ * @return bool True when the major version is 7 or greater.
+ */
+function mikrotik_version_is_seven_plus(?string $version): bool {
+	return ((int) $version) >= 7;
+}
+
+/**
+ * Splits a RouterOS 'tx,rx' counter pair (as returned for the wifi
+ * registration-table 'bytes' and 'packets' properties) into two
+ * integers, defaulting either component to 0 when missing or
+ * non-numeric. Called from collect_wireless_reg_api().
+ *
+ * @param string $value The comma-separated counter pair (e.g. '123,456').
+ *
+ * @return array A two-element [tx, rx] array of integers.
+ */
+function mikrotik_api_counter_pair(string $value): array {
+	$parts = explode(',', $value);
+
+	$tx = (isset($parts[0]) && is_numeric($parts[0])) ? (int) $parts[0] : 0;
+	$rx = (isset($parts[1]) && is_numeric($parts[1])) ? (int) $parts[1] : 0;
+
+	return [$tx, $rx];
+}
+
+/**
+ * Clamps a value into the range storable by an unsigned 32-bit integer
+ * column (0..4294967295). Called from collect_wireless_reg_api() to keep
+ * RouterOS bit-rate values within the wireless registration table's
+ * TxRate/RxRate column bounds.
+ *
+ * @param int|string $value The raw value to clamp.
+ *
+ * @return int The clamped unsigned 32-bit value.
+ */
+function mikrotik_api_clamp_uint32($value): int {
+	$value = (int) $value;
+
+	if ($value < 0) {
+		return 0;
+	}
+
+	if ($value > 4294967295) {
+		return 4294967295;
+	}
+
+	return $value;
+}
+
+/**
+ * Converts a RouterOS uptime string (e.g. '4d16h56m23s') into a
+ * colon-delimited 'days:hours:minutes:seconds' string, which is the
+ * format the wireless registration view parses for display. Called from
+ * collect_wireless_reg_api().
+ *
+ * @param string $value The RouterOS uptime string.
+ *
+ * @return string The uptime formatted as 'd:h:m:s'.
+ */
+function mikrotik_api_uptime_dhms(string $value): string {
+	$seconds = uptimeToSeconds($value);
+
+	$days = intdiv($seconds, 86400);
+	$seconds %= 86400;
+
+	$hours = intdiv($seconds, 3600);
+	$seconds %= 3600;
+
+	$minutes = intdiv($seconds, 60);
+	$seconds %= 60;
+
+	return $days . ':' . $hours . ':' . $minutes . ':' . $seconds;
+}
+
+/**
+ * Collects a device's wireless access-point table through the RouterOS
+ * API ('/interface/wifi/print'), deriving per-AP client counts from the
+ * registration table. Used for RouterOS v7+ (WifiWave2) devices in place
+ * of the legacy wireless SNMP tables. Mirrors the non-preserve semantics
+ * of collect_wireless_aps(): absent APs are removed after collection.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return bool True when the API collection ran, false when the API was
+ *              unavailable (so the caller can fall back to SNMP).
+ */
+function collect_wireless_aps_api(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
+	$start = microtime(true);
+
+	$api = mikrotik_api_open($host);
+
+	if ($api === false) {
+		return false;
+	}
+
+	// Per-interface client counts are derived from the registration table.
+	$api->write('/interface/wifi/registration-table/print');
+	$regs = $api->parseResponse($api->read(false));
+
+	$clients     = [];
+	$authClients = [];
+
+	if (cacti_sizeof($regs)) {
+		foreach ($regs as $reg) {
+			$iface = $reg['interface'] ?? '';
+
+			if ($iface == '') {
+				continue;
+			}
+
+			$clients[$iface] = ($clients[$iface] ?? 0) + 1;
+
+			if (isset($reg['authorized']) && $reg['authorized'] == 'true') {
+				$authClients[$iface] = ($authClients[$iface] ?? 0) + 1;
+			}
+		}
+	}
+
+	$api->write('/interface/wifi/print');
+	$array = $api->parseResponse($api->read(false));
+
+	$end = microtime(true);
+
+	cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Wireless Access Points in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+
+	db_execute_prepared('UPDATE plugin_mikrotik_wireless_aps
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$sql     = [];
+	$ordinal = 0;
+
+	if (cacti_sizeof($array)) {
+		foreach ($array as $row) {
+			$ordinal++;
+
+			$name  = $row['name'] ?? ($row['default-name'] ?? ('wifi' . $ordinal));
+			$ssid  = $row['configuration.ssid'] ?? ($row['ssid'] ?? '');
+			$bssid = $row['mac-address'] ?? ($row['radio-mac'] ?? '');
+			$band  = $row['channel.band'] ?? ($row['channel'] ?? '');
+			$freq  = (isset($row['channel.frequency']) && is_numeric($row['channel.frequency'])) ? (int) $row['channel.frequency'] : 0;
+
+			// Derive a stable integer index from the interface name (wifi1 -> 1).
+			$index = $ordinal;
+
+			if (preg_match('/(\d+)$/', $name, $matches)) {
+				$index = (int) $matches[1];
+			}
+
+			$sql[] = '(' .
+				$host['id'] . ',' .
+				$index . ',' .
+				db_qstr($ssid) . ',' .
+				db_qstr($bssid) . ',' .
+				(int) ($clients[$name] ?? 0) . ',' .
+				$freq . ',' .
+				db_qstr($band) . ',' .
+				(int) ($authClients[$name] ?? 0) . ')';
+		}
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_wireless_aps
+			(`host_id`, `index`, `apSSID`, `apBSSID`, `apClientCount`, `apFreq`, `apBand`, `apAuthClientCount`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				apBSSID=VALUES(apBSSID), apClientCount=VALUES(apClientCount),
+				apFreq=VALUES(apFreq), apBand=VALUES(apBand),
+				apAuthClientCount=VALUES(apAuthClientCount), present=1, last_seen=NOW()');
+	}
+
+	db_execute_prepared('DELETE FROM plugin_mikrotik_wireless_aps
+		WHERE host_id = ?
+		AND present = 0',
+		[$host['id']]);
+
+	$api->disconnect();
+
+	return true;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Collects a device's wireless client registrations through the RouterOS
+ * API ('/interface/wifi/registration-table/print'). Used for RouterOS
+ * v7+ (WifiWave2) devices in place of the legacy wireless SNMP tables.
+ * Mirrors the preserve semantics of collect_wireless_reg(): rows are
+ * flagged present/absent and the parent process handles rate/delta
+ * post-processing and the clearing of inactive rows.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return bool True when the API collection ran, false when the API was
+ *              unavailable (so the caller can fall back to SNMP).
+ */
+function collect_wireless_reg_api(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
+	$start = microtime(true);
+
+	$api = mikrotik_api_open($host);
+
+	if ($api === false) {
+		return false;
+	}
+
+	$api->write('/interface/wifi/registration-table/print');
+	$array = $api->parseResponse($api->read(false));
+
+	$end = microtime(true);
+
+	cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Wireless Registrations in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+
+	db_execute_prepared('UPDATE plugin_mikrotik_wireless_registrations
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$sql = [];
+
+	if (cacti_sizeof($array)) {
+		foreach ($array as $row) {
+			if (!isset($row['mac-address']) || $row['mac-address'] == '') {
+				continue;
+			}
+
+			// Store the MAC verbatim so it joins the DHCP-populated
+			// plugin_mikrotik_mac2hostname table for the client name lookup.
+			$index = $row['mac-address'];
+
+			[$txBytes, $rxBytes]     = mikrotik_api_counter_pair($row['bytes'] ?? '');
+			[$txPackets, $rxPackets] = mikrotik_api_counter_pair($row['packets'] ?? '');
+
+			$sql[] = '(' .
+				$host['id'] . ',' .
+				db_qstr($index) . ',' .
+				$txBytes . ',' .
+				$rxBytes . ',' .
+				$txPackets . ',' .
+				$rxPackets . ',' .
+				(int) ($row['signal'] ?? 0) . ',' .
+				mikrotik_api_clamp_uint32($row['tx-rate'] ?? 0) . ',' .
+				mikrotik_api_clamp_uint32($row['rx-rate'] ?? 0) . ',' .
+				db_qstr(mikrotik_api_uptime_dhms($row['uptime'] ?? '')) . ')';
+		}
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_wireless_registrations
+			(`host_id`, `index`, `TxBytes`, `RxBytes`, `TxPackets`, `RxPackets`,
+			`Strength`, `TxRate`, `RxRate`, `Uptime`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				TxBytes=VALUES(TxBytes), RxBytes=VALUES(RxBytes),
+				TxPackets=VALUES(TxPackets), RxPackets=VALUES(RxPackets),
+				Strength=VALUES(Strength), TxRate=VALUES(TxRate), RxRate=VALUES(RxRate),
+				Uptime=VALUES(Uptime), present=1, last_seen=NOW()');
+	}
+
+	$api->disconnect();
+
+	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
