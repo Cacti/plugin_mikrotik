@@ -28,7 +28,9 @@ When generating code for this repository:
 ```
 mikrotik/               # Repository root (install to plugins/mikrotik/ in Cacti)
 ├── RouterOS/           # RouterOS-specific data query/template assets
-├── templates/          # Graph/device template XML
+├── templates/          # Graph/device template XML (exported *.xml.gz packages)
+├── resource/           # Script-server data query XML (resource/script_server/mikrotik_*.xml)
+├── scripts/            # Script-server data backends (ss_mikrotik_*.php) feeding graph data sources
 ├── images/             # UI icons
 ├── locales/            # Internationalization files
 ├── mikrotik.php        # Main viewer page (tabs, interfaces, queues, trees, wireless)
@@ -226,3 +228,14 @@ existing code or adding new code, not just in dedicated cleanup passes:
 ## File manifest & upgrade pruning
 
 The plugin ships a root `manifest.json` with three arrays: `tombstones` (files/directories older versions shipped that have since moved or been removed), `expected` (the top-level files and directories that ship today, directories written with a trailing `/`), and `whitelist` (paths holding user data that must never be touched). Keep `expected` current: CI runs `tests/bin/validate-manifest.php`, which fails on any drift between `expected` and the real top-level tree (it ignores `tests/`, `phpunit.xml`, `.git*`, `.md*`, and whitelisted paths). Custom customer CSS/theme files belong in `expected`, and stylesheets live in `css/` (not `themes/`). On upgrade, `mikrotik_prune_files()` deletes the tombstoned paths, the dev-only `tests/` tree, and the `phpunit.xml` test config, leaves `whitelist`, `.git*`, and `.md*` alone, and logs (without removing) any top-level entry the manifest does not account for. As a safety measure it refuses any tombstone that resolves outside the plugin directory (a tampered manifest.json) and logs a warning for any file or directory it cannot remove. When you move or delete a shipped file, add its old path to `tombstones` and update `expected` in the same change.
+
+## Packaging templates (do this LAST)
+
+Updating the bundled packages in `templates/` — the exported Cacti graph/device template `*.xml.gz` files, which embed copies of the `scripts/` backends and reference the `resource/script_server/` data queries — is the **final step of any change. Perform it only once every other change is complete and verified**: schema (`includes/database.php`), poller/collector logic (`poller_mikrotik.php`), UI (`mikrotik.php`), the `scripts/` data backends, and the `resource/script_server/` data query XML.
+
+During development the plugin tree itself is the source of truth and your guidestick for assessing the impact of a change:
+
+- `scripts/ss_mikrotik_*.php` — the script-server data backends that read the `plugin_mikrotik_*` tables for graph data sources.
+- `resource/script_server/mikrotik_*.xml` — the data query definitions whose `query_name` fields are the contract between a graph's data source and the backing script/column.
+
+Keep these three in agreement: data query `query_name` → script `get`/field handling → actual table column. When you change a table column, add a collector, or alter a metric, update the matching `scripts/` backend and `resource/script_server/` data query XML first and verify the data path end to end. Only then regenerate/repackage the `templates/` `*.xml.gz` bundles, so the exported packages carry the corrected scripts and queries.

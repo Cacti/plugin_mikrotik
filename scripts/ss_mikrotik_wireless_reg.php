@@ -64,18 +64,34 @@ function ss_mikrotik_wireless_reg(int $host_id, string $cmd, string $object = ''
 			}
 		}
 	} elseif ($cmd == 'get') {
-		$allowed_objects = [
-			'macAddress', 'interface', 'apTxRate', 'apRxRate', 'apStrength',
-			'apSsid', 'apBand', 'apFreq', 'apNoiseFloor', 'apOverallTxCcq',
-			'apTxBytes', 'apRxBytes', 'apTxPackets', 'apRxPackets',
-			'apTxFrames', 'apRxFrames', 'apTxHwFrames', 'apRxHwFrames',
+		// Map the data query's output field names
+		// (resource/script_server/mikrotik_wireless_reg.xml) to the actual
+		// plugin_mikrotik_wireless_registrations columns the poller populates.
+		$column_map = [
+			'macAddress'    => 'index',
+			'SignalToNoise' => 'SignalToNoise',
+			'Uptime'        => 'Uptime',
+			'TxRate'        => 'TxRate',
+			'RxRate'        => 'RxRate',
+			'TxBytes'       => 'TxBytes',
+			'RxBytes'       => 'RxBytes',
+			'TxPackets'     => 'TxPackets',
+			'RxPackets'     => 'RxPackets',
+			'Strength'      => 'Strength',
+			'TxStrengthCh0' => 'TxStrengthCh0',
+			'RxStrengthCh0' => 'RxStrengthCh0',
+			'TxStrengthCh1' => 'TxStrengthCh1',
+			'RxStrengthCh1' => 'RxStrengthChl', // historical typo in the DB column name
+			'TxStrengthCh2' => 'TxStrengthCh2',
+			'RxStrengthCh2' => 'RxStrengthCh2',
+			'TxStrength'    => 'TxStrength',
 		];
 
-		if (!in_array($object, $allowed_objects, true)) {
+		if (!isset($column_map[$object])) {
 			return null;
 		}
 
-		return db_fetch_cell_prepared('SELECT `' . $object . '`
+		return db_fetch_cell_prepared('SELECT `' . $column_map[$object] . '`
 			FROM plugin_mikrotik_wireless_registrations
 			WHERE host_id = ?
 			AND `index` = ?',
