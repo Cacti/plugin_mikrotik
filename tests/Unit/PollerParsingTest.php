@@ -39,6 +39,7 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_uptime_dhms');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_unit_label');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_scale');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_health_column');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_wifi_index');
 mikrotik_test_load_function('poller_mikrotik.php', 'collectHostIndexedOid');
 
 if (!defined('SNMP_WEBUI')) {
@@ -320,5 +321,25 @@ describe('mikrotik_gauge_health_column()', function () {
     it('returns null for sensors with no fixed-column equivalent', function () {
         expect(mikrotik_gauge_health_column('sfp-temperature'))->toBeNull();
         expect(mikrotik_gauge_health_column('fan3-speed'))->toBeNull();
+    });
+});
+
+describe('mikrotik_wifi_index()', function () {
+    it('derives a stable unsigned index from the RouterOS .id', function () {
+        expect(mikrotik_wifi_index('*2'))->toBe(2);
+        expect(mikrotik_wifi_index('*A'))->toBe(10);
+        expect(mikrotik_wifi_index('*1E6'))->toBe(486);
+    });
+
+    it('gives distinct indexes to distinct interfaces (no collision)', function () {
+        // wifi1 and ap1 would both be index 1 under a name-suffix scheme;
+        // their distinct .id values keep them apart.
+        expect(mikrotik_wifi_index('*3'))->not->toBe(mikrotik_wifi_index('*4'));
+    });
+
+    it('returns 0 for a missing or invalid id', function () {
+        expect(mikrotik_wifi_index(''))->toBe(0);
+        expect(mikrotik_wifi_index('*'))->toBe(0);
+        expect(mikrotik_wifi_index('wifi1'))->toBe(0);
     });
 });

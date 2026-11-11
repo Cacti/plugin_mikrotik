@@ -2694,6 +2694,60 @@ function mikrotik_api_uptime_dhms(string $value): string {
 }
 
 /**
+ * Runs a RouterOS API command and returns its parsed response, or null
+ * when the device reports a command error. parseResponse() files the
+ * '!trap'/'!fatal' error sentences under their own keys, so a failed
+ * command (e.g. an '/interface/wifi/...' call on a device without the
+ * WifiWave2 package) would otherwise be iterated as data rows. Callers
+ * treat null as a failed command and fall back without writing data.
+ *
+ * @param object $api     A connected RouterosAPI client.
+ * @param string $command The API command to run.
+ *
+ * @return array|null The parsed rows, or null on a command error.
+ */
+function mikrotik_api_query($api, string $command): ?array {
+	// @codeCoverageIgnoreStart
+	$api->write($command);
+
+	$read = $api->read(false);
+
+	if (is_array($read)) {
+		foreach ($read as $sentence) {
+			if ($sentence === '!trap' || $sentence === '!fatal') {
+				return null;
+			}
+		}
+	}
+
+	return $api->parseResponse($read);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Derives a stable, unique unsigned-integer index for a WifiWave2
+ * interface from its RouterOS internal id ('.id', e.g. '*A'), which is
+ * stable for the interface's lifetime and unique per device, so distinct
+ * interfaces never collide on the wireless AP table's
+ * (host_id, index, apSSID) primary key. Returns 0 when no usable id is
+ * present so the caller can skip the row.
+ *
+ * @param string $dotId The RouterOS '.id' value.
+ *
+ * @return int The derived index, or 0 when the id is missing/invalid.
+ */
+function mikrotik_wifi_index(string $dotId): int {
+	$dotId = ltrim(trim($dotId), '*');
+
+	if ($dotId === '' || !ctype_xdigit($dotId)) {
+		return 0;
+	}
+
+	// Keep the value within the unsigned 32-bit index column deterministically.
+	return (int) (hexdec($dotId) % 4294967296);
+}
+
+/**
  * Collects a device's wireless access-point table through the RouterOS
  * API ('/interface/wifi/print'), deriving per-AP client counts from the
  * registration table. Used for RouterOS v7+ (WifiWave2) devices in place
@@ -2703,8 +2757,9 @@ function mikrotik_api_uptime_dhms(string $value): string {
  * @param array $host Reference, the Cacti host row to collect data for,
  *                    providing its stored RouterOS API credentials.
  *
- * @return bool True when the API collection ran, false when the API was
- *              unavailable (so the caller can fall back to SNMP).
+ * @return bool True when the API collection ran, false when the API (or
+ *              the WifiWave2 command) was unavailable (so the caller can
+ *              fall back to SNMP).
  */
 function collect_wireless_aps_api(array &$host): bool {
 	// @codeCoverageIgnoreStart
@@ -2718,71 +2773,71 @@ function collect_wireless_aps_api(array &$host): bool {
 		return false;
 	}
 
-	// Per-interface client counts are derived from the registration table.
-	$api->write('/interface/wifi/registration-table/print');
-	$regs = $api->parseResponse($api->read(false));
+	// Fetch both tables up front. A command error (e.g. a v7 device still on
+	// the legacy wireless package, or with no wifi) returns null, so we fall
+	// back to SNMP without having touched the database.
+	$regs  = mikrotik_api_query($api, '/interface/wifi/registration-table/print');
+	$array = mikrotik_api_query($api, '/interface/wifi/print');
 
-	$clients     = [];
-	$authClients = [];
+	if ($regs === null || $array === null) {
+		$api->disconnect();
 
-	if (cacti_sizeof($regs)) {
-		foreach ($regs as $reg) {
-			$iface = $reg['interface'] ?? '';
-
-			if ($iface == '') {
-				continue;
-			}
-
-			$clients[$iface] = ($clients[$iface] ?? 0) + 1;
-
-			if (isset($reg['authorized']) && $reg['authorized'] == 'true') {
-				$authClients[$iface] = ($authClients[$iface] ?? 0) + 1;
-			}
-		}
+		return false;
 	}
-
-	$api->write('/interface/wifi/print');
-	$array = $api->parseResponse($api->read(false));
 
 	$end = microtime(true);
 
 	cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Wireless Access Points in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+
+	// Per-interface client counts are derived from the registration table.
+	$clients     = [];
+	$authClients = [];
+
+	foreach ($regs as $reg) {
+		$iface = $reg['interface'] ?? '';
+
+		if ($iface == '') {
+			continue;
+		}
+
+		$clients[$iface] = ($clients[$iface] ?? 0) + 1;
+
+		if (isset($reg['authorized']) && $reg['authorized'] == 'true') {
+			$authClients[$iface] = ($authClients[$iface] ?? 0) + 1;
+		}
+	}
 
 	db_execute_prepared('UPDATE plugin_mikrotik_wireless_aps
 		SET present = 0
 		WHERE host_id = ?',
 		[$host['id']]);
 
-	$sql     = [];
-	$ordinal = 0;
+	$sql = [];
 
-	if (cacti_sizeof($array)) {
-		foreach ($array as $row) {
-			$ordinal++;
+	foreach ($array as $row) {
+		// Use the stable RouterOS .id so distinct interfaces never collide on
+		// the (host_id, index, apSSID) primary key.
+		$index = mikrotik_wifi_index($row['.id'] ?? '');
 
-			$name  = $row['name'] ?? ($row['default-name'] ?? ('wifi' . $ordinal));
-			$ssid  = $row['configuration.ssid'] ?? ($row['ssid'] ?? '');
-			$bssid = $row['mac-address'] ?? ($row['radio-mac'] ?? '');
-			$band  = $row['channel.band'] ?? ($row['channel'] ?? '');
-			$freq  = (isset($row['channel.frequency']) && is_numeric($row['channel.frequency'])) ? (int) $row['channel.frequency'] : 0;
-
-			// Derive a stable integer index from the interface name (wifi1 -> 1).
-			$index = $ordinal;
-
-			if (preg_match('/(\d+)$/', $name, $matches)) {
-				$index = (int) $matches[1];
-			}
-
-			$sql[] = '(' .
-				$host['id'] . ',' .
-				$index . ',' .
-				db_qstr($ssid) . ',' .
-				db_qstr($bssid) . ',' .
-				(int) ($clients[$name] ?? 0) . ',' .
-				$freq . ',' .
-				db_qstr($band) . ',' .
-				(int) ($authClients[$name] ?? 0) . ')';
+		if ($index === 0) {
+			continue;
 		}
+
+		$name  = $row['name'] ?? ($row['default-name'] ?? '');
+		$ssid  = $row['configuration.ssid'] ?? ($row['ssid'] ?? '');
+		$bssid = $row['mac-address'] ?? ($row['radio-mac'] ?? '');
+		$band  = $row['channel.band'] ?? ($row['channel'] ?? '');
+		$freq  = (isset($row['channel.frequency']) && is_numeric($row['channel.frequency'])) ? (int) $row['channel.frequency'] : 0;
+
+		$sql[] = '(' .
+			$host['id'] . ',' .
+			$index . ',' .
+			db_qstr($ssid) . ',' .
+			db_qstr($bssid) . ',' .
+			(int) ($clients[$name] ?? 0) . ',' .
+			$freq . ',' .
+			db_qstr($band) . ',' .
+			(int) ($authClients[$name] ?? 0) . ')';
 	}
 
 	if (cacti_sizeof($sql)) {
@@ -2832,8 +2887,15 @@ function collect_wireless_reg_api(array &$host): bool {
 		return false;
 	}
 
-	$api->write('/interface/wifi/registration-table/print');
-	$array = $api->parseResponse($api->read(false));
+	$array = mikrotik_api_query($api, '/interface/wifi/registration-table/print');
+
+	// A command error (e.g. a v7 device without the WifiWave2 package) returns
+	// null; fall back to SNMP without marking existing registrations absent.
+	if ($array === null) {
+		$api->disconnect();
+
+		return false;
+	}
 
 	$end = microtime(true);
 

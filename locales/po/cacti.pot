@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-08 09:58-0500\n"
+"POT-Creation-Date: 2026-11-11 17:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -79,6 +79,10 @@ msgstr ""
 
 #: mikrotik.php
 msgid "Wireless Registrations"
+msgstr ""
+
+#: mikrotik.php setup.php
+msgid "Health"
 msgstr ""
 
 #: mikrotik.php setup.php
@@ -497,6 +501,30 @@ msgstr ""
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
+msgstr ""
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
 msgstr ""
 
 #: mikrotik.php
@@ -965,10 +993,6 @@ msgid "Graphs Skipped by Rule, or Not Created"
 msgstr ""
 
 #: setup.php
-msgid "MikroTik Credentials"
-msgstr ""
-
-#: setup.php
 msgid "SSL"
 msgstr ""
 
@@ -977,11 +1001,15 @@ msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api
 msgstr ""
 
 #: setup.php
-msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
+msgid "No"
 msgstr ""
 
 #: setup.php
-msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgid "Yes"
+msgstr ""
+
+#: setup.php
+msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
 msgstr ""
 
 #: setup.php
@@ -989,11 +1017,7 @@ msgid "Not Available"
 msgstr ""
 
 #: setup.php
-msgid "No"
-msgstr ""
-
-#: setup.php
-msgid "Yes"
+msgid "MikroTik Credentials"
 msgstr ""
 
 #: setup.php
@@ -1018,6 +1042,10 @@ msgstr ""
 
 #: setup.php
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr ""
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
 msgstr ""
 
 #: setup.php
