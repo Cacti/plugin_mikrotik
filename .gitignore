@@ -3,3 +3,4 @@ locales/LC_MESSAGES/*.mo
 \!templates/**
 .omc/
 locales/po/*.po
+coverage/

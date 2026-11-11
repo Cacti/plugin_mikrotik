@@ -112,9 +112,6 @@ function ss_mikrotik_interfaces_getinfo(int $host_id, string $info_requested) : 
 
 	switch($info_requested) {
 		case 'intName':
-			$column = 'name';
-
-			break;
 		default:
 			$column = 'name';
 
