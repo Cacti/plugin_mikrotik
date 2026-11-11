@@ -1236,6 +1236,19 @@ function collect_system(array &$host): bool {
 		putenv('MIBS=All');
 
 		// health oids
+		//
+		// RouterOS 7 reports health through the dynamic mtxrGaugeTable
+		// (mtxrHealth.100), keyed by sensor name so a device can expose any
+		// number of temperature/fan/voltage/current/power sensors. The fixed
+		// mtxrHealth.1..18 scalars below are mostly empty on v7 hardware, so
+		// for v7+ collect the gauge table (storing every sensor and overlaying
+		// the well-known single-instance ones onto the legacy health columns)
+		// and only fall back to the fixed scalars when the gauge table is
+		// unavailable; pre-7.x devices keep using the fixed scalars.
+		if (mikrotik_version_is_seven_plus($tikInfoData['licVersion'] ?? '') && collect_health_gauge($host)) {
+			return true;
+		}
+
 		$tikHealthOIDs = [
 			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
 			'HlThreeDotThreeVoltage'   => '.1.3.6.1.4.1.14988.1.1.3.2.0',
@@ -1346,6 +1359,208 @@ function collect_system(array &$host): bool {
 	}
 
 	return false;
+}
+
+/**
+ * Maps a mtxrGaugeUnit enum value (from the RouterOS 7 mtxrGaugeTable) to
+ * a short human-readable unit label. Called from collect_health_gauge().
+ *
+ * @param int $unit The mtxrGaugeUnit enum value
+ *                  (1=celsius, 2=rpm, 3=dV, 4=dA, 5=dW, 6=status).
+ *
+ * @return string The unit label ('C', 'RPM', 'V', 'A', 'W', 'status'), or
+ *                '' when the enum value is unknown.
+ */
+function mikrotik_gauge_unit_label(int $unit): string {
+	switch ($unit) {
+		case 1:  return 'C';
+		case 2:  return 'RPM';
+		case 3:  return 'V';
+		case 4:  return 'A';
+		case 5:  return 'W';
+		case 6:  return 'status';
+		default: return '';
+	}
+}
+
+/**
+ * Scales a raw mtxrGaugeValue to its real-world value based on the
+ * mtxrGaugeUnit enum: the dV/dA/dW units (3/4/5) are deci-units and are
+ * divided by 10, while celsius/rpm/status are whole units. Called from
+ * collect_health_gauge().
+ *
+ * @param int $rawValue The raw mtxrGaugeValue reading.
+ * @param int $unit     The mtxrGaugeUnit enum value.
+ *
+ * @return float The scaled sensor value.
+ */
+function mikrotik_gauge_scale(int $rawValue, int $unit): float {
+	if ($unit === 3 || $unit === 4 || $unit === 5) {
+		return $rawValue / 10;
+	}
+
+	return (float) $rawValue;
+}
+
+/**
+ * Maps a well-known single-instance mtxrGaugeTable sensor name to the
+ * legacy plugin_mikrotik_system_health column it corresponds to, so the
+ * existing per-column health graph pipeline keeps working on RouterOS 7
+ * devices. Returns null for names with no fixed-column equivalent (e.g.
+ * additional/duplicate sensors on multi-sensor hardware), which are still
+ * stored in plugin_mikrotik_health_sensors. Called from
+ * collect_health_gauge().
+ *
+ * @param string $name The mtxrGaugeName sensor name (e.g. 'cpu-temperature').
+ *
+ * @return string|null The legacy health column name, or null.
+ */
+function mikrotik_gauge_health_column(string $name): ?string {
+	$map = [
+		'cpu-temperature'    => 'HlCpuTemperature',
+		'board-temperature'  => 'HlBoardTemperature',
+		'board-temperature1' => 'HlBoardTemperature',
+		'temperature'        => 'HlTemperature',
+		'sensor-temperature' => 'HlSensorTemperature',
+		'cpu-frequency'      => 'HlProcessorFrequency',
+		'core-voltage'       => 'HlCoreVoltage',
+		'3.3-voltage'        => 'HlThreeDotThreeVoltage',
+		'5-voltage'          => 'HlFiveVoltage',
+		'12-voltage'         => 'HlTwelveVoltage',
+		'voltage'            => 'HlVoltage',
+		'psu1-voltage'       => 'HlVoltage',
+		'current'            => 'HlCurrent',
+		'psu1-current'       => 'HlCurrent',
+		'power-consumption'  => 'HlPower',
+		'power'              => 'HlPower',
+		'fan1-speed'         => 'HlFanSpeed1',
+		'fan2-speed'         => 'HlFanSpeed2',
+		'fan1'               => 'HlFanSpeed1',
+		'fan2'               => 'HlFanSpeed2',
+		'psu1-state'         => 'HlPowerSupplyState',
+		'psu2-state'         => 'HlBackupPowerSupplyState',
+	];
+
+	return $map[strtolower($name)] ?? null;
+}
+
+/**
+ * Collects a RouterOS 7 device's health sensors from the dynamic
+ * mtxrGaugeTable (mtxrHealth.100: name/value/unit columns) via SNMP.
+ * Stores every discovered sensor (name, scaled value, unit) in
+ * plugin_mikrotik_health_sensors so multi-sensor hardware (multiple
+ * temperatures, fans, or PSUs) is represented fully, and overlays the
+ * well-known single-instance sensors onto the legacy
+ * plugin_mikrotik_system_health columns so the existing health graphs
+ * keep working. Called from collect_system() for RouterOS 7+ devices.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return bool True when the gauge table returned at least one sensor,
+ *              false when it is empty (so the caller can fall back to the
+ *              legacy fixed health scalars).
+ */
+function collect_health_gauge(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live SNMP collection (device I/O); not runnable in the isolated unit
+	// process.
+	$walk = function (string $oid) use ($host) {
+		return cacti_snmp_walk($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
+			$host['snmp_username'], $host['snmp_password'],
+			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
+			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
+	};
+
+	$names = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.2');
+
+	if (!cacti_sizeof($names)) {
+		return false;
+	}
+
+	$values = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.3');
+	$units  = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.4');
+
+	$lastIndex = function (string $oid): string {
+		$parts = explode('.', trim($oid, '.'));
+
+		return end($parts);
+	};
+
+	$valueByIdx = [];
+	foreach ($values as $mib) {
+		$valueByIdx[$lastIndex($mib['oid'])] = $mib['value'];
+	}
+
+	$unitByIdx = [];
+	foreach ($units as $mib) {
+		$unitByIdx[$lastIndex($mib['oid'])] = $mib['value'];
+	}
+
+	db_execute_prepared('UPDATE plugin_mikrotik_health_sensors
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$varchar_columns = ['HlFanSpeed1', 'HlFanSpeed2', 'HlActiveFan'];
+
+	$sql     = [];
+	$overlay = [];
+
+	foreach ($names as $mib) {
+		$idx  = $lastIndex($mib['oid']);
+		$name = trim($mib['value'], ' "');
+
+		if ($name === '') {
+			continue;
+		}
+
+		$rawValue  = (int) ($valueByIdx[$idx] ?? 0);
+		$unit      = (int) ($unitByIdx[$idx] ?? 0);
+		$scaled    = mikrotik_gauge_scale($rawValue, $unit);
+		$unitLabel = mikrotik_gauge_unit_label($unit);
+
+		$sql[] = '(' .
+			$host['id'] . ',' .
+			db_qstr($name) . ',' .
+			$scaled . ',' .
+			$rawValue . ',' .
+			db_qstr($unitLabel) . ')';
+
+		$column = mikrotik_gauge_health_column($name);
+
+		if ($column !== null && !isset($overlay[$column])) {
+			$overlay[$column] = in_array($column, $varchar_columns, true) ? db_qstr((string) $scaled) : $scaled;
+		}
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_health_sensors
+			(`host_id`, `name`, `value`, `rawValue`, `unit`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				value=VALUES(value), rawValue=VALUES(rawValue), unit=VALUES(unit),
+				present=1, last_seen=NOW()');
+	}
+
+	db_execute_prepared('DELETE FROM plugin_mikrotik_health_sensors
+		WHERE host_id = ?
+		AND present = 0',
+		[$host['id']]);
+
+	if (cacti_sizeof($overlay)) {
+		$set_string = '';
+
+		foreach ($overlay as $column => $value) {
+			$set_string .= (strlen($set_string) ? ',' : '') . $column . '=' . $value;
+		}
+
+		db_execute('INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (' . $host['id'] . ')');
+		db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
+	}
+
+	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**

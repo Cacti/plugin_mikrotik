@@ -78,6 +78,7 @@ function plugin_mikrotik_uninstall(): void {
 	// Do any extra Uninstall stuff here
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system_health`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_health_sensors`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_storage`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_users`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_trees`');
@@ -208,7 +209,8 @@ function mikrotik_check_upgrade(): void {
 
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
-			!db_table_exists('plugin_mikrotik_lists')) {
+			!db_table_exists('plugin_mikrotik_lists') ||
+			!db_table_exists('plugin_mikrotik_health_sensors')) {
 			mikrotik_setup_table();
 		}
 

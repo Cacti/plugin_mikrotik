@@ -26,7 +26,7 @@ it('drops every table it owns on uninstall', function () {
 		return $call['fn'] === 'db_execute' && stripos($call['sql'], 'DROP TABLE') !== false;
 	});
 
-	expect(count($drops))->toBe(15);
+	expect(count($drops))->toBe(16);
 });
 
 it('reports that its dependencies are always satisfied', function () {

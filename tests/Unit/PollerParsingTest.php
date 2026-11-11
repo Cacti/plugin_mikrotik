@@ -36,6 +36,9 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_version_is_seven_pl
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_counter_pair');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_clamp_uint32');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_uptime_dhms');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_unit_label');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_scale');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_health_column');
 mikrotik_test_load_function('poller_mikrotik.php', 'collectHostIndexedOid');
 
 if (!defined('SNMP_WEBUI')) {
@@ -271,4 +274,51 @@ describe('mikrotik_api_uptime_dhms()', function () {
 	it('returns zeroes for "never"', function () {
 		expect(mikrotik_api_uptime_dhms('never'))->toBe('0:0:0:0');
 	});
+});
+
+describe('mikrotik_gauge_unit_label()', function () {
+    it('maps each mtxrGaugeUnit enum value to its label', function () {
+        expect(mikrotik_gauge_unit_label(1))->toBe('C');
+        expect(mikrotik_gauge_unit_label(2))->toBe('RPM');
+        expect(mikrotik_gauge_unit_label(3))->toBe('V');
+        expect(mikrotik_gauge_unit_label(4))->toBe('A');
+        expect(mikrotik_gauge_unit_label(5))->toBe('W');
+        expect(mikrotik_gauge_unit_label(6))->toBe('status');
+    });
+
+    it('returns an empty label for an unknown enum value', function () {
+        expect(mikrotik_gauge_unit_label(0))->toBe('');
+        expect(mikrotik_gauge_unit_label(99))->toBe('');
+    });
+});
+
+describe('mikrotik_gauge_scale()', function () {
+    it('leaves celsius, rpm, and status values unscaled', function () {
+        expect(mikrotik_gauge_scale(59, 1))->toBe(59.0);
+        expect(mikrotik_gauge_scale(5654, 2))->toBe(5654.0);
+        expect(mikrotik_gauge_scale(1, 6))->toBe(1.0);
+    });
+
+    it('divides deci-volt/amp/watt values by ten', function () {
+        expect(mikrotik_gauge_scale(121, 3))->toBe(12.1);
+        expect(mikrotik_gauge_scale(42, 4))->toBe(4.2);
+        expect(mikrotik_gauge_scale(508, 5))->toBe(50.8);
+    });
+});
+
+describe('mikrotik_gauge_health_column()', function () {
+    it('maps well-known sensor names to legacy health columns', function () {
+        expect(mikrotik_gauge_health_column('cpu-temperature'))->toBe('HlCpuTemperature');
+        expect(mikrotik_gauge_health_column('fan1-speed'))->toBe('HlFanSpeed1');
+        expect(mikrotik_gauge_health_column('power-consumption'))->toBe('HlPower');
+    });
+
+    it('is case-insensitive', function () {
+        expect(mikrotik_gauge_health_column('CPU-Temperature'))->toBe('HlCpuTemperature');
+    });
+
+    it('returns null for sensors with no fixed-column equivalent', function () {
+        expect(mikrotik_gauge_health_column('sfp-temperature'))->toBeNull();
+        expect(mikrotik_gauge_health_column('fan3-speed'))->toBeNull();
+    });
 });

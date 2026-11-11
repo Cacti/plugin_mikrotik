@@ -64,8 +64,22 @@ function mikrotik_setup_table(): void {
 		'comment' => 'Stores MikroTik Health Counters'
 	));
 
-	api_plugin_db_table_create('mikrotik', 'plugin_mikrotik_wireless_registrations', array(
+	api_plugin_db_table_create('mikrotik', 'plugin_mikrotik_health_sensors', array(
 		'columns' => array(
+			array('name' => 'host_id', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false),
+			array('name' => 'name', 'type' => 'varchar(64)', 'NULL' => false, 'default' => ''),
+			array('name' => 'value', 'type' => 'double', 'NULL' => true),
+			array('name' => 'rawValue', 'type' => 'int(11)', 'NULL' => true),
+			array('name' => 'unit', 'type' => 'varchar(10)', 'NULL' => false, 'default' => ''),
+			array('name' => 'last_seen', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP'),
+			array('name' => 'present', 'type' => 'tinyint(3)', 'unsigned' => true, 'NULL' => false, 'default' => '1'),
+		),
+		'primary' => 'host_id`,`name',
+		'type' => 'InnoDB',
+		'comment' => 'Stores MikroTik RouterOS 7 mtxrGaugeTable health sensors'
+	));
+
+	api_plugin_db_table_create('mikrotik', 'plugin_mikrotik_wireless_registrations', array(		'columns' => array(
 			array('name' => 'host_id', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false),
 			array('name' => 'index', 'type' => 'varchar(20)', 'NULL' => false, 'default' => ''),
 			array('name' => 'TxBytes', 'type' => 'bigint(20)', 'unsigned' => true, 'default' => '0'),
