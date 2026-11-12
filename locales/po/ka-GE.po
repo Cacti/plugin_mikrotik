@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2026-09-24 21:00+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\n"
@@ -81,6 +81,10 @@ msgstr "უსადენო წვდომის წერტილები"
 #: mikrotik.php
 msgid "Wireless Registrations"
 msgstr "უსადენო რეგისტრაციები"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -619,6 +623,32 @@ msgstr "გამოყენებულია მომხმარებლ�
 #: mikrotik.php
 msgid "Graph Preview Filters"
 msgstr "გრაფიკის მინიატურის ფილტრები"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "No Users Found"
+msgid "No Health Sensors Found"
+msgstr "მომხმარებლები ნაპოვნი არაა"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
