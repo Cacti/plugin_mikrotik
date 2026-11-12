@@ -110,17 +110,16 @@ function ss_mikrotik_interfaces_getnames(int $host_id) : array {
 function ss_mikrotik_interfaces_getinfo(int $host_id, string $info_requested) : array {
 	$return_arr = [];
 
-	switch($info_requested) {
-		case 'intName':
-		default:
-			$column = 'name';
-
-			break;
+	// This data query enumerates indexes by the interface name field
+	// (index_order=intName); per-field data values are served separately by
+	// ss_mikrotik_interfaces_getvalue().
+	if ($info_requested !== 'intName') {
+		return $return_arr;
 	}
 
 	$arr = db_fetch_assoc_prepared("SELECT
 		REPLACE(name, ' ', '_') AS qry_index,
-		$column AS qry_value
+		name AS qry_value
 		FROM plugin_mikrotik_interfaces
 		WHERE host_id = ?
 		ORDER BY name",
