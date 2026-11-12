@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-08 09:58-0500\n"
+"POT-Creation-Date: 2026-11-11 19:48-0500\n"
 "PO-Revision-Date: 2026-10-06 09:18+0000\n"
 "Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/mikrotik/zh_Hant/>\n"
@@ -587,6 +587,124 @@ msgid "Please select Data Query first from Console->Settings->Host MIB First"
 msgstr "請先從控制台->設置->主機MIB選擇數據查詢"
 
 #: mikrotik.php
+msgid "Any"
+msgstr ""
+
+#: mikrotik.php
+msgid "None"
+msgstr ""
+
+#: mikrotik.php
+msgid "Template"
+msgstr ""
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr ""
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr ""
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "設置/刷新過濾器"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "清除過濾器"
+
+#: mikrotik.php
+msgid "Save"
+msgstr ""
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr ""
+
+#: mikrotik.php
+msgid "Columns"
+msgstr ""
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr ""
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr ""
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "Present"
+msgid "Presets"
+msgstr "出席"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr ""
+
+#: mikrotik.php
+msgid "From"
+msgstr ""
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr ""
+
+#: mikrotik.php
+msgid "To"
+msgstr ""
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr ""
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr ""
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr ""
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr ""
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr ""
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr ""
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr ""
+
+#: mikrotik.php
+msgid "Window"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "Interfaces"
+msgid "Interval"
+msgstr "介面卡"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr ""
+
+#: mikrotik.php
 #, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
 msgstr "應用自定義圖表列表 - 從列表中過濾"
@@ -750,14 +868,6 @@ msgstr "MikroTik用戶"
 #: mikrotik_users.php
 msgid "Inactive"
 msgstr "未啟用"
-
-#: mikrotik_users.php
-msgid "Set/Refresh Filters"
-msgstr "設置/刷新過濾器"
-
-#: mikrotik_users.php
-msgid "Clear Filters"
-msgstr "清除過濾器"
 
 #: mikrotik_users.php
 msgid "User Name"
@@ -1142,28 +1252,7 @@ msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "按規則跳過或未創建的圖形"
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Credentials"
-msgstr "MikroTik證書"
-
-#: setup.php
-msgid "SSL"
-msgstr ""
-
-#: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
-
-#: setup.php
-msgid "The MikroTik API SSL service (api-ssl, port 8729) is not reachable, so the SSL setting cannot be changed right now. Your saved setting is preserved. Enable the api-ssl service under IP > Services on the device to manage SSL."
-msgstr ""
-
-#: setup.php
-msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
-
-#: setup.php
-msgid "Not Available"
 msgstr ""
 
 #: setup.php
@@ -1173,6 +1262,23 @@ msgstr ""
 #: setup.php
 msgid "Yes"
 msgstr ""
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr ""
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr ""
+
+#: setup.php
+msgid "SSL"
+msgstr ""
+
+#: setup.php
+#, fuzzy
+msgid "MikroTik Credentials"
+msgstr "MikroTik證書"
 
 #: setup.php
 #, fuzzy
@@ -1194,6 +1300,10 @@ msgid "Provide the read only password for this MikroTik. Leave this field blank 
 msgstr ""
 
 #: setup.php
+msgid "SSL not present on this device"
+msgstr ""
+
+#: setup.php
 #, fuzzy
 msgid "Connection Result"
 msgstr "連接結果"
@@ -1202,6 +1312,15 @@ msgstr "連接結果"
 #, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
 msgstr "好的，如果Cacti可以通過其API端口連接到MikroTik。"
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr ""
+
+#: setup.php
+#, fuzzy
+msgid "Connected Successfully"
+msgstr "連接結果"
 
 #: setup.php
 #, fuzzy
