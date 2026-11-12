@@ -1,6 +1,9 @@
 
 --- develop ---
 
+* issue: Preserve the configured RouterOS API transport after connection failures; changing SSL remains an explicit device setting
+* security: Verify API TLS certificates and hostnames by default, with an explicit compatibility setting for unverified certificates
+
 * issue: Harden the RouterOS 7 health gauge collection: store a missing/non-numeric `mtxrGaugeValue` as NULL (unknown) rather than a misleading 0, NULL every overlay-managed legacy health column not seen in a poll so a removed sensor stops flatlining on its last value, skip the collection (so the legacy-scalar fallback runs) when `plugin_mikrotik_health_sensors` does not exist yet on a fresh upgrade, and HTML-escape the device description in the Health view
 * issue: Collect WifiWave2 wireless data from either the modern `/interface/wifi` menu (RouterOS 7.13+) or the older `/interface/wifiwave2` menu used by the wifiwave2 package on RouterOS 7.1-7.12, falling back to SNMP only when neither answers
 * issue: Align `ss_mikrotik_wireless_reg.php`'s `get` handler with the `mikrotik_wireless_reg.xml` data query contract so the wireless registration graphs can gather data once the templates are repackaged (the final step): it now maps each data-query field (`TxBytes`, `RxBytes`, `TxPackets`, `RxPackets`, `Strength`, `SignalToNoise`, `TxRate`, `RxRate`, `Uptime`, `TxStrengthCh*`/`RxStrengthCh*`, `TxStrength`, and `macAddress`→`index`) to the real `plugin_mikrotik_wireless_registrations` column, replacing the previous `ap*`-prefixed whitelist whose columns do not exist (and handling the historical `RxStrengthChl` column-name typo)

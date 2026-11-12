@@ -384,6 +384,12 @@ function mikrotik_config_settings(): void {
 			'method'        => 'checkbox',
 			'default'       => 'on'
 			],
+		'mikrotik_api_allow_unverified_tls' => [
+			'friendly_name' => __('Allow Unverified API TLS Certificates', 'mikrotik'),
+			'description'   => __('Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible.', 'mikrotik'),
+			'method'        => 'checkbox',
+			'default'       => ''
+			],
 		'mikrotik_autodiscovery' => [
 			'friendly_name' => __('Automatically Discover Cacti Devices', 'mikrotik'),
 			'description'   => __('Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?', 'mikrotik'),
@@ -1169,7 +1175,7 @@ function mikrotik_graphs_url_by_template_hashs(?array $hashes, int $host_id = 0,
  * enough: RouterOS may accept the TCP connection on port 8729 while the TLS
  * handshake still fails (for example when api-ssl is misconfigured), which is
  * exactly the case that floods the log. So this performs a real TLS handshake
- * using the same self-signed-friendly context as the RouterOS client, and
+ * using the same certificate policy as the RouterOS client, and
  * swallows any connect/handshake warnings with a scoped error handler so the
  * probe itself never writes to the Cacti log.
  *
@@ -1190,11 +1196,12 @@ function mikrotik_ssl_port_available(string $hostname, int $port = 8729, float $
 	// duration of the probe so merely opening the edit page stays quiet.
 	set_error_handler(static function () { return true; });
 
-	$context = stream_context_create([
+	$allow_unverified = read_config_option('mikrotik_api_allow_unverified_tls') === 'on';
+	$context          = stream_context_create([
 		'ssl' => [
-			'verify_peer'       => false,
-			'verify_peer_name'  => false,
-			'allow_self_signed' => true,
+			'verify_peer'       => !$allow_unverified,
+			'verify_peer_name'  => !$allow_unverified,
+			'allow_self_signed' => $allow_unverified,
 		],
 	]);
 
@@ -1271,8 +1278,8 @@ function mikrotik_host_top(): void {
 			// reasons, so keep the stored value selectable (and selected) rather
 			// than forcing the dropdown to 'No'; otherwise saving unrelated host
 			// settings would silently downgrade a TLS-only device to cleartext.
-			// Turning SSL off requires an explicit choice here, and the poller
-			// performs the authoritative downgrade when api-ssl is truly gone.
+			// Turning SSL off requires an explicit choice here; a failed poll
+			// must preserve the same configured transport.
 			if ((isset($is_tik['ssl']) ? $is_tik['ssl'] : '') == 'on') {
 				$ssl_array['on'] = __('Yes (currently unreachable)', 'mikrotik');
 			}
@@ -1333,8 +1340,9 @@ function mikrotik_host_top(): void {
 
 				$api->debug = false;
 
-				$api->ssl  = $ssl_configured;
-				$api->port = $api->ssl ? 8729 : 8728;
+				$api->ssl                   = $ssl_configured;
+				$api->port                  = $api->ssl ? 8729 : 8728;
+				$api->ssl_allow_self_signed = read_config_option('mikrotik_api_allow_unverified_tls') === 'on';
 
 				if ($api->connect($is_tik['hostname'], $is_tik['user'], $is_tik['password'])) {
 					$api->disconnect();
