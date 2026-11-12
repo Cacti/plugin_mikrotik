@@ -19,7 +19,10 @@
         "mikrotik_users.php",
         "poller_graphs.php",
         "poller_mikrotik.php",
+        "resource/",
+        "scripts/",
         "setup.php",
+        "sonar-project.properties",
         "templates/"
     ],
     "whitelist": []

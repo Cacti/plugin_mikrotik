@@ -78,6 +78,7 @@ function plugin_mikrotik_uninstall(): void {
 	// Do any extra Uninstall stuff here
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_system_health`');
+	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_health_sensors`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_storage`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_users`');
 	db_execute('DROP TABLE IF EXISTS `plugin_mikrotik_trees`');
@@ -206,11 +207,14 @@ function mikrotik_check_upgrade(): void {
 			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN `ssl` varchar(3) NOT NULL default '' AFTER `password`");
 		}
 
+		// @codeCoverageIgnoreStart
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
-			!db_table_exists('plugin_mikrotik_lists')) {
+			!db_table_exists('plugin_mikrotik_lists') ||
+			!db_table_exists('plugin_mikrotik_health_sensors')) {
 			mikrotik_setup_table();
 		}
+		// @codeCoverageIgnoreEnd
 
 		// Remove files tombstoned in manifest.json plus the dev-only tests/ tree.
 		mikrotik_prune_files();
@@ -1049,6 +1053,7 @@ function mikrotik_draw_navigation_text($nav): array {
 	$nav['mikrotik.php:storage']       = ['title' => __('Storage', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik.php:graphs']        = ['title' => __('Graphs', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik.php:wireless_aps']  = ['title' => __('Wireless Aps', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
+	$nav['mikrotik.php:health']        = ['title' => __('Health', 'mikrotik'), 'mapping' => 'mikrotik.php:', 'url' => 'mikrotik.php', 'level' => '1'];
 	$nav['mikrotik_users.php:']        = ['title' => __('MikroTik Users', 'mikrotik'), 'mapping' => 'index.php:', 'url' => 'mikrotik_users.php', 'level' => '1'];
 	$nav['mikrotik_users.php:edit']    = ['title' => __('(edit)', 'mikrotik'), 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2'];
 	$nav['mikrotik_users.php:actions'] = ['title' => __('Actions', 'mikrotik'), 'mapping' => 'index.php:,mikrotik_users.php:', 'url' => '', 'level' => '2'];

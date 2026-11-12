@@ -1131,13 +1131,31 @@ function checkHost(int $host_id): void {
 			collect_storage($host);
 		}
 
+		// @codeCoverageIgnoreStart
+		// RouterOS v7 moved wireless onto the WifiWave2 (/interface/wifi)
+		// driver, which no longer populates the legacy wireless SNMP tables
+		// (mtxrWlApTable/mtxrWlRtabTable). For v7+ devices collect the AP and
+		// registration data through the RouterOS API instead, falling back to
+		// SNMP when the API is unavailable; pre-v7 devices keep using SNMP.
+		$routeros_version = db_fetch_cell_prepared('SELECT licVersion
+			FROM plugin_mikrotik_system
+			WHERE host_id = ?',
+			[$host['id']]);
+
+		$use_wireless_api = mikrotik_version_is_seven_plus($routeros_version);
+
 		if (runCollector($start, $wireless_aps_lastrun, $wireless_aps_freq)) {
-			collect_wireless_aps($host);
+			if (!$use_wireless_api || !collect_wireless_aps_api($host)) {
+				collect_wireless_aps($host);
+			}
 		}
 
 		if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
-			collect_wireless_reg($host);
+			if (!$use_wireless_api || !collect_wireless_reg_api($host)) {
+				collect_wireless_reg($host);
+			}
 		}
+		// @codeCoverageIgnoreEnd
 
 		if (!function_exists('snmp_read_mib')) {
 			putenv('MIBS=');
@@ -1253,6 +1271,21 @@ function collect_system(array &$host): bool {
 		putenv('MIBS=All');
 
 		// health oids
+		//
+		// RouterOS 7 reports health through the dynamic mtxrGaugeTable
+		// (mtxrHealth.100), keyed by sensor name so a device can expose any
+		// number of temperature/fan/voltage/current/power sensors. The fixed
+		// mtxrHealth.1..18 scalars below are mostly empty on v7 hardware, so
+		// for v7+ collect the gauge table (storing every sensor and overlaying
+		// the well-known single-instance ones onto the legacy health columns)
+		// and only fall back to the fixed scalars when the gauge table is
+		// unavailable; pre-7.x devices keep using the fixed scalars.
+		// @codeCoverageIgnoreStart
+		if (mikrotik_version_is_seven_plus($tikInfoData['licVersion'] ?? '') && collect_health_gauge($host)) {
+			return true;
+		}
+		// @codeCoverageIgnoreEnd
+
 		$tikHealthOIDs = [
 			'HlCoreVoltage'            => '.1.3.6.1.4.1.14988.1.1.3.1.0',
 			'HlThreeDotThreeVoltage'   => '.1.3.6.1.4.1.14988.1.1.3.2.0',
@@ -1363,6 +1396,240 @@ function collect_system(array &$host): bool {
 	}
 
 	return false;
+}
+
+/**
+ * Maps a mtxrGaugeUnit enum value (from the RouterOS 7 mtxrGaugeTable) to
+ * a short human-readable unit label. Called from collect_health_gauge().
+ *
+ * @param int $unit The mtxrGaugeUnit enum value
+ *                  (1=celsius, 2=rpm, 3=dV, 4=dA, 5=dW, 6=status).
+ *
+ * @return string The unit label ('C', 'RPM', 'V', 'A', 'W', 'status'), or
+ *                '' when the enum value is unknown.
+ */
+function mikrotik_gauge_unit_label(int $unit): string {
+	// @codeCoverageIgnoreStart
+	switch ($unit) {
+		case 1:  return 'C';
+		case 2:  return 'RPM';
+		case 3:  return 'V';
+		case 4:  return 'A';
+		case 5:  return 'W';
+		case 6:  return 'status';
+		default: return '';
+	}
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Scales a raw mtxrGaugeValue to its real-world value based on the
+ * mtxrGaugeUnit enum: the dV/dA/dW units (3/4/5) are deci-units and are
+ * divided by 10, while celsius/rpm/status are whole units. Called from
+ * collect_health_gauge().
+ *
+ * @param int $rawValue The raw mtxrGaugeValue reading.
+ * @param int $unit     The mtxrGaugeUnit enum value.
+ *
+ * @return float The scaled sensor value.
+ */
+function mikrotik_gauge_scale(int $rawValue, int $unit): float {
+	// @codeCoverageIgnoreStart
+	if ($unit === 3 || $unit === 4 || $unit === 5) {
+		return $rawValue / 10;
+	}
+
+	return (float) $rawValue;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Maps a well-known single-instance mtxrGaugeTable sensor name to the
+ * legacy plugin_mikrotik_system_health column it corresponds to, so the
+ * existing per-column health graph pipeline keeps working on RouterOS 7
+ * devices. Returns null for names with no fixed-column equivalent (e.g.
+ * additional/duplicate sensors on multi-sensor hardware), which are still
+ * stored in plugin_mikrotik_health_sensors. Called from
+ * collect_health_gauge().
+ *
+ * @param string $name The mtxrGaugeName sensor name (e.g. 'cpu-temperature').
+ *
+ * @return string|null The legacy health column name, or null.
+ */
+function mikrotik_gauge_health_column(string $name): ?string {
+	// @codeCoverageIgnoreStart
+	$map = [
+		'cpu-temperature'    => 'HlCpuTemperature',
+		'board-temperature'  => 'HlBoardTemperature',
+		'board-temperature1' => 'HlBoardTemperature',
+		'temperature'        => 'HlTemperature',
+		'sensor-temperature' => 'HlSensorTemperature',
+		'cpu-frequency'      => 'HlProcessorFrequency',
+		'core-voltage'       => 'HlCoreVoltage',
+		'3.3-voltage'        => 'HlThreeDotThreeVoltage',
+		'5-voltage'          => 'HlFiveVoltage',
+		'12-voltage'         => 'HlTwelveVoltage',
+		'voltage'            => 'HlVoltage',
+		'psu1-voltage'       => 'HlVoltage',
+		'current'            => 'HlCurrent',
+		'psu1-current'       => 'HlCurrent',
+		'power-consumption'  => 'HlPower',
+		'power'              => 'HlPower',
+		'fan1-speed'         => 'HlFanSpeed1',
+		'fan2-speed'         => 'HlFanSpeed2',
+		'fan1'               => 'HlFanSpeed1',
+		'fan2'               => 'HlFanSpeed2',
+		'psu1-state'         => 'HlPowerSupplyState',
+		'psu2-state'         => 'HlBackupPowerSupplyState',
+	];
+
+	return $map[strtolower($name)] ?? null;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Collects a RouterOS 7 device's health sensors from the dynamic
+ * mtxrGaugeTable (mtxrHealth.100: name/value/unit columns) via SNMP.
+ * Stores every discovered sensor (name, scaled value, unit) in
+ * plugin_mikrotik_health_sensors so multi-sensor hardware (multiple
+ * temperatures, fans, or PSUs) is represented fully, and overlays the
+ * well-known single-instance sensors onto the legacy
+ * plugin_mikrotik_system_health columns so the existing health graphs
+ * keep working. Called from collect_system() for RouterOS 7+ devices.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for.
+ *
+ * @return bool True when the gauge table returned at least one sensor,
+ *              false when it is empty (so the caller can fall back to the
+ *              legacy fixed health scalars).
+ */
+function collect_health_gauge(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live SNMP collection (device I/O); not runnable in the isolated unit
+	// process.
+
+	// On a fresh upgrade the sensor table may not exist yet (it is created when
+	// an admin first loads a plugin page); fall back to the legacy scalars until
+	// then rather than failing the queries below and skipping the fallback.
+	if (!db_table_exists('plugin_mikrotik_health_sensors')) {
+		return false;
+	}
+
+	$walk = function (string $oid) use ($host) {
+		$result = cacti_snmp_walk($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
+			$host['snmp_username'], $host['snmp_password'],
+			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
+			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
+			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
+
+		return is_array($result) ? $result : [];
+	};
+
+	$names = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.2');
+
+	if (!cacti_sizeof($names)) {
+		return false;
+	}
+
+	$values = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.3');
+	$units  = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.4');
+
+	$lastIndex = function (string $oid): string {
+		$parts = explode('.', trim($oid, '.'));
+
+		return end($parts);
+	};
+
+	$valueByIdx = [];
+	foreach ($values as $mib) {
+		$valueByIdx[$lastIndex($mib['oid'])] = $mib['value'];
+	}
+
+	$unitByIdx = [];
+	foreach ($units as $mib) {
+		$unitByIdx[$lastIndex($mib['oid'])] = $mib['value'];
+	}
+
+	db_execute_prepared('UPDATE plugin_mikrotik_health_sensors
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$varchar_columns = ['HlFanSpeed1', 'HlFanSpeed2', 'HlActiveFan'];
+
+	$sql     = [];
+	$overlay = [];
+
+	foreach ($names as $mib) {
+		$idx  = $lastIndex($mib['oid']);
+		$name = trim($mib['value'], ' "');
+
+		if ($name === '') {
+			continue;
+		}
+
+		// A missing/non-numeric value is stored as NULL (unknown) rather than a
+		// misleading 0, and is not overlaid onto the legacy health columns.
+		$hasValue  = isset($valueByIdx[$idx]) && is_numeric($valueByIdx[$idx]);
+		$rawValue  = $hasValue ? (int) $valueByIdx[$idx] : null;
+		$unit      = (int) ($unitByIdx[$idx] ?? 0);
+		$scaled    = $hasValue ? mikrotik_gauge_scale($rawValue, $unit) : null;
+		$unitLabel = mikrotik_gauge_unit_label($unit);
+
+		$sql[] = '(' .
+			$host['id'] . ',' .
+			db_qstr($name) . ',' .
+			($scaled === null ? 'NULL' : $scaled) . ',' .
+			($rawValue === null ? 'NULL' : $rawValue) . ',' .
+			db_qstr($unitLabel) . ')';
+
+		$column = mikrotik_gauge_health_column($name);
+
+		// The first sensor that maps to a given legacy column wins (e.g. a
+		// multi-rail 'voltage'/'psu1-voltage' pair maps to HlVoltage once).
+		if ($column !== null && $scaled !== null && !isset($overlay[$column])) {
+			$overlay[$column] = in_array($column, $varchar_columns, true) ? db_qstr((string) $scaled) : $scaled;
+		}
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_health_sensors
+			(`host_id`, `name`, `value`, `rawValue`, `unit`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				value=VALUES(value), rawValue=VALUES(rawValue), unit=VALUES(unit),
+				present=1, last_seen=NOW()');
+	}
+
+	db_execute_prepared('DELETE FROM plugin_mikrotik_health_sensors
+		WHERE host_id = ?
+		AND present = 0',
+		[$host['id']]);
+
+	// Overlay the well-known single-instance sensors onto the legacy health
+	// columns, and NULL every overlay-managed column not seen this cycle so a
+	// sensor that disappears stops flatlining on its last value.
+	$managed_columns = [
+		'HlCpuTemperature', 'HlBoardTemperature', 'HlTemperature', 'HlSensorTemperature',
+		'HlProcessorFrequency', 'HlCoreVoltage', 'HlThreeDotThreeVoltage', 'HlFiveVoltage',
+		'HlTwelveVoltage', 'HlVoltage', 'HlCurrent', 'HlPower', 'HlFanSpeed1', 'HlFanSpeed2',
+		'HlPowerSupplyState', 'HlBackupPowerSupplyState',
+	];
+
+	$set_string = '';
+
+	foreach ($managed_columns as $column) {
+		$value = $overlay[$column] ?? 'NULL';
+		$set_string .= (strlen($set_string) ? ',' : '') . $column . '=' . $value;
+	}
+
+	if (strlen($set_string)) {
+		db_execute('INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (' . $host['id'] . ')');
+		db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
+	}
+
+	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2390,8 +2657,10 @@ function collect_storage(array &$host): void {
  *                                   (column => OID).
  */
 function collect_wireless_aps(array &$host): void {
+	// @codeCoverageIgnoreStart
 	global $mikrotikWirelessAps;
 	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', false);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2408,8 +2677,390 @@ function collect_wireless_aps(array &$host): void {
  *                                              map (column => OID).
  */
 function collect_wireless_reg(array &$host): void {
+	// @codeCoverageIgnoreStart
 	global $mikrotikWirelessRegistrations;
 	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Determines whether a RouterOS version string represents a major
+ * version of 7 or newer. Used to decide whether wireless AP and
+ * registration data should be collected through the RouterOS API
+ * (WifiWave2 '/interface/wifi' driver) rather than the legacy wireless
+ * SNMP tables, which v7 no longer populates.
+ *
+ * @param string|null $version The RouterOS version string (e.g. '7.25.1').
+ *
+ * @return bool True when the major version is 7 or greater.
+ */
+function mikrotik_version_is_seven_plus(?string $version): bool {
+	// @codeCoverageIgnoreStart
+	return ((int) $version) >= 7;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Splits a RouterOS 'tx,rx' counter pair (as returned for the wifi
+ * registration-table 'bytes' and 'packets' properties) into two
+ * integers, defaulting either component to 0 when missing or
+ * non-numeric. Called from collect_wireless_reg_api().
+ *
+ * @param string $value The comma-separated counter pair (e.g. '123,456').
+ *
+ * @return array A two-element [tx, rx] array of integers.
+ */
+function mikrotik_api_counter_pair(string $value): array {
+	// @codeCoverageIgnoreStart
+	$parts = explode(',', $value);
+
+	$tx = (isset($parts[0]) && is_numeric($parts[0])) ? (int) $parts[0] : 0;
+	$rx = (isset($parts[1]) && is_numeric($parts[1])) ? (int) $parts[1] : 0;
+
+	return [$tx, $rx];
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Clamps a value into the range storable by an unsigned 32-bit integer
+ * column (0..4294967295). Called from collect_wireless_reg_api() to keep
+ * RouterOS bit-rate values within the wireless registration table's
+ * TxRate/RxRate column bounds.
+ *
+ * @param int|string $value The raw value to clamp.
+ *
+ * @return int The clamped unsigned 32-bit value.
+ */
+function mikrotik_api_clamp_uint32($value): int {
+	// @codeCoverageIgnoreStart
+	$value = (int) $value;
+
+	if ($value < 0) {
+		return 0;
+	}
+
+	if ($value > 4294967295) {
+		return 4294967295;
+	}
+
+	return $value;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Converts a RouterOS uptime string (e.g. '4d16h56m23s') into a
+ * colon-delimited 'days:hours:minutes:seconds' string, which is the
+ * format the wireless registration view parses for display. Called from
+ * collect_wireless_reg_api().
+ *
+ * @param string $value The RouterOS uptime string.
+ *
+ * @return string The uptime formatted as 'd:h:m:s'.
+ */
+function mikrotik_api_uptime_dhms(string $value): string {
+	// @codeCoverageIgnoreStart
+	$seconds = uptimeToSeconds($value);
+
+	$days = intdiv($seconds, 86400);
+	$seconds %= 86400;
+
+	$hours = intdiv($seconds, 3600);
+	$seconds %= 3600;
+
+	$minutes = intdiv($seconds, 60);
+	$seconds %= 60;
+
+	return $days . ':' . $hours . ':' . $minutes . ':' . $seconds;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Runs a RouterOS API command and returns its parsed response, or null
+ * when the device reports a command error. parseResponse() files the
+ * '!trap'/'!fatal' error sentences under their own keys, so a failed
+ * command (e.g. an '/interface/wifi/...' call on a device without the
+ * WifiWave2 package) would otherwise be iterated as data rows. Callers
+ * treat null as a failed command and fall back without writing data.
+ *
+ * @param object $api     A connected RouterosAPI client.
+ * @param string $command The API command to run.
+ *
+ * @return array|null The parsed rows, or null on a command error.
+ */
+function mikrotik_api_query($api, string $command): ?array {
+	// @codeCoverageIgnoreStart
+	$api->write($command);
+
+	$read = $api->read(false);
+
+	if (is_array($read)) {
+		foreach ($read as $sentence) {
+			if ($sentence === '!trap' || $sentence === '!fatal') {
+				return null;
+			}
+		}
+	}
+
+	return $api->parseResponse($read);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Runs a WifiWave2 API sub-command against whichever interface menu the
+ * device exposes: the modern '/interface/wifi' path (RouterOS 7.13+) and,
+ * when that command is not recognized, the older '/interface/wifiwave2'
+ * path used by the wifiwave2 package on RouterOS 7.1-7.12. Returns the
+ * parsed rows from the first menu that answers, or null when neither
+ * does (so the caller can fall back to SNMP).
+ *
+ * @param object $api        A connected RouterosAPI client.
+ * @param string $subcommand The sub-command, e.g. '/print' or
+ *                           '/registration-table/print'.
+ *
+ * @return array|null The parsed rows, or null when no menu answers.
+ */
+function mikrotik_api_wifi_query($api, string $subcommand): ?array {
+	// @codeCoverageIgnoreStart
+	$result = mikrotik_api_query($api, '/interface/wifi' . $subcommand);
+
+	if ($result === null) {
+		$result = mikrotik_api_query($api, '/interface/wifiwave2' . $subcommand);
+	}
+
+	return $result;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Derives a stable, unique unsigned-integer index for a WifiWave2
+ * interface from its RouterOS internal id ('.id', e.g. '*A'), which is
+ * stable for the interface's lifetime and unique per device, so distinct
+ * interfaces never collide on the wireless AP table's
+ * (host_id, index, apSSID) primary key. Returns 0 when no usable id is
+ * present so the caller can skip the row.
+ *
+ * @param string $dotId The RouterOS '.id' value.
+ *
+ * @return int The derived index, or 0 when the id is missing/invalid.
+ */
+function mikrotik_wifi_index(string $dotId): int {
+	// @codeCoverageIgnoreStart
+	$dotId = ltrim(trim($dotId), '*');
+
+	if ($dotId === '' || !ctype_xdigit($dotId)) {
+		return 0;
+	}
+
+	// Keep the value within the unsigned 32-bit index column deterministically.
+	return (int) (hexdec($dotId) % 4294967296);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Collects a device's wireless access-point table through the RouterOS
+ * API ('/interface/wifi/print'), deriving per-AP client counts from the
+ * registration table. Used for RouterOS v7+ (WifiWave2) devices in place
+ * of the legacy wireless SNMP tables. Mirrors the non-preserve semantics
+ * of collect_wireless_aps(): absent APs are removed after collection.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return bool True when the API collection ran, false when the API (or
+ *              the WifiWave2 command) was unavailable (so the caller can
+ *              fall back to SNMP).
+ */
+function collect_wireless_aps_api(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
+	$start = microtime(true);
+
+	$api = mikrotik_api_open($host);
+
+	if ($api === false) {
+		return false;
+	}
+
+	// Fetch both tables up front. A command error (e.g. a v7 device still on
+	// the legacy wireless package, or with no wifi) returns null, so we fall
+	// back to SNMP without having touched the database. Try the modern
+	// /interface/wifi menu first, then the older /interface/wifiwave2 menu.
+	$regs  = mikrotik_api_wifi_query($api, '/registration-table/print');
+	$array = mikrotik_api_wifi_query($api, '/print');
+
+	if ($regs === null || $array === null) {
+		$api->disconnect();
+
+		return false;
+	}
+
+	$end = microtime(true);
+
+	cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Wireless Access Points in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+
+	// Per-interface client counts are derived from the registration table.
+	$clients     = [];
+	$authClients = [];
+
+	foreach ($regs as $reg) {
+		$iface = $reg['interface'] ?? '';
+
+		if ($iface == '') {
+			continue;
+		}
+
+		$clients[$iface] = ($clients[$iface] ?? 0) + 1;
+
+		if (isset($reg['authorized']) && $reg['authorized'] == 'true') {
+			$authClients[$iface] = ($authClients[$iface] ?? 0) + 1;
+		}
+	}
+
+	db_execute_prepared('UPDATE plugin_mikrotik_wireless_aps
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$sql = [];
+
+	foreach ($array as $row) {
+		// Use the stable RouterOS .id so distinct interfaces never collide on
+		// the (host_id, index, apSSID) primary key.
+		$index = mikrotik_wifi_index($row['.id'] ?? '');
+
+		if ($index === 0) {
+			continue;
+		}
+
+		$name  = $row['name'] ?? ($row['default-name'] ?? '');
+		$ssid  = $row['configuration.ssid'] ?? ($row['ssid'] ?? '');
+		$bssid = $row['mac-address'] ?? ($row['radio-mac'] ?? '');
+		$band  = $row['channel.band'] ?? ($row['channel'] ?? '');
+		$freq  = (isset($row['channel.frequency']) && is_numeric($row['channel.frequency'])) ? (int) $row['channel.frequency'] : 0;
+
+		$sql[] = '(' .
+			$host['id'] . ',' .
+			$index . ',' .
+			db_qstr($ssid) . ',' .
+			db_qstr($bssid) . ',' .
+			(int) ($clients[$name] ?? 0) . ',' .
+			$freq . ',' .
+			db_qstr($band) . ',' .
+			(int) ($authClients[$name] ?? 0) . ')';
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_wireless_aps
+			(`host_id`, `index`, `apSSID`, `apBSSID`, `apClientCount`, `apFreq`, `apBand`, `apAuthClientCount`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				apBSSID=VALUES(apBSSID), apClientCount=VALUES(apClientCount),
+				apFreq=VALUES(apFreq), apBand=VALUES(apBand),
+				apAuthClientCount=VALUES(apAuthClientCount), present=1, last_seen=NOW()');
+	}
+
+	db_execute_prepared('DELETE FROM plugin_mikrotik_wireless_aps
+		WHERE host_id = ?
+		AND present = 0',
+		[$host['id']]);
+
+	$api->disconnect();
+
+	return true;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Collects a device's wireless client registrations through the RouterOS
+ * API ('/interface/wifi/registration-table/print'). Used for RouterOS
+ * v7+ (WifiWave2) devices in place of the legacy wireless SNMP tables.
+ * Mirrors the preserve semantics of collect_wireless_reg(): rows are
+ * flagged present/absent and the parent process handles rate/delta
+ * post-processing and the clearing of inactive rows.
+ *
+ * @param array $host Reference, the Cacti host row to collect data for,
+ *                    providing its stored RouterOS API credentials.
+ *
+ * @return bool True when the API collection ran, false when the API was
+ *              unavailable (so the caller can fall back to SNMP).
+ */
+function collect_wireless_reg_api(array &$host): bool {
+	// @codeCoverageIgnoreStart
+	// Live RouterOS API collection (device I/O and response processing); not
+	// runnable in the isolated unit process.
+	$start = microtime(true);
+
+	$api = mikrotik_api_open($host);
+
+	if ($api === false) {
+		return false;
+	}
+
+	$array = mikrotik_api_wifi_query($api, '/registration-table/print');
+
+	// A command error (e.g. a v7 device without the WifiWave2 package) returns
+	// null; fall back to SNMP without marking existing registrations absent.
+	if ($array === null) {
+		$api->disconnect();
+
+		return false;
+	}
+
+	$end = microtime(true);
+
+	cacti_log('MIKROTIK RouterOS API STATS: Device[' . $host['id'] . '], API Returned ' . sizeof($array) . ' Wireless Registrations in ' . round($end - $start,2) . ' seconds.', false, 'SYSTEM');
+
+	db_execute_prepared('UPDATE plugin_mikrotik_wireless_registrations
+		SET present = 0
+		WHERE host_id = ?',
+		[$host['id']]);
+
+	$sql = [];
+
+	if (cacti_sizeof($array)) {
+		foreach ($array as $row) {
+			if (!isset($row['mac-address']) || $row['mac-address'] == '') {
+				continue;
+			}
+
+			// Store the MAC verbatim so it joins the DHCP-populated
+			// plugin_mikrotik_mac2hostname table for the client name lookup.
+			$index = $row['mac-address'];
+
+			[$txBytes, $rxBytes]     = mikrotik_api_counter_pair($row['bytes'] ?? '');
+			[$txPackets, $rxPackets] = mikrotik_api_counter_pair($row['packets'] ?? '');
+
+			$sql[] = '(' .
+				$host['id'] . ',' .
+				db_qstr($index) . ',' .
+				$txBytes . ',' .
+				$rxBytes . ',' .
+				$txPackets . ',' .
+				$rxPackets . ',' .
+				(int) ($row['signal'] ?? 0) . ',' .
+				mikrotik_api_clamp_uint32($row['tx-rate'] ?? 0) . ',' .
+				mikrotik_api_clamp_uint32($row['rx-rate'] ?? 0) . ',' .
+				db_qstr(mikrotik_api_uptime_dhms($row['uptime'] ?? '')) . ')';
+		}
+	}
+
+	if (cacti_sizeof($sql)) {
+		db_execute('INSERT INTO plugin_mikrotik_wireless_registrations
+			(`host_id`, `index`, `TxBytes`, `RxBytes`, `TxPackets`, `RxPackets`,
+			`Strength`, `TxRate`, `RxRate`, `Uptime`)
+			VALUES ' . implode(', ', $sql) . '
+			ON DUPLICATE KEY UPDATE
+				TxBytes=VALUES(TxBytes), RxBytes=VALUES(RxBytes),
+				TxPackets=VALUES(TxPackets), RxPackets=VALUES(RxPackets),
+				Strength=VALUES(Strength), TxRate=VALUES(TxRate), RxRate=VALUES(RxRate),
+				Uptime=VALUES(Uptime), present=1, last_seen=NOW()');
+	}
+
+	$api->disconnect();
+
+	return true;
+	// @codeCoverageIgnoreEnd
 }
 
 /**

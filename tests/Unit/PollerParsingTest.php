@@ -32,6 +32,14 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_splitBaseIndex');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_parse_ttl');
 mikrotik_test_load_function('poller_mikrotik.php', 'uptimeToSeconds');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_version_is_seven_plus');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_counter_pair');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_clamp_uint32');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_uptime_dhms');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_unit_label');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_scale');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_health_column');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_wifi_index');
 mikrotik_test_load_function('poller_mikrotik.php', 'collectHostIndexedOid');
 
 if (!defined('SNMP_WEBUI')) {
@@ -205,4 +213,133 @@ describe('collectHostIndexedOid()', function () {
 		expect($GLOBALS['__test_db_calls'])->not->toBeEmpty();
 		expect($GLOBALS['__test_db_calls'][0]['sql'])->toContain('SET present=0');
 	});
+});
+
+describe('mikrotik_version_is_seven_plus()', function () {
+	it('returns true for a v7 version string', function () {
+		expect(mikrotik_version_is_seven_plus('7.25.1'))->toBeTrue();
+	});
+
+	it('returns true for a major version above 7', function () {
+		expect(mikrotik_version_is_seven_plus('8.0.0'))->toBeTrue();
+	});
+
+	it('returns false for a pre-v7 version string', function () {
+		expect(mikrotik_version_is_seven_plus('6.49.7'))->toBeFalse();
+	});
+
+	it('returns false for an empty or null version', function () {
+		expect(mikrotik_version_is_seven_plus(''))->toBeFalse();
+		expect(mikrotik_version_is_seven_plus(null))->toBeFalse();
+	});
+});
+
+describe('mikrotik_api_counter_pair()', function () {
+	it('splits a tx,rx counter pair into integers', function () {
+		expect(mikrotik_api_counter_pair('8058206,30403984'))->toBe([8058206, 30403984]);
+	});
+
+	it('defaults a missing rx component to zero', function () {
+		expect(mikrotik_api_counter_pair('123'))->toBe([123, 0]);
+	});
+
+	it('defaults non-numeric or empty components to zero', function () {
+		expect(mikrotik_api_counter_pair(''))->toBe([0, 0]);
+		expect(mikrotik_api_counter_pair('abc,def'))->toBe([0, 0]);
+	});
+});
+
+describe('mikrotik_api_clamp_uint32()', function () {
+	it('passes through an in-range value', function () {
+		expect(mikrotik_api_clamp_uint32(1201000000))->toBe(1201000000);
+	});
+
+	it('clamps a value above the unsigned 32-bit maximum', function () {
+		expect(mikrotik_api_clamp_uint32('6000000000'))->toBe(4294967295);
+	});
+
+	it('clamps a negative value to zero', function () {
+		expect(mikrotik_api_clamp_uint32(-5))->toBe(0);
+	});
+});
+
+describe('mikrotik_api_uptime_dhms()', function () {
+	it('formats a RouterOS uptime string as d:h:m:s', function () {
+		expect(mikrotik_api_uptime_dhms('4d16h56m23s'))->toBe('4:16:56:23');
+	});
+
+	it('handles a sub-day uptime', function () {
+		expect(mikrotik_api_uptime_dhms('13h52m56s'))->toBe('0:13:52:56');
+	});
+
+	it('returns zeroes for "never"', function () {
+		expect(mikrotik_api_uptime_dhms('never'))->toBe('0:0:0:0');
+	});
+});
+
+describe('mikrotik_gauge_unit_label()', function () {
+    it('maps each mtxrGaugeUnit enum value to its label', function () {
+        expect(mikrotik_gauge_unit_label(1))->toBe('C');
+        expect(mikrotik_gauge_unit_label(2))->toBe('RPM');
+        expect(mikrotik_gauge_unit_label(3))->toBe('V');
+        expect(mikrotik_gauge_unit_label(4))->toBe('A');
+        expect(mikrotik_gauge_unit_label(5))->toBe('W');
+        expect(mikrotik_gauge_unit_label(6))->toBe('status');
+    });
+
+    it('returns an empty label for an unknown enum value', function () {
+        expect(mikrotik_gauge_unit_label(0))->toBe('');
+        expect(mikrotik_gauge_unit_label(99))->toBe('');
+    });
+});
+
+describe('mikrotik_gauge_scale()', function () {
+    it('leaves celsius, rpm, and status values unscaled', function () {
+        expect(mikrotik_gauge_scale(59, 1))->toBe(59.0);
+        expect(mikrotik_gauge_scale(5654, 2))->toBe(5654.0);
+        expect(mikrotik_gauge_scale(1, 6))->toBe(1.0);
+    });
+
+    it('divides deci-volt/amp/watt values by ten', function () {
+        expect(mikrotik_gauge_scale(121, 3))->toBe(12.1);
+        expect(mikrotik_gauge_scale(42, 4))->toBe(4.2);
+        expect(mikrotik_gauge_scale(508, 5))->toBe(50.8);
+    });
+});
+
+describe('mikrotik_gauge_health_column()', function () {
+    it('maps well-known sensor names to legacy health columns', function () {
+        expect(mikrotik_gauge_health_column('cpu-temperature'))->toBe('HlCpuTemperature');
+        expect(mikrotik_gauge_health_column('fan1-speed'))->toBe('HlFanSpeed1');
+        expect(mikrotik_gauge_health_column('power-consumption'))->toBe('HlPower');
+    });
+
+    it('is case-insensitive', function () {
+        expect(mikrotik_gauge_health_column('CPU-Temperature'))->toBe('HlCpuTemperature');
+    });
+
+    it('returns null for sensors with no fixed-column equivalent', function () {
+        expect(mikrotik_gauge_health_column('sfp-temperature'))->toBeNull();
+        expect(mikrotik_gauge_health_column('fan3-speed'))->toBeNull();
+    });
+});
+
+describe('mikrotik_wifi_index()', function () {
+    it('derives a stable unsigned index from the RouterOS .id', function () {
+        expect(mikrotik_wifi_index('*2'))->toBe(2);
+        expect(mikrotik_wifi_index('*A'))->toBe(10);
+        expect(mikrotik_wifi_index('*1E6'))->toBe(486);
+    });
+
+    it('gives distinct indexes to distinct interfaces (no collision)', function () {
+        // wifi1 and ap1 would both be index 1 under a name-suffix scheme;
+        // their distinct .id values keep them apart.
+        expect(mikrotik_wifi_index('*3'))->not->toBe(mikrotik_wifi_index('*4'));
+    });
+
+    it('returns 0 for a missing or invalid id', function () {
+        expect(mikrotik_wifi_index(''))->toBe(0);
+        expect(mikrotik_wifi_index('*'))->toBe(0);
+        expect(mikrotik_wifi_index('wifi1'))->toBe(0);
+    });
 });
