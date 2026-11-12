@@ -1271,8 +1271,8 @@ function mikrotik_host_top(): void {
 			// reasons, so keep the stored value selectable (and selected) rather
 			// than forcing the dropdown to 'No'; otherwise saving unrelated host
 			// settings would silently downgrade a TLS-only device to cleartext.
-			// Turning SSL off requires an explicit choice here, and the poller
-			// performs the authoritative downgrade when api-ssl is truly gone.
+			// Turning SSL off requires an explicit choice here; the poller never
+			// downgrades it.
 			if ((isset($is_tik['ssl']) ? $is_tik['ssl'] : '') == 'on') {
 				$ssl_array['on'] = __('Yes (currently unreachable)', 'mikrotik');
 			}

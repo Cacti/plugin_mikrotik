@@ -214,13 +214,11 @@ function mikrotik_api_apply_ssl($api, array $creds): void {
  * RouterOS API is disabled globally, the host has no stored credentials, or
  * the connection fails (which is logged).
  *
- * When SSL is the stored transport but its TLS handshake never completes (the
- * api-ssl port is closed or SSL was turned off on the device), and the
- * plaintext api port (8728) then accepts the same credentials, the stored
- * preference is downgraded to non-SSL in the database and a single message is
- * logged. This avoids flooding the log with repeated handshake errors on every
- * poll, while the "confirm plaintext first" guard prevents a transient SSL blip
- * on a TLS-only device from silently moving it to cleartext.
+ * A host set to SSL never falls back to the plaintext api port (8728): the
+ * administrator chose an encrypted transport, and a failed TLS connection,
+ * whether from a device change or from an interrupted handshake, must not
+ * send the credentials in cleartext or change that choice. Turning SSL off is
+ * left to the host edit form.
  *
  * @param array $host The Cacti host row; needs 'id' and 'hostname'.
  *
@@ -246,30 +244,11 @@ function mikrotik_api_open(array $host) {
 
 	mikrotik_api_apply_ssl($api, $creds);
 
-	$ssl_requested = $api->ssl;
-
 	if (!$api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-		// SSL was requested but the TLS transport never came up: the api-ssl
-		// port is closed or SSL was turned off on the device. Confirm the
-		// plaintext api port works with the same credentials before changing
-		// anything, using a single attempt so a truly unreachable device does
-		// not double the poller's open time, then persist the downgrade and
-		// log just this one message.
-		if ($ssl_requested && !$api->socket_connected) {
-			$api->ssl      = false;
-			$api->port     = 8728;
-			$api->attempts = 1;
+		if ($api->ssl && !$api->socket_connected) {
+			cacti_log('ERROR: Device[' . $host['id'] . '] the RouterOS api-ssl connection (port ' . $api->port . ') could not be established.  SSL stays required; enable api-ssl on the device or set SSL to No for this device.', false, 'MIKROTIK');
 
-			if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-				db_execute_prepared('UPDATE plugin_mikrotik_credentials
-					SET `ssl` = ?
-					WHERE host_id = ?',
-					['', $host['id']]);
-
-				cacti_log('WARNING: Device[' . $host['id'] . '] switched back to non-SSL (api port 8728) because the api-ssl port (8729) is not available; the database was updated to stop using SSL.', false, 'MIKROTIK');
-
-				return $api;
-			}
+			return false;
 		}
 
 		cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
