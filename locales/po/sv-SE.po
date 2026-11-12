@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2026-11-09 20:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\n"
@@ -81,6 +81,10 @@ msgstr "Trådlösa åtkomstpunkter"
 #: mikrotik.php
 msgid "Wireless Registrations"
 msgstr "Registreringar för trådlöst nätverk"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -617,6 +621,32 @@ msgstr "Anpassad graflista används – filtrerar enligt listan"
 #: mikrotik.php
 msgid "Graph Preview Filters"
 msgstr "Filter för förhandsvisning av grafer"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "No Users Found"
+msgid "No Health Sensors Found"
+msgstr "Inga användare hittades"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
