@@ -26,6 +26,7 @@ class RouterosAPI {
 	var $delay     = 3;     //  Delay between connection attempts in seconds
 
 	var $socket;            //  Variable for storing socket resource
+	var $socket_connected = false; //  True once the transport (incl. TLS handshake) opened on a connect() attempt
 	var $error_no;          //  Variable for storing connection error number, if any
 	var $error_str;         //  Variable for storing connection error text, if any
 
@@ -88,6 +89,8 @@ class RouterosAPI {
 	 * @return boolean If we are connected or not
 	 */
 	public function connect($ip, $login, $password) {
+		$this->socket_connected = false;
+
 		for ($ATTEMPT = 1; $ATTEMPT <= $this->attempts; $ATTEMPT++) {
 			$this->connected = false;
 			$PROTOCOL        = ($this->ssl ? 'ssl://' : '');
@@ -119,6 +122,8 @@ class RouterosAPI {
 			}
 
 			if ($this->socket) {
+				$this->socket_connected = true;
+
 				socket_set_timeout($this->socket, $this->timeout);
 
 				// Try new post-v6.43 API first

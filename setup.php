@@ -1260,6 +1260,17 @@ function mikrotik_host_top(): void {
 			$ssl_array       = [
 				'' => __('No', 'mikrotik')
 			];
+
+			// Preserve a saved ssl=on preference while the api-ssl probe is
+			// failing. A short probe from the web server can fail for transient
+			// reasons, so keep the stored value selectable (and selected) rather
+			// than forcing the dropdown to 'No'; otherwise saving unrelated host
+			// settings would silently downgrade a TLS-only device to cleartext.
+			// Turning SSL off requires an explicit choice here, and the poller
+			// performs the authoritative downgrade when api-ssl is truly gone.
+			if ((isset($is_tik['ssl']) ? $is_tik['ssl'] : '') == 'on') {
+				$ssl_array['on'] = __('Yes (currently unreachable)', 'mikrotik');
+			}
 		}
 
 		$mikrotik_ssl_field = [
@@ -1328,7 +1339,7 @@ function mikrotik_host_top(): void {
 							'method'        => 'other',
 							'friendly_name' => __('Connection Result', 'mikrotik'),
 							'description'   => __('Ok if Cacti can connect to the MikroTik over its API port.', 'mikrotik'),
-							'value'         => 'Connected Successfully' . $ssl_note
+							'value'         => __('Connected Successfully', 'mikrotik') . $ssl_note
 						]
 					];
 				} else {
