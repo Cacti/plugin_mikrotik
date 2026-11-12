@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2020-12-14 19:29-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -90,6 +90,10 @@ msgstr "वायरलेस एप्स"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "वायरलेस पंजीकरण आवृत्ति"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 #, fuzzy
@@ -707,6 +711,31 @@ msgstr "कस्टम ग्राफ़ सूची लागू - सूच
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "ग्राफ़ पूर्वावलोकन फ़िल्टर"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+msgid "No Health Sensors Found"
+msgstr "कोई उपयोग्कर्ता नहीं मिले"
 
 #: mikrotik.php
 #, fuzzy
