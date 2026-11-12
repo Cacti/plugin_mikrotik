@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2024-06-25 16:31+0000\n"
 "Last-Translator: fabricio tavares maciel <fabricio.tavares@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\n"
@@ -86,6 +86,10 @@ msgstr "Aps sem fio"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "Freqüência de Registros Sem Fio"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -692,6 +696,32 @@ msgstr "Lista Personalizada de Gráficos Aplicada - Filtragem da Lista"
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Filtros de Pré-visualização de Gráficos"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "No Users Found"
+msgid "No Health Sensors Found"
+msgstr "Usuários não encontrados"
 
 #: mikrotik.php
 #, fuzzy
