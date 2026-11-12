@@ -76,9 +76,9 @@ if (!in_array($expected_version, array('1.2.x', 'develop'), true) && $cacti_vers
 
 require_once $autoload;
 
-// PHPUnit's isolated child must use the same Composer tree when run by Pest.
+// CI installs Pest separately from Cacti's production dependencies.
 if (!defined('PHPUNIT_COMPOSER_INSTALL')) {
-	define('PHPUNIT_COMPOSER_INSTALL', realpath($autoload));
+	define('PHPUNIT_COMPOSER_INSTALL', realpath($GLOBALS['_composer_autoload_path'] ?? $autoload));
 }
 
 /*
