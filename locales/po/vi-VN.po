@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2020-12-14 19:36-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -86,6 +86,10 @@ msgstr "Aps không dây"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "Tần số đăng ký không dây"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -693,6 +697,31 @@ msgstr "Danh sách đồ thị tùy chỉnh được áp dụng - Lọc từ dan
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Bộ lọc xem trước đồ thị"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+msgid "No Health Sensors Found"
+msgstr "Không tìm thấy người dùng"
 
 #: mikrotik.php
 #, fuzzy
