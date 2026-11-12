@@ -252,10 +252,13 @@ function mikrotik_api_open(array $host) {
 		// SSL was requested but the TLS transport never came up: the api-ssl
 		// port is closed or SSL was turned off on the device. Confirm the
 		// plaintext api port works with the same credentials before changing
-		// anything, then persist the downgrade and log just this one message.
+		// anything, using a single attempt so a truly unreachable device does
+		// not double the poller's open time, then persist the downgrade and
+		// log just this one message.
 		if ($ssl_requested && !$api->socket_connected) {
-			$api->ssl  = false;
-			$api->port = 8728;
+			$api->ssl      = false;
+			$api->port     = 8728;
+			$api->attempts = 1;
 
 			if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 				db_execute_prepared('UPDATE plugin_mikrotik_credentials
