@@ -2927,7 +2927,7 @@ function mikrotik_health(): void {
 			if (api_plugin_user_realm_auth('host.php')) {
 				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
-				$host_url = $row['description'];
+				$host_url = html_escape($row['description']);
 			}
 
 			print "<td class='left nowrap'>" . $host_url . '</td>';

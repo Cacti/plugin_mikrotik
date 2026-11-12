@@ -1474,12 +1474,22 @@ function collect_health_gauge(array &$host): bool {
 	// @codeCoverageIgnoreStart
 	// Live SNMP collection (device I/O); not runnable in the isolated unit
 	// process.
+
+	// On a fresh upgrade the sensor table may not exist yet (it is created when
+	// an admin first loads a plugin page); fall back to the legacy scalars until
+	// then rather than failing the queries below and skipping the fallback.
+	if (!db_table_exists('plugin_mikrotik_health_sensors')) {
+		return false;
+	}
+
 	$walk = function (string $oid) use ($host) {
-		return cacti_snmp_walk($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
+		$result = cacti_snmp_walk($host['hostname'], $host['snmp_community'], $oid, $host['snmp_version'],
 			$host['snmp_username'], $host['snmp_password'],
 			$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
 			$host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'],
 			read_config_option('snmp_retries'), $host['max_oids'], SNMP_WEBUI, $host['snmp_engine_id']);
+
+		return is_array($result) ? $result : [];
 	};
 
 	$names = $walk('.1.3.6.1.4.1.14988.1.1.3.100.1.2');
@@ -1525,21 +1535,26 @@ function collect_health_gauge(array &$host): bool {
 			continue;
 		}
 
-		$rawValue  = (int) ($valueByIdx[$idx] ?? 0);
+		// A missing/non-numeric value is stored as NULL (unknown) rather than a
+		// misleading 0, and is not overlaid onto the legacy health columns.
+		$hasValue  = isset($valueByIdx[$idx]) && is_numeric($valueByIdx[$idx]);
+		$rawValue  = $hasValue ? (int) $valueByIdx[$idx] : null;
 		$unit      = (int) ($unitByIdx[$idx] ?? 0);
-		$scaled    = mikrotik_gauge_scale($rawValue, $unit);
+		$scaled    = $hasValue ? mikrotik_gauge_scale($rawValue, $unit) : null;
 		$unitLabel = mikrotik_gauge_unit_label($unit);
 
 		$sql[] = '(' .
 			$host['id'] . ',' .
 			db_qstr($name) . ',' .
-			$scaled . ',' .
-			$rawValue . ',' .
+			($scaled === null ? 'NULL' : $scaled) . ',' .
+			($rawValue === null ? 'NULL' : $rawValue) . ',' .
 			db_qstr($unitLabel) . ')';
 
 		$column = mikrotik_gauge_health_column($name);
 
-		if ($column !== null && !isset($overlay[$column])) {
+		// The first sensor that maps to a given legacy column wins (e.g. a
+		// multi-rail 'voltage'/'psu1-voltage' pair maps to HlVoltage once).
+		if ($column !== null && $scaled !== null && !isset($overlay[$column])) {
 			$overlay[$column] = in_array($column, $varchar_columns, true) ? db_qstr((string) $scaled) : $scaled;
 		}
 	}
@@ -1558,13 +1573,24 @@ function collect_health_gauge(array &$host): bool {
 		AND present = 0',
 		[$host['id']]);
 
-	if (cacti_sizeof($overlay)) {
-		$set_string = '';
+	// Overlay the well-known single-instance sensors onto the legacy health
+	// columns, and NULL every overlay-managed column not seen this cycle so a
+	// sensor that disappears stops flatlining on its last value.
+	$managed_columns = [
+		'HlCpuTemperature', 'HlBoardTemperature', 'HlTemperature', 'HlSensorTemperature',
+		'HlProcessorFrequency', 'HlCoreVoltage', 'HlThreeDotThreeVoltage', 'HlFiveVoltage',
+		'HlTwelveVoltage', 'HlVoltage', 'HlCurrent', 'HlPower', 'HlFanSpeed1', 'HlFanSpeed2',
+		'HlPowerSupplyState', 'HlBackupPowerSupplyState',
+	];
 
-		foreach ($overlay as $column => $value) {
-			$set_string .= (strlen($set_string) ? ',' : '') . $column . '=' . $value;
-		}
+	$set_string = '';
 
+	foreach ($managed_columns as $column) {
+		$value = $overlay[$column] ?? 'NULL';
+		$set_string .= (strlen($set_string) ? ',' : '') . $column . '=' . $value;
+	}
+
+	if (strlen($set_string)) {
 		db_execute('INSERT IGNORE INTO plugin_mikrotik_system_health (host_id) VALUES (' . $host['id'] . ')');
 		db_execute("UPDATE plugin_mikrotik_system_health SET $set_string WHERE host_id=" . $host['id']);
 	}
@@ -2598,8 +2624,10 @@ function collect_storage(array &$host): void {
  *                                   (column => OID).
  */
 function collect_wireless_aps(array &$host): void {
+	// @codeCoverageIgnoreStart
 	global $mikrotikWirelessAps;
 	collectHostIndexedOid($host, $mikrotikWirelessAps, 'plugin_mikrotik_wireless_aps', 'wireless_aps', false);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2616,8 +2644,10 @@ function collect_wireless_aps(array &$host): void {
  *                                              map (column => OID).
  */
 function collect_wireless_reg(array &$host): void {
+	// @codeCoverageIgnoreStart
 	global $mikrotikWirelessRegistrations;
 	collectHostIndexedOid($host, $mikrotikWirelessRegistrations, 'plugin_mikrotik_wireless_registrations', 'wireless_registrations', true, 7);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -2743,6 +2773,32 @@ function mikrotik_api_query($api, string $command): ?array {
 }
 
 /**
+ * Runs a WifiWave2 API sub-command against whichever interface menu the
+ * device exposes: the modern '/interface/wifi' path (RouterOS 7.13+) and,
+ * when that command is not recognized, the older '/interface/wifiwave2'
+ * path used by the wifiwave2 package on RouterOS 7.1-7.12. Returns the
+ * parsed rows from the first menu that answers, or null when neither
+ * does (so the caller can fall back to SNMP).
+ *
+ * @param object $api        A connected RouterosAPI client.
+ * @param string $subcommand The sub-command, e.g. '/print' or
+ *                           '/registration-table/print'.
+ *
+ * @return array|null The parsed rows, or null when no menu answers.
+ */
+function mikrotik_api_wifi_query($api, string $subcommand): ?array {
+	// @codeCoverageIgnoreStart
+	$result = mikrotik_api_query($api, '/interface/wifi' . $subcommand);
+
+	if ($result === null) {
+		$result = mikrotik_api_query($api, '/interface/wifiwave2' . $subcommand);
+	}
+
+	return $result;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
  * Derives a stable, unique unsigned-integer index for a WifiWave2
  * interface from its RouterOS internal id ('.id', e.g. '*A'), which is
  * stable for the interface's lifetime and unique per device, so distinct
@@ -2795,9 +2851,10 @@ function collect_wireless_aps_api(array &$host): bool {
 
 	// Fetch both tables up front. A command error (e.g. a v7 device still on
 	// the legacy wireless package, or with no wifi) returns null, so we fall
-	// back to SNMP without having touched the database.
-	$regs  = mikrotik_api_query($api, '/interface/wifi/registration-table/print');
-	$array = mikrotik_api_query($api, '/interface/wifi/print');
+	// back to SNMP without having touched the database. Try the modern
+	// /interface/wifi menu first, then the older /interface/wifiwave2 menu.
+	$regs  = mikrotik_api_wifi_query($api, '/registration-table/print');
+	$array = mikrotik_api_wifi_query($api, '/print');
 
 	if ($regs === null || $array === null) {
 		$api->disconnect();
@@ -2907,7 +2964,7 @@ function collect_wireless_reg_api(array &$host): bool {
 		return false;
 	}
 
-	$array = mikrotik_api_query($api, '/interface/wifi/registration-table/print');
+	$array = mikrotik_api_wifi_query($api, '/registration-table/print');
 
 	// A command error (e.g. a v7 device without the WifiWave2 package) returns
 	// null; fall back to SNMP without marking existing registrations absent.
