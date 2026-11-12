@@ -26,6 +26,7 @@ class RouterosAPI {
 	var $delay     = 3;     //  Delay between connection attempts in seconds
 
 	var $socket;            //  Variable for storing socket resource
+	var $socket_connected = false; //  True once the transport (incl. TLS handshake) opened on a connect() attempt
 	var $error_no;          //  Variable for storing connection error number, if any
 	var $error_str;         //  Variable for storing connection error text, if any
 
@@ -88,6 +89,8 @@ class RouterosAPI {
 	 * @return boolean If we are connected or not
 	 */
 	public function connect($ip, $login, $password) {
+		$this->socket_connected = false;
+
 		for ($ATTEMPT = 1; $ATTEMPT <= $this->attempts; $ATTEMPT++) {
 			$this->connected = false;
 			$PROTOCOL        = ($this->ssl ? 'ssl://' : '');
@@ -106,12 +109,21 @@ class RouterosAPI {
 					],
 				]);
 
+				// A closed port or a failed TLS handshake raises warnings that
+				// Cacti's error handler logs even behind '@'. The caller already
+				// reports connection failures, so swallow the low-level noise.
+				set_error_handler(static function () { return true; });
 				$this->socket = @stream_socket_client($PROTOCOL . $ip . ':' . $this->port, $this->error_no, $this->error_str, $this->timeout, STREAM_CLIENT_CONNECT, $context);
+				restore_error_handler();
 			} else {
+				set_error_handler(static function () { return true; });
 				$this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
+				restore_error_handler();
 			}
 
 			if ($this->socket) {
+				$this->socket_connected = true;
+
 				socket_set_timeout($this->socket, $this->timeout);
 
 				// Try new post-v6.43 API first

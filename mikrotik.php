@@ -2560,12 +2560,348 @@ function mikrotik_host_ids_from_hashes(array $hashes): array {
 }
 
 /**
- * Renders the Graphs view: reuses Cacti's standard graph-preview
- * filter/rendering framework, pre-scoped to devices using this
- * plugin's known host templates and graphs using its known graph
- * templates (further narrowed by any selective graph list supplied via
- * a 'view graphs' link). Called from this script's main request-
- * dispatch switch when action=graphs.
+ * Renders this plugin's graph-preview filter form.
+ *
+ * Cacti core's html_graph_preview_filter() changed materially between the
+ * 1.2.x and develop branches: the modern (develop) form renders the Device
+ * selector as an ajax 'select2-callback' and drives its filter JavaScript from
+ * a bare page basename. On a plugin page served from a sub-directory those
+ * relative URLs resolve against the Cacti root, so applying the filter or
+ * searching the Device list returns a 404. This wrapper renders an equivalent,
+ * self-contained filter (adapted from the 1.2.x implementation) using a plain,
+ * server-rendered Device dropdown and an absolute page URL, so it behaves
+ * identically on every supported Cacti version. Version-specific core helpers
+ * are feature-detected so the same code runs on 1.2.x and develop.
+ *
+ * @param string $page            Absolute URL of this plugin page, used as the
+ *                                graphPage/form target for every filter action.
+ * @param string $action          The request action the filter submits to.
+ * @param string $devices_where   Optional SQL predicate scoping the Device list.
+ * @param string $templates_where Optional SQL predicate scoping the Template list.
+ *
+ * @return void
+ *
+ * @global array $graphs_per_page  Cacti's graphs-per-page option list.
+ * @global array $realtime_window  Cacti's realtime window option list.
+ * @global array $realtime_refresh Cacti's realtime refresh option list.
+ * @global array $graph_timeshifts Cacti's graph timeshift option list.
+ * @global array $graph_timespans  Cacti's graph timespan option list.
+ */
+function mikrotik_graph_preview_filter(string $page, string $action, string $devices_where = '', string $templates_where = ''): void {
+	global $graphs_per_page, $realtime_window, $realtime_refresh, $graph_timeshifts, $graph_timespans;
+
+	initialize_realtime_step_and_window();
+
+	$host_id = get_request_var('host_id');
+	$rfilter = html_escape(isset_request_var('rfilter') ? get_nfilter_request_var('rfilter') : '');
+
+	?>
+	<tr class='even noprint'>
+		<td class='noprint'>
+		<form id='form_graph_view'>
+			<table role='presentation' id='device' class='filterTable'>
+				<tr>
+					<td>
+						<label for='host_id'><?php print __('Device', 'mikrotik');?></label>
+					</td>
+					<td>
+						<select id='host_id' name='host_id'>
+							<option value='-1'<?php print ($host_id == '-1' ? ' selected' : '');?>><?php print __('Any', 'mikrotik');?></option>
+							<option value='0'<?php print ($host_id === '0' ? ' selected' : '');?>><?php print __('None', 'mikrotik');?></option>
+							<?php
+							$devices = get_allowed_devices($devices_where);
+
+							if (cacti_sizeof($devices)) {
+								foreach ($devices as $device) {
+									print "<option value='" . $device['id'] . "'" . ($host_id == $device['id'] ? ' selected' : '') . '>' . html_escape(strip_domain($device['description'])) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<label for='graph_template_id'><?php print __('Template', 'mikrotik');?></label>
+					</td>
+					<td>
+						<select id='graph_template_id' multiple class='select2-multi-count'
+							data-select-all-text='<?php print html_escape(__('All Graphs & Templates', 'mikrotik'));?>'
+							data-select-count-text='<?php print html_escape(__('Templates Selected', 'mikrotik'));?>'
+							data-select-all-value='-1'>
+							<option value='-1'<?php print (get_request_var('graph_template_id') == '-1' ? ' selected' : '');?>><?php print __('All Graphs & Templates', 'mikrotik');?></option>
+							<?php
+							$total_rows      = -1;
+							$graph_templates = get_allowed_graph_templates($templates_where, 'name', '', $total_rows);
+
+							if (cacti_sizeof($graph_templates)) {
+								$selected = explode(',', get_request_var('graph_template_id'));
+
+								foreach ($graph_templates as $gt) {
+									print "<option value='" . $gt['id'] . "'" . (in_array($gt['id'], $selected) ? ' selected' : '') . '>' . html_escape($gt['name']) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<span>
+							<input type='submit' class='ui-button ui-corner-all ui-widget' id='previewgo' value='<?php print __esc('Go', 'mikrotik');?>' title='<?php print __esc('Set/Refresh Filters', 'mikrotik');?>'>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='clear' value='<?php print __esc('Clear', 'mikrotik');?>' title='<?php print __esc('Clear Filters', 'mikrotik');?>'>
+							<?php if (is_view_allowed('graph_settings')) { ?>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='save' value='<?php print __esc('Save', 'mikrotik');?>' title='<?php print __esc('Save filter to the database', 'mikrotik');?>'>
+							<?php } ?>
+						</span>
+					</td>
+					<td id='text'></td>
+				</tr>
+			</table>
+			<table role='presentation' id='search' class='filterTable'>
+				<tr>
+					<td><?php print __('Search', 'mikrotik');?></td>
+					<td><input type='text' class='ui-state-default ui-corner-all' id='rfilter' size='55' value='<?php print $rfilter;?>'></td>
+					<td><?php print __('Graphs', 'mikrotik');?></td>
+					<td>
+						<select id='graphs'>
+							<?php
+							if (cacti_sizeof($graphs_per_page)) {
+								foreach ($graphs_per_page as $key => $value) {
+									print "<option value='" . $key . "'" . (get_request_var('graphs') == $key ? ' selected' : '') . '>' . $value . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td><?php print __('Columns', 'mikrotik');?></td>
+					<td>
+						<select id='columns'>
+							<?php
+							for ($c = 1; $c <= 6; $c++) {
+								print "<option value='$c'" . (get_request_var('columns') == $c ? ' selected' : '') . '>' . ($c == 1 ? __('%d Column', $c, 'mikrotik') : __('%d Columns', $c, 'mikrotik')) . "</option>\n";
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<span>
+							<input id='thumbnails' type='checkbox' <?php print (get_request_var('thumbnails') == 'true' ? 'checked' : '');?>>
+							<label for='thumbnails'><?php print __('Thumbnails', 'mikrotik');?></label>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</form>
+		</td>
+	</tr>
+	<tr class='even noprint'>
+		<td class='noprint'>
+		<form id='form_timespan_selector' action='<?php print html_escape($page);?>?action=<?php print html_escape($action);?>' method='post'>
+			<table role='presentation' class='filterTable'>
+				<tr id='timespan'>
+					<td><?php print __('Presets', 'mikrotik');?></td>
+					<td>
+						<select id='predefined_timespan'>
+							<?php
+							$graph_timespans = array_merge([GT_CUSTOM => __('Custom', 'mikrotik')], $graph_timespans);
+
+							if (cacti_sizeof($graph_timespans)) {
+								foreach ($graph_timespans as $value => $text) {
+									print "<option value='$value'" . ($_SESSION['sess_current_timespan'] == $value ? ' selected' : '') . '>' . html_escape($text) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td><?php print __('From', 'mikrotik');?></td>
+					<td>
+						<span>
+							<input type='text' class='ui-state-default ui-corner-all' id='date1' size='18' value='<?php print (isset($_SESSION['sess_current_date1']) ? html_escape($_SESSION['sess_current_date1']) : '');?>'>
+							<i id='startDate' class='calendar fa fa-calendar-alt' title='<?php print __esc('Start Date Selector', 'mikrotik');?>'></i>
+						</span>
+					</td>
+					<td><?php print __('To', 'mikrotik');?></td>
+					<td>
+						<span>
+							<input type='text' class='ui-state-default ui-corner-all' id='date2' size='18' value='<?php print (isset($_SESSION['sess_current_date2']) ? html_escape($_SESSION['sess_current_date2']) : '');?>'>
+							<i id='endDate' class='calendar fa fa-calendar-alt' title='<?php print __esc('End Date Selector', 'mikrotik');?>'></i>
+						</span>
+					</td>
+					<td>
+						<span>
+							<i class='shiftArrow fa fa-backward' id='shiftLeft' title='<?php print __esc('Shift Time Backward', 'mikrotik');?>'></i>
+							<select id='predefined_timeshift' name='predefined_timeshift' title='<?php print __esc('Define Shifting Interval', 'mikrotik');?>'>
+								<?php
+								$end_val = cacti_sizeof($graph_timeshifts) + 1;
+
+								if (cacti_sizeof($graph_timeshifts) > 0) {
+									for ($shift_value = 1; $shift_value < $end_val; $shift_value++) {
+										print "<option value='$shift_value'" . ($_SESSION['sess_current_timeshift'] == $shift_value ? ' selected' : '') . '>' . html_escape($graph_timeshifts[$shift_value]) . "</option>\n";
+									}
+								}
+								?>
+							</select>
+							<i class='shiftArrow fa fa-forward' id='shiftRight' title='<?php print __esc('Shift Time Forward', 'mikrotik');?>'></i>
+						</span>
+					</td>
+					<td>
+						<span>
+							<input id='tsrefresh' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Refresh', 'mikrotik');?>' title='<?php print __esc('Refresh selected time span', 'mikrotik');?>'>
+							<input id='tsclear' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Clear', 'mikrotik');?>' title='<?php print __esc('Return to the default time span', 'mikrotik');?>'>
+						</span>
+					</td>
+				</tr>
+			</table>
+			<table role='presentation' class='filterTable'>
+				<tr id='realtime' style='display:none;'>
+					<td><?php print __('Window', 'mikrotik');?></td>
+					<td>
+						<select id='graph_start' name='graph_start'>
+							<?php
+							foreach ($realtime_window as $interval => $text) {
+								printf('<option value="%d"%s>%s</option>', $interval, $interval == $_SESSION['sess_realtime_window'] ? ' selected="selected"' : '', html_escape($text));
+							}
+							?>
+						</select>
+					</td>
+					<td><?php print __('Interval', 'mikrotik');?></td>
+					<td>
+						<select id='ds_step' name='ds_step'>
+							<?php
+							foreach ($realtime_refresh as $interval => $text) {
+								printf('<option value="%d"%s>%s</option>', $interval, $interval == $_SESSION['sess_realtime_dsstep'] ? ' selected="selected"' : '', html_escape($text));
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<input type='button' class='ui-button ui-corner-all ui-widget' id='realtimeoff' value='<?php print __esc('Stop', 'mikrotik');?>'>
+					</td>
+					<td class='center' colspan='6'><span id='countdown'></span></td>
+					<td><input id='future' type='hidden' value='<?php print read_config_option('allow_graph_dates_in_future');?>'></td>
+				</tr>
+			</table>
+		</form>
+		<script type='text/javascript'>
+
+		var refreshIsLogout = false;
+		var refreshMSeconds = <?php print read_user_setting('page_refresh') * 1000;?>;
+		var graph_start     = <?php print get_current_graph_start();?>;
+		var graph_end       = <?php print get_current_graph_end();?>;
+		var timeOffset      = <?php print date('Z');?>;
+		var pageAction      = <?php print json_encode($action);?>;
+		var graphPage       = <?php print json_encode($page);?>;
+		var date1Open       = false;
+		var date2Open       = false;
+
+		function initPage() {
+			$('#startDate').off('click').on('click', function() {
+				if (date1Open) {
+					date1Open = false;
+					$('#date1').datetimepicker('hide');
+				} else {
+					date1Open = true;
+					$('#date1').datetimepicker('show');
+				}
+			});
+
+			$('#endDate').off('click').on('click', function() {
+				if (date2Open) {
+					date2Open = false;
+					$('#date2').datetimepicker('hide');
+				} else {
+					date2Open = true;
+					$('#date2').datetimepicker('show');
+				}
+			});
+
+			$('#date1').datetimepicker({
+				minuteGrid: 10,
+				stepMinute: 1,
+				showAnim: 'slideDown',
+				numberOfMonths: 1,
+				timeFormat: 'HH:mm',
+				dateFormat: 'yy-mm-dd',
+				showButtonPanel: false
+			});
+
+			$('#date2').datetimepicker({
+				minuteGrid: 10,
+				stepMinute: 1,
+				showAnim: 'slideDown',
+				numberOfMonths: 1,
+				timeFormat: 'HH:mm',
+				dateFormat: 'yy-mm-dd',
+				showButtonPanel: false
+			});
+		}
+
+		$(function() {
+			if (typeof setupPageTimeout === 'function') {
+				setupPageTimeout();
+			}
+
+			$('#host_id, #graph_template_id, #graphs, #columns').on('change', function() {
+				applyGraphFilter();
+			});
+
+			$('#previewgo').on('click', function(event) {
+				event.preventDefault();
+				applyGraphFilter();
+			});
+
+			$('#shiftLeft').on('click', function() {
+				timeshiftGraphFilterLeft();
+			});
+
+			$('#shiftRight').on('click', function() {
+				timeshiftGraphFilterRight();
+			});
+
+			$('#tsrefresh').on('click', function() {
+				refreshGraphTimespanFilter();
+			});
+
+			$('#graph_start, #ds_step').on('change', function() {
+				realtimeGrapher();
+			});
+
+			$('#predefined_timespan').on('change', function() {
+				applyGraphTimespan();
+			});
+
+			$('#thumbnails').on('click', function() {
+				applyGraphFilter();
+			});
+
+			$('#clear').on('click', function() {
+				clearGraphFilter();
+			});
+
+			$('#tsclear').on('click', function() {
+				clearGraphTimespanFilter();
+			});
+
+			$('#save').on('click', function() {
+				saveGraphFilter('preview');
+			});
+
+			$.when(initPage()).done(function() {
+				initializeGraphs();
+			});
+		});
+
+		</script>
+		<?php if (function_exists('html_spikekill_js')) { html_spikekill_js(); } ?>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
+ * Renders the Graphs view: uses this plugin's own graph-preview filter
+ * (mikrotik_graph_preview_filter) plus Cacti's graph-rendering helpers,
+ * pre-scoped to devices using this plugin's known host templates and
+ * graphs using its known graph templates (further narrowed by any
+ * selective graph list supplied via a 'view graphs' link). Called from
+ * this script's main request-dispatch switch when action=graphs.
  *
  * @return void
  *
@@ -2594,7 +2930,7 @@ function mikrotik_view_graphs(): void {
 	// include graph view filter selector
 	html_start_box(__('Graph Preview Filters', 'mikrotik') . (isset_request_var('style') && strlen(get_request_var('style')) ? ' [ ' . __('Custom Graph List Applied - Filtering from List', 'mikrotik') . ' ]' : ''), '100%', false, 3, 'center', '');
 
-	html_graph_preview_filter('mikrotik.php', 'graphs', 'ht.hash IN ("' . implode('","', $host_template_hashes) . '")', 'gt.hash IN ("' . implode('","', $graph_template_hashes) . '")');
+	mikrotik_graph_preview_filter($config['url_path'] . 'plugins/mikrotik/mikrotik.php', 'graphs', 'ht.hash IN ("' . implode('","', $host_template_hashes) . '")', 'gt.hash IN ("' . implode('","', $graph_template_hashes) . '")');
 
 	html_end_box();
 
