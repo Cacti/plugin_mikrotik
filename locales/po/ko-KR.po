@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2020-12-14 19:31-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -88,6 +88,10 @@ msgstr "무선 AP"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "무선 등록 주파수"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -694,6 +698,32 @@ msgstr "맞춤 그래프 목록 적용 - 목록에서 필터링"
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "그래프 미리보기 필터"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "No Users Found"
+msgid "No Health Sensors Found"
+msgstr "사용자가 없습니다"
 
 #: mikrotik.php
 #, fuzzy
