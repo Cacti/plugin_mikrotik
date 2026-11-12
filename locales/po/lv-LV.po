@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2026-05-09 07:18+0000\n"
 "Last-Translator: \"Coool (github.com/Coool)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://translate.cacti.net/projects/cacti/mikrotik/lv/>\n"
@@ -83,6 +83,10 @@ msgstr "Bezvadu piekļuves punkti"
 #: mikrotik.php
 msgid "Wireless Registrations"
 msgstr "Bezvadu tīkla reģistrācijas"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -627,6 +631,32 @@ msgstr ""
 #: mikrotik.php
 msgid "Graph Preview Filters"
 msgstr "Grafika priekšskatījuma filtrēšana"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+#| msgid "No Users Found"
+msgid "No Health Sensors Found"
+msgstr "Nav atrasts neviens lietotājs"
 
 #: mikrotik.php
 #, fuzzy
