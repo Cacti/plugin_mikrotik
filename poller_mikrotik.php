@@ -259,7 +259,7 @@ function mikrotik_api_open(array $host) {
 
 			if ($api->connect($host['hostname'], $creds['user'], $creds['password'])) {
 				db_execute_prepared('UPDATE plugin_mikrotik_credentials
-					SET ssl = ?
+					SET `ssl` = ?
 					WHERE host_id = ?',
 					['', $host['id']]);
 
