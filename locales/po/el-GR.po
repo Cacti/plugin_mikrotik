@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2020-12-14 19:28-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -88,6 +88,10 @@ msgstr "Ασύρματες εφαρμογές"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "Συχνότητα συχνότητας εγγραφών"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -696,6 +700,31 @@ msgstr "Προσαρμοσμένη λίστα προσαρμοσμένων γρ�
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Φίλτρα προεπισκόπησης γραφημάτων"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+msgid "No Health Sensors Found"
+msgstr "Δεν βρέθηκαν χρήστες"
 
 #: mikrotik.php
 #, fuzzy
