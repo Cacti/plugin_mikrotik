@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-11 19:48-0500\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
 "PO-Revision-Date: 2020-12-14 19:27-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,6 +89,10 @@ msgstr "Безжични Aps"
 #, fuzzy
 msgid "Wireless Registrations"
 msgstr "Честота на безжичните регистрации"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr ""
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -701,6 +705,31 @@ msgstr "Приложен е персонализиран графичен спи
 #, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Филтри за преглед на графика"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr ""
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr ""
+
+#: mikrotik.php
+msgid "Value"
+msgstr ""
+
+#: mikrotik.php
+msgid "Unit"
+msgstr ""
+
+#: mikrotik.php
+#, fuzzy
+msgid "No Health Sensors Found"
+msgstr "Няма намерени потребители"
 
 #: mikrotik.php
 #, fuzzy
