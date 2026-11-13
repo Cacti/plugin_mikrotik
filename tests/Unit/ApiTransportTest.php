@@ -22,15 +22,16 @@ use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 final class ApiTransportTest extends PHPUnit\Framework\TestCase {
 	/**
-	 * @return array<string, array{string, bool, bool}>
+	 * @return array<string, array{string, bool, bool, string}>
 	 */
 	public static function connections(): array {
 		return [
-			'TLS unavailable'       => ['on', false, false],
-			'TLS login rejected'    => ['on', false, true],
-			'TLS success'           => ['on', true, true],
-			'configured plaintext'  => ['', true, true],
-			'plaintext unavailable' => ['', false, false],
+			'TLS unavailable'           => ['on', false, false, 'TLS connection failed.'],
+			'TLS login rejected'        => ['on', false, true, 'Login failed or timed out after connecting.'],
+			'TLS success'               => ['on', true, true, ''],
+			'configured plaintext'      => ['', true, true, ''],
+			'plaintext login rejected'  => ['', false, true, 'Login failed or timed out after connecting.'],
+			'plaintext unavailable'     => ['', false, false, 'Connection failed.'],
 		];
 	}
 
@@ -38,16 +39,18 @@ final class ApiTransportTest extends PHPUnit\Framework\TestCase {
 	 * @param string $ssl              Stored transport preference.
 	 * @param bool   $connected        Connection result.
 	 * @param bool   $socket_connected Whether the transport was established.
+	 * @param string $message          Expected failure diagnostic, or empty on success.
 	 *
 	 * @return void
 	 */
 	#[DataProvider('connections')]
 	#[RunInSeparateProcess]
-	public function testConnectionKeepsTheConfiguredTransport(string $ssl, bool $connected, bool $socket_connected): void {
+	public function testConnectionKeepsTheConfiguredTransport(string $ssl, bool $connected, bool $socket_connected, string $message): void {
 		class_alias(MikrotikApiTransportStub::class, 'RouterosAPI');
 		MikrotikApiTransportStub::$connected                      = $connected;
 		MikrotikApiTransportStub::$transport_connected            = $socket_connected;
 		$GLOBALS['__test_config_options']['mikrotik_api_enabled'] = 'on';
+		$GLOBALS['__test_cacti_log']                              = [];
 		$GLOBALS['__test_db_calls']                               = [];
 		mikrotik_test_mock_db('db_fetch_row_prepared', 'plugin_mikrotik_credentials', ['user' => 'test-user', 'password' => 'test-value', 'ssl' => $ssl]);
 		mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
@@ -56,6 +59,14 @@ final class ApiTransportTest extends PHPUnit\Framework\TestCase {
 		$result = mikrotik_api_open(['id' => 8, 'hostname' => 'router.example']);
 
 		$this->assertSame($connected, $result !== false);
+		$this->assertCount($connected ? 0 : 1, $GLOBALS['__test_cacti_log']);
+
+		if (!$connected) {
+			$this->assertStringContainsString($message, $GLOBALS['__test_cacti_log'][0]);
+			$this->assertStringNotContainsString('test-value', $GLOBALS['__test_cacti_log'][0]);
+			$this->assertStringNotContainsString('test-user', $GLOBALS['__test_cacti_log'][0]);
+		}
+
 		if ($result !== false) {
 			$this->assertFalse($result->ssl_allow_self_signed);
 		}

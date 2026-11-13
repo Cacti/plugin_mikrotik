@@ -243,7 +243,15 @@ function mikrotik_api_open(array $host) {
 	mikrotik_api_apply_ssl($api, $creds);
 
 	if (!$api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-		cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+		if (!$api->socket_connected) {
+			$reason = $api->ssl
+				? 'TLS connection failed. Check api-ssl availability, certificate trust and the certificate hostname. SSL remains required.'
+				: 'Connection failed. Check device reachability and the API service.';
+		} else {
+			$reason = 'Login failed or timed out after connecting. Check the API credentials and device response.';
+		}
+
+		cacti_log('ERROR: Device[' . $host['id'] . '] RouterOS API: ' . $reason, false, 'MIKROTIK');
 
 		return false;
 	}

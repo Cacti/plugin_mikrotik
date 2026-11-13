@@ -124,7 +124,7 @@ class RouterosAPI {
 			if ($this->socket) {
 				$this->socket_connected = true;
 
-				socket_set_timeout($this->socket, $this->timeout);
+				stream_set_timeout($this->socket, $this->timeout);
 
 				// Try new post-v6.43 API first
 				$this->write('/login', false);

@@ -1,7 +1,7 @@
 
 --- develop ---
 
-* issue: Preserve the configured RouterOS API transport after connection failures; changing SSL remains an explicit device setting
+* issue: Preserve the configured RouterOS API transport after connection failures; changing SSL remains an explicit device setting, and diagnostics distinguish transport/TLS failures from login failures
 * security: Verify API TLS certificates and hostnames by default, with an explicit compatibility setting for unverified certificates
 
 * issue: Harden the RouterOS 7 health gauge collection: store a missing/non-numeric `mtxrGaugeValue` as NULL (unknown) rather than a misleading 0, NULL every overlay-managed legacy health column not seen in a poll so a removed sensor stops flatlining on its last value, skip the collection (so the legacy-scalar fallback runs) when `plugin_mikrotik_health_sensors` does not exist yet on a fresh upgrade, and HTML-escape the device description in the Health view
