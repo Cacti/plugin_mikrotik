@@ -4,6 +4,7 @@
 Documentation update (unreleased): Refresh README release/source compatibility,
 installation guidance and source-checked behavior.
 
+* issue: Distinguish RouterOS connection and TLS failures from login failures in the poller log
 * security: Verify API TLS certificates and hostnames by default, with an explicit compatibility setting for unverified certificates
 
 * issue: Harden the RouterOS 7 health gauge collection: store a missing/non-numeric `mtxrGaugeValue` as NULL (unknown) rather than a misleading 0, NULL every overlay-managed legacy health column not seen in a poll so a removed sensor stops flatlining on its last value, skip the collection (so the legacy-scalar fallback runs) when `plugin_mikrotik_health_sensors` does not exist yet on a fresh upgrade, and HTML-escape the device description in the Health view
