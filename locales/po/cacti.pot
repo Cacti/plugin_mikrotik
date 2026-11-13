@@ -1165,3 +1165,11 @@ msgstr ""
 #: setup.php
 msgid "Connection Failed"
 msgstr ""
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr ""
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr ""

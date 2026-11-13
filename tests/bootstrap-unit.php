@@ -76,6 +76,11 @@ if (!in_array($expected_version, array('1.2.x', 'develop'), true) && $cacti_vers
 
 require_once $autoload;
 
+// CI installs Pest separately from Cacti's production dependencies.
+if (!defined('PHPUNIT_COMPOSER_INSTALL')) {
+	define('PHPUNIT_COMPOSER_INSTALL', realpath($GLOBALS['_composer_autoload_path'] ?? $autoload));
+}
+
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
  * mikrotik's source files build include paths from it at runtime.
@@ -239,7 +244,7 @@ if (!function_exists('api_plugin_enable_hooks')) {
 
 if (!function_exists('read_config_option')) {
 	function read_config_option($name, $force = false) {
-		return '';
+		return $GLOBALS['__test_config_options'][$name] ?? '';
 	}
 }
 

@@ -128,6 +128,21 @@ describe('mikrotik_api_apply_ssl()', function () {
 
 		expect($api->ssl)->toBeTrue();
 		expect($api->port)->toBe(8729);
+		expect($api->ssl_allow_self_signed)->toBeFalse();
+	});
+
+	it('allows unverified TLS only when explicitly configured', function () {
+		$GLOBALS['__test_config_options']['mikrotik_api_allow_unverified_tls'] = 'on';
+
+		try {
+			$api = new stdClass();
+			mikrotik_api_apply_ssl($api, ['ssl' => 'on']);
+
+			expect($api->ssl)->toBeTrue()
+				->and($api->ssl_allow_self_signed)->toBeTrue();
+		} finally {
+			unset($GLOBALS['__test_config_options']['mikrotik_api_allow_unverified_tls']);
+		}
 	});
 
 	it('defaults to no SSL and the plaintext api port when ssl is unset', function () {
