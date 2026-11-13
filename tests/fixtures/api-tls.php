@@ -45,7 +45,7 @@ if ($argv[1] === 'server') {
 
 	stream_set_timeout($peer, 5);
 	// Rejected certificates intentionally cause the server handshake to fail.
-	$tls   = @stream_socket_enable_crypto($peer, true, STREAM_CRYPTO_METHOD_TLS_SERVER);
+	$tls   = @stream_socket_enable_crypto($peer, true, STREAM_CRYPTO_METHOD_TLSv1_2_SERVER | STREAM_CRYPTO_METHOD_TLSv1_3_SERVER);
 	$login = false;
 
 	if ($tls && $argv[3] === 'client') {
