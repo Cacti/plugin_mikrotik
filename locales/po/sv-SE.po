@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-12 15:08-0500\n"
-"PO-Revision-Date: 2026-11-09 20:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-16 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -84,7 +72,7 @@ msgstr "Registreringar för trådlöst nätverk"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Status"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -498,23 +486,23 @@ msgstr "Välj först en datafråga under Konsol->Inställningar->Host MIB"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Valfri"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Mall"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Alla grafer och mallar"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Valda mallar"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
@@ -526,93 +514,89 @@ msgstr "Rensa filter"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Spara filtret i databasen"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Kolumner"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d kolumn"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d kolumner"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Miniatyrbilder"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Present"
 msgid "Presets"
-msgstr "Närvarande"
+msgstr "Förinställningar"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Anpassad"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "Från"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Välj startdatum"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Till"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Välj slutdatum"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Flytta tiden bakåt"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Ange förskjutningsintervall"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Flytta tiden framåt"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Uppdatera"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Uppdatera valt tidsintervall"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Återgå till standardtidsintervallet"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Fönster"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Interfaces"
 msgid "Interval"
-msgstr "Gränssnitt"
+msgstr "Intervall"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Stoppa"
 
 #: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
@@ -624,29 +608,27 @@ msgstr "Filter för förhandsvisning av grafer"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Statussensorer"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Sensorer"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Sensor"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Värde"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Enhet"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "No Users Found"
 msgid "No Health Sensors Found"
-msgstr "Inga användare hittades"
+msgstr "Inga statussensorer hittades"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
@@ -1118,14 +1100,12 @@ msgid "Yes"
 msgstr "Ja"
 
 #: setup.php
-#, fuzzy
-#| msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr "Anslut till MikroTik API via SSL (api-ssl, port 8729). Aktivera tjänsten api-ssl under IP > Services på enheten innan du aktiverar detta."
+msgstr "Det gick inte att upprätta en SSL-anslutning till MikroTik-tjänsten api-ssl på port 8729, så SSL kan inte aktiveras. Aktivera och verifiera tjänsten api-ssl under IP > Services på enheten för att använda SSL."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Ja, men kan för närvarande inte nås"
 
 #: setup.php
 msgid "SSL"
@@ -1149,11 +1129,11 @@ msgstr "Lösenord"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Ange lösenordet med läsbehörighet för denna MikroTik-enhet. Lämna fältet tomt för att behålla det lagrade lösenordet."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "SSL är inte tillgängligt på denna enhet"
 
 #: setup.php
 msgid "Connection Result"
@@ -1165,13 +1145,11 @@ msgstr "Ok om Cacti kan ansluta till MikroTik via dess API-port."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL är aktiverat men api-ssl-porten (8729) kan inte nås. Anslutningen testades inte."
 
 #: setup.php
-#, fuzzy
-#| msgid "Connection Result"
 msgid "Connected Successfully"
-msgstr "Anslutningsresultat"
+msgstr "Ansluten"
 
 #: setup.php
 msgid "Connection Failed"
