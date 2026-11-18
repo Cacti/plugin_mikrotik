@@ -18,6 +18,24 @@ Graphs for multiple MikroTik features including, but not limited to:
 * Viewing of Devices and summary statistics, Users, Queue Trees, Access Points,
   HotSpots, Interfaces, and Wireless Station information
 
+## Versions and compatibility
+
+This README describes the `develop` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](INFO) | 3.4 | 1.2.29 |
+| [Published v3.1](https://github.com/Cacti/plugin_mikrotik/releases/tag/v3.1) | 3.1 | 1.2.24 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/mikrotik`**, using the directory
+name `mikrotik` rather than `plugin_mikrotik`.
+
+See [CHANGELOG.md](CHANGELOG.md) for the version history.
+
 ## Cacti compatibility
 
 If you are running a version of Cacti below 1.2.31, please add the function
