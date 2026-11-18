@@ -16,7 +16,7 @@ Graphs for multiple MikroTik features including, but not limited to:
 * Graphs of MikroTik environmental data such as temperature and voltage
 
 * Viewing of Devices and summary statistics, Users, Queue Trees, Access Points,
-  HotSpots, Interfaces, and Wireless Station information
+  HotSpots, Interfaces, Wireless Station, and Health (sensor) information
 
 ## Versions and compatibility
 
@@ -72,6 +72,28 @@ MikroTik's 'auto-discovery' feature will look for Cacti devices that are
 MikroTiks and recognize them as such.  If you are using a different Cacti Device
 Template for these Devices, you may want to change them to user the new Cacti
 Device Template made exclusively for the MikroTik devices.
+
+## Device credentials
+
+Each MikroTik device has a 'MikroTik Credentials' section on its Cacti Device
+edit page.  Provide a read only RouterOS user ('Read Only User') and its
+password.  The 'SSL' option connects to the RouterOS API over api-ssl (port
+8729) instead of the plain API port.  It is only selectable when the api-ssl
+service is enabled on the device (IP > Services).
+
+## Retention settings
+
+Under Console > Settings > MikroTik, the 'DHCP/DNS/List Settings' section sets
+how long 'DHCP Retention', 'DNS Retention', and 'Address List Retention' history
+is kept.
+
+## Permissions
+
+The plugin registers two realms that can be assigned to users or groups:
+
+* MikroTik Viewer - access to the MikroTik viewing pages.
+
+* MikroTik Admin - access to the MikroTik user management pages.
 
 ## Bugs and Feature Enhancements
 
