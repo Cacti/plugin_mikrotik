@@ -24,7 +24,7 @@ This README describes the `develop` source branch.
 
 | Code | Plugin version | Minimum Cacti declared in `INFO` |
 | --- | --- | --- |
-| [Source branch](INFO) | 3.4 | 1.2.29 |
+| [Source branch](https://github.com/Cacti/plugin_mikrotik/blob/develop/INFO) | 3.4 | 1.2.29 |
 | [Published v3.1](https://github.com/Cacti/plugin_mikrotik/releases/tag/v3.1) | 3.1 | 1.2.24 |
 
 Use the published release’s assets and tagged documentation when installing that
@@ -34,7 +34,7 @@ matches the release. Cacti’s own PHP and database requirements also apply.
 Install this plugin in **`<cacti-root>/plugins/mikrotik`**, using the directory
 name `mikrotik` rather than `plugin_mikrotik`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
+See [CHANGELOG.md](https://github.com/Cacti/plugin_mikrotik/blob/develop/CHANGELOG.md) for the version history.
 
 ## Cacti compatibility
 
