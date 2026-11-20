@@ -119,7 +119,9 @@ test('health sensors match the poller gauge to column mapping', function () {
 
 test('wireless registrations map the RxStrengthCh1 field to its column', function () {
 	ss_backends_tables(['plugin_mikrotik_wireless_registrations']);
-	mikrotik_test_mock_db('db_fetch_cell_prepared', '`RxStrengthChl`', '-61');
+	mikrotik_test_mock_db('db_fetch_cell_prepared', function ($sql) {
+		return strpos($sql, '`RxStrengthChl`') !== false && strpos($sql, 'present = 1') !== false;
+	}, '-61');
 
 	expect(ss_mikrotik_wireless_reg(1, 'get', 'RxStrengthCh1', 'AA:BB:CC:DD:EE:FF'))->toBe('-61');
 	expect(ss_mikrotik_wireless_reg(1, 'get', 'apTxRate', 'AA:BB:CC:DD:EE:FF'))->toBe('U');
@@ -146,6 +148,10 @@ test('interfaces are indexed by interface index and return the index count', fun
 		['index' => 3, 'name' => 'ether1'],
 		['index' => 7, 'name' => 'ether2'],
 	]);
+
+	mikrotik_test_mock_db('db_fetch_cell_prepared', function ($sql) {
+		return strpos($sql, 'COUNT(DISTINCT `index`)') !== false && strpos($sql, 'present = 1') !== false;
+	}, '2');
 
 	expect(ss_mikrotik_interfaces(1, 'num_indexes'))->toBe('2');
 	expect(ss_mikrotik_interfaces_getinfo(1, 'intName'))->toBe([3 => 'ether1', 7 => 'ether2']);
