@@ -567,7 +567,8 @@ function mikrotik_test_load_function($relative_file, $function_name) {
  */
 function mikrotik_test_load_functions($file, array $function_names) {
 	$plugin_root = realpath(dirname(__DIR__));
-	$absolute    = realpath($file) ?: realpath($plugin_root . '/' . $file);
+	// Prefer the plugin root: Pest runs from the Cacti root, which has its own scripts/ tree.
+	$absolute    = realpath($plugin_root . '/' . $file) ?: realpath($file);
 
 	if ($absolute === false) {
 		throw new RuntimeException("Unable to resolve required plugin source: {$file}");
