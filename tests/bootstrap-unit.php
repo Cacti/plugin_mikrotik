@@ -194,8 +194,8 @@ if (!function_exists('db_column_exists')) {
 }
 
 if (!function_exists('db_table_exists')) {
-	function db_table_exists($table) {
-		return false;
+	function db_table_exists($table, $log = true) {
+		return mikrotik_test_db_result('db_table_exists', $table, array(), false);
 	}
 }
 
