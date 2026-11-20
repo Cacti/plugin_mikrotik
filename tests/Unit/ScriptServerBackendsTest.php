@@ -27,6 +27,7 @@
 mikrotik_test_load_functions('scripts/ss_mikrotik_health.php', ['ss_mikrotik_health', 'ss_mikrotik_health_columns', 'ss_mikrotik_health_aliases']);
 mikrotik_test_load_functions('scripts/ss_mikrotik_wireless_reg.php', ['ss_mikrotik_wireless_reg', 'ss_mikrotik_wireless_reg_getvalue', 'ss_mikrotik_wireless_reg_uptime', 'ss_mikrotik_wireless_reg_getnames']);
 mikrotik_test_load_functions('scripts/ss_mikrotik_interfaces.php', ['ss_mikrotik_interfaces', 'ss_mikrotik_interfaces_getvalue', 'ss_mikrotik_interfaces_getnames', 'ss_mikrotik_interfaces_getinfo']);
+mikrotik_test_load_functions('scripts/ss_mikrotik_qtrees.php', ['ss_mikrotik_qtrees', 'ss_mikrotik_qtrees_getvalue', 'ss_mikrotik_qtrees_getnames', 'ss_mikrotik_qtrees_getinfo']);
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_health_column');
 
 function ss_backends_tables(array $tables) {
@@ -91,6 +92,15 @@ test('health accepts metric aliases and rejects other columns', function () {
 	expect(ss_mikrotik_health(1, '1; DROP TABLE host'))->toBe('U');
 });
 
+test('health aliases keep their RouterOS 7 sensors and legacy fallback column', function () {
+	ss_backends_tables(['plugin_mikrotik_system_health', 'plugin_mikrotik_health_sensors']);
+	ss_backends_health_mocks(['cpu-temperature' => '48', 'board-temperature' => '39'], '55');
+
+	expect(ss_mikrotik_health(1, 'processorTemperature'))->toBe('48');
+	expect(ss_mikrotik_health(1, 'temperature'))->toBe('39');
+	expect(ss_mikrotik_health(1, 'HlProcessorTemperature'))->toBe('55');
+});
+
 test('health sensors match the poller gauge to column mapping', function () {
 	$mapped = [];
 
@@ -118,7 +128,7 @@ test('wireless registrations map the RxStrengthCh1 field to its column', functio
 test('wireless registration uptime is graphed in seconds', function () {
 	expect(ss_mikrotik_wireless_reg_uptime('1:2:3:4'))->toBe('93784');
 	expect(ss_mikrotik_wireless_reg_uptime('02:03:04.50'))->toBe('7384');
-	expect(ss_mikrotik_wireless_reg_uptime('120'))->toBe('120');
+	expect(ss_mikrotik_wireless_reg_uptime('12050'))->toBe('120');
 	expect(ss_mikrotik_wireless_reg_uptime(''))->toBe('U');
 	expect(ss_mikrotik_wireless_reg_uptime(false))->toBe('U');
 });
@@ -151,4 +161,25 @@ test('interface counters come from the cur column of an allowed field only', fun
 	expect(ss_mikrotik_interfaces(1, 'get', 'RxBytes', '9'))->toBe('U');
 	expect(ss_mikrotik_interfaces(1, 'get', 'InOctets', '3'))->toBe('U');
 	expect(ss_mikrotik_interfaces(1, 'get', 'x`y', '3'))->toBe('U');
+});
+
+test('interface counters still resolve name indexes and prefer the present row', function () {
+	ss_backends_tables(['plugin_mikrotik_interfaces']);
+	mikrotik_test_mock_db('db_fetch_cell_prepared', function ($sql, $params) {
+		return strpos($sql, 'name IN (?, ?)') !== false && strpos($sql, 'ORDER BY present DESC') !== false
+			&& $params === ['sfp_sfpplus1', 'sfp sfpplus1', 1];
+	}, '900');
+
+	expect(ss_mikrotik_interfaces(1, 'get', 'TxBytes', 'sfp_sfpplus1'))->toBe('900');
+});
+
+test('queue trees are indexed without spaces and resolve every stored name form', function () {
+	ss_backends_tables(['plugin_mikrotik_trees']);
+	mikrotik_test_mock_db('db_fetch_cell_prepared', function ($sql, $params) {
+		return $params === ['customer_tree', 'customer tree', '<customer_tree>', '<customer tree>', 1];
+	}, '42');
+
+	expect(ss_mikrotik_qtrees(1, 'get', 'qtBytes', 'customer_tree'))->toBe('42');
+	expect(ss_mikrotik_qtrees(1, 'get', 'qtBytes', 'gone'))->toBe('U');
+	expect(ss_mikrotik_qtrees(1, 'get', 'qtFoo', 'customer_tree'))->toBe('U');
 });
