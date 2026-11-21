@@ -203,8 +203,9 @@ function mikrotik_api_apply_ssl($api, array $creds): void {
 	// Behaviour is asserted in PollerParsingTest, but mikrotik_test_load_function()
 	// eval()s the isolated function, so the executed lines are not attributed back
 	// to this file in the coverage report.
-	$api->ssl  = (isset($creds['ssl']) && $creds['ssl'] == 'on');
-	$api->port = $api->ssl ? 8729 : 8728;
+	$api->ssl                   = (isset($creds['ssl']) && $creds['ssl'] == 'on');
+	$api->port                  = $api->ssl ? 8729 : 8728;
+	$api->ssl_allow_self_signed = read_config_option('mikrotik_api_allow_unverified_tls') === 'on';
 	// @codeCoverageIgnoreEnd
 }
 
@@ -245,13 +246,15 @@ function mikrotik_api_open(array $host) {
 	mikrotik_api_apply_ssl($api, $creds);
 
 	if (!$api->connect($host['hostname'], $creds['user'], $creds['password'])) {
-		if ($api->ssl && !$api->socket_connected) {
-			cacti_log('ERROR: Device[' . $host['id'] . '] the RouterOS api-ssl connection (port ' . $api->port . ') could not be established.  SSL stays required; enable api-ssl on the device or set SSL to No for this device.', false, 'MIKROTIK');
-
-			return false;
+		if (!$api->socket_connected) {
+			$reason = $api->ssl
+				? 'TLS connection failed. Check api-ssl availability, certificate trust and the certificate hostname. SSL remains required.'
+				: 'Connection failed. Check device reachability and the API service.';
+		} else {
+			$reason = 'Login failed or timed out after connecting. Check the API credentials and device response.';
 		}
 
-		cacti_log('ERROR: Device[' . $host['id'] . '] for RouterOS API Call Timed Out.  Check for an invalid API password!');
+		cacti_log('ERROR: Device[' . $host['id'] . '] RouterOS API: ' . $reason, false, 'MIKROTIK');
 
 		return false;
 	}

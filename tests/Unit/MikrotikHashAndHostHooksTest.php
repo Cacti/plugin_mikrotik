@@ -20,6 +20,14 @@ beforeEach(function () {
 	test_set_request(array());
 });
 
+it('requires administrator opt-in before disabling API certificate verification', function () {
+	mikrotik_config_settings();
+	$setting = $GLOBALS['settings']['mikrotik']['mikrotik_api_allow_unverified_tls'];
+
+	expect($setting['method'])->toBe('checkbox')
+		->and($setting['default'])->toBe('');
+});
+
 it('looks up a graph template id by its hash', function () {
 	mikrotik_test_mock_db('db_fetch_cell', 'graph_templates', '42');
 
