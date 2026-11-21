@@ -1351,6 +1351,14 @@ msgstr "कनेक्शन का परिणाम"
 msgid "Connection Failed"
 msgstr "कनेक्शन असफल"
 
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr ""
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr ""
+
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "इस MikroTik के लिए केवल उपयोगकर्ता नाम पासवर्ड पढ़ें।"
