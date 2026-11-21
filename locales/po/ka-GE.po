@@ -1177,5 +1177,13 @@ msgstr "კავშირის შედეგი"
 msgid "Connection Failed"
 msgstr "კავშირის შეცდომა"
 
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr ""
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr ""
+
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "შეიყვანეთ მხოლოდ-წაკითხვადი მომხმარებლის პაროლი ამ MikroTik-ისთვის."
