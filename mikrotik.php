@@ -3533,9 +3533,9 @@ function mikrotik_wireless_regs(): void {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ', ' . $rows;
 
-	/* A MAC can map to several names (DHCP host-name, DNS); use only the newest so rows are not duplicated. */
+	/* A MAC can map to several names; prefer DHCP-provided names (source 0) over DNS fallbacks, then the newest, so rows are not duplicated. */
 	$sql_client = "LEFT JOIN (
-			SELECT mac_address, SUBSTRING_INDEX(GROUP_CONCAT(hostname ORDER BY last_updated DESC SEPARATOR '|'), '|', 1) AS hostname
+			SELECT mac_address, SUBSTRING_INDEX(GROUP_CONCAT(hostname ORDER BY source ASC, last_updated DESC SEPARATOR '|'), '|', 1) AS hostname
 			FROM plugin_mikrotik_mac2hostname
 			WHERE hostname != ''
 			GROUP BY mac_address

@@ -3078,6 +3078,9 @@ function collect_wireless_reg_api(array &$host): bool {
  * @return string The lower-cased hostname (max 64 chars), or '' when unusable.
  */
 function mikrotik_clean_dns_name($name, string $ip): string {
+	// @codeCoverageIgnoreStart
+	// Unit-tested through tests/Unit/PollerParsingTest.php, which loads it in
+	// isolation (eval), so its coverage is not attributed to this file.
 	if (!is_string($name)) {
 		return '';
 	}
@@ -3093,6 +3096,7 @@ function mikrotik_clean_dns_name($name, string $ip): string {
 	}
 
 	return substr($name, 0, 64);
+	// @codeCoverageIgnoreEnd
 }
 
 /**
@@ -3138,18 +3142,28 @@ function mikrotik_reverse_dns(string $ip): string {
  * that have no plugin_mikrotik_mac2hostname entry (no DHCP host-name from
  * any device, e.g. clients of an access point or clients that send no
  * host-name). The client's IP comes from the registration table's
- * 'dhcp-address' (routers) or any device's DHCP lease, and the name from
- * the collected DNS cache, falling back to reverse DNS. Resolved names
- * are cached in plugin_mikrotik_mac2hostname so they are looked up once.
+ * 'dhcp-address' (routers) or a currently bound, enabled DHCP lease seen
+ * in the latest collection, and the name from the DNS cache collected
+ * from the same device that supplied that address, falling back to
+ * reverse DNS. Resolved names are cached in plugin_mikrotik_mac2hostname
+ * with source 1 (DNS), so DHCP-provided names (source 0) always take
+ * precedence in the UI regardless of write order.
  *
  * @param array $host      The Cacti host row being collected.
  * @param array $addresses Optional map of upper-cased MAC => IP address
- *                         already known from the registration table.
+ *                         already known from this device's registration
+ *                         table.
  *
  * @return void
  */
 function mikrotik_resolve_wireless_client_names(array $host, array $addresses = []): void {
 	// @codeCoverageIgnoreStart
+	// The source column arrives with the 3.5 schema upgrade; until it has run,
+	// skip the fallback rather than cache names that would outrank DHCP ones.
+	if (!db_column_exists('plugin_mikrotik_mac2hostname', 'source')) {
+		return;
+	}
+
 	$clients = db_fetch_assoc_prepared('SELECT mtwr.`index` AS mac
 		FROM plugin_mikrotik_wireless_registrations AS mtwr
 		LEFT JOIN plugin_mikrotik_mac2hostname AS m2h
@@ -3164,12 +3178,28 @@ function mikrotik_resolve_wireless_client_names(array $host, array $addresses = 
 
 	foreach ($clients as $client) {
 		$mac = strtoupper($client['mac']);
-		$ip  = $addresses[$mac] ?? db_fetch_cell_prepared('SELECT address
-			FROM plugin_mikrotik_dhcp
-			WHERE mac_address = ?
-			ORDER BY present DESC, last_updated DESC
-			LIMIT 1',
-			[$mac]);
+
+		if (isset($addresses[$mac])) {
+			$ip      = $addresses[$mac];
+			$host_id = $host['id'];
+		} else {
+			$lease = db_fetch_row_prepared('SELECT host_id, address
+				FROM plugin_mikrotik_dhcp
+				WHERE mac_address = ?
+				AND status = \'bound\'
+				AND disabled = 0
+				AND present = 1
+				ORDER BY last_updated DESC
+				LIMIT 1',
+				[$mac]);
+
+			if (!cacti_sizeof($lease)) {
+				continue;
+			}
+
+			$ip      = $lease['address'];
+			$host_id = $lease['host_id'];
+		}
 
 		if (filter_var((string) $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
 			continue;
@@ -3177,12 +3207,13 @@ function mikrotik_resolve_wireless_client_names(array $host, array $addresses = 
 
 		$name = (string) db_fetch_cell_prepared('SELECT name
 			FROM plugin_mikrotik_dns
-			WHERE type = \'A\'
+			WHERE host_id = ?
+			AND type = \'A\'
 			AND data = ?
 			AND present = 1
 			ORDER BY last_updated DESC
 			LIMIT 1',
-			[$ip]);
+			[$host_id, $ip]);
 
 		if ($name === '') {
 			$name = mikrotik_reverse_dns($ip);
@@ -3191,13 +3222,14 @@ function mikrotik_resolve_wireless_client_names(array $host, array $addresses = 
 		if ($name !== '') {
 			debug("Resolved wireless client '$mac' ($ip) to '$name'");
 
-			$names[] = '(' . db_qstr($mac) . ', ' . db_qstr(substr($name, 0, 64)) . ')';
+			$names[] = '(' . db_qstr($mac) . ', ' . db_qstr(substr($name, 0, 64)) . ', 1)';
 		}
 	}
 
 	if (cacti_sizeof($names)) {
+		// IGNORE keeps an identical DHCP-sourced pair at source 0.
 		db_execute('INSERT IGNORE INTO plugin_mikrotik_mac2hostname
-			(mac_address, hostname)
+			(mac_address, hostname, source)
 			VALUES ' . implode(', ', $names));
 	}
 	// @codeCoverageIgnoreEnd

@@ -207,6 +207,10 @@ function mikrotik_check_upgrade(): void {
 			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN `ssl` varchar(3) NOT NULL default '' AFTER `password`");
 		}
 
+		if (!db_column_exists('plugin_mikrotik_mac2hostname', 'source')) {
+			db_execute("ALTER TABLE plugin_mikrotik_mac2hostname ADD COLUMN `source` tinyint unsigned NOT NULL default '0' AFTER `hostname`");
+		}
+
 		// @codeCoverageIgnoreStart
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
