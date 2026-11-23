@@ -658,6 +658,10 @@ msgid "MAC Address"
 msgstr ""
 
 #: mikrotik.php
+msgid "Signal (dBm)"
+msgstr ""
+
+#: mikrotik.php
 msgid "Signal to Noise"
 msgstr ""
 

@@ -3533,14 +3533,22 @@ function mikrotik_wireless_regs(): void {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ', ' . $rows;
 
+	/* A MAC can map to several names (DHCP host-name, DNS); use only the newest so rows are not duplicated. */
+	$sql_client = "LEFT JOIN (
+			SELECT mac_address, SUBSTRING_INDEX(GROUP_CONCAT(hostname ORDER BY last_updated DESC SEPARATOR '|'), '|', 1) AS hostname
+			FROM plugin_mikrotik_mac2hostname
+			WHERE hostname != ''
+			GROUP BY mac_address
+		) AS dhcp
+		ON dhcp.mac_address=mtwr.index";
+
 	$sql = "SELECT mtwr.*, h.hostname, dhcp.hostname AS client_name, h.description, h.disabled
 		FROM plugin_mikrotik_wireless_registrations AS mtwr
 		INNER JOIN host AS h
 		ON h.id=mtwr.host_id
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
-		LEFT JOIN plugin_mikrotik_mac2hostname AS dhcp
-		ON dhcp.mac_address=mtwr.index
+		$sql_client
 		$sql_where
 		$sql_order
 		$sql_limit";
@@ -3552,8 +3560,7 @@ function mikrotik_wireless_regs(): void {
 		ON h.id=mtwr.host_id
 		INNER JOIN plugin_mikrotik_system AS hrs
 		ON hrs.host_id=h.id
-		LEFT JOIN plugin_mikrotik_mac2hostname AS dhcp
-		ON dhcp.mac_address=mtwr.index
+		$sql_client
 		$sql_where");
 
 	$display_text = [
@@ -3568,6 +3575,7 @@ function mikrotik_wireless_regs(): void {
 		'RxRate'            => ['display' => __('Rx Rate', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'],
 		'TxRate'            => ['display' => __('Tx Rate', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'],
 		'Uptime'            => ['display' => __('Uptime(d:h:m)', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'],
+		'Strength'          => ['display' => __('Signal (dBm)', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'],
 		'SignalToNoise'     => ['display' => __('Signal to Noise', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'],
 		'last_seen'         => ['display' => __('Last Seen', 'mikrotik'),       'sort' => 'ASC',  'align' => 'right']
 	];
@@ -3613,6 +3621,7 @@ function mikrotik_wireless_regs(): void {
 			print "<td class='right'>" . mikrotik_memory($row['RxRate']) . '</td>';
 			print "<td class='right'>" . mikrotik_memory($row['TxRate']) . '</td>';
 			print "<td class='right'>" . mikrotik_format_uptime((int) $days, (int) $hours, (int) $minutes) . '</td>';
+			print "<td class='right'>" . html_escape($row['Strength']) . '</td>';
 			print "<td class='right'>" . html_escape($row['SignalToNoise']) . '</td>';
 			print "<td class='right'>" . filter_value($row['last_seen'], get_request_var('filter')) . '</td>';
 

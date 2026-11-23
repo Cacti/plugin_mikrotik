@@ -4,6 +4,8 @@
 Documentation update (unreleased): Refresh README release/source compatibility,
 installation guidance and source-checked behavior.
 
+* issue: Show the client signal strength (dBm) on the Wireless Registrations page. RouterOS 7 (WifiWave2) reports only `signal`, not signal-to-noise, so the Signal to Noise column was empty; stale SNMP-era SNR values are now cleared on API-polled rows
+* issue: Resolve wireless client names when no DHCP host-name is available: use the registration table's `dhcp-hostname` on routers, and otherwise look up the client's IP (from `dhcp-address` or any device's DHCP lease) in the collected DNS cache, then reverse DNS (Cacti's configured DNS servers, else the system resolver), so access-point clients and clients that send no host-name get a name. Only the newest name per MAC is shown, so a MAC with several cached names no longer duplicates rows
 * issue: Return 0 rather than U from `ss_mikrotik_interfaces.php`, `ss_mikrotik_queues.php`, `ss_mikrotik_qtrees.php`, `ss_mikrotik_qusers.php` and `ss_mikrotik_wireless_reg.php` when a row is missing or a value is not numeric, to prevent excess logging (matches Cacti 1.2.x #8915)
 * issue: Distinguish RouterOS connection and TLS failures from login failures in the poller log
 * security: Verify API TLS certificates and hostnames by default, with an explicit compatibility setting for unverified certificates
