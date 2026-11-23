@@ -83,9 +83,11 @@ service is enabled on the device (IP > Services).
 
 ## Retention settings
 
-Under Console > Settings > MikroTik, the 'DHCP/DNS/List Settings' section sets
-how long 'DHCP Retention', 'DNS Retention', and 'Address List Retention' history
-is kept.
+Under Console > Settings > MikroTik, the 'Data Retention' section sets how long
+'DHCP Retention', 'DNS Retention', 'Address List Retention', and 'Wireless
+Registration Retention' history is kept.  When a wireless registration has not
+been seen for longer than its retention period it is removed along with the
+Graphs and Data Sources created for it.
 
 ## Permissions
 

@@ -1103,6 +1103,7 @@ function checkHost(int $host_id): void {
 			collect_dhcp_details($host);
 			collect_dns_details($host);
 			collect_list_details($host);
+			prune_wireless_registrations($host);
 		}
 
 		if (runCollector($start, $processor_lastrun, $processor_freq)) {
@@ -2038,6 +2039,91 @@ function collect_list_details(array &$host): void {
 
 		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Removes a device's wireless registrations that have not been seen for
+ * longer than the 'Wireless Registration Retention' setting, together
+ * with the Graphs and Data Sources created for those registrations
+ * (matched by device, the registration's MAC address snmp_index, and the
+ * wireless registration graph templates). Called from checkHost() with
+ * the DHCP/DNS/Address List collectors, which prune their own history.
+ *
+ * @param array $host The Cacti host row being collected.
+ *
+ * @return void
+ *
+ * @global array $wireless_reg_hashes The wireless registration graph
+ *                                    template hashes.
+ */
+function prune_wireless_registrations(array $host): void {
+	// @codeCoverageIgnoreStart
+	// Live database/graph API maintenance; not runnable in the isolated unit process.
+	global $config, $wireless_reg_hashes;
+
+	$retention = (int) read_config_option('mikrotik_wireless_reg_retention');
+
+	if ($retention <= 0) {
+		return;
+	}
+
+	$macs = array_rekey(db_fetch_assoc_prepared('SELECT `index`
+		FROM plugin_mikrotik_wireless_registrations
+		WHERE host_id = ?
+		AND UNIX_TIMESTAMP(last_seen) < UNIX_TIMESTAMP() - ?',
+		[$host['id'], $retention]), 'index', 'index');
+
+	if (!cacti_sizeof($macs)) {
+		return;
+	}
+
+	$mac_params  = array_values($macs);
+	$mac_holders = implode(',', array_fill(0, count($mac_params), '?'));
+
+	if (cacti_sizeof($wireless_reg_hashes)) {
+		include_once($config['base_path'] . '/lib/api_graph.php');
+		include_once($config['base_path'] . '/lib/api_data_source.php');
+
+		$hash_holders = implode(',', array_fill(0, count($wireless_reg_hashes), '?'));
+
+		$graphs = db_fetch_assoc_prepared("SELECT gl.id, gl.snmp_query_id
+			FROM graph_local AS gl
+			INNER JOIN graph_templates AS gt
+			ON gl.graph_template_id = gt.id
+			WHERE gl.host_id = ?
+			AND gt.hash IN ($hash_holders)
+			AND gl.snmp_index IN ($mac_holders)",
+			array_merge([$host['id']], array_values($wireless_reg_hashes), $mac_params));
+
+		if (cacti_sizeof($graphs)) {
+			$graph_ids = array_column($graphs, 'id');
+			$query_ids = array_values(array_unique(array_column($graphs, 'snmp_query_id')));
+			$q_holders = implode(',', array_fill(0, count($query_ids), '?'));
+
+			$data_sources = array_column(db_fetch_assoc_prepared("SELECT id
+				FROM data_local
+				WHERE host_id = ?
+				AND snmp_query_id IN ($q_holders)
+				AND snmp_index IN ($mac_holders)",
+				array_merge([$host['id']], $query_ids, $mac_params)), 'id');
+
+			if (cacti_sizeof($data_sources)) {
+				api_data_source_remove_multi($data_sources);
+				api_plugin_hook_function('data_source_remove', $data_sources);
+			}
+
+			api_graph_remove_multi($graph_ids);
+			api_plugin_hook_function('graphs_remove', $graph_ids);
+
+			cacti_log('MIKROTIK: Device[' . $host['id'] . '] removed ' . cacti_sizeof($graph_ids) . ' Graph(s) and ' . cacti_sizeof($data_sources) . ' Data Source(s) for expired Wireless Registrations', false, 'SYSTEM');
+		}
+	}
+
+	db_execute_prepared("DELETE FROM plugin_mikrotik_wireless_registrations
+		WHERE host_id = ?
+		AND `index` IN ($mac_holders)",
+		array_merge([$host['id']], $mac_params));
 	// @codeCoverageIgnoreEnd
 }
 

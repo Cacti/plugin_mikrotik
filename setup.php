@@ -373,17 +373,17 @@ function mikrotik_config_settings(): void {
 	$tabs['mikrotik']     = __('MikroTik', 'mikrotik');
 	$settings['mikrotik'] = [
 		'mikrotik_header' => [
-			'friendly_name' => __('MikroTik General Settings', 'mikrotik'),
+			'friendly_name' => __('General Settings', 'mikrotik'),
 			'method'        => 'spacer',
 			],
 		'mikrotik_enabled' => [
-			'friendly_name' => __('MikroTik Poller Enabled', 'mikrotik'),
+			'friendly_name' => __('Poller Enabled', 'mikrotik'),
 			'description'   => __('Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function.', 'mikrotik'),
 			'method'        => 'checkbox',
 			'default'       => 'on'
 			],
 		'mikrotik_api_enabled' => [
-			'friendly_name' => __('MikroTik API Polling Enabled', 'mikrotik'),
+			'friendly_name' => __('API Polling Enabled', 'mikrotik'),
 			'description'   => __('Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don\'t have access to the MikroTik API, uncheck this option.', 'mikrotik'),
 			'method'        => 'checkbox',
 			'default'       => 'on'
@@ -436,7 +436,7 @@ function mikrotik_config_settings(): void {
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_dhcp_header' => [
-			'friendly_name' => __('DHCP/DNS/List Settings', 'mikrotik'),
+			'friendly_name' => __('Data Retention', 'mikrotik'),
 			'method'        => 'spacer',
 			],
 		'mikrotik_dhcp_retention' => [
@@ -456,6 +456,13 @@ function mikrotik_config_settings(): void {
 		'mikrotik_list_retention' => [
 			'friendly_name' => __('Address List Retention', 'mikrotik'),
 			'description'   => __('How long would you like to retain Address List history?', 'mikrotik'),
+			'method'        => 'drop_array',
+			'default'       => '2419200',
+			'array'         => $mikrotik_retention
+			],
+		'mikrotik_wireless_reg_retention' => [
+			'friendly_name' => __('Wireless Registration Retention', 'mikrotik'),
+			'description'   => __('How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well.', 'mikrotik'),
 			'method'        => 'drop_array',
 			'default'       => '2419200',
 			'array'         => $mikrotik_retention
@@ -502,7 +509,7 @@ function mikrotik_config_settings(): void {
 				],
 			],
 		'mikrotik_frequencies' => [
-			'friendly_name' => __('MikroTik Device Collection Frequencies', 'mikrotik'),
+			'friendly_name' => __('Device Collection Frequencies', 'mikrotik'),
 			'method'        => 'spacer',
 			],
 		'mikrotik_storage_freq' => [
@@ -534,7 +541,7 @@ function mikrotik_config_settings(): void {
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_queue_tree' => [
-			'friendly_name' => __('MikroTik Queue/Tree Collection Frequencies', 'mikrotik'),
+			'friendly_name' => __('Queue/Tree Collection Frequencies', 'mikrotik'),
 			'method'        => 'spacer',
 			],
 		'mikrotik_queues_freq' => [
@@ -552,7 +559,7 @@ function mikrotik_config_settings(): void {
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_wireless' => [
-			'friendly_name' => __('MikroTik Wireless Collection Frequencies', 'mikrotik'),
+			'friendly_name' => __('Wireless Collection Frequencies', 'mikrotik'),
 			'method'        => 'spacer',
 			],
 		'mikrotik_users_freq' => [
