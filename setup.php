@@ -563,28 +563,28 @@ function mikrotik_config_settings(): void {
 			'method'        => 'spacer',
 			],
 		'mikrotik_users_freq' => [
-			'friendly_name' => __('Wireless HotSpot Users Frequency', 'mikrotik'),
+			'friendly_name' => __('HotSpot Users Frequency', 'mikrotik'),
 			'description'   => __('How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
 			'method'        => 'drop_array',
 			'default'       => '300',
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_wireless_aps_freq' => [
-			'friendly_name' => __('Wireless Access Point Frequency', 'mikrotik'),
+			'friendly_name' => __('Access Point Frequency', 'mikrotik'),
 			'description'   => __('How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
 			'method'        => 'drop_array',
 			'default'       => '300',
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_wireless_reg_freq' => [
-			'friendly_name' => __('Wireless Registrations Frequency', 'mikrotik'),
+			'friendly_name' => __('Registrations Frequency', 'mikrotik'),
 			'description'   => __('How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
 			'method'        => 'drop_array',
 			'default'       => '300',
 			'array'         => $mikrotik_frequencies
 			],
 		'mikrotik_wireless_sta_freq' => [
-			'friendly_name' => __('Wireless Stations Frequency', 'mikrotik'),
+			'friendly_name' => __('Stations Frequency', 'mikrotik'),
 			'description'   => __('How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
 			'method'        => 'drop_array',
 			'default'       => '300',
