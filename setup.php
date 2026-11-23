@@ -348,12 +348,13 @@ function mikrotik_poller_bottom(): void {
  *
  * @param string $name        The translated option label.
  * @param string $description The translated option description.
- * @param array  $options     The value => label option list.
+ * @param array|null $options The value => label option list (set by
+ *                            mikrotik_config_arrays()).
  * @param string $default     The default option value.
  *
  * @return array The Cacti settings entry.
  */
-function mikrotik_drop_setting(string $name, string $description, array $options, string $default): array {
+function mikrotik_drop_setting(string $name, string $description, ?array $options, string $default): array {
 	return [
 		'friendly_name' => $name,
 		'description'   => $description,
