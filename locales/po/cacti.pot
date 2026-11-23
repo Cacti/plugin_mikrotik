@@ -662,10 +662,6 @@ msgid "Signal (dBm)"
 msgstr ""
 
 #: mikrotik.php
-msgid "Signal to Noise"
-msgstr ""
-
-#: mikrotik.php
 msgid "No Wireless Registrations Found"
 msgstr ""
 

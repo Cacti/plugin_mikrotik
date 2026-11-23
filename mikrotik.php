@@ -3576,7 +3576,6 @@ function mikrotik_wireless_regs(): void {
 		'TxRate'            => ['display' => __('Tx Rate', 'mikrotik'),         'sort' => 'DESC', 'align' => 'right'],
 		'Uptime'            => ['display' => __('Uptime(d:h:m)', 'mikrotik'),   'sort' => 'DESC', 'align' => 'right'],
 		'Strength'          => ['display' => __('Signal (dBm)', 'mikrotik'),    'sort' => 'DESC', 'align' => 'right'],
-		'SignalToNoise'     => ['display' => __('Signal to Noise', 'mikrotik'), 'sort' => 'DESC', 'align' => 'right'],
 		'last_seen'         => ['display' => __('Last Seen', 'mikrotik'),       'sort' => 'ASC',  'align' => 'right']
 	];
 
@@ -3622,7 +3621,6 @@ function mikrotik_wireless_regs(): void {
 			print "<td class='right'>" . mikrotik_memory($row['TxRate']) . '</td>';
 			print "<td class='right'>" . mikrotik_format_uptime((int) $days, (int) $hours, (int) $minutes) . '</td>';
 			print "<td class='right'>" . html_escape($row['Strength']) . '</td>';
-			print "<td class='right'>" . html_escape($row['SignalToNoise']) . '</td>';
 			print "<td class='right'>" . filter_value($row['last_seen'], get_request_var('filter')) . '</td>';
 
 			form_end_row();
