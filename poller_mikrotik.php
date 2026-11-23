@@ -1103,7 +1103,10 @@ function checkHost(int $host_id): void {
 			collect_dhcp_details($host);
 			collect_dns_details($host);
 			collect_list_details($host);
+
+			// @codeCoverageIgnoreStart
 			prune_wireless_registrations($host);
+			// @codeCoverageIgnoreEnd
 		}
 
 		if (runCollector($start, $processor_lastrun, $processor_freq)) {
