@@ -131,8 +131,8 @@ test('wireless registration uptime is graphed in seconds', function () {
 	expect(ss_mikrotik_wireless_reg_uptime('1:2:3:4'))->toBe('93784');
 	expect(ss_mikrotik_wireless_reg_uptime('02:03:04.50'))->toBe('7384');
 	expect(ss_mikrotik_wireless_reg_uptime('12050'))->toBe('120');
-	expect(ss_mikrotik_wireless_reg_uptime(''))->toBe('U');
-	expect(ss_mikrotik_wireless_reg_uptime(false))->toBe('U');
+	expect(ss_mikrotik_wireless_reg_uptime(''))->toBe('0');
+	expect(ss_mikrotik_wireless_reg_uptime(false))->toBe('0');
 });
 
 test('data query backends return unknown when the plugin is not installed', function () {
@@ -164,7 +164,7 @@ test('interface counters come from the cur column of an allowed field only', fun
 	}, '1500');
 
 	expect(ss_mikrotik_interfaces(1, 'get', 'RxBytes', '3'))->toBe('1500');
-	expect(ss_mikrotik_interfaces(1, 'get', 'RxBytes', '9'))->toBe('U');
+	expect(ss_mikrotik_interfaces(1, 'get', 'RxBytes', '9'))->toBe('0');
 	expect(ss_mikrotik_interfaces(1, 'get', 'InOctets', '3'))->toBe('U');
 	expect(ss_mikrotik_interfaces(1, 'get', 'x`y', '3'))->toBe('U');
 });
@@ -186,6 +186,6 @@ test('queue trees are indexed without spaces and resolve every stored name form'
 	}, '42');
 
 	expect(ss_mikrotik_qtrees(1, 'get', 'qtBytes', 'customer_tree'))->toBe('42');
-	expect(ss_mikrotik_qtrees(1, 'get', 'qtBytes', 'gone'))->toBe('U');
+	expect(ss_mikrotik_qtrees(1, 'get', 'qtBytes', 'gone'))->toBe('0');
 	expect(ss_mikrotik_qtrees(1, 'get', 'qtFoo', 'customer_tree'))->toBe('U');
 });

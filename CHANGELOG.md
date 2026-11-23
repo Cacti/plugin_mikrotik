@@ -4,6 +4,7 @@
 Documentation update (unreleased): Refresh README release/source compatibility,
 installation guidance and source-checked behavior.
 
+* issue: Return 0 rather than U from `ss_mikrotik_interfaces.php`, `ss_mikrotik_queues.php`, `ss_mikrotik_qtrees.php`, `ss_mikrotik_qusers.php` and `ss_mikrotik_wireless_reg.php` when a row is missing or a value is not numeric, to prevent excess logging (matches Cacti 1.2.x #8915)
 * issue: Distinguish RouterOS connection and TLS failures from login failures in the poller log
 * security: Verify API TLS certificates and hostnames by default, with an explicit compatibility setting for unverified certificates
 * issue: Make the `scripts/ss_mikrotik_*.php` data collection scripts identical to the copies shipped with Cacti 1.2.x and develop. `ss_mikrotik_health.php` accepts the `Hl*` column names the health graph templates pass again, reads the RouterOS 7 gauge sensor from `plugin_mikrotik_health_sensors` when that table exists (schema 3.4) and falls back to the legacy column for pre RouterOS 7 devices and older plugin versions; `ss_mikrotik_interfaces.php` is indexed by the interface index used by the shipped templates and reads the real `cur*` counter columns; every script returns U when the plugin is not installed or there is no data, validates the requested column against an allow-list, and returns the `num_indexes` count; `ss_mikrotik_wireless_reg.php` graphs the registration uptime in seconds for both the SNMP and RouterOS API collectors
