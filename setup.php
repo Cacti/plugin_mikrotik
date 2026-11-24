@@ -207,6 +207,10 @@ function mikrotik_check_upgrade(): void {
 			db_execute("ALTER TABLE plugin_mikrotik_credentials ADD COLUMN `ssl` varchar(3) NOT NULL default '' AFTER `password`");
 		}
 
+		if (!db_column_exists('plugin_mikrotik_mac2hostname', 'source')) {
+			db_execute("ALTER TABLE plugin_mikrotik_mac2hostname ADD COLUMN `source` tinyint unsigned NOT NULL default '0' AFTER `hostname`");
+		}
+
 		// @codeCoverageIgnoreStart
 		if (!db_table_exists('plugin_mikrotik_dhcp') ||
 			!db_table_exists('plugin_mikrotik_dns') ||
@@ -338,6 +342,61 @@ function mikrotik_poller_bottom(): void {
 }
 
 /**
+ * Builds a section heading (spacer) entry for the MikroTik settings tab.
+ *
+ * @param string $name The translated section heading.
+ *
+ * @return array The Cacti settings entry.
+ */
+function mikrotik_spacer_setting(string $name): array {
+	return [
+		'friendly_name' => $name,
+		'method'        => 'spacer'
+	];
+}
+
+/**
+ * Builds a checkbox settings entry for the MikroTik settings tab.
+ *
+ * @param string $name        The translated option label.
+ * @param string $description The translated option description.
+ * @param string $default     'on' when checked by default, otherwise ''.
+ *
+ * @return array The Cacti settings entry.
+ */
+function mikrotik_checkbox_setting(string $name, string $description, string $default): array {
+	return [
+		'friendly_name' => $name,
+		'description'   => $description,
+		'method'        => 'checkbox',
+		'default'       => $default
+	];
+}
+
+/**
+ * Builds a drop-down settings entry for the MikroTik settings tab, used
+ * for the collection frequency and data retention options, which share
+ * the same structure and differ only in labels, options and default.
+ *
+ * @param string $name        The translated option label.
+ * @param string $description The translated option description.
+ * @param array|null $options The value => label option list (set by
+ *                            mikrotik_config_arrays()).
+ * @param string $default     The default option value.
+ *
+ * @return array The Cacti settings entry.
+ */
+function mikrotik_drop_setting(string $name, string $description, ?array $options, string $default): array {
+	return [
+		'friendly_name' => $name,
+		'description'   => $description,
+		'method'        => 'drop_array',
+		'default'       => $default,
+		'array'         => $options
+	];
+}
+
+/**
  * Config_settings hook: registers this plugin's 'MikroTik' settings tab
  * and all of its configuration fields (poller enable toggle, row-count/
  * frequency/retention defaults, and collection intervals). Called by
@@ -368,40 +427,12 @@ function mikrotik_config_settings(): void {
 
 	$tabs['mikrotik']     = __('MikroTik', 'mikrotik');
 	$settings['mikrotik'] = [
-		'mikrotik_header' => [
-			'friendly_name' => __('MikroTik General Settings', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_enabled' => [
-			'friendly_name' => __('MikroTik Poller Enabled', 'mikrotik'),
-			'description'   => __('Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function.', 'mikrotik'),
-			'method'        => 'checkbox',
-			'default'       => 'on'
-			],
-		'mikrotik_api_enabled' => [
-			'friendly_name' => __('MikroTik API Polling Enabled', 'mikrotik'),
-			'description'   => __('Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don\'t have access to the MikroTik API, uncheck this option.', 'mikrotik'),
-			'method'        => 'checkbox',
-			'default'       => 'on'
-			],
-		'mikrotik_api_allow_unverified_tls' => [
-			'friendly_name' => __('Allow Unverified API TLS Certificates', 'mikrotik'),
-			'description'   => __('Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible.', 'mikrotik'),
-			'method'        => 'checkbox',
-			'default'       => ''
-			],
-		'mikrotik_autodiscovery' => [
-			'friendly_name' => __('Automatically Discover Cacti Devices', 'mikrotik'),
-			'description'   => __('Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?', 'mikrotik'),
-			'method'        => 'checkbox',
-			'default'       => 'on'
-			],
-		'mikrotik_autopurge' => [
-			'friendly_name' => __('Automatically Purge Devices', 'mikrotik'),
-			'description'   => __('Do you wish to automatically purge devices that are removed from the Cacti system?', 'mikrotik'),
-			'method'        => 'checkbox',
-			'default'       => 'on'
-			],
+		'mikrotik_header' => mikrotik_spacer_setting(__('General Settings', 'mikrotik')),
+		'mikrotik_enabled' => mikrotik_checkbox_setting(__('Poller Enabled', 'mikrotik'), __('Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function.', 'mikrotik'), 'on'),
+		'mikrotik_api_enabled' => mikrotik_checkbox_setting(__('API Polling Enabled', 'mikrotik'), __('Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don\'t have access to the MikroTik API, uncheck this option.', 'mikrotik'), 'on'),
+		'mikrotik_api_allow_unverified_tls' => mikrotik_checkbox_setting(__('Allow Unverified API TLS Certificates', 'mikrotik'), __('Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible.', 'mikrotik'), ''),
+		'mikrotik_autodiscovery' => mikrotik_checkbox_setting(__('Automatically Discover Cacti Devices', 'mikrotik'), __('Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?', 'mikrotik'), 'on'),
+		'mikrotik_autopurge' => mikrotik_checkbox_setting(__('Automatically Purge Devices', 'mikrotik'), __('Do you wish to automatically purge devices that are removed from the Cacti system?', 'mikrotik'), 'on'),
 		'mikrotik_concurrent_processes' => [
 			'friendly_name' => __('Maximum Concurrent Collectors', 'mikrotik'),
 			'description'   => __('What is the maximum number of concurrent collector process that you want to run at one time?', 'mikrotik'),
@@ -420,46 +451,14 @@ function mikrotik_config_settings(): void {
 				50 => __('%d Processes', 50, 'mikrotik')
 				]
 			],
-		'mikrotik_autodiscovery_header' => [
-			'friendly_name' => __('Auto Discovery Settings', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_autodiscovery_freq' => [
-			'friendly_name' => __('Auto Discovery Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to look for new Cacti Devices?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_dhcp_header' => [
-			'friendly_name' => __('DHCP/DNS/List Settings', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_dhcp_retention' => [
-			'friendly_name' => __('DHCP Retention', 'mikrotik'),
-			'description'   => __('How long would you like to retain DHCP IP registration history?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '2419200',
-			'array'         => $mikrotik_retention
-			],
-		'mikrotik_dns_retention' => [
-			'friendly_name' => __('DNS Retention', 'mikrotik'),
-			'description'   => __('How long would you like to retain DNS Cache history?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '2419200',
-			'array'         => $mikrotik_retention
-			],
-		'mikrotik_list_retention' => [
-			'friendly_name' => __('Address List Retention', 'mikrotik'),
-			'description'   => __('How long would you like to retain Address List history?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '2419200',
-			'array'         => $mikrotik_retention
-			],
-		'mikrotik_automation_header' => [
-			'friendly_name' => __('Device Graph Automation', 'mikrotik'),
-			'method'        => 'spacer',
-			],
+		'mikrotik_autodiscovery_header' => mikrotik_spacer_setting(__('Auto Discovery Settings', 'mikrotik')),
+		'mikrotik_autodiscovery_freq' => mikrotik_drop_setting(__('Auto Discovery Frequency', 'mikrotik'), __('How often do you want to look for new Cacti Devices?', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_dhcp_header' => mikrotik_spacer_setting(__('Data Retention', 'mikrotik')),
+		'mikrotik_dhcp_retention' => mikrotik_drop_setting(__('DHCP Retention', 'mikrotik'), __('How long would you like to retain DHCP IP registration history?', 'mikrotik'), $mikrotik_retention, '2419200'),
+		'mikrotik_dns_retention' => mikrotik_drop_setting(__('DNS Retention', 'mikrotik'), __('How long would you like to retain DNS Cache history?', 'mikrotik'), $mikrotik_retention, '2419200'),
+		'mikrotik_list_retention' => mikrotik_drop_setting(__('Address List Retention', 'mikrotik'), __('How long would you like to retain Address List history?', 'mikrotik'), $mikrotik_retention, '2419200'),
+		'mikrotik_wireless_reg_retention' => mikrotik_drop_setting(__('Wireless Registration Retention', 'mikrotik'), __('How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well.', 'mikrotik'), $mikrotik_retention, '2419200'),
+		'mikrotik_automation_header' => mikrotik_spacer_setting(__('Device Graph Automation', 'mikrotik')),
 		'mikrotik_automation_frequency' => [
 			'friendly_name' => __('Automatically Add New Graphs', 'mikrotik'),
 			'description'   => __('How often do you want to check for new objects to graph?', 'mikrotik'),
@@ -497,88 +496,19 @@ function mikrotik_config_settings(): void {
 				'86400' => __('%d Day', 1, 'mikrotik')
 				],
 			],
-		'mikrotik_frequencies' => [
-			'friendly_name' => __('MikroTik Device Collection Frequencies', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_storage_freq' => [
-			'friendly_name' => __('Storage Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan Storage Statistics?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_processor_freq' => [
-			'friendly_name' => __('Processor Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan Device Processor Statistics?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_interfaces_freq' => [
-			'friendly_name' => __('Interfaces Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the Interfaces?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_dns_dhcp_list_freq' => [
-			'friendly_name' => __('DNS/DHCP/List Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the DNS/DHCP/Address Lists?', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_queue_tree' => [
-			'friendly_name' => __('MikroTik Queue/Tree Collection Frequencies', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_queues_freq' => [
-			'friendly_name' => __('Simple Queue/PPPoe Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_trees_freq' => [
-			'friendly_name' => __('Queue Trees Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_wireless' => [
-			'friendly_name' => __('MikroTik Wireless Collection Frequencies', 'mikrotik'),
-			'method'        => 'spacer',
-			],
-		'mikrotik_users_freq' => [
-			'friendly_name' => __('Wireless HotSpot Users Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_wireless_aps_freq' => [
-			'friendly_name' => __('Wireless Access Point Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_wireless_reg_freq' => [
-			'friendly_name' => __('Wireless Registrations Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			],
-		'mikrotik_wireless_sta_freq' => [
-			'friendly_name' => __('Wireless Stations Frequency', 'mikrotik'),
-			'description'   => __('How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'),
-			'method'        => 'drop_array',
-			'default'       => '300',
-			'array'         => $mikrotik_frequencies
-			]
+		'mikrotik_frequencies' => mikrotik_spacer_setting(__('Device Collection Frequencies', 'mikrotik')),
+		'mikrotik_storage_freq' => mikrotik_drop_setting(__('Storage Frequency', 'mikrotik'), __('How often do you want to scan Storage Statistics?', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_processor_freq' => mikrotik_drop_setting(__('Processor Frequency', 'mikrotik'), __('How often do you want to scan Device Processor Statistics?', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_interfaces_freq' => mikrotik_drop_setting(__('Interfaces Frequency', 'mikrotik'), __('How often do you want to scan the Interfaces?', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_dns_dhcp_list_freq' => mikrotik_drop_setting(__('DNS/DHCP/List Frequency', 'mikrotik'), __('How often do you want to scan the DNS/DHCP/Address Lists?', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_queue_tree' => mikrotik_spacer_setting(__('Queue/Tree Collection Frequencies', 'mikrotik')),
+		'mikrotik_queues_freq' => mikrotik_drop_setting(__('Simple Queue/PPPoe Frequency', 'mikrotik'), __('How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_trees_freq' => mikrotik_drop_setting(__('Queue Trees Frequency', 'mikrotik'), __('How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_wireless' => mikrotik_spacer_setting(__('Wireless Collection Frequencies', 'mikrotik')),
+		'mikrotik_users_freq' => mikrotik_drop_setting(__('HotSpot Users Frequency', 'mikrotik'), __('How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_wireless_aps_freq' => mikrotik_drop_setting(__('Access Point Frequency', 'mikrotik'), __('How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_wireless_reg_freq' => mikrotik_drop_setting(__('Registrations Frequency', 'mikrotik'), __('How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300'),
+		'mikrotik_wireless_sta_freq' => mikrotik_drop_setting(__('Stations Frequency', 'mikrotik'), __('How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature.', 'mikrotik'), $mikrotik_frequencies, '300')
 		];
 }
 

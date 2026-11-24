@@ -35,6 +35,7 @@ mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_apply_ssl');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_version_is_seven_plus');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_counter_pair');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_clamp_uint32');
+mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_clean_dns_name');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_api_uptime_dhms');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_unit_label');
 mikrotik_test_load_function('poller_mikrotik.php', 'mikrotik_gauge_scale');
@@ -261,6 +262,28 @@ describe('mikrotik_api_counter_pair()', function () {
 	it('defaults non-numeric or empty components to zero', function () {
 		expect(mikrotik_api_counter_pair(''))->toBe([0, 0]);
 		expect(mikrotik_api_counter_pair('abc,def'))->toBe([0, 0]);
+	});
+});
+
+describe('mikrotik_clean_dns_name()', function () {
+	it('lower-cases a resolved name and strips the trailing dot', function () {
+		expect(mikrotik_clean_dns_name('CIQBOX01.LAN.', '192.168.11.82'))->toBe('ciqbox01.lan');
+	});
+
+	it('rejects the lookup failure sentinels', function () {
+		expect(mikrotik_clean_dns_name('192.168.11.3', '192.168.11.3'))->toBe('');
+		expect(mikrotik_clean_dns_name('ERROR', '192.168.11.3'))->toBe('');
+		expect(mikrotik_clean_dns_name('timed_out', '192.168.11.3'))->toBe('');
+		expect(mikrotik_clean_dns_name(false, '192.168.11.3'))->toBe('');
+	});
+
+	it('rejects addresses and malformed names', function () {
+		expect(mikrotik_clean_dns_name('10.0.0.1', '192.168.11.3'))->toBe('');
+		expect(mikrotik_clean_dns_name('bad name<script>', '192.168.11.3'))->toBe('');
+	});
+
+	it('truncates to the mac2hostname column width', function () {
+		expect(strlen(mikrotik_clean_dns_name(str_repeat('a', 80) . '.lan', '192.168.11.3')))->toBe(64);
 	});
 });
 

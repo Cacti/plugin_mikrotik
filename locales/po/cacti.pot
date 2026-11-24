@@ -658,7 +658,7 @@ msgid "MAC Address"
 msgstr ""
 
 #: mikrotik.php
-msgid "Signal to Noise"
+msgid "Signal (dBm)"
 msgstr ""
 
 #: mikrotik.php
@@ -799,11 +799,11 @@ msgid "MikroTik"
 msgstr ""
 
 #: setup.php
-msgid "MikroTik General Settings"
+msgid "General Settings"
 msgstr ""
 
 #: setup.php
-msgid "MikroTik Poller Enabled"
+msgid "Poller Enabled"
 msgstr ""
 
 #: setup.php
@@ -811,7 +811,7 @@ msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, t
 msgstr ""
 
 #: setup.php
-msgid "MikroTik API Polling Enabled"
+msgid "API Polling Enabled"
 msgstr ""
 
 #: setup.php
@@ -865,7 +865,7 @@ msgid "How often do you want to look for new Cacti Devices?"
 msgstr ""
 
 #: setup.php
-msgid "DHCP/DNS/List Settings"
+msgid "Data Retention"
 msgstr ""
 
 #: setup.php
@@ -890,6 +890,14 @@ msgstr ""
 
 #: setup.php
 msgid "How long would you like to retain Address List history?"
+msgstr ""
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr ""
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
 msgstr ""
 
 #: setup.php
@@ -950,7 +958,7 @@ msgid "How long should an excluded user's data be preserved after they have disc
 msgstr ""
 
 #: setup.php
-msgid "MikroTik Device Collection Frequencies"
+msgid "Device Collection Frequencies"
 msgstr ""
 
 #: setup.php
@@ -986,7 +994,7 @@ msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr ""
 
 #: setup.php
-msgid "MikroTik Queue/Tree Collection Frequencies"
+msgid "Queue/Tree Collection Frequencies"
 msgstr ""
 
 #: setup.php
@@ -1006,11 +1014,11 @@ msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to
 msgstr ""
 
 #: setup.php
-msgid "MikroTik Wireless Collection Frequencies"
+msgid "Wireless Collection Frequencies"
 msgstr ""
 
 #: setup.php
-msgid "Wireless HotSpot Users Frequency"
+msgid "HotSpot Users Frequency"
 msgstr ""
 
 #: setup.php
@@ -1018,7 +1026,7 @@ msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabl
 msgstr ""
 
 #: setup.php
-msgid "Wireless Access Point Frequency"
+msgid "Access Point Frequency"
 msgstr ""
 
 #: setup.php
@@ -1026,7 +1034,7 @@ msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disa
 msgstr ""
 
 #: setup.php
-msgid "Wireless Registrations Frequency"
+msgid "Registrations Frequency"
 msgstr ""
 
 #: setup.php
@@ -1034,7 +1042,7 @@ msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disa
 msgstr ""
 
 #: setup.php
-msgid "Wireless Stations Frequency"
+msgid "Stations Frequency"
 msgstr ""
 
 #: setup.php

@@ -45,4 +45,10 @@ it('runs the schema upgrade and prune, then updates plugin_config on a version d
 	}));
 
 	expect($updates)->toHaveCount(1);
+
+	$source_alters = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute' && stripos($call['sql'], 'ALTER TABLE plugin_mikrotik_mac2hostname ADD COLUMN `source`') !== false;
+	});
+
+	expect($source_alters)->toHaveCount(1);
 });

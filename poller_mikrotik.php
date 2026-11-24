@@ -1103,6 +1103,10 @@ function checkHost(int $host_id): void {
 			collect_dhcp_details($host);
 			collect_dns_details($host);
 			collect_list_details($host);
+
+			// @codeCoverageIgnoreStart
+			prune_wireless_registrations($host);
+			// @codeCoverageIgnoreEnd
 		}
 
 		if (runCollector($start, $processor_lastrun, $processor_freq)) {
@@ -1135,6 +1139,7 @@ function checkHost(int $host_id): void {
 		if (runCollector($start, $wireless_reg_lastrun, $wireless_reg_freq)) {
 			if (!$use_wireless_api || !collect_wireless_reg_api($host)) {
 				collect_wireless_reg($host);
+				mikrotik_resolve_wireless_client_names($host);
 			}
 		}
 		// @codeCoverageIgnoreEnd
@@ -2037,6 +2042,91 @@ function collect_list_details(array &$host): void {
 
 		$api->disconnect();
 	}
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Removes a device's wireless registrations that have not been seen for
+ * longer than the 'Wireless Registration Retention' setting, together
+ * with the Graphs and Data Sources created for those registrations
+ * (matched by device, the registration's MAC address snmp_index, and the
+ * wireless registration graph templates). Called from checkHost() with
+ * the DHCP/DNS/Address List collectors, which prune their own history.
+ *
+ * @param array $host The Cacti host row being collected.
+ *
+ * @return void
+ *
+ * @global array $wireless_reg_hashes The wireless registration graph
+ *                                    template hashes.
+ */
+function prune_wireless_registrations(array $host): void {
+	// @codeCoverageIgnoreStart
+	// Live database/graph API maintenance; not runnable in the isolated unit process.
+	global $config, $wireless_reg_hashes;
+
+	$retention = (int) read_config_option('mikrotik_wireless_reg_retention');
+
+	if ($retention <= 0) {
+		return;
+	}
+
+	$macs = array_rekey(db_fetch_assoc_prepared('SELECT `index`
+		FROM plugin_mikrotik_wireless_registrations
+		WHERE host_id = ?
+		AND UNIX_TIMESTAMP(last_seen) < UNIX_TIMESTAMP() - ?',
+		[$host['id'], $retention]), 'index', 'index');
+
+	if (!cacti_sizeof($macs)) {
+		return;
+	}
+
+	$mac_params  = array_values($macs);
+	$mac_holders = implode(',', array_fill(0, count($mac_params), '?'));
+
+	if (cacti_sizeof($wireless_reg_hashes)) {
+		include_once($config['base_path'] . '/lib/api_graph.php');
+		include_once($config['base_path'] . '/lib/api_data_source.php');
+
+		$hash_holders = implode(',', array_fill(0, count($wireless_reg_hashes), '?'));
+
+		$graphs = db_fetch_assoc_prepared("SELECT gl.id, gl.snmp_query_id
+			FROM graph_local AS gl
+			INNER JOIN graph_templates AS gt
+			ON gl.graph_template_id = gt.id
+			WHERE gl.host_id = ?
+			AND gt.hash IN ($hash_holders)
+			AND gl.snmp_index IN ($mac_holders)",
+			array_merge([$host['id']], array_values($wireless_reg_hashes), $mac_params));
+
+		if (cacti_sizeof($graphs)) {
+			$graph_ids = array_column($graphs, 'id');
+			$query_ids = array_values(array_unique(array_column($graphs, 'snmp_query_id')));
+			$q_holders = implode(',', array_fill(0, count($query_ids), '?'));
+
+			$data_sources = array_column(db_fetch_assoc_prepared("SELECT id
+				FROM data_local
+				WHERE host_id = ?
+				AND snmp_query_id IN ($q_holders)
+				AND snmp_index IN ($mac_holders)",
+				array_merge([$host['id']], $query_ids, $mac_params)), 'id');
+
+			if (cacti_sizeof($data_sources)) {
+				api_data_source_remove_multi($data_sources);
+				api_plugin_hook_function('data_source_remove', $data_sources);
+			}
+
+			api_graph_remove_multi($graph_ids);
+			api_plugin_hook_function('graphs_remove', $graph_ids);
+
+			cacti_log('MIKROTIK: Device[' . $host['id'] . '] removed ' . cacti_sizeof($graph_ids) . ' Graph(s) and ' . cacti_sizeof($data_sources) . ' Data Source(s) for expired Wireless Registrations', false, 'SYSTEM');
+		}
+	}
+
+	db_execute_prepared("DELETE FROM plugin_mikrotik_wireless_registrations
+		WHERE host_id = ?
+		AND `index` IN ($mac_holders)",
+		array_merge([$host['id']], $mac_params));
 	// @codeCoverageIgnoreEnd
 }
 
@@ -2998,7 +3088,9 @@ function collect_wireless_reg_api(array &$host): bool {
 		WHERE host_id = ?',
 		[$host['id']]);
 
-	$sql = [];
+	$sql       = [];
+	$names     = [];
+	$addresses = [];
 
 	if (cacti_sizeof($array)) {
 		foreach ($array as $row) {
@@ -3009,6 +3101,16 @@ function collect_wireless_reg_api(array &$host): bool {
 			// Store the MAC verbatim so it joins the DHCP-populated
 			// plugin_mikrotik_mac2hostname table for the client name lookup.
 			$index = $row['mac-address'];
+
+			// Routers running the DHCP server report the client's lease
+			// details in the registration table; access points do not.
+			if (($row['dhcp-hostname'] ?? '') != '') {
+				$names[] = '(' . db_qstr($index) . ', ' . db_qstr(substr($row['dhcp-hostname'], 0, 64)) . ')';
+			}
+
+			if (($row['dhcp-address'] ?? '') != '') {
+				$addresses[strtoupper($index)] = $row['dhcp-address'];
+			}
 
 			[$txBytes, $rxBytes]     = mikrotik_api_counter_pair($row['bytes'] ?? '');
 			[$txPackets, $rxPackets] = mikrotik_api_counter_pair($row['packets'] ?? '');
@@ -3036,12 +3138,189 @@ function collect_wireless_reg_api(array &$host): bool {
 				TxBytes=VALUES(TxBytes), RxBytes=VALUES(RxBytes),
 				TxPackets=VALUES(TxPackets), RxPackets=VALUES(RxPackets),
 				Strength=VALUES(Strength), TxRate=VALUES(TxRate), RxRate=VALUES(RxRate),
-				Uptime=VALUES(Uptime), present=1, last_seen=NOW()');
+				Uptime=VALUES(Uptime), SignalToNoise=NULL, present=1, last_seen=NOW()');
+	}
+
+	if (cacti_sizeof($names)) {
+		db_execute('REPLACE INTO plugin_mikrotik_mac2hostname
+			(mac_address, hostname)
+			VALUES ' . implode(', ', $names));
 	}
 
 	$api->disconnect();
 
+	mikrotik_resolve_wireless_client_names($host, $addresses);
+
 	return true;
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Normalizes a reverse-DNS answer into a display hostname, rejecting the
+ * failure sentinels returned by gethostbyaddr()/get_dns_from_ip() (the
+ * IP itself, 'ERROR', 'timed_out', false) and anything that is not a
+ * plausible hostname. Called from mikrotik_reverse_dns().
+ *
+ * @param mixed  $name The raw lookup result.
+ * @param string $ip   The IP address that was looked up.
+ *
+ * @return string The lower-cased hostname (max 64 chars), or '' when unusable.
+ */
+function mikrotik_clean_dns_name($name, string $ip): string {
+	// @codeCoverageIgnoreStart
+	// Unit-tested through tests/Unit/PollerParsingTest.php, which loads it in
+	// isolation (eval), so its coverage is not attributed to this file.
+	if (!is_string($name)) {
+		return '';
+	}
+
+	$name = strtolower(rtrim(trim($name), '.'));
+
+	if ($name === '' || $name === strtolower($ip) || $name === 'error' || $name === 'timed_out') {
+		return '';
+	}
+
+	if (filter_var($name, FILTER_VALIDATE_IP) !== false || !preg_match('/^[a-z0-9_]([a-z0-9_.-]*[a-z0-9_])?$/', $name)) {
+		return '';
+	}
+
+	return substr($name, 0, 64);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Resolves an IPv4 address to a hostname through reverse DNS, using the
+ * DNS servers configured in Cacti's settings (with their timeout) when
+ * present, otherwise the system resolver.
+ *
+ * @param string $ip The IPv4 address to look up.
+ *
+ * @return string The hostname, or '' when it does not resolve.
+ */
+function mikrotik_reverse_dns(string $ip): string {
+	// @codeCoverageIgnoreStart
+	if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
+		return '';
+	}
+
+	$timeout = (int) read_config_option('settings_dns_timeout');
+	$timeout = $timeout > 0 ? $timeout : 500;
+	$servers = array_filter([
+		trim((string) read_config_option('settings_dns_primary')),
+		trim((string) read_config_option('settings_dns_secondary')),
+	]);
+
+	if (cacti_sizeof($servers) && function_exists('get_dns_from_ip')) {
+		foreach ($servers as $server) {
+			$name = mikrotik_clean_dns_name(get_dns_from_ip($ip, $server, $timeout), $ip);
+
+			if ($name !== '') {
+				return $name;
+			}
+		}
+
+		return '';
+	}
+
+	return mikrotik_clean_dns_name(@gethostbyaddr($ip), $ip);
+	// @codeCoverageIgnoreEnd
+}
+
+/**
+ * Fills in client names for a device's present wireless registrations
+ * that have no plugin_mikrotik_mac2hostname entry (no DHCP host-name from
+ * any device, e.g. clients of an access point or clients that send no
+ * host-name). The client's IP comes from the registration table's
+ * 'dhcp-address' (routers) or a currently bound, enabled DHCP lease seen
+ * in the latest collection, and the name from the DNS cache collected
+ * from the same device that supplied that address, falling back to
+ * reverse DNS. Resolved names are cached in plugin_mikrotik_mac2hostname
+ * with source 1 (DNS), so DHCP-provided names (source 0) always take
+ * precedence in the UI regardless of write order.
+ *
+ * @param array $host      The Cacti host row being collected.
+ * @param array $addresses Optional map of upper-cased MAC => IP address
+ *                         already known from this device's registration
+ *                         table.
+ *
+ * @return void
+ */
+function mikrotik_resolve_wireless_client_names(array $host, array $addresses = []): void {
+	// @codeCoverageIgnoreStart
+	// The source column arrives with the 3.5 schema upgrade; until it has run,
+	// skip the fallback rather than cache names that would outrank DHCP ones.
+	if (!db_column_exists('plugin_mikrotik_mac2hostname', 'source')) {
+		return;
+	}
+
+	$clients = db_fetch_assoc_prepared('SELECT mtwr.`index` AS mac
+		FROM plugin_mikrotik_wireless_registrations AS mtwr
+		LEFT JOIN plugin_mikrotik_mac2hostname AS m2h
+		ON m2h.mac_address = mtwr.`index`
+		AND m2h.hostname != \'\'
+		WHERE mtwr.host_id = ?
+		AND mtwr.present = 1
+		AND m2h.mac_address IS NULL',
+		[$host['id']]);
+
+	$names = [];
+
+	foreach ($clients as $client) {
+		$mac = strtoupper($client['mac']);
+
+		if (isset($addresses[$mac])) {
+			$ip      = $addresses[$mac];
+			$host_id = $host['id'];
+		} else {
+			$lease = db_fetch_row_prepared('SELECT host_id, address
+				FROM plugin_mikrotik_dhcp
+				WHERE mac_address = ?
+				AND status = \'bound\'
+				AND disabled = 0
+				AND present = 1
+				ORDER BY last_updated DESC
+				LIMIT 1',
+				[$mac]);
+
+			if (!cacti_sizeof($lease)) {
+				continue;
+			}
+
+			$ip      = $lease['address'];
+			$host_id = $lease['host_id'];
+		}
+
+		if (filter_var((string) $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
+			continue;
+		}
+
+		$name = (string) db_fetch_cell_prepared('SELECT name
+			FROM plugin_mikrotik_dns
+			WHERE host_id = ?
+			AND type = \'A\'
+			AND data = ?
+			AND present = 1
+			ORDER BY last_updated DESC
+			LIMIT 1',
+			[$host_id, $ip]);
+
+		if ($name === '') {
+			$name = mikrotik_reverse_dns($ip);
+		}
+
+		if ($name !== '') {
+			debug("Resolved wireless client '$mac' ($ip) to '$name'");
+
+			$names[] = '(' . db_qstr($mac) . ', ' . db_qstr(substr($name, 0, 64)) . ', 1)';
+		}
+	}
+
+	if (cacti_sizeof($names)) {
+		// IGNORE keeps an identical DHCP-sourced pair at source 0.
+		db_execute('INSERT IGNORE INTO plugin_mikrotik_mac2hostname
+			(mac_address, hostname, source)
+			VALUES ' . implode(', ', $names));
+	}
 	// @codeCoverageIgnoreEnd
 }
 

@@ -39,7 +39,7 @@ describe('DB output escaping in mikrotik.php', function () {
 	it('escapes wireless registration/AP fields', function () use ($source) {
 		expect($source)->toContain("html_escape(\$row['mac'])");
 		expect($source)->toContain("html_escape(\$row['last_seen'])");
-		expect($source)->toContain("html_escape(\$row['SignalToNoise'])");
+		expect($source)->toContain("html_escape(\$row['Strength'])");
 		expect($source)->toContain("html_escape(\$row['apClientCount'])");
 		expect($source)->toContain("html_escape(\$row['apAuthClientCount'])");
 		expect($source)->toContain("html_escape(\$row['apNoiseFloor'])");

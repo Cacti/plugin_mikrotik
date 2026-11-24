@@ -629,11 +629,12 @@ function mikrotik_setup_table(): void {
 		'columns' => array(
 			array('name' => 'mac_address', 'type' => 'varchar(20)', 'default' => ''),
 			array('name' => 'hostname', 'type' => 'varchar(64)', 'default' => ''),
+			array('name' => 'source', 'type' => 'tinyint(3)', 'unsigned' => true, 'NULL' => false, 'default' => '0'),
 			array('name' => 'last_updated', 'type' => 'timestamp', 'default' => 'CURRENT_TIMESTAMP'),
 		),
 		'primary' => 'mac_address`,`hostname',
 		'type' => 'InnoDB',
-		'comment' => 'Holds mappings from MAC Address to Hostname'
+		'comment' => 'Holds mappings from MAC Address to Hostname (source 0 = DHCP, 1 = DNS)'
 	));
 
 	/* api_plugin_db_table_create() cannot express ON UPDATE; restore the auto-touch behavior each run (idempotent). */
