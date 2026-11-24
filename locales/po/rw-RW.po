@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Kinyarwanda\n"
+"Language: rw-RW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Bihari"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Ntibizwi"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Biri gukora"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Iburira"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Mu isuzuma"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Ntigikora"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Ibikoresho"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Abakoresha"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Imirongo y'ibitegereje"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Ibiti by'imirongo"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Impuza"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Ububiko bw'agateganyo bwa DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Urutonde rw'Aderesi"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Ibyuma bitanga murandasi idakoresha insinga (APs)"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Iyandikisha rya murandasi idakoresha insinga"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Ubuzima"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Ibishushanyo"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Imibare y'impuza"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Shakisha"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Igikoresho"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Byose"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Mburabuzi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Irakora"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Kuva byasubizwa ku ntangiriro"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Komeza"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Siba"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Ibikorwa"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Izina ku muyoboro"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Izina"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Bayiti za Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Bayiti za Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Paketi za Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Paketi za Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Amakosa ya Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Amakosa ya Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Igihe cya nyuma byagaragaye"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Hindura igikoresho"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Nta miyoboro yabonetse"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Imiterere y'umurongo"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Aderesi Inkomoko/Mask"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Aderesi igana/Masike"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Bayiti Zinjira"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Bayiti Zisohoka"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Pkts Zinjira"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Pkts Zisohoka"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Imirongo yinjira"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Imirongo isohoka"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Ibyatawe byinjira"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Ibyatawe bisohoka"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Nta mirongo yoroheje yabonetse"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Imiterere y'Igiti cy'imirongo"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Ibiti"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Urujya n'uruza"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Bayiti z'ubu"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Paketi z'ubu"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Bayiti zose"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Paketi zose"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Nta biti by'imirongo byabonetse"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Imiterere y'ibyuma bitanga murandasi idakoresha insinga (APs)"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Aho kwinjirira (APs)"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Umuvuduko wo Kohereza (Tx)"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Umuvuduko wa Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Abakiliya"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Abakiriya b'iyemeza"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Inshuro"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Umurongo"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Urwego rw'urusaku rwo hasi"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "CQQ ya Tx"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Imibare y'abakoresha"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Ubwoko"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Abakoresha bakora"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Umukoresha"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Aderesi ya IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Igihe cyo Guhuza"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Ibyinjira ubu"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Ibisohoka ubu"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Impuzandengo y'Ibyinjira"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Impuzandengo y'Ibisohoka"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Byinjiye byose"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Byasohotse byose"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Ntibihari"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Nta bakoresha babonetse"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Urutonde rw'impinduka za MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Akayunguruzo k'Igikoresho (Verisiyo ya MikroTik iheruka ni: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Akayunguruzo k'Igikoresho (Verisiyo ya MikroTik iheruka ni: %s, Yasohotse: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Urutonde rw'impinduka"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Imiterere"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Kirimo gusubira mu buryo"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Kirakora"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Byahagaritswe"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Ibisobanuro"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Verisiyo ya FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Verisiyo y'Uruhushya"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Igihe bikora(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Ama-CPU"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Porosesi"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Ububiko bwose"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Ububiko (Mem) bwakoreshejwe"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Disiki yose"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Disiki yakoreshejwe"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Reba abakoresha"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Reba umurongo woroheje (Simple Queue)"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Reba ibiti by'imirongo (Queue)"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Reba aho wireless itangirwa (APs)"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Nta AP za wireless zabonetse"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Reba imiyoboro"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Kureba Ibishushanyo"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Nta bishushanyo byashyizweho"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Nta bikoresho byabonetse"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Nyamuneka banza uhitemo Ikibazo cy'Amakuru uvuye muri Konsoli -> Amagenamiterere -> MIB ya Mwakirizi mbere"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Ibishushanyo byasimbwe cyangwa bitarakorwa"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Nyamuneka banza uhitemo Ikibazo cy'Amakuru uvuye muri Konsoli->Amagenamiterere->MIB ya Mwakirizi mbere"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Icyo ari cyo cyose"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Nta na kimwe"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Inyandikorugero"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Ibishushanyo Byose n'Inyandikorugero"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Inyandikorugero zatoranyijwe"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Gushyiraho/Kuvugurura muyunguruzi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Gusiba muyunguruzi"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Bika"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Bika muyunguruzi mu bubiko bw'amakuru"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Inkingi"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "Inkingi %d"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Inkingi %d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Udushusho duto"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Ibyateguwe mbere"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Byihariye"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Kuva"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Guhitamo itariki itangira"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Kugeza"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Guhitamo itariki irangira"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Subiza igihe inyuma"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Shyiraho intera yo kwimura igihe"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Imura igihe imbere"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Vugurura"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Vugurura igihe cyahiswemo"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Subira ku gihe gisanzwe"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Idirishya"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Intera y'igihe"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Hagarika"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Urutonde rwihariye rw'Ibishushanyo rwakoreshejwe - Hayungururwa uhereye ku Rutonde"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Muyunguruzi zo kureba mbere ibishushanyo"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Ibipima ubuzima"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Amasenseri"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Senseri"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Agaciro"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Igipimo"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Nta byuma bipima imikorere myiza byabonetse"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Imibare y'iyandikisha rya murandasi idakoresha insinga"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Kwiyandikisha"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Izina ry'Umukiliya"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Aderesi ya MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Ikimenyetso (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Nta kwiyandikisha kwa wireless kwabonetse"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Iyandikisha rya DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Ibyinjijwe"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Bizarangira mu"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Byakumiriwe"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Biheruka Kuvugururwa"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "Amasegonda %s"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Bihindagurika"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Kidahinduka"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Nta Makuru ya DHCP Yabonetse"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Gihoraho"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Byarangiye"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Sohora"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Amakuru"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Nta Makuru ya DNS Yabonetse"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Urutonde"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Aderesi"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Igihe ntarengwa"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Nta Makuru y'Urutonde rw'Aderesi Yabonetse"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Siba"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Kanda 'Komeza' kugira ngo usibe Abakoresha bakurikira n'Ibishushanyo byabo."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Hagarika"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Komeza"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Siba igikoresho/ibikoresho"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Ugomba guhitamo nibura Umukoresha umwe."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Subira inyuma"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Abakoresha ba MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Ntibikora"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Izina ry'ukoresha"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Indomayini"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Ikigaragaza MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Umuyobozi wa MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Igenamiterere rusange"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Ikusanyamakuru Byafunguwe"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Hitamo aka gasanduku, niba wifuza ko ikusanyamakuru rya MikroTik rifungurwa. Bitabaye ibyo, ikusanyamakuru ntirizakora."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "Ikusanyamakuru rya API Ryafunguwe"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Hitamo aka gasanduku, niba wifuza ko Cacti ikusanya amagenamiterere atandukanye ikoresheje MikroTik API. Niba ku mpamvu runaka udafite uburenganzira kuri MikroTik API, kura akamenyetso kuri aya mahitamo."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Shakisha Ibikoresho bya Cacti mu buryo bwikora"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Ese wifuza gushakisha mu buryo bwikora no kongeramo Ibikoresho byemera MikroTik MIB bivuye mu mbonerahamwe ya ba Mwakirizi ya Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Gusiba burundu Ibikoresho mu buryo bwikora"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Ese wifuza gusiba burundu mu buryo bwikora Ibikoresho byakuwe mu mikorere ya Cacti?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Ibikusanyamakuru bikorera rimwe ntarengwa"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Ni uwuhe mubare ntarengwa w'ibikorwa byo gukusanya bikorera rimwe ushaka gukoresha icyarimwe?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "Igikorwa %d"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "Ibikorwa %d"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Amagenamiterere yo kuvumbura mu buryo bwikora"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Inshuro zo kuvumbura mu buryo bwikora"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Wifuza gushakisha Ibikoresho bishya bya Cacti inshuro zingahe?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Igihe cyo Kubika Amakuru"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Igihe cyo kubika DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Wifuza kubika amateka y'iyandikwa rya IP ya DHCP igihe kingana iki?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Igihe cyo kubika DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Wifuza kubika amateka y'ububiko bw'agateganyo bwa DNS igihe kingana iki?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Igihe cyo kubika Urutonde rw'Aderesi"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Wifuza kubika amateka y'Urutonde rwa Aderesi igihe kingana iki?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Kubika iyandikisha rya murandasi idakoresha insinga"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Wifuza kubika Ibyandikishijwe bya Wireless bitakigaragara igihe kingana iki?  Iyo iyandikwa rikuweho, Ibishushanyo byaryo n'Inkomoko z'Amakuru na byo bikurwaho."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Ikorwa ryikora ry'Igishushanyo cy'Igikoresho"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Ongeraho ibishushanyo bishya mu buryo bwikora"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Wifuza kugenzura inshuro zingahe ibintu bishya byo gushyira mu gishushanyo?"
+
+#: setup.php
+msgid "Never"
+msgstr "Nta na rimwe"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Iminota %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "Isaha %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "Amasaha %d"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "Umunsi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "Iminsi %d"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "RegEx yo kudashyiramo abakoresha"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Amazina y'abakoresha ahura n'iyi regex ntazakorerwa ibishushanyo mu buryo bwikora"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Igihe cyo kubaho cyo kudashyiramo abakoresha"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Ni igihe kingana iki amakuru y'ukoresha wakuwemo agomba kubikwa nyuma yo guhagarika umuyoboro."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Inshuro z'ikusanya ku Gikoresho"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Inshuro zo kubika"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Wifuza gusikana Imibare y'Ububiko inshuro zingahe?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Umuvuduko wa poroseseri"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Wifuza gusikana Imibare ya Poroseseri y'Igikoresho inshuro zingahe?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Inshuro z'impuza"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Ni kangahe wifuza gusikana Interefasi?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Inshuro za DNS/DHCP/Urutonde"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Ni kangahe wifuza gusikana intonde za DNS/DHCP/Aderesi?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Inshuro zo gukusanya Umurongo/Igiti"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Inshuro za Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Wifuza gusikana Imibare y'Umurongo Woroshye inshuro zingahe?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iki gikorwa."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Inshuro z'Ibiti by'imirongo"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ni kangahe wifuza gusikana Ibiti by'Imirongo (Queue Trees)?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iyi mikorere."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Inshuro zo gukusanya amakuru ya murandasi idakoresha insinga"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Inshuro z'Abakoresha ba HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ni kangahe wifuza gusikana Imibare y'Abakoresha ba Wireless?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iyi mikorere."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Inshuro y'ingingo yo kwinjiriraho"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ni kangahe wifuza gusikana Ahantu ho Kwinjirira ha Wireless (Access Points)?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iyi mikorere."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Inshuro zo Kwiyandikisha"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ni kangahe wifuza gusikana Iyandikisha rya Wireless?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iyi mikorere."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Inshuro z'amastasiyo"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ni kangahe wifuza gusikana Sitasiyo za Wireless?  Hitamo <b>Byahagaritswe</b> kugira ngo ukureho iyi mikorere."
+
+#: setup.php
+msgid "Management"
+msgstr "Imicungire"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Ukoresha Usanzwe"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Ubuyobozi Rusange"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "Umunota %d"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Bitagira iherezo"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "Icyumweru %d"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Ibyumweru %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Amezi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Umwaka %d"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Imirongo yoroshye"
+
+#: setup.php
+msgid "Storage"
+msgstr "Ububiko"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(hindura)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Ibishushanyo byasimbwe n'itegeko, cyangwa bitarakorwa"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Huza na MikroTik API ukoresheje SSL (api-ssl, icyambu 8729). Fungura serivisi ya api-ssl munsi ya IP > Serivisi ku gikoresho mbere yo kubifungura."
+
+#: setup.php
+msgid "No"
+msgstr "Oya"
+
+#: setup.php
+msgid "Yes"
+msgstr "Yego"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Ihuza rya SSL kuri serivisi ya MikroTik api-ssl (icyambu 8729) ntiryashobotse gukorwa, bityo SSL ntishobora gufungurwa. Fungura kandi ugenzure serivisi ya api-ssl munsi ya IP > Services ku gikoresho kugira ngo ukoreshe SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Yego (ubu ntibishobora kugerwaho)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Imyirondoro yo kwinjira muri MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Ukoresha usoma gusa"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Tanga Izina ry'ukoresha ryo gusoma gusa kuri MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Ijambobanga"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Tanga Ijambobanga ryo gusoma gusa ry'iyi MikroTik. Siga aha hantu harimo ubusa kugira ngo ugumane ijambobanga ribitswe ubu."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL ntiboneka kuri iki gikoresho"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Igisubizo cyo Guhuza"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Ni byiza niba Cacti ishobora guhuzwa na MikroTik ikoresheje icyambu cyayo cya API."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL irafunguye ariko icyambu cya api-ssl (8729) ntigishobora kugerwaho; ihuza ntiryageragejwe."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Byahujwe Neza"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Ihuza ryananiranye"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Emera impamyabushobozi za TLS za API zitagenzuwe"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Hagarika igenzura ry'icyemezo (certificate) n'izina rya mwakirizi ku mihuza ya RouterOS API. Ibi bishobora gushyira amakuru y'injira ya API mu kaga k'igikoresho cyiyitirira ikindi. Bireke bitatoranyijwe kandi ushyiremo ibyemezo byizewe by'igikoresho igihe cyose bishoboka."
+

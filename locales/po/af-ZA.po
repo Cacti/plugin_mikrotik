@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Afrikaans\n"
+"Language: af-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Teenwoordig"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Loop"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Waarskuwing"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Toets tans"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Af"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Toestelle"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Gebruikers"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Wagrye"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Toubome"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Koppelvlakke"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "DNS-kas"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Adreslyste"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Draadlose AP's"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Draadlose registrasies"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Gesondheid"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Grafieke"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Koppelvlakstatistieke"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Soek"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Toestel"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Almal"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Verstek"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Aktief"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Sedert terugstelling"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Gaan"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Maak skoon"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Aksies"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Gasheernaam"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Naam"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Rx-grepe"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Tx-grepe"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Rx-pakkette"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Tx-pakkies"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Rx-foute"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Tx-foute"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Laaste gesien"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Redigeer toestel"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Geen koppelvlakke gevind nie"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Toustatus"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Bronadres/Masker"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Bestem.-adres/masker"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Grepe in"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Grepe uit"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Pakkies in"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Pakkies uit"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Toue in"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Toue uit"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Verw. In"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Verw. Uit"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Geen eenvoudige toue gevind nie"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Touboomstatus"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Bome"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Vloei"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Huidige Grepe"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Huidige Pakkies"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Totale grepe"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Totale pakkies"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Geen toubome gevind nie"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Status van draadlose AP's"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Toegangspunte"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Tx-tempo"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Rx-tempo"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Kliënte"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Stawingskliënte"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Frekwensie"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Band"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Geraasvloer"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Gebruikerstatistieke"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Tipe"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Aktiewe gebruikers"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Gebruiker"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "IP-adres"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Verbindingstyd"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Huidige In"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Huidige Uit"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Gem. in"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Gem. uit"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Totaal in"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Totaal uit"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "N.v.t"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Geen gebruikers gevind nie"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "MikroTik-wysigingslog"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Toestelfilter (Nuutste MikroTik-weergawe is: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Toestelfilter (Nuutste MikroTik-weergawe is: %s, Vrygestel: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Veranderingslogboek"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Status"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Herstel tans"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Op"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Gedeaktiveer"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Beskrywing"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "FW-weerg."
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Lisensiever."
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Bedryfstyd(d:u:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "SVE %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "SVE's"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Prosesse"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Totale geheue"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Gebruikte geheue"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Totale skyf"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Gebruikte skyf"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Bekyk gebruikers"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Bekyk eenvoudige tou"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Bekyk toubome"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Bekyk draadlose AP's"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Geen draadlose toegangspunte gevind nie"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Bekyk koppelvlakke"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Bekyk grafieke"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Geen grafieke gedefinieer nie"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Geen toestelle gevind nie"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Kies asseblief eers 'n datanavraag vanaf Konsole -> Instellings -> Gasheer-MIB"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Grafieke oorgeslaan of nog nie geskep nie"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Kies asseblief eers Datavraag onder Konsole->Instellings->Gasheer-MIB"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Enige"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Geen"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Sjabloon"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Alle Grafieke & Sjablone"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Sjablone Gekies"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Stel/verfris filters"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Maak filters skoon"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Stoor"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Stoor filter na die databasis"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Kolomme"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d Kolom"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "%d kolomme"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Duimnaels"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Voorafinstellings"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Pasgemaak"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Vanaf"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Begindatumkieser"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Tot"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Einddatumkieser"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Skuif tyd terug"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Definieer skuifinterval"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Skuif tyd vorentoe"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Verfris"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Verfris gekose tydspan"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Keer terug na die verstektydspan"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Venster"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Interval"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Stop"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Pasgemaakte Grafieklys Toegepas - Filter vanaf Lys"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Grafiekvoorskou-filters"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Gesondheidsensors"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Sensors"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Sensor"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Waarde"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Eenheid"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Geen gesondheidsensors gevind nie"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Statistieke van draadlose registrasies"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Registrasies"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Kliëntnaam"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "MAC-adres"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Sein (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Geen draadlose registrasies gevind nie"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "DHCP-registrasies"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Inskrywings"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Verval oor"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Geblokkeer"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Laas Opgedateer"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s Sekondes"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Dinamies"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Staties"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Geen DHCP-inskrywings gevind nie"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Permanent"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Verval"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Voer uit"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Data"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Geen DNS-inskrywings gevind nie"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Lys"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Adres"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Uitteltyd"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Geen adreslysinskrywings gevind nie"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Skrap"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Klik 'Gaan voort' om die volgende gebruiker(s) en hul Grafiek(e) te skrap."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Kanselleer"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Gaan voort"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Skrap Toestel(le)"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Jy moet ten minste een Gebruiker kies."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Keer terug"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "MikroTik-gebruikers"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Onaktief"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Gebruikersnaam"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Domein"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "MikroTik-kyker"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "MikroTik-administrateur"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Algemene instellings"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Poller Geaktiveer"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Merk hierdie blokkie as jy wil hê dat MikroTik-peiling geaktiveer moet wees.  Andersins sal die poller nie funksioneer nie."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "API-peiling Geaktiveer"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Merk hierdie blokkie as jy wil hê dat Cacti verskeie instellings met behulp van die MikroTik API moet peil.  As jy om een of ander rede nie toegang tot die MikroTik API het nie, ontmerk hierdie opsie."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Ontdek Cacti-toestelle outomaties"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Wil jy outomaties vanuit die Cacti-gasheertabel skandeer vir toestelle wat die MikroTik MIB ondersteun, en dit byvoeg?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Suiwer toestelle outomaties"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Wil jy toestelle wat uit die Cacti-stelsel verwyder is, outomaties uitwis?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Maksimum gelyktydige versamelaars"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Wat is die maksimum aantal gelyktydige versamelaarprosesse wat jy op een slag wil laat loop?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d Proses"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d prosesse"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Outo-ontdekkingsinstellings"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Outo-ontdekkingsfrekwensie"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Hoe gereeld wil u vir nuwe Cacti-toestelle soek?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Databehoud"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "DHCP-retensie"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Hoe lank wil u DHCP-IP-registrasiegeskiedenis behou?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "DNS-retensie"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Hoe lank wil u DNS-kasgeskiedenis behou?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Adreslysbewaring"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Hoe lank wil u die adreslysgeskiedenis behou?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Retensie van draadlose registrasies"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Hoe lank wil u draadlose registrasies behou wat nie meer gesien word nie? Wanneer 'n registrasie verwyder word, word sy Grafieke en Databronne ook verwyder."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Toestelgrafiek-outomatisering"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Voeg nuwe grafieke outomaties by"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Hoe gereeld wil u vir nuwe objekte soek om grafieke van te maak?"
+
+#: setup.php
+msgid "Never"
+msgstr "Nooit"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minute"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d uur"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ure"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d dag"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d dae"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Sluit gebruikers uit (RegEx)"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Gebruikersname wat by hierdie regex pas, sal nie outomaties in 'n grafiek voorgestel word nie"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Lewensduur vir uitsluiting van gebruikers"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Hoe lank moet 'n uitgeslote gebruiker se data behou word nadat hulle ontkoppel het."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Toestelinsamelingsfrekwensies"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Bergingsfrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Hoe gereeld wil u bergingstatistieke skandeer?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Verwerkerfrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Hoe gereeld wil u toestelverwerkerstatistieke skandeer?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Frekwensie van koppelvlakke"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Hoe gereeld wil u die koppelvlakke skandeer?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "DNS/DHCP/Lys-frekwensie"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Hoe gereeld wil u die DNS/DHCP/adreslyste skandeer?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Tou-/Boom-insamelingsfrekwensies"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Eenvoudige tou-/PPPoe-frekwensie"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u eenvoudige wagrystatistieke skandeer? Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Toubome-frekwensie"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u die wagrybome skandeer?  Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Draadlose insamelingsfrekwensies"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "HotSpot-gebruikersfrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u draadlose gebruikerstatistieke skandeer?  Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Toegangspuntfrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u die draadlose toegangspunte skandeer?  Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Registrasiefrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u die draadlose registrasies skandeer?  Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Stasiefrekwensie"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Hoe gereeld wil u die draadlose stasies skandeer?  Kies <b>Gedeaktiveer</b> om hierdie funksie te verwyder."
+
+#: setup.php
+msgid "Management"
+msgstr "Bestuur"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Gewone gebruiker"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Algemene administrasie"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d minuut"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Onbepaald"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d week"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d weke"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d maande"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d jaar"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Eenvoudige toue"
+
+#: setup.php
+msgid "Storage"
+msgstr "Berging"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(wysig)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Grafieke Oorgeslaan deur Reël, of Nie Geskep Nie"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Verbind aan die MikroTik API oor SSL (api-ssl, poort 8729). Aktiveer die api-ssl-diens onder IP > Services op die toestel voordat u dit aanskakel."
+
+#: setup.php
+msgid "No"
+msgstr "Nee"
+
+#: setup.php
+msgid "Yes"
+msgstr "Ja"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "'n SSL-verbinding met die MikroTik api-ssl-diens (poort 8729) kon nie tot stand gebring word nie, dus kan SSL nie geaktiveer word nie. Aktiveer en verifieer die api-ssl-diens onder IP > Services op die toestel om SSL te gebruik."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Ja (tans onbereikbaar)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "MikroTik-aanmeldbesonderhede"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Leesalleen-gebruiker"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Verskaf 'n leesalleen-gebruikersnaam vir die MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Wagwoord"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Verskaf die leesalleen-wagwoord vir hierdie MikroTik. Laat hierdie veld leeg om die tans gestoorde wagwoord te behou."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL nie op hierdie toestel teenwoordig nie"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Verbindingsresultaat"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Goed indien Cacti oor sy API-poort aan die MikroTik kan koppel."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL is geaktiveer, maar die api-ssl-poort (8729) is nie bereikbaar nie; verbinding nie getoets nie."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Suksesvol verbind"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Verbinding het misluk"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Laat ongeverifieerde API TLS-sertifikate toe"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Deaktiveer sertifikaat- en gasheernaamverifikasie vir RouterOS API-verbindings. Dit kan API-aanmeldbesonderhede aan 'n nagebootste toestel blootstel. Laat ongemerk en installeer betroubare toestelsertifikate waar moontlik."
+

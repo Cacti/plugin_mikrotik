@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Hausa\n"
+"Language: ha-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Yana nan"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Ba a sani ba"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Ana Gudanarwa"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Gargaɗi"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Ana gwaji"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Ba Ya Aiki"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Na'urori"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Masu Amfani"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Jerukan jira"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Bishiyoyin Jeri"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Mahaɗu"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Adanar DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Jerin Adiresoshin"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Na'urorin AP marasa waya"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Rijistocin Mara Waya"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Lafiya"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Jadawalai"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Ƙididdigar Mahaɗa"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Bincika"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Na'ura"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Duka"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Na Asali"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Yana Aiki"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Tun Lokacin da Aka Sake Saitawa"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Tafi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Share"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Ayyuka"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Sunan Mai Masauki"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Suna"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Baitocin Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Bayit na Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Fakitocin Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Fakitin Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Kuskuren Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Kurakuran Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Ganin Ƙarshe"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Gyara Na'ura"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Ba a Samu Mahadun Sadarwa ba"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Matsayin Jeri"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Adireshin Tushe/Mask"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Adireshin Manufa/Mask"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Baitoci Masu Shiga"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Baitoci Masu Fita"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Fakiti Shiga"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Fakiti Fita"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Qs Shiga"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Qs Fita"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Shigowa da Aka Yashe"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Fita da Aka Yashe"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Ba a Samu Sauƙaƙan Layukan Jira ba"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Matsayin Bishiyar Jeri"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Bishiyoyi"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Kwarara"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Bytes na Yanzu"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Fakitoci na Yanzu"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Jimillar Bayit"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Jimillar Fakiti"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Ba a Samu Bishiyoyin Queue ba"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Matsayin Na'urorin AP marasa waya"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Na'urorin AP"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Yawan Aika (Tx)"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Ƙimar Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Abokan Ciniki"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Abokan Hulɗar Tabbatarwa"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Mita"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Rukuni"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Matsayin Hayaniya"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Ƙididdigar Mai Amfani"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Nau'i"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Masu Amfani Masu Aiki"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Mai Amfani"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Adireshin IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Lokacin Haɗawa"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Shiga na Yanzu"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Fita na Yanzu"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Matsakaicin Shiga"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Matsakaicin Fita"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Jimillar Shiga"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Jimillar Fita"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Babu"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Ba a Samu Masu Amfani Ba"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Jerin Sauye-sauye na MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Tacewar Na'ura (Sabuwar Sigar MikroTik ita ce: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Tacewar Na'ura (Sabuwar Sigar MikroTik ita ce: %s, Ranar Saki: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Rajistar Sauye-sauye"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Matsayi"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Yana Farfaɗowa"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Yana Aiki"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "An kashe"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Bayani"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Sigar FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Sigar Lasisi"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Lokacin Aiki(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "CPUs"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Tsare-tsaren Aiki"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Jimillar Ƙwaƙwalwa"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Ƙwaƙwalwar da aka yi amfani da ita"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Jimillar Diski"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Faifan da aka yi amfani da shi"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Duba Masu Amfani"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Duba Sauƙaƙan Jerin Jira"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Duba Bishiyoyin Jerin Jira"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Duba Wuraren Watsa Mara Waya (APs)"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Ba a Samu Na'urorin AP Mara Waya ba"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Duba Masarrafai"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Duba Jadawali"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Babu Jadawalai da Aka Bayyana"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Ba a Sami Na'urori Ba"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Da fatan za a zaɓi Tambayar Bayanai da farko daga Console -> Saituna -> Host MIB da farko"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Jadawalai da aka tsallake ko ba a ƙirƙira ba tukuna"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Da fatan za a zaɓi Tambayar Bayanai da farko daga Console->Saituna->Host MIB Da Farko"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Kowane"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Babu"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Samfuri"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Duk Jadawalai & Samfura"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Samfuran da Aka Zaɓa"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Saita/Sabunta Matatu"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Share Matatu"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Ajiye"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Adana mataci a cikin rumbun bayanai"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Ginshiƙai"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "Ginshiƙi %d"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Ginshiƙai %d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Ƙananan Hotuna"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Saitunan Farko"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Na Musamman"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Daga"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Mai Zaɓin Kwanan Watan Farawa"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Zuwa"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Mai Zaɓin Kwanan Watan Ƙarewa"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Matsar da Lokaci Baya"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Ƙayyade Tazarar Matsawa"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Matsar da Lokaci Gaba"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Sabunta"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Sabunta tazarar lokacin da aka zaɓa"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Koma zuwa tazarar lokaci ta asali"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Taga"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Tazara"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Dakatar"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "An yi amfani da Jerin Jadawalai na Musamman - Ana tacewa daga Jeri"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Matatan Duba Jadawali"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Na'urorin Aunawa na Lafiya"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Na'urorin Auna"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Na'urar Auna"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Ƙima"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Ma'auni"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Ba a Samu Masu Auna Lafiya ba"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Ƙididdigar Rijistar Mara Waya"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Rajistoci"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Sunan Abokin Ciniki"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Adireshin MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Sigina (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Ba a Samu Rijistar Mara Waya ba"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Rajistocin DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Shigarwa"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Yana ƙarewa a cikin"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "An toshe"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Sabuntawa ta Ƙarshe"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "Daƙiƙa %s"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Mai Sauyawa"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Tsayayye"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Ba a Sami Shigarwar DHCP ba"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Na Dindindin"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Ya ƙare"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Fitarwa"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Bayanai"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Ba a Sami Shigarwar DNS ba"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Jeri"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Adireshi"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Ƙarewar Lokaci"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Ba a Sami Shigarwar Jerin Adireshi ba"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Share"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Danna 'Ci gaba' don Share waɗannan Masu Amfani na gaba da Jadawalin/Jadawalansu."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Soke"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Ci gaba"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Share Na'urori"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Dole ne ka zaɓi aƙalla Mai Amfani guda ɗaya."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Koma"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Masu Amfani da MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Ba ya aiki"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Sunan Mai Amfani"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Yanki"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Mai Duba MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Mai Kula da MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Saitunan Gabaɗaya"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "An kunna Mai Tattara Bayanai"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Yi alama a wannan akwatin, idan kana son a kunna tattara bayanai na MikroTik. In ba haka ba, mai tattara bayanan ba zai yi aiki ba."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "An kunna Tattara Bayanai na API"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Yi alama a wannan akwatin, idan kana son Cacti ya tattara saituna daban-daban ta hanyar amfani da MikroTik API. Idan saboda wani dalili ba ka da damar shiga MikroTik API, cire alama daga wannan zaɓin."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Gano Na'urorin Cacti Ta Atomatik"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Kana son bincika da ƙara na'urorin da ke goyon bayan MikroTik MIB ta atomatik daga teburin mai masauki na Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Kawar da Na'urori Ta Atomatik"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Kana son share na'urorin da aka cire daga tsarin Cacti ta atomatik?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Mafi Yawan Masu Tattara Bayanai a Lokaci Ɗaya"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Menene matsakaicin adadin ayyukan tattara bayanai da ke gudana a lokaci ɗaya da kake son gudanarwa?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "Tsari %d"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "Ayyuka %d"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Saitunan Gano da Kansa"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Yawan Lokacin Gano da Kansa"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Sau nawa kake son neman sababbin Na'urorin Cacti?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Ajiyar Bayanai"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Riƙe Bayanan DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Har na tsawon wane lokaci za ka so a riƙe tarihin rajistar DHCP IP?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Riƙe Bayanan DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Har na tsawon wane lokaci za ka so a riƙe tarihin Ma'ajin DNS?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Riƙe Jerin Adireshi"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Har na tsawon wane lokaci za ka so a riƙe tarihin Jerin Adireshi?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Riƙe Rijistar Mara Waya"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Har na tsawon wane lokaci za ka so a riƙe Rajistocin Mara Waya da ba a ƙara gani ba?  Idan an cire rajista, za a cire Jadawalai da Tusoshin Bayanai nasa ma."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Sarrafa Jadawalin Na'ura Ta Atomatik"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Ƙara Sabbin Jadawalai da Kansa"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Sau nawa kake son dubawa don sababbin abubuwan da za a yi wa jadawali?"
+
+#: setup.php
+msgid "Never"
+msgstr "Ba a Taɓa Ba"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Mintuna %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "Sa'a %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "Sa'o'i %d"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "Kwana %d"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "Kwanaki %d"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Ware Masu Amfani (RegEx)"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Sunayen masu amfani da suka dace da wannan regex ba za a ƙirƙira musu jadawali kai tsaye ba"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Lokacin Rayuwa na Ware Masu Amfani"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Har na tsawon wane lokaci ya kamata a adana bayanan mai amfani da aka cire bayan ya katse haɗi."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Yawan Lokutan Tattara Bayanan Na'ura"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Mitar Ajiya"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Sau nawa kake son bincikar Ƙididdigar Ma'aji?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Mitar Mai Sarrafawa"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Sau nawa kake son bincikar Ƙididdigar Na'urar Sarrafa Bayanai ta Na'ura?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Yawan Samun Mahaɗu"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Sau nawa kuke son bincikar Hanyoyin Haɗi?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Yawan Maimaitawar DNS/DHCP/Jeri"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Sau nawa kuke son bincikar Jerin DNS/DHCP/Adireshi?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Yawan Lokutan Tattara Jeri/Bishiya"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Mitar Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kake son bincikar Ƙididdigar Jerin Aiki Mai Sauƙi?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Yawan Lokacin Bishiyoyin Jeri"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kuke son bincikar Bishiyoyin Layi (Queue Trees)?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Yawan Tattara Bayanan Mara Waya"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Yawan Masu Amfani da HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kuke son bincikar Ƙididdigar Masu Amfani da Mara Waya?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Mitar Wurin Shiga"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kuke son bincikar Masu Rarraba Mara Waya (Wireless Access Points)?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Tazarar Rajistoci"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kuke son bincikar Rajistar Mara Waya?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Mitar Tashoshi"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Sau nawa kuke son bincikar Tashoshin Mara Waya?  Zaɓi <b>An kashe</b> don cire wannan fasalin."
+
+#: setup.php
+msgid "Management"
+msgstr "Gudanarwa"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mai Amfani na Yau da Kullum"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Gudanarwa ta Gabaɗaya"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "Minti %d"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Marar iyaka"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "Mako %d"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Makonni %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Watanni %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Shekara %d"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Jeruka Masu Sauƙi (Simple Queues)"
+
+#: setup.php
+msgid "Storage"
+msgstr "Ma'ajiya"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(gyara)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Jadawalai da aka Tsallake ta Ƙa'ida, ko Ba a Ƙirƙira Ba"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Haɗa zuwa MikroTik API ta SSL (api-ssl, tasha 8729). Kunna sabis ɗin api-ssl ƙarƙashin IP > Services a kan na'urar kafin kunna wannan."
+
+#: setup.php
+msgid "No"
+msgstr "A'a"
+
+#: setup.php
+msgid "Yes"
+msgstr "Eh"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Ba a iya kafa haɗin SSL zuwa sabis ɗin MikroTik api-ssl (tashar 8729) ba, saboda haka ba za a iya kunna SSL ba. Kunna kuma ka tabbatar da sabis ɗin api-ssl ƙarƙashin IP > Services a kan na'urar don amfani da SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Ee (ba a iya samu a halin yanzu)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Bayanan Shiga na MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Mai amfani mai karatu kawai"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Bayar da sunan mai amfani na karatu kaɗai don MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Kalmar sirri"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Bayar da kalmar sirri ta karatu kaɗai don wannan MikroTik. Bar wannan filin babu komai don adana kalmar sirrin da aka ajiye a yanzu."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "Babu SSL akan wannan na'ura"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Sakamakon Haɗi"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Ya yi daidai idan Cacti zai iya haɗuwa da MikroTik ta hanyar tashar API ɗinsa."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "An kunna SSL amma tashar api-ssl (8729) ba ta samuwa; ba a gwada haɗin ba."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "An Haɗa Cikin Nasara"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Haɗin ya Ci Tura"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Ba da Izin Takaddun Shaidar TLS na API Waɗanda Ba a Tabbatar Ba"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Kashe tantance takardar shaida da sunan mai masauki don haɗin RouterOS API. Wannan na iya fallasa bayanan shiga na API ga na'urar yaudara. Bar shi ba tare da an zaɓa ba kuma sanya amintattun takardun shaida na na'ura duk lokacin da ya yiwu."
+

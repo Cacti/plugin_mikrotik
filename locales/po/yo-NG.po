@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Yoruba\n"
+"Language: yo-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Wà níbẹ̀"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Àìmọ̀"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Ń ṣiṣẹ́"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Ìkìlọ̀"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Ìdánwò"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Kò Ṣiṣẹ́"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Àwọn Ẹ̀rọ"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Àwọn Olùlò"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Àwọn Ìlà Ìdúró"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Àwọn Igi Ìlà"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Àwọn Ìsopọ̀"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Ìpamọ́ Ìgbàdíẹ̀ DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Àwọn Àtòjọ Àdírẹ́sì"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Àwọn AP Aláilókùn"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Àwọn Ìforúkọsílẹ̀ Aláilókùn"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Ìlera"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Àwọn Gíráàfù"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Ìṣirò Ìsopọ̀"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Ṣàwárí"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Ẹ̀rọ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Gbogbo"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Àìyípadà"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Ń ṣiṣẹ́"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Láti ìgbà àtúntò"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Lọ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Nu Kúrò"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Orúkọ Olùgbàlejò"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Orúkọ"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Àwọn Báìtì Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Àwọn Báìtì Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Àwọn Páákẹ́ẹ̀tì Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Àwọn Pákẹ́ẹ̀tì Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Àwọn Àṣìṣe Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Àwọn Àṣìṣe Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Ìgbà Tí A Rí I Kẹ́yìn"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Ṣàtúnṣe Ẹ̀rọ"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Kò sí Àwọn Ojú-ìsopọ̀ kankan tí a rí"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Ipò Ìlà"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Àdírẹ́sì Orísun/Mask"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Àdírẹ́sì/Máàsìkì Ìparí"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Àwọn Báìtì Wọlé"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Àwọn Báìtì Jáde"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Àwọn Pákẹ́ẹ̀tì Tó Wọlé"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Àwọn Pákẹ́ẹ̀tì Tó Jáde"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Àwọn Ìlà Wọlé"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Àwọn Ìlà Jáde"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Ìdànù Wọlé"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Ìdànù Jáde"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Kò sí Àwọn Ìlà Rọrùn kankan tí a rí"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Ipò Igi Ìlà"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Àwọn Igi"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Ìṣàn"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Báìtì Lọ́wọ́lọ́wọ́"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Àwọn Pákẹ́ẹ̀tì Lọ́wọ́lọ́wọ́"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Àpapọ̀ Báìtì"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Àpapọ̀ Àwọn Pákẹ́ẹ̀tì"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Kò sí Àwọn Igi Ìlà kankan tí a rí"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Ipò Àwọn AP Aláilókùn"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Àwọn AP"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Ìwọ̀n Tx"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Ìwọ̀n Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Àwọn Oníbàárà"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Àwọn Oníbàárà Ìdánimọ̀"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Ìgbàgbà"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Ìgbì"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Ìpele Ariwo Ìpìlẹ̀"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Àwọn Àkójọpọ̀ Ìṣirò Olùlò"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Irú"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Ààyè Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Àwọn Olùlò Tí Ó Ń Ṣiṣẹ́"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Olùlò"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Àdírẹ́ẹ̀sì IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Àkókò Ìsopọ̀"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Wọlé Lọ́wọ́lọ́wọ́"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Jáde Lọ́wọ́lọ́wọ́"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Ìpíndọ́gba Wíwọlé"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Ìpíndọ́gba Jíjáde"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Àpapọ̀ Wíwọlé"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Àpapọ̀ Jíjáde"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Kò Sí"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Kò Sí Olùṣàmúlò Tí A Rí"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Àkọsílẹ̀ Àyípadà MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Àlẹ̀mọ́ Ẹ̀rọ (Ẹ̀yà MikroTik Tuntun Jùlọ ni: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Àlẹ̀mọ́ Ẹ̀rọ (Ẹ̀yà MikroTik Tuntun Jùlọ ni: %s, Tí A Tú Jáde: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Àkọsílẹ̀ Àyípadà"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Ipò"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Ń Bọ̀ sípò"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Ń Ṣiṣẹ́"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Àìṣiṣẹ́"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Ẹ̀yà FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Ẹ̀dà Ìwé-àṣẹ"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Àkókò Ìṣiṣẹ́(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Àwọn CPU"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Àwọn Ìṣiṣẹ́"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Àpapọ̀ Ìrántí"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Ìrántí Tí A Lò"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Àpapọ̀ Dísìkì"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Dísíkì Tí A Lò"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Wo Àwọn Olùlò"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Wo Ìlà Rírọrùn"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Wo Àwọn Igi Ìlà"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Wo Àwọn AP Aláìlókùn"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Kò sí Àwọn AP Aláìlókùn kankan tí a rí"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Wo Àwọn Ìsopọ̀"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Wo Àwọn Gíráàfù"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Kò sí Àwọn Gíráàfù tí a Tọ́ka sí"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "A Kò Rí Ẹ̀rọ Kankan"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Jọ̀wọ́ Yan Ìbéèrè Dátà Kọ́kọ́ láti Console -> Àwọn Ètò -> Olùgbàlejò MIB Kọ́kọ́"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Àwọn Gíráàfù tí a fò tàbí tí a kò tíì dá"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Jọ̀wọ́ yan Ìbéèrè Dátà lákọ̀ọ́kọ́ láti Kọ́nsólù->Àwọn Ètò->MIB Olùgbàlejò lákọ̀ọ́kọ́"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Èyíkéyìí"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Kò Sí"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Àdàkọ"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Gbogbo Àwọn Àwòrán & Àdàkọ"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Àwọn Àdàkọ Tí A Yàn"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Ṣètò/Sọ Àwọn Àlẹ̀mọ́ Dọ̀tun"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Pa Àwọn Àlẹ̀mọ́ Rẹ́"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Fipamọ́"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Fi ajọ̀ pamọ́ sí ibi-ìpamọ́ dátà"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Àwọn Ọ̀wọ́n"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d Ọ̀wọ́n"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Àwọn Òpó %d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Àwọn àwòrán kékeré"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Àwọn Àtòtẹ́lẹ̀"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Àdáni"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Láti"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Olùyàn Ọjọ́ Ìbẹ̀rẹ̀"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Sí"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Olùyàn Ọjọ́ Ìparí"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Sún Àkókò Sẹ́yìn"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Ṣàlàyé Àlàfo Ìsúnkún"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Sún Àkókò Síwájú"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Sọdọ̀tun"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Tún ààlà àkókò tí a yàn ṣe"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Padà sí ààlà àkókò àìyípadà"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Fèrèsé"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Àlàfo-àkókò"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Dúró"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "A ti lo Àtòjọ Gíráfù Àdáni - À ń ṣàlẹ̀mọ́ láti inú Àtòjọ"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Àwọn Ajọ̀ Àkọ́wò Àwòrán-ìtọ́ka"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Àwọn Sẹ́ńsọ̀ Ìlera"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Àwọn Sensọ̀"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Sensọ̀"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Iye"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Ẹyọ"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Kò sí Àwọn Ẹ̀rọ-ìmọ̀ Ìlera kankan tí a rí"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Àwọn Ìṣirò Ìforúkọsílẹ̀ Aláilókùn"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Àwọn Ìforúkọsílẹ̀"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Orúkọ Oníbàárà"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Àdírẹ́ẹ̀sì MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Àmì (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Kò sí Àwọn Ìforúkọsílẹ̀ Aláìlókùn kankan tí a rí"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Àwọn Ìforúkọsílẹ̀ DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Àwọn Àkọsílẹ̀"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Yóò parí àkókò ní"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Tí A Dènà"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Ìmúdójúìwọ̀n Ìkẹyìn"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "Ìṣẹ́jú-àáyá %s"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Aláyípadà"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Àìyípadà"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Kò Sí Àwọn Àkọsílẹ̀ DHCP Tí A Rí"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Títí láé"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Ti parí àkókò"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Kó Jáde"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Dátà"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Kò Sí Àwọn Àkọsílẹ̀ DNS Tí A Rí"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Àtòjọ"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Àdírẹ́sì"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Àkókò Ìparí"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Kò Sí Àwọn Àkọsílẹ̀ Àtòjọ Àdírẹ́sì Tí A Rí"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Olùlò wọ̀nyí àti Gíráfù wọn rẹ́."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Tẹ̀síwájú"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Pa Ẹ̀rọ Rẹ́"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "O gbọ́dọ̀ yan ó kéré jù Olùlò kan."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Padà"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Àwọn Olùlò MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Kò ṣiṣẹ́"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Orúkọ Olùlò"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Dòméènì"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Olùwòran MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Olùdarí MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Àwọn Ètò Gbogbogbòò"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Olùṣàyẹ̀wò Ṣiṣẹ́"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Fi àmì sí àpótí yìí, tí o bá fẹ́ kí ìṣàyẹ̀wò MikroTik wà ní Ṣiṣẹ́. Bí bẹ́ẹ̀ kọ́, Olùṣàyẹ̀wò náà kò ní ṣiṣẹ́."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "Ìṣàyẹ̀wò API Ṣiṣẹ́"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Fi àmì sí àpótí yìí, tí o bá fẹ́ kí Cacti ṣàyẹ̀wò onírúurú àwọn ètò nípa lílo MikroTik API. Tí o kò bá ní àǹfààní sí MikroTik API fún ìdí kan, yọ àmì kúrò ní àṣàyàn yìí."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Ṣàwárí Àwọn Ẹ̀rọ Cacti Lọ́nà Àdáṣe"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Ṣé o fẹ́ láti ṣàyẹ̀wò láìfọwọ́yí kí o sì fi àwọn ẹ̀rọ tí ó ṣe àtìlẹ́yìn fún MikroTik MIB kún un láti inú tábìlì olùgbàlejò Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Nu Àwọn Ẹ̀rọ Kúrò Lọ́nà Àdáṣe"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Ṣé o fẹ́ láti pa àwọn ẹ̀rọ tí a ti yọ kúrò nínú ètò Cacti rẹ́ láìfọwọ́yí?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Àwọn Olùkójọ Lẹ́ẹ̀kan Náà Tó Pọ̀ Jù Lọ"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Kí ni iye tó pọ̀ jùlọ ti ìṣiṣẹ́ akójọpọ̀ lẹ́ẹ̀kan náà tí o fẹ́ ṣiṣẹ́ ní àkókò kan?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "Ìlànà Ìṣiṣẹ́ %d"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "Àwọn Ìlànà %d"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Àwọn Ètò Ìwárí Aládàáṣe"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Ìgbàgbogbo Ìwárí Aládàáṣe"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Ìgbàgbà wo ni o fẹ́ máa wá Àwọn Ẹ̀rọ Cacti tuntun?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Ìtọ́jú Dátà"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Ìpamọ́ DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Ìgbà wo ni o fẹ́ láti pa ìtàn ìforúkọsílẹ̀ DHCP IP mọ́?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Ìpamọ́ DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Ìgbà wo ni o fẹ́ láti pa ìtàn DNS Cache mọ́?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Ìpamọ́ Àtòjọ Àdírẹ́sì"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Ìgbà wo ni o fẹ́ láti pa ìtàn Àkójọ Àdírẹ́sì mọ́?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Ìpamọ́ Ìforúkọsílẹ̀ Aláilókùn"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Ìgbà wo ni o fẹ́ láti pa Àwọn Ìforúkọsílẹ̀ Aláìlókùn tí a kò rí mọ́ mọ́?  Nígbà tí a bá yọ ìforúkọsílẹ̀ kan kúrò, Àwọn Gíráàfù àti Àwọn Orísun Dátà rẹ̀ náà ni a ó yọ kúrò pẹ̀lú."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Ìṣiṣẹ́-fúnraẹni Gíráfù Ẹ̀rọ"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Fi Àwọn Gíráàfù Tuntun Kún Un Aládàáṣe"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Ìgbàgbà wo ni o fẹ́ máa ṣàyẹ̀wò fún àwọn ohun tuntun láti ṣe gíráàfù?"
+
+#: setup.php
+msgid "Never"
+msgstr "Kò ṣẹlẹ̀ rí"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Ìṣẹ́jú %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "Wákàtí %d"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "Wákàtí %d"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "Ọjọ́ %d"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "Ọjọ́ %d"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "RegEx Láti Yọ Àwọn Olùlò Kúrò"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Àwọn orúkọ olùlò tí ó bá regex yìí mu kò ní ní gíráfù láìfọwọ́yí"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Àkókò Ìwàláàyè Láti Yọ Àwọn Olùlò Kúrò"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Ìgbà wo ni a yẹ kí a tọ́jú dátà olùlò tí a yọ kúrò lẹ́yìn tí wọ́n bá ti já ìsopọ̀."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Àwọn Ìgbà Ìkójọpọ̀ Ẹ̀rọ"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Ìgbà Ìpamọ́"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Ìgbàgbà wo ni o fẹ́ máa ṣàyẹ̀wò Àwọn Àkójọpọ̀ Ibi Ìpamọ́?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Ìgbàgbọ̀n Olùṣiṣẹ́"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Ìgbàgbà wo ni o fẹ́ máa ṣàyẹ̀wò Àwọn Àkójọpọ̀ Èròjà Ìṣiṣẹ́ Ẹ̀rọ?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Ìgbàgbogbo Àwọn Ìsopọ̀"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Ojú-ọ̀nà Àsopọ̀?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Ìgbàkúgbà DNS/DHCP/Àtòjọ"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Àtòjọ DNS/DHCP/Àdírẹ́sì?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Àwọn Ìgbàgbọ̀n Ìkójọpọ̀ Ìlà/Igi"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Ìwọ̀n ìgbà Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbàgbà wo ni o fẹ́ máa ṣàyẹ̀wò Àwọn Àkójọpọ̀ Ìlà Rírọrùn?  Yan <b>Àìṣiṣẹ́</b> láti yọ ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Ìgbàgbọ̀n Àwọn Igi Ìlà"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Igi Ìlà?  Yan <b>Àìṣiṣẹ́</b> láti mú ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Àwọn Ìgbagbogbo Ìkójọpọ̀ Aláilókùn"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Ìgbàgbà Àwọn Olùlò HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Ìṣirò Olùlò Aláìlókùn?  Yan <b>Àìṣiṣẹ́</b> láti mú ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Ìgbohùn Ojú Ìwọlé"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Ibùdó Ìráyèsí Aláìlókùn?  Yan <b>Àìṣiṣẹ́</b> láti mú ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Ìgbàgbogbo Àwọn Ìforúkọsílẹ̀"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Ìforúkọsílẹ̀ Aláìlókùn?  Yan <b>Àìṣiṣẹ́</b> láti mú ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Ìgbohùn Àwọn Ibùdó"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ìgbà mélòó ni o fẹ́ láti ṣàyẹ̀wò Àwọn Ibùdó Aláìlókùn?  Yan <b>Àìṣiṣẹ́</b> láti mú ẹ̀yà yìí kúrò."
+
+#: setup.php
+msgid "Management"
+msgstr "Ìṣàkóso"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Olùlò Déédéé"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Ìṣàkóso Gbogbogbòò"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "Ìṣẹ́jú %d"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Àìlópin"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "Ọ̀sẹ̀ %d"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Ọ̀sẹ̀ %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Oṣù %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Ọdún %d"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Àwọn Simple Queue"
+
+#: setup.php
+msgid "Storage"
+msgstr "Ìpamọ́"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(ṣàtúnṣe)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Àwọn Gíráàfù tí Òfin Fò, tàbí tí A Kò Dá"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Sopọ̀ mọ́ MikroTik API lórí SSL (api-ssl, port 8729). Mú iṣẹ́ api-ssl ṣiṣẹ́ lábẹ́ IP > Services lórí ẹ̀rọ náà kí o tó tan èyí."
+
+#: setup.php
+msgid "No"
+msgstr "Rárá"
+
+#: setup.php
+msgid "Yes"
+msgstr "Bẹ́ẹ̀ Ni"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "A kò lè dá ìsopọ̀ SSL sí iṣẹ́ MikroTik api-ssl (pọ́ọ̀tì 8729) sílẹ̀, nítorí náà a kò lè mú SSL ṣiṣẹ́. Mú iṣẹ́ api-ssl ṣiṣẹ́ kí o sì fìdí rẹ̀ múlẹ̀ lábẹ́ IP > Services lórí ẹ̀rọ náà láti lo SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Bẹ́ẹ̀ ni (kò ṣeé dé ọ̀dọ̀ rẹ̀ lọ́wọ́lọ́wọ́)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Ìwé-ẹ̀rí Ìwọlé MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Olùlò Kíka Nìkan"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Pèsè orúkọ olùlò kíkà nìkan fún MikroTik náà."
+
+#: setup.php
+msgid "Password"
+msgstr "Ọ̀rọ̀ Aṣínà"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Pèsè ọ̀rọ̀ aṣínà kíkà nìkan fún MikroTik yìí. Fi ààyè yìí sílẹ̀ ní òfo láti pa ọ̀rọ̀ aṣínà tí a ti fipamọ́ lọ́wọ́lọ́wọ́ mọ́."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL kò sí lórí ẹ̀rọ yìí"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Àbájáde Ìsopọ̀"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Ó dára bí Cacti bá lè sopọ̀ mọ́ MikroTik nípasẹ̀ èbúté API rẹ̀."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL ti ṣiṣẹ́ ṣùgbọ́n ibùdó api-ssl (8729) kò ṣeé dé; a kò ṣe ìdánwò ìsopọ̀."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Sopọ̀ Lọ́nà Àṣeyọrí"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Àsopọ̀ Kùnà"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Gba Àwọn Ìwé-ẹ̀rí API TLS Tí A Kò Fìdí Rẹ̀ Múlẹ̀ Láàyè"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Ṣe àìṣiṣẹ́ ìdánilójú ìwé-ẹ̀rí àti orúkọ olùgbàlejò fún àwọn ìsopọ̀ RouterOS API. Èyí lè ṣí àwọn ẹ̀rí ìdánimọ̀ API sílẹ̀ fún ẹ̀rọ afọwọ́dáná. Fi sílẹ̀ láìfọwọ́sí kí o sì fi àwọn ìwé-ẹ̀rí ẹ̀rọ tí ó ṣeé gbẹ́kẹ̀lé sí i nígbàkígbà tí ó bá ṣeé ṣe."
+
