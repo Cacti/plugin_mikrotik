@@ -18,9 +18,8 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Present"
-msgstr "वर्तमान"
+msgstr "उपस्थित"
 
 #: mikrotik.php
 msgid "Unknown"
@@ -35,9 +34,8 @@ msgid "Warning"
 msgstr "चेतावनी"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Testing"
-msgstr "परिक्षण"
+msgstr "परीक्षण"
 
 #: mikrotik.php
 msgid "Down"
@@ -52,56 +50,46 @@ msgid "Users"
 msgstr "उपयोगकर्ता"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
-msgstr "कतार"
+msgstr "कतारें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "कतार पेड़"
+msgstr "कतार ट्री"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Interfaces"
-msgstr "इंटरफेस"
+msgstr "इंटरफ़ेस"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP"
-msgstr "डीएचसीपी"
+msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
-msgstr "डीएनएस कैश"
+msgstr "DNS कैश"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "आईपी पता"
+msgstr "पता सूचियाँ"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "वायरलेस एप्स"
+msgstr "वायरलेस APs"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "वायरलेस पंजीकरण आवृत्ति"
+msgstr "वायरलेस पंजीकरण"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "स्वास्थ्य स्थिति"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Graphs"
 msgstr "रेखांकन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
 msgstr "इंटरफ़ेस आँकड़े"
 
@@ -115,7 +103,7 @@ msgstr "डिवाइस"
 
 #: mikrotik.php mikrotik_users.php
 msgid "All"
-msgstr "所有"
+msgstr "सभी"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Default"
@@ -126,9 +114,8 @@ msgid "Active"
 msgstr "सक्रिय"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "चूंकि रीसेट"
+msgstr "रीसेट के बाद से"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -136,7 +123,7 @@ msgstr "जाएं"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear"
-msgstr "明确"
+msgstr "साफ़ करें"
 
 #: mikrotik.php setup.php
 msgid "Actions"
@@ -144,218 +131,177 @@ msgstr "कार्रवाइयाँ"
 
 #: mikrotik.php
 msgid "Hostname"
-msgstr "होस्टनांऽ"
+msgstr "होस्टनाम"
 
 #: mikrotik.php
 msgid "Name"
 msgstr "नाम"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
-msgstr "आरएक्स बाइट्स"
+msgstr "Rx बाइट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
-msgstr "टीएक्स बाइट्स"
+msgstr "Tx बाइट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
-msgstr "आरएक्स पैकेट"
+msgstr "Rx पैकेट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
-msgstr "टीएक्स पैकेट"
+msgstr "Tx पैकेट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
-msgstr "आरएक्स एरर्स"
+msgstr "Rx त्रुटियां"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
-msgstr "टीएक्स त्रुटियां"
+msgstr "Tx त्रुटियाँ"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Last Seen"
 msgstr "अंतिम बार देखा गया"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Edit Device"
-msgstr "युक्ति"
+msgstr "उपकरण संपादित करें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
-msgstr "कोई इंटरफेस नहीं मिला"
+msgstr "कोई इंटरफ़ेस नहीं मिला"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
-msgstr "कतार की स्थिति"
+msgstr "कतार स्थिति"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Src Addr / मास्क"
+msgstr "स्रोत पता/मास्क"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr / मास्क"
+msgstr "गंतव्य पता/मास्क"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
 msgstr "बाइट्स इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
 msgstr "बाइट्स आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "पीकेटी में"
+msgstr "पैकेट्स इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "पीकेटी आउट"
+msgstr "पैकेट्स आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs में"
+msgstr "Qs इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
-msgstr "क्यू आउट"
+msgstr "Qs आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "ड्राप्स इन"
+msgstr "ड्रॉप्स इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "ड्राप आउट"
+msgstr "ड्रॉप्स आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
-msgstr "कोई सरल कतार नहीं मिली"
+msgstr "कोई सिंपल क्यू (Simple Queue) नहीं मिली"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "कतार वृक्ष की स्थिति"
+msgstr "कतार ट्री स्थिति"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Trees"
 msgstr "पेड़"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Flow"
-msgstr "बहे"
+msgstr "फ़्लो"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "करी बाइट्स"
+msgstr "वर्तमान बाइट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "वक्र पैकेट"
+msgstr "वर्तमान पैकेट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
 msgstr "कुल बाइट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
 msgstr "कुल पैकेट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "कोई कतार पेड़ नहीं मिला"
+msgstr "कोई क्यू ट्री (Queue Tree) नहीं मिला"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "वायरलेस एप्स की स्थिति"
+msgstr "वायरलेस APs स्थिति"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "ए पी एस"
+msgstr "एक्सेस पॉइंट्स (APs)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "SSID"
 msgstr "SSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "टीएक्स दर"
+msgstr "Tx दर"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "आरएक्स रेट"
+msgstr "Rx दर"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Clients"
-msgstr "ग्राहकों"
+msgstr "क्लाइंट्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "प्रामाणिक ग्राहक"
+msgstr "प्रमाणीकरण क्लाइंट्स"
 
 #: mikrotik.php
 msgid "Frequency"
 msgstr "आवृत्ति"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Band"
 msgstr "बैंड"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "शोर मचाने वाला फ़र्श"
+msgstr "नॉइज़ फ़्लोर (Noise Floor)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
-msgstr "टीएक्स सीक्यूक्यू"
+msgstr "Tx CQQ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "User Statistics"
 msgstr "उपयोगकर्ता आँकड़े"
 
@@ -364,17 +310,14 @@ msgid "Type"
 msgstr "प्रकार"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Hotspot"
 msgstr "हॉटस्पॉट"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
 msgstr "PPPoE"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Active Users"
 msgstr "सक्रिय उपयोगकर्ता"
 
@@ -387,68 +330,58 @@ msgid "IP Address"
 msgstr "IP सिरनामा"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC"
-msgstr "मैक"
+msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
 msgstr "कनेक्ट समय"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "कर्व में"
+msgstr "वर्तमान इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "कर्व आउट"
+msgstr "वर्तमान आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "औसत में"
+msgstr "औसत इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "औसत से बाहर"
+msgstr "औसत आउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "कुल"
+msgstr "कुल इन"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "कुल बाहर"
+msgstr "कुल आउट"
 
 #: mikrotik.php
 msgid "N/A"
 msgstr "लागू नहीं"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "No Users Found"
 msgstr "कोई उपयोग्कर्ता नहीं मिले"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "मिक्रोटिक क्रेडेंशियल्स"
+msgstr "MikroTik चेंजलॉग"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr "डिवाइस फ़िल्टर (नवीनतम मिक्रोटिक संस्करण है: %s)"
+msgstr "डिवाइस फ़िल्टर (नवीनतम MikroTik संस्करण है: %s)"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "डिवाइस फ़िल्टर (नवीनतम मिक्रोटिक संस्करण है: %s, जारी: %s)"
+msgstr "डिवाइस फ़िल्टर (नवीनतम MikroTik संस्करण है: %s, जारी: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
@@ -456,10 +389,9 @@ msgstr "चेंजलॉग"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Status"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्थिति"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Recovering"
 msgstr "पुन: प्राप्त करना"
 
@@ -476,349 +408,307 @@ msgid "Description"
 msgstr "विवरण"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "एफडब्ल्यू वेर"
+msgstr "FW संस्करण"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "लाइसेंस वेर"
+msgstr "लाइसेंस संस्करण"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "अपटाइम (घ: ज: मी)"
+msgstr "अपटाइम (दि:घं:मि)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
-msgstr "सी पी यू %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
-msgstr "सीपीयू"
+msgstr "CPUs"
 
 #: mikrotik.php
 msgid "Processes"
 msgstr "प्रक्रम"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "कुल मेम"
+msgstr "कुल मेमोरी"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "मेमे का इस्तेमाल किया"
+msgstr "प्रयुक्त मेमोरी"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
 msgstr "कुल डिस्क"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
 msgstr "प्रयुक्त डिस्क"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Users"
-msgstr "सक्रिय उपयोगकर्ता"
+msgstr "उपयोगकर्ता देखें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "सरल कतारों"
+msgstr "सरल क्यू देखें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "कतार पेड़"
+msgstr "क्यू ट्री देखें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "वायरलेस एप्स"
+msgstr "वायरलेस AP देखें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "वायरलेस एप्स"
+msgstr "कोई वायरलेस AP नहीं मिला"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "इंटरफेस"
+msgstr "इंटरफ़ेस देखें"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "रेखांकन"
+msgstr "रेखांकन देखें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
-msgstr "कोई रेखांकन परिभाषित नहीं है"
+msgstr "कोई ग्राफ़ परिभाषित नहीं है"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Devices Found"
 msgstr "कोई यंत्र नहीं मिले"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "कृपया कंसोल से डेटा क्वेरी पहले चुनें -> सेटिंग्स -> होस्ट MIB पहले"
+msgstr "कृपया पहले कंसोल -> सेटिंग्स -> होस्ट MIB से डेटा क्वेरी चुनें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "रेखांकन छोड़ दिया गया है या अभी तक नहीं बनाया गया है"
+msgstr "ग्राफ़ छोड़े गए हैं या अभी तक नहीं बनाए गए हैं"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "कृपया Console-> Settings-> Host MIB First से डेटा क्वेरी का चयन करें"
+msgstr "कृपया पहले कंसोल->सेटिंग्स->होस्ट MIB से डेटा क्वेरी चुनें"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "कोई भी"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "कोई नहीं"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "खाका"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "सभी रेखांकन और टेम्पलेट"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "टेम्प्लेट चुने गए"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "फ़िल्टर सेट करें / ताज़ा करें"
+msgstr "सेट / फ़िल्टर ताज़ा करें"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "साफ फिल्टर"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "सेव करें"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "फ़िल्टर को डेटाबेस में सहेजें"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "स्तंभे"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d कॉलम"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d कॉलम"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "थम्बनेल्स"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Presets"
-msgstr "वर्तमान"
+msgstr "प्रीसेट"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "रुचि अनुसरणीय"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "और से"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "प्रारंभ तिथि चयनकर्ता"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "को"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "अंतिम तिथि चयनकर्ता"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "शिफ्ट टाइम बैकवर्ड"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "शिफ्टिंग इंटरवल को परिभाषित करें"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "शिफ्ट टाइम फॉरवर्ड"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "रीफ्रैश करो"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "चयनित समय अवधि को ताज़ा करें"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "डिफ़ॉल्ट समय अवधि पर लौटें"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "विंडो"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interval"
-msgstr "इंटरफेस"
+msgstr "अंतराल"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "रोकें"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "कस्टम ग्राफ़ सूची लागू - सूची से फ़िल्टरिंग"
+msgstr "कस्टम ग्राफ़ सूची लागू - सूची से फ़िल्टर किया जा रहा है"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graph Preview Filters"
 msgstr "ग्राफ़ पूर्वावलोकन फ़िल्टर"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "हेल्थ सेंसर"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "सेंसर"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "सेंसर"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "मूल्य"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "इकाई"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Health Sensors Found"
-msgstr "कोई उपयोग्कर्ता नहीं मिले"
+msgstr "कोई हेल्थ सेंसर नहीं मिला"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "वायरलेस पंजीकरण आवृत्ति"
+msgstr "वायरलेस पंजीकरण आँकड़े"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Registrations"
 msgstr "पंजीकरण"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Client Name"
-msgstr "ग्राहकों"
+msgstr "क्लाइंट नाम"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC Address"
-msgstr "आईपी पता"
+msgstr "MAC पता"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Signal to Noise"
-msgstr "शोर करने के लिए संकेत"
+msgstr "सिग्नल-टू-नॉइज़"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "वायरलेस पंजीकरण आवृत्ति"
+msgstr "कोई वायरलेस पंजीकरण नहीं मिला"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
-msgstr "डीएचसीपी पंजीकरण"
+msgstr "DHCP पंजीकरण"
 
 #: mikrotik.php
 msgid "Entries"
 msgstr "प्रविश्टयां"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Expires in"
-msgstr "में समाप्त होने वाला है"
+msgstr "समाप्ति में शेष"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Blocked"
-msgstr "अवरोधित"
+msgstr "अवरुद्ध"
 
 #: mikrotik.php
 msgid "Last Updated"
 msgstr "अंतिम अपडेट"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Seconds"
-msgstr "%s सेकंड्स"
+msgstr "%s सेकंड"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dynamic"
-msgstr "गतिशील"
+msgstr "डायनेमिक"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Static"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्टैटिक"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "कोई यंत्र नहीं मिले"
+msgstr "कोई DHCP प्रविष्टियाँ नहीं मिलीं"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Permanent"
 msgstr "स्थायी"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Expired"
-msgstr "समय सीमा समाप्त"
+msgstr "समय-सीमा समाप्त"
 
 #: mikrotik.php
 msgid "Export"
@@ -829,41 +719,36 @@ msgid "Data"
 msgstr "डाटा"
 
 #: mikrotik.php
-#, fuzzy
 msgid "TTL"
-msgstr "टीटीएल"
+msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "कोई यंत्र नहीं मिले"
+msgstr "कोई DNS प्रविष्टियाँ नहीं मिलीं"
 
 #: mikrotik.php
 msgid "List"
 msgstr "सूची"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address"
-msgstr "IP सिरनामा"
+msgstr "पता"
 
 #: mikrotik.php
 msgid "Timeout"
 msgstr "टाइमआउट"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "कोई यंत्र नहीं मिले"
+msgstr "कोई एड्रेस लिस्ट प्रविष्टियाँ नहीं मिलीं"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "हटाएं"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "निम्नलिखित उपयोगकर्ताओं (ओं) और उनके ग्राफ़ (ओं) को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr "निम्नलिखित उपयोगकर्ताओं और उनके ग्राफ़ को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -874,12 +759,10 @@ msgid "Continue"
 msgstr "जारी रखें"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "उपकरण"
+msgstr "डिवाइस हटाएं"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
 msgstr "आपको कम से कम एक उपयोगकर्ता का चयन करना होगा।"
 
@@ -888,331 +771,275 @@ msgid "Return"
 msgstr "वापसी"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
-msgstr "मिक्रोटिक उपयोगकर्ता"
+msgstr "MikroTik उपयोगकर्ता"
 
 #: mikrotik_users.php
 msgid "Inactive"
-msgstr "Inaktiv"
+msgstr "निष्क्रिय"
 
 #: mikrotik_users.php
 msgid "User Name"
 msgstr "उपयोगकर्ता नाम"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Domain"
 msgstr "डोमेन"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "मिक्रोटिक उपयोगकर्ता"
+msgstr "MikroTik व्यूअर"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "प्लगइन -> मिक्रोटिक व्यवस्थापक"
+msgstr "MikroTik व्यवस्थापक"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik General Settings"
-msgstr "मिक्रोटिक सामान्य सेटिंग्स"
+msgstr "MikroTik सामान्य सेटिंग्स"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr "मिक्रोटिक पोलर सक्षम"
+msgstr "MikroTik पोलर (Poller) सक्षम"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "इस बॉक्स को चेक करें, यदि आप चाहते हैं कि मिक्रोटिक मतदान सक्षम हो। अन्यथा, मतदाता कार्य नहीं करेगा।"
+msgstr "यदि आप MikroTik पोलिंग सक्षम करना चाहते हैं, तो इस बॉक्स को चुनें। अन्यथा, पोलर (Poller) कार्य नहीं करेगा।"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "मिक्रोटिक पोलर सक्षम"
+msgstr "MikroTik API पोलिंग सक्षम"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "इस बॉक्स को चेक करें, यदि आप चाहते हैं कि कैक्टि मिक्रोटिक एपीआई का उपयोग करके विभिन्न सेटिंग्स को प्रदूषित करे। यदि किसी कारण से आपके पास मिक्रोटिक एपीआई तक पहुंच नहीं है, तो इस विकल्प को अनचेक करें।"
+msgstr "यदि आप चाहते हैं कि Cacti, MikroTik API का उपयोग करके विभिन्न सेटिंग्स की पोलिंग करे, तो इस बॉक्स को चिह्नित करें। यदि किसी कारण से आपके पास MikroTik API की पहुँच नहीं है, तो इस विकल्प को अचयनित करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "स्वचालित रूप से डिस्कवर कैक्टि डिवाइसेस"
+msgstr "स्वचालित रूप से Cacti डिवाइस खोजें"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "क्या आप स्वचालित रूप से उन उपकरणों को स्कैन और जोड़ना चाहते हैं जो कैक्टि होस्ट टेबल से मिक्रोटिक एमआईबी का समर्थन करते हैं?"
+msgstr "क्या आप Cacti होस्ट तालिका से MikroTik MIB का समर्थन करने वाले डिवाइस को स्वचालित रूप से स्कैन करके जोड़ना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "स्वचालित रूप से पर्स डिवाइस"
+msgstr "स्वचालित रूप से डिवाइस हटाएँ"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "क्या आप कैक्टि प्रणाली से हटाए गए उपकरणों को स्वचालित रूप से शुद्ध करना चाहते हैं?"
+msgstr "क्या आप Cacti सिस्टम से हटाए गए डिवाइस को स्वचालित रूप से पर्ज करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
 msgstr "अधिकतम समवर्ती कलेक्टर"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "समवर्ती कलेक्टर प्रक्रिया की अधिकतम संख्या क्या है जिसे आप एक बार में चलाना चाहते हैं?"
+msgstr "आप एक समय में अधिकतम कितनी समवर्ती कलेक्टर प्रक्रियाएं चलाना चाहते हैं?"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "% d प्रक्रिया"
+msgstr "%d प्रोसेस"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "% d प्रक्रियाएं"
+msgstr "%d प्रोसेस"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "ऑटो डिस्कवरी फ्रीक्वेंसी"
+msgstr "ऑटो डिस्कवरी सेटिंग्स"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr "ऑटो डिस्कवरी फ्रीक्वेंसी"
+msgstr "ऑटो डिस्कवरी आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "आप कितनी बार नए Cacti Devices देखना चाहते हैं?"
+msgstr "आप नए Cacti उपकरणों की खोज कितनी बार करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "डीएचसीपी / डीएनएस / सूची सेटिंग्स"
+msgstr "DHCP/DNS/सूची सेटिंग्स"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
 msgstr "DHCP अवधारण"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "आप कब तक डीएचसीपी आईपी पंजीकरण इतिहास को बनाए रखना चाहेंगे?"
+msgstr "आप DHCP IP पंजीकरण इतिहास को कब तक बनाए रखना चाहेंगे?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
-msgstr "डीएनएस रिटेंशन"
+msgstr "DNS प्रतिधारण"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
 msgstr "आप DNS कैश इतिहास को कब तक बनाए रखना चाहेंगे?"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
-msgstr "पता सूची अवधारण"
+msgstr "पता सूची प्रतिधारण"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
 msgstr "आप पता सूची इतिहास को कब तक बनाए रखना चाहेंगे?"
 
 #: setup.php
-#, fuzzy
 msgid "Device Graph Automation"
-msgstr "डिवाइस ग्राफ स्वचालन"
+msgstr "डिवाइस ग्राफ़ स्वचालन"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "स्वचालित रूप से नए ग्राफ़ जोड़ें"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "आप नई वस्तुओं को ग्राफ़ में कितनी बार जांचना चाहते हैं?"
+msgstr "आप ग्राफ़ बनाने के लिए नए ऑब्जेक्ट्स की जांच कितनी बार करना चाहते हैं?"
 
 #: setup.php
 msgid "Never"
 msgstr "कभी नहीं"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
-msgstr "% d मिनट"
+msgstr "%d मिनट"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
-msgstr "% d घंटा"
+msgstr "%d घंटा"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
-msgstr "% d घंटे"
+msgstr "%d घंटे"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
-msgstr "% द डे"
+msgstr "%d दिन"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days"
-msgstr "% ड डय"
+msgstr "%d दिन"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "उपयोगकर्ता RegExe को छोड़ दें"
+msgstr "उपयोगकर्ताओं को बाहर रखने का RegEx"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "इस नाम से मेल खाने वाले उपयोगकर्ता नाम स्वचालित रूप से रेखांकन नहीं किए जाएंगे"
+msgstr "इस रेगेक्स (regex) से मेल खाने वाले उपयोगकर्ता नामों का स्वचालित रूप से ग्राफ़ नहीं बनाया जाएगा"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "उपयोगकर्ताओं के लिए रहने का समय निकालें"
+msgstr "बाहर रखे गए उपयोगकर्ताओं का टाइम-टू-लिव (TTL)"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "बहिष्कृत उपयोगकर्ता के डेटा को कब तक डिस्कनेक्ट किया जाना चाहिए।"
+msgstr "डिस्कनेक्ट होने के बाद किसी बहिष्कृत उपयोगकर्ता का डेटा कितने समय तक सुरक्षित रखा जाना चाहिए।"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr "मिक्रोटिक डिवाइस कलेक्शन फ़्रीक्वेंसीज़"
+msgstr "MikroTik डिवाइस संग्रह आवृत्तियाँ"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
-msgstr "भंडारण की आवृत्ति"
+msgstr "स्टोरेज आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
 msgstr "आप संग्रहण सांख्यिकी को कितनी बार स्कैन करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
-msgstr "प्रोसेसर की आवृत्ति"
+msgstr "प्रोसेसर आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
 msgstr "आप डिवाइस प्रोसेसर सांख्यिकी को कितनी बार स्कैन करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
-msgstr "रुकावटों की आवृत्ति"
+msgstr "इंटरफ़ेस आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr "आप कितनी बार Interfaces को स्कैन करना चाहते हैं?"
+msgstr "आप इंटरफ़ेस को कितनी बार स्कैन करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "भंडारण की आवृत्ति"
+msgstr "DNS/DHCP/सूची आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "आप डिवाइस प्रोसेसर सांख्यिकी को कितनी बार स्कैन करना चाहते हैं?"
+msgstr "आप DNS/DHCP/एड्रेस सूचियों को कितनी बार स्कैन करना चाहते हैं?"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "मिक्रोटिक क्यू / ट्री कलेक्शन फ़्रीक्वेंसीज़"
+msgstr "MikroTik क्यू/ट्री संग्रह आवृत्तियाँ"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "सरल कतार / पीपीपीओ आवृत्ति"
+msgstr "सिंपल क्यू / PPPoE आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कितनी बार साधारण कतार सांख्यिकी स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप सिंपल क्यू सांख्यिकी को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "कतार पेड़ों की आवृत्ति"
+msgstr "कतार ट्री आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कतार पेड़ को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप क्यू ट्री को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "मिक्रोटिक वायरलेस कलेक्शन फ़्रीक्वेंसीज़"
+msgstr "MikroTik वायरलेस संग्रह आवृत्तियाँ"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr "वायरलेस हॉटस्पॉट उपयोगकर्ता आवृत्ति"
+msgstr "वायरलेस HotSpot उपयोगकर्ता आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कितनी बार वायरलेस उपयोगकर्ता सांख्यिकी स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप वायरलेस उपयोगकर्ता सांख्यिकी को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr "वायरलेस एक्सेस प्वाइंट फ्रीक्वेंसी"
+msgstr "वायरलेस एक्सेस पॉइंट आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कितनी बार वायरलेस एक्सेस पॉइंट्स स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप वायरलेस एक्सेस पॉइंट्स को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Registrations Frequency"
 msgstr "वायरलेस पंजीकरण आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कितनी बार वायरलेस पंजीकरण स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप वायरलेस पंजीकरण को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Stations Frequency"
-msgstr "वायरलेस स्टेशनों आवृत्ति"
+msgstr "वायरलेस स्टेशन आवृत्ति"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "आप कितनी बार वायरलेस स्टेशनों को स्कैन करना चाहते हैं? इस सुविधा को निकालने के लिए <b>अक्षम</b> का चयन करें।"
+msgstr "आप वायरलेस स्टेशनों को कितनी बार स्कैन करना चाहते हैं? इस सुविधा को हटाने के लिए <b>अक्षम</b> का चयन करें।"
 
 #: setup.php
 msgid "Management"
@@ -1223,98 +1050,89 @@ msgid "Normal User"
 msgstr "सामान्य उपयोगकर्ता"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
 msgstr "सामान्य प्रशासन"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minute"
-msgstr "% d मिनट"
+msgstr "%d मिनट"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinite"
 msgstr "अनिश्चितकालीन"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
 msgstr "%d सप्ताह"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "%d सप्ताह"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d मिनट"
+msgstr "%d महीने"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
 msgstr "%d वर्ष"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
-msgstr "सरल कतारों"
+msgstr "सरल कतारें"
 
 #: setup.php
-#, fuzzy
 msgid "Storage"
-msgstr "भंडारण"
+msgstr "स्टोरेज"
 
 #: setup.php
-#, fuzzy
 msgid "(edit)"
-msgstr "संपादित करें"
+msgstr "(संपादित करें)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr "नियम, या नहीं बनाया द्वारा छोड़े गए रेखांकन"
+msgstr "नियम द्वारा छोड़े गए, या नहीं बनाए गए ग्राफ़"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "SSL (api-ssl, पोर्ट 8729) पर MikroTik API से कनेक्ट करें। इसे चालू करने से पहले डिवाइस पर IP > Services के अंतर्गत api-ssl सेवा सक्षम करें।"
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "नहीं"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "हाँ"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "MikroTik api-ssl सेवा (पोर्ट 8729) से SSL कनेक्शन स्थापित नहीं हो सका, इसलिए SSL सक्षम नहीं किया जा सकता। SSL का उपयोग करने के लिए डिवाइस पर IP > Services के अंतर्गत api-ssl सेवा को सक्षम और सत्यापित करें।"
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "हाँ (वर्तमान में अप्राप्य)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
-msgstr "मिक्रोटिक क्रेडेंशियल्स"
+msgstr "MikroTik क्रेडेंशियल"
 
 #: setup.php
-#, fuzzy
 msgid "Read Only User"
-msgstr "केवल उपयोगकर्ता पढ़ें"
+msgstr "केवल-पढ़ने वाला उपयोगकर्ता"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr "MikroTik के लिए केवल पढ़ा जाने वाला उपयोगकर्ता नाम प्रदान करें।"
+msgstr "MikroTik के लिए केवल-पढ़ने (रीड-ओनली) वाला उपयोगकर्ता नाम प्रदान करें।"
 
 #: setup.php
 msgid "Password"
@@ -1322,30 +1140,27 @@ msgstr "पासवर्ड"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "इस MikroTik के लिए रीड-ओनली पासवर्ड प्रदान करें। वर्तमान में संग्रहीत पासवर्ड रखने के लिए इस फ़ील्ड को खाली छोड़ दें।"
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "इस डिवाइस पर SSL मौजूद नहीं है"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
-msgstr "कनेक्शन का परिणाम"
+msgstr "कनेक्शन परिणाम"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "ठीक है अगर Cacti अपने एपीआई पोर्ट पर मिक्रोटिक से जुड़ सकता है।"
+msgstr "यदि Cacti अपने API पोर्ट के माध्यम से MikroTik से कनेक्ट हो सकता है तो ठीक है।"
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL सक्षम है लेकिन api-ssl पोर्ट (8729) पहुंच योग्य नहीं है; कनेक्शन का परीक्षण नहीं किया गया।"
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "कनेक्शन का परिणाम"
+msgstr "सफलतापूर्वक कनेक्ट हुआ"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1353,11 +1168,11 @@ msgstr "कनेक्शन असफल"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "असत्यापित API TLS प्रमाणपत्रों की अनुमति दें"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "RouterOS API कनेक्शन के लिए प्रमाणपत्र और होस्टनाम सत्यापन अक्षम करें। इससे API क्रेडेंशियल किसी छद्म डिवाइस के सामने उजागर हो सकते हैं। जब भी संभव हो, इसे अचयनित छोड़ें और विश्वसनीय डिवाइस प्रमाणपत्र स्थापित करें।"
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."

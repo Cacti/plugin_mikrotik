@@ -50,57 +50,48 @@ msgid "Users"
 msgstr "Χρήστες"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
-msgstr "Οι ουρές"
+msgstr "Ουρές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "Δύο ουρά"
+msgstr "Δέντρα ουρών"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Interfaces"
 msgstr "Διεπαφές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
 msgstr "Προσωρινή μνήμη DNS"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP Address"
+msgstr "Λίστες διευθύνσεων"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Ασύρματες εφαρμογές"
+msgstr "Ασύρματα σημεία πρόσβασης (APs)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Συχνότητα συχνότητας εγγραφών"
+msgstr "Ασύρματες εγγραφές"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Υγεία"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "Γραφήματα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Στατιστικά διασύνδεσης"
+msgstr "Στατιστικά διεπαφής"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Search"
@@ -123,9 +114,8 @@ msgid "Active"
 msgstr "Ενεργό"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "Από την Επαναφορά"
+msgstr "Από την επαναφορά"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -148,34 +138,28 @@ msgid "Name"
 msgstr "Όνομα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
 msgstr "Rx Bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
 msgstr "Tx Bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
-msgstr "Rx πακέτα"
+msgstr "Πακέτα Rx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
-msgstr "Tx πακέτα"
+msgstr "Πακέτα Tx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
 msgstr "Σφάλματα Rx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
-msgstr "Tx Λάθη"
+msgstr "Σφάλματα Tx"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
@@ -186,169 +170,138 @@ msgid "Edit Device"
 msgstr "Επεξεργασία συσκευής"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
 msgstr "Δεν βρέθηκαν διεπαφές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
 msgstr "Κατάσταση ουράς"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Src Addr / μάσκα"
+msgstr "Διεύθυνση/Μάσκα πηγής"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr / μάσκα"
+msgstr "Διεύθ. προορ./Μάσκα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
-msgstr "Bytes In"
+msgstr "Bytes εισόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
-msgstr "Έξοδος από τα byte"
+msgstr "Bytes εξόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "Pkts In"
+msgstr "Εισερχόμενα πακέτα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "Pkts Out"
+msgstr "Εξερχόμενα πακέτα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs In"
+msgstr "Εισερχόμενες ουρές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
-msgstr "Qs Out"
+msgstr "Εξερχόμενες ουρές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "Συνεργάζεται με"
+msgstr "Απορρίψεις εισόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "Βγαίνει"
+msgstr "Απορρίψεις εξόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
 msgstr "Δεν βρέθηκαν απλές ουρές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "Κατάσταση Queue Tree"
+msgstr "Κατάσταση δέντρου ουρών"
 
 #: mikrotik.php setup.php
 msgid "Trees"
 msgstr "Δέντρα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Flow"
 msgstr "Ροή"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "Cur Bytes"
+msgstr "Τρέχοντα Bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "Cur Πακέτα"
+msgstr "Τρέχοντα πακέτα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
-msgstr "Συνολικά απομακρυσμένα"
+msgstr "Συνολικά Bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
 msgstr "Συνολικά πακέτα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "Δεν βρέθηκαν δέντρα ουράς"
+msgstr "Δεν βρέθηκαν δέντρα ουρών"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "Κατάσταση ασύρματων εφαρμογών"
+msgstr "Κατάσταση ασύρματων σημείων πρόσβασης (APs)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "Aps"
+msgstr "Σημεία πρόσβασης (APs)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "SSID"
 msgstr "SSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "Tx Rate"
+msgstr "Ρυθμός Tx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "Rx Rate"
+msgstr "Ρυθμός Rx"
 
 #: mikrotik.php
 msgid "Clients"
 msgstr "Πελάτες"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "Auth Clients"
+msgstr "Πελάτες ταυτοποίησης"
 
 #: mikrotik.php
 msgid "Frequency"
 msgstr "Συχνότητα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Band"
 msgstr "Ζώνη"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "Θόρυβος όροφος"
+msgstr "Κατώφλι θορύβου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
 msgstr "Tx CQQ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "User Statistics"
 msgstr "Στατιστικά χρήστη"
 
@@ -361,7 +314,6 @@ msgid "Hotspot"
 msgstr "Σημείο πρόσβασης"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
 msgstr "PPPoe"
 
@@ -378,68 +330,58 @@ msgid "IP Address"
 msgstr "IP Address"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC"
-msgstr "ΜΑΚ"
+msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
-msgstr "Σύνδεση ώρας"
+msgstr "Χρόνος σύνδεσης"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "Τρέχουσα είσοδος"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "Εκκεντ"
+msgstr "Τρέχουσα έξοδος"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "Μέγ"
+msgstr "Μ.Ο. Εισόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "Μέση τιμή"
+msgstr "Μ.Ο. Εξόδου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "Σύνολο"
+msgstr "Σύνολο εισερχομένων"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "Total Out"
+msgstr "Σύνολο εξερχομένων"
 
 #: mikrotik.php
 msgid "N/A"
 msgstr "Μη Διαθέσιμο"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "No Users Found"
-msgstr "Δεν βρέθηκαν χρήστες"
+msgstr "Δεν βρέθηκαν χρήστες."
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "MikroTik διαπιστευτήρια"
+msgstr "Αρχείο αλλαγών MikroTik"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr "Φίλτρο συσκευής (τελευταία έκδοση του MikroTik είναι: %s)"
+msgstr "Φίλτρο συσκευής (Η τελευταία έκδοση MikroTik είναι: %s)"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "Φίλτρο συσκευής (τελευταία έκδοση του MikroTik είναι: %s, Released: %s)"
+msgstr "Φίλτρο συσκευής (Η τελευταία έκδοση MikroTik είναι: %s, Κυκλοφόρησε: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
@@ -466,51 +408,42 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "FW Ver"
+msgstr "Έκδοση FW"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "Lic Ver"
+msgstr "Έκδοση άδειας"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "Ώρα λειτουργίας (d: h: m)"
+msgstr "Χρόνος λειτουργίας (η:ω:λ)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
-msgstr "ΕΠΕΞΕΡΓΑΣΤΗΣ %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
-msgstr "CPU"
+msgstr "CPUs"
 
 #: mikrotik.php
 msgid "Processes"
 msgstr "Διαδικασίες"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "Σύνολο Μετ"
+msgstr "Συνολική μνήμη"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "Χρησιμοποιημένος Mem"
+msgstr "Χρησιμοποιημένη μνήμη"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
 msgstr "Συνολικός δίσκος"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
 msgstr "Χρησιμοποιημένος δίσκος"
 
@@ -519,84 +452,72 @@ msgid "View Users"
 msgstr "Προβολή χρηστών"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "Απλές ουρές"
+msgstr "Προβολή απλής ουράς"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "Δύο ουρά"
+msgstr "Προβολή δέντρων ουράς (Queue Trees)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "Ασύρματες εφαρμογές"
+msgstr "Προβολή ασύρματων σημείων πρόσβασης (APs)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "Ασύρματες εφαρμογές"
+msgstr "Δεν βρέθηκαν ασύρματα σημεία πρόσβασης (AP)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "Διεπαφές"
+msgstr "Προβολή διεπαφών"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "Γραφήματα"
+msgstr "Προβολή γραφημάτων"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
-msgstr "Δεν ορίζονται γραφήματα"
+msgstr "Δεν έχουν οριστεί γραφήματα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Devices Found"
 msgstr "Δεν βρέθηκαν συσκευές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "Επιλέξτε Πρώτα το ερώτημα δεδομένων από την κονσόλα -> Ρυθμίσεις -> Host MIB First"
+msgstr "Επιλέξτε πρώτα το ερώτημα δεδομένων από Κονσόλα -> Ρυθμίσεις -> Host MIB First"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "Τα γραφήματα παραλείφθηκαν ή δεν δημιουργήθηκαν ακόμη"
+msgstr "Γραφήματα που παραλείφθηκαν ή δεν δημιουργήθηκαν ακόμη"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "Επιλέξτε πρώτα το ερώτημα δεδομένων από το Console-> Settings-> Host MIB First"
+msgstr "Παρακαλούμε επιλέξτε πρώτα το ερώτημα δεδομένων από Κονσόλα->Ρυθμίσεις->Host MIB First"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Οποιοδήποτε"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Πρότυπο"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Όλες οι γραφικές παραστάσεις και τα πρότυπα"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Επιλεγμένα πρότυπα"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Ορισμός / Ανανέωση φίλτρων"
+msgstr "Ορισμός/Ανανέωση φίλτρων"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear Filters"
@@ -604,132 +525,126 @@ msgstr "Καθαρισμός Φίλτρων"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Αποθήκευση φίλτρου στη βάση δεδομένων"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Στήλες"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d Στήλη"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d Στήλες"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Μικρογραφίες"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Present"
 msgid "Presets"
-msgstr "Παρόν"
+msgstr "Προρυθμίσεις"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Προσαρμογή"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "Από"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Επιλογέας ημερομηνίας έναρξης"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Προς"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Επιλογή Ημερομηνίας"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Μετατόπιση χρόνου προς τα πίσω"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Καθορισμός διαστήματος μετατόπισης"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Μετατόπιση χρόνου προς τα εμπρός"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Ανανέωση"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Ανανέωση επιλεγμένου χρονικού διαστήματος"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Επιστροφή στην προεπιλεγμένη χρονική περίοδο"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Παράθυρο"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interval"
-msgstr "Διεπαφές"
+msgstr "Διάστημα"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Διακοπή"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Προσαρμοσμένη λίστα προσαρμοσμένων γραφημάτων - Φιλτράρισμα από τη λίστα"
+msgstr "Εφαρμόστηκε προσαρμοσμένη λίστα γραφημάτων - Φιλτράρισμα από τη λίστα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graph Preview Filters"
-msgstr "Φίλτρα προεπισκόπησης γραφημάτων"
+msgstr "Φίλτρα προεπισκόπησης γραφήματος"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Αισθητήρες υγείας"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Αισθητήρες"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Αισθητήρας"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Αξία"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Μονάδα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Health Sensors Found"
-msgstr "Δεν βρέθηκαν χρήστες"
+msgstr "Δεν βρέθηκαν αισθητήρες υγείας"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Συχνότητα συχνότητας εγγραφών"
+msgstr "Στατιστικά ασύρματων εγγραφών"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -740,24 +655,20 @@ msgid "Client Name"
 msgstr "Επωνυμία"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC Address"
-msgstr "IP Address"
+msgstr "Διεύθυνση MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Signal to Noise"
-msgstr "Σήμα για θόρυβο"
+msgstr "Λόγος σήματος προς θόρυβο"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Συχνότητα συχνότητας εγγραφών"
+msgstr "Δεν βρέθηκαν ασύρματες εγγραφές"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
-msgstr "Εγγραφές DHCP"
+msgstr "Καταχωρήσεις DHCP"
 
 #: mikrotik.php
 msgid "Entries"
@@ -781,23 +692,20 @@ msgid "%s Seconds"
 msgstr "%s δευτερόλεπτα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dynamic"
-msgstr "Δυναμικός"
+msgstr "Δυναμικό"
 
 #: mikrotik.php
 msgid "Static"
 msgstr "Στατικό"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr "Δεν βρέθηκαν καταχωρήσεις DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Permanent"
-msgstr "Μόνιμος"
+msgstr "Μόνιμο"
 
 #: mikrotik.php
 msgid "Expired"
@@ -809,17 +717,15 @@ msgstr "Εξαγωγή"
 
 #: mikrotik.php
 msgid "Data"
-msgstr "Ημερομηνία"
+msgstr "Δεδομένα"
 
 #: mikrotik.php
-#, fuzzy
 msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr "Δεν βρέθηκαν καταχωρήσεις DNS"
 
 #: mikrotik.php
 msgid "List"
@@ -834,18 +740,16 @@ msgid "Timeout"
 msgstr "Τέλος χρόνου"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "Δεν βρέθηκαν συσκευές"
+msgstr "Δεν βρέθηκαν καταχωρίσεις λίστας διευθύνσεων"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "Διαγραφή"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τους ακόλουθους χρήστες και τα γραφήματα τους."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να διαγράψετε τους ακόλουθους χρήστες και τα γραφήματά τους."
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -856,12 +760,10 @@ msgid "Continue"
 msgstr "Συνέχεια"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "Τύπος Συσκευής"
+msgstr "Διαγραφή συσκευών"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον έναν χρήστη."
 
@@ -870,7 +772,6 @@ msgid "Return"
 msgstr "Επιστροφή"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
 msgstr "Χρήστες MikroTik"
 
@@ -887,173 +788,146 @@ msgid "Domain"
 msgstr "Τομέας"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "Χρήστες MikroTik"
+msgstr "Χρήστης προβολής MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "Plugin -> MikroTik Admin"
+msgstr "Διαχειριστής MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik General Settings"
-msgstr "MikroTik Γενικές ρυθμίσεις"
+msgstr "Γενικές ρυθμίσεις MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr "Το MikroTik Poller είναι ενεργοποιημένο"
+msgstr "Ο Poller MikroTik είναι ενεργοποιημένος"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "Επιλέξτε αυτό το πλαίσιο, εάν θέλετε να είναι ενεργοποιημένη η λειτουργία αναζήτησης MikroTik. Διαφορετικά, ο σάρωθρος δεν θα λειτουργήσει."
+msgstr "Επιλέξτε αυτό το πλαίσιο εάν θέλετε να είναι ενεργοποιημένη η συλλογή δεδομένων MikroTik. Διαφορετικά, ο Poller δεν θα λειτουργήσει."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "Το MikroTik Poller είναι ενεργοποιημένο"
+msgstr "Η συλλογή (Polling) μέσω MikroTik API είναι ενεργοποιημένη"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "Επιλέξτε αυτό το πλαίσιο, εάν θέλετε το Cacti να κάνει δημοσκοπήσεις σε διάφορες ρυθμίσεις χρησιμοποιώντας το MikroTik API. Εάν για κάποιο λόγο δεν έχετε πρόσβαση στο MikroTik API, αποεπιλέξτε αυτήν την επιλογή."
+msgstr "Επιλέξτε αυτό το πλαίσιο εάν θέλετε το Cacti να συλλέγει διάφορες ρυθμίσεις χρησιμοποιώντας το MikroTik API. Εάν για κάποιο λόγο δεν έχετε πρόσβαση στο MikroTik API, αποεπιλέξτε αυτήν την επιλογή."
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "Αυτόματη αναζήτηση συσκευών Cacti"
+msgstr "Αυτόματη ανακάλυψη συσκευών Cacti"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "Θέλετε να σαρώσετε αυτόματα και να προσθέσετε συσκευές που υποστηρίζουν το MikroTik MIB από τον πίνακα υποδοχής Cacti;"
+msgstr "Θέλετε να γίνεται αυτόματη σάρωση και προσθήκη συσκευών που υποστηρίζουν το MikroTik MIB από τον πίνακα κεντρικών υπολογιστών του Cacti;"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "Αυτόματες συσκευές καθαρισμού"
+msgstr "Αυτόματη εκκαθάριση συσκευών"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Θέλετε να καθαρίσετε αυτόματα τις συσκευές που έχουν αφαιρεθεί από το σύστημα Cacti;"
+msgstr "Θέλετε να εκκαθαρίζονται αυτόματα οι συσκευές που αφαιρούνται από το σύστημα Cacti;"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr "Μέγιστες ταυτόχρονες συλλογές"
+msgstr "Μέγιστος αριθμός ταυτόχρονων συλλεκτών"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Ποιος είναι ο μέγιστος αριθμός ταυτόχρονων διαδικασιών συλλογής που θέλετε να τρέξετε ταυτόχρονα;"
+msgstr "Ποιος είναι ο μέγιστος αριθμός ταυτόχρονων διεργασιών συλλογής που θέλετε να εκτελούνται ταυτόχρονα;"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "% d Διαδικασία"
+msgstr "%d διεργασία"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "% d Διαδικασίες"
+msgstr "%d Διεργασίες"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "Συχνότητα αυτόματης ανεύρεσης"
+msgstr "Ρυθμίσεις αυτόματης ανακάλυψης"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr "Συχνότητα αυτόματης ανεύρεσης"
+msgstr "Συχνότητα αυτόματης ανακάλυψης"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Πόσο συχνά θέλετε να αναζητήσετε νέες συσκευές Cacti;"
+msgstr "Πόσο συχνά θέλετε να γίνεται αναζήτηση για νέες συσκευές Cacti;"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "Ρυθμίσεις DHCP / DNS / List"
+msgstr "Ρυθμίσεις DHCP/DNS/Λίστας"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
 msgstr "Διατήρηση DHCP"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "Πόσο καιρό θέλετε να διατηρήσετε το ιστορικό εγγραφής IP DHCP;"
+msgstr "Πόσο χρόνο θέλετε να διατηρείται το ιστορικό καταχωρίσεων IP DHCP;"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
 msgstr "Διατήρηση DNS"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "Πόσο καιρό θέλετε να διατηρήσετε το ιστορικό προσωρινής μνήμης DNS;"
+msgstr "Πόσο χρόνο θέλετε να διατηρείται το ιστορικό προσωρινής μνήμης DNS;"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
 msgstr "Διατήρηση λίστας διευθύνσεων"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr "Πόσο καιρό θέλετε να διατηρήσετε το ιστορικό λίστας διευθύνσεων;"
+msgstr "Πόσο χρόνο θέλετε να διατηρείται το ιστορικό της λίστας διευθύνσεων;"
 
 #: setup.php
-#, fuzzy
 msgid "Device Graph Automation"
-msgstr "Αυτοματοποίηση γραφημάτων συσκευών"
+msgstr "Αυτοματοποίηση γραφημάτων συσκευής"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "Αυτόματη προσθήκη νέων γραφημάτων"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Πόσο συχνά θέλετε να ελέγξετε για νέα γραφικά;"
+msgstr "Πόσο συχνά θέλετε να γίνεται έλεγχος για νέα αντικείμενα προς δημιουργία γραφήματος;"
 
 #: setup.php
 msgid "Never"
 msgstr "Ποτέ"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d λεπτά"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
 msgstr "%d ώρα"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
 msgstr "%d ώρες"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
-msgstr "% d Ημέρα"
+msgstr "%d Ημέρα"
 
 #: setup.php
 #, php-format
@@ -1061,139 +935,112 @@ msgid "%d Days"
 msgstr "%d Ημέρες"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "Εξαίρεση χρηστών RegEx"
+msgstr "Εξαίρεση χρηστών (RegEx)"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "Τα ονόματα χρηστών που ταιριάζουν με αυτό το regex δεν θα εμφανίζονται αυτόματα στο γράφημα"
+msgstr "Τα ονόματα χρηστών που ταιριάζουν με αυτή την κανονική έκφραση (regex) δεν θα αποτυπώνονται αυτόματα σε γράφημα"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "Εξαίρεση χρόνου χρηστών για να ζήσουν"
+msgstr "Διάρκεια ζωής (TTL) εξαίρεσης χρηστών"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Πόσο καιρό θα πρέπει να διατηρούνται δεδομένα αποκλεισμένου χρήστη αφού αποσυνδεθούν."
+msgstr "Πόσο χρόνο θα πρέπει να διατηρούνται τα δεδομένα ενός εξαιρεθέντος χρήστη μετά την αποσύνδεσή του."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr "Συχνότητες Συλλογής Συσκευών MikroTik"
+msgstr "Συχνότητες συλλογής συσκευών MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
 msgstr "Συχνότητα αποθήκευσης"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr "Πόσο συχνά θέλετε να σαρώσετε στατιστικά στοιχεία αποθήκευσης;"
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των στατιστικών αποθήκευσης;"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
 msgstr "Συχνότητα επεξεργαστή"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τις Στατιστικές επεξεργαστών συσκευών;"
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των στατιστικών επεξεργαστή συσκευών;"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
-msgstr "Διασυνδέσεις Συχνότητα"
+msgstr "Συχνότητα διεπαφών"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τις Διεπαφές;"
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των διεπαφών;"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "Συχνότητα αποθήκευσης"
+msgstr "Συχνότητα DNS/DHCP/Λίστας"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τις Στατιστικές επεξεργαστών συσκευών;"
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των λιστών DNS/DHCP/Διευθύνσεων;"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "Συχνότητες συσσώρευσης Queue / Tree MikroTik"
+msgstr "Συχνότητες συλλογής Queue/Tree MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "Απλή ουρά / συχνότητα PPPoe"
+msgstr "Συχνότητα απλής ουράς/PPPoe"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τις στατιστικές Simple Queue? Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των στατιστικών Simple Queue; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "Συχνότητα των δέντρων των ουρών"
+msgstr "Συχνότητα δέντρων ουρών"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τα δέντρα Queue; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των Queue Trees; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik ασύρματες συλλεκτικές συχνότητες"
+msgstr "Συχνότητες συλλογής ασύρματων δικτύων MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr "Ασύρματη συχνότητα χρηστών HotSpot"
+msgstr "Συχνότητα χρηστών ασύρματου HotSpot"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τα στατιστικά στοιχεία ασύρματου χρήστη; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των στατιστικών ασύρματων χρηστών; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr "Συχνότητα ασύρματης πρόσβασης"
+msgstr "Συχνότητα ασύρματου σημείου πρόσβασης"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τους Ασύρματους Σημεία Πρόσβασης; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των ασύρματων σημείων πρόσβασης; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Registrations Frequency"
-msgstr "Συχνότητα συχνότητας εγγραφών"
+msgstr "Συχνότητα ασύρματων εγγραφών"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τις καταχωρήσεις ασύρματης σύνδεσης; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των ασύρματων καταχωρίσεων; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Stations Frequency"
 msgstr "Συχνότητα ασύρματων σταθμών"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Πόσο συχνά θέλετε να σαρώσετε τους ασύρματους σταθμούς; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτήν τη λειτουργία."
+msgstr "Πόσο συχνά θέλετε να γίνεται σάρωση των ασύρματων σταθμών; Επιλέξτε <b>Απενεργοποιημένο</b> για να καταργήσετε αυτή τη λειτουργία."
 
 #: setup.php
 msgid "Management"
@@ -1204,42 +1051,39 @@ msgid "Normal User"
 msgstr "Απλός Χρήστης"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
-msgstr "Γενική Διοίκηση"
+msgstr "Γενική διαχείριση"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minute"
-msgstr "% d λεπτά"
+msgstr "%d Λεπτό"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinite"
-msgstr "Αόριστος"
+msgstr "Αόριστο"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
 msgstr "%d Εβδομάδα"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "%d Εβδομάδες"
 
 #: setup.php
 #, php-format
 msgid "%d Months"
-msgstr "% d Μήνας"
+msgstr "%d Μήνες"
 
 #: setup.php
 #, php-format
 msgid "%d Year"
-msgstr "% d Έτος"
+msgstr "%d Έτος"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
 msgstr "Απλές ουρές"
 
@@ -1248,53 +1092,48 @@ msgid "Storage"
 msgstr "Αποθήκη"
 
 #: setup.php
-#, fuzzy
 msgid "(edit)"
-msgstr "(Eπεξεργασία)"
+msgstr "(επεξεργασία)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr "Γραφήματα που παραλείφθηκαν από τον κανόνα ή δεν δημιουργήθηκαν"
+msgstr "Γραφήματα που παραλείφθηκαν από κανόνα ή δεν δημιουργήθηκαν"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "Σύνδεση στο MikroTik API μέσω SSL (api-ssl, θύρα 8729). Ενεργοποιήστε την υπηρεσία api-ssl στην ενότητα IP > Services στη συσκευή πριν ενεργοποιήσετε αυτή την επιλογή."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Ναι"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η δημιουργία σύνδεσης SSL στην υπηρεσία MikroTik api-ssl (θύρα 8729), επομένως δεν είναι δυνατή η ενεργοποίηση του SSL. Ενεργοποιήστε και επαληθεύστε την υπηρεσία api-ssl στην ενότητα IP > Services στη συσκευή για να χρησιμοποιήσετε SSL."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Ναι (επί του παρόντος μη προσβάσιμο)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
-msgstr "MikroTik διαπιστευτήρια"
+msgstr "Διαπιστευτήρια MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Read Only User"
-msgstr "Μόνο χρήστης ανάγνωσης"
+msgstr "Χρήστης μόνο για ανάγνωση"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr "Παρέχετε ένα όνομα χρήστη μόνο για ανάγνωση για το MikroTik."
+msgstr "Δώστε ένα όνομα χρήστη μόνο για ανάγνωση για το MikroTik."
 
 #: setup.php
 msgid "Password"
@@ -1302,30 +1141,27 @@ msgstr "Κωδικός"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Δώστε τον κωδικό πρόσβασης μόνο για ανάγνωση για αυτό το MikroTik. Αφήστε αυτό το πεδίο κενό για να διατηρηθεί ο τρέχων αποθηκευμένος κωδικός."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "Το SSL δεν υπάρχει σε αυτή τη συσκευή"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
 msgstr "Αποτέλεσμα σύνδεσης"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "Εντάξει αν ο Cacti μπορεί να συνδεθεί στο MikroTik μέσω της θύρας API του."
+msgstr "Εντάξει εάν το Cacti μπορεί να συνδεθεί στο MikroTik μέσω της θύρας API του."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "Το SSL είναι ενεργοποιημένο αλλά η θύρα api-ssl (8729) δεν είναι προσβάσιμη· η σύνδεση δεν δοκιμάστηκε."
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "Αποτέλεσμα σύνδεσης"
+msgstr "Επιτυχής σύνδεση"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1333,11 +1169,11 @@ msgstr "Η σύνδεση απέτυχε"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Αποδοχή μη επαληθευμένων πιστοποιητικών TLS API"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Απενεργοποίηση επαλήθευσης πιστοποιητικού και ονόματος κεντρικού υπολογιστή για συνδέσεις RouterOS API. Αυτό μπορεί να εκθέσει τα διαπιστευτήρια API σε μια συσκευή που προσποιείται ταυτότητα. Αφήστε το αποεπιλεγμένο και εγκαταστήστε αξιόπιστα πιστοποιητικά συσκευών όποτε είναι δυνατό."
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."

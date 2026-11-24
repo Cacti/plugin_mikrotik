@@ -67,27 +67,24 @@ msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
-msgstr "DNS缓存"
+msgstr "DNS 缓存"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP地址"
+msgstr "地址列表"
 
 #: mikrotik.php setup.php
 msgid "Wireless Aps"
 msgstr "无线Ap"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
 msgstr "无线注册"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "健康状态"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -374,10 +371,9 @@ msgid "No Users Found"
 msgstr "未找到相应的用户"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "MikroTik Credentials"
 msgid "MikroTik Changelog"
-msgstr "MikroTik证书"
+msgstr "MikroTik 更新日志"
 
 #: mikrotik.php
 #, php-format
@@ -426,7 +422,6 @@ msgid "Uptime(d:h:m)"
 msgstr "正常运行时间(d:h:m)"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "CPU %"
 msgid "CPU %%%"
 msgstr "CPU %"
@@ -460,27 +455,22 @@ msgid "View Users"
 msgstr "查看用户"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
 msgstr "查看简单队列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
 msgstr "查看队列树"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "查看无线Aps"
+msgstr "查看无线 AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "找不到无线Aps"
+msgstr "未找到无线 AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
 msgstr "查看接口"
 
@@ -497,39 +487,36 @@ msgid "No Devices Found"
 msgstr "未找到设备"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "请从控制台 - &gt;设置 - &gt;主机MIB中选择数据查询"
+msgstr "请先从 控制台 -> 设置 -> Host MIB 选择数据查询"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "图形已跳过或未创建"
+msgstr "已跳过或尚未创建的图形"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "请先从控制台-&gt; 设置-&gt; 主机 MIB First选择Data Query"
+msgstr "请先在“控制台 -> 设置 -> Host MIB”中选择数据查询"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "任何"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "模板"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "所有图形和模板"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "选择的模板"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
@@ -541,93 +528,91 @@ msgstr "清除过滤器"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "将过滤器保存到数据库"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "列"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d 列"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d 列"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "缩略图"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Present"
 msgid "Presets"
-msgstr "当前"
+msgstr "预置"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "自定义"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "从"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "开始日期选择器"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "至"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "结束日期选择器"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "向后移动时间"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "定义移动间隔"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "向前移动时间"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "刷新"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "刷新选定的时间跨度"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "返回到默认的时间跨度"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "窗口"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Interfaces"
 msgid "Interval"
-msgstr "接口"
+msgstr "间隔"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
@@ -639,32 +624,30 @@ msgstr "图预览过滤器"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "健康传感器"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "传感器"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "传感器"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "值"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "单位"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "No Users Found"
 msgid "No Health Sensors Found"
-msgstr "未找到相应的用户"
+msgstr "未找到健康传感器"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
 msgstr "无线注册统计"
 
@@ -685,9 +668,8 @@ msgid "Signal to Noise"
 msgstr "信噪比"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "未找到无线注册"
+msgstr "未找到无线注册条目"
 
 #: mikrotik.php
 msgid "DHCP Registrations"
@@ -723,9 +705,8 @@ msgid "Static"
 msgstr "静态"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "找不到DHCP"
+msgstr "未找到 DHCP 条目"
 
 #: mikrotik.php
 msgid "Permanent"
@@ -748,9 +729,8 @@ msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "找不到DHCP"
+msgstr "未找到 DNS 条目"
 
 #: mikrotik.php
 msgid "List"
@@ -765,9 +745,8 @@ msgid "Timeout"
 msgstr "超时"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "找不到DHCP"
+msgstr "未找到地址列表条目"
 
 #: mikrotik_users.php
 msgid "Delete"
@@ -814,14 +793,12 @@ msgid "Domain"
 msgstr "域"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "MikroTik用户"
+msgstr "MikroTik 查看器"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "插件 - > MikroTik管理"
+msgstr "MikroTik 管理"
 
 #: setup.php
 msgid "MikroTik"
@@ -840,14 +817,12 @@ msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, t
 msgstr "如果希望启用MikroTik轮询，请选中此框。 否则，轮询器将无法运行。"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "启用MikroTik轮询器"
+msgstr "已启用 MikroTik API 轮询"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "如果您希望Cacti使用MikroTik API轮询各种设置，请选中此框。如果由于某种原因您无权访问MikroTik API，请取消选中此选项。"
+msgstr "如果您希望 Cacti 使用 MikroTik API 轮询各种设置，请选中此框。如果由于某种原因您无法访问 MikroTik API，请取消选中此选项。"
 
 #: setup.php
 msgid "Automatically Discover Cacti Devices"
@@ -884,9 +859,8 @@ msgid "%d Processes"
 msgstr "%d进程"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "自动发现频率"
+msgstr "自动发现设置"
 
 #: setup.php
 msgid "Auto Discovery Frequency"
@@ -897,39 +871,32 @@ msgid "How often do you want to look for new Cacti Devices?"
 msgstr "您想多久查找一次新的Cacti 设备？"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "DHCP注册"
+msgstr "DHCP/DNS/列表设置"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
-msgstr "DHCP注册"
+msgstr "DHCP 保留时间"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "您想保留DHCP IP注册历史多长时间？"
+msgstr "您希望保留 DHCP IP 注册历史记录多长时间？"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
-msgstr "DHCP注册"
+msgstr "DNS 保留"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "您想保留DNS缓存历史多长时间？"
+msgstr "您希望保留 DNS 缓存历史记录多长时间？"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
-msgstr "地址列表保留"
+msgstr "地址列表保留时间"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr "您想保留地址列表历史记录多长时间？"
+msgstr "您希望保留地址列表历史记录多长时间？"
 
 #: setup.php
 msgid "Device Graph Automation"
@@ -1017,14 +984,12 @@ msgid "How often do you want to scan the Interfaces?"
 msgstr "您希望扫描接口的频率如何？"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "存储频率"
+msgstr "DNS/DHCP/列表频率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "您希望扫描设备处理器统计信息的频率如何？"
+msgstr "您希望多久扫描一次 DNS/DHCP/地址列表？"
 
 #: setup.php
 msgid "MikroTik Queue/Tree Collection Frequencies"
@@ -1136,33 +1101,32 @@ msgid "(edit)"
 msgstr "(编辑)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "按规则跳过或未创建的图形"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "通过 SSL（api-ssl，端口 8729）连接到 MikroTik API。启用此选项前，请先在设备的 IP > Services 下启用 api-ssl 服务。"
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "无法建立与 MikroTik api-ssl 服务（端口 8729）的 SSL 连接，因此无法启用 SSL。请在设备上的 IP > Services 中启用并验证 api-ssl 服务后再使用 SSL。"
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "是（当前不可达）"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
 msgid "MikroTik Credentials"
@@ -1182,11 +1146,11 @@ msgstr "密码"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "提供此 MikroTik 的只读密码。留空此字段以保留当前存储的密码。"
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "此设备上不存在 SSL"
 
 #: setup.php
 msgid "Connection Result"
@@ -1198,13 +1162,12 @@ msgstr "好的，如果Cacti可以通过API端口连接到MikroTik。"
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL 已启用，但 api-ssl 端口（8729）不可达；未测试连接。"
 
 #: setup.php
-#, fuzzy
 #| msgid "Connection Result"
 msgid "Connected Successfully"
-msgstr "连接结果"
+msgstr "连接成功"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1212,11 +1175,11 @@ msgstr "连接失败"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "允许未经验证的 API TLS 证书"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "禁用 RouterOS API 连接的证书和主机名验证。这可能会将 API 凭据暴露给仿冒设备。请尽可能保持未选中状态并安装受信任的设备证书。"
 
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "为此MikroTik提供只读用户名密码。"

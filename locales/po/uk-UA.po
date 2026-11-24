@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 23:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk-UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Присутній"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Працює"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Застереження"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Тестування"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Оффлайн"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Пристрої"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Користувачі"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Черги"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Дерева черг"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Інтерфейси"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Кеш DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Списки адрес"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Бездротові точки доступу"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Бездротові реєстрації"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Стан справності"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Графіки"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Статистика інтерфейсів"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Пошук"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Пристрій"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Всі"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Активний"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "З моменту скидання"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Перейти"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Очистити"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Дії"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Ім'я хоста"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Ім'я"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Байти Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Передано байтів (Tx)"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Пакети Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Передано пакетів (Tx)"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Помилки Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Помилок передавання (Tx)"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Востаннє виявлено"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Редагувати пристрій"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Інтерфейсів не знайдено"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Стан черг"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Адреса/маска джерела"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Адреса/маска признач."
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Отримано байт"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Надіслано байт"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Вхідні пакети"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Вихідні пакети"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Черги (вх.)"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Черги (вих.)"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Вх. відкидання"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Вих. відкидання"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Простих черг не знайдено"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Стан дерева черг"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Дерева"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Потік"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Поточні байти"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Поточні пакети"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Усього байтів"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Усього пакетів"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Дерев черг не знайдено"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Стан бездротових точок доступу"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Точки доступу"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Швидкість передавання (Tx)"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Швидкість Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Клієнти"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Клієнти автентифікації"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Частота"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Діапазон"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Рівень шуму"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Статистика користувачів"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Тип"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Хотспот"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoE"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Активні користувачі"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Користувач"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "IP адреса"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Час підключення"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Поточн. вхід"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Поточн. вихід"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Сер. вхід"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Сер. вихід"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Усього вхідних"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Усього вихідних"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "(відсутній)"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Користувачів не знайдено"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Журнал змін MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Фільтр пристроїв (остання версія MikroTik: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Фільтр пристроїв (остання версія MikroTik: %s, випущено: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Журнал змін"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Статус"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Відновлення"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Онлайн"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Вимкнен"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Опис"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Версія прошивки"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Версія ліц."
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Час роботи (д:г:хв)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "ЦП %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Процесори"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Процеси"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Усього пам'яті"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Використано пам'яті"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Загальний обсяг диска"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Використано диска"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Перегляд користувачів"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Перегляд простої черги"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Перегляд дерев черг"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Перегляд бездротових точок доступу"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Бездротових точок доступу не знайдено"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Перегляд інтерфейсів"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Переглянути графіки"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Графіки не визначено"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Пристроїв не знайдено"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Спочатку виберіть запит даних у розділі Консоль -> Налаштування -> Host MIB"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Графіки пропущено або ще не створено"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Спочатку виберіть запит даних у розділі Консоль->Налаштування->Host MIB"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Будь-який"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Немає"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Усі графіки та шаблони"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Вибрані шаблони"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Встановити/оновити фільтри"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Очистити фільтри"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Зберегти"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Зберегти фільтр у базу даних"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Стовпці"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "Стовпець %d"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Стовпців: %d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Ескізи"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Шаблони"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Користувацький"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Від"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Вибір дати початку"
+
+#: mikrotik.php
+msgid "To"
+msgstr "До"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Вибір дати завершення"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Зсув часу назад"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Визначте інтервал перемикання"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Зсув часу вперед"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Оновити"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Оновити вибраний проміжок часу"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Повернутися до стандартного періоду часу"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Вікно"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Інтервал"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Зупинити"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Застосовано власний список графіків — фільтрація зі списку"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Фільтри попереднього перегляду графіка"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Датчики стану"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Датчики"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Датчик"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Значення"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Одиниця"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Датчиків стану не знайдено"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Статистика бездротових реєстрацій"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Реєстрації"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Ім'я клієнта"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "MAC-адреса"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr ""
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Бездротових реєстрацій не знайдено"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Реєстрації DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Записи"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Закінчується через"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Заблоковано"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Останнє оновлення"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s секунд"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Динамічний"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Статичний"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Записів DHCP не знайдено"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Постійний"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Термін дії минув"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Експорт"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Дані"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Записів DNS не знайдено"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Список"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Адреса"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Час вийшов"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Записів списку адрес не знайдено"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Видалити"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Натисніть 'Продовжити', щоб видалити наведених нижче користувачів та їхні графіки."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Продовжити"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Видалити Пристрій(ої)"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Необхідно вибрати принаймні одного користувача."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Повернутися"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Користувачі MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Неактивний"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Ім'я користувача"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Домен"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Переглядач MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Адміністрування MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr ""
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr ""
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Позначте цей прапорець, щоб увімкнути опитування MikroTik. Інакше опитувач не працюватиме."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr ""
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Позначте цей прапорець, якщо потрібно, щоб Cacti опитував різні параметри за допомогою MikroTik API. Якщо з якихось причин у вас немає доступу до MikroTik API, зніміть цей прапорець."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Автоматично виявляти пристрої Cacti"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Автоматично сканувати та додавати пристрої з таблиці вузлів Cacti, що підтримують MikroTik MIB?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Автоматично очищати пристрої"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Автоматично очищати пристрої, видалені із системи Cacti?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Максимум одночасних збирачів"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Яка максимальна кількість паралельних процесів збирача, яку ви хочете запускати одночасно?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d процес"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Процеси"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Налаштування автовиявлення"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Частота автовиявлення"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Як часто ви хочете шукати нові пристрої Cacti?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr ""
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Зберігання даних DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Як довго ви хотіли б зберігати історію реєстрації IP-адрес DHCP?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Зберігання даних DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Як довго ви хотіли б зберігати історію кешу DNS?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Зберігання списків адрес"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Як довго ви хотіли б зберігати історію списку адрес?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr ""
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr ""
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Автоматизація графіків пристрою"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Автоматично додавати нові графіки"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Як часто ви хочете перевіряти наявність нових об'єктів для побудови графіків?"
+
+#: setup.php
+msgid "Never"
+msgstr "Ніколи"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d хвилин"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d година"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d Годин"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d день"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d днів"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Регулярний вираз для виключення користувачів"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Імена користувачів, що відповідають цьому регулярному виразу, не будуть автоматично відображатися на графіках"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Час життя виключених користувачів"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Як довго слід зберігати дані виключеного користувача після його відключення."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr ""
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Частота опитування сховища"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Як часто ви хочете сканувати статистику сховища?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Частота процесора"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Як часто ви хочете сканувати статистику процесора пристрою?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Частота опитування інтерфейсів"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Як часто потрібно сканувати інтерфейси?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Частота опитування DNS/DHCP/списків"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Як часто потрібно сканувати списки DNS/DHCP/адрес?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr ""
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Частота простих черг/PPPoE"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто ви хочете сканувати статистику простих черг (Simple Queue)? Виберіть <b>Вимкнено</b>, щоб прибрати цю функцію."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Частота дерев черг"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто потрібно сканувати дерева черг (Queue Trees)? Виберіть <b>Вимкнено</b>, щоб вимкнути цю функцію."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr ""
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr ""
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто ви хочете сканувати статистику бездротових користувачів? Виберіть <b>Вимкнено</b>, щоб прибрати цю функцію."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr ""
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто потрібно сканувати бездротові точки доступу? Виберіть <b>Вимкнено</b>, щоб вимкнути цю функцію."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr ""
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто потрібно сканувати реєстрації бездротових клієнтів? Виберіть <b>Вимкнено</b>, щоб вимкнути цю функцію."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr ""
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Як часто потрібно сканувати бездротові станції? Виберіть <b>Вимкнено</b>, щоб вимкнути цю функцію."
+
+#: setup.php
+msgid "Management"
+msgstr "Управління"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Звичайний користувач"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Загальне управління"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d Хвилина"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Безстроково"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d тиждень"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d тижнів"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Місяців"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Рік"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Прості черги"
+
+#: setup.php
+msgid "Storage"
+msgstr "Сховище"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(редагувати)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Графіки, пропущені за правилом або не створені"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Підключатися до MikroTik API через SSL (api-ssl, порт 8729). Перед увімкненням активуйте службу api-ssl у розділі IP > Services на пристрої."
+
+#: setup.php
+msgid "No"
+msgstr "Ні"
+
+#: setup.php
+msgid "Yes"
+msgstr "Так"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Не вдалося встановити SSL-з'єднання зі службою MikroTik api-ssl (порт 8729), тому SSL не можна увімкнути. Щоб використовувати SSL, увімкніть і перевірте службу api-ssl у розділі IP > Services на пристрої."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Так (наразі недоступний)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Облікові дані MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Користувач лише для читання"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Укажіть ім'я користувача лише для читання для MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Пароль"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Укажіть пароль лише для читання для цього MikroTik. Залиште це поле порожнім, щоб зберегти поточний пароль."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL відсутній на цьому пристрої"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Результат підключення"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "OK, якщо Cacti може підключитися до MikroTik через його порт API."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL увімкнено, але порт api-ssl (8729) недоступний; підключення не перевірено."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Успішно підключено"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Підключення не вдалося"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Дозволити неперевірені TLS-сертифікати API"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Вимкнути перевірку сертифіката та імені хоста для з'єднань RouterOS API. Це може розкрити облікові дані API підробленому пристрою. Залишайте цей параметр знятим і за можливості встановлюйте довірені сертифікати пристроїв."
+

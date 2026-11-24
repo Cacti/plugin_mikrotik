@@ -50,14 +50,12 @@ msgid "Users"
 msgstr "Người dùng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
 msgstr "Hàng đợi"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "Cây xếp hàng"
+msgstr "Cây hàng đợi"
 
 #: mikrotik.php setup.php
 msgid "Interfaces"
@@ -68,37 +66,32 @@ msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
 msgstr "Bộ nhớ đệm DNS"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "Địa chỉ IP"
+msgstr "Danh sách địa chỉ"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Aps không dây"
+msgstr "Điểm truy cập không dây (AP)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Tần số đăng ký không dây"
+msgstr "Đăng ký không dây"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Tình trạng"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "Đồ thị"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Chỉ số giao diện"
+msgstr "Thống kê giao diện"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Search"
@@ -121,9 +114,8 @@ msgid "Active"
 msgstr "Kích hoạt"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "Kể từ khi thiết lập lại"
+msgstr "Kể từ khi đặt lại"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -146,32 +138,26 @@ msgid "Name"
 msgstr "Tên"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
 msgstr "Byte Rx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
-msgstr "Tx byte"
+msgstr "Byte Tx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
-msgstr "Gói Rx"
+msgstr "Gói tin Rx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
-msgstr "Gói Tx"
+msgstr "Gói tin Tx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
 msgstr "Lỗi Rx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
 msgstr "Lỗi Tx"
 
@@ -184,74 +170,60 @@ msgid "Edit Device"
 msgstr "Chỉnh sửa thiết bị"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
-msgstr "Không tìm thấy giao diện"
+msgstr "Không tìm thấy giao diện nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
-msgstr "Tình trạng xếp hàng"
+msgstr "Trạng thái hàng đợi"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Bổ sung Src / Mặt nạ"
+msgstr "Địa chỉ nguồn/Mặt nạ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr / Mặt nạ"
+msgstr "Địa chỉ đích/Mặt nạ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
-msgstr "Bytes"
+msgstr "Byte vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
-msgstr "Byte Out"
+msgstr "Byte ra"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "Trong"
+msgstr "Gói tin vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "Ra ngoài"
+msgstr "Gói tin ra"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs trong"
+msgstr "Qs vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
 msgstr "Qs ra"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "Tiến sĩ"
+msgstr "Gói hủy vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "Drps Out"
+msgstr "Gói hủy ra"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
-msgstr "Không tìm thấy hàng đợi đơn giản"
+msgstr "Không tìm thấy hàng đợi đơn giản nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "Trạng thái cây xếp hàng"
+msgstr "Trạng thái cây hàng đợi"
 
 #: mikrotik.php setup.php
 msgid "Trees"
@@ -262,68 +234,56 @@ msgid "Flow"
 msgstr "Flow"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "Cur Byte"
+msgstr "Byte hiện tại"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "Gói Cur"
+msgstr "Gói tin hiện tại"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
-msgstr "Tổng số byte"
+msgstr "Tổng số Byte"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
-msgstr "Tổng số gói"
+msgstr "Tổng số gói tin"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "Không tìm thấy cây xếp hàng"
+msgstr "Không tìm thấy cây hàng đợi nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "Trạng thái Aps không dây"
+msgstr "Trạng thái điểm truy cập không dây (AP)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "Vượn"
+msgstr "Các AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "SSID"
 msgstr "SSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "Tỷ lệ Tx"
+msgstr "Tốc độ Tx"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "Tỷ lệ Rx"
+msgstr "Tốc độ Rx"
 
 #: mikrotik.php
 msgid "Clients"
 msgstr "Khách hàng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "Auth Khách hàng"
+msgstr "Máy khách xác thực"
 
 #: mikrotik.php
 msgid "Frequency"
@@ -334,12 +294,10 @@ msgid "Band"
 msgstr "Thương hiệu"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "Tầng tiếng ồn"
+msgstr "Mức nhiễu nền"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
 msgstr "Tx CQQ"
 
@@ -353,10 +311,9 @@ msgstr "Loại"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Hotspot"
-msgstr "Điểm ảnh"
+msgstr "Hotspot"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
 msgstr "PPPoe"
 
@@ -377,63 +334,54 @@ msgid "MAC"
 msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
-msgstr "Kết nối thời gian"
+msgstr "Thời gian kết nối"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "Vào hiện tại"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "Cur Out"
+msgstr "Ra hiện tại"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "Trung bình"
+msgstr "Trung bình vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "Trung bình"
+msgstr "Trung bình ra"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "Tổng"
+msgstr "Tổng lưu lượng vào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "Tổng cộng ra"
+msgstr "Tổng lưu lượng ra"
 
 #: mikrotik.php
 msgid "N/A"
 msgstr "N/A"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "No Users Found"
 msgstr "Không tìm thấy người dùng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "Thông tin xác thực MikroTik"
+msgstr "Nhật ký thay đổi MikroTik"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
 msgstr "Bộ lọc thiết bị (Phiên bản MikroTik mới nhất là: %s)"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "Bộ lọc thiết bị (Phiên bản MikroTik mới nhất là: %s, Đã phát hành: %s)"
+msgstr "Bộ lọc thiết bị (Phiên bản MikroTik mới nhất là: %s, Phát hành: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
@@ -444,7 +392,6 @@ msgid "Status"
 msgstr "Trạng thái"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Recovering"
 msgstr "Phục hồi"
 
@@ -461,51 +408,42 @@ msgid "Description"
 msgstr "Mô tả"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "FW Ver"
+msgstr "Phiên bản FW"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "Giấy phép"
+msgstr "Phiên bản giấy phép"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "Thời gian hoạt động (d: h: m)"
+msgstr "Thời gian hoạt động (d:h:m)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
-msgstr "CPU %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
-msgstr "CPU"
+msgstr "Các CPU"
 
 #: mikrotik.php
 msgid "Processes"
 msgstr "Quy trình"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "Tổng số Mem"
+msgstr "Tổng bộ nhớ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "Mem đã qua sử dụng"
+msgstr "Bộ nhớ đã sử dụng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
-msgstr "Tổng số đĩa"
+msgstr "Tổng dung lượng đĩa"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
 msgstr "Đĩa đã sử dụng"
 
@@ -514,219 +452,200 @@ msgid "View Users"
 msgstr "Xem người dùng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "Hàng đợi đơn giản"
+msgstr "Xem hàng đợi đơn giản"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "Cây xếp hàng"
+msgstr "Xem cây hàng đợi"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "Aps không dây"
+msgstr "Xem các AP không dây"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "Aps không dây"
+msgstr "Không tìm thấy điểm truy cập không dây nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "Interfaces"
+msgstr "Xem giao diện"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "Đồ thị"
+msgstr "Xem đồ thị"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
-msgstr "Không có đồ thị được xác định"
+msgstr "Chưa định nghĩa đồ thị nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Devices Found"
 msgstr "Không tìm thấy thiết bị nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "Vui lòng chọn Truy vấn Dữ liệu Đầu tiên từ Bảng điều khiển -> Cài đặt -> Máy chủ MIB Đầu tiên"
+msgstr "Vui lòng chọn Truy vấn dữ liệu trước từ Bảng điều khiển -> Cài đặt -> Host MIB trước"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "Đồ thị bị bỏ qua hoặc chưa được tạo"
+msgstr "Biểu đồ bị bỏ qua hoặc chưa được tạo"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "Vui lòng chọn Truy vấn dữ liệu trước từ Bảng điều khiển-> Cài đặt-> Máy chủ MIB Đầu tiên"
+msgstr "Vui lòng chọn Truy vấn dữ liệu trước từ Bảng điều khiển->Cài đặt->Host MIB trước"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Bất kỳ"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Không"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Mẫu"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Tất cả đồ thị và mẫu"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Mẫu được chọn"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Đặt / làm mới bộ lọc"
+msgstr "Đặt / Làm mới Bộ lọc"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "Xóa bộ lọc"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Lưu"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Lưu bộ lọc vào cơ sở dữ liệu"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Cột"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d Cột"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d Cột"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Ảnh thu nhỏ"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Present"
 msgid "Presets"
-msgstr "Có mặt"
+msgstr "Đặt trước"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "Từ"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Ngày bắt đầu chọn"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Đến"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Bộ chọn ngày kết thúc"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Thay đổi thời gian lùi"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Xác định khoảng thời gian thay đổi"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Chuyển thời gian chuyển tiếp"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Làm mới"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Làm mới khoảng thời gian đã chọn"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Quay trở lại khoảng thời gian mặc định"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Window"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Interfaces"
 msgid "Interval"
-msgstr "Giao thức kết nối"
+msgstr "Interval"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Dừng"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Danh sách đồ thị tùy chỉnh được áp dụng - Lọc từ danh sách"
+msgstr "Đã áp dụng danh sách biểu đồ tùy chỉnh - Đang lọc từ danh sách"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Bộ lọc xem trước đồ thị"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Cảm biến tình trạng"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Cảm biến"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Cảm biến"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Đơn vị"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Health Sensors Found"
-msgstr "Không tìm thấy người dùng"
+msgstr "Không tìm thấy cảm biến tình trạng nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Tần số đăng ký không dây"
+msgstr "Thống kê đăng ký không dây"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -737,22 +656,18 @@ msgid "Client Name"
 msgstr "Tên client"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC Address"
-msgstr "Địa chỉ IP"
+msgstr "Địa chỉ MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Signal to Noise"
-msgstr "Tín hiệu cho tiếng ồn"
+msgstr "Tỷ lệ tín hiệu trên nhiễu"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Tần số đăng ký không dây"
+msgstr "Không tìm thấy đăng ký không dây nào"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
 msgstr "Đăng ký DHCP"
 
@@ -773,7 +688,7 @@ msgid "Last Updated"
 msgstr "Cập nhật mới nhất"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Seconds"
 msgstr "%s Giây"
 
@@ -786,9 +701,8 @@ msgid "Static"
 msgstr "Tĩnh"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "Không tìm thấy thiết bị nào"
+msgstr "Không tìm thấy mục DHCP nào"
 
 #: mikrotik.php
 msgid "Permanent"
@@ -807,14 +721,12 @@ msgid "Data"
 msgstr "Dữ liệu"
 
 #: mikrotik.php
-#, fuzzy
 msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "Không tìm thấy thiết bị nào"
+msgstr "Không tìm thấy mục DNS nào"
 
 #: mikrotik.php
 msgid "List"
@@ -829,18 +741,16 @@ msgid "Timeout"
 msgstr "Hết giờ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "Không tìm thấy thiết bị nào"
+msgstr "Không tìm thấy mục danh sách địa chỉ nào"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "Xóa"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "Nhấp vào 'Tiếp tục' để xóa (các) Người dùng sau và Biểu đồ của họ."
+msgstr "Nhấp vào 'Tiếp tục' để xóa (các) Người dùng sau và (các) Biểu đồ của họ."
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -851,21 +761,18 @@ msgid "Continue"
 msgstr "Tiếp tục"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "Thiết bị"
+msgstr "Xóa thiết bị"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
-msgstr "Bạn phải chọn ít nhất một Người dùng."
+msgstr "Bạn phải chọn ít nhất một người dùng."
 
 #: mikrotik_users.php
 msgid "Return"
 msgstr "Trở về trang cài đặt bắt buộc Plugins"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
 msgstr "Người dùng MikroTik"
 
@@ -882,149 +789,122 @@ msgid "Domain"
 msgstr "Tên miền"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "Người dùng MikroTik"
+msgstr "Trình xem MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "Plugin -> Quản trị viên MikroTik"
+msgstr "Quản trị viên MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik General Settings"
 msgstr "Cài đặt chung MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr "Xe đẩy MikroTik đã bật"
+msgstr "Đã bật Poller MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "Chọn hộp này, nếu bạn muốn bỏ phiếu MikroTik. Nếu không, pug sẽ không hoạt động."
+msgstr "Chọn hộp này nếu bạn muốn bật thăm dò MikroTik. Nếu không, Poller sẽ không hoạt động."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "Xe đẩy MikroTik đã bật"
+msgstr "Đã bật thăm dò API MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "Chọn hộp này, nếu bạn muốn Cacti thăm dò các cài đặt khác nhau bằng API MikroTik. Nếu vì lý do nào đó bạn không có quyền truy cập vào API MikroTik, hãy bỏ chọn tùy chọn này."
+msgstr "Chọn hộp này nếu bạn muốn Cacti thăm dò các cài đặt khác nhau bằng MikroTik API. Nếu vì lý do nào đó bạn không có quyền truy cập vào MikroTik API, hãy bỏ chọn tùy chọn này."
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "Tự động khám phá các thiết bị Cacti"
+msgstr "Tự động phát hiện các thiết bị Cacti"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
 msgstr "Bạn có muốn tự động quét và thêm các thiết bị hỗ trợ MikroTik MIB từ bảng máy chủ Cacti không?"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "Tự động thanh lọc thiết bị"
+msgstr "Tự động dọn dẹp thiết bị"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Bạn có muốn tự động lọc các thiết bị đã bị xóa khỏi hệ thống Cacti không?"
+msgstr "Bạn có muốn tự động xóa bỏ các thiết bị đã bị xóa khỏi hệ thống Cacti không?"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr "Bộ sưu tập đồng thời tối đa"
+msgstr "Số trình thu thập đồng thời tối đa"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Số lượng quá trình thu thập đồng thời tối đa mà bạn muốn chạy cùng một lúc là bao nhiêu?"
+msgstr "Số lượng tiến trình thu thập đồng thời tối đa bạn muốn chạy cùng một lúc là bao nhiêu?"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "Quá trình% d"
+msgstr "%d tiến trình"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "% d Quá trình"
+msgstr "%d Tiến trình"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "Tần số khám phá tự động"
+msgstr "Cài đặt tự động phát hiện"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr "Tần số khám phá tự động"
+msgstr "Tần suất tự động phát hiện"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Bạn có thường xuyên muốn tìm kiếm Thiết bị Cacti mới không?"
+msgstr "Bạn muốn tìm kiếm thiết bị Cacti mới với tần suất như thế nào?"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "Cài đặt DHCP / DNS / Danh sách"
+msgstr "Cài đặt DHCP/DNS/Danh sách"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
-msgstr "Duy trì DHCP"
+msgstr "Lưu giữ DHCP"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
 msgstr "Bạn muốn lưu giữ lịch sử đăng ký IP DHCP trong bao lâu?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
 msgstr "Lưu giữ DNS"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "Bạn muốn lưu giữ lịch sử DNS Cache trong bao lâu?"
+msgstr "Bạn muốn lưu giữ lịch sử bộ nhớ đệm DNS trong bao lâu?"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
-msgstr "Lưu giữ danh sách địa chỉ"
+msgstr "Thời gian lưu giữ danh sách địa chỉ"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr "Bạn muốn lưu giữ lịch sử Danh sách Địa chỉ trong bao lâu?"
+msgstr "Bạn muốn lưu giữ lịch sử Danh sách địa chỉ trong bao lâu?"
 
 #: setup.php
-#, fuzzy
 msgid "Device Graph Automation"
 msgstr "Tự động hóa đồ thị thiết bị"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "Tự động thêm đồ thị mới"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Tần suất bạn muốn kiểm tra các đối tượng mới vào biểu đồ?"
+msgstr "Bạn muốn kiểm tra các đối tượng mới để vẽ biểu đồ với tần suất như thế nào?"
 
 #: setup.php
 msgid "Never"
@@ -1036,159 +916,132 @@ msgid "%d Minutes"
 msgstr "%d phút"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
 msgstr "%d giờ"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
 msgstr "%d giờ"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
-msgstr "% d ngày"
+msgstr "%d Ngày"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days"
-msgstr "% d ngày"
+msgstr "%d Ngày"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "Loại trừ người dùng RegEx"
+msgstr "RegEx loại trừ người dùng"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "Tên người dùng phù hợp với biểu thức chính này sẽ không được vẽ biểu đồ tự động"
+msgstr "Tên người dùng khớp với biểu thức chính quy này sẽ không được vẽ biểu đồ tự động"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "Loại trừ người dùng Thời gian để sống"
+msgstr "Thời gian tồn tại (TTL) loại trừ người dùng"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Dữ liệu người dùng bị loại trừ sẽ được lưu giữ trong bao lâu sau khi họ ngắt kết nối."
+msgstr "Dữ liệu của người dùng bị loại trừ sẽ được lưu giữ trong bao lâu sau khi họ ngắt kết nối."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr "Bộ sưu tập thiết bị MikroTik"
+msgstr "Tần suất thu thập thiết bị MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
-msgstr "Tần số lưu trữ"
+msgstr "Tần suất lưu trữ"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr "Bạn có thường xuyên muốn quét Thống kê lưu trữ không?"
+msgstr "Bạn muốn quét thống kê lưu trữ với tần suất như thế nào?"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
 msgstr "Tần số bộ xử lý"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "Tần suất bạn muốn quét Thống kê bộ xử lý thiết bị?"
+msgstr "Bạn muốn quét thống kê bộ xử lý thiết bị với tần suất như thế nào?"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
-msgstr "Tần số giao diện"
+msgstr "Tần suất giao diện"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr "Bạn có thường xuyên muốn quét Giao diện không?"
+msgstr "Bạn muốn quét các giao diện mạng với tần suất như thế nào?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "Tần số lưu trữ"
+msgstr "Tần suất DNS/DHCP/Danh sách"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "Tần suất bạn muốn quét Thống kê bộ xử lý thiết bị?"
+msgstr "Bạn muốn quét Danh sách DNS/DHCP/Địa chỉ với tần suất như thế nào?"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "MikroTik Hàng đợi / Bộ sưu tập cây thường xuyên"
+msgstr "Tần suất thu thập hàng đợi/cây MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "Tần số hàng đợi / PPPoe đơn giản"
+msgstr "Tần suất Simple Queue/PPPoE"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Bạn có thường xuyên muốn quét Thống kê hàng đợi đơn giản không? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét thống kê hàng đợi đơn giản (Simple Queue) với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "Cây xếp hàng tần số"
+msgstr "Tần suất cây hàng đợi"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "Bạn có thường xuyên muốn quét Cây xếp hàng không? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét các cây hàng đợi (Queue Tree) với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "Bộ sưu tập không dây MikroTik"
+msgstr "Tần suất thu thập không dây MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr "Tần số người dùng HotSpot không dây"
+msgstr "Tần suất người dùng HotSpot không dây"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Tần suất bạn muốn quét Thống kê người dùng không dây? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét thống kê người dùng không dây với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr "Tần số điểm truy cập không dây"
+msgstr "Tần suất điểm truy cập không dây"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "Tần suất bạn muốn quét Điểm truy cập không dây? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét các điểm truy cập không dây (Access Point) với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Registrations Frequency"
-msgstr "Tần số đăng ký không dây"
+msgstr "Tần suất đăng ký không dây"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Tần suất bạn muốn quét Đăng ký không dây? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét các đăng ký không dây với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Stations Frequency"
-msgstr "Tần số trạm không dây"
+msgstr "Tần suất trạm không dây"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Tần suất bạn muốn quét các Trạm không dây? Chọn <b>Vô hiệu hóa</b> để loại bỏ tính năng này."
+msgstr "Bạn muốn quét các trạm không dây với tần suất như thế nào? Chọn <b>Tắt</b> để loại bỏ tính năng này."
 
 #: setup.php
 msgid "Management"
@@ -1199,7 +1052,6 @@ msgid "Normal User"
 msgstr "Người dùng bình thường"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
 msgstr "Quản lý chung"
 
@@ -1209,32 +1061,30 @@ msgid "%d Minute"
 msgstr "%d phút"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinite"
 msgstr "Vô thời hạn"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
 msgstr "%d Tuần"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "%d Tuần"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d phút"
+msgstr "%d Tháng"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
 msgstr "%d Năm"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
 msgstr "Hàng đợi đơn giản"
 
@@ -1247,46 +1097,42 @@ msgid "(edit)"
 msgstr "(chinnhr sửa)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr "Đồ thị bị bỏ qua theo quy tắc hoặc không được tạo"
+msgstr "Biểu đồ bị bỏ qua theo quy tắc hoặc chưa được tạo"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "Kết nối tới API MikroTik qua SSL (api-ssl, cổng 8729). Bật dịch vụ api-ssl trong mục IP > Services trên thiết bị trước khi bật tùy chọn này."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "Không thể thiết lập kết nối SSL tới dịch vụ MikroTik api-ssl (cổng 8729), nên không thể bật SSL. Hãy bật và xác minh dịch vụ api-ssl trong mục IP > Services trên thiết bị để sử dụng SSL."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Có (hiện không thể truy cập)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
 msgstr "Thông tin xác thực MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Read Only User"
 msgstr "Người dùng chỉ đọc"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
 msgstr "Cung cấp tên người dùng chỉ đọc cho MikroTik."
 
@@ -1296,30 +1142,27 @@ msgstr "Mật khẩu"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Cung cấp mật khẩu chỉ đọc cho MikroTik này. Để trống trường này để giữ mật khẩu hiện đang được lưu."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "Không có SSL trên thiết bị này"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
 msgstr "Kết quả kết nối"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "Ok nếu Cacti có thể kết nối với MikroTik qua cổng API của nó."
+msgstr "OK nếu Cacti có thể kết nối tới MikroTik qua cổng API của thiết bị."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL đã được bật nhưng cổng api-ssl (8729) không thể kết nối; kết nối chưa được kiểm tra."
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "Kết quả kết nối"
+msgstr "Kết nối thành công"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1327,11 +1170,11 @@ msgstr "Kết nối không thành công"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Cho phép chứng chỉ TLS API chưa được xác minh"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Tắt xác minh chứng chỉ và tên máy chủ cho kết nối RouterOS API. Điều này có thể làm lộ thông tin xác thực API cho thiết bị giả mạo. Hãy bỏ chọn và cài đặt chứng chỉ thiết bị đáng tin cậy bất cứ khi nào có thể."
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."

@@ -1169,11 +1169,11 @@ msgstr "Anslutningen misslyckades"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Tillåt overifierade API TLS-certifikat"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Inaktivera verifiering av certifikat och värdnamn för RouterOS API-anslutningar. Detta kan exponera API-autentiseringsuppgifter för en falsk enhet. Lämna rutan avmarkerad och installera betrodda enhetscertifikat när det är möjligt."
 
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "Ange lösenordet för användaren med endast läsbehörighet på denna MikroTik."

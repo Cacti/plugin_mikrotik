@@ -23,17 +23,14 @@ msgid "Present"
 msgstr "出席"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Unknown"
 msgstr "未知"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Running"
-msgstr "運行"
+msgstr "執行中"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Warning"
 msgstr "警告"
 
@@ -42,29 +39,24 @@ msgid "Testing"
 msgstr "測試"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Down"
-msgstr "向下"
+msgstr "離線"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Devices"
-msgstr "設備"
+msgstr "裝置"
 
 #: mikrotik.php mikrotik_users.php setup.php
-#, fuzzy
 msgid "Users"
 msgstr "使用者"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
-msgstr "隊列"
+msgstr "佇列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "隊列樹"
+msgstr "佇列樹狀結構"
 
 #: mikrotik.php setup.php
 msgid "Interfaces"
@@ -75,45 +67,38 @@ msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
-msgstr "DNS緩存"
+msgstr "DNS 快取"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP 位址"
+msgstr "位址清單"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "無線Aps"
+msgstr "無線 AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "無線註冊頻率"
+msgstr "無線註冊項目"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "健康狀態"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Graphs"
 msgstr "圖表"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
-msgstr "接口統計"
+msgstr "介面統計資訊"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Search"
 msgstr "搜尋"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Device"
 msgstr "裝置"
 
@@ -126,14 +111,12 @@ msgid "Default"
 msgstr "預設"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Active"
-msgstr "啟用"
+msgstr "作用中"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "自重置"
+msgstr "自重設後"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -144,172 +127,140 @@ msgid "Clear"
 msgstr "清除"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Actions"
 msgstr "動作"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Name"
 msgstr "名稱"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
-msgstr "Rx字節"
+msgstr "Rx 位元組"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
-msgstr "Tx字節"
+msgstr "Tx 位元組"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
-msgstr "Rx數據包"
+msgstr "Rx 封包"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
-msgstr "Tx數據包"
+msgstr "Tx 封包"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
-msgstr "Rx錯誤"
+msgstr "Rx 錯誤"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
-msgstr "Tx錯誤"
+msgstr "Tx 錯誤"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
 msgstr "最近一次登入"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Edit Device"
-msgstr "編輯設備"
+msgstr "編輯裝置"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
-msgstr "沒有找到接口"
+msgstr "找不到介面"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
-msgstr "隊列狀態"
+msgstr "佇列狀態"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Src地址/面膜"
+msgstr "來源位址/遮罩"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr / Mask"
+msgstr "目的位址/遮罩"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
-msgstr "位元組"
+msgstr "輸入位元組"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
-msgstr "字節輸出"
+msgstr "輸出位元組"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "Pkts In"
+msgstr "輸入封包數"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "Pkts Out"
+msgstr "輸出封包數"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs In"
+msgstr "輸入佇列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
-msgstr "Qs Out"
+msgstr "輸出佇列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "Dr in"
+msgstr "輸入捨棄"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "掏出來"
+msgstr "輸出捨棄"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
-msgstr "找不到簡單的隊列"
+msgstr "找不到簡單佇列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "隊列樹狀態"
+msgstr "佇列樹狀結構狀態"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Trees"
-msgstr "樹木"
+msgstr "樹狀目錄"
 
 #: mikrotik.php
 msgid "Flow"
 msgstr "流程"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "Cur字節"
+msgstr "目前位元組"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "Cur Packets"
+msgstr "目前封包"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
-msgstr "總字節數"
+msgstr "總位元組數"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
-msgstr "總包數"
+msgstr "總封包數"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "找不到隊列樹"
+msgstr "找不到佇列樹"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "無線Aps狀態"
+msgstr "無線 AP 狀態"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "APS"
+msgstr "AP"
 
 #: mikrotik.php
 msgid "SSID"
@@ -320,26 +271,22 @@ msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "Tx率"
+msgstr "Tx 速率"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "Rx率"
+msgstr "Rx 速率"
 
 #: mikrotik.php
 msgid "Clients"
 msgstr "客戶端"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "Auth客戶"
+msgstr "已驗證用戶端"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Frequency"
 msgstr "頻率"
 
@@ -348,22 +295,18 @@ msgid "Band"
 msgstr "樂團 (Band)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "噪聲層"
+msgstr "雜訊底線"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
 msgstr "Tx CQQ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "User Statistics"
-msgstr "用戶統計"
+msgstr "使用者統計資料"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Type"
 msgstr "類型"
 
@@ -372,9 +315,8 @@ msgid "Hotspot"
 msgstr "熱點"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
-msgstr "PPPOE"
+msgstr "PPPoE"
 
 #: mikrotik.php
 msgid "Active Users"
@@ -393,226 +335,190 @@ msgid "MAC"
 msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
-msgstr "連接時間"
+msgstr "連線時間"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "目前流入"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "熄滅"
+msgstr "目前流出"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "平均在"
+msgstr "平均輸入"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "平均"
+msgstr "平均輸出"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "總計"
+msgstr "總輸入"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "總計"
+msgstr "總輸出"
 
 #: mikrotik.php
 msgid "N/A"
 msgstr "N/A"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "No Users Found"
 msgstr "找不到使用者"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "MikroTik證書"
+msgstr "MikroTik 變更記錄"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr "設備過濾器（最新的MikroTik版本是：％s）"
+msgstr "裝置篩選器（最新 MikroTik 版本為：%s）"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "設備篩選器（最新MikroTik版本：％s，已發布：％s）"
+msgstr "裝置篩選器（最新 MikroTik 版本為：%s，發布日期：%s）"
 
 #: mikrotik.php
-#, fuzzy
 msgid "ChangeLog"
-msgstr "1改變"
+msgstr "變更記錄"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Status"
 msgstr "狀態"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Recovering"
 msgstr "正在復原"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Up"
-msgstr "向上"
+msgstr "運作中"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Disabled"
-msgstr "停用"
+msgstr "已停用"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "FW Ver"
+msgstr "韌體版本"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "Lic Ver"
+msgstr "授權版本"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "的正常運行時間（d：H：M）"
+msgstr "正常運作時間（d:h:m）"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
-msgstr "中央處理器 ％"
+msgstr "CPU %%%"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
-msgstr "CPU的"
+msgstr "CPU"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Processes"
-msgstr "商品/物料的流動程序"
+msgstr "處理程序"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "總記憶"
+msgstr "總記憶體"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "二手Mem"
+msgstr "已使用記憶體"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
-msgstr "總磁盤"
+msgstr "總磁碟空間"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
-msgstr "用過的磁盤"
+msgstr "已使用磁碟"
 
 #: mikrotik.php
 msgid "View Users"
 msgstr "檢視會員"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "簡單的隊列"
+msgstr "檢視簡單佇列"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "隊列樹"
+msgstr "檢視佇列樹"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "無線Aps"
+msgstr "檢視無線 AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "無線Aps"
+msgstr "找不到無線 AP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "介面卡"
+msgstr "檢視介面"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "查看圖表"
+msgstr "檢視圖表"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
-msgstr "未定義圖"
+msgstr "未定義圖表"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Devices Found"
-msgstr "未找到裝置"
+msgstr "找不到裝置"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "請首先從控制台->設置->主機MIB選擇數據查詢"
+msgstr "請先從「主控台 -> 設定 -> Host MIB」選取資料查詢"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "圖形已跳過或尚未創建"
+msgstr "已略過或尚未建立的圖表"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "請先從控制台->設置->主機MIB選擇數據查詢"
+msgstr "請先從「主控台->設定->Host MIB」選取資料查詢"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "任何"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "範本"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "所有圖表與範本"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "已選取的範本"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
-msgstr "設置/刷新過濾器"
+msgstr "設定/重新整理篩選器"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear Filters"
@@ -620,133 +526,127 @@ msgstr "清除過濾器"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "將篩選條件儲存至資料庫"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "欄"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d 欄"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d 欄"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "縮圖"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Present"
 msgid "Presets"
-msgstr "出席"
+msgstr "預設集"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "自訂"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "從"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "開始日期選擇器"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "至"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "結束日期選擇器"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "將時間往回移"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "定義偏移間隔"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "將時間往前移"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "重新整理所選時間範圍"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "返回預設時間範圍"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "視窗"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Interfaces"
 msgid "Interval"
-msgstr "介面卡"
+msgstr "間隔"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "應用自定義圖表列表 - 從列表中過濾"
+msgstr "已套用自訂圖表清單 - 從清單篩選"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graph Preview Filters"
-msgstr "圖形預覽過濾器"
+msgstr "圖表預覽篩選器"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "健康感測器"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "感測器"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "感測器"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "值"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "單位"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Health Sensors Found"
-msgstr "找不到使用者"
+msgstr "找不到健康感測器"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "無線註冊頻率"
+msgstr "無線註冊統計資料"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -761,24 +661,20 @@ msgid "MAC Address"
 msgstr "MAC 位址"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Signal to Noise"
-msgstr "信噪比"
+msgstr "訊雜比"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "無線註冊頻率"
+msgstr "找不到無線註冊項目"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
-msgstr "DHCP註冊"
+msgstr "DHCP 註冊數"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Entries"
-msgstr "留言"
+msgstr "項目"
 
 #: mikrotik.php
 msgid "Expires in"
@@ -806,9 +702,8 @@ msgid "Static"
 msgstr "靜態"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "找不到設備"
+msgstr "找不到 DHCP 項目"
 
 #: mikrotik.php
 msgid "Permanent"
@@ -823,18 +718,16 @@ msgid "Export"
 msgstr "匯出"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Data"
-msgstr "數據"
+msgstr "資料"
 
 #: mikrotik.php
 msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "找不到設備"
+msgstr "找不到 DNS 項目"
 
 #: mikrotik.php
 msgid "List"
@@ -845,54 +738,44 @@ msgid "Address"
 msgstr "地址"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Timeout"
-msgstr "已逾時"
+msgstr "逾時"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "找不到設備"
+msgstr "找不到位址清單項目"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete"
 msgstr "刪除"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "單擊“繼續”以刪除以下用戶及其圖表。"
+msgstr "按一下「繼續」以刪除下列使用者及其圖表。"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Continue"
 msgstr "繼續"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "設備"
+msgstr "刪除設備"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
-msgstr "您必須至少選擇一個用戶。"
+msgstr "您必須至少選擇一個使用者。"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Return"
 msgstr "返回"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
-msgstr "MikroTik用戶"
+msgstr "MikroTik 使用者"
 
 #: mikrotik_users.php
 msgid "Inactive"
@@ -903,337 +786,278 @@ msgid "User Name"
 msgstr "使用者名稱"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Domain"
 msgstr "網域"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "MikroTik用戶"
+msgstr "MikroTik 檢視者"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "插件 - > MikroTik Admin"
+msgstr "MikroTik 管理員"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
-msgstr "的MikroTik"
+msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik General Settings"
-msgstr "MikroTik一般設置"
+msgstr "MikroTik 一般設定"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr "MikroTik Poller啟用"
+msgstr "已啟用 MikroTik 輪詢器"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "如果要啟用MikroTik輪詢，請選中此框。否則，輪詢器將無法運行。"
+msgstr "如果您希望啟用 MikroTik 輪詢，請勾選此核取方塊。否則，輪詢器將無法運作。"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik Poller啟用"
+msgstr "已啟用 MikroTik API 輪詢"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "如果您希望Cacti使用MikroTik API輪詢各種設置，請選中此框。如果由於某種原因您無權訪問MikroTik API，請取消選中此選項。"
+msgstr "若您希望 Cacti 使用 MikroTik API 輪詢各項設定，請勾選此方塊。若因故無法存取 MikroTik API，請取消勾選此選項。"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "自動發現仙人掌設備"
+msgstr "自動探索 Cacti 裝置"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "您是否希望從Cacti主機表中自動掃描並添加支持MikroTik MIB的設備？"
+msgstr "您是否要自動掃描並從 Cacti 主機資料表新增支援 MikroTik MIB 的裝置？"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "自動清除設備"
+msgstr "自動清除裝置"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "您是否希望自動清除從Cacti系統中移除的設備？"
+msgstr "您是否要自動清除從 Cacti 系統移除的裝置？"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr "最大並發收集器"
+msgstr "同時收集器數量上限"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "您希望一次運行的最大並發收集器進程數是多少？"
+msgstr "您希望一次同時執行的收集器處理程序最大數量為何？"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "％d過程"
+msgstr "%d 個處理程序"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "％d進程"
+msgstr "%d 個處理程序"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "自動發現頻率"
+msgstr "自動探索設定"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr "自動發現頻率"
+msgstr "自動探索頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "您多久想尋找新的Cacti設備？"
+msgstr "您想要多久搜尋一次新的 Cacti 裝置？"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "DHCP / DNS /列表設置"
+msgstr "DHCP/DNS/清單設定"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
-msgstr "DHCP保留"
+msgstr "DHCP 保留期間"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "您想保留DHCP IP註冊歷史多長時間？"
+msgstr "您想要保留 DHCP IP 註冊歷史記錄多久？"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
-msgstr "DNS保留"
+msgstr "DNS 保留期間"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "您想保留DNS緩存歷史多長時間？"
+msgstr "您想要保留 DNS 快取歷史記錄多久？"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
-msgstr "地址列表保留"
+msgstr "位址清單保留"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr "您想保留地址列表歷史記錄多長時間？"
+msgstr "您想要保留位址清單歷史記錄多久？"
 
 #: setup.php
-#, fuzzy
 msgid "Device Graph Automation"
-msgstr "設備圖自動化"
+msgstr "裝置圖表自動化"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
-msgstr "自動添加新圖表"
+msgstr "自動新增圖表"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "您想多久檢查一下要繪製的新對象？"
+msgstr "您想要多久檢查一次要繪製圖表的新物件？"
 
 #: setup.php
-#, fuzzy
 msgid "Never"
 msgstr "從不"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d 分鐘"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
 msgstr "%d 小時"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
 msgstr "%d 小時"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
 msgstr "%d 天"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days"
 msgstr "%d 天"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "排除用戶RegEx"
+msgstr "排除使用者的正規表示式"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "與此正則表達式匹配的用戶名將不會自動繪製"
+msgstr "符合此正規表示式的使用者名稱將不會自動繪製圖表"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "排除用戶生存時間"
+msgstr "排除使用者的存留時間 (TTL)"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "被刪除的用戶數據在斷開連接後應保留多長時間。"
+msgstr "已排除使用者的資料在斷線後應保留多久。"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr "MikroTik設備收集頻率"
+msgstr "MikroTik 裝置收集頻率"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
-msgstr "存儲頻率"
+msgstr "儲存頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr "您希望多久掃描一次存儲統計信息？"
+msgstr "您希望多久掃描一次儲存體統計資訊？"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
 msgstr "處理器頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "您希望多久掃描一次設備處理器統計信息？"
+msgstr "您希望多久掃描一次裝置處理器統計資訊？"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
-msgstr "接口頻率"
+msgstr "介面頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr "您希望多久掃描一次界面？"
+msgstr "您想要多久掃描一次介面？"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "存儲頻率"
+msgstr "DNS/DHCP/清單頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "您希望多久掃描一次設備處理器統計信息？"
+msgstr "您希望多久掃描一次 DNS/DHCP/位址清單？"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "MikroTik隊列/樹收集頻率"
+msgstr "MikroTik 佇列/樹狀結構收集頻率"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "簡單隊列/ PPPoe頻率"
+msgstr "簡單佇列/PPPoE 頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "您希望多久掃描一次簡單隊列統計信息？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您希望多久掃描一次簡易佇列統計資訊？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "隊列樹頻率"
+msgstr "佇列樹狀結構頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "您經常需要掃描隊列樹嗎？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您想要多久掃描一次佇列樹？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik無線收集頻率"
+msgstr "MikroTik 無線網路收集頻率"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr "無線HotSpot用戶頻率"
+msgstr "無線熱點使用者頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "您希望多久掃描一次無線用戶統計信息？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您希望多久掃描一次無線使用者統計資訊？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Access Point Frequency"
-msgstr "無線接入點頻率"
+msgstr "無線存取點頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "您希望多久掃描一次無線接入點？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您想要多久掃描一次無線基地台？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Registrations Frequency"
 msgstr "無線註冊頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "您希望多久掃描一次無線註冊？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您想要多久掃描一次無線註冊項目？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Stations Frequency"
-msgstr "無線電台頻率"
+msgstr "無線工作站頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "您希望多久掃描一次無線電台？選擇<b>已禁用</b>以刪除此功能。"
+msgstr "您想要多久掃描一次無線工作站？選擇 <b>已停用</b> 以移除此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Management"
 msgstr "管理"
 
 #: setup.php
-#, fuzzy
 msgid "Normal User"
-msgstr "普通用戶"
+msgstr "一般使用者"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
-msgstr "總務局"
+msgstr "一般管理"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minute"
 msgstr "%d 分鐘"
 
@@ -1242,127 +1066,116 @@ msgid "Indefinite"
 msgstr "未定"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
-msgstr "%d週"
+msgstr "%d 週"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
-msgstr "%d週"
+msgstr "%d 週"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d個月"
+msgstr "%d 個月"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "%d年"
+msgstr "%d 年"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
-msgstr "簡單的隊列"
+msgstr "簡單佇列"
 
 #: setup.php
 msgid "Storage"
 msgstr "儲存空間"
 
 #: setup.php
-#, fuzzy
 msgid "(edit)"
 msgstr "(編輯)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr "按規則跳過或未創建的圖形"
+msgstr "依規則略過或尚未建立的圖表"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "透過 SSL 連線至 MikroTik API（api-ssl，連接埠 8729）。啟用此選項前，請先在裝置的 IP > Services 下啟用 api-ssl 服務。"
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "無法建立連線至 MikroTik api-ssl 服務（連接埠 8729）的 SSL 連線，因此無法啟用 SSL。請在裝置的 IP > Services 下啟用並驗證 api-ssl 服務以使用 SSL。"
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "是 (目前無法連線)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
-msgstr "MikroTik證書"
+msgstr "MikroTik 認證憑證"
 
 #: setup.php
-#, fuzzy
 msgid "Read Only User"
-msgstr "只讀用戶"
+msgstr "唯讀使用者"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr "為MikroTik提供只讀用戶名。"
+msgstr "提供 MikroTik 的唯讀使用者名稱。"
 
 #: setup.php
-#, fuzzy
 msgid "Password"
 msgstr "密碼"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "請提供此 MikroTik 的唯讀密碼。將此欄位留空即可保留目前儲存的密碼。"
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "此裝置上沒有 SSL"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
-msgstr "連接結果"
+msgstr "連線結果"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "好的，如果Cacti可以通過其API端口連接到MikroTik。"
+msgstr "如果 Cacti 可以透過其 API 連接埠連線到 MikroTik，則顯示正常。"
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "已啟用 SSL，但無法連線至 api-ssl 連接埠 (8729)；未測試連線。"
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "連接結果"
+msgstr "連線成功"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Failed"
 msgstr "連線失敗"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "允許未經驗證的 API TLS 憑證"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "停用 RouterOS API 連線的憑證與主機名稱驗證。這可能會使 API 認證暴露給偽冒的裝置。請盡可能保持未勾選狀態並安裝受信任的裝置憑證。"
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."

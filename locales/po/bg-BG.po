@@ -23,18 +23,17 @@ msgstr "Присъства"
 
 #: mikrotik.php
 msgid "Unknown"
-msgstr "알려지지 않음"
+msgstr "Неизвестно"
 
 #: mikrotik.php
 msgid "Running"
-msgstr "실행 중"
+msgstr "Изпълнява се"
 
 #: mikrotik.php
 msgid "Warning"
 msgstr "Внимание"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Testing"
 msgstr "Тестване"
 
@@ -51,57 +50,48 @@ msgid "Users"
 msgstr "Потребители"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
 msgstr "Опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "Дървета на опашката"
+msgstr "Дървета от опашки"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Interfaces"
 msgstr "Интерфейси"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
 msgstr "DNS кеш"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP Адрес"
+msgstr "Списъци с адреси"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Безжични Aps"
+msgstr "Безжични точки за достъп"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Честота на безжичните регистрации"
+msgstr "Безжични регистрации"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Изправност"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "Графики"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Статистика на интерфейса"
+msgstr "Статистика на интерфейсите"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Search"
@@ -124,9 +114,8 @@ msgid "Active"
 msgstr "Активен"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "От нулиране"
+msgstr "От нулирането"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -149,114 +138,92 @@ msgid "Name"
 msgstr "Име"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
-msgstr "Rx байта"
+msgstr "Rx байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
-msgstr "Tx байта"
+msgstr "Tx байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
 msgstr "Rx пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
 msgstr "Tx пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
-msgstr "Грешки при Rx"
+msgstr "Rx грешки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
-msgstr "Tx Грешки"
+msgstr "Tx грешки"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Last Seen"
 msgstr "Последно видян"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Edit Device"
-msgstr "приспособление"
+msgstr "Редактиране на устройството"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
-msgstr "Няма намерени интерфейси"
+msgstr "Не са намерени интерфейси"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
 msgstr "Състояние на опашката"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Src Addr / Mask"
+msgstr "Изх. адрес/маска"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr / Mask"
+msgstr "Целеви адрес/маска"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
-msgstr "Байта в"
+msgstr "Входящи байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
-msgstr "Байтове Out"
+msgstr "Изходящи байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "Pkts In"
+msgstr "Входящи пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "Pkts Out"
+msgstr "Изходящи пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs In"
+msgstr "Входящи опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
-msgstr "Qs Out"
+msgstr "Изходящи опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "Drps In"
+msgstr "Отхвърлени вход."
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "Дропс"
+msgstr "Отхвърлени изход."
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
-msgstr "Няма намерени прости опашки"
+msgstr "Не са намерени прости опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "Състояние на дървото на опашката"
+msgstr "Състояние на дървото от опашки"
 
 #: mikrotik.php setup.php
 msgid "Trees"
@@ -267,42 +234,34 @@ msgid "Flow"
 msgstr "Поток"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "Байтове"
+msgstr "Тек. байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "Cur Пакети"
+msgstr "Тек. пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
 msgstr "Общо байтове"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
 msgstr "Общо пакети"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "Няма намерени дървета за опашки"
+msgstr "Не са намерени дървета на опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "Състояние на безжичните Aps"
+msgstr "Състояние на безжичните точки за достъп"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "Aps"
+msgstr "Точки за достъп"
 
 #: mikrotik.php
-#, fuzzy
 msgid "SSID"
 msgstr "SSID"
 
@@ -311,45 +270,38 @@ msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "Tx Rate"
+msgstr "Tx скорост"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "Скорост на Rx"
+msgstr "Rx скорост"
 
 #: mikrotik.php
 msgid "Clients"
 msgstr "Клиенти"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "Auth Clients"
+msgstr "Удостоверени клиенти"
 
 #: mikrotik.php
 msgid "Frequency"
 msgstr "Честота"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Band"
-msgstr "Банда"
+msgstr "Честотен обхват"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "Подът на шума"
+msgstr "Ниво на шума"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
 msgstr "Tx CQQ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "User Statistics"
 msgstr "Потребителска статистика"
 
@@ -358,17 +310,14 @@ msgid "Type"
 msgstr "Тип"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Hotspot"
 msgstr "Hotspot"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
 msgstr "PPPoE"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Active Users"
 msgstr "Активни потребители"
 
@@ -385,63 +334,54 @@ msgid "MAC"
 msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
-msgstr "Време за свързване"
+msgstr "Време на свързване"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "Тек. входящ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "Cur Out"
+msgstr "Тек. изходящ"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "Ср"
+msgstr "Ср. вход"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "Ср. Изход"
+msgstr "Ср. изход"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "Общо"
+msgstr "Общо входящи"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "Общо"
+msgstr "Общо изходящи"
 
 #: mikrotik.php
 msgid "N/A"
 msgstr "Няма"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "No Users Found"
 msgstr "Няма намерени потребители"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "Удостоверения за МикроТик"
+msgstr "Списък с промените на MikroTik"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr "Филтър за устройства (Последна версия на MikroTik е: %s)"
+msgstr "Филтър за устройства (Последната версия на MikroTik е: %s)"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "Филтър на устройства (Последна версия на MikroTik е: %s, Издаден: %s)"
+msgstr "Филтър за устройства (Последната версия на MikroTik е: %s, издадена: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
@@ -452,7 +392,6 @@ msgid "Status"
 msgstr "Статус"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Recovering"
 msgstr "Възстановяване"
 
@@ -469,275 +408,245 @@ msgid "Description"
 msgstr "Описание"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "FW Ver"
+msgstr "Версия на FW"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "Lic Ver"
+msgstr "Версия на лиценз"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "Uptime (г: ч: т)"
+msgstr "Време на работа (д:ч:м)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
-msgstr "ПРОЦЕСОР %"
+msgstr "Процесор %%%"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
-msgstr "процесори"
+msgstr "Процесори"
 
 #: mikrotik.php
 msgid "Processes"
 msgstr "Процеси"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "Общо Mem"
+msgstr "Общо памет"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "Използва се Mem"
+msgstr "Използвана памет"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
-msgstr "Общ диск"
+msgstr "Общо дисково пространство"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
 msgstr "Използван диск"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Users"
-msgstr "Активни потребители"
+msgstr "Преглед на потребителите"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "Обикновени опашки"
+msgstr "Преглед на опростените опашки"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "Дървета на опашката"
+msgstr "Преглед на дърветата на опашките"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "Безжични Aps"
+msgstr "Преглед на безжичните точки за достъп (AP)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "Безжични Aps"
+msgstr "Не са намерени безжични точки за достъп"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "Интерфейси"
+msgstr "Преглед на интерфейсите"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "Графики"
+msgstr "Преглед на графиките"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
 msgstr "Няма дефинирани графики"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Devices Found"
 msgstr "Няма намерени устройства"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "Моля, изберете Първо заявка за данни от конзолата -> Настройки -> Първо хост на MIB"
+msgstr "Моля, първо изберете заявка за данни от Конзола -> Настройки -> Host MIB"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "Графиките са пропуснати или още не са създадени"
+msgstr "Графики, пропуснати или все още несъздадени"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "Моля, първо изберете Заявка за данни от Конзола-> Настройки-> Първо Host MIB"
+msgstr "Моля, първо изберете заявка за данни от Конзола->Настройки->Host MIB"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Всички"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Шаблон"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Всички графики и шаблони"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Избрани шаблони"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Set/Refresh Filters"
-msgstr "Задаване / обновяване на филтри"
+msgstr "Задаване / опресняване на филтрите"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "Изчистване на филтрите"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Запази"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Запазване на филтъра в базата данни"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Колони"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d колона"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d колони"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Миниатюри"
 
 #: mikrotik.php
-#, fuzzy
 #| msgid "Present"
 msgid "Presets"
-msgstr "Присъства"
+msgstr "Предварително"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Персонализиране"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "От"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Стартирайте Селектора за дата"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Дo"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Селектор за крайна дата"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Време на преместване назад"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Дефинирайте интервал на преместване"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Време на преместване напред"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Обновяване"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Обновяване на избрания период от време"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Върнете се към времевия интервал по подразбиране"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Прозорец"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interval"
-msgstr "Интерфейси"
+msgstr "Интервал"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Спри"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "Приложен е персонализиран графичен списък - филтриране от списък"
+msgstr "Приложен е персонализиран списък с графики - филтриране от списъка"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graph Preview Filters"
 msgstr "Филтри за преглед на графика"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Сензори за изправност"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Сензори"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Сензор"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Стойност"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Health Sensors Found"
-msgstr "Няма намерени потребители"
+msgstr "Не са намерени сензори за състояние"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Честота на безжичните регистрации"
+msgstr "Статистика на безжичните регистрации"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Registrations"
 msgstr "Регистрации"
 
@@ -746,33 +655,28 @@ msgid "Client Name"
 msgstr "Име на клиент"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC Address"
-msgstr "IP Адрес"
+msgstr "MAC адрес"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Signal to Noise"
-msgstr "Сигнал за шум"
+msgstr "Съотношение сигнал/шум"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Честота на безжичните регистрации"
+msgstr "Не са намерени безжични регистрации"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
 msgstr "DHCP регистрации"
 
 #: mikrotik.php
 msgid "Entries"
-msgstr "Получени съобщения"
+msgstr "Записи"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Expires in"
-msgstr "Изтича на"
+msgstr "Изтича след"
 
 #: mikrotik.php
 msgid "Blocked"
@@ -783,12 +687,11 @@ msgid "Last Updated"
 msgstr "Последно актуализирано"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Seconds"
 msgstr "%s секунди"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dynamic"
 msgstr "Динамичен"
 
@@ -797,12 +700,10 @@ msgid "Static"
 msgstr "Статичен"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "Няма намерени устройства"
+msgstr "Не са намерени DHCP записи"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Permanent"
 msgstr "Постоянен"
 
@@ -823,9 +724,8 @@ msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "Няма намерени устройства"
+msgstr "Не са намерени DNS записи"
 
 #: mikrotik.php
 msgid "List"
@@ -840,18 +740,16 @@ msgid "Timeout"
 msgstr "Време за изчакване"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "Няма намерени устройства"
+msgstr "Няма намерени записи в адресния списък"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "Изтрий"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "Кликнете върху „Напред“, за да изтриете следните потребители и техните графики."
+msgstr "Щракнете върху „Продължи“, за да изтриете следните потребители и техните графики."
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -862,12 +760,10 @@ msgid "Continue"
 msgstr "Продължи"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Delete Device(s)"
-msgstr "Устройства"
+msgstr "Изтриване на устройствата"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
 msgstr "Трябва да изберете поне един потребител."
 
@@ -876,7 +772,6 @@ msgid "Return"
 msgstr "Връщане"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
 msgstr "Потребители на MikroTik"
 
@@ -893,149 +788,122 @@ msgid "Domain"
 msgstr "Домейн"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "Потребители на MikroTik"
+msgstr "MikroTik наблюдател"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "Плъгин -> MikroTik Админ"
+msgstr "MikroTik администратор"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik General Settings"
 msgstr "Общи настройки на MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Poller Enabled"
-msgstr "MikroTik Poller Активирано"
+msgstr "Активиран MikroTik Poller"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "Поставете отметка в това квадратче, ако желаете да бъде активирана заявката на MikroTik. В противен случай полерът няма да функционира."
+msgstr "Отметнете това поле, ако искате събирането на данни за MikroTik да бъде активирано. В противен случай Poller няма да функционира."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik Poller Активирано"
+msgstr "Активиран MikroTik API Polling"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "Поставете отметка в това квадратче, ако искате Cacti да анкетира различни настройки с помощта на MikroTik API. Ако по някаква причина нямате достъп до API на MikroTik, премахнете отметката от тази опция."
+msgstr "Отметнете това поле, ако искате Cacti да извлича различни настройки чрез MikroTik API. Ако по някаква причина нямате достъп до MikroTik API, махнете отметката от тази опция."
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "Автоматично откриване на устройства Cacti"
+msgstr "Автоматично откриване на устройства в Cacti"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "Искате ли да сканирате автоматично и да добавяте устройства, които поддържат MikroTik MIB от хост таблицата на Cacti?"
+msgstr "Желаете ли автоматично да се сканира за и добавят устройства, които поддържат MikroTik MIB, от таблицата с хостове на Cacti?"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "Автоматично почистване на устройствата"
+msgstr "Автоматично изчистване на устройства"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Искате ли автоматично да почистите устройства, които са премахнати от системата Cacti?"
+msgstr "Желаете ли автоматично да се изчистват устройствата, премахнати от системата Cacti?"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr "Максимални едновременни колектори"
+msgstr "Максимален брой едновременни колектори"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Какъв е максималният брой едновременно събирателен процес, който искате да стартирате едновременно?"
+msgstr "Какъв е максималният брой едновременни процеси за събиране на данни, които искате да се изпълняват по едно и също време?"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "% d Процес"
+msgstr "%d процес"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
-msgstr "% d Процеси"
+msgstr "%d процеса"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "Честота на автоматично откриване"
+msgstr "Настройки за автоматично откриване"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
 msgstr "Честота на автоматично откриване"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Колко често искате да търсите нови Cacti устройства?"
+msgstr "Колко често желаете да се търсят нови Cacti устройства?"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP/DNS/List Settings"
-msgstr "Настройки на DHCP / DNS / Списък"
+msgstr "Настройки на DHCP/DNS/Списък"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
-msgstr "Задържане на DHCP"
+msgstr "Съхранение на DHCP"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "Колко дълго бихте искали да запазите историята на DHCP IP регистрацията?"
+msgstr "Колко дълго желаете да се съхранява историята на DHCP IP регистрациите?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
-msgstr "Запазване на DNS"
+msgstr "Съхранение на DNS"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "Колко дълго искате да запазите историята на DNS кеша?"
+msgstr "Колко дълго желаете да се съхранява историята на DNS кеша?"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
 msgstr "Запазване на списъка с адреси"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
-msgstr "Колко дълго искате да запазите историята на списъка с адреси?"
+msgstr "Колко дълго желаете да се съхранява историята на списъка с адреси?"
 
 #: setup.php
-#, fuzzy
 msgid "Device Graph Automation"
-msgstr "Автоматизация на графиките на устройствата"
+msgstr "Автоматизация на графиките за устройства"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
 msgstr "Автоматично добавяне на нови графики"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Колко често искате да проверявате за нови обекти в графиката?"
+msgstr "Колко често желаете да се проверява за нови обекти за графики?"
 
 #: setup.php
 msgid "Never"
@@ -1057,161 +925,132 @@ msgid "%d Hours"
 msgstr "%d часа"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
-msgstr "% d ден"
+msgstr "%d ден"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days"
-msgstr "% d дни"
+msgstr "%d дни"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "Изключване на потребители RegEx"
+msgstr "Регулярен израз за изключване на потребители"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "Потребителските имена, които съответстват на това изречение, няма да се изобразяват автоматично"
+msgstr "Потребителските имена, които съответстват на този регулярен израз, няма да се изобразяват в графики автоматично"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "Изключване на времето на потребителите"
+msgstr "Време на живот (TTL) за изключване на потребители"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Колко дълго трябва да се съхраняват изключените потребителски данни след прекъсването им."
+msgstr "Колко дълго да се съхраняват данните на изключен потребител след прекъсване на връзката му."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Device Collection Frequencies"
-msgstr "Честоти за събиране на устройства MikroTik"
+msgstr "Честоти на събиране на данни за MikroTik устройства"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
 msgstr "Честота на съхранение"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
-msgstr "Колко често искате да сканирате статистика за съхранение?"
+msgstr "Колко често желаете да се сканира статистиката за хранилищата?"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
 msgstr "Честота на процесора"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "Колко често искате да сканирате статистиката на процесорите на устройствата?"
+msgstr "Колко често желаете да се сканира статистиката за процесорите на устройствата?"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
 msgstr "Честота на интерфейсите"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
-msgstr "Колко често искате да сканирате интерфейсите?"
+msgstr "Колко често желаете да се сканират интерфейсите?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "Честота на съхранение"
+msgstr "Честота на DNS/DHCP/Списък"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "Колко често искате да сканирате статистиката на процесорите на устройствата?"
+msgstr "Колко често желаете да се сканират списъците с DNS/DHCP/адреси?"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "Честоти на MikroTik за опашка / събиране на дървета"
+msgstr "Честоти на събиране на опашки/дървета в MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "Честота на проста опашка / PPPoe"
+msgstr "Честота на Simple Queue/PPPoe"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате Simple Queue Statistics? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканира статистиката за Simple Queue?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "Честота на дърветата на опашката"
+msgstr "Честота на дърветата от опашки"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате дърветата на опашките? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканират дърветата на опашките (Queue Trees)?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Wireless Collection Frequencies"
-msgstr "Честоти на MikroTik Wireless Collection"
+msgstr "Честоти на събиране на безжични данни в MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Wireless HotSpot Users Frequency"
-msgstr "Честота на потребителите на безжични HotSpot"
+msgstr "Честота на потребителите на безжичен HotSpot"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате безжичната статистика на потребителите? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканира статистиката за безжичните потребители?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Access Point Frequency"
 msgstr "Честота на безжичната точка за достъп"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате точките за безжичен достъп? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканират безжичните точки за достъп?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Registrations Frequency"
 msgstr "Честота на безжичните регистрации"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате безжичните регистрации? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканират безжичните регистрации?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
-#, fuzzy
 msgid "Wireless Stations Frequency"
 msgstr "Честота на безжичните станции"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Колко често искате да сканирате безжичните станции? Изберете <b>Disabled, за</b> да премахнете тази функция."
+msgstr "Колко често желаете да се сканират безжичните станции?  Изберете <b>Изключено</b>, за да премахнете тази функция."
 
 #: setup.php
 msgid "Management"
 msgstr "управление"
 
 #: setup.php
-#, fuzzy
 msgid "Normal User"
 msgstr "Нормален потребител"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
 msgstr "Обща администрация"
 
@@ -1221,34 +1060,32 @@ msgid "%d Minute"
 msgstr "%d минута"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinite"
-msgstr "Неопределено"
+msgstr "Безсрочно"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
-msgstr "%d Седмица"
+msgstr "%d седмица"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
-msgstr "%d Седмици"
+msgstr "%d седмици"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d Минути"
+msgstr "%d месеца"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "%d Година"
+msgstr "%d година"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
-msgstr "Обикновени опашки"
+msgstr "Опростени опашки"
 
 #: setup.php
 msgid "Storage"
@@ -1259,48 +1096,44 @@ msgid "(edit)"
 msgstr "Редактиране..."
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
 msgstr "Графики, пропуснати по правило или несъздадени"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "Свързване към MikroTik API през SSL (api-ssl, порт 8729). Активирайте услугата api-ssl в IP > Services на устройството, преди да включите това."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Не"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "Не можа да се установи SSL връзка към услугата MikroTik api-ssl (порт 8729), затова SSL не може да бъде активиран. Активирайте и проверете услугата api-ssl в IP > Services на устройството, за да използвате SSL."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Да (в момента недостъпно)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
-msgstr "Удостоверения за МикроТик"
+msgstr "Данни за достъп до MikroTik"
 
 #: setup.php
-#, fuzzy
 msgid "Read Only User"
 msgstr "Потребител само за четене"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr "Дайте потребителско име за четене само за MikroTik."
+msgstr "Въведете потребителско име само за четене за MikroTik."
 
 #: setup.php
 msgid "Password"
@@ -1308,30 +1141,27 @@ msgstr "Парола"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Въведете паролата само за четене за този MikroTik. Оставете това поле празно, за да запазите текущо съхранената парола."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "SSL не е наличен на това устройство"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
-msgstr "Резултат от връзката"
+msgstr "Резултат от свързването"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "Добре, ако Cacti може да се свърже с MikroTik през пристанището на API."
+msgstr "OK, ако Cacti може да се свърже с MikroTik през неговия API порт."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL е активиран, но портът api-ssl (8729) не е достъпен; връзката не е тествана."
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "Резултат от връзката"
+msgstr "Успешно свързване"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1339,11 +1169,11 @@ msgstr "Свързването е неуспешно."
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Разрешаване на непотвърдени TLS сертификати за API"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Деактивиране на проверката на сертификата и името на хоста за връзки към RouterOS API. Това може да изложи идентификационните данни за API на устройство, представящо се за целевото. Оставете неотметнато и инсталирайте доверени сертификати на устройствата, когато е възможно."
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."
