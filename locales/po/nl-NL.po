@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-12 15:08-0500\n"
-"PO-Revision-Date: 2024-01-31 14:27+0000\n"
-"Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
-"Language-Team: Dutch <http://translate.cacti.net/projects/cacti/mikrotik/nl/>\n"
-"Language: nl-NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/mikrotik/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -51,14 +39,12 @@ msgid "Users"
 msgstr "Gebruikers"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queues"
 msgstr "Wachtrijen"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
-msgstr "Wachtrijen"
+msgstr "Wachtrijstructuren"
 
 #: mikrotik.php setup.php
 msgid "Interfaces"
@@ -69,37 +55,32 @@ msgid "DHCP"
 msgstr "DHCP"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DNS Cache"
 msgstr "DNS-cache"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Address Lists"
-msgstr "IP-adres"
+msgstr "Adreslijsten"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Wireless Aps"
-msgstr "Draadloze Aps"
+msgstr "Draadloze AP's"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registrations"
-msgstr "Draadloze registraties Frequentie"
+msgstr "Draadloze registraties"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Gezondheid"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
 msgstr "Grafieken"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interface Stats"
-msgstr "Interface Stats"
+msgstr "Interfacestatistieken"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Search"
@@ -122,9 +103,8 @@ msgid "Active"
 msgstr "Actief"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
-msgstr "Sinds Reset"
+msgstr "Sinds reset"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Go"
@@ -132,7 +112,7 @@ msgstr "Ga"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Clear"
-msgstr "Herstel"
+msgstr "Wissen"
 
 #: mikrotik.php setup.php
 msgid "Actions"
@@ -147,34 +127,28 @@ msgid "Name"
 msgstr "Naam"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Bytes"
-msgstr "Rx Bytes"
+msgstr "Rx-bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Bytes"
-msgstr "Tx Bytes"
+msgstr "Tx-bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Packets"
-msgstr "Rx Pakketten"
+msgstr "Rx-pakketten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Packets"
-msgstr "Tx Pakketten"
+msgstr "Tx-pakketten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Errors"
-msgstr "Rx Fouten"
+msgstr "Rx-fouten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Errors"
-msgstr "Tx fouten"
+msgstr "Tx-fouten"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
@@ -185,74 +159,60 @@ msgid "Edit Device"
 msgstr "Wijzig apparaat"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Interfaces Found"
 msgstr "Geen interfaces gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
-msgstr "Status van de wachtrij"
+msgstr "Wachtrijstatus"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Src Addr/Mask"
-msgstr "Src Addr/Masker"
+msgstr "Bronadres/-masker"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Dst Addr/Mask"
-msgstr "Dst Addr/Masker"
+msgstr "Doeladres/masker"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes In"
-msgstr "Bytes"
+msgstr "Bytes in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Bytes Out"
 msgstr "Bytes uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts In"
-msgstr "Pkts In"
+msgstr "Pakketten in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Pkts Out"
-msgstr "Pkts uit"
+msgstr "Pakketten uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs In"
-msgstr "Qs In"
+msgstr "Qs in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Qs Out"
 msgstr "Qs uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps In"
-msgstr "Drps In"
+msgstr "Verworpen in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Drps Out"
-msgstr "Drps uit"
+msgstr "Verworpen uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Simple Queues Found"
 msgstr "Geen eenvoudige wachtrijen gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
-msgstr "Status van de rijboom"
+msgstr "Status van wachtrijstructuur"
 
 #: mikrotik.php setup.php
 msgid "Trees"
@@ -263,86 +223,72 @@ msgid "Flow"
 msgstr "Doorstroming"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Bytes"
-msgstr "Curbytes"
+msgstr "Huidige bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Packets"
-msgstr "Curvenpakketten"
+msgstr "Huidige pakketten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Bytes"
 msgstr "Totaal aantal bytes"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Packets"
-msgstr "Totaalpakketten"
+msgstr "Totaal aantal pakketten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Queue Trees Found"
-msgstr "Geen wachtrijen gevonden"
+msgstr "Geen Queue Trees gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Aps Status"
-msgstr "Draadloze Aps-status"
+msgstr "Status draadloze AP's"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Aps"
-msgstr "Aps"
+msgstr "AP's"
 
 #: mikrotik.php
 msgid "SSID"
 msgstr "SSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "BSSID"
 msgstr "BSSID"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx Rate"
-msgstr "Tx-tarief"
+msgstr "Tx-snelheid"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Rx Rate"
-msgstr "Rx-tarief"
+msgstr "Rx-snelheid"
 
 #: mikrotik.php
 msgid "Clients"
 msgstr "Klanten"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Auth Clients"
-msgstr "Auth klanten"
+msgstr "Geauthenticeerde clients"
 
 #: mikrotik.php
 msgid "Frequency"
 msgstr "Frequentie"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Band"
 msgstr "Band"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Noise Floor"
-msgstr "Geluidsvloer"
+msgstr "Ruisvloer"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Tx CQQ"
-msgstr "Tx CQQQ"
+msgstr "Tx CQQ"
 
 #: mikrotik.php
 msgid "User Statistics"
@@ -357,7 +303,6 @@ msgid "Hotspot"
 msgstr "Hotspot"
 
 #: mikrotik.php mikrotik_users.php
-#, fuzzy
 msgid "PPPoe"
 msgstr "PPPoe"
 
@@ -374,44 +319,36 @@ msgid "IP Address"
 msgstr "IP-adres"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MAC"
 msgstr "MAC"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Connect Time"
-msgstr "Verbind Tijd"
+msgstr "Verbindingstijd"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur In"
-msgstr "Hui:"
+msgstr "Huidig in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Cur Out"
-msgstr "Uitkrommen"
+msgstr "Huidig uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg In"
-msgstr "Gem:"
+msgstr "Gem. in"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Avg Out"
-msgstr "Avg uit"
+msgstr "Gem. uit"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total In"
-msgstr "Totaal"
+msgstr "Totaal inkomend"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Out"
-msgstr "Totaal uit"
+msgstr "Totaal uitgaand"
 
 #: mikrotik.php
 msgid "N/A"
@@ -422,19 +359,18 @@ msgid "No Users Found"
 msgstr "Geen gebruikers gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "MikroTik Changelog"
-msgstr "MikroTik Aanmeldingsgegevens"
+msgstr "MikroTik-wijzigingslogboek"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s)"
-msgstr "Apparaatfilter (laatste MikroTik-versie is: %s)"
+msgstr "Apparaatfilter (Nieuwste MikroTik-versie is: %s)"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
-msgstr "Apparaatfilter (Laatste MikroTik-versie is: %s, vrijgegeven: %s)"
+msgstr "Apparaatfilter (Nieuwste MikroTik-versie is: %s, uitgebracht: %s)"
 
 #: mikrotik.php
 msgid "ChangeLog"
@@ -461,27 +397,22 @@ msgid "Description"
 msgstr "Omschrijving"
 
 #: mikrotik.php
-#, fuzzy
 msgid "FW Ver"
-msgstr "FW Ver"
+msgstr "FW-versie"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Lic Ver"
-msgstr "Licentie Ver"
+msgstr "Licentieversie"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Uptime(d:h:m)"
-msgstr "Uptime (d:h:h:m)"
+msgstr "Uptime(d:u:m)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPU %%%"
 msgstr "CPU %"
 
 #: mikrotik.php
-#, fuzzy
 msgid "CPUs"
 msgstr "CPU's"
 
@@ -490,22 +421,18 @@ msgid "Processes"
 msgstr "Processen"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Mem"
-msgstr "Totaal Mem"
+msgstr "Totaal geheugen"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Mem"
-msgstr "Gebruikt Mem"
+msgstr "Gebruikt geheugen"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Total Disk"
-msgstr "Totale Schijf"
+msgstr "Totale schijfruimte"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Used Disk"
 msgstr "Gebruikte schijf"
 
@@ -514,36 +441,30 @@ msgid "View Users"
 msgstr "Bekijk Gebruikers"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
-msgstr "Eenvoudige wachtrijen"
+msgstr "Eenvoudige wachtrij bekijken"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
-msgstr "Wachtrijen"
+msgstr "Wachtrijbomen bekijken"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Wireless Aps"
-msgstr "Draadloze Aps"
+msgstr "Draadloze AP's bekijken"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Aps Found"
-msgstr "Draadloze Aps"
+msgstr "Geen draadloze AP's gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Interfaces"
-msgstr "Interfaces"
+msgstr "Interfaces bekijken"
 
 #: mikrotik.php setup.php
 msgid "View Graphs"
 msgstr "Toon grafieken"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Graphs Defined"
 msgstr "Geen grafieken gedefinieerd"
 
@@ -552,39 +473,36 @@ msgid "No Devices Found"
 msgstr "Geen apparaat gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr "Selecteer eerst de gegevensquery van de console -> Instellingen -> Host-MIB eerst"
+msgstr "Selecteer eerst een gegevensquery via Console -> Instellingen -> Host-MIB"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Graphs skipped or not created yet"
-msgstr "Grafieken zijn overgeslagen of zijn nog niet gemaakt"
+msgstr "Grafieken overgeslagen of nog niet aangemaakt"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr "Selecteer eerst Data Query van Console-> Instellingen-> Host MIB First"
+msgstr "Selecteer eerst een gegevensquery via Console->Instellingen->Host MIB"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Alle"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Template"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Alle grafiektemplates"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Templates geselecteerd"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
@@ -596,98 +514,93 @@ msgstr "Stel filters opnieuw in"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Filter opslaan in de database"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Kolommen"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d Kolom"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d Kolommen"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Thumbnails"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Present"
 msgid "Presets"
-msgstr "Vertoon"
+msgstr "Voorinstellingen"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Aangepast"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "Van"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Startdatum selector"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Aan"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Einddatum selector"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Verschuif tijd achteruit"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Definieer verschuivingsinterval"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Verschuif tijd vooruit"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Vernieuwen"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Vernieuw geselecteerde periode"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Stel de standaard tijdperiode in"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Venster"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Interfaces"
 msgid "Interval"
-msgstr "Interfaces"
+msgstr "Interval"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr "[ Aangepaste grafieklijst toegepast - Filter VAN lijst ]"
+msgstr "Aangepaste grafieklijst toegepast - Filteren uit lijst"
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
@@ -695,34 +608,31 @@ msgstr "Grafiek voorvertoning filters"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Gezondheidssensoren"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Sensoren"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Sensor"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Eenheid"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "No Users Found"
 msgid "No Health Sensors Found"
-msgstr "Geen gebruikers gevonden"
+msgstr "Geen gezondheidssensoren gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Draadloze registraties Frequentie"
+msgstr "Statistieken draadloze registraties"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -737,17 +647,14 @@ msgid "MAC Address"
 msgstr "MAC-adres"
 
 #: mikrotik.php
-#, fuzzy
-msgid "Signal to Noise"
-msgstr "Signaal naar ruis"
+msgid "Signal (dBm)"
+msgstr "Signaal (dBm)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Draadloze registraties Frequentie"
+msgstr "Geen draadloze registraties gevonden"
 
 #: mikrotik.php
-#, fuzzy
 msgid "DHCP Registrations"
 msgstr "DHCP-registraties"
 
@@ -765,10 +672,10 @@ msgstr "Geblokkeerd"
 
 #: mikrotik.php
 msgid "Last Updated"
-msgstr "Laatst bijgewerkt"
+msgstr "Laatste update"
 
 #: mikrotik.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Seconds"
 msgstr "%s seconden"
 
@@ -781,9 +688,8 @@ msgid "Static"
 msgstr "Statisch"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DHCP Entries Found"
-msgstr "Geen apparaat gevonden"
+msgstr "Geen DHCP-vermeldingen gevonden"
 
 #: mikrotik.php
 msgid "Permanent"
@@ -802,14 +708,12 @@ msgid "Data"
 msgstr "Data"
 
 #: mikrotik.php
-#, fuzzy
 msgid "TTL"
 msgstr "TTL"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No DNS Entries Found"
-msgstr "Geen apparaat gevonden"
+msgstr "Geen DNS-vermeldingen gevonden"
 
 #: mikrotik.php
 msgid "List"
@@ -824,18 +728,16 @@ msgid "Timeout"
 msgstr "Timeout"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Address List Entries Found"
-msgstr "Geen apparaat gevonden"
+msgstr "Geen adreslijstvermeldingen gevonden"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "Verwijderen"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "Klik op 'Doorgaan' om de volgende gebruikers en hun grafiek(en) te verwijderen."
+msgstr "Klik op 'Doorgaan' om de volgende gebruiker(s) en hun grafiek(en) te verwijderen."
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -850,7 +752,6 @@ msgid "Delete Device(s)"
 msgstr "Verwijder appara(a)t(en)"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "You must select at least one User."
 msgstr "U moet ten minste één gebruiker selecteren."
 
@@ -859,7 +760,6 @@ msgid "Return"
 msgstr "Terug"
 
 #: mikrotik_users.php setup.php
-#, fuzzy
 msgid "MikroTik Users"
 msgstr "MikroTik-gebruikers"
 
@@ -876,149 +776,130 @@ msgid "Domain"
 msgstr "Domein"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Viewer"
-msgstr "MikroTik-gebruikers"
+msgstr "MikroTik-viewer"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Admin"
-msgstr "Plugin -> MikroTik Admin"
+msgstr "MikroTik-beheer"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik General Settings"
-msgstr "MikroTik Algemene instellingen"
+msgid "General Settings"
+msgstr "Algemene Instellingen"
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Poller Enabled"
-msgstr "MikroTik Poller ingeschakeld"
+msgid "Poller Enabled"
+msgstr "Poller ingeschakeld"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
-msgstr "Vink dit vakje aan als u MikroTik polling wilt inschakelen.  Anders werkt de poller niet."
+msgstr "Vink dit vakje aan als u MikroTik-polling wilt inschakelen. Anders werkt de poller niet."
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik Poller ingeschakeld"
+msgid "API Polling Enabled"
+msgstr "API-polling ingeschakeld"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr "Vink dit vakje aan als je wilt dat Cacti verschillende instellingen opvraagt met behulp van de MikroTik API. Als u om de een of andere reden geen toegang heeft tot de MikroTik API, schakelt u deze optie uit."
+msgstr "Vink dit vakje aan als u wilt dat Cacti verschillende instellingen pollt met behulp van de MikroTik API. Als u om een of andere reden geen toegang hebt tot de MikroTik API, schakelt u deze optie uit."
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Discover Cacti Devices"
-msgstr "Cacti-apparaten automatisch ontdekken"
+msgstr "Cacti-apparaten automatisch detecteren"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr "Wilt u automatisch zoeken naar en toevoegen van apparaten die de MikroTik MIB uit de Cacti host tabel ondersteunen?"
+msgstr "Wilt u automatisch scannen naar en toevoegen van apparaten die de MikroTik MIB ondersteunen vanuit de Cacti-hosttabel?"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Purge Devices"
-msgstr "Automatisch apparaten zuiveren"
+msgstr "Apparaten automatisch opschonen"
 
 #: setup.php
-#, fuzzy
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr "Wilt u apparaten die uit het Cacti-systeem worden verwijderd automatisch zuiveren?"
+msgstr "Wilt u apparaten die uit het Cacti-systeem zijn verwijderd automatisch opschonen?"
 
 #: setup.php
-#, fuzzy
 msgid "Maximum Concurrent Collectors"
-msgstr "Maximale gelijktijdige collectoren"
+msgstr "Maximaal aantal gelijktijdige collectors"
 
 #: setup.php
-#, fuzzy
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr "Wat is het maximale aantal gelijktijdige verzamelprogramma's dat u in één keer wilt uitvoeren?"
+msgstr "Wat is het maximale aantal gelijktijdige collectorprocessen dat u tegelijkertijd wilt uitvoeren?"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Process"
-msgstr "%d Proces"
+msgstr "%d proces"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
 msgstr "%d Processen"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Settings"
-msgstr "Automatische ontdekkingsfrequentie"
+msgstr "Instellingen voor automatische detectie"
 
 #: setup.php
-#, fuzzy
 msgid "Auto Discovery Frequency"
-msgstr "Automatische ontdekkingsfrequentie"
+msgstr "Frequentie voor automatische detectie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to look for new Cacti Devices?"
-msgstr "Hoe vaak wilt u op zoek gaan naar nieuwe Cactus Apparaten?"
+msgstr "Hoe vaak wilt u zoeken naar nieuwe Cacti-apparaten?"
 
 #: setup.php
-#, fuzzy
-msgid "DHCP/DNS/List Settings"
-msgstr "DHCP / DNS / lijstinstellingen"
+msgid "Data Retention"
+msgstr "Gegevensretentie"
 
 #: setup.php
-#, fuzzy
 msgid "DHCP Retention"
 msgstr "DHCP-retentie"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DHCP IP registration history?"
-msgstr "Hoe lang wilt u de DHCP IP-registratiegeschiedenis bewaren?"
+msgstr "Hoe lang wilt u de geschiedenis van DHCP IP-registraties bewaren?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS Retention"
 msgstr "DNS-retentie"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain DNS Cache history?"
-msgstr "Hoe lang wilt u de DNS-cachegeschiedenis bewaren?"
+msgstr "Hoe lang wilt u de geschiedenis van de DNS-cache bewaren?"
 
 #: setup.php
-#, fuzzy
 msgid "Address List Retention"
-msgstr "Behoud van adreslijst"
+msgstr "Bewaartermijn adreslijst"
 
 #: setup.php
-#, fuzzy
 msgid "How long would you like to retain Address List history?"
 msgstr "Hoe lang wilt u de geschiedenis van de adreslijst bewaren?"
 
 #: setup.php
-#, fuzzy
+msgid "Wireless Registration Retention"
+msgstr "Retentie van draadloze registraties"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Hoe lang wilt u draadloze registraties bewaren die niet meer worden gezien? Wanneer een registratie wordt verwijderd, worden ook de bijbehorende grafieken en gegevensbronnen verwijderd."
+
+#: setup.php
 msgid "Device Graph Automation"
-msgstr "Apparaatgrafiek Automatisering"
+msgstr "Automatisering van apparaatgrafieken"
 
 #: setup.php
-#, fuzzy
 msgid "Automatically Add New Graphs"
-msgstr "Automatisch nieuwe grafieken toevoegen"
+msgstr "Nieuwe grafieken automatisch toevoegen"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to check for new objects to graph?"
-msgstr "Hoe vaak wilt u controleren of er nieuwe objecten in de grafiek staan?"
+msgstr "Hoe vaak wilt u controleren op nieuwe objecten om in grafieken op te nemen?"
 
 #: setup.php
 msgid "Never"
@@ -1050,139 +931,112 @@ msgid "%d Days"
 msgstr "%d Dagen"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users RegEx"
-msgstr "Gebruikers uitsluiten RegEx"
+msgstr "RegEx voor uitgesloten gebruikers"
 
 #: setup.php
-#, fuzzy
 msgid "User names that match this regex will not be graphed automatically"
-msgstr "Gebruikersnamen die overeenkomen met deze regex worden niet automatisch gegrafeerd"
+msgstr "Gebruikersnamen die overeenkomen met deze regex worden niet automatisch in grafieken weergegeven"
 
 #: setup.php
-#, fuzzy
 msgid "Exclude Users Time to Live"
-msgstr "Gebruikers uitsluiten Tijd om te leven"
+msgstr "Time-to-Live voor uitgesloten gebruikers"
 
 #: setup.php
-#, fuzzy
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Hoe lang moeten de gegevens van een uitgesloten gebruiker worden bewaard nadat de verbinding is verbroken."
+msgstr "Hoe lang de gegevens van een uitgesloten gebruiker moeten worden bewaard nadat de verbinding is verbroken."
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Device Collection Frequencies"
-msgstr "MikroTik Apparateninzameling Frequenties"
+msgid "Device Collection Frequencies"
+msgstr "Collectiefrequenties voor apparaten"
 
 #: setup.php
-#, fuzzy
 msgid "Storage Frequency"
 msgstr "Opslagfrequentie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Storage Statistics?"
 msgstr "Hoe vaak wilt u opslagstatistieken scannen?"
 
 #: setup.php
-#, fuzzy
 msgid "Processor Frequency"
-msgstr "Bewerker Frequentie"
+msgstr "Processorfrequentie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Device Processor Statistics?"
-msgstr "Hoe vaak wilt u apparaatprocessorstatistieken scannen?"
+msgstr "Hoe vaak wilt u processorstatistieken van apparaten scannen?"
 
 #: setup.php
-#, fuzzy
 msgid "Interfaces Frequency"
-msgstr "Interfaces Frequentie"
+msgstr "Interfacefrequentie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Interfaces?"
 msgstr "Hoe vaak wilt u de interfaces scannen?"
 
 #: setup.php
-#, fuzzy
 msgid "DNS/DHCP/List Frequency"
-msgstr "Opslagfrequentie"
+msgstr "DNS/DHCP/lijstfrequentie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr "Hoe vaak wilt u apparaatprocessorstatistieken scannen?"
+msgstr "Hoe vaak wilt u de DNS-/DHCP-/adreslijsten scannen?"
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "MikroTik wachtrij/boomcollectie Frequenties"
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Collectiefrequenties voor wachtrijen/bomen"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queue/PPPoe Frequency"
-msgstr "Eenvoudige wachtrij/PPPPPoe Frequentie"
+msgstr "Eenvoudige wachtrij/PPPoE-frequentie"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u eenvoudige wachtrijstatistieken scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u Simple Queue-statistieken scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
-msgstr "Frequentie van wachtrijen"
+msgstr "Frequentie van wachtrijstructuren"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u de Queue Trees scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u de Queue Trees scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik draadloze inzamelingsfrequenties"
+msgid "Wireless Collection Frequencies"
+msgstr "Draadloze collectiefrequenties"
 
 #: setup.php
-#, fuzzy
-msgid "Wireless HotSpot Users Frequency"
-msgstr "Draadloze HotSpot-gebruikers Frequentie"
+msgid "HotSpot Users Frequency"
+msgstr "Frequentie HotSpot-gebruikers"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u draadloze gebruikersstatistieken scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u de statistieken voor draadloze gebruikers scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
-#, fuzzy
-msgid "Wireless Access Point Frequency"
-msgstr "Draadloze Access Point Frequentie"
+msgid "Access Point Frequency"
+msgstr "Frequentie Access Point"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u de draadloze toegangspunten scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u de draadloze toegangspunten scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
-#, fuzzy
-msgid "Wireless Registrations Frequency"
-msgstr "Draadloze registraties Frequentie"
+msgid "Registrations Frequency"
+msgstr "Frequentie registraties"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u de draadloze registraties scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u de draadloze registraties scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
-#, fuzzy
-msgid "Wireless Stations Frequency"
-msgstr "Draadloze stations Frequentie"
+msgid "Stations Frequency"
+msgstr "Frequentie stations"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Hoe vaak wilt u de draadloze stations scannen?  Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
+msgstr "Hoe vaak wilt u de draadloze stations scannen? Selecteer <b>Uitgeschakeld</b> om deze functie te verwijderen."
 
 #: setup.php
 msgid "Management"
@@ -1202,7 +1056,6 @@ msgid "%d Minute"
 msgstr "%d Minuut"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinite"
 msgstr "Onbepaald"
 
@@ -1227,7 +1080,6 @@ msgid "%d Year"
 msgstr "%d Jaar"
 
 #: setup.php
-#, fuzzy
 msgid "Simple Queues"
 msgstr "Eenvoudige wachtrijen"
 
@@ -1240,47 +1092,44 @@ msgid "(edit)"
 msgstr "(bewerken)"
 
 #: setup.php
-#, fuzzy
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr "Grafieken overgeslagen op regel of niet gemaakt"
+msgstr "Grafieken overgeslagen door regel of niet aangemaakt"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "Verbind met de MikroTik-API via SSL (api-ssl, poort 8729). Schakel de service api-ssl in onder IP > Services op het apparaat voordat u dit inschakelt."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "Er kon geen SSL-verbinding met de MikroTik api-ssl-service (poort 8729) tot stand worden gebracht, dus SSL kan niet worden ingeschakeld. Schakel de api-ssl-service in en controleer deze onder IP > Services op het apparaat om SSL te gebruiken."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Ja (momenteel onbereikbaar)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
-#, fuzzy
 msgid "MikroTik Credentials"
-msgstr "MikroTik Aanmeldingsgegevens"
+msgstr "MikroTik-inloggegevens"
 
 #: setup.php
 msgid "Read Only User"
 msgstr "Alleen-lezen gebruiker"
 
 #: setup.php
-#, fuzzy
 msgid "Provide a read only username for the MikroTik."
-msgstr "Geef een alleen-lezen gebruikersnaam voor de MikroTik."
+msgstr "Geef een alleen-lezen gebruikersnaam op voor de MikroTik."
 
 #: setup.php
 msgid "Password"
@@ -1288,30 +1137,27 @@ msgstr "Wachtwoord"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Geef het alleen-lezenwachtwoord op voor deze MikroTik. Laat dit veld leeg om het momenteel opgeslagen wachtwoord te behouden."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "SSL niet aanwezig op dit apparaat"
 
 #: setup.php
-#, fuzzy
 msgid "Connection Result"
-msgstr "Aansluiting Resultaat"
+msgstr "Verbindingsresultaat"
 
 #: setup.php
-#, fuzzy
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr "Ok als Cacti verbinding kan maken met de MikroTik via de API-poort."
+msgstr "OK als Cacti verbinding kan maken met de MikroTik via de API-poort."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL is ingeschakeld, maar de api-ssl-poort (8729) is niet bereikbaar; verbinding niet getest."
 
 #: setup.php
-#, fuzzy
 msgid "Connected Successfully"
-msgstr "Aansluiting Resultaat"
+msgstr "Succesvol verbonden"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1319,11 +1165,19 @@ msgstr "Verbinding mislukt"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Niet-geverifieerde API TLS-certificaten toestaan"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Schakel certificaat- en hostnaamverificatie uit voor RouterOS API-verbindingen. Dit kan API-referenties blootstellen aan een nagebootst apparaat. Laat dit uitgevinkt en installeer waar mogelijk vertrouwde apparaatcertificaten."
+
+#, fuzzy
+#~ msgid "Signal to Noise"
+#~ msgstr "Signaal naar ruis"
+
+#, fuzzy
+#~ msgid "DHCP/DNS/List Settings"
+#~ msgstr "DHCP / DNS / lijstinstellingen"
 
 #, fuzzy
 #~ msgid "Provide the read only username password for this MikroTik."
