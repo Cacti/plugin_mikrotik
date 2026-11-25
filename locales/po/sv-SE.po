@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-12 15:08-0500\n"
-"PO-Revision-Date: 2026-11-16 08:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/mikrotik/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -659,8 +647,8 @@ msgid "MAC Address"
 msgstr "MAC-adress"
 
 #: mikrotik.php
-msgid "Signal to Noise"
-msgstr "Signal till brus"
+msgid "Signal (dBm)"
+msgstr "Signal (dBm)"
 
 #: mikrotik.php
 msgid "No Wireless Registrations Found"
@@ -800,20 +788,20 @@ msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-msgid "MikroTik General Settings"
-msgstr "Allmänna MikroTik-inställningar"
+msgid "General Settings"
+msgstr "Allmänna inställningar"
 
 #: setup.php
-msgid "MikroTik Poller Enabled"
-msgstr "MikroTik-insamling aktiverad"
+msgid "Poller Enabled"
+msgstr "Insamlare aktiverad"
 
 #: setup.php
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "Markera rutan för att aktivera MikroTik-insamling. Annars fungerar inte insamlingsprocessen."
 
 #: setup.php
-msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik API-insamling aktiverad"
+msgid "API Polling Enabled"
+msgstr "API-insamling aktiverad"
 
 #: setup.php
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
@@ -866,8 +854,8 @@ msgid "How often do you want to look for new Cacti Devices?"
 msgstr "Hur ofta ska nya Cacti-enheter sökas efter?"
 
 #: setup.php
-msgid "DHCP/DNS/List Settings"
-msgstr "Inställningar för DHCP, DNS och adresslistor"
+msgid "Data Retention"
+msgstr "Lagringstid för data"
 
 #: setup.php
 msgid "DHCP Retention"
@@ -892,6 +880,14 @@ msgstr "Lagringstid för adresslistor"
 #: setup.php
 msgid "How long would you like to retain Address List history?"
 msgstr "Hur länge vill du behålla historiken för adresslistan?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Lagringstid för trådlösa registreringar"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Hur länge vill du behålla trådlösa registreringar som inte längre syns? När en registrering tas bort tas även dess grafer och datakällor bort."
 
 #: setup.php
 msgid "Device Graph Automation"
@@ -951,8 +947,8 @@ msgid "How long should an excluded user's data be preserved after they have disc
 msgstr "Hur länge ska data för en utesluten användare sparas efter att användaren har kopplat från?"
 
 #: setup.php
-msgid "MikroTik Device Collection Frequencies"
-msgstr "Frekvenser för insamling av MikroTik-enheter"
+msgid "Device Collection Frequencies"
+msgstr "Insamlingsfrekvenser för enheter"
 
 #: setup.php
 msgid "Storage Frequency"
@@ -987,8 +983,8 @@ msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr "Hur ofta ska DNS, DHCP och adresslistor samlas in?"
 
 #: setup.php
-msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "Insamlingsfrekvenser för MikroTik-köer och köträd"
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Insamlingsfrekvenser för köer/träd"
 
 #: setup.php
 msgid "Simple Queue/PPPoe Frequency"
@@ -1007,36 +1003,36 @@ msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to
 msgstr "Hur ofta ska köträden samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
-msgid "MikroTik Wireless Collection Frequencies"
-msgstr "Insamlingsfrekvenser för MikroTik trådlöst"
+msgid "Wireless Collection Frequencies"
+msgstr "Insamlingsfrekvenser för trådlöst"
 
 #: setup.php
-msgid "Wireless HotSpot Users Frequency"
-msgstr "Insamlingsfrekvens för trådlösa hotspotanvändare"
+msgid "HotSpot Users Frequency"
+msgstr "Frekvens för HotSpot-användare"
 
 #: setup.php
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "Hur ofta ska statistik för trådlösa användare samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
-msgid "Wireless Access Point Frequency"
-msgstr "Frekvens för trådlös åtkomstpunkt"
+msgid "Access Point Frequency"
+msgstr "Frekvens för åtkomstpunkt"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr "Hur ofta ska trådlösa åtkomstpunkter samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
-msgid "Wireless Registrations Frequency"
-msgstr "Insamlingsfrekvens för trådlösa registreringar"
+msgid "Registrations Frequency"
+msgstr "Frekvens för registreringar"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
 msgstr "Hur ofta ska trådlösa registreringar samlas in? Välj <b>Inaktiverad</b> för att stänga av funktionen."
 
 #: setup.php
-msgid "Wireless Stations Frequency"
-msgstr "Insamlingsfrekvens för trådlösa stationer"
+msgid "Stations Frequency"
+msgstr "Frekvens för stationer"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
@@ -1169,11 +1165,17 @@ msgstr "Anslutningen misslyckades"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Tillåt overifierade API TLS-certifikat"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Inaktivera verifiering av certifikat och värdnamn för RouterOS API-anslutningar. Detta kan exponera API-autentiseringsuppgifter för en falsk enhet. Lämna rutan avmarkerad och installera betrodda enhetscertifikat när det är möjligt."
+
+#~ msgid "Signal to Noise"
+#~ msgstr "Signal till brus"
+
+#~ msgid "DHCP/DNS/List Settings"
+#~ msgstr "Inställningar för DHCP, DNS och adresslistor"
 
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "Ange lösenordet för användaren med endast läsbehörighet på denna MikroTik."
