@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-12 15:08-0500\n"
-"PO-Revision-Date: 2026-05-09 07:18+0000\n"
-"Last-Translator: \"Coool (github.com/Coool)\" <coool@mail.lv>\n"
-"Language-Team: Latvian <https://translate.cacti.net/projects/cacti/mikrotik/lv/>\n"
-"Language: lv-LV\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Latvian <https://translate.cacti.net/projects/cacti/mikrotik/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -55,12 +43,10 @@ msgid "Queues"
 msgstr "Rindas"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Trees"
 msgstr "Rindas koki"
 
 #: mikrotik.php setup.php
-#, fuzzy
 msgid "Interfaces"
 msgstr "Saskarnes"
 
@@ -86,7 +72,7 @@ msgstr "Bezvadu tīkla reģistrācijas"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "Stāvoklis"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -117,7 +103,6 @@ msgid "Active"
 msgstr "Aktīvs"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Since Reset"
 msgstr "Kopš atiestatīšanas"
 
@@ -175,10 +160,9 @@ msgstr "Rediģēt ierīci"
 
 #: mikrotik.php
 msgid "No Interfaces Found"
-msgstr ""
+msgstr "Nav atrasta neviena saskarne"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Status"
 msgstr "Rindas statuss"
 
@@ -208,26 +192,25 @@ msgstr "Nosūtītas paketes"
 
 #: mikrotik.php
 msgid "Qs In"
-msgstr ""
+msgstr "Rindas ieejā"
 
 #: mikrotik.php
 msgid "Qs Out"
-msgstr ""
+msgstr "Rindas izejā"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr ""
+msgstr "Atmestās ieejā"
 
 #: mikrotik.php
 msgid "Drps Out"
-msgstr ""
+msgstr "Atmestās izejā"
 
 #: mikrotik.php
 msgid "No Simple Queues Found"
-msgstr ""
+msgstr "Nav atrasta neviena vienkāršā rinda"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Queue Tree Status"
 msgstr "Rindas koka statuss"
 
@@ -257,7 +240,7 @@ msgstr "Pakešu kopskaits"
 
 #: mikrotik.php
 msgid "No Queue Trees Found"
-msgstr ""
+msgstr "Nav atrasts neviens rindas koks"
 
 #: mikrotik.php
 msgid "Wireless Aps Status"
@@ -376,10 +359,8 @@ msgid "No Users Found"
 msgstr "Nav atrasts neviens lietotājs"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "MikroTik Credentials"
 msgid "MikroTik Changelog"
-msgstr "MikroTik akreditācijas dati"
+msgstr "MikroTik izmaiņu žurnāls"
 
 #: mikrotik.php
 #, php-format
@@ -428,10 +409,8 @@ msgid "Uptime(d:h:m)"
 msgstr "Darbošanās laiks (d:s:m)"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "CPU %"
 msgid "CPU %%%"
-msgstr "Procesors %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
 msgid "CPUs"
@@ -462,12 +441,10 @@ msgid "View Users"
 msgstr "Skatīt lietotājus"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Simple Queue"
 msgstr "Skatīt vienkāršo rindu"
 
 #: mikrotik.php
-#, fuzzy
 msgid "View Queue Trees"
 msgstr "Skatīt rindas kokus"
 
@@ -481,7 +458,7 @@ msgstr "Nav atrasts neviens bezvadu piekļuves punkts"
 
 #: mikrotik.php
 msgid "View Interfaces"
-msgstr ""
+msgstr "Skatīt saskarnes"
 
 #: mikrotik.php setup.php
 msgid "View Graphs"
@@ -497,7 +474,7 @@ msgstr "Netika atrasta neviena ierīce"
 
 #: mikrotik.php
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
-msgstr ""
+msgstr "Vispirms atlasiet datu vaicājumu sadaļā Console -> Settings -> Host MIB"
 
 #: mikrotik.php
 msgid "Graphs skipped or not created yet"
@@ -505,27 +482,27 @@ msgstr "Grafiki izlaisti vai vēl nav izveidoti"
 
 #: mikrotik.php
 msgid "Please select Data Query first from Console->Settings->Host MIB First"
-msgstr ""
+msgstr "Vispirms atlasiet datu vaicājumu sadaļā Console->Settings->Host MIB"
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "Jebkurš"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "Neviens"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "Veidne"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "Visi grafiki un veidnes"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "Atlasītās veidnes"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
@@ -537,96 +514,93 @@ msgstr "Notīrīt filtrus"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "Saglabāt filtru datubāzē"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "Kolonnas"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d kolonna"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d kolonnas"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "Sīktēli"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Present"
 msgid "Presets"
-msgstr "Tagad"
+msgstr "Sagataves"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "Pielāgots"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "No"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "Sākuma datuma atlasītājs"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "Līdz"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "Beigu datuma atlasītājs"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "Pārbīdīt laiku atpakaļ"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "Noteikt pārbīdes intervālu"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "Pārbīdīt laiku uz priekšu"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "Atsvaidzināt"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "Atsvaidzināt atlasīto laika posmu"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "Atgriezties pie noklusējuma laika posma"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "Laika logs"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Interval"
-msgstr "Saskarnes"
+msgstr "Intervāls"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "Apturēt"
 
 #: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
-msgstr ""
+msgstr "Lietots pielāgots grafiku saraksts — filtrēšana no saraksta"
 
 #: mikrotik.php
 msgid "Graph Preview Filters"
@@ -634,34 +608,31 @@ msgstr "Grafika priekšskatījuma filtrēšana"
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "Stāvokļa sensori"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "Sensori"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "Sensors"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "Vērtība"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "Mērvienība"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "No Users Found"
 msgid "No Health Sensors Found"
-msgstr "Nav atrasts neviens lietotājs"
+msgstr "Nav atrasts neviens stāvokļa sensors"
 
 #: mikrotik.php
-#, fuzzy
 msgid "Wireless Registration Stats"
-msgstr "Bezvadu tīkla reģistrācijas statistika"
+msgstr "Bezvadu reģistrāciju statistika"
 
 #: mikrotik.php
 msgid "Registrations"
@@ -676,17 +647,16 @@ msgid "MAC Address"
 msgstr "MAC adrese"
 
 #: mikrotik.php
-msgid "Signal to Noise"
-msgstr ""
+msgid "Signal (dBm)"
+msgstr "Signāls (dBm)"
 
 #: mikrotik.php
-#, fuzzy
 msgid "No Wireless Registrations Found"
-msgstr "Nav atrasta neviena bezvadu tīkla reģistrācija"
+msgstr "Nav atrasta neviena bezvadu reģistrācija"
 
 #: mikrotik.php
 msgid "DHCP Registrations"
-msgstr ""
+msgstr "DHCP reģistrācijas"
 
 #: mikrotik.php
 msgid "Entries"
@@ -727,7 +697,7 @@ msgstr "Pastāvīga"
 
 #: mikrotik.php
 msgid "Expired"
-msgstr ""
+msgstr "Beidzies termiņš"
 
 #: mikrotik.php
 msgid "Export"
@@ -755,20 +725,19 @@ msgstr "Adrese"
 
 #: mikrotik.php
 msgid "Timeout"
-msgstr ""
+msgstr "Noildze"
 
 #: mikrotik.php
 msgid "No Address List Entries Found"
-msgstr ""
+msgstr "Nav atrasts neviens adrešu saraksta ieraksts"
 
 #: mikrotik_users.php
 msgid "Delete"
 msgstr "Dzēst"
 
 #: mikrotik_users.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
-msgstr "Noklikšķiniet 'Turpināt', lai dzēstu šādus lietotājus un to grafiku(-us)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu šos lietotājus un to grafikus."
 
 #: mikrotik_users.php
 msgid "Cancel"
@@ -819,24 +788,24 @@ msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-msgid "MikroTik General Settings"
-msgstr "MikroTik vispārīgie iestatījumi"
+msgid "General Settings"
+msgstr "Vispārīgie iestatījumi"
 
 #: setup.php
-msgid "MikroTik Poller Enabled"
-msgstr "MikroTik aptaujātajs iespējots"
+msgid "Poller Enabled"
+msgstr "Aptaujātājs iespējots"
 
 #: setup.php
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "Atķeksējiet šo izvēles rūtiņu, ja vēlaties, lai MikroTik aptaujāšana būtu iespējota.  Pretējā gadījumā aptaujātajs nedarbosies."
 
 #: setup.php
-msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik API aptaujāšana iespējota"
+msgid "API Polling Enabled"
+msgstr "API aptaujāšana iespējota"
 
 #: setup.php
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
-msgstr ""
+msgstr "Atzīmējiet šo izvēles rūtiņu, ja vēlaties, lai Cacti aptaujātu dažādus iestatījumus, izmantojot MikroTik API. Ja kāda iemesla dēļ jums nav piekļuves MikroTik API, noņemiet atzīmi no šīs opcijas."
 
 #: setup.php
 msgid "Automatically Discover Cacti Devices"
@@ -844,23 +813,23 @@ msgstr "Automātiski atklāt Cacti ierīces"
 
 #: setup.php
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr ""
+msgstr "Vai vēlaties automātiski meklēt un pievienot ierīces no Cacti resursdatoru tabulas, kas atbalsta MikroTik MIB?"
 
 #: setup.php
 msgid "Automatically Purge Devices"
-msgstr ""
+msgstr "Automātiski iztīrīt ierīces"
 
 #: setup.php
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr ""
+msgstr "Vai vēlaties automātiski iztīrīt ierīces, kas ir noņemtas no Cacti sistēmas?"
 
 #: setup.php
 msgid "Maximum Concurrent Collectors"
-msgstr ""
+msgstr "Maksimālais vienlaicīgo vācēju skaits"
 
 #: setup.php
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr ""
+msgstr "Kāds ir maksimālais vienlaicīgi darbināmo datu vākšanas procesu skaits?"
 
 #: setup.php
 #, php-format
@@ -885,12 +854,12 @@ msgid "How often do you want to look for new Cacti Devices?"
 msgstr "Cik bieži meklēt jaunas Cacti ierīces?"
 
 #: setup.php
-msgid "DHCP/DNS/List Settings"
-msgstr "DHCP/DNS/saraksta iestatījumi"
+msgid "Data Retention"
+msgstr "Datu saglabāšana"
 
 #: setup.php
 msgid "DHCP Retention"
-msgstr ""
+msgstr "DHCP saglabāšana"
 
 #: setup.php
 msgid "How long would you like to retain DHCP IP registration history?"
@@ -898,7 +867,7 @@ msgstr "Cik ilgi jūs vēlētos paturēt DHCP IP reģistrācijas vēsturi?"
 
 #: setup.php
 msgid "DNS Retention"
-msgstr ""
+msgstr "DNS saglabāšana"
 
 #: setup.php
 msgid "How long would you like to retain DNS Cache history?"
@@ -906,16 +875,23 @@ msgstr "Cik ilgi jūs vēlētos paturēt DNS kešatmiņas vēsturi?"
 
 #: setup.php
 msgid "Address List Retention"
-msgstr ""
+msgstr "Adrešu sarakstu saglabāšana"
 
 #: setup.php
 msgid "How long would you like to retain Address List history?"
 msgstr "Cik ilgi jūs vēlētos paturēt adrešu saraksta vēsturi?"
 
 #: setup.php
-#, fuzzy
+msgid "Wireless Registration Retention"
+msgstr "Bezvadu reģistrāciju saglabāšana"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Cik ilgi vēlaties saglabāt bezvadu reģistrācijas, kas vairs netiek konstatētas? Kad reģistrācija tiek noņemta, tiek noņemti arī tās grafiki un datu avoti."
+
+#: setup.php
 msgid "Device Graph Automation"
-msgstr "Ierīces grafika automatizācija"
+msgstr "Ierīces grafiku automatizācija"
 
 #: setup.php
 msgid "Automatically Add New Graphs"
@@ -956,24 +932,23 @@ msgstr "%d dienas"
 
 #: setup.php
 msgid "Exclude Users RegEx"
-msgstr ""
+msgstr "Izslēdzamo lietotāju regulārā izteiksme"
 
 #: setup.php
 msgid "User names that match this regex will not be graphed automatically"
-msgstr ""
+msgstr "Lietotājvārdiem, kas atbilst šai regulārajai izteiksmei, grafiki netiks veidoti automātiski"
 
 #: setup.php
 msgid "Exclude Users Time to Live"
-msgstr ""
+msgstr "Izslēgto lietotāju saglabāšanas laiks"
 
 #: setup.php
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr ""
+msgstr "Cik ilgi jāsaglabā izslēgtā lietotāja dati pēc atvienošanās."
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Device Collection Frequencies"
-msgstr "MikroTik ierīču apkopojuma atjaunošanas biežums"
+msgid "Device Collection Frequencies"
+msgstr "Ierīču datu vākšanas biežumi"
 
 #: setup.php
 msgid "Storage Frequency"
@@ -981,7 +956,7 @@ msgstr "Krātuves biežums"
 
 #: setup.php
 msgid "How often do you want to scan Storage Statistics?"
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt krātuves statistiku?"
 
 #: setup.php
 msgid "Processor Frequency"
@@ -993,11 +968,11 @@ msgstr "Cik bieži jūs vēlaties skenēt ierīces procesora statistiku?"
 
 #: setup.php
 msgid "Interfaces Frequency"
-msgstr ""
+msgstr "Saskarņu biežums"
 
 #: setup.php
 msgid "How often do you want to scan the Interfaces?"
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt saskarnes?"
 
 #: setup.php
 msgid "DNS/DHCP/List Frequency"
@@ -1005,63 +980,59 @@ msgstr "DNS/DHCP/Saraksta biežums"
 
 #: setup.php
 msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt DNS/DHCP/adrešu sarakstus?"
 
 #: setup.php
-msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr ""
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Rindu/koku datu vākšanas biežumi"
 
 #: setup.php
 msgid "Simple Queue/PPPoe Frequency"
-msgstr ""
+msgstr "Vienkāršo rindu/PPPoE biežums"
 
 #: setup.php
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt vienkāršo rindu statistiku? Atlasiet <b>Atspējots</b>, lai noņemtu šo funkciju."
 
 #: setup.php
-#, fuzzy
 msgid "Queue Trees Frequency"
 msgstr "Rindas koku biežums"
 
 #: setup.php
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "Cik bieži vēlaties skenēt rindas kokus? Atlasiet <b>Atspējots</b>, lai noņemtu šo funkciju."
 
 #: setup.php
-#, fuzzy
-msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik bezvadu savākšanas frekvences"
+msgid "Wireless Collection Frequencies"
+msgstr "Bezvadu tīkla datu vākšanas biežumi"
 
 #: setup.php
-msgid "Wireless HotSpot Users Frequency"
-msgstr "Bezvadu karsto punktu lietotāju atjaunošanas biežums"
+msgid "HotSpot Users Frequency"
+msgstr "HotSpot lietotāju biežums"
 
 #: setup.php
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
 msgstr "Cik bieži vēlaties skenēt bezvadu lietotāju statistiku?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php
-msgid "Wireless Access Point Frequency"
-msgstr "Bezvadu piekļuves punkta atjaunošanas biežums"
+msgid "Access Point Frequency"
+msgstr "Piekļuves punkta biežums"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
 msgstr "Cik bieži jūs vēlaties skenēt bezvadu piekļuves punktus?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
 
 #: setup.php
-#, fuzzy
-msgid "Wireless Registrations Frequency"
-msgstr "Bezvadu reģistrāciju atjaunošanas biežums"
+msgid "Registrations Frequency"
+msgstr "Reģistrāciju biežums"
 
 #: setup.php
-#, fuzzy
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr "Cik bieži jūs vēlaties skenēt bezvadu reģistrāciju?  Atlasiet <b>Atspējots</b>, lai izslēgtu šo funkciju."
+msgstr "Cik bieži vēlaties skenēt bezvadu reģistrācijas? Atlasiet <b>Atspējots</b>, lai noņemtu šo funkciju."
 
 #: setup.php
-msgid "Wireless Stations Frequency"
-msgstr "Bezvadu staciju atjaunošanas biežums"
+msgid "Stations Frequency"
+msgstr "Staciju biežums"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
@@ -1086,7 +1057,7 @@ msgstr "%d minūte"
 
 #: setup.php
 msgid "Indefinite"
-msgstr ""
+msgstr "Beztermiņa"
 
 #: setup.php
 #, php-format
@@ -1110,7 +1081,7 @@ msgstr "%d gads"
 
 #: setup.php
 msgid "Simple Queues"
-msgstr ""
+msgstr "Vienkāršās rindas"
 
 #: setup.php
 msgid "Storage"
@@ -1122,31 +1093,31 @@ msgstr "(Rediģēt)"
 
 #: setup.php
 msgid "Graphs Skipped by Rule, or Not Created"
-msgstr ""
+msgstr "Grafiki, kas izlaisti pēc kārtulas vai nav izveidoti"
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "Izveidot savienojumu ar MikroTik API, izmantojot SSL (api-ssl, ports 8729). Pirms šīs opcijas ieslēgšanas ierīcē sadaļā IP > Services iespējojiet pakalpojumu api-ssl."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "Nē"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "Jā"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "Neizdevās izveidot SSL savienojumu ar MikroTik pakalpojumu api-ssl (ports 8729), tāpēc SSL nevar iespējot. Pirms šīs opcijas ieslēgšanas ierīcē sadaļā IP > Services iespējojiet un pārbaudiet pakalpojumu api-ssl."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "Jā (pašlaik nav sasniedzams)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
 msgid "MikroTik Credentials"
@@ -1166,11 +1137,11 @@ msgstr "Parole"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "Norādiet šīs MikroTik ierīces tikai lasīšanas paroli. Atstājiet šo lauku tukšu, lai saglabātu pašlaik saglabāto paroli."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "Šajā ierīcē SSL nav pieejams"
 
 #: setup.php
 msgid "Connection Result"
@@ -1178,29 +1149,30 @@ msgstr "Savienojuma rezultāts"
 
 #: setup.php
 msgid "Ok if Cacti can connect to the MikroTik over its API port."
-msgstr ""
+msgstr "Labi, ja Cacti var izveidot savienojumu ar MikroTik caur tā API portu."
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL ir iespējots, taču api-ssl ports (8729) nav sasniedzams; savienojums netika pārbaudīts."
 
 #: setup.php
-#, fuzzy
-#| msgid "Connection Result"
 msgid "Connected Successfully"
-msgstr "Savienojuma rezultāts"
+msgstr "Savienojums veiksmīgi izveidots"
 
 #: setup.php
 msgid "Connection Failed"
-msgstr ""
+msgstr "Savienojums neizdevās"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "Atļaut nepārbaudītus API TLS sertifikātus"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "Atspējot sertifikāta un resursdatora nosaukuma pārbaudi RouterOS API savienojumiem. Tas var atklāt API akreditācijas datus viltotai ierīcei. Ja vien iespējams, atstājiet neatzīmētu un instalējiet uzticamus ierīces sertifikātus."
+
+#~ msgid "DHCP/DNS/List Settings"
+#~ msgstr "DHCP/DNS/saraksta iestatījumi"
 
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "Norādiet MikroTik lietotājvārda, kam ir tikai lasīšanas tiesības, paroli."
