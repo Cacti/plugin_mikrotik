@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-11-12 15:08-0500\n"
-"PO-Revision-Date: 2026-09-24 21:00+0000\n"
-"Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
-"Language-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\n"
-"Language: ka-GE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/mikrotik/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -84,7 +72,7 @@ msgstr "უსადენო რეგისტრაციები"
 
 #: mikrotik.php setup.php
 msgid "Health"
-msgstr ""
+msgstr "მდგომარეობა"
 
 #: mikrotik.php setup.php
 msgid "Graphs"
@@ -371,10 +359,8 @@ msgid "No Users Found"
 msgstr "მომხმარებლები ნაპოვნი არაა"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "MikroTik Credentials"
 msgid "MikroTik Changelog"
-msgstr "MikroTik-ის ავტორიზაციის დეტალები"
+msgstr "MikroTik-ის ცვლილებების ჟურნალი"
 
 #: mikrotik.php
 #, php-format
@@ -500,23 +486,23 @@ msgstr "ჯერ აირჩიეთ მონაცემების მო
 
 #: mikrotik.php
 msgid "Any"
-msgstr ""
+msgstr "ნებისმიერი"
 
 #: mikrotik.php
 msgid "None"
-msgstr ""
+msgstr "არცერთი"
 
 #: mikrotik.php
 msgid "Template"
-msgstr ""
+msgstr "შაბლონი"
 
 #: mikrotik.php
 msgid "All Graphs & Templates"
-msgstr ""
+msgstr "ყველა გრაფიკი და შაბლონი"
 
 #: mikrotik.php
 msgid "Templates Selected"
-msgstr ""
+msgstr "არჩეული შაბლონები"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Set/Refresh Filters"
@@ -528,93 +514,89 @@ msgstr "ფილტრების გასუფთავება"
 
 #: mikrotik.php
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
 
 #: mikrotik.php
 msgid "Save filter to the database"
-msgstr ""
+msgstr "ფილტრის მონაცემთა ბაზაში შენახვა"
 
 #: mikrotik.php
 msgid "Columns"
-msgstr ""
+msgstr "სვეტები"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Column"
-msgstr ""
+msgstr "%d სვეტი"
 
 #: mikrotik.php
 #, php-format
 msgid "%d Columns"
-msgstr ""
+msgstr "%d სვეტი"
 
 #: mikrotik.php
 msgid "Thumbnails"
-msgstr ""
+msgstr "მინიატიურები"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Present"
 msgid "Presets"
-msgstr "ახლა"
+msgstr "წინასწარ განსაზღვრული"
 
 #: mikrotik.php
 msgid "Custom"
-msgstr ""
+msgstr "მორგებული"
 
 #: mikrotik.php
 msgid "From"
-msgstr ""
+msgstr "საწყისი"
 
 #: mikrotik.php
 msgid "Start Date Selector"
-msgstr ""
+msgstr "საწყისი თარიღის ამომრჩევი"
 
 #: mikrotik.php
 msgid "To"
-msgstr ""
+msgstr "საბოლოო"
 
 #: mikrotik.php
 msgid "End Date Selector"
-msgstr ""
+msgstr "საბოლოო თარიღის ამომრჩევი"
 
 #: mikrotik.php
 msgid "Shift Time Backward"
-msgstr ""
+msgstr "დროის უკან გადაწევა"
 
 #: mikrotik.php
 msgid "Define Shifting Interval"
-msgstr ""
+msgstr "გადაწევის ინტერვალის განსაზღვრა"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr ""
+msgstr "დროის წინ გადაწევა"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr ""
+msgstr "განახლება"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
-msgstr ""
+msgstr "არჩეული დროის ინტერვალის განახლება"
 
 #: mikrotik.php
 msgid "Return to the default time span"
-msgstr ""
+msgstr "ნაგულისხმევ დროის ინტერვალზე დაბრუნება"
 
 #: mikrotik.php
 msgid "Window"
-msgstr ""
+msgstr "ფანჯარა"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "Interfaces"
 msgid "Interval"
-msgstr "ინტერფეისები"
+msgstr "ინტერვალი"
 
 #: mikrotik.php
 msgid "Stop"
-msgstr ""
+msgstr "შეჩერება"
 
 #: mikrotik.php
 msgid "Custom Graph List Applied - Filtering from List"
@@ -626,29 +608,27 @@ msgstr "გრაფიკის მინიატურის ფილტრ�
 
 #: mikrotik.php
 msgid "Health Sensors"
-msgstr ""
+msgstr "მდგომარეობის სენსორები"
 
 #: mikrotik.php
 msgid "Sensors"
-msgstr ""
+msgstr "სენსორები"
 
 #: mikrotik.php
 msgid "Sensor"
-msgstr ""
+msgstr "სენსორი"
 
 #: mikrotik.php
 msgid "Value"
-msgstr ""
+msgstr "მნიშვნელობა"
 
 #: mikrotik.php
 msgid "Unit"
-msgstr ""
+msgstr "ერთეული"
 
 #: mikrotik.php
-#, fuzzy
-#| msgid "No Users Found"
 msgid "No Health Sensors Found"
-msgstr "მომხმარებლები ნაპოვნი არაა"
+msgstr "მდგომარეობის სენსორები ვერ მოიძებნა"
 
 #: mikrotik.php
 msgid "Wireless Registration Stats"
@@ -667,8 +647,8 @@ msgid "MAC Address"
 msgstr "MAC მისამართი"
 
 #: mikrotik.php
-msgid "Signal to Noise"
-msgstr "სიგნალი/ხმაურის ფარდობა"
+msgid "Signal (dBm)"
+msgstr "სიგნალი (dBm)"
 
 #: mikrotik.php
 msgid "No Wireless Registrations Found"
@@ -808,20 +788,20 @@ msgid "MikroTik"
 msgstr "MikroTik"
 
 #: setup.php
-msgid "MikroTik General Settings"
-msgstr "MikroTik-ის ზოგადი პარამეტრები"
+msgid "General Settings"
+msgstr "ზოგადი პარამეტრები"
 
 #: setup.php
-msgid "MikroTik Poller Enabled"
-msgstr "MiroTik-ის გამომთხოვი ჩართულია"
+msgid "Poller Enabled"
+msgstr "გამომთხოვი ჩართულია"
 
 #: setup.php
 msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
 msgstr "დასვით ეს თოლია, თუ გნებავთ, MikroTik-დან გამოთხოვა ჩართოთ.   წინააღმდეგ შემთხვევაში გამომთხოვი არ იმუშავებს."
 
 #: setup.php
-msgid "MikroTik API Polling Enabled"
-msgstr "MikroTik-ის API-დან გამოთხოვა ჩართულია"
+msgid "API Polling Enabled"
+msgstr "API გამოთხოვა ჩართულია"
 
 #: setup.php
 msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
@@ -833,7 +813,7 @@ msgstr "Cacti-ის მოწყობილობების ავტომ�
 
 #: setup.php
 msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
-msgstr ""
+msgstr "გსურთ ავტომატურად დასკანერდეს და დაემატოს მოწყობილობები Cacti-ს ჰოსტების ცხრილიდან, რომლებსაც აქვთ MikroTik MIB-ის მხარდაჭერა?"
 
 #: setup.php
 msgid "Automatically Purge Devices"
@@ -841,7 +821,7 @@ msgstr "მოწყობილობების ავტომატურ�
 
 #: setup.php
 msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
-msgstr ""
+msgstr "გსურთ ავტომატურად წაიშალოს მოწყობილობები, რომლებიც ამოღებულია Cacti-ს სისტემიდან?"
 
 #: setup.php
 msgid "Maximum Concurrent Collectors"
@@ -849,7 +829,7 @@ msgstr "მაქსიმალური ერთდროული შემ�
 
 #: setup.php
 msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
-msgstr ""
+msgstr "შემგროვებელი პროცესების რა მაქსიმალური რაოდენობა გსურთ გაეშვას ერთდროულად?"
 
 #: setup.php
 #, php-format
@@ -874,8 +854,8 @@ msgid "How often do you want to look for new Cacti Devices?"
 msgstr "რამდენად ხშირად გნებავთ ახალი Cacti-ის მოწყობილობების ძებნა?"
 
 #: setup.php
-msgid "DHCP/DNS/List Settings"
-msgstr "DHCP/DNS/სიის პარამეტრები"
+msgid "Data Retention"
+msgstr "მონაცემების შენახვა"
 
 #: setup.php
 msgid "DHCP Retention"
@@ -900,6 +880,14 @@ msgstr "მისამართების სიის შეგროვე�
 #: setup.php
 msgid "How long would you like to retain Address List history?"
 msgstr "რამდენი ხანი გნებავთ მისამართების სიის ისტორიის შენარჩუნება?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "უსადენო რეგისტრაციების შენახვა"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "რამდენ ხანს გსურთ შეინახოთ უსადენო რეგისტრაციები, რომლებიც აღარ ჩანს? რეგისტრაციის წაშლისას იშლება მისი გრაფიკები და მონაცემთა წყაროებიც."
 
 #: setup.php
 msgid "Device Graph Automation"
@@ -956,11 +944,11 @@ msgstr "მომხმარებლის სიცოცხლის დრ�
 
 #: setup.php
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr ""
+msgstr "რამდენ ხანს უნდა შეინახოს გამორიცხული მომხმარებლის მონაცემები გათიშვის შემდეგ."
 
 #: setup.php
-msgid "MikroTik Device Collection Frequencies"
-msgstr "MikroTik-ის მოწყობილობის კოლექციის სიხშირეები"
+msgid "Device Collection Frequencies"
+msgstr "მოწყობილობის მონაცემების შეგროვების სიხშირეები"
 
 #: setup.php
 msgid "Storage Frequency"
@@ -995,8 +983,8 @@ msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
 msgstr "რამდენად ხშირად გნებავთ DNS/DHCP/მისამართების სიის სკანირება?"
 
 #: setup.php
-msgid "MikroTik Queue/Tree Collection Frequencies"
-msgstr "MikroTik-ის რიგის/ხის კოლექციის სიხშირეები"
+msgid "Queue/Tree Collection Frequencies"
+msgstr "რიგის/ხის მონაცემების შეგროვების სიხშირეები"
 
 #: setup.php
 msgid "Simple Queue/PPPoe Frequency"
@@ -1004,7 +992,7 @@ msgstr "მარტივი რიგის/PPPoe-ის სიხშირე
 
 #: setup.php
 msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ მარტივი რიგების სტატისტიკის სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
 msgid "Queue Trees Frequency"
@@ -1012,43 +1000,43 @@ msgstr "რიგის ხეების სიხშირე"
 
 #: setup.php
 msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ რიგების ხეების სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
-msgid "MikroTik Wireless Collection Frequencies"
-msgstr "MikroTik-ის უსადენო კოლექციის სიხშირეები"
+msgid "Wireless Collection Frequencies"
+msgstr "უსადენო მონაცემების შეგროვების სიხშირეები"
 
 #: setup.php
-msgid "Wireless HotSpot Users Frequency"
-msgstr "უსადენო ჰოტსპოტის მომხმარებლების სიხშირე"
+msgid "HotSpot Users Frequency"
+msgstr "ჰოტსპოტის მომხმარებლების სიხშირე"
 
 #: setup.php
 msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ უსადენო მომხმარებლების სტატისტიკის სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
-msgid "Wireless Access Point Frequency"
-msgstr "უსადენო წვდომის წერტილის სიხშირე"
+msgid "Access Point Frequency"
+msgstr "წვდომის წერტილის სიხშირე"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ უსადენო წვდომის წერტილების სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
-msgid "Wireless Registrations Frequency"
-msgstr "უსადენო რეგისტრაციების სიხშირე"
+msgid "Registrations Frequency"
+msgstr "რეგისტრაციების სიხშირე"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ უსადენო რეგისტრაციების სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
-msgid "Wireless Stations Frequency"
-msgstr "უსადენო სადგურების სიხშირე"
+msgid "Stations Frequency"
+msgstr "სადგურების სიხშირე"
 
 #: setup.php
 msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
-msgstr ""
+msgstr "რამდენად ხშირად გსურთ უსადენო სადგურების სკანირება? ამ ფუნქციის გამოსართავად აირჩიეთ <b>გამორთულია</b>."
 
 #: setup.php
 msgid "Management"
@@ -1109,27 +1097,27 @@ msgstr "წესის მიერ გამოტოვებული, ა�
 
 #: setup.php
 msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
-msgstr ""
+msgstr "დაკავშირება MikroTik API-სთან SSL-ის მეშვეობით (api-ssl, პორტი 8729). ჩართვამდე გაააქტიურეთ api-ssl სერვისი მოწყობილობის IP > Services განყოფილებაში."
 
 #: setup.php
 msgid "No"
-msgstr ""
+msgstr "არა"
 
 #: setup.php
 msgid "Yes"
-msgstr ""
+msgstr "დიახ"
 
 #: setup.php
 msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
-msgstr ""
+msgstr "MikroTik-ის api-ssl სერვისთან (პორტი 8729) SSL კავშირი ვერ დამყარდა, ამიტომ SSL-ის ჩართვა შეუძლებელია. SSL-ის გამოსაყენებლად ჩართეთ და შეამოწმეთ api-ssl სერვისი მოწყობილობის IP > Services განყოფილებაში."
 
 #: setup.php
 msgid "Yes (currently unreachable)"
-msgstr ""
+msgstr "დიახ (ამჟამად მიუწვდომელია)"
 
 #: setup.php
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: setup.php
 msgid "MikroTik Credentials"
@@ -1149,11 +1137,11 @@ msgstr "პაროლი"
 
 #: setup.php
 msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
-msgstr ""
+msgstr "მიუთითეთ მხოლოდ წაკითხვის უფლების მქონე პაროლი ამ MikroTik-ისთვის. დატოვეთ ეს ველი ცარიელი მიმდინარე შენახული პაროლის შესანარჩუნებლად."
 
 #: setup.php
 msgid "SSL not present on this device"
-msgstr ""
+msgstr "ამ მოწყობილობაზე SSL არ არის"
 
 #: setup.php
 msgid "Connection Result"
@@ -1165,13 +1153,11 @@ msgstr "კარგი, თუ Cacti-ს შეუძლია, დაუკა
 
 #: setup.php
 msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
-msgstr ""
+msgstr "SSL ჩართულია, მაგრამ api-ssl პორტი (8729) მიუწვდომელია; კავშირი არ შემოწმდა."
 
 #: setup.php
-#, fuzzy
-#| msgid "Connection Result"
 msgid "Connected Successfully"
-msgstr "კავშირის შედეგი"
+msgstr "წარმატებით დაკავშირდა"
 
 #: setup.php
 msgid "Connection Failed"
@@ -1179,11 +1165,17 @@ msgstr "კავშირის შეცდომა"
 
 #: setup.php
 msgid "Allow Unverified API TLS Certificates"
-msgstr ""
+msgstr "დაუდასტურებელი API TLS სერტიფიკატების დაშვება"
 
 #: setup.php
 msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
-msgstr ""
+msgstr "სერტიფიკატისა და ჰოსტის სახელის შემოწმების გამორთვა RouterOS API კავშირებისთვის. ამან შეიძლება გაამჟღავნოს API-ს ავტორიზაციის მონაცემები გაყალბებული მოწყობილობის წინაშე. დატოვეთ მოუნიშნავი და დააინსტალირეთ მოწყობილობის სანდო სერტიფიკატები, როცა ეს შესაძლებელია."
+
+#~ msgid "Signal to Noise"
+#~ msgstr "სიგნალი/ხმაურის ფარდობა"
+
+#~ msgid "DHCP/DNS/List Settings"
+#~ msgstr "DHCP/DNS/სიის პარამეტრები"
 
 #~ msgid "Provide the read only username password for this MikroTik."
 #~ msgstr "შეიყვანეთ მხოლოდ-წაკითხვადი მომხმარებლის პაროლი ამ MikroTik-ისთვის."
