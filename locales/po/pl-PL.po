@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/mikrotik/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/mikrotik/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -172,7 +172,7 @@ msgstr "Adres źródłowy/Maska"
 
 #: mikrotik.php
 msgid "Dst Addr/Mask"
-msgstr "Adres/maska doc."
+msgstr "Docelowy adres/maska"
 
 #: mikrotik.php
 msgid "Bytes In"
@@ -200,11 +200,11 @@ msgstr "Kolejki wychodzące"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr "Odrz. przych."
+msgstr "Odrzucone przychodzące"
 
 #: mikrotik.php
 msgid "Drps Out"
-msgstr "Odrz. wych."
+msgstr "Odrzucone wychodzące"
 
 #: mikrotik.php
 msgid "No Simple Queues Found"
@@ -216,7 +216,7 @@ msgstr "Stan drzewa kolejek"
 
 #: mikrotik.php setup.php
 msgid "Trees"
-msgstr "Trees"
+msgstr "Drzewa"
 
 #: mikrotik.php
 msgid "Flow"
@@ -328,19 +328,19 @@ msgstr "Czas połączenia"
 
 #: mikrotik.php
 msgid "Cur In"
-msgstr "Bieżące wej."
+msgstr "Bieżące wejściowe"
 
 #: mikrotik.php
 msgid "Cur Out"
-msgstr "Bieżące wyj."
+msgstr "Bieżące wyjściowe"
 
 #: mikrotik.php
 msgid "Avg In"
-msgstr "Śr. przych."
+msgstr "Średnie przychodzące"
 
 #: mikrotik.php
 msgid "Avg Out"
-msgstr "Śr. wych."
+msgstr "Średnie wychodzące"
 
 #: mikrotik.php
 msgid "Total In"
@@ -402,7 +402,7 @@ msgstr "Wersja FW"
 
 #: mikrotik.php
 msgid "Lic Ver"
-msgstr "Wersja lic."
+msgstr "Wersja licencji"
 
 #: mikrotik.php
 msgid "Uptime(d:h:m)"
@@ -540,7 +540,7 @@ msgstr "Miniaturki"
 
 #: mikrotik.php
 msgid "Presets"
-msgstr "Presets"
+msgstr "Ustawienia wstępne"
 
 #: mikrotik.php
 msgid "Custom"
@@ -725,7 +725,7 @@ msgstr "Adres"
 
 #: mikrotik.php
 msgid "Timeout"
-msgstr "Upłynął limit czasu"
+msgstr "Limit czasu"
 
 #: mikrotik.php
 msgid "No Address List Entries Found"
@@ -1085,7 +1085,7 @@ msgstr "Kolejki proste"
 
 #: setup.php
 msgid "Storage"
-msgstr "Pamięć"
+msgstr "Pamięć masowa"
 
 #: setup.php
 msgid "(edit)"
