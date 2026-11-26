@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/mikrotik/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/mikrotik/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -200,11 +200,11 @@ msgstr "Изходящи опашки"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr "Отхвърлени вход."
+msgstr "Отхвърлени входящи"
 
 #: mikrotik.php
 msgid "Drps Out"
-msgstr "Отхвърлени изход."
+msgstr "Отхвърлени изходящи"
 
 #: mikrotik.php
 msgid "No Simple Queues Found"
@@ -300,7 +300,7 @@ msgstr "Тип"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Hotspot"
-msgstr "Hotspot"
+msgstr "Хотспот"
 
 #: mikrotik.php mikrotik_users.php
 msgid "PPPoe"
@@ -352,7 +352,7 @@ msgstr "Общо изходящи"
 
 #: mikrotik.php
 msgid "N/A"
-msgstr "Няма"
+msgstr "Неприложимо"
 
 #: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
@@ -382,7 +382,7 @@ msgstr "Статус"
 
 #: mikrotik.php
 msgid "Recovering"
-msgstr "Възстановяване"
+msgstr "Възстановява се"
 
 #: mikrotik.php
 msgid "Up"
@@ -486,7 +486,7 @@ msgstr "Моля, първо изберете заявка за данни от 
 
 #: mikrotik.php
 msgid "Any"
-msgstr "Всички"
+msgstr "Всеки"
 
 #: mikrotik.php
 msgid "None"
@@ -576,7 +576,7 @@ msgstr "Време на преместване напред"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr "Обновяване"
+msgstr "Опресняване"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
