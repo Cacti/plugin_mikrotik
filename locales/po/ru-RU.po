@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Russian <https://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Russian <https://translate.cacti.net/projects/cacti/mikrotik/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -136,19 +136,19 @@ msgstr "Tx Bytes"
 
 #: mikrotik.php
 msgid "Rx Packets"
-msgstr "Rx Packets"
+msgstr "Пакеты Rx"
 
 #: mikrotik.php
 msgid "Tx Packets"
-msgstr "Tx Packets"
+msgstr "Пакеты Tx"
 
 #: mikrotik.php
 msgid "Rx Errors"
-msgstr "Rx Errors"
+msgstr "Ошибки Rx"
 
 #: mikrotik.php
 msgid "Tx Errors"
-msgstr "Tx Errors"
+msgstr "Ошибки Tx"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Last Seen"
@@ -180,15 +180,15 @@ msgstr "Bytes In"
 
 #: mikrotik.php
 msgid "Bytes Out"
-msgstr "Bytes Out"
+msgstr "Исх. байты"
 
 #: mikrotik.php
 msgid "Pkts In"
-msgstr "Pkts In"
+msgstr "Вх. пакеты"
 
 #: mikrotik.php
 msgid "Pkts Out"
-msgstr "Pkts Out"
+msgstr "Исх. пакеты"
 
 #: mikrotik.php
 msgid "Qs In"
@@ -196,15 +196,15 @@ msgstr "Qs In"
 
 #: mikrotik.php
 msgid "Qs Out"
-msgstr "Qs Out"
+msgstr "Исх. очереди"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr "Drps In"
+msgstr "Потери входящих"
 
 #: mikrotik.php
 msgid "Drps Out"
-msgstr "Drps Out"
+msgstr "Потери исходящих"
 
 #: mikrotik.php
 msgid "No Simple Queues Found"
@@ -328,7 +328,7 @@ msgstr "Время подключения"
 
 #: mikrotik.php
 msgid "Cur In"
-msgstr "Cur In"
+msgstr "Тек. входящие"
 
 #: mikrotik.php
 msgid "Cur Out"
@@ -336,7 +336,7 @@ msgstr "Cur Out"
 
 #: mikrotik.php
 msgid "Avg In"
-msgstr "Avg In"
+msgstr "Ср. вход"
 
 #: mikrotik.php
 msgid "Avg Out"
@@ -1067,12 +1067,12 @@ msgstr "%d Неделя"
 #: setup.php
 #, php-format
 msgid "%d Weeks"
-msgstr "%d нед."
+msgstr "%d недель"
 
 #: setup.php
 #, php-format
 msgid "%d Months"
-msgstr "%d мес."
+msgstr "%d месяцев"
 
 #: setup.php
 #, php-format
