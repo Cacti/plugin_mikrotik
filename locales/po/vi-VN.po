@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/mikrotik/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/mikrotik/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -220,7 +220,7 @@ msgstr "Cây"
 
 #: mikrotik.php
 msgid "Flow"
-msgstr "Flow"
+msgstr "Luồng"
 
 #: mikrotik.php
 msgid "Cur Bytes"
@@ -300,7 +300,7 @@ msgstr "Loại"
 
 #: mikrotik.php mikrotik_users.php
 msgid "Hotspot"
-msgstr "Hotspot"
+msgstr "Điểm phát sóng"
 
 #: mikrotik.php mikrotik_users.php
 msgid "PPPoe"
@@ -588,11 +588,11 @@ msgstr "Quay trở lại khoảng thời gian mặc định"
 
 #: mikrotik.php
 msgid "Window"
-msgstr "Window"
+msgstr "Cửa sổ"
 
 #: mikrotik.php
 msgid "Interval"
-msgstr "Interval"
+msgstr "Khoảng thời gian"
 
 #: mikrotik.php
 msgid "Stop"
