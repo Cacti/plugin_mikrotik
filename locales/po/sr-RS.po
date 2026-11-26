@@ -1,0 +1,1182 @@
+# Serbian translation for Cacti.
+# Copyright (C) 2004-2026 The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-26 18:57+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Serbian <developers@cacti.net>\n"
+"Language: sr-RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Присутно"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Непознато"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "У току"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Упозорење"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Тестирање"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Недоступан"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Уређаји"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Корисници"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Редови чекања"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Стабла редова чекања"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Интерфејси"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "DNS кеш"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Листе адреса"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Бежичне приступне тачке"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Бежичне регистрације"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Стање"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Графикони"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Статистика интерфејса"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Претражи"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Уређај"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Све"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Подразумевано"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Активан"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Од ресетовања"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Иди"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Очисти"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Радње"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Име домаћина"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Назив"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Rx бајтови"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Tx бајтови"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Rx пакети"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Tx пакети"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Rx грешке"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Tx грешке"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Последњи пут виђено"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Уреди уређај"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Нису пронађени интерфејси"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Статус реда чекања"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Изворна адр./маска"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Одредишна адр./маска"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Улазни бајтови"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Излазни бајтови"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Улазни пакети"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Излазни пакети"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Улазни редови"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Излазни редови"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Улазна одбацивања"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Излазна одбацивања"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Нису пронађени једноставни редови чекања"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Статус стабла редова чекања"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Стабла"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Ток"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Тренутни бајтови"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Тренутни пакети"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Укупно бајтова"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Укупно пакета"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Нису пронађена стабла редова чекања"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Статус бежичних приступних тачака"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Приступне тачке"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Tx брзина"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Rx брзина"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Клијенти"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Аутентификовани клијенти"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Учесталост"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Опсег"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Ниво шума"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Статистика корисника"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Тип"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Хотспот"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Активни корисници"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Корисник"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "IP адреса"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Трајање везе"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Трен. улаз"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Трен. излаз"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Прос. улаз"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Прос. излаз"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Укупан улаз"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Укупан излаз"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Н/Д"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Није пронађен ниједан корисник"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Дневник промена за MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Филтер уређаја (најновија MikroTik верзија је: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Филтер уређаја (најновија MikroTik верзија је: %s, објављена: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Дневник промена"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Статус"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Опоравак"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Доступан"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Онемогућено"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Опис"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "FW верзија"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Верзија лиценце"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Време рада (д:ч:м)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Процесори"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Процеси"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Укупна меморија"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Заузета меморија"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Укупан диск"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Искоришћен диск"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Прикажи кориснике"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Прикажи једноставни ред"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Прикажи стабла редова"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Прикажи бежичне приступне тачке"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Нису пронађене бежичне приступне тачке"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Прикажи интерфејсе"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Преглед графикона"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Нема дефинисаних графикона"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Није пронађен ниједан уређај"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Прво изаберите упит података у Конзола -> Подешавања -> Host MIB"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Графикони су прескочени или још нису направљени"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Прво изаберите упит података у Конзола->Подешавања->Host MIB"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Било који"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Ниједан"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Сви графикони и шаблони"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Изабрани шаблони"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Постави/освежи филтере"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Очисти филтере"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Сачувај"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Сачувај филтер у базу података"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Колоне"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d колона"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "%d колона"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Сличице"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Предефинисано"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Прилагођено"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Од"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Бирач почетног датума"
+
+#: mikrotik.php
+msgid "To"
+msgstr "До"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Бирач крајњег датума"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Помери време уназад"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Дефиниши интервал померања"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Помери време унапред"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Освежи"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Освежи изабрани временски опсег"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Врати на подразумевани временски опсег"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Прозор"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Интервал"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Заустави"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Примењена прилагођена листа графикона - филтрирање са листе"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Филтери прегледа графикона"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Сензори стања"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Сензори"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Сензор"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Вредност"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Јединица"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Нису пронађени сензори стања"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Статистика бежичних регистрација"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Регистрације"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Назив клијента"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "MAC адреса"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Сигнал (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Нису пронађене бежичне регистрације"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "DHCP регистрације"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Уноси"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Истиче за"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Блокирано"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Последње ажурирање"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s секунди"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Динамичко"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Статичко"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Нису пронађени DHCP уноси"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Трајно"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Истекло"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Извези"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Подаци"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Нису пронађени DNS уноси"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Листа"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Адреса"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Истек времена"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Нису пронађени уноси листе адреса"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Обриши"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Кликните на 'Настави' да бисте обрисали следеће кориснике и њихове графиконе."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Откажи"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Настави"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Обриши уређај(е)"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Морате изабрати бар једног корисника."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Повратак"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "MikroTik корисници"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Неактивно"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Корисничко име"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Домен"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "MikroTik прегледач"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "MikroTik администратор"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Општа подешавања"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Полер омогућен"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Означите ово поље ако желите да MikroTik очитавање буде омогућено. У супротном, полер неће радити."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "API очитавање омогућено"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Означите ово поље ако желите да Cacti очитава различита подешавања користећи MikroTik API. Ако из неког разлога немате приступ MikroTik API-ју, уклоните ознаку са ове опције."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Аутоматско откривање Cacti уређаја"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Да ли желите да аутоматски скенирате и додате уређаје који подржавају MikroTik MIB из Cacti табеле хостова?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Аутоматско чишћење уређаја"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Да ли желите да аутоматски очистите уређаје који су уклоњени из Cacti система?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Максималан број истовремених сакупљача"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Који је максималан број истовремених процеса сакупљача које желите да покренете одједном?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d процес"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d процеса"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Подешавања аутоматског откривања"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Учесталост аутоматског откривања"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Колико често желите да тражите нове Cacti уређаје?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Задржавање података"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Задржавање DHCP података"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Колико дуго желите да чувате историју DHCP IP регистрација?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Задржавање DNS података"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Колико дуго желите да чувате историју DNS кеша?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Чување листе адреса"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Колико дуго желите да чувате историју листе адреса?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Чување бежичних регистрација"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Колико дуго желите да чувате бежичне регистрације које се више не виде? Када се регистрација уклони, уклањају се и њени графикони и извори података."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Аутоматизација графикона уређаја"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Аутоматско додавање нових графикона"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Колико често желите да проверавате да ли има нових објеката за приказивање на графикону?"
+
+#: setup.php
+msgid "Never"
+msgstr "Никада"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d минута"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d сат"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d сати"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d дан"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d дана"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Регуларни израз за изузимање корисника"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Корисничка имена која се поклапају са овим регуларним изразом неће бити аутоматски приказана на графикону"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Време трајања за изузете кориснике"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Колико дуго треба чувати податке изузетог корисника након прекида везе."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Учесталости прикупљања података уређаја"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Учесталост за складиште"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Колико често желите да скенирате статистику складишта?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Учесталост за процесор"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Колико често желите да скенирате статистику процесора уређаја?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Учесталост за интерфејсе"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Колико често желите да скенирате интерфејсе?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Учесталост за DNS/DHCP/листе"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Колико често желите да скенирате DNS/DHCP/листе адреса?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Учесталости прикупљања за редове/стабла"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Учесталост за једноставне редове/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате статистику једноставних редова? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Учесталост за стабла редова"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате стабла редова? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Учесталости прикупљања бежичних података"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Учесталост за HotSpot кориснике"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате статистику бежичних корисника? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Учесталост за приступне тачке"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате бежичне приступне тачке? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Учесталост за регистрације"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате бежичне регистрације? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Учесталост за станице"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Колико често желите да скенирате бежичне станице? Изаберите <b>Онемогућено</b> да бисте уклонили ову функцију."
+
+#: setup.php
+msgid "Management"
+msgstr "Управљање"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Обичан корисник"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Општа администрација"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d минут"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Неограничено"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d недеља"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d недеља"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d месеци"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d година"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Једноставни редови"
+
+#: setup.php
+msgid "Storage"
+msgstr "Складиште"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(измени)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Графикони прескочени по правилу или нису креирани"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Повежите се са MikroTik API-јем преко SSL-а (api-ssl, порт 8729). Омогућите услугу api-ssl у менију IP > Services на уређају пре него што ово укључите."
+
+#: setup.php
+msgid "No"
+msgstr "Не"
+
+#: setup.php
+msgid "Yes"
+msgstr "Да"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "SSL веза са MikroTik услугом api-ssl (порт 8729) није могла бити успостављена, тако да SSL не може бити омогућен. Омогућите и проверите услугу api-ssl у менију IP > Services на уређају да бисте користили SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Да (тренутно недоступан)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "MikroTik акредитиви"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Корисник само за читање"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Унесите корисничко име само за читање за MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Лозинка"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Унесите лозинку само за читање за овај MikroTik. Оставите ово поље празно да бисте задржали тренутно сачувану лозинку."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL није присутан на овом уређају"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Резултат повезивања"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "У реду ако Cacti може да се повеже са MikroTik-ом преко његовог API порта."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL је омогућен, али порт api-ssl (8729) није доступан; веза није тестирана."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Успешно повезано"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Повезивање није успело"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Дозволи непроверене API TLS сертификате"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Онемогућите проверу сертификата и имена домаћина за RouterOS API везе. Ово може изложити API акредитиве лажно представљеном уређају. Оставите неозначено и инсталирајте поуздане сертификате уређаја кад год је то могуће."
