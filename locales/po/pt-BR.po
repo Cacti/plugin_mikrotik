@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/mikrotik/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -172,7 +172,7 @@ msgstr "End./Máscara de origem"
 
 #: mikrotik.php
 msgid "Dst Addr/Mask"
-msgstr "End./Máscara Dest."
+msgstr "Endereço/Máscara de destino"
 
 #: mikrotik.php
 msgid "Bytes In"
@@ -200,7 +200,7 @@ msgstr "Filas de saída"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr "Descartes Entr."
+msgstr "Descartes de entrada"
 
 #: mikrotik.php
 msgid "Drps Out"
@@ -410,7 +410,7 @@ msgstr "Tempo de atividade (d:h:m)"
 
 #: mikrotik.php
 msgid "CPU %%%"
-msgstr "CPU %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
 msgid "CPUs"
@@ -572,11 +572,11 @@ msgstr "Definir intervalo de turnos"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr "Shift Time Forward"
+msgstr "Avançar tempo"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr "Atualizar"
+msgstr "Recarregar"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
