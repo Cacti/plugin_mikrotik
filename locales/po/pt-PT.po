@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/mikrotik/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/mikrotik/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -28,7 +28,7 @@ msgstr "A testar"
 
 #: mikrotik.php
 msgid "Down"
-msgstr "Inativo"
+msgstr "Em baixo"
 
 #: mikrotik.php setup.php
 msgid "Devices"
@@ -172,7 +172,7 @@ msgstr "Endereço/Máscara de origem"
 
 #: mikrotik.php
 msgid "Dst Addr/Mask"
-msgstr "End./Máscara Dest."
+msgstr "Endereço/Máscara de destino"
 
 #: mikrotik.php
 msgid "Bytes In"
@@ -200,7 +200,7 @@ msgstr "Qs saída"
 
 #: mikrotik.php
 msgid "Drps In"
-msgstr "Descartes Ent."
+msgstr "Descartes de entrada"
 
 #: mikrotik.php
 msgid "Drps Out"
@@ -402,7 +402,7 @@ msgstr "Versão FW"
 
 #: mikrotik.php
 msgid "Lic Ver"
-msgstr "Ver. Lic."
+msgstr "Versão da licença"
 
 #: mikrotik.php
 msgid "Uptime(d:h:m)"
@@ -410,7 +410,7 @@ msgstr "Tempo de atividade (d:h:m)"
 
 #: mikrotik.php
 msgid "CPU %%%"
-msgstr "CPU %"
+msgstr "CPU %%%"
 
 #: mikrotik.php
 msgid "CPUs"
@@ -540,7 +540,7 @@ msgstr "Miniaturas"
 
 #: mikrotik.php
 msgid "Presets"
-msgstr "Presets"
+msgstr "Predefinições"
 
 #: mikrotik.php
 msgid "Custom"
@@ -572,11 +572,11 @@ msgstr "Definir intervalo de turnos"
 
 #: mikrotik.php
 msgid "Shift Time Forward"
-msgstr "Shift Time Forward"
+msgstr "Avançar Tempo"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr "Atualizar"
+msgstr "Recarregar"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
@@ -660,7 +660,7 @@ msgstr "Registos DHCP"
 
 #: mikrotik.php
 msgid "Entries"
-msgstr "Registos"
+msgstr "Entradas"
 
 #: mikrotik.php
 msgid "Expires in"
@@ -725,7 +725,7 @@ msgstr "Morada"
 
 #: mikrotik.php
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Tempo limite"
 
 #: mikrotik.php
 msgid "No Address List Entries Found"
