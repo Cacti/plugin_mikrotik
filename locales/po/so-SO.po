@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Somali\n"
+"Language: so-SO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Jooga"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Aan la aqoon"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Socda"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Digniin"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Tijaabin"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Ma shaqeynayo"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Aaladaha"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Isticmaalayaasha"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Safafka"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Geedaha Safka"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Isdhexgalada"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Kaydka Kumeelgaarka ah ee DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Liisaska Cinwaannada"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "AP-yada Bilaa-waayirka"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Diiwaangelinta Bilaa-waayirka"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Caafimaadka"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Jaantusyada"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Tirokoobyada Isdhexgalka"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Raadi"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Qalab"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Dhammaan"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Asal ah"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Firfircoon"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Tan iyo Dib-u-dejinta"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Soco"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Ficillada"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Magaca Martigeliyaha"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Magac"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Baytyada Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Bytes-ka Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Baakadaha Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Xirmooyinka Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Khaladaadka Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Khaladaadka Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Markii Ugu Dambaysay ee La Arkay"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Wax ka beddel Qalabka"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Isdhexgalo Lama Helin"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Xaaladda Safka"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Ciwaanka Isha/Mask"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Cinwaanka/Maaskiga Meesha Loo Socdo"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Baytyada Soo galay"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Baytyada Baxay"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Xirmooyinka Soo Galaya"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Xirmooyinka Baxaya"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Qs Gudaha"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Qs Dibadda"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Soo galitaan La Tuuray"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Baxitaan La Tuuray"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Safafka Fudud Lama Helin"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Xaaladda Geedka Safka"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Geedaha"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Qulqul"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Bayt-yada Hadda"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Xirmooyinka Hadda"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Wadarta Bytes-ka"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Wadarta Xirmooyinka"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Geedaha Safka Lama Helin"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Xaaladda AP-yada Bilaa-waayirka"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Meelaha Helitaanka (APs)"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Heerka Dirista (Tx)"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Heerka Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Macaamiisha"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Macaamiisha Xaqiijinta"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Soo-noqnoqoshada"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Mawjad"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Heerka Qaylada Hoose"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Tirakoobka Isticmaalaha"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Nooca"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Isticmaalayaasha Firfircoon"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Isticmaale"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Ciwaanka IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Waqtiga Xidhiidhka"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Soo-galka Hadda"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Bixitaanka Hadda"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Celceliska Soo-galka"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Celceliska Baxa"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Wadarta Soo Gasha"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Wadarta Baxda"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Ma khuseyso"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Ma Jiraan Isticmaalayaal la Helay"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Diiwaanka Isbeddelka MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Shaandheeyaha Qalabka (Nooca MikroTik ee Ugu Dambeeyay waa: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Shaandheeyaha Qalabka (Nooca MikroTik ee Ugu Dambeeyay waa: %s, La Sii Daayay: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Diiwaanka Isbeddellada"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Xaaladda"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Soo Kabanaysa"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Shaqeynaya"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "La joojiyay"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Sharaxaadda"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Nooca FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Nooca Shatiga"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Waqtiga Shaqaynta(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "CPU-yada"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Geeddi-socodyada"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Wadarta Xusuusta"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Xusuusta La Isticmaalay"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Wadarta Saxanka"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Disk-ga La Isticmaalay"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Eeg Isticmaalayaasha"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Eeg Safka Fudud"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Eeg Geedaha Safka"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Eeg AP-yada Bilaa-waayirka"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "AP-yada Wireless-ka Lama Helin"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Eeg Is-dhexgallada"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Eeg Jaantusyada"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Ma Jiraan Jaantusyada La Qeexay"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Aalad Lama Helin"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Fadlan Marka hore ka dooro Weydiinta Xogta Console -> Dejinta -> Martigeliye MIB"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Jaantusyada laga booday ama aan weli la abuurin"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Fadlan marka hore ka dooro Weydiinta Xogta Console->Dejinta->Martigeliye MIB"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Mid kasta"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Midna"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Qaab-dhismeed"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Dhammaan Garaafyada iyo Qaababka"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Qaab-dhismeedyada La Doortay"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Deji/Cusboonaysii Shaandheeyayaasha"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Nadiifi Shaandheeyayaasha"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Keydi"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Ku kaydi shaandhada keydka xogta"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Tiirar"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d Tiir"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "%d Tiir"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Sawirro-yaryar"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Dejinnada Hore"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Gaar ah"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Laga bilaabo"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Xulashada Taariikhda Bilowga"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Ilaa"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Xulashada Taariikhda Dhammaadka"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Waqtiga Dib u Riix"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Qeex Mudada Wareejinta"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Waqtiga Horay u Riix"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Cusboonaysii"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Cusbooneysii muddada la doortay"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Ku noqo muddada caadiga ah"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Daaqad"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Muddo"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Jooji"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Liiska Garaafka Gaarka ah waa la dabaqay - Waxaa laga shaandhaynayaa Liiska"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Shaandhooyinka Horudhaca Garaafka"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Dareemayaasha Caafimaadka"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Dareemayaasha"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Dareeme"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Qiime"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Halbeeg"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Dareemayaasha Caafimaadka Lama Helin"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Tirakoobka Diiwaangelinta Bilaa-waayirka"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Diiwaangelinnada"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Magaca Macmiilka"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Cinwaanka MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Signaalka (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Diiwaangelinta Wireless-ka Lama Helin"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Diiwaangelinta DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Gelitaanno"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Wuxuu dhacayaa"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "La xannibay"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Markii Ugu Dambeysay ee La Cusbooneysiiyay"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s Ilbiriqsi"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Isbeddela"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Go'an"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Wax Gelitaanno DHCP ah Lama Helin"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Joogto ah"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Dhacay"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Dhoofi"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Xog"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Wax Gelitaanno DNS ah Lama Helin"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Liis"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Cinwaanka"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Wakhtiga Dhammaadka"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Wax Gelitaanno Liiska Cinwaanka ah Lama Helin"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Tirtir"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Guji 'Sii wad' si aad u Tirtirto Isticmaalaha/Isticmaalayaasha soo socda iyo Garaafka/Jaantusyadooda."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Jooji"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Sii wad"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Tirtir Qalab(yada)"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Waa inaad doorataa ugu yaraan hal Isticmaale."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Ku noqo"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Isticmaalayaasha MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Aan firfircoonayn"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Magaca Isticmaalaha"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Domain"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Daawadaha MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Maamulka MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Dejinta Guud"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Xog-uruuriye La hawlgeliyay"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Calaamadee sanduuqan, haddii aad rabto in ururinta MikroTik la hawlgeliyo.  Haddii kale, Xog-uruuriyehu ma shaqayn doono."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "Xog-uruurinta API Waa La Hawlgeliyay"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Calaamadee sanduuqan, haddii aad rabto in Cacti uu soo ururiyo dejinta kala duwan iyadoo la adeegsanayo MikroTik API.  Haddii sabab uun aadan marin u lahayn MikroTik API, ka saar calaamadda ikhtiyaarkan."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Si toos ah u soo hel Aaladaha Cacti"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Ma rabtaa in aad si toos ah u baarto oo aad ugu darto aaladaha taageera MikroTik MIB ee ku jira jadwalka martigeliyaha Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Si toos ah u nadiifi Aaladaha"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Ma rabtaa in aad si toos ah u nadiifiso aaladaha laga saaray nidaamka Cacti?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Ururiyeyaasha Isku Mar Shaqeeya ee Ugu Badan"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Waa maxay tirada ugu badan ee hababka ururiyaha ee isku mar shaqeynaya ee aad rabto inaad hal mar socodsiiso?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d Hawl"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Hawlo"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Dejinta Baaritaanka Tooska ah"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Inta jeer ee Baaritaanka Tooska ah"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Inta jeer ee aad rabto inaad raadiso Aaladaha cusub ee Cacti?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Haynta Xogta"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Haynta DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Muddo intee le'eg ayaad jeceshahay inaad hayso taariikhda diiwaangelinta DHCP IP?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Haynta DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Muddo intee le'eg ayaad jeceshahay inaad hayso taariikhda Kaydka Kumeelgaarka ah ee DNS?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Haynta Liiska Cinwaannada"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Muddo intee le'eg ayaad jeceshahay inaad hayso taariikhda Liiska Ciwaannada?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Haynta Diiwaangelinta Bilaa-waayirka"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Muddo intee le'eg ayaad jeceshahay inaad hayso Diiwaangelinta Wireless-ka ee aan mar dambe la arkin? Marka diiwaangelin laga saaro, Jaantusyada iyo Ilaha Xogta ee diiwaangelintaas iyaguna waa laga saaraa."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Otomatigga Garaafka Qalabka"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Si Toos ah Ugu Dar Jaantusyada Cusub"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Inta jeer ee aad rabto inaad hubiso walxo cusub oo loo sameeyo garaaf?"
+
+#: setup.php
+msgid "Never"
+msgstr "Marna"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d Daqiiqo"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d Saac"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d Saacadood"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d Maalin"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d Maalmood"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Ka reeb Isticmaalayaasha RegEx"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Magacyada isticmaalayaasha ee u dhigma regex-kan si toos ah looma samayn doono jaantusyo"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Ka reeb Isticmaalayaasha Waqtiga Noolaanshaha"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Muddo intee le'eg ayay tahay in la ilaaliyo xogta isticmaalaha laga reebay ka dib marka uu khadka ka baxo."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Joogteynta Ururinta Qalabka"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Inta jeer ee Kaydinta"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Inta jeer ee aad rabto inaad iskaanka u samayso Tirakoobka Kaydinta?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Joogtaynta Processor-ka"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Inta jeer ee aad rabto inaad iskaanka u samayso Tirakoobka Processor-ka Qalabka?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Soo-noqnoqoshada Isdhexgalada"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Intee jeer ayaad rabtaa inaad baarto Is-dhexgallada?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Soo noqnoqoshada DNS/DHCP/Liiska"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Intee jeer ayaad rabtaa inaad baarto Liisaska DNS/DHCP/Ciwaannada?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Joogtaynta Ururinta Safka/Geedka"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Inta jeer ee Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Inta jeer ee aad rabto inaad iskaanka u samayso Tirakoobka Safka Fudud? Dooro <b>La joojiyay</b> si aad meesha uga saarto siffadan."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Joogtaynta Geedaha Safka"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Intee jeer ayaad rabtaa inaad baarto Geedaha Safka (Queue Trees)?  Dooro <b>La joojiyay</b> si aad meesha uga saarto habkan."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Joogtooyinka Ururinta Bilaa-waayirka"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Inta Jeer ee Isticmaalayaasha HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Intee jeer ayaad rabtaa inaad baarto Tirakoobka Isticmaalayaasha Bilaa-waayirka ah?  Dooro <b>La joojiyay</b> si aad meesha uga saarto habkan."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Soo noqnoqoshada Barta Helitaanka"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Intee jeer ayaad rabtaa inaad baarto Goobaha Gelitaanka Bilaa-waayirka ah?  Dooro <b>La joojiyay</b> si aad meesha uga saarto habkan."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Inta jeer ee Diiwaangelinnada"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Intee jeer ayaad rabtaa inaad baarto Diiwaangelinnada Bilaa-waayirka ah?  Dooro <b>La joojiyay</b> si aad meesha uga saarto habkan."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Inta jeer ee Saldhigyada"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Intee jeer ayaad rabtaa inaad baarto Saldhigyada Bilaa-waayirka ah?  Dooro <b>La joojiyay</b> si aad meesha uga saarto habkan."
+
+#: setup.php
+msgid "Management"
+msgstr "Maamul"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Isticmaale Caadi ah"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Maamulka Guud"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d Daqiiqo"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Aan xad lahayn"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d Toddobaad"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d Toddobaad"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Bilood"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Sano"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Safafka Fudud"
+
+#: setup.php
+msgid "Storage"
+msgstr "Kaydinta"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(wax ka beddel)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Jaantusyada Xeerku Ka Booday, ama Aan La Abuurin"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Ku xidh MikroTik API adigoo adeegsanaya SSL (api-ssl, dekedda 8729). Ka hawlgeli adeegga api-ssl hoosta IP > Services ee qalabka ka hor intaadan tan shidin."
+
+#: setup.php
+msgid "No"
+msgstr "Maya"
+
+#: setup.php
+msgid "Yes"
+msgstr "Haa"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Xiriir SSL ah oo lala sameeyo adeegga MikroTik api-ssl (dekedda 8729) lama samayn karin, sidaas darteed SSL lama hawlgelin karo. Hawlgeli oo xaqiiji adeegga api-ssl ee hoos yimaada IP > Services ee qalabka si aad u isticmaasho SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Haa (hadda lama gaari karo)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Aqoonsiga MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Isticmaale Akhri-Kaliya ah"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Sii magaca isticmaalaha akhriska oo keliya ee MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Erayga sirta ah"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Sii erayga sirta ah ee akhriska oo keliya ee MikroTik-gan. Meeshan ka tag iyadoo banaan si aad u hayso erayga sirta ah ee hadda kaydsan."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL kama jiro qalabkan"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Natiijada Xidhiidhka"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Waa hagaag haddii Cacti uu ku xirmi karo MikroTik iyada oo loo marayo dekeddiisa API."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL waa la hawlgeliyay laakiin dekedda api-ssl (8729) lama gaari karo; xiriirka lama tijaabin."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Si guul leh ayaa loogu xidhay"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Xidhiidhku Waa Fashilmay"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Oggolow Shahaadooyinka API TLS ee aan la xaqiijin"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Jooji xaqiijinta shahaadada iyo magaca martigeliyaha ee xiriirrada RouterOS API. Tani waxay u bandhigi kartaa aqoonsiyada API qalab been-abuur ah. Ka dhaaf iyadoo aan la calaamadin oo rakib shahaadooyinka qalabka la aamini karo mar kasta oo ay suurtogal tahay."
+

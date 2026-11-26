@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Malagasy\n"
+"Language: mg-MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Misy"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Tsy fantatra"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Mandeha"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Fampitandremana"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Fanaovana andrana"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Tsy mandeha"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Fitaovana"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Mpampiasa"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Filaharana"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Hazom-pilaharana"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Fifandraisana"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Tahiry vonjimaika DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Lisitry ny adiresy"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "AP tsy misy tariby"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Fisoratana anarana tsy misy tariby"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Fahasalamana"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Kisary"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Antontan'isan'ny fifandraisana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Fikarohana"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Fitaovana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Rehetra"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Voafaritra mialoha"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Mavitrika"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Hatramin'ny namerenana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Alefa"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Fafao"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Anaran'ny mpampiantrano"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Anarana"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Bytes Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Oktety Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Pakety Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Fonosana Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Hadisoana Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Hadisoana Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Hita farany"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Ahitsio ny Fitaovana"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Tsy misy fampifandraisana hita"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Satan'ny filaharana"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Adr/Saron-tava loharano"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Adiresy/Saron'ny tanjona"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Bytes miditra"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Bytes mivoaka"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Fonosana miditra"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Fonosana mivoaka"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Qs Miditra"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Qs Mivoaka"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Tsy noraisina miditra"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Tsy noraisina mivoaka"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Tsy misy filaharana tsotra hita"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Satan'ny Hazom-pilaharana"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Hazo"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Fikoriana"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Oktety ankehitriny"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Fonosan'angona ankehitriny"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Fitambaran'ny Oktety"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Fitambaran'ny Fonosana"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Tsy misy Hazo filaharana hita"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Satan'ny AP tsy misy tariby"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Teboka fidirana"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Tahan'ny Tx"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Tahan'ny Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Mpanjifa"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Mpanjifa fanamarinana"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Fahatetesana"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Fizarana onja"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Ambaratongan'ny tabataba fototra"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Antontan'isan'ny mpampiasa"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Karazana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Mpampiasa mavitrika"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Mpampiasa"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Adiresy IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Fotoana fifandraisana"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Miditra ankehitriny"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Mivoaka ankehitriny"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Salanisa Miditra"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Salanisa Mivoaka"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Fitambaran'ny Miditra"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Fitambaran'ny Mivoaka"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Tsy misy"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Tsy nahitana mpampiasa"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Tatitry ny fanovana MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Sivana fitaovana (Kinova MikroTik farany dia: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Sivana fitaovana (Kinova MikroTik farany dia: %s, Navoaka: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Firaketana ny fanovana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Sata"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Miverina amin'ny laoniny"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Mandeha"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Tsy mavitrika"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Famaritana"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Kinovan'ny FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Kin. fahazoan-dalana"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Fotoana fiasana(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Ireo CPU"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Fizotra"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Fitambaran'ny Tadidy"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Fitadidiana nampiasaina"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Fitambaran'ny Kapila"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Kapila nampiasaina"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Jereo ny mpampiasa"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Jereo ny filaharana tsotra"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Jereo ny Hazo filaharana"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Jereo ny AP tsy misy tariby"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Tsy misy AP tsy misy tariby hita"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Jereo ny seha-pifandraisana"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Hijery tabilao"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Tsy misy Kisary voafaritra"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Tsy nisy fitaovana hita"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Safidio aloha ny Fangatahana angona ao amin'ny Konsoly -> Fandrindrana -> MIB Mpampiantrano"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Kisary nodinganina na mbola tsy noforonina"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Azafady, safidio aloha ny Fanontaniana Angona avy ao amin'ny Console->Fandrindrana->Host MIB"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Na inona na inona"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Tsy misy"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Modely"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Ny Grafika sy Modely rehetra"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Modely voafidy"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Hametraka/Hanavao sivana"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Esory ny sivana"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Tehirizo"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Tehirizo ao amin'ny tahiry angona ny sivana"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Tsanganana"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "Tsanganana %d"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Tsanganana %d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Sary madinika"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Fandrindrana mialoha"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Manokana"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Manomboka ny"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Mpifidy daty fanombohana"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Hatramin'ny"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Mpifidy daty fiafarana"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Ahemotra ny fotoana"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Farito ny elanelam-potoana famindrana"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Aroso mandroso ny fotoana"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Havaozy"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Havaozy ny elanelam-potoana voafidy"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Miverena amin'ny elanelam-potoana mahazatra"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Varavarankely"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Elanelana"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Ajanony"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Nampiharina ny lisitry ny Kisary namboarina - Manivana avy amin'ny lisitra"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Sivana fijerena mialoha ny kisary"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Mpandre ny fahasalamana"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Mpandre"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Mpandre"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Sanda"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Singa"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Tsy misy mpandrefy fahasalamana hita"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Antontan'isa Fisoratana anarana tsy misy tariby"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Fisoratana anarana"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Anaran'ny mpanjifa"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Adiresy MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Famantarana (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Tsy misy fisoratana anarana tsy misy tariby hita"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Fisoratana anarana DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Andininy"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Lany daty afaka"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Voasakana"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Fanavaozana farany"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s Segondra"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Dinamika"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Tsy miova"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Tsy nisy fidirana DHCP hita"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Maharitra"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Lany daty"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Aondrana"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Angona"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Tsy nisy fidirana DNS hita"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Lisitra"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Adiresy"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Fetr'andro"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Tsy nisy fidirana lisitry ny adiresy hita"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Mpampiasa manaraka ireto sy ny Kisary ananany."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Tohizo"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Hamafa Fitaovana"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Tsy maintsy misafidy Mpampiasa iray farafahakeliny ianao."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Miverina"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Mpampiasa MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Tsy miasa"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Anaran'ny mpampiasa"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Sehatra"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Mpijery MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Mpitantana MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Fikirana ankapobeny"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "Poller Mavitrika"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Mariho ity boaty ity raha tianao ho mavitrika ny fanangonana MikroTik. Raha tsy izany dia tsy hiasa ny poller."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "Mavitrika ny Polling API"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Mariho ity boaty ity raha tianao hanangona fandrindrana isan-karazany amin'ny alalan'ny MikroTik API ny Cacti. Raha noho ny antony iray dia tsy afaka miditra amin'ny MikroTik API ianao, esory ny marika amin'ity safidy ity."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Mitady Fitaovana Cacti ho azy"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Tianao ve ny hitady ho azy sy hanampy Fitaovana manohana ny MikroTik MIB avy ao amin'ny tabilaon'ny Mpampiantrano Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Mamafa Fitaovana ho azy"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Tianao ve ny hanadio ho azy ireo Fitaovana nesorina tao amin'ny rafitra Cacti?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Mpanangona miaraka miasa farany ambony"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Inona ny isa farany ambony amin'ny fizotran'ny mpanangona miaraka tianao alefa indray mandeha?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d Fizotra"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Dingana"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Fandrindrana ny fitadiavana ho azy"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Fiverenan'ny fitadiavana ho azy"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Impiry no tianao hitadiavana Fitaovana Cacti vaovao?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Fitahirizana angona"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Fitazonana DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Mandra-pahoviana no tianao hotehirizina ny tantaran'ny fisoratana anarana DHCP IP?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Fitazonana DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Mandra-pahoviana no tianao hotehirizina ny tantaran'ny DNS Cache?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Fitehirizana ny lisitry ny adiresy"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Mandra-pahoviana no tianao hotehirizina ny tantaran'ny Lisitry ny adiresy?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Fitahirizana ny Fisoratana anarana tsy misy tariby"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Mandra-pahoviana no tianao hotehirizina ny Fisoratana anarana tsy misy tariby izay tsy hita intsony?  Rehefa esorina ny fisoratana anarana iray, dia esorina miaraka aminy koa ny Kisary sy ny Loharanon'angona momba azy."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Fanaovana ho azy ny Kisary fitaovana"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Manampy kisary vaovao ho azy"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Impiry no tianao hanamarinana zavatra vaovao hatao Kisary?"
+
+#: setup.php
+msgid "Never"
+msgstr "Tsy mihitsy"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minitra"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d ora"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ora"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d Andro"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d Andro"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "RegEx hanesorana mpampiasa"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Tsy hatao kisary ho azy ny anaran'ny mpampiasa mifanaraka amin'ity regex ity"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Faharetan'ny fanesorana mpampiasa"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Mandra-pahoviana no tokony hotehirizina ny angon'ny mpampiasa nesorina rehefa tapaka ny fifandraisany."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Fahamaroan'ny fanangonana angona fitaovana"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Matetikan'ny fitahirizana"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Impiry no tianao hitsirihana ny antontan'isan'ny Fitehirizana?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Fatran'ny processeur"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Impiry no tianao hitsirihana ny antontan'isan'ny mpikirakira (Processor) amin'ny Fitaovana?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Fahatetehan'ny fifandraisana"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Impiry ianao no te-hitety ireo seha-pifandraisana?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Fahatetehan'ny DNS/DHCP/Lisitra"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Impiry ianao no te-hitety ny lisitry ny DNS/DHCP/Adiresy?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Fatran'ny fanangonana Filaharana/Hazo"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Fahatetehan'ny Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry no tianao hitsirihana ny antontan'isan'ny Simple Queue?  Fidio ny <b>Tsy mavitrika</b> mba hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Fatran'ny Hazom-pilaharana"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry ianao no te-hitety ireo Hazo filaharana (Queue Trees)? Safidio ny <b>Tsy mavitrika</b> hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Matetika Fanangonana tsy misy tariby"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Fahatetehan'ny mpampiasa HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry ianao no te-hitety ny antontan'isan'ny mpampiasa tsy misy tariby? Safidio ny <b>Tsy mavitrika</b> hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Fatran'ny tebo-pidirana"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry ianao no te-hitety ireo teboka fidirana tsy misy tariby? Safidio ny <b>Tsy mavitrika</b> hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Fiverimberenan'ny fisoratana anarana"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry ianao no te-hitety ireo fisoratana anarana tsy misy tariby? Safidio ny <b>Tsy mavitrika</b> hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Matetikan'ny toby"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Impiry ianao no te-hitety ireo toby tsy misy tariby? Safidio ny <b>Tsy mavitrika</b> hanesorana ity endri-javatra ity."
+
+#: setup.php
+msgid "Management"
+msgstr "Fitantanana"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mpampiasa tsotra"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Fitantanana ankapobeny"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d minitra"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Tsy voafetra"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d Herinandro"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d Herinandro"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Volana"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d taona"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Filaharana tsotra"
+
+#: setup.php
+msgid "Storage"
+msgstr "Fitahirizana"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(ovao)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Kisary nodinganin'ny fitsipika, na tsy noforonina"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Mifandraisa amin'ny MikroTik API amin'ny alalan'ny SSL (api-ssl, seranana 8729). Alefaso ny serivisy api-ssl ao amin'ny IP > Services eo amin'ny fitaovana alohan'ny hampandehanana ity."
+
+#: setup.php
+msgid "No"
+msgstr "Tsia"
+
+#: setup.php
+msgid "Yes"
+msgstr "Eny"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Tsy nahomby ny fifandraisana SSL tamin'ny tolotra MikroTik api-ssl (seranana 8729), ka tsy azo alefa ny SSL. Alefaso ary hamarino ny tolotra api-ssl ao amin'ny IP > Services eo amin'ny fitaovana mba hampiasana SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Eny (tsy azo idirana amin'izao fotoana izao)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Fanamarinana fidirana MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Mpampiasa mamaky ihany"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Omeo anaran'ny mpampiasa ho an'ny MikroTik izay natao hamakiana ihany."
+
+#: setup.php
+msgid "Password"
+msgstr "Tenimiafina"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Omeo ny tenimiafina ho an'ity MikroTik ity izay natao hamakiana ihany. Avelao ho banga ity saha ity raha hitazona ny tenimiafina voatahiry amin'izao fotoana izao."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "Tsy misy SSL amin'ity fitaovana ity"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Valin'ny fifandraisana"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Mety raha afaka mifandray amin'ny MikroTik amin'ny alalan'ny seranana API-ny ny Cacti."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "Mavitrika ny SSL fa tsy azo idirana ny seranana api-ssl (8729); tsy nozahan-toetra ny fifandraisana."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Nifandray soa aman-tsara"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Tsy nahomby ny fifandraisana"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Ekeo ny fanamarinana TLS API tsy voamarina"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Ataovy tsy mavitrika ny fanamarinana ny taratasy fanamarinana sy ny anaran'ny mpampiantrano ho an'ny fifandraisana RouterOS API. Mety hampiharihary ny mombamomba ny fidirana API amin'ny fitaovana misandoka izany. Aza asiana marika ary mametraha taratasy fanamarinana fitaovana azo itokisana raha mbola azo atao."
+

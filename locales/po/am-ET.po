@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Amharic\n"
+"Language: am-ET\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "ይገኛል"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "ያልታወቀ"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "በመካሄድ ላይ"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "ማስጠንቀቂያ"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "በመሞከር ላይ"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "የወረደ"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "መሳሪያዎች"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "ተጠቃሚዎች"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "ወረፋዎች"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "የወረፋ ዛፎች"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "በይነገጾች"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "የDNS መሸጎጫ"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "የአድራሻ ዝርዝሮች"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "ገመድ አልባ APዎች"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "ገመድ አልባ ምዝገባዎች"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "ጤና"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "ግራፎች"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "የበይነገጽ ስታቲስቲክስ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "ፈልግ"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "መሣሪያ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "ሁሉም"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "ነባሪ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "ንቁ"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "ዳግም ከተጀመረበት ጊዜ ጀምሮ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "ሂድ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "አጽዳ"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "ድርጊቶች"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "የአስተናጋጅ ስም"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "ስም"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Rx ባይቶች"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Tx ባይቶች"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Rx ፓኬቶች"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Tx ፓኬቶች"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Rx ስህተቶች"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Tx ስህተቶች"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "መጨረሻ የታየበት"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "መሣሪያ አርትዕ"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "ምንም በይነገጾች አልተገኙም"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "የወረፋ ሁኔታ"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "የምንጭ አድራሻ/ማስክ"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "መድረሻ አድራሻ/ማስክ"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "ገቢ ባይቶች"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "ወጪ ባይቶች"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "የገቡ ፓኬቶች"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "የወጡ ፓኬቶች"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "ገቢ ጥያቄዎች"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "ወጪ ጥያቄዎች"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "ገቢ የተጣሉ"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "ወጪ የተጣሉ"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "ምንም ቀላል ወረፋዎች አልተገኙም"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "የወረፋ ዛፍ ሁኔታ"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "ዛፎች"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "ፍሰት"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "የአሁን ባይቶች"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "የአሁን ፓኬቶች"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "ጠቅላላ ባይቶች"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "ጠቅላላ ፓኬቶች"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "ምንም የወረፋ ዛፎች አልተገኙም"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "የገመድ አልባ APዎች ሁኔታ"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "APዎች"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "የTx ፍጥነት"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Rx ፍጥነት"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "ደንበኞች"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "የማረጋገጫ ደንበኞች"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "ድግግሞሽ"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "ባንድ"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "የጫጫታ ወለል"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "የተጠቃሚ ስታቲስቲክስ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "ዓይነት"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "ሆትስፖት"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "ንቁ ተጠቃሚዎች"
+
+#: mikrotik.php
+msgid "User"
+msgstr "ተጠቃሚ"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "የIP አድራሻ"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "የመገናኛ ጊዜ"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "የአሁን ገቢ"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "የአሁን ወጪ"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "አማካይ ገቢ"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "አማካይ ወጪ"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "ጠቅላላ ገቢ"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "ጠቅላላ ወጪ"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "አይመለከትም"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "ምንም ተጠቃሚዎች አልተገኙም"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "የMikroTik የለውጥ መዝገብ"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "የመሣሪያ ማጣሪያ (የቅርብ ጊዜው የMikroTik ስሪት፡ %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "የመሣሪያ ማጣሪያ (የቅርብ ጊዜው የMikroTik ስሪት፡ %s፣ የተለቀቀበት፡ %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "የለውጥ መዝገብ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "ሁኔታ"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "በማገገም ላይ"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "በመስመር ላይ"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "ተሰናክሏል"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "መግለጫ"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "የFW ስሪት"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "የፈቃድ ስሪት"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "የአገልግሎት ጊዜ(ቀ:ሰ:ደ)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "CPUዎች"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "ሂደቶች"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "ጠቅላላ ማህደረ ትውስታ"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "ጥቅም ላይ የዋለ ማህደረ ትውስታ"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "ጠቅላላ ዲስክ"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "ጥቅም ላይ የዋለ ዲስክ"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "ተጠቃሚዎችን ተመልከት"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "ቀላል ወረፋ ተመልከት"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "የወረፋ ዛፎችን ተመልከት"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "ገመድ አልባ APዎችን ተመልከት"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "ምንም የገመድ አልባ APዎች አልተገኙም"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "በይነገጾችን ተመልከት"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "ግራፎችን ማየት"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "ምንም ግራፎች አልተገለጹም"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "ምንም መሳሪያዎች አልተገኙም"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "እባክዎ መጀመሪያ ከኮንሶል -> ቅንብሮች -> አስተናጋጅ MIB የውሂብ መጠይቅን ይምረጡ"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "የታለፉ ወይም ገና ያልተፈጠሩ ግራፎች"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "እባክዎ መጀመሪያ ከኮንሶል->ቅንብሮች->አስተናጋጅ MIB ውስጥ የውሂብ መጠይቅን ይምረጡ"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "ማንኛውም"
+
+#: mikrotik.php
+msgid "None"
+msgstr "ምንም"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "አብነት"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "ሁሉም ግራፎች እና አብነቶች"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "የተመረጡ አብነቶች"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "ማጣሪያዎችን አዘጋጅ/አድስ"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "ማጣሪያዎችን አጽዳ"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "አስቀምጥ"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "ማጣሪያውን ወደ የውሂብ ጎታ አስቀምጥ"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "ዓምዶች"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d ዓምድ"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "%d አምዶች"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "ድንክዬ ምስሎች"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "ቅድመ-ቅንብሮች"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "ብጁ"
+
+#: mikrotik.php
+msgid "From"
+msgstr "ከ"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "የመጀመሪያ ቀን መምረጫ"
+
+#: mikrotik.php
+msgid "To"
+msgstr "እስከ"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "የመጨረሻ ቀን መምረጫ"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "ጊዜን ወደ ኋላ አሸጋግር"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "የማሸጋገሪያ ክፍተት ግለጽ"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "ጊዜን ወደ ፊት አሸጋግር"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "አድስ"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "የተመረጠውን የጊዜ ገደብ አድስ"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "ወደ ነባሪው የጊዜ ገደብ ተመለስ"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "መስኮት"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "የጊዜ ክፍተት"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "አቁም"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "ብጁ የግራፍ ዝርዝር ተተግብሯል - ከዝርዝሩ በማጣራት ላይ"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "የግራፍ ቅድመ-ዕይታ ማጣሪያዎች"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "የጤና ዳሳሾች"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "ዳሳሾች"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "ዳሳሽ"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "እሴት"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "አሃድ"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "ምንም የጤና ዳሳሾች አልተገኙም"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "የገመድ አልባ ምዝገባ ስታቲስቲክስ"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "ምዝገባዎች"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "የደንበኛ ስም"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "የMAC አድራሻ"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "ምልክት (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "ምንም የገመድ አልባ ምዝገባዎች አልተገኙም"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "የDHCP ምዝገባዎች"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "ግቤቶች"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "ጊዜው የሚያበቃው በ"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "ታግዷል"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "መጨረሻ የዘመነው"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s ሰከንዶች"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "ተለዋዋጭ"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "ቋሚ"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "ምንም የDHCP ግቤቶች አልተገኙም"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "ቋሚ"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "ጊዜው አልፎበታል"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "ወደ ውጭ ላክ"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "ዳታ"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "ምንም የDNS ግቤቶች አልተገኙም"
+
+#: mikrotik.php
+msgid "List"
+msgstr "ዝርዝር"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "አድራሻ"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "የጊዜ ማብቂያ"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "ምንም የአድራሻ ዝርዝር ግቤቶች አልተገኙም"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "ሰርዝ"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "የሚከተሉትን ተጠቃሚ(ዎች) እና ግራፍ(ፎቻቸውን) ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "ይቅር"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "ቀጥል"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "መሣሪያ(ዎች) ሰርዝ"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "ቢያንስ አንድ ተጠቃሚ መምረጥ አለብዎት።"
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "ተመለስ"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "የMikroTik ተጠቃሚዎች"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "ንቁ ያልሆነ"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "የተጠቃሚ ስም"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "ዶሜይን"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "የMikroTik መመልከቻ"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "የMikroTik አስተዳዳሪ"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "አጠቃላይ ቅንብሮች"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "ፖለር ነቅቷል"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "የMikroTik ፖሊንግ እንዲነቃ ከፈለጉ ይህን ሳጥን ይምረጡ። ያለበለዚያ ፖለሩ አይሰራም።"
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "የAPI ፖሊንግ ነቅቷል"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Cacti የMikroTik API በመጠቀም የተለያዩ ቅንብሮችን እንዲያሰባስብ ከፈለጉ ይህን ሳጥን ይምረጡ። በሆነ ምክንያት የMikroTik API መዳረሻ ከሌለዎት፣ ይህን አማራጭ አይምረጡ።"
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "የCacti መሳሪያዎችን በራስ-ሰር አግኝ"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "ከCacti አስተናጋጅ ሠንጠረዥ MikroTik MIBን የሚደግፉ መሳሪያዎችን በራስ-ሰር መቃኘት እና ማከል ይፈልጋሉ?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "መሳሪያዎችን በራስ-ሰር አጽዳ"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "ከCacti ስርዓት የተወገዱ መሳሪያዎችን በራስ-ሰር ማጽዳት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "ከፍተኛ ተጓዳኝ ሰብሳቢዎች"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "በአንድ ጊዜ እንዲሠራ የሚፈልጉት ከፍተኛው የአንድ ጊዜ ሰብሳቢ ሂደት ብዛት ስንት ነው?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "%d ሂደት"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d ሂደቶች"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "በራስ-ሰር የማግኘት ቅንብሮች"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "በራስ-ሰር የማግኘት ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "አዳዲስ የCacti መሳሪያዎችን በየስንት ጊዜው መፈለግ ይፈልጋሉ?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "የውሂብ ማቆያ"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "የDHCP ማቆያ"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "የDHCP IP ምዝገባ ታሪክን ለምን ያህል ጊዜ ማቆየት ይፈልጋሉ?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "የDNS ማቆያ"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "የDNS መሸጎጫ ታሪክን ለምን ያህል ጊዜ ማቆየት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "የአድራሻ ዝርዝር ማቆያ ጊዜ"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "የአድራሻ ዝርዝር ታሪክን ለምን ያህል ጊዜ ማቆየት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "የገመድ አልባ ምዝገባ ማቆያ ጊዜ"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "ከእንግዲህ የማይታዩ የገመድ አልባ ምዝገባዎችን ለምን ያህል ጊዜ ማቆየት ይፈልጋሉ? አንድ ምዝገባ ሲወገድ ግራፎቹ እና የውሂብ ምንጮቹም አብረው ይወገዳሉ።"
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "የመሣሪያ ግራፍ አውቶሜሽን"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "አዲስ ግራፎችን በራስ-ሰር አክል"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "ግራፍ የሚደረጉ አዳዲስ ነገሮችን በየስንት ጊዜው መፈተሽ ይፈልጋሉ?"
+
+#: setup.php
+msgid "Never"
+msgstr "ፈጽሞ"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d ደቂቃዎች"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d ሰዓት"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ሰዓታት"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "%d ቀን"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d ቀናት"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "ተጠቃሚዎችን የማግለያ RegEx"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "ከዚህ regex ጋር የሚዛመዱ የተጠቃሚ ስሞች በራስ-ሰር ግራፍ አይደረጉም"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "ተጠቃሚዎችን የማግለያ የቆይታ ጊዜ (TTL)"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "የተገለለ ተጠቃሚ ግንኙነቱን ካቋረጠ በኋላ ውሂቡ ለምን ያህል ጊዜ መጠበቅ አለበት።"
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "የመሣሪያ ስብስብ ድግግሞሾች"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "የማከማቻ ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "የማከማቻ ስታቲስቲክስን በየስንት ጊዜው መቃኘት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "የፕሮሰሰር ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "የመሣሪያ ፕሮሰሰር ስታቲስቲክስን በየስንት ጊዜው መቃኘት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "የበይነገጾች ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "በይነገጾችን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "የDNS/DHCP/ዝርዝር ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "የDNS/DHCP/የአድራሻ ዝርዝሮችን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "የወረፋ/ዛፍ ስብስብ ድግግሞሾች"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "ቀላል ወረፋ/PPPoe ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "የSimple Queue ስታቲስቲክስን በየስንት ጊዜው መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b> የሚለውን ይምረጡ።"
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "የወረፋ ዛፎች ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "የወረፋ ዛፎችን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b>ን ይምረጡ።"
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "የገመድ አልባ ስብስብ ድግግሞሾች"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "የሆትስፖት ተጠቃሚዎች ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "የገመድ አልባ የተጠቃሚ ስታቲስቲክስን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b>ን ይምረጡ።"
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "የመዳረሻ ነጥብ ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "የገመድ አልባ መድረሻ ነጥቦችን (Wireless Access Points) ምን ያህል ጊዜ መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b>ን ይምረጡ።"
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "የምዝገባዎች ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "የገመድ አልባ ምዝገባዎችን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b>ን ይምረጡ።"
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "የጣቢያዎች ድግግሞሽ"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "የገመድ አልባ ጣቢያዎችን ምን ያህል ጊዜ መቃኘት ይፈልጋሉ? ይህን ባህሪ ለማስወገድ <b>ተሰናክሏል</b>ን ይምረጡ።"
+
+#: setup.php
+msgid "Management"
+msgstr "አስተዳደር"
+
+#: setup.php
+msgid "Normal User"
+msgstr "መደበኛ ተጠቃሚ"
+
+#: setup.php
+msgid "General Administration"
+msgstr "አጠቃላይ አስተዳደር"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d ደቂቃ"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "ያልተወሰነ"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d ሳምንት"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d ሳምንታት"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d ወራት"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d ዓመት"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "ቀላል ወረፋዎች"
+
+#: setup.php
+msgid "Storage"
+msgstr "ማከማቻ"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(አርትዕ)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "በደንብ የታለፉ ወይም ያልተፈጠሩ ግራፎች"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "ከMikroTik API ጋር በSSL (api-ssl፣ ወደብ 8729) በኩል ይገናኙ። ይህን ከማብራትዎ በፊት በመሣሪያው ላይ በIP > Services ስር የapi-ssl አገልግሎቱን ያንቁ።"
+
+#: setup.php
+msgid "No"
+msgstr "አይ"
+
+#: setup.php
+msgid "Yes"
+msgstr "አዎ"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "ወደ MikroTik api-ssl አገልግሎት (ወደብ 8729) የSSL ግንኙነት መፍጠር ስላልተቻለ SSL መንቃት አይችልም። SSLን ለመጠቀም በመሣሪያው ላይ በIP > Services ስር የapi-ssl አገልግሎትን ያንቁ እና ያረጋግጡ።"
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "አዎ (በአሁኑ ጊዜ የማይደረስበት)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "የMikroTik ማረጋገጫዎች"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "የንባብ ብቻ ተጠቃሚ"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "ለMikroTik የንባብ ብቻ የተጠቃሚ ስም ያቅርቡ።"
+
+#: setup.php
+msgid "Password"
+msgstr "የይለፍ ቃል"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "ለዚህ MikroTik የንባብ ብቻ የይለፍ ቃል ያቅርቡ። በአሁኑ ጊዜ የተቀመጠውን የይለፍ ቃል ለማቆየት ይህን መስክ ባዶ ይተዉት።"
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "በዚህ መሣሪያ ላይ SSL የለም"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "የግንኙነት ውጤት"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Cacti በAPI ወደቡ በኩል ከMikroTik ጋር መገናኘት ከቻለ እሺ ይላል።"
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "SSL ነቅቷል ግን የapi-ssl ወደብ (8729) ሊደረስበት አልቻለም፤ ግንኙነቱ አልተሞከረም።"
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "በተሳካ ሁኔታ ተገናኝቷል"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "ግንኙነት አልተሳካም"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "ያልተረጋገጡ የAPI TLS ሰርተፊኬቶችን ፍቀድ"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "ለRouterOS API ግንኙነቶች የሰርቲፊኬት እና የአስተናጋጅ ስም ማረጋገጫን ያሰናክሉ። ይህ የAPI ምስክርነቶችን ለአስመሳይ መሣሪያ ሊያጋልጥ ይችላል። በተቻለ መጠን ምልክት ሳይደረግበት ይተዉትና የታመኑ የመሣሪያ ሰርቲፊኬቶችን ይጫኑ።"
+

@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Arabic (Morocco)\n"
+"Language: ar-MA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "حاضر"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "غير معروف"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "مفتوح"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "تحذير"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "اختبارات"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "متوقف"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "المستخدمين"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "قوائم الانتظار"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "أشجار قوائم الانتظار"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "واجهات"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "ذاكرة التخزين المؤقت لنظام أسماء النطاقات"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "قوائم العناوين"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "نقاط الوصول اللاسلكية"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "التسجيلات اللاسلكية"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "الحالة الصحية"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "الرسوم"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "إحصائيات الواجهات"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "بحث"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "جهاز"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "الكل"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "الافتراضي"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "نشط"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "منذ إعادة التعيين"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "انتقال"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "مسح"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "أفعال"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "اسم الخادم"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "الاسم"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "بايتات الاستقبال (Rx)"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "البايتات المرسلة (Tx)"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "حزم الاستقبال (Rx)"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "الحزم المرسلة (Tx)"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "أخطاء الاستقبال (Rx)"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "أخطاء الإرسال (Tx)"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "آخر ظهور"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "تحرير الجهاز"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "لم يتم العثور على واجهات"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "حالة قائمة الانتظار"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "عنوان المصدر/القناع"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "عنوان/قناع الوجهة"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "البايتات الواردة"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "البايتات الصادرة"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "الحزم الواردة"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "الحزم الصادرة"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "الاستعلامات الواردة"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "الاستعلامات الصادرة"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "الحزم المسقطة الواردة"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "الحزم المسقطة الصادرة"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "لم يتم العثور على طوابير بسيطة"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "حالة شجرة قائمة الانتظار"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "الأشجار"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "التدفق"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "البايتات الحالية"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "الحزم الحالية"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "إجمالي البايتات"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "إجمالي الحزم"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "لم يتم العثور على أشجار طوابير"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "حالة نقاط الوصول اللاسلكية"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "نقاط الوصول (APs)"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "معدل الإرسال (Tx)"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "معدل الاستقبال (Rx)"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "العملاء"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "عملاء المصادقة"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "التكرار"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "النطاق"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "حد الضوضاء"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "إحصائيات المستخدم"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "النوع"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "نقطة اتصال Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "الأعضاء النشطون"
+
+#: mikrotik.php
+msgid "User"
+msgstr "المستخدم"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "عنوان الIP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "ماك"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "وقت الاتصال"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "الوارد الحالي"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "الصادر الحالي"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "متوسط الوارد"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "متوسط الصادر"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "إجمالي الوارد"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "إجمالي الصادر"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "N/A"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "لم يتم العثور على مستخدمين"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "سجل تغييرات MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "فلتر الأجهزة (أحدث إصدار MikroTik هو: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "فلتر الأجهزة (أحدث إصدار MikroTik هو: %s، تاريخ الإصدار: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "1 التغيير"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "الحالة"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "يستردّ"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "أعلى"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "معطل"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "الوصف"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "إصدار FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "إصدار الترخيص"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "الجهوزية (د: ح: م)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "وحدة المعالجة المركزية ٪"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "وحدات المعالجة المركزية"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "العمليات"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "مجموع م"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "تستخدم Mem"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "إجمالي القرص"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "القرص المستخدم"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "عرض المستخدمين"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "عرض قائمة الانتظار البسيطة"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "عرض أشجار قوائم الانتظار"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "عرض نقاط الوصول اللاسلكية"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "لم يتم العثور على نقاط وصول لاسلكية"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "عرض واجهات"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "عرض الرسوم البيانية"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "لا توجد رسوم بيانية محددة"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "لم تجد الأجهزة"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "يرجى تحديد استعلام البيانات أولًا من وحدة التحكم -> إعدادات -> المستضيف Host MIB أولًا"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "الرسوم التي تم تخطيها أو لم يتم إنشاؤها بعد"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "يرجى تحديد استعلام البيانات أولًا من وحدة التحكم->إعدادات->المستضيف Host MIB أولًا"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "الجميع"
+
+#: mikrotik.php
+msgid "None"
+msgstr "لا شيء"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "قالب"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "جميع الرسوم البيانية والقوالب"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "قوالب مختارة"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "مجموعة / تحديث الفلاتر"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "مسح الفلتر"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "حفظ"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "حفظ عامل التصفية في قاعدة البيانات"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "اعمدة"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "%d عمود"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "%d أعمدة"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "الصورة المصغرة"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "إعدادات مسبقة"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "مخصص"
+
+#: mikrotik.php
+msgid "From"
+msgstr "من"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "محدد تاريخ البدء"
+
+#: mikrotik.php
+msgid "To"
+msgstr "إلى"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "محدد تاريخ النهاية"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "التحول مرة الى الوراء"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "تحديد الفاصل الزمني للتحويل"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "التحول إلى الأمام"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "تحديث"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "تحديث الفترة الزمنية المحددة"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "العودة إلى الفترة الزمنية الافتراضية"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "نافذة، كوة، شباك، نافذة"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "الفترة"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "توقف"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "[تطبيق قائمة الرسم البياني المخصص - التصفية من القائمة]"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "مرشحات معاينة الرسم البياني"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "مستشعرات الحالة الصحية"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "المستشعرات"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "مستشعر"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "القيمة"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "الوحدة"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "لم يتم العثور على مستشعرات صحة"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "إحصائيات التسجيل اللاسلكي"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "التسجيلات"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "اسم العميل"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "عنوان ماك"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "الإشارة (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "لم يتم العثور على تسجيلات لاسلكية"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "تسجيلات DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "مقالات"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "ينتهي في"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "محظور"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "آخر تحديث"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "%s ثوانٍ"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "متحرك"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "ثابت"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "لم يتم العثور على إدخالات DHCP"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "دائم"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "منتهية الصلاحية"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "تصدير"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "بيانات"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "لم يتم العثور على إدخالات DNS"
+
+#: mikrotik.php
+msgid "List"
+msgstr "قائمة"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "العنوان"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "المهلة"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "لم يتم العثور على إدخالات قائمة العناوين"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "حذف"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "انقر على 'إستمرار' لحذف المستخدم (المستخدمين) التاليين والرسوم (الرسم البياني) الخاصة بهم."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "إستمرار"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "حذف الجهاز (الأجهزة)"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "يجب تحديد مستخدم واحد على الأقل."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "عودة"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "مستخدمو MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "غير نشط"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "الموقع"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "عارض MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "مسؤول MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "الاعدادات العامة"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "المستفتي مفعل"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "حدّد هذا المربع إذا كنت تريد تفعيل استفتاء MikroTik.  وإلا، فلن يعمل المستفتي."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "استطلاع API مفعل"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "حدّد هذا المربع إذا كنت تريد أن يستعلم Cacti عن الإعدادات المختلفة باستخدام واجهة MikroTik API.  إذا لم يكن لديك وصول إلى MikroTik API لسبب ما، فألغِ تحديد هذا الخيار."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "اكتشف تلقائيا أجهزة الصبار"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "هل ترغب في الفحص التلقائي عن الأجهزة التي تدعم MikroTik MIB وإضافتها من جدول المستضيف Host في Cacti؟"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "تطهير الأجهزة تلقائيا"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "هل ترغب في إزالة الأجهزة التي تمت إزالتها تلقائيًا من نظام Cacti؟"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "جامعي الحد الأقصى المتزامنة"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "ما هو الحد الأقصى لعدد عمليات التجميع المتزامن التي تريد تشغيلها في وقت واحد؟"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "عملية %d"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "العمليات %d"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "إعدادات الاكتشاف التلقائي"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "اكتشاف السيارات التردد"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "كم مرة تريد البحث عن أجهزة Cacti الجديدة؟"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "الاحتفاظ بالبيانات"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "الاحتفاظ ببيانات DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "ما المدة التي ترغب في الاحتفاظ بسجل تسجيلات عناوين IP الخاصة بـ DHCP خلالها؟"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "الاحتفاظ ببيانات DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "ما المدة التي ترغب في الاحتفاظ بسجل ذاكرة التخزين المؤقت لـ DNS خلالها؟"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "الاحتفاظ بقائمة العناوين"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "ما المدة التي ترغب في الاحتفاظ بسجل قوائم العناوين خلالها؟"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "الاحتفاظ بسجلات التسجيل اللاسلكي"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "ما المدة التي ترغب في الاحتفاظ بتسجيلات الشبكة اللاسلكية التي لم تعد مرئية خلالها؟ عند إزالة التسجيل، تتم إزالة الرسوم ومصادر البيانات الخاصة به أيضاً."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "أتمتة الرسم البياني للجهاز"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "إضافة الرسوم البيانية الجديدة تلقائيا"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "كم مرة تريد التحقق من وجود كائنات جديدة للرسم البياني؟"
+
+#: setup.php
+msgid "Never"
+msgstr "أبدا"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d دقيقة (دقائق)"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d ساعة"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ساعات"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "يوم %d"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "%d من الأيام"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "استبعاد المستخدمين (RegEx)"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "أسماء المستخدمين التي تطابق هذا التعبير النمطي لن تُنشأ لها الرسوم تلقائياً"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "مدة بقاء استبعاد المستخدمين"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "ما المدة التي يجب فيها الاحتفاظ ببيانات المستخدم المستبعد بعد قطع اتصاله."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "ترددات جمع بيانات الأجهزة"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "تردد التخزين"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "كم مرة تريد فحص إحصائيات التخزين؟"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "تردد المعالج"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "كم مرة تريد فحص إحصائيات معالج الجهاز؟"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "تكرار الواجهات"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "كم مرة تريد فحص الواجهات؟"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "تكرار DNS/DHCP/القائمة"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "كم مرة تريد فحص قوائم DNS/DHCP/العناوين؟"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "تكرارات جمع قوائم الانتظار/الأشجار"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "تكرار Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص إحصائيات قائمة الانتظار البسيطة؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "تكرار أشجار قوائم الانتظار"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص أشجار قوائم الانتظار؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "تكرارات جمع البيانات اللاسلكية"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "تردد مستخدمي HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص إحصائيات مستخدمي الشبكة اللاسلكية؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "تردد نقطة الوصول"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص نقاط الوصول اللاسلكية؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "تردد التسجيلات"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص التسجيلات اللاسلكية؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "تكرار المحطات"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "كم مرة تريد فحص المحطات اللاسلكية؟ حدد <b>معطل</b> لإزالة هذه الميزة."
+
+#: setup.php
+msgid "Management"
+msgstr "الإدارة"
+
+#: setup.php
+msgid "Normal User"
+msgstr "المستخدم العادي"
+
+#: setup.php
+msgid "General Administration"
+msgstr "الإدارة العامة"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "دقيقة %d"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "إلى أجل غير مسمى"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "%d أسبوع"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d أسابيع"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d أشهر"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d سنة"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "قوائم الانتظار البسيطة (Simple Queues)"
+
+#: setup.php
+msgid "Storage"
+msgstr "تخزين"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(تعديل)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "الرسوم التي تم تخطيها وفقاً لقاعدة، أو لم يتم إنشاؤها"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "الاتصال بواجهة برمجة تطبيقات MikroTik عبر SSL (api-ssl، المنفذ 8729). فعّل خدمة api-ssl ضمن IP > Services على الجهاز قبل تشغيل هذا الخيار."
+
+#: setup.php
+msgid "No"
+msgstr "لا"
+
+#: setup.php
+msgid "Yes"
+msgstr "نعم"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "تعذر إنشاء اتصال SSL بخدمة MikroTik api-ssl (المنفذ 8729)، لذا لا يمكن تفعيل SSL. قم بتفعيل خدمة api-ssl والتحقق منها ضمن IP > Services على الجهاز لاستخدام SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "نعم (يتعذر الوصول إليه حاليًا)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "بيانات اعتماد MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "مستخدم للقراءة فقط"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "أدخل اسم مستخدم للقراءة فقط لجهاز MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "أدخل كلمة المرور للقراءة فقط لجهاز MikroTik هذا. اترك هذا الحقل فارغاً للاحتفاظ بكلمة المرور المخزنة حالياً."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "SSL غير موجود على هذا الجهاز"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "نتيجة الاتصال"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "موافق إذا كان بإمكان Cacti الاتصال بجهاز MikroTik عبر منفذ API الخاص به."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "تم تفعيل SSL ولكن منفذ api-ssl (8729) غير قابل للوصول؛ لم يتم اختبار الاتصال."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "تم الاتصال بنجاح"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "فشل الاتصال"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "السماح بشهادات TLS لـ API غير المتحقق منها"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "تعطيل التحقق من الشهادة واسم المستضيف لاتصالات RouterOS API. قد يؤدي هذا إلى كشف بيانات اعتماد API لجهاز منتحل. اترك هذا الخيار غير محدد وقم بتثبيت شهادات أجهزة موثوقة كلما أمكن ذلك."
+

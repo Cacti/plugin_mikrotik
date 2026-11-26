@@ -1,0 +1,1184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-12 15:08-0500\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Zulu\n"
+"Language: zu-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: mikrotik.php
+msgid "Present"
+msgstr "Kukhona"
+
+#: mikrotik.php
+msgid "Unknown"
+msgstr "Akwaziwa"
+
+#: mikrotik.php
+msgid "Running"
+msgstr "Iyasebenza"
+
+#: mikrotik.php
+msgid "Warning"
+msgstr "Isexwayiso"
+
+#: mikrotik.php
+msgid "Testing"
+msgstr "Iyahlola"
+
+#: mikrotik.php
+msgid "Down"
+msgstr "Phansi"
+
+#: mikrotik.php setup.php
+msgid "Devices"
+msgstr "Amadivayisi"
+
+#: mikrotik.php mikrotik_users.php setup.php
+msgid "Users"
+msgstr "Abasebenzisi"
+
+#: mikrotik.php
+msgid "Queues"
+msgstr "Imigqa yokulinda"
+
+#: mikrotik.php
+msgid "Queue Trees"
+msgstr "Izihlahla Zomugqa"
+
+#: mikrotik.php setup.php
+msgid "Interfaces"
+msgstr "Izixhumi ezibonakalayo"
+
+#: mikrotik.php
+msgid "DHCP"
+msgstr "DHCP"
+
+#: mikrotik.php
+msgid "DNS Cache"
+msgstr "Inqolobane ye-DNS"
+
+#: mikrotik.php
+msgid "Address Lists"
+msgstr "Uhlu Lwamakheli"
+
+#: mikrotik.php setup.php
+msgid "Wireless Aps"
+msgstr "Ama-AP Angenantambo"
+
+#: mikrotik.php
+msgid "Wireless Registrations"
+msgstr "Ukubhaliswa Okungenantambo"
+
+#: mikrotik.php setup.php
+msgid "Health"
+msgstr "Impilo"
+
+#: mikrotik.php setup.php
+msgid "Graphs"
+msgstr "Amagrafu"
+
+#: mikrotik.php
+msgid "Interface Stats"
+msgstr "Izibalo Zesixhumi Esibonakalayo"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Search"
+msgstr "Sesha"
+
+#: mikrotik.php
+msgid "Device"
+msgstr "Idivayisi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "All"
+msgstr "Konke"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Default"
+msgstr "Okuzenzakalelayo"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Active"
+msgstr "Kuyasebenza"
+
+#: mikrotik.php
+msgid "Since Reset"
+msgstr "Kusukela Kusethwe Kabusha"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Go"
+msgstr "Hamba"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear"
+msgstr "Sula"
+
+#: mikrotik.php setup.php
+msgid "Actions"
+msgstr "Izenzo"
+
+#: mikrotik.php
+msgid "Hostname"
+msgstr "Igama Lomsingathi"
+
+#: mikrotik.php
+msgid "Name"
+msgstr "Igama"
+
+#: mikrotik.php
+msgid "Rx Bytes"
+msgstr "Amabhayithi e-Rx"
+
+#: mikrotik.php
+msgid "Tx Bytes"
+msgstr "Amabhayithi E-Tx"
+
+#: mikrotik.php
+msgid "Rx Packets"
+msgstr "Amaphakhethi e-Rx"
+
+#: mikrotik.php
+msgid "Tx Packets"
+msgstr "Amaphakhethi E-Tx"
+
+#: mikrotik.php
+msgid "Rx Errors"
+msgstr "Amaphutha e-Rx"
+
+#: mikrotik.php
+msgid "Tx Errors"
+msgstr "Amaphutha E-Tx"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Last Seen"
+msgstr "Kubonwe Kokugcina"
+
+#: mikrotik.php
+msgid "Edit Device"
+msgstr "Hlela Idivayisi"
+
+#: mikrotik.php
+msgid "No Interfaces Found"
+msgstr "Awekho Ama-Interface Atholakele"
+
+#: mikrotik.php
+msgid "Queue Status"
+msgstr "Isimo Somugqa"
+
+#: mikrotik.php
+msgid "Src Addr/Mask"
+msgstr "Ikheli Lomthombo/Imaski"
+
+#: mikrotik.php
+msgid "Dst Addr/Mask"
+msgstr "Ikheli Lendawo/I-Mask"
+
+#: mikrotik.php
+msgid "Bytes In"
+msgstr "Amabhayithi Angenayo"
+
+#: mikrotik.php
+msgid "Bytes Out"
+msgstr "Amabhayithi Aphumayo"
+
+#: mikrotik.php
+msgid "Pkts In"
+msgstr "Amaphakethe Angenayo"
+
+#: mikrotik.php
+msgid "Pkts Out"
+msgstr "Amaphakethe Aphumayo"
+
+#: mikrotik.php
+msgid "Qs In"
+msgstr "Ama-Q Angenayo"
+
+#: mikrotik.php
+msgid "Qs Out"
+msgstr "Ama-Q Aphumayo"
+
+#: mikrotik.php
+msgid "Drps In"
+msgstr "Okulahliwe Okungenayo"
+
+#: mikrotik.php
+msgid "Drps Out"
+msgstr "Okulahliwe Okuphumayo"
+
+#: mikrotik.php
+msgid "No Simple Queues Found"
+msgstr "Ayikho Imigqa Elula Etholakele"
+
+#: mikrotik.php
+msgid "Queue Tree Status"
+msgstr "Isimo Sesihlahla Somugqa"
+
+#: mikrotik.php setup.php
+msgid "Trees"
+msgstr "Izihlahla"
+
+#: mikrotik.php
+msgid "Flow"
+msgstr "Ukugeleza"
+
+#: mikrotik.php
+msgid "Cur Bytes"
+msgstr "Amabhayithi Amanje"
+
+#: mikrotik.php
+msgid "Cur Packets"
+msgstr "Amaphakhethi Amanje"
+
+#: mikrotik.php
+msgid "Total Bytes"
+msgstr "Isamba Samabhayithi"
+
+#: mikrotik.php
+msgid "Total Packets"
+msgstr "Isamba Samaphakhethi"
+
+#: mikrotik.php
+msgid "No Queue Trees Found"
+msgstr "Azikho Izihlahla Zomugqa Ezitholakele"
+
+#: mikrotik.php
+msgid "Wireless Aps Status"
+msgstr "Isimo Sama-AP Angenantambo"
+
+#: mikrotik.php
+msgid "Aps"
+msgstr "Ama-AP"
+
+#: mikrotik.php
+msgid "SSID"
+msgstr "SSID"
+
+#: mikrotik.php
+msgid "BSSID"
+msgstr "BSSID"
+
+#: mikrotik.php
+msgid "Tx Rate"
+msgstr "Izinga le-Tx"
+
+#: mikrotik.php
+msgid "Rx Rate"
+msgstr "Izinga le-Rx"
+
+#: mikrotik.php
+msgid "Clients"
+msgstr "Amaklayenti"
+
+#: mikrotik.php
+msgid "Auth Clients"
+msgstr "Amaklayenti Okuqinisekisa"
+
+#: mikrotik.php
+msgid "Frequency"
+msgstr "Ukuvama"
+
+#: mikrotik.php
+msgid "Band"
+msgstr "Ibhendi"
+
+#: mikrotik.php
+msgid "Noise Floor"
+msgstr "Izinga Lomsindo Ongafuneki"
+
+#: mikrotik.php
+msgid "Tx CQQ"
+msgstr "I-Tx CQQ"
+
+#: mikrotik.php
+msgid "User Statistics"
+msgstr "Izibalo Zabasebenzisi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Type"
+msgstr "Uhlobo"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Hotspot"
+msgstr "I-Hotspot"
+
+#: mikrotik.php mikrotik_users.php
+msgid "PPPoe"
+msgstr "PPPoe"
+
+#: mikrotik.php
+msgid "Active Users"
+msgstr "Abasebenzisi Abasebenzayo"
+
+#: mikrotik.php
+msgid "User"
+msgstr "Umsebenzisi"
+
+#: mikrotik.php
+msgid "IP Address"
+msgstr "Ikheli le-IP"
+
+#: mikrotik.php
+msgid "MAC"
+msgstr "MAC"
+
+#: mikrotik.php
+msgid "Connect Time"
+msgstr "Isikhathi Sokuxhuma"
+
+#: mikrotik.php
+msgid "Cur In"
+msgstr "Okungenayo Manje"
+
+#: mikrotik.php
+msgid "Cur Out"
+msgstr "Okuphumayo Manje"
+
+#: mikrotik.php
+msgid "Avg In"
+msgstr "Isilinganiso Esingenayo"
+
+#: mikrotik.php
+msgid "Avg Out"
+msgstr "Isilinganiso Esiphumayo"
+
+#: mikrotik.php
+msgid "Total In"
+msgstr "Isamba Esingenayo"
+
+#: mikrotik.php
+msgid "Total Out"
+msgstr "Isamba Esiphumayo"
+
+#: mikrotik.php
+msgid "N/A"
+msgstr "Akutholakali"
+
+#: mikrotik.php mikrotik_users.php
+msgid "No Users Found"
+msgstr "Abekho Abasebenzisi Abatholiwe"
+
+#: mikrotik.php
+msgid "MikroTik Changelog"
+msgstr "Uhlu Lwezinguquko lwe-MikroTik"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s)"
+msgstr "Isihlungi Sedivayisi (Inguqulo Yakamuva Ye-MikroTik ithi: %s)"
+
+#: mikrotik.php
+#, php-format
+msgid "Device Filter (Latest MikroTik Version is: %s, Released: %s)"
+msgstr "Isihlungi Sedivayisi (Inguqulo Yakamuva Ye-MikroTik ithi: %s, Ikhishwe: %s)"
+
+#: mikrotik.php
+msgid "ChangeLog"
+msgstr "Ilogi Yezinguquko"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Status"
+msgstr "Isimo"
+
+#: mikrotik.php
+msgid "Recovering"
+msgstr "Iyalulama"
+
+#: mikrotik.php
+msgid "Up"
+msgstr "Phezulu"
+
+#: mikrotik.php setup.php
+msgid "Disabled"
+msgstr "Kukhutshaziwe"
+
+#: mikrotik.php
+msgid "Description"
+msgstr "Incazelo"
+
+#: mikrotik.php
+msgid "FW Ver"
+msgstr "Inguqulo ye-FW"
+
+#: mikrotik.php
+msgid "Lic Ver"
+msgstr "Inguqulo Yelayisensi"
+
+#: mikrotik.php
+msgid "Uptime(d:h:m)"
+msgstr "Isikhathi sokusebenza(d:h:m)"
+
+#: mikrotik.php
+msgid "CPU %%%"
+msgstr "I-CPU %%%"
+
+#: mikrotik.php
+msgid "CPUs"
+msgstr "Ama-CPU"
+
+#: mikrotik.php
+msgid "Processes"
+msgstr "Izinqubo"
+
+#: mikrotik.php
+msgid "Total Mem"
+msgstr "Isamba Senkumbulo"
+
+#: mikrotik.php
+msgid "Used Mem"
+msgstr "Imemori Esetshenzisiwe"
+
+#: mikrotik.php
+msgid "Total Disk"
+msgstr "Isamba Sediski"
+
+#: mikrotik.php
+msgid "Used Disk"
+msgstr "Idiski Elisetshenzisiwe"
+
+#: mikrotik.php
+msgid "View Users"
+msgstr "Buka Abasebenzisi"
+
+#: mikrotik.php
+msgid "View Simple Queue"
+msgstr "Buka Umugqa Olula"
+
+#: mikrotik.php
+msgid "View Queue Trees"
+msgstr "Buka Izihlahla Zomugqa"
+
+#: mikrotik.php
+msgid "View Wireless Aps"
+msgstr "Buka Ama-AP Angenantambo"
+
+#: mikrotik.php
+msgid "No Wireless Aps Found"
+msgstr "Awekho Ama-AP E-Wireless Atholakele"
+
+#: mikrotik.php
+msgid "View Interfaces"
+msgstr "Buka Izixhumi"
+
+#: mikrotik.php setup.php
+msgid "View Graphs"
+msgstr "Buka Amagrafu"
+
+#: mikrotik.php
+msgid "No Graphs Defined"
+msgstr "Awekho Amagrafu Achaziwe"
+
+#: mikrotik.php
+msgid "No Devices Found"
+msgstr "Awekho Amadivayisi Atholiwe"
+
+#: mikrotik.php
+msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"
+msgstr "Sicela Ukhethe Umbuzo Wedatha Kuqala kusuka ku-Console -> Izilungiselelo -> I-MIB Yomsingathi Kuqala"
+
+#: mikrotik.php
+msgid "Graphs skipped or not created yet"
+msgstr "Amagrafu eqiwe noma angakakhiwa okwamanje"
+
+#: mikrotik.php
+msgid "Please select Data Query first from Console->Settings->Host MIB First"
+msgstr "Sicela ukhethe Umbuzo Wedatha kuqala kusuka ku-Ikhonsoli->Izilungiselelo->MIB Yomsingathi kuqala"
+
+#: mikrotik.php
+msgid "Any"
+msgstr "Noma yikuphi"
+
+#: mikrotik.php
+msgid "None"
+msgstr "Akukho"
+
+#: mikrotik.php
+msgid "Template"
+msgstr "Isifanekiso"
+
+#: mikrotik.php
+msgid "All Graphs & Templates"
+msgstr "Wonke Amagrafu & Amathempleyithi"
+
+#: mikrotik.php
+msgid "Templates Selected"
+msgstr "Izifanekiso Ezikhethiwe"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Set/Refresh Filters"
+msgstr "Setha/Vuselela Izihlungi"
+
+#: mikrotik.php mikrotik_users.php
+msgid "Clear Filters"
+msgstr "Sula Izihlungi"
+
+#: mikrotik.php
+msgid "Save"
+msgstr "Londoloza"
+
+#: mikrotik.php
+msgid "Save filter to the database"
+msgstr "Londoloza isihlungi kudathabheyisi"
+
+#: mikrotik.php
+msgid "Columns"
+msgstr "Amakholomu"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Column"
+msgstr "Ikholomu engu-%d"
+
+#: mikrotik.php
+#, php-format
+msgid "%d Columns"
+msgstr "Amakholomu angu-%d"
+
+#: mikrotik.php
+msgid "Thumbnails"
+msgstr "Izithonjana"
+
+#: mikrotik.php
+msgid "Presets"
+msgstr "Okusethwe Ngaphambilini"
+
+#: mikrotik.php
+msgid "Custom"
+msgstr "Okwezifiso"
+
+#: mikrotik.php
+msgid "From"
+msgstr "Kusuka"
+
+#: mikrotik.php
+msgid "Start Date Selector"
+msgstr "Isikhethi Sosuku Lokuqala"
+
+#: mikrotik.php
+msgid "To"
+msgstr "Kuya ku"
+
+#: mikrotik.php
+msgid "End Date Selector"
+msgstr "Isikhethi Sosuku Lokugcina"
+
+#: mikrotik.php
+msgid "Shift Time Backward"
+msgstr "Hlehlisa Isikhathi Emuva"
+
+#: mikrotik.php
+msgid "Define Shifting Interval"
+msgstr "Chaza Isikhawu Sokushintsha Isikhathi"
+
+#: mikrotik.php
+msgid "Shift Time Forward"
+msgstr "Qhubekisela Isikhathi Phambili"
+
+#: mikrotik.php
+msgid "Refresh"
+msgstr "Vuselela"
+
+#: mikrotik.php
+msgid "Refresh selected time span"
+msgstr "Vuselela ubude besikhathi obukhethiwe"
+
+#: mikrotik.php
+msgid "Return to the default time span"
+msgstr "Buyela kubude besikhathi obuzenzakalelayo"
+
+#: mikrotik.php
+msgid "Window"
+msgstr "Iwindi"
+
+#: mikrotik.php
+msgid "Interval"
+msgstr "Isikhawu"
+
+#: mikrotik.php
+msgid "Stop"
+msgstr "Misa"
+
+#: mikrotik.php
+msgid "Custom Graph List Applied - Filtering from List"
+msgstr "Uhlu Lwamagrafu Olwenziwe Ngokwezifiso Lusetshenzisiwe - Kuhlungwa ohlwini"
+
+#: mikrotik.php
+msgid "Graph Preview Filters"
+msgstr "Izihlungi Zokubuka Kuqala Kwegrafu"
+
+#: mikrotik.php
+msgid "Health Sensors"
+msgstr "Izinzwa Zempilo"
+
+#: mikrotik.php
+msgid "Sensors"
+msgstr "Izinzwa"
+
+#: mikrotik.php
+msgid "Sensor"
+msgstr "Inzwa"
+
+#: mikrotik.php
+msgid "Value"
+msgstr "Inani"
+
+#: mikrotik.php
+msgid "Unit"
+msgstr "Iyunithi"
+
+#: mikrotik.php
+msgid "No Health Sensors Found"
+msgstr "Azikho Izinzwa Zezempilo Ezitholakele"
+
+#: mikrotik.php
+msgid "Wireless Registration Stats"
+msgstr "Izibalo Zokubhaliswa Okungenantambo"
+
+#: mikrotik.php
+msgid "Registrations"
+msgstr "Ukubhalisa"
+
+#: mikrotik.php
+msgid "Client Name"
+msgstr "Igama Leklayenti"
+
+#: mikrotik.php
+msgid "MAC Address"
+msgstr "Ikheli le-MAC"
+
+#: mikrotik.php
+msgid "Signal (dBm)"
+msgstr "Isignali (dBm)"
+
+#: mikrotik.php
+msgid "No Wireless Registrations Found"
+msgstr "Akukho Ukubhaliswa Kwe-Wireless Okutholakele"
+
+#: mikrotik.php
+msgid "DHCP Registrations"
+msgstr "Ukubhaliswa kwe-DHCP"
+
+#: mikrotik.php
+msgid "Entries"
+msgstr "Okufakiwe"
+
+#: mikrotik.php
+msgid "Expires in"
+msgstr "Kuphelelwa yisikhathi ngemva kwe"
+
+#: mikrotik.php
+msgid "Blocked"
+msgstr "Kuvinjelwe"
+
+#: mikrotik.php
+msgid "Last Updated"
+msgstr "Kugcine Ukubuyekezwa"
+
+#: mikrotik.php
+#, php-format
+msgid "%s Seconds"
+msgstr "Amasekhondi angu-%s"
+
+#: mikrotik.php
+msgid "Dynamic"
+msgstr "Okuguquguqukayo"
+
+#: mikrotik.php
+msgid "Static"
+msgstr "Okungaguquki"
+
+#: mikrotik.php
+msgid "No DHCP Entries Found"
+msgstr "Akukho Okufakiwe Kwe-DHCP Okutholiwe"
+
+#: mikrotik.php
+msgid "Permanent"
+msgstr "Okuhlala njalo"
+
+#: mikrotik.php
+msgid "Expired"
+msgstr "Kuphelelwe yisikhathi"
+
+#: mikrotik.php
+msgid "Export"
+msgstr "Khipha"
+
+#: mikrotik.php
+msgid "Data"
+msgstr "Idatha"
+
+#: mikrotik.php
+msgid "TTL"
+msgstr "TTL"
+
+#: mikrotik.php
+msgid "No DNS Entries Found"
+msgstr "Akukho Okufakiwe Kwe-DNS Okutholiwe"
+
+#: mikrotik.php
+msgid "List"
+msgstr "Uhlu"
+
+#: mikrotik.php
+msgid "Address"
+msgstr "Ikheli"
+
+#: mikrotik.php
+msgid "Timeout"
+msgstr "Ukuphela Kwesikhathi"
+
+#: mikrotik.php
+msgid "No Address List Entries Found"
+msgstr "Akukho Okufakiwe Kohlu Lwamakheli Okutholiwe"
+
+#: mikrotik_users.php
+msgid "Delete"
+msgstr "Susa"
+
+#: mikrotik_users.php
+msgid "Click 'Continue' to Delete the following Users(s) and their Graph(s)."
+msgstr "Chofoza u-'Qhubeka' ukuze ususe Umsebenzisi(Abasebenzisi) olandelayo kanye neGrafu(Amagrafu) abo."
+
+#: mikrotik_users.php
+msgid "Cancel"
+msgstr "Khansela"
+
+#: mikrotik_users.php
+msgid "Continue"
+msgstr "Qhubeka"
+
+#: mikrotik_users.php
+msgid "Delete Device(s)"
+msgstr "Susa Idivayisi/Amadivayisi"
+
+#: mikrotik_users.php
+msgid "You must select at least one User."
+msgstr "Kufanele ukhethe okungenani Umsebenzisi oyedwa."
+
+#: mikrotik_users.php
+msgid "Return"
+msgstr "Buyela"
+
+#: mikrotik_users.php setup.php
+msgid "MikroTik Users"
+msgstr "Abasebenzisi be-MikroTik"
+
+#: mikrotik_users.php
+msgid "Inactive"
+msgstr "Akusebenzi"
+
+#: mikrotik_users.php
+msgid "User Name"
+msgstr "Igama Lomsebenzisi"
+
+#: mikrotik_users.php
+msgid "Domain"
+msgstr "Isizinda"
+
+#: setup.php
+msgid "MikroTik Viewer"
+msgstr "Isibukeli se-MikroTik"
+
+#: setup.php
+msgid "MikroTik Admin"
+msgstr "Umphathi we-MikroTik"
+
+#: setup.php
+msgid "MikroTik"
+msgstr "MikroTik"
+
+#: setup.php
+msgid "General Settings"
+msgstr "Izilungiselelo Ezivamile"
+
+#: setup.php
+msgid "Poller Enabled"
+msgstr "I-Poller Inikwe amandla"
+
+#: setup.php
+msgid "Check this box, if you want MikroTik polling to be enabled.  Otherwise, the poller will not function."
+msgstr "Maka leli bhokisi, uma ufuna ukuqoqwa kwe-MikroTik kunikwe amandla. Uma kungenjalo, i-Poller ngeke isebenze."
+
+#: setup.php
+msgid "API Polling Enabled"
+msgstr "Ukuhlola kwe-API Kunikwe amandla"
+
+#: setup.php
+msgid "Check this box, if you want Cacti to poll various settings using the MikroTik API.  If for some reason you don't have access to the MikroTik API, uncheck this option."
+msgstr "Maka leli bhokisi, uma ufuna i-Cacti iqoqe izilungiselelo ezihlukahlukene isebenzisa i-MikroTik API. Uma ngesizathu esithile ungenakho ukufinyelela ku-MikroTik API, susa ukumaka kule nketho."
+
+#: setup.php
+msgid "Automatically Discover Cacti Devices"
+msgstr "Thola Amadivayisi e-Cacti Ngokuzenzakalelayo"
+
+#: setup.php
+msgid "Do you wish to automatically scan for and add devices which support the MikroTik MIB from the Cacti host table?"
+msgstr "Ingabe ufisa ukuskena ngokuzenzakalelayo futhi wengeze amadivayisi asekela i-MikroTik MIB kusuka kuthebula lomsingathi we-Cacti?"
+
+#: setup.php
+msgid "Automatically Purge Devices"
+msgstr "Khuculula Amadivayisi Ngokuzenzakalelayo"
+
+#: setup.php
+msgid "Do you wish to automatically purge devices that are removed from the Cacti system?"
+msgstr "Ingabe ufisa ukususa ngokuzenzakalelayo amadivayisi asuswe ohlelweni lwe-Cacti?"
+
+#: setup.php
+msgid "Maximum Concurrent Collectors"
+msgstr "Inani Eliphezulu Labaqoqi Abasebenza Kanyekanye"
+
+#: setup.php
+msgid "What is the maximum number of concurrent collector process that you want to run at one time?"
+msgstr "Yiliphi inani eliphezulu lezinqubo zomqoqi ezisebenza kanyekanye ofuna ukuzisebenzisa ngesikhathi esisodwa?"
+
+#: setup.php
+#, php-format
+msgid "%d Process"
+msgstr "Inqubo engu-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Izinqubo"
+
+#: setup.php
+msgid "Auto Discovery Settings"
+msgstr "Izilungiselelo Zokuthola Ngokuzenzakalelayo"
+
+#: setup.php
+msgid "Auto Discovery Frequency"
+msgstr "Imvamisa Yokuthola Ngokuzenzakalelayo"
+
+#: setup.php
+msgid "How often do you want to look for new Cacti Devices?"
+msgstr "Ufuna ukubheka kangaki Amadivayisi amasha e-Cacti?"
+
+#: setup.php
+msgid "Data Retention"
+msgstr "Ukugcinwa Kwedatha"
+
+#: setup.php
+msgid "DHCP Retention"
+msgstr "Ukugcinwa kwe-DHCP"
+
+#: setup.php
+msgid "How long would you like to retain DHCP IP registration history?"
+msgstr "Ungathanda ukugcina umlando wokubhaliswa kwe-DHCP IP isikhathi esingakanani?"
+
+#: setup.php
+msgid "DNS Retention"
+msgstr "Ukugcinwa kwe-DNS"
+
+#: setup.php
+msgid "How long would you like to retain DNS Cache history?"
+msgstr "Ungathanda ukugcina umlando we-DNS Cache isikhathi esingakanani?"
+
+#: setup.php
+msgid "Address List Retention"
+msgstr "Ukugcinwa Kohlu Lwamakheli"
+
+#: setup.php
+msgid "How long would you like to retain Address List history?"
+msgstr "Ungathanda ukugcina umlando Wohlu Lwamakheli isikhathi esingakanani?"
+
+#: setup.php
+msgid "Wireless Registration Retention"
+msgstr "Ukugcinwa Kokubhaliswa Okungenantambo"
+
+#: setup.php
+msgid "How long would you like to retain Wireless Registrations that are no longer seen?  When a registration is removed, its Graphs and Data Sources are removed as well."
+msgstr "Ungathanda ukugcina Ukubhaliswa Okungenantambo okungasabonakali isikhathi esingakanani?  Uma ukubhaliswa kususwa, Amagrafu ako kanye Nemithombo Yedatha yako kuyasuswa nakho."
+
+#: setup.php
+msgid "Device Graph Automation"
+msgstr "Ukuzenzakalela Kwegrafu Yedivayisi"
+
+#: setup.php
+msgid "Automatically Add New Graphs"
+msgstr "Engeza Amagrafu Amasha Ngokuzenzakalelayo"
+
+#: setup.php
+msgid "How often do you want to check for new objects to graph?"
+msgstr "Ufuna ukuhlola kangaki izinto ezintsha zokudweba amagrafu?"
+
+#: setup.php
+msgid "Never"
+msgstr "Akukaze"
+
+#: setup.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d Imizuzu"
+
+#: setup.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d Ihora"
+
+#: setup.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d Amahora"
+
+#: setup.php
+#, php-format
+msgid "%d Day"
+msgstr "Usuku olungu-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Days"
+msgstr "Izinsuku ezingu-%d"
+
+#: setup.php
+msgid "Exclude Users RegEx"
+msgstr "Shiya Ngaphandle Abasebenzisi nge-RegEx"
+
+#: setup.php
+msgid "User names that match this regex will not be graphed automatically"
+msgstr "Amagama abasebenzisi ahambisana nale regex ngeke afakwe kugrafu ngokuzenzakalelayo"
+
+#: setup.php
+msgid "Exclude Users Time to Live"
+msgstr "Isikhathi Sokuhlala Sokushiya Ngaphandle Abasebenzisi"
+
+#: setup.php
+msgid "How long should an excluded user's data be preserved after they have disconnected."
+msgstr "Idatha yomsebenzisi okhishiwe kufanele igcinwe isikhathi esingakanani ngemva kokuba esenqamukile."
+
+#: setup.php
+msgid "Device Collection Frequencies"
+msgstr "Ukuvamisa Kokuqoqwa Kwedivayisi"
+
+#: setup.php
+msgid "Storage Frequency"
+msgstr "Imvamisa Yokulondoloza Esitoreji"
+
+#: setup.php
+msgid "How often do you want to scan Storage Statistics?"
+msgstr "Ufuna ukuskena kangaki Izibalo Zesitoreji?"
+
+#: setup.php
+msgid "Processor Frequency"
+msgstr "Imvamisa Ye-Processor"
+
+#: setup.php
+msgid "How often do you want to scan Device Processor Statistics?"
+msgstr "Ufuna ukuskena kangaki Izibalo Zephrosesa Yedivayisi?"
+
+#: setup.php
+msgid "Interfaces Frequency"
+msgstr "Ukuvama Kwezixhumi Ezibonakalayo"
+
+#: setup.php
+msgid "How often do you want to scan the Interfaces?"
+msgstr "Ufuna ukuskena kangaki ama-Interface?"
+
+#: setup.php
+msgid "DNS/DHCP/List Frequency"
+msgstr "Imvamisa ye-DNS/DHCP/Uhlu"
+
+#: setup.php
+msgid "How often do you want to scan the DNS/DHCP/Address Lists?"
+msgstr "Ufuna ukuskena kangaki Uhlu lwe-DNS/DHCP/Amakheli?"
+
+#: setup.php
+msgid "Queue/Tree Collection Frequencies"
+msgstr "Izimvamisa Zokuqoqwa Komugqa/Zesihlahla"
+
+#: setup.php
+msgid "Simple Queue/PPPoe Frequency"
+msgstr "Imvamisa ye-Simple Queue/PPPoe"
+
+#: setup.php
+msgid "How often do you want to scan Simple Queue Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena kangaki Izibalo Ze-Simple Queue?  Khetha u-<b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Queue Trees Frequency"
+msgstr "Imvamisa Yezihlahla Zomugqa"
+
+#: setup.php
+msgid "How often do you want to scan the Queue Trees?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena kangaki Izihlahla Zomugqa (Queue Trees)? Khetha okuthi <b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Wireless Collection Frequencies"
+msgstr "Imvamisa Yokuqoqwa Okungenantambo"
+
+#: setup.php
+msgid "HotSpot Users Frequency"
+msgstr "Ukuvama Kwabasebenzisi be-HotSpot"
+
+#: setup.php
+msgid "How often do you want to scan Wireless User Statistics?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena Izibalo Zomsebenzisi Ongenantambo kangaki? Khetha okuthi <b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Access Point Frequency"
+msgstr "Imvamisa Yephoyinti Lokufinyelela"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Access Points?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena kangaki Izindawo Zokufinyelela Ezingenantambo (Wireless Access Points)? Khetha okuthi <b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Registrations Frequency"
+msgstr "Imvamisa Yokubhalisa"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Registrations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena kangaki Ukubhaliswa Okungenantambo? Khetha okuthi <b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Stations Frequency"
+msgstr "Imvamisa Yeziteshi"
+
+#: setup.php
+msgid "How often do you want to scan the Wireless Stations?  Select <b>Disabled</b> to remove this feature."
+msgstr "Ufuna ukuskena kangaki Iziteshi Ezingenantambo? Khetha okuthi <b>Kukhutshaziwe</b> ukuze ususe lesi sici."
+
+#: setup.php
+msgid "Management"
+msgstr "Ukuphathwa"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Umsebenzisi Ojwayelekile"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Ukuphatha Okujwayelekile"
+
+#: setup.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d Umzuzu"
+
+#: setup.php
+msgid "Indefinite"
+msgstr "Okungapheli"
+
+#: setup.php
+#, php-format
+msgid "%d Week"
+msgstr "Iviki elingu-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Amaviki angu-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Izinyanga ezingu-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Unyaka ongu-%d"
+
+#: setup.php
+msgid "Simple Queues"
+msgstr "Ama-Simple Queue"
+
+#: setup.php
+msgid "Storage"
+msgstr "Isitoreji"
+
+#: setup.php
+msgid "(edit)"
+msgstr "(hlela)"
+
+#: setup.php
+msgid "Graphs Skipped by Rule, or Not Created"
+msgstr "Amagrafu Eqiwe Ngomthetho, noma Angakhiwanga"
+
+#: setup.php
+msgid "Connect to the MikroTik API over SSL (api-ssl, port 8729). Enable the api-ssl service under IP > Services on the device before turning this on."
+msgstr "Xhuma ku-MikroTik API nge-SSL (api-ssl, imbobo 8729). Nika amandla isevisi ye-api-ssl ngaphansi kwe-IP > Izinsizakalo kudivayisi ngaphambi kokuvula lokhu."
+
+#: setup.php
+msgid "No"
+msgstr "Cha"
+
+#: setup.php
+msgid "Yes"
+msgstr "Yebo"
+
+#: setup.php
+msgid "An SSL connection to the MikroTik api-ssl service (port 8729) could not be established, so SSL cannot be enabled. Enable and verify the api-ssl service under IP > Services on the device to use SSL."
+msgstr "Ukuxhumeka kwe-SSL kusevisi ye-MikroTik api-ssl (ichweba 8729) akukwazanga ukusungulwa, ngakho i-SSL ngeke inikwe amandla. Nika amandla futhi uqinisekise isevisi ye-api-ssl ngaphansi kokuthi IP > Services kudivayisi ukuze usebenzise i-SSL."
+
+#: setup.php
+msgid "Yes (currently unreachable)"
+msgstr "Yebo (okwamanje akufinyeleleki)"
+
+#: setup.php
+msgid "SSL"
+msgstr "SSL"
+
+#: setup.php
+msgid "MikroTik Credentials"
+msgstr "Imininingwane Yokungena ye-MikroTik"
+
+#: setup.php
+msgid "Read Only User"
+msgstr "Umsebenzisi Wokufunda Kuphela"
+
+#: setup.php
+msgid "Provide a read only username for the MikroTik."
+msgstr "Nikeza igama lomsebenzisi lokufunda kuphela le-MikroTik."
+
+#: setup.php
+msgid "Password"
+msgstr "Iphasiwedi"
+
+#: setup.php
+msgid "Provide the read only password for this MikroTik. Leave this field blank to keep the currently stored password."
+msgstr "Nikeza iphasiwedi yokufunda kuphela yale MikroTik. Shiya le nkambu ingenalutho ukuze ugcine iphasiwedi egcinwe njengamanje."
+
+#: setup.php
+msgid "SSL not present on this device"
+msgstr "I-SSL ayikho kule divayisi"
+
+#: setup.php
+msgid "Connection Result"
+msgstr "Umphumela Wokuxhumana"
+
+#: setup.php
+msgid "Ok if Cacti can connect to the MikroTik over its API port."
+msgstr "Kulungile uma i-Cacti ikwazi ukuxhuma ku-MikroTik ngesikhumulo sayo se-API."
+
+#: setup.php
+msgid "SSL is enabled but the api-ssl port (8729) is not reachable; connection not tested."
+msgstr "I-SSL inikwe amandla kodwa imbobo ye-api-ssl (8729) ayifinyeleleki; ukuxhumana akuhlolwanga."
+
+#: setup.php
+msgid "Connected Successfully"
+msgstr "Kuxhunywe Ngempumelelo"
+
+#: setup.php
+msgid "Connection Failed"
+msgstr "Ukuxhumeka Kuhlulekile"
+
+#: setup.php
+msgid "Allow Unverified API TLS Certificates"
+msgstr "Vumela Izitifiketi ze-API TLS Ezingaqinisekisiwe"
+
+#: setup.php
+msgid "Disable certificate and hostname verification for RouterOS API connections. This can expose API credentials to an impersonated device. Leave unchecked and install trusted device certificates whenever possible."
+msgstr "Khubaza ukuqinisekiswa kwesitifiketi kanye negama lomsingathi ekuxhumekeni kwe-RouterOS API. Lokhu kungaveza imininingwane yokungena ye-API kudivayisi ezenza enye. Kushiye kungakhethiwe futhi ufake izitifiketi zedivayisi ezithenjwayo noma nini lapho kungenzeka."
+
