@@ -470,7 +470,7 @@ msgstr "Aucun graphique défini"
 
 #: mikrotik.php
 msgid "No Devices Found"
-msgstr "Aucun périphérique n&apos;a été trouvé"
+msgstr "Aucun périphérique n'a été trouvé"
 
 #: mikrotik.php
 msgid "Please Select Data Query First from Console -> Settings -> Host MIB First"

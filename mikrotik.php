@@ -615,7 +615,7 @@ function mikrotik_interfaces(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($interface_hashes, $row['host_id'], $row['name']);
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url    = $row['description'];
 			}
@@ -943,7 +943,7 @@ function mikrotik_queues(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($queue_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url    = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url    = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url    = $row['description'];
 			}
@@ -1213,7 +1213,7 @@ function mikrotik_trees(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($tree_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url = $row['description'];
 			}
@@ -1483,7 +1483,7 @@ function mikrotik_wireless_aps(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($wireless_station_hashes, $row['host_id'], str_replace(' ', '%', $row['apSSID']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url = $row['description'];
 			}
@@ -1846,7 +1846,7 @@ function mikrotik_users(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($user_hashes, $row['host_id'], str_replace(' ', '%', $row['name']));
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url = $row['description'];
 			}
@@ -1984,7 +1984,7 @@ function mikrotik_devices(): void {
 
 		$('.changelog').click(function(event) {
 			event.stopPropagation();
-			window.open('https://mikrotik.com/download/changelogs', '<?php print __esc('MikroTik Changelog'); ?>');
+			window.open('https://mikrotik.com/download/changelogs', '<?php print __esc('MikroTik Changelog', 'mikrotik'); ?>');
 		});
 
 		$('#form_devices').submit(function(event) {
@@ -3604,7 +3604,7 @@ function mikrotik_wireless_regs(): void {
 			$graphs = mikrotik_graphs_url_by_template_hashs($wireless_reg_hashes, $row['host_id'], $row['index']);
 
 			if (api_plugin_user_realm_auth('host.php')) {
-				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'microtik'));
+				$host_url = filter_value($row['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $row['host_id'], __('Edit Device', 'mikrotik'));
 			} else {
 				$host_url = $row['description'];
 			}

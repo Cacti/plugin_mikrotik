@@ -709,7 +709,7 @@ msgstr "נתונים"
 
 #: mikrotik.php
 msgid "TTL"
-msgstr "‫TTL"
+msgstr "TTL"
 
 #: mikrotik.php
 msgid "No DNS Entries Found"
@@ -913,7 +913,7 @@ msgstr "דקות %d"
 #: setup.php
 #, php-format
 msgid "%d Hour"
-msgstr "‫%d שעה"
+msgstr "%d שעה"
 
 #: setup.php
 #, php-format
@@ -1053,7 +1053,7 @@ msgstr "מינהל כללי"
 #: setup.php
 #, php-format
 msgid "%d Minute"
-msgstr "‫%d דקה"
+msgstr "%d דקה"
 
 #: setup.php
 msgid "Indefinite"
@@ -1117,7 +1117,7 @@ msgstr "כן (לא זמין כעת)"
 
 #: setup.php
 msgid "SSL"
-msgstr "‫SSL"
+msgstr "SSL"
 
 #: setup.php
 msgid "MikroTik Credentials"
