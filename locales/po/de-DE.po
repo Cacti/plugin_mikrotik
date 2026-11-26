@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/mikrotik/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/mikrotik/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -352,7 +352,7 @@ msgstr "Ausgehend gesamt"
 
 #: mikrotik.php
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "Nicht zutreffend"
 
 #: mikrotik.php mikrotik_users.php
 msgid "No Users Found"
@@ -576,7 +576,7 @@ msgstr "Verschieben Sie die Zeit nach vorne"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr "Aktualisieren"
+msgstr "Neu laden"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
@@ -693,7 +693,7 @@ msgstr "Keine DHCP-Einträge gefunden"
 
 #: mikrotik.php
 msgid "Permanent"
-msgstr "Permanent"
+msgstr "Dauerhaft"
 
 #: mikrotik.php
 msgid "Expired"
@@ -725,7 +725,7 @@ msgstr "Adresse"
 
 #: mikrotik.php
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Zeitüberschreitung"
 
 #: mikrotik.php
 msgid "No Address List Entries Found"
@@ -773,7 +773,7 @@ msgstr "Benutzername"
 
 #: mikrotik_users.php
 msgid "Domain"
-msgstr "Domain"
+msgstr "Domäne"
 
 #: setup.php
 msgid "MikroTik Viewer"
@@ -944,7 +944,7 @@ msgstr "Gültigkeitsdauer (TTL) für ausgeschlossene Benutzer"
 
 #: setup.php
 msgid "How long should an excluded user's data be preserved after they have disconnected."
-msgstr "Wie lange sollen die Daten eines ausgeschlossenen Benutzers nach der Trennung der Verbindung aufbewahrt werden?"
+msgstr "Dauer, für die Daten eines ausgeschlossenen Benutzers nach dem Trennen der Verbindung aufbewahrt werden."
 
 #: setup.php
 msgid "Device Collection Frequencies"
