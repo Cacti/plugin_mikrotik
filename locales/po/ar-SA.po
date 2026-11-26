@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/mikrotik/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-11-12 15:08-0500\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/mikrotik/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: mikrotik.php
 msgid "Present"
@@ -16,7 +16,7 @@ msgstr "غير معروف"
 
 #: mikrotik.php
 msgid "Running"
-msgstr "مفتوح"
+msgstr "قيد التشغيل"
 
 #: mikrotik.php
 msgid "Warning"
@@ -28,7 +28,7 @@ msgstr "اختبار"
 
 #: mikrotik.php
 msgid "Down"
-msgstr "معطل"
+msgstr "متوقف"
 
 #: mikrotik.php setup.php
 msgid "Devices"
@@ -410,7 +410,7 @@ msgstr "مدة التشغيل (ي:س:د)"
 
 #: mikrotik.php
 msgid "CPU %%%"
-msgstr "وحدة المعالجة المركزية %"
+msgstr "وحدة المعالجة المركزية %%%"
 
 #: mikrotik.php
 msgid "CPUs"
@@ -576,7 +576,7 @@ msgstr "التحول إلى الأمام"
 
 #: mikrotik.php
 msgid "Refresh"
-msgstr "تحديث"
+msgstr "إنعاش"
 
 #: mikrotik.php
 msgid "Refresh selected time span"
@@ -1057,7 +1057,7 @@ msgstr "%d دقيقة"
 
 #: setup.php
 msgid "Indefinite"
-msgstr "غير محدد"
+msgstr "إلى أجل غير مسمى"
 
 #: setup.php
 #, php-format
